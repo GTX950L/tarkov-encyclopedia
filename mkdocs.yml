@@ -1,0 +1,111 @@
+site_name: 逃离塔科夫百科全书
+site_description: 系统性介绍《逃离塔科夫》地图、机制、装备与经济系统的中文开源百科
+site_url: https://GTX950L.github.io/tarkov-encyclopedia/
+repo_url: https://github.com/GTX950L/tarkov-encyclopedia
+repo_name: GTX950L/tarkov-encyclopedia
+docs_dir: content
+edit_uri: edit/main/content/
+
+theme:
+  name: material
+  language: zh
+  icon:
+    logo: material/shield-search
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - navigation.sections
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换暗色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换亮色模式
+
+markdown_extensions:
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - admonition
+  - footnotes
+  - toc:
+      permalink: true
+
+plugins:
+  - search:
+      lang: zh
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/GTX950L/tarkov-encyclopedia
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - 首页: README.md
+  - 百科条目:
+      - 总览: entries/index.md
+      - 第一篇 · 入门机制:
+          - 撤离机制: entries/extraction.md
+          - 生命与身体部位系统: entries/health.md
+          - 保险机制: entries/insurance.md
+          - 背包与容器系统: entries/inventory.md
+          - PMC 与 Scav: entries/pmc-scav.md
+      - 第二篇 · 地图:
+          - 工厂: entries/factory.md
+          - 海关: entries/customs.md
+          - 森林: entries/woods.md
+          - 海岸线: entries/shoreline.md
+          - 立交桥: entries/interchange.md
+          - 储备站: entries/reserve.md
+          - 实验室: entries/labs.md
+          - 地面零点: entries/ground-zero.md
+      - 第三篇 · 装备与枪械:
+          - 弹药与穿深等级: entries/ammo.md
+          - 弹道与穿透机制: entries/ballistics.md
+          - 护甲与头盔: entries/armor.md
+          - 医疗物资: entries/medical.md
+          - 枪械改装: entries/gunsmith.md
+      - 第四篇 · 经济与成长:
+          - 商人系统: entries/traders.md
+          - 跳蚤市场: entries/flea-market.md
+          - 藏身处: entries/hideout.md
+          - 任务系统: entries/quests.md
+  - 参考:
+      - 项目欢迎页: docs/index.md
+      - 机制速查表: docs/mechanics.md
+      - 新手成长路线: docs/progression.md
+      - 重大版本更新史: docs/version-history.md
+      - 标签分类: tags.md
+      - 条目模板: template.md
+      - 更新日志: CHANGELOG.md
+      - 贡献指南: CONTRIBUTING.md
+      - 待收录清单: docs/roadmap.md

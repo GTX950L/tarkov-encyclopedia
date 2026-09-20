@@ -1,0 +1,190 @@
+/* ==========================================================================
+   逃离塔科夫百科全书 · 自定义样式 (extra.css)
+   设计基调：浅色优先、品牌蓝、表格可读、窄屏不溢出、打印友好
+   ========================================================================== */
+
+:root {
+  --tk-brand: #3f51b5;
+  --tk-brand-dark: #303f9f;
+  --tk-brand-soft: #e8eaf6;
+  --tk-ink: #1f2430;
+  --tk-muted: #5b6472;
+  --tk-line: #dcdfe6;
+  --tk-quote-bg: #f6f7fd;
+  --tk-zebra: #fafbff;
+}
+
+/* --------------------------------------------------------------------------
+   1. 标题层级：章节带品牌蓝下边框，和徽章式标题区分开
+   -------------------------------------------------------------------------- */
+
+.md-typeset h1 {
+  color: var(--tk-ink);
+  font-weight: 700;
+  letter-spacing: .01em;
+  margin-top: 1.2em;
+}
+
+.md-typeset h2 {
+  color: var(--tk-brand);
+  border-bottom: 2px solid var(--tk-brand-soft);
+  padding-bottom: .28em;
+  margin-top: 2em;
+  font-weight: 700;
+}
+
+.md-typeset h3 {
+  color: var(--tk-ink);
+  margin-top: 1.6em;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   2. 表格：窄屏横向滚动（关键：不撑破正文），表头品牌蓝，偶数行淡底
+   -------------------------------------------------------------------------- */
+
+.md-typeset table:not([class]) {
+  display: block;              /* 让宽表在窄屏可横向滚动 */
+  overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid var(--tk-line);
+  border-radius: 6px;
+  font-size: .74rem;
+  line-height: 1.55;
+}
+
+.md-typeset table:not([class]) thead th {
+  background: var(--tk-brand-soft);
+  color: var(--tk-brand-dark);
+  font-weight: 700;
+  white-space: nowrap;
+  border-bottom: 2px solid var(--tk-brand);
+}
+
+.md-typeset table:not([class]) tbody tr:nth-child(even) {
+  background: var(--tk-zebra);
+}
+
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) th {
+  padding: .5em .75em;
+  vertical-align: top;
+}
+
+/* --------------------------------------------------------------------------
+   3. 引言 / 老兵经验：品牌蓝竖线 + 浅底，与正文拉开层次
+   -------------------------------------------------------------------------- */
+
+.md-typeset blockquote {
+  border-left: 4px solid var(--tk-brand);
+  background: var(--tk-quote-bg);
+  color: var(--tk-ink);
+  border-radius: 0 6px 6px 0;
+  padding: .7em 1em;
+  margin: 1.2em 0;
+}
+
+.md-typeset blockquote > p {
+  margin: .3em 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. 回顶部 / 条目索引链接：右侧药丸按钮，便于长页面快速归位
+   -------------------------------------------------------------------------- */
+
+.md-typeset a[href^="#top"] {
+  display: inline-block;
+  margin-top: .8em;
+  padding: .35em .9em;
+  border: 1px solid var(--tk-brand);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--tk-brand);
+  font-size: .72rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background .15s ease, color .15s ease;
+}
+
+.md-typeset a[href^="#top"]:hover {
+  background: var(--tk-brand);
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   5. 行内提示（⚠️ / 💡 提示行等）：弱化底色，避免和引言抢视觉
+   -------------------------------------------------------------------------- */
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 6px;
+  font-size: .76rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. 深色方案兜底：让自定义色在暗色主题下依然可读
+      （本站以浅色为主，暗色仅作切换兼容）
+   -------------------------------------------------------------------------- */
+
+[data-md-color-scheme="slate"] {
+  --tk-brand: #9fa8da;
+  --tk-brand-dark: #c5cae9;
+  --tk-brand-soft: #2c3155;
+  --tk-ink: #e6e8f0;
+  --tk-muted: #a8b0c0;
+  --tk-line: #3a4152;
+  --tk-quote-bg: #232839;
+  --tk-zebra: #1e2230;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a[href^="#top"] {
+  background: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   7. 窄屏适配：缩小字号与内距，长术语表不再横向挤压
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset {
+    font-size: .74rem;
+  }
+
+  .md-typeset table:not([class]) {
+    font-size: .68rem;
+  }
+
+  .md-typeset h2 {
+    font-size: 1.05rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. 打印友好：截图 / 打印贴墙时去掉导航，表格与段落不跨页断开
+   -------------------------------------------------------------------------- */
+
+@media print {
+  .md-header,
+  .md-sidebar,
+  .md-footer,
+  .md-nav,
+  .md-search {
+    display: none !important;
+  }
+
+  .md-typeset table:not([class]) {
+    display: table;
+    overflow: visible;
+    font-size: 9pt;
+  }
+
+  .md-typeset tr,
+  .md-typeset blockquote {
+    page-break-inside: avoid;
+  }
+
+  .md-typeset a[href^="#top"] {
+    display: none;
+  }
+}
