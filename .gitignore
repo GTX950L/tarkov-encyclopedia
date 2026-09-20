@@ -4,6 +4,7 @@ __pycache__/
 
 # Zensical / MkDocs build output
 site/
+.cache/
 
 # IDE
 .vscode/
