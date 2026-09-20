@@ -2,6 +2,27 @@
 
 本文件记录面向用户的条目内容变更。历史条目一经发布，只做修订不做改写。
 
+## 2026-09（v1.2.0）
+
+### 新增：待收录清单条目全部收录（22 → 36 篇）
+
+- **第二篇 · 地图（+4 篇）**：[灯塔](entries/lighthouse.md)（含 1.1.5.0 重做：Rogues 迁往山间别墅、水处理厂地雷与固定火力移除、BTR 全图巡逻、Lightkeeper 访问链重做）、[街区](entries/streets.md)、[终点站](entries/terminal.md)、[破冰船](entries/icebreaker.md)（1.0.5 加入，含 Boreas 任务线、辐射机制、Sudak-tudak 入场规则）。
+- **第三篇 · 装备与枪械（+1 篇）**：[钥匙与钥匙房](entries/keys.md)。
+- **第四篇 · 经济与成长（+2 篇）**：[声望与 Karma](entries/karma.md)、[技能系统](entries/skills.md)。
+- **新增第五篇 · 进阶战斗机制（4 篇）**：[耐力与移速](entries/stamina.md)、[手雷与投掷物](entries/grenades.md)、[夜视与热成像](entries/night-vision.md)、[Boss 图鉴](entries/bosses.md)。
+- **新增第六篇 · 赛季与衍生内容（3 篇）**：[赛季与修改器](entries/seasons.md)、[联赛系统](entries/leagues.md)、[竞技场](entries/arena.md)。
+
+### 收录说明
+
+- 原清单中的 Boss 候选（Killa / Tagilla / Reshala / Shturman / Sanitar / Glukhar / Kollontay / Povodyr 等）合并为**一篇《Boss 图鉴》**：它们共享刷新概率、护卫编队与战利品逻辑，拆分会造成大量重复内容。Povodyr 尚未实装，按“待实装”标注。
+- 新增条目沿用全站骨架（基本信息 → 核心机制 → 实战要点 → 常见错误 → 老兵经验 → 相关条目 → 回顶部），并同步挂入 nav、总览页、标签页。
+
+### 同步更新
+
+- `mkdocs.yml` nav：新增第五、第六篇与 14 个条目链接；
+- 总览页、标签分类页、首页学习路径图与阅读顺序表同步扩容至 36 篇；
+- [待收录清单](docs/roadmap.md) 改写为下一批规划。
+
 ## 2026-09（v1.1.0）
 
 ### 新增

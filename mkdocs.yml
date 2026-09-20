@@ -88,17 +88,33 @@ nav:
           - 储备站: entries/reserve.md
           - 实验室: entries/labs.md
           - 地面零点: entries/ground-zero.md
+          - 灯塔: entries/lighthouse.md
+          - 街区: entries/streets.md
+          - 终点站: entries/terminal.md
+          - 破冰船: entries/icebreaker.md
       - 第三篇 · 装备与枪械:
           - 弹药与穿深等级: entries/ammo.md
           - 弹道与穿透机制: entries/ballistics.md
           - 护甲与头盔: entries/armor.md
           - 医疗物资: entries/medical.md
           - 枪械改装: entries/gunsmith.md
+          - 钥匙与钥匙房: entries/keys.md
       - 第四篇 · 经济与成长:
           - 商人系统: entries/traders.md
           - 跳蚤市场: entries/flea-market.md
           - 藏身处: entries/hideout.md
           - 任务系统: entries/quests.md
+          - 声望与 Karma: entries/karma.md
+          - 技能系统: entries/skills.md
+      - 第五篇 · 进阶战斗机制:
+          - 耐力与移速: entries/stamina.md
+          - 手雷与投掷物: entries/grenades.md
+          - 夜视与热成像: entries/night-vision.md
+          - Boss 图鉴: entries/bosses.md
+      - 第六篇 · 赛季与衍生内容:
+          - 赛季与修改器: entries/seasons.md
+          - 联赛系统: entries/leagues.md
+          - 竞技场: entries/arena.md
   - 参考:
       - 项目欢迎页: docs/index.md
       - 机制速查表: docs/mechanics.md
