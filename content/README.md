@@ -15,17 +15,19 @@
 
 ```mermaid
 flowchart LR
-    A[第一篇<br/>入门机制<br/>5 篇] --> B[第二篇<br/>地图<br/>12 篇]
-    B --> C[第三篇<br/>装备与枪械<br/>6 篇]
-    C --> D[第四篇<br/>经济与成长<br/>6 篇]
-    D --> E[第五篇<br/>进阶战斗机制<br/>4 篇]
+    A[第一篇<br/>入门机制<br/>5 篇] --> B[第二篇<br/>地图<br/>13 篇]
+    B --> C[第三篇<br/>装备与枪械<br/>9 篇]
+    C --> D[第四篇<br/>经济与成长<br/>9 篇]
+    D --> E[第五篇<br/>进阶战斗机制<br/>6 篇]
     E --> F[第六篇<br/>赛季与衍生<br/>3 篇]
+    F --> G[第七篇<br/>场景与转场<br/>2 篇]
 
     A -. 先懂撤离与保险<br/>才敢进图 .-> B
     B -. 知道死在哪<br/>才懂该练什么 .-> C
     C -. 看懂穿深与护甲<br/>才明白为什么死 .-> D
     D -. 有装备有任务<br/>才谈得上进阶 .-> E
     E -. 想换规则重来<br/>才用得上赛季 .-> F
+    F -. 想一局连打多张图<br/>才用得上转场 .-> G
 
     style A fill:#e3f2fd,stroke:#1565c0
     style B fill:#e8f5e9,stroke:#2e7d32
@@ -33,6 +35,7 @@ flowchart LR
     style D fill:#fce4ec,stroke:#c62828
     style E fill:#ede7f6,stroke:#4527a0
     style F fill:#e0f7fa,stroke:#00838f
+    style G fill:#f3e5f5,stroke:#6a1b9a
 ```
 
 路径图只是建议。已经在玩的玩家可以直接跳到对应条目查漏补缺——**兴趣驱动的跳跃式阅读也是常见的打开方式**。
@@ -67,45 +70,61 @@ flowchart LR
 | 15 | [街区](entries/streets.md) | 全游戏最大的城市图，双 Boss 与地雷区 |
 | 16 | [终点站](entries/terminal.md) | 1.0 主线压轴，剧情向的终局场景 |
 | 17 | [破冰船](entries/icebreaker.md) | 全 PvE 终局场景，辐射与黑师 |
+| 18 | [迷宫](entries/labyrinth.md) | 不在选图列表里的解谜型场景，保险不生效 |
 
 ### 第三篇：装备与枪械（看懂数值，才知道为什么死）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 18 | [弹药与穿深等级](entries/ammo.md) | **塔科夫第一真理：子弹比枪重要** |
-| 19 | [弹道与穿透机制](entries/ballistics.md) | 穿深、护甲伤害、有效性衰减的底层规则 |
-| 20 | [护甲与头盔](entries/armor.md) | 护甲等级、材质与耐久，护住哪里才划算 |
-| 21 | [医疗物资](entries/medical.md) | 止血、复位、手术包的取舍与携带逻辑 |
-| 22 | [枪械改装](entries/gunsmith.md) | 人机工效、后坐力、精度的改装三角 |
-| 23 | [钥匙与钥匙房](entries/keys.md) | 消耗品属性与房间价值的换算 |
+| 19 | [弹药与穿深等级](entries/ammo.md) | **塔科夫第一真理：子弹比枪重要** |
+| 20 | [弹药选型速查表](entries/ammo-table.md) | 按对手的护甲等级反推今天带哪盒弹 |
+| 21 | [弹道与穿透机制](entries/ballistics.md) | 穿深、护甲伤害、有效性衰减的底层规则 |
+| 22 | [护甲与头盔](entries/armor.md) | 护甲等级、材质与耐久，护住哪里才划算 |
+| 23 | [护甲与头盔图鉴](entries/armor-catalog.md) | 载体 + 软质层 + 插板的三层结构与代表型号 |
+| 24 | [医疗物资](entries/medical.md) | 止血、复位、手术包的取舍与携带逻辑 |
+| 25 | [枪械改装](entries/gunsmith.md) | 人机工效、后坐力、精度的改装三角 |
+| 26 | [枪械图鉴](entries/weapons.md) | 按口径与枪型选主武器，先弹后枪 |
+| 27 | [钥匙与钥匙房](entries/keys.md) | 消耗品属性与房间价值的换算 |
 
 ### 第四篇：经济与成长（把每一条命变成资产）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 24 | [商人系统](entries/traders.md) | 八位商人各有分工，声望就是购买力（1.1 起售价整体上调） |
-| 25 | [跳蚤市场](entries/flea-market.md) | 玩家经济的中枢，变现与捡漏的主战场 |
-| 26 | [藏身处](entries/hideout.md) | 离线收益与被动技能，穷人的复利 |
-| 27 | [任务系统](entries/quests.md) | 1.1 后改为忠诚度解锁，Kappa 门槛同步降低 |
-| 28 | [声望与 Karma](entries/karma.md) | 忠诚度与 Scav 声望：真正的采购权限 |
-| 29 | [技能系统](entries/skills.md) | 用行为练出来的被动加成，隐形战力差 |
+| 28 | [商人系统](entries/traders.md) | 八位商人各有分工，声望就是购买力（1.1 起售价整体上调） |
+| 29 | [跳蚤市场](entries/flea-market.md) | 玩家经济的中枢，变现与捡漏的主战场 |
+| 30 | [藏身处](entries/hideout.md) | 离线收益与被动技能，穷人的复利 |
+| 31 | [藏身处模块详解](entries/hideout-modules.md) | 二十余个模块的功能与建造优先级 |
+| 32 | [任务系统](entries/quests.md) | 1.1 后改为忠诚度解锁，Kappa 门槛同步降低 |
+| 33 | [商人任务线图鉴](entries/trader-questlines.md) | 八条任务线的特征、代表任务与回报 |
+| 34 | [经济周期](entries/economic-cycle.md) | 一个赛季内价格的四阶段规律与应对 |
+| 35 | [声望与 Karma](entries/karma.md) | 忠诚度与 Scav 声望：真正的采购权限 |
+| 36 | [技能系统](entries/skills.md) | 用行为练出来的被动加成，隐形战力差 |
 
 ### 第五篇：进阶战斗机制（同一套装备，不同的结局）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 30 | [耐力与移速](entries/stamina.md) | 负重与机动性的定价，决定你能不能跑掉 |
-| 31 | [手雷与投掷物](entries/grenades.md) | 逼位与封路，最便宜的重武器 |
-| 32 | [夜视与热成像](entries/night-vision.md) | 夜间视野的军备竞赛与反制 |
-| 33 | [Boss 图鉴](entries/bosses.md) | 全首领势力对照：刷新、护卫与打法 |
+| 37 | [耐力与移速](entries/stamina.md) | 负重与机动性的定价，决定你能不能跑掉 |
+| 38 | [手雷与投掷物](entries/grenades.md) | 逼位与封路，最便宜的重武器 |
+| 39 | [夜视与热成像](entries/night-vision.md) | 夜间视野的军备竞赛与反制 |
+| 40 | [听声辨位与音频机制](entries/audio.md) | 耳机决定的信息差，先听见的人先开枪 |
+| 41 | [组队与协作](entries/squads.md) | 没有 HUD 标识的小队规则与友伤代价 |
+| 42 | [Boss 图鉴](entries/bosses.md) | 全首领势力对照：刷新、护卫与打法 |
 
 ### 第六篇：赛季与衍生内容（1.1 之后的新规则）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 34 | [赛季与修改器](entries/seasons.md) | 清档从强制变为可选，规则可以自选 |
-| 35 | [联赛系统](entries/leagues.md) | 每周 50 人的经验值天梯 |
-| 36 | [竞技场](entries/arena.md) | 独立进度的纯对抗模式 |
+| 43 | [赛季与修改器](entries/seasons.md) | 清档从强制变为可选，规则可以自选 |
+| 44 | [联赛系统](entries/leagues.md) | 每周 50 人的经验值天梯 |
+| 45 | [竞技场](entries/arena.md) | 独立进度的纯对抗模式 |
+
+### 第七篇：场景与转场（把一局打成一条线）
+
+| 顺序 | 条目 | 为什么这样排 |
+|------|------|-------------|
+| 46 | [转场与 BTR](entries/transit.md) | 不结束战局也能换图，经验倍率与物流通道 |
+| 47 | [撤离点详解](entries/extraction-points.md) | 条件型撤离点速查：钥匙、信号弹、合作、付费 |
 
 ---
 
@@ -126,7 +145,7 @@ flowchart LR
 
 ---
 
-📖 [查看全部 36 个条目](entries/index.md)
+📖 [查看全部 47 个条目](entries/index.md)
 
 ⬆️ **[回到顶部](#top)**
 

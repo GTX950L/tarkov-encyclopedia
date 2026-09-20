@@ -19,7 +19,7 @@
 | 目录/文件 | 说明 |
 |------|------|
 | `content/` | 站点内容目录（MkDocs docs_dir） |
-| `content/entries/` | 百科条目页（共 36 篇，分六篇） |
+| `content/entries/` | 百科条目页（共 47 篇，分七篇） |
 | `content/docs/` | 补充资料（机制速查、成长路线、**重大版本更新史**、待收录清单） |
 | `content/README.md` | 项目首页（站点首页源文件） |
 | `content/{tags,template,CHANGELOG,CONTRIBUTING}.md` | 标签分类、条目模板、更新日志、贡献指南 |
