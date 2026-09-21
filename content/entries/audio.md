@@ -118,6 +118,7 @@ tags:
 - [撤离点详解](extraction-points.md) — 用声音判断撤离点是否被蹲
 - [Boss 图鉴](bosses.md) — 高反应 AI 的听觉逻辑
 - [AI 行为逻辑](ai-behavior.md) — 声音如何驱动 AI 决策
+- [姿态、移动与射击](movement.md) — 慢走如何直接消除地形噪音
 
 ## 📚 所有条目
 

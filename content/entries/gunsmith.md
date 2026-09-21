@@ -84,6 +84,7 @@ tags:
 
 - [工厂](factory.md) — CQB 改装的考场
 - [商人系统](traders.md) — Mechanic 与配件来源
+- [姿态、移动与射击](movement.md) — 改装参数如何在实战手感上体现
 
 ## 📚 所有条目
 

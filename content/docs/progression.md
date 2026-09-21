@@ -19,6 +19,7 @@ tags:
 - 用 **Scav** 熟悉 2–3 张地图（推荐[工厂](../entries/factory.md)、[海关](../entries/customs.md)、[地面零点](../entries/ground-zero.md)）；
 - PMC 低配进图：便宜护甲 + 基础弹药，任务优先；
 - 每次进图前投保，养成肌肉记忆；
+- **每局回藏身处先清空邮箱**——保险返还与货款会过期，这是全站最容易无声亏损的一环（[邮件与领取](../entries/mail.md)）；
 - 攒第一桶金，解锁[藏身处](../entries/hideout.md)的基础模块（水收集器、医疗站）。
 
 **毕业标准**：能独立说出一张图的 3 个撤离点及其条件。
@@ -28,9 +29,11 @@ tags:
 **目标**：建立任务主线与装备循环。
 
 - 接满所有可用[任务](../entries/quests.md)再进图，多线并行；
-- 跳蚤市场解锁（约 15 级），学会变现与比价；
+- 跳蚤市场解锁（约 15 级），学会变现与比价；顺手学会**把交换配方折算成市价**再决定换不换（[以物换物](../entries/barter.md)）；
 - 开始关注[弹药与穿深等级](../entries/ammo.md)，告别“垃圾弹混装”；
+- **锁定 2–3 个武器家族开始练[武器掌握](../entries/weapon-mastery.md)**——它按平台共享进度，摊得太薄会永远停在 L2；
 - 扩展地图池：[森林](../entries/woods.md)、[海岸线](../entries/shoreline.md)、[立交桥](../entries/interchange.md)；
+- 着手**升级安全箱**：走 Prapor 的「惩罚者」任务线可拿到 Epsilon（[安全箱与容器](../entries/containers.md)）；
 - 藏身处补齐：营养单元、情报中心、Scav 隐藏点。
 
 **毕业标准**：商人普遍 2 级声望，装备死亡后能在两局内重建。
@@ -41,6 +44,8 @@ tags:
 
 - 系统学习[弹道与穿透机制](../entries/ballistics.md)与[枪械改装](../entries/gunsmith.md)；
 - 按地图配弹配甲，形成自己的“进图检查清单”；
+- 把[姿态、移动与射击](../entries/movement.md)练成本能：**开阔地冲刺、掩体前慢走、探身必侧身**；
+- **推进主线剧情**：从 **Tour** 起步，接上 **Falling Skies**——它是转生门槛的上游，早推早省事（[剧情章节与主线任务](../entries/story-chapters.md)）；
 - 挑战 Boss：Reshala、Killa、Shturman、Sanitar、Glukhar；
 - 深入[储备站](../entries/reserve.md)；攒够实力后进军[实验室](../entries/labs.md)；
 - 推进 Gunsmith 任务线（Mechanic），免费学改装课。
@@ -49,9 +54,15 @@ tags:
 
 ## 🏆 第四阶段：收尾与追求（40 级后）
 
-**目标**：Kappa 与个人目标。
+**目标**：Kappa、主线终章，以及**转生**。
 
-- 清任务线，冲 Kappa 安全箱（1.1 后门槛改为全体商人忠诚度，见[声望与 Karma](../entries/karma.md)）；
+- 清任务线，冲 **Kappa 安全箱**（1.1 后门槛改为全体商人忠诚度，见[声望与 Karma](../entries/karma.md)）；注意收藏家要求的材料**必须战局内拾取**，跳蚤买的不算；
+- **打完主线终章**：接上 **The Ticket**，四个结局全部经由[终点站](../entries/terminal.md)收束（[剧情章节与主线任务](../entries/story-chapters.md)）；
+- **考虑 Prestige 转生**（[Prestige 转生](../entries/prestige.md)）。三条要点：
+  1. **不可逆**——按下去就回不去；
+  2. **门槛是主线 + 收藏家 + 藏身处 + 现金 + 技能**，所以上面两步是它的前置；
+  3. **技能与装备的保留比例随档位提高**，**先把档位刷上去再谈转生更划算**；
+- **转生前把“差一点的高难成就”做完**——进度会清零（[成就系统](../entries/achievements.md)）；
 - 补全藏身处高端模块（比特币矿场等）；
 - 把[技能系统](../entries/skills.md)的体能类练到位——它是所有战术的地基；
 - 尝试自定挑战：单弹种周、低配日、Boss 狩猎全图鉴；
@@ -63,7 +74,7 @@ tags:
 
 1. **没撤离的战利品不是你的**（[撤离](../entries/extraction.md)）；
 2. **省弹药的钱，用死亡补交**（[弹药](../entries/ammo.md)）；
-3. **任务物品进安全箱**（[任务](../entries/quests.md)）。
+3. **邮箱里的东西也会过期**（[邮件与领取](../entries/mail.md)）。
 
 ---
 
