@@ -157,6 +157,7 @@ flowchart LR
 
 - [机制速查表](docs/mechanics.md) — 一页看懂所有核心规则
 - [购买指南（地区与版本）](docs/buying-guide.md) — 还没入手？先看清版本、渠道与地区定价
+- [配置与性能](docs/performance.md) — 官方配置要求、真实的性能瓶颈与值得动的设置
 - [新手成长路线](docs/progression.md) — 1 级到满级该干什么
 - [重大版本更新史](docs/version-history.md) — 2016 至今的版本变迁、作用与玩家反馈
 - [待收录清单](docs/roadmap.md) — 下一批条目的规划

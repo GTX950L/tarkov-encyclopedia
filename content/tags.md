@@ -65,7 +65,7 @@ tags:
 |------|------|----------|
 | 版本 | 5 | achievements · leagues · season-modifiers · seasons · version-history |
 | 索引 | 5 | index · roadmap · tags · template · version-history |
-| 速查 | 3 | buying-guide · mechanics · progression |
+| 速查 | 4 | buying-guide · mechanics · performance · progression |
 
 > 标签体系供站内检索与分类导航使用。**标签只写在 frontmatter 里**——新增条目时请沿用本页既有标签，不要新造同义标签（例如用「装备」而不是「器械」），否则检索会把同类条目切散。
 >
