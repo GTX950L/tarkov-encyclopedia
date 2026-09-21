@@ -167,6 +167,7 @@ flowchart LR
 
 - [机制速查表](docs/mechanics.md) — 一页看懂所有核心规则
 - [地图对照速查](docs/map-guide.md) — 逐图对照：打什么、产什么、有什么坑、什么时候来
+- [术语与黑话速查](docs/glossary.md) — 新手第一站：把攻略里的黑话翻译成人话
 - [购买指南（地区与版本）](docs/buying-guide.md) — 还没入手？先看清版本、渠道与地区定价
 - [配置与性能](docs/performance.md) — 官方配置要求、真实的性能瓶颈与值得动的设置
 - [新手成长路线](docs/progression.md) — 1 级到满级该干什么

@@ -99,6 +99,7 @@ tags:
 
 - [机制速查表](../docs/mechanics.md)
 - [地图对照速查](../docs/map-guide.md)
+- [术语与黑话速查](../docs/glossary.md)
 - [新手成长路线](../docs/progression.md)
 - [购买指南（地区与版本）](../docs/buying-guide.md)
 - [配置与性能](../docs/performance.md)
