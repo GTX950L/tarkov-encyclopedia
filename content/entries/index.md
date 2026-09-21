@@ -6,7 +6,7 @@ tags:
 
 <a id="top"></a>
 
-目前已收录 **47 个**条目。按主题分为七篇，也可用右上角搜索直接查词。
+目前已收录 **48 个**条目。按主题分为七篇，也可用右上角搜索直接查词。
 
 ## 📊 条目一览表
 
@@ -53,21 +53,22 @@ tags:
 | 39 | [夜视与热成像](night-vision.md) | 战斗 | 夜间视野的军备竞赛 |
 | 40 | [听声辨位与音频机制](audio.md) | 战斗 | 耳机决定的信息差 |
 | 41 | [组队与协作](squads.md) | 战斗 | 无 HUD 标识的小队规则 |
-| 42 | [Boss 图鉴](bosses.md) | 战斗 | 全首领势力对照与打法 |
-| 43 | [赛季与修改器](seasons.md) | 赛季 | 可选清档与自选规则 |
-| 44 | [联赛系统](leagues.md) | 赛季 | 每周 50 人的经验值天梯 |
-| 45 | [竞技场](arena.md) | 衍生 | 独立进度的纯对抗模式 |
-| 46 | [转场与 BTR](transit.md) | 场景 | 不撤离也能换图 |
-| 47 | [撤离点详解](extraction-points.md) | 场景 | 条件型撤离点速查 |
+| 42 | [敌我识别与身份判断](iff.md) | 战斗 | 没有名字标签时怎么看人 |
+| 43 | [Boss 图鉴](bosses.md) | 战斗 | 全首领势力对照与打法 |
+| 44 | [赛季与修改器](seasons.md) | 赛季 | 可选清档与自选规则 |
+| 45 | [联赛系统](leagues.md) | 赛季 | 每周 50 人的经验值天梯 |
+| 46 | [竞技场](arena.md) | 衍生 | 独立进度的纯对抗模式 |
+| 47 | [转场与 BTR](transit.md) | 场景 | 不撤离也能换图 |
+| 48 | [撤离点详解](extraction-points.md) | 场景 | 条件型撤离点速查 |
 
 ## 🗂️ 按标签浏览
 
-- **机制**（12 篇）：extraction · health · insurance · inventory · pmc-scav · stamina · skills · audio · squads · transit · extraction-points · mechanics
+- **机制**（13 篇）：extraction · health · insurance · inventory · pmc-scav · stamina · skills · audio · squads · iff · transit · extraction-points · mechanics
 - **地图**（14 篇）：factory · customs · woods · shoreline · interchange · reserve · labs · ground-zero · lighthouse · streets · terminal · icebreaker · labyrinth · transit
 - **装备**（13 篇）：ammo · ammo-table · ballistics · armor · armor-catalog · medical · gunsmith · weapons · keys · grenades · night-vision · inventory · audio
 - **经济**（10 篇）：traders · flea-market · hideout · hideout-modules · quests · trader-questlines · economic-cycle · karma · keys · insurance
 - **成长**（10 篇）：traders · flea-market · hideout · hideout-modules · quests · trader-questlines · economic-cycle · karma · skills · progression
-- **战斗**（6 篇）：stamina · grenades · night-vision · bosses · audio · squads
+- **战斗**（7 篇）：stamina · grenades · night-vision · bosses · audio · squads · iff
 - **赛季与衍生**（3 篇）：seasons · leagues · arena
 
 更多标签见[标签分类页](../tags.md)。
