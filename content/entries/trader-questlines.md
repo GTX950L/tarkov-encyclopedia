@@ -125,6 +125,7 @@ tags:
 ## 🔗 相关条目
 
 - [跳蚤市场](flea-market.md) — 任务品与市场价格的关系
+- [任务系统](quests.md) — 静态任务与限时任务的区分
 - [经济周期](economic-cycle.md) — 任务品在不同阶段的价格
 - [新手成长路线](../docs/progression.md) — 按阶段的任务推进顺序
 
