@@ -6,7 +6,7 @@ tags:
 
 <a id="top"></a>
 
-目前已收录 **64 个**条目。按主题分为八篇，也可用右上角搜索直接查词。
+目前已收录 **66 个**条目。按主题分为八篇，也可用右上角搜索直接查词。
 
 ## 📊 条目一览表
 
@@ -16,7 +16,7 @@ tags:
 | 2 | [生命与身体部位系统](health.md) | 机制 | 七部位血量与状态异常 |
 | 3 | [保险机制](insurance.md) | 机制 | 装备的最后防线 |
 | 4 | [背包与容器系统](inventory.md) | 机制 | 安全箱与格子经济学 |
-| 5 | [安全箱与容器](containers.md) | 机制 | 五个安全箱型号与专用容器 |
+| 5 | [安全箱与容器](containers.md) | 机制 | 六个安全箱型号与专用容器 |
 | 6 | [PMC 与 Scav](pmc-scav.md) | 机制 | 两条命、两套规则 |
 | 7 | [工厂](factory.md) | 地图 | 最小最快的 CQB 图 |
 | 8 | [海关](customs.md) | 地图 | 经典入门图、任务密集 |
@@ -32,7 +32,7 @@ tags:
 | 18 | [破冰船](icebreaker.md) | 地图 | 全 PvE 终局场景 |
 | 19 | [迷宫](labyrinth.md) | 地图 | 隐藏的解谜型终局场景 |
 | 20 | [弹药与穿深等级](ammo.md) | 装备 | 子弹比枪重要 |
-| 21 | [弹药选型速查表](ammo-table.md) | 装备 | 按对手等级反推配弹 |
+| 21 | [弹药选型速查表](ammo-table.md) | 装备 | 按口径与对手反推配弹 |
 | 22 | [弹道与穿透机制](ballistics.md) | 装备 | 飞行、下坠与穿深结算 |
 | 23 | [护甲与头盔](armor.md) | 装备 | 护甲等级与材质取舍 |
 | 24 | [护甲与头盔图鉴](armor-catalog.md) | 装备 | 代表型号与插件结构 |
@@ -68,25 +68,27 @@ tags:
 | 54 | [AI 行为逻辑](ai-behavior.md) | 战斗 | 感知、记忆与声响诱导 |
 | 55 | [Scav 互动与叛徒判定](scav-relations.md) | 战斗 | 一枪作废的中立协议 |
 | 56 | [Boss 图鉴](bosses.md) | 战斗 | 首领对照与护卫编队 |
-| 57 | [赛季与修改器](seasons.md) | 赛季 | 三种档案与赛季规则 |
-| 58 | [赛季修改器逐项](season-modifiers.md) | 赛季 | 全局 6 项 + 个人卡构筑 |
-| 59 | [联赛系统](leagues.md) | 赛季 | 每周 50 人的经验值天梯 |
-| 60 | [竞技场](arena.md) | 衍生 | 独立进度的纯对抗模式 |
-| 61 | [转场与 BTR](transit.md) | 场景 | 不撤离也能换图 |
-| 62 | [撤离点详解](extraction-points.md) | 场景 | 条件型撤离点速查 |
-| 63 | [天气与时间系统](weather.md) | 世界 | 七倍速的时钟与天气 |
-| 64 | [光照与夜战](lighting.md) | 世界 | 光源是双刃剑 |
+| 57 | [战斗复盘与常见死因](death-review.md) | 战斗 | 从死因倒推可改进项 |
+| 58 | [赛季与修改器](seasons.md) | 赛季 | 三种档案与赛季规则 |
+| 59 | [赛季修改器逐项](season-modifiers.md) | 赛季 | 全局 6 项 + 个人卡构筑 |
+| 60 | [联赛系统](leagues.md) | 赛季 | 每周 50 人的经验值天梯 |
+| 61 | [竞技场](arena.md) | 衍生 | 独立进度的纯对抗模式 |
+| 62 | [PvE 模式](pve.md) | 衍生 | 没有真人对手的持久档案 |
+| 63 | [转场与 BTR](transit.md) | 场景 | 不撤离也能换图 |
+| 64 | [撤离点详解](extraction-points.md) | 场景 | 条件型撤离点速查 |
+| 65 | [天气与时间系统](weather.md) | 世界 | 七倍速的时钟与天气 |
+| 66 | [光照与夜战](lighting.md) | 世界 | 光源是双刃剑 |
 
 ## 🗂️ 按标签浏览
 
-- **机制**（19 篇）：extraction · health · insurance · inventory · containers · pmc-scav · mail · movement · prestige · stamina · skills · audio · squads · iff · ai-behavior · scav-relations · transit · extraction-points · weather
-- **地图**（15 篇）：factory · customs · woods · shoreline · interchange · reserve · labs · ground-zero · lighthouse · streets · terminal · icebreaker · labyrinth · loot · transit
+- **机制**（21 篇）：extraction · health · insurance · inventory · containers · pmc-scav · mail · movement · prestige · pve · stamina · skills · audio · squads · iff · ai-behavior · scav-relations · death-review · transit · extraction-points · weather
 - **装备**（17 篇）：ammo · ammo-table · ballistics · armor · armor-catalog · armor-repair · medical · gunsmith · weapons · keys · containers · grenades · night-vision · weapon-mastery · inventory · lighting · audio
 - **经济**（16 篇）：traders · barter · flea-market · flea-pricing · mail · hideout · hideout-modules · quests · trader-questlines · story-chapters · economic-cycle · loot · karma · keys · insurance · armor-repair
+- **地图**（15 篇）：factory · customs · woods · shoreline · interchange · reserve · labs · ground-zero · lighthouse · streets · terminal · icebreaker · labyrinth · loot · transit
 - **成长**（15 篇）：traders · flea-market · flea-pricing · hideout · hideout-modules · quests · trader-questlines · story-chapters · economic-cycle · karma · skills · weapon-mastery · achievements · prestige · progression
-- **战斗**（13 篇）：stamina · movement · grenades · night-vision · audio · squads · iff · ai-behavior · scav-relations · bosses · lighting · factory · woods
+- **战斗**（14 篇）：stamina · movement · grenades · night-vision · audio · squads · iff · ai-behavior · scav-relations · bosses · death-review · lighting · factory · woods
 - **场景与环境**：地形（6）· 环境（4）· 军事（2）
-- **赛季与衍生**（5 篇）：seasons · season-modifiers · leagues · arena · version-history
+- **赛季与衍生**（6 篇）：seasons · season-modifiers · leagues · arena · pve · version-history
 
 更多标签见[标签分类页](../tags.md)。
 

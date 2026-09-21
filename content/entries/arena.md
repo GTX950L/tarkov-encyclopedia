@@ -96,10 +96,11 @@ tags:
 
 - [PMC 与 Scav](pmc-scav.md) — 本体里的两条命规则
 - [护甲与头盔](armor.md) — 竞技场同样吃护甲等级
+- [PvE 模式](pve.md) — Arena 资产可单向转入的模式
 
 ## 📚 所有条目
 
-📖 [查看全部 64 个条目](index.md)
+📖 [查看全部 66 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 

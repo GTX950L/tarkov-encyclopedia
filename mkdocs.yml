@@ -134,11 +134,13 @@ nav:
           - AI 行为逻辑: entries/ai-behavior.md
           - Scav 互动与叛徒判定: entries/scav-relations.md
           - Boss 图鉴: entries/bosses.md
+          - 战斗复盘与常见死因: entries/death-review.md
       - 第六篇 · 赛季与衍生内容:
           - 赛季与修改器: entries/seasons.md
           - 赛季修改器逐项: entries/season-modifiers.md
           - 联赛系统: entries/leagues.md
           - 竞技场: entries/arena.md
+          - PvE 模式: entries/pve.md
       - 第七篇 · 场景与转场:
           - 转场与 BTR: entries/transit.md
           - 撤离点详解: entries/extraction-points.md

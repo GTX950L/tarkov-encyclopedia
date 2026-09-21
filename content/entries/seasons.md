@@ -123,11 +123,12 @@ tags:
 - [PMC 与 Scav](pmc-scav.md) — 三种档案的角色差异
 - [技能系统](skills.md) — 赛季修改器对技能起点的影响
 - [竞技场](arena.md) — 另一种“独立进度”的模式
+- [PvE 模式](pve.md) — 第三种档案：永不 wipe 的那一套
 - [赛季修改器逐项](season-modifiers.md) — 赛季角色的构筑选择
 
 ## 📚 所有条目
 
-📖 [查看全部 64 个条目](index.md)
+📖 [查看全部 66 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 

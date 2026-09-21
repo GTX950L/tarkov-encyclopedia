@@ -37,7 +37,8 @@ tags:
 - 瞄胸腔是统计学最优，爆头是奖励。
 - 有效射程外伤害/穿深衰减。
 - **武器掌握练到 L3 可瞄具内换弹**，是纯动作优势，不吃装备。
-- 详见[弹道与穿透机制](../entries/ballistics.md)、[武器掌握](../entries/weapon-mastery.md)。
+- **死完先看两处再下结论**：结算界面的**交战距离**、医疗界面的**弹种与命中次数**。
+- 详见[弹道与穿透机制](../entries/ballistics.md)、[武器掌握](../entries/weapon-mastery.md)、[战斗复盘与常见死因](../entries/death-review.md)。
 
 ## 🚶 移动与姿态规则
 
@@ -80,6 +81,13 @@ tags:
 - **主线剧情**：**Tour → Falling Skies → The Ticket**，是一条按顺序推进的单线，**不可跳过**；Falling Skies 结尾的装甲箱选择不可逆。
 - **Prestige 转生**：自愿把角色打回 1 级，换**跨 wipe 永久保留**的奖励；门槛里全是主线任务与收藏家。**保留比例随档位提高，所以先刷档位再谈转生**。
 - 详见[安全箱与容器](../entries/containers.md)、[剧情章节与主线任务](../entries/story-chapters.md)、[Prestige 转生](../entries/prestige.md)。
+
+## 🎮 模式与档案
+
+- **三套档案互不相通**：持久角色、赛季角色、**PvE 角色**——进度与装备都不迁移。
+- **PvE**：对手全是 AI，**永不 wipe**，独立跳蚤行情，保险返还率更高；**街区 / 破冰船 / 终点站与任何组队必须用官方服**。
+- **练习（离线）模式不是 PvE**：**进度不保存**，只适合学图与试枪。
+- 详见 [PvE 模式](../entries/pve.md)、[赛季与修改器](../entries/seasons.md)。
 
 ---
 

@@ -210,10 +210,11 @@ Boss 的威胁上限由**编队规模**决定。下表是可稳定参考的护�
 - [灯塔](lighthouse.md) — Zryachiy 与半岛攻防
 - [破冰船](icebreaker.md) — The Wedge 与黑师
 - [储备站](reserve.md) — Glukhar 的主场
+- [战斗复盘与常见死因](death-review.md) — Boss 战死因的固定模式
 
 ## 📚 所有条目
 
-📖 [查看全部 64 个条目](index.md)
+📖 [查看全部 66 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 

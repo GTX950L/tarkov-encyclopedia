@@ -387,7 +387,7 @@ Steam 版的其他限制：
 
 ## 📚 所有条目
 
-📖 [查看全部 64 个条目](../entries/index.md)
+📖 [查看全部 66 个条目](../entries/index.md)
 
 ---
 
