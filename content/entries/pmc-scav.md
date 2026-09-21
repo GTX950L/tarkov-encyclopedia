@@ -2,7 +2,7 @@
 tags:
   - 机制
   - 入门
-  - 阵营
+  - AI
 ---
 # PMC 与 Scav (PMC vs Scav)
 
@@ -107,10 +107,11 @@ Scav 与这些档案是并行的“第二条命”，不受影响——想低风
 - [森林](woods.md) — AI Scav 密度极高的练习场
 - [储备站](reserve.md) — Scav 流派经典地图
 - [任务系统](quests.md) — 只属于 PMC 的成长线
+- [Scav 互动与叛徒判定](scav-relations.md) — 行为边界与后果
 
 ## 📚 所有条目
 
-📖 [查看全部 48 个条目](index.md)
+📖 [查看全部 57 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 

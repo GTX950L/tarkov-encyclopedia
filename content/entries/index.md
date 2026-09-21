@@ -6,7 +6,7 @@ tags:
 
 <a id="top"></a>
 
-目前已收录 **48 个**条目。按主题分为七篇，也可用右上角搜索直接查词。
+目前已收录 **57 个**条目。按主题分为八篇，也可用右上角搜索直接查词。
 
 ## 📊 条目一览表
 
@@ -25,7 +25,7 @@ tags:
 | 11 | [储备站](reserve.md) | 地图 | 军事基地与信号弹撤离 |
 | 12 | [实验室](labs.md) | 地图 | 全 PMC 顶级风险区 |
 | 13 | [地面零点](ground-zero.md) | 地图 | 低等级玩家的市区图 |
-| 14 | [灯塔](lighthouse.md) | 地图 | 2026 重做后的海岸军事图 |
+| 14 | [灯塔](lighthouse.md) | 地图 | 重做后的海岸军事图 |
 | 15 | [街区](streets.md) | 地图 | 全游戏最大城市图 |
 | 16 | [终点站](terminal.md) | 地图 | 1.0 主线压轴场景 |
 | 17 | [破冰船](icebreaker.md) | 地图 | 全 PvE 终局场景 |
@@ -35,41 +35,51 @@ tags:
 | 21 | [弹道与穿透机制](ballistics.md) | 装备 | 飞行、下坠与穿深结算 |
 | 22 | [护甲与头盔](armor.md) | 装备 | 护甲等级与材质取舍 |
 | 23 | [护甲与头盔图鉴](armor-catalog.md) | 装备 | 代表型号与插件结构 |
-| 24 | [医疗物资](medical.md) | 装备 | 止血、复位、止痛的取舍 |
-| 25 | [枪械改装](gunsmith.md) | 装备 | 后坐、人机、精度三角 |
-| 26 | [枪械图鉴](weapons.md) | 装备 | 按口径与枪型选型 |
-| 27 | [钥匙与钥匙房](keys.md) | 装备 | 消耗品与房间价值排序 |
-| 28 | [商人系统](traders.md) | 经济 | 八位商人与声望 |
-| 29 | [跳蚤市场](flea-market.md) | 经济 | 玩家经济的中枢 |
-| 30 | [藏身处](hideout.md) | 经济 | 离线收益与被动成长 |
-| 31 | [藏身处模块详解](hideout-modules.md) | 经济 | 模块功能与建造优先级 |
-| 32 | [任务系统](quests.md) | 经济 | 声望与 Kappa 之路 |
-| 33 | [商人任务线图鉴](trader-questlines.md) | 经济 | 八条任务线与 Kappa 门槛 |
-| 34 | [经济周期](economic-cycle.md) | 经济 | 赛季内价格的四阶段规律 |
-| 35 | [声望与 Karma](karma.md) | 经济 | 商人忠诚度与 Scav 声望 |
-| 36 | [技能系统](skills.md) | 成长 | 用行为练出来的被动加成 |
-| 37 | [耐力与移速](stamina.md) | 战斗 | 重量与机动性的定价 |
-| 38 | [手雷与投掷物](grenades.md) | 战斗 | 逼位、封路与反弹风险 |
-| 39 | [夜视与热成像](night-vision.md) | 战斗 | 夜间视野的军备竞赛 |
-| 40 | [听声辨位与音频机制](audio.md) | 战斗 | 耳机决定的信息差 |
-| 41 | [组队与协作](squads.md) | 战斗 | 无 HUD 标识的小队规则 |
-| 42 | [敌我识别与身份判断](iff.md) | 战斗 | 没有名字标签时怎么看人 |
-| 43 | [Boss 图鉴](bosses.md) | 战斗 | 全首领势力对照与打法 |
-| 44 | [赛季与修改器](seasons.md) | 赛季 | 可选清档与自选规则 |
-| 45 | [联赛系统](leagues.md) | 赛季 | 每周 50 人的经验值天梯 |
-| 46 | [竞技场](arena.md) | 衍生 | 独立进度的纯对抗模式 |
-| 47 | [转场与 BTR](transit.md) | 场景 | 不撤离也能换图 |
-| 48 | [撤离点详解](extraction-points.md) | 场景 | 条件型撤离点速查 |
+| 24 | [护甲修复与耐久](armor-repair.md) | 装备 | 修一次掉一截上限 |
+| 25 | [医疗物资](medical.md) | 装备 | 止血、复位、止痛的取舍 |
+| 26 | [枪械改装](gunsmith.md) | 装备 | 后坐、人机、精度三角 |
+| 27 | [枪械图鉴](weapons.md) | 装备 | 按口径与枪型选型 |
+| 28 | [钥匙与钥匙房](keys.md) | 装备 | 消耗品与房间价值排序 |
+| 29 | [商人系统](traders.md) | 经济 | 八位商人与声望 |
+| 30 | [跳蚤市场](flea-market.md) | 经济 | 玩家经济的中枢 |
+| 31 | [跳蚤定价与手续费](flea-pricing.md) | 经济 | 税费公式与定价算法 |
+| 32 | [藏身处](hideout.md) | 经济 | 离线收益与被动成长 |
+| 33 | [藏身处模块详解](hideout-modules.md) | 经济 | 模块功能与建造优先级 |
+| 34 | [任务系统](quests.md) | 经济 | 声望与 Kappa 之路 |
+| 35 | [商人任务线图鉴](trader-questlines.md) | 经济 | 八条任务线与 Kappa 门槛 |
+| 36 | [经济周期](economic-cycle.md) | 经济 | 赛季内价格的四阶段规律 |
+| 37 | [战利品分布与热点](loot.md) | 经济 | 按区域类型判断收益 |
+| 38 | [声望与 Karma](karma.md) | 经济 | 逐项加减分与声望收益 |
+| 39 | [技能系统](skills.md) | 成长 | 用行为练出来的被动加成 |
+| 40 | [成就系统](achievements.md) | 成长 | 任务之外的长期目标 |
+| 41 | [耐力与移速](stamina.md) | 战斗 | 重量与机动性的定价 |
+| 42 | [手雷与投掷物](grenades.md) | 战斗 | 逼位、封路与反弹风险 |
+| 43 | [夜视与热成像](night-vision.md) | 战斗 | 夜间视野的军备竞赛 |
+| 44 | [听声辨位与音频机制](audio.md) | 战斗 | 耳机决定的信息差 |
+| 45 | [组队与协作](squads.md) | 战斗 | 无 HUD 标识的小队规则 |
+| 46 | [敌我识别与身份判断](iff.md) | 战斗 | 没有名字标签时怎么看人 |
+| 47 | [AI 行为逻辑](ai-behavior.md) | 战斗 | 感知、记忆与声响诱导 |
+| 48 | [Scav 互动与叛徒判定](scav-relations.md) | 战斗 | 一枪作废的中立协议 |
+| 49 | [Boss 图鉴](bosses.md) | 战斗 | 首领对照与护卫编队 |
+| 50 | [赛季与修改器](seasons.md) | 赛季 | 三种档案与赛季规则 |
+| 51 | [赛季修改器逐项](season-modifiers.md) | 赛季 | 全局 6 项 + 个人卡构筑 |
+| 52 | [联赛系统](leagues.md) | 赛季 | 每周 50 人的经验值天梯 |
+| 53 | [竞技场](arena.md) | 衍生 | 独立进度的纯对抗模式 |
+| 54 | [转场与 BTR](transit.md) | 场景 | 不撤离也能换图 |
+| 55 | [撤离点详解](extraction-points.md) | 场景 | 条件型撤离点速查 |
+| 56 | [天气与时间系统](weather.md) | 世界 | 七倍速的时钟与天气 |
+| 57 | [光照与夜战](lighting.md) | 世界 | 光源是双刃剑 |
 
 ## 🗂️ 按标签浏览
 
-- **机制**（13 篇）：extraction · health · insurance · inventory · pmc-scav · stamina · skills · audio · squads · iff · transit · extraction-points · mechanics
-- **地图**（14 篇）：factory · customs · woods · shoreline · interchange · reserve · labs · ground-zero · lighthouse · streets · terminal · icebreaker · labyrinth · transit
-- **装备**（13 篇）：ammo · ammo-table · ballistics · armor · armor-catalog · medical · gunsmith · weapons · keys · grenades · night-vision · inventory · audio
-- **经济**（10 篇）：traders · flea-market · hideout · hideout-modules · quests · trader-questlines · economic-cycle · karma · keys · insurance
-- **成长**（10 篇）：traders · flea-market · hideout · hideout-modules · quests · trader-questlines · economic-cycle · karma · skills · progression
-- **战斗**（7 篇）：stamina · grenades · night-vision · bosses · audio · squads · iff
-- **赛季与衍生**（3 篇）：seasons · leagues · arena
+- **机制**（16 篇）：extraction · health · insurance · inventory · pmc-scav · stamina · skills · audio · squads · iff · ai-behavior · scav-relations · transit · extraction-points · weather · mechanics
+- **地图**（15 篇）：factory · customs · woods · shoreline · interchange · reserve · labs · ground-zero · lighthouse · streets · terminal · icebreaker · labyrinth · loot · transit
+- **装备**（15 篇）：ammo · ammo-table · ballistics · armor · armor-catalog · armor-repair · medical · gunsmith · weapons · keys · grenades · night-vision · inventory · lighting · audio
+- **经济**（13 篇）：traders · flea-market · flea-pricing · hideout · hideout-modules · quests · trader-questlines · economic-cycle · loot · karma · keys · insurance · armor-repair
+- **成长**（12 篇）：traders · flea-market · flea-pricing · hideout · hideout-modules · quests · trader-questlines · economic-cycle · karma · skills · achievements · progression
+- **战斗**（12 篇）：stamina · grenades · night-vision · audio · squads · iff · ai-behavior · scav-relations · bosses · lighting · factory · woods
+- **场景与环境**：地形（6）· 环境（4）· 军事（2）
+- **赛季与衍生**（5 篇）：seasons · season-modifiers · leagues · arena · version-history
 
 更多标签见[标签分类页](../tags.md)。
 

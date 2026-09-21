@@ -16,11 +16,12 @@
 ```mermaid
 flowchart LR
     A[第一篇<br/>入门机制<br/>5 篇] --> B[第二篇<br/>地图<br/>13 篇]
-    B --> C[第三篇<br/>装备与枪械<br/>9 篇]
-    C --> D[第四篇<br/>经济与成长<br/>9 篇]
-    D --> E[第五篇<br/>进阶战斗机制<br/>7 篇]
-    E --> F[第六篇<br/>赛季与衍生<br/>3 篇]
+    B --> C[第三篇<br/>装备与枪械<br/>10 篇]
+    C --> D[第四篇<br/>经济与成长<br/>12 篇]
+    D --> E[第五篇<br/>进阶战斗机制<br/>9 篇]
+    E --> F[第六篇<br/>赛季与衍生<br/>4 篇]
     F --> G[第七篇<br/>场景与转场<br/>2 篇]
+    G --> H[第八篇<br/>世界规则<br/>2 篇]
 
     A -. 先懂撤离与保险<br/>才敢进图 .-> B
     B -. 知道死在哪<br/>才懂该练什么 .-> C
@@ -28,6 +29,7 @@ flowchart LR
     D -. 有装备有任务<br/>才谈得上进阶 .-> E
     E -. 想换规则重来<br/>才用得上赛季 .-> F
     F -. 想一局连打多张图<br/>才用得上转场 .-> G
+    G -. 最后补上天气与光照<br/>才算看懂战场 .-> H
 
     style A fill:#e3f2fd,stroke:#1565c0
     style B fill:#e8f5e9,stroke:#2e7d32
@@ -36,6 +38,7 @@ flowchart LR
     style E fill:#ede7f6,stroke:#4527a0
     style F fill:#e0f7fa,stroke:#00838f
     style G fill:#f3e5f5,stroke:#6a1b9a
+    style H fill:#e0f2f1,stroke:#00695c
 ```
 
 路径图只是建议。已经在玩的玩家可以直接跳到对应条目查漏补缺——**兴趣驱动的跳跃式阅读也是常见的打开方式**。
@@ -66,7 +69,7 @@ flowchart LR
 | 11 | [储备站](entries/reserve.md) | 军事基地与地下掩体，高价值任务枢纽 |
 | 12 | [实验室](entries/labs.md) | 无 Scav、全 PMC 的顶级风险区 |
 | 13 | [地面零点](entries/ground-zero.md) | 面向低等级玩家的市区图，任务起点 |
-| 14 | [灯塔](entries/lighthouse.md) | 2026 年重做后的海岸军事图，Lightkeeper 线起点 |
+| 14 | [灯塔](entries/lighthouse.md) | 重做后的海岸军事图，Lightkeeper 线起点 |
 | 15 | [街区](entries/streets.md) | 全游戏最大的城市图，双 Boss 与地雷区 |
 | 16 | [终点站](entries/terminal.md) | 1.0 主线压轴，剧情向的终局场景 |
 | 17 | [破冰船](entries/icebreaker.md) | 全 PvE 终局场景，辐射与黑师 |
@@ -81,51 +84,65 @@ flowchart LR
 | 21 | [弹道与穿透机制](entries/ballistics.md) | 穿深、护甲伤害、有效性衰减的底层规则 |
 | 22 | [护甲与头盔](entries/armor.md) | 护甲等级、材质与耐久，护住哪里才划算 |
 | 23 | [护甲与头盔图鉴](entries/armor-catalog.md) | 载体 + 软质层 + 插板的三层结构与代表型号 |
-| 24 | [医疗物资](entries/medical.md) | 止血、复位、手术包的取舍与携带逻辑 |
-| 25 | [枪械改装](entries/gunsmith.md) | 人机工效、后坐力、精度的改装三角 |
-| 26 | [枪械图鉴](entries/weapons.md) | 按口径与枪型选主武器，先弹后枪 |
-| 27 | [钥匙与钥匙房](entries/keys.md) | 消耗品属性与房间价值的换算 |
+| 24 | [护甲修复与耐久](entries/armor-repair.md) | 上限只降不升：什么时候该修、什么时候该换 |
+| 25 | [医疗物资](entries/medical.md) | 止血、复位、手术包的取舍与携带逻辑 |
+| 26 | [枪械改装](entries/gunsmith.md) | 人机工效、后坐力、精度的改装三角 |
+| 27 | [枪械图鉴](entries/weapons.md) | 按口径与枪型选主武器，先弹后枪 |
+| 28 | [钥匙与钥匙房](entries/keys.md) | 消耗品属性与房间价值的换算 |
 
 ### 第四篇：经济与成长（把每一条命变成资产）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 28 | [商人系统](entries/traders.md) | 八位商人各有分工，声望就是购买力（1.1 起售价整体上调） |
-| 29 | [跳蚤市场](entries/flea-market.md) | 玩家经济的中枢，变现与捡漏的主战场 |
-| 30 | [藏身处](entries/hideout.md) | 离线收益与被动技能，穷人的复利 |
-| 31 | [藏身处模块详解](entries/hideout-modules.md) | 二十余个模块的功能与建造优先级 |
-| 32 | [任务系统](entries/quests.md) | 1.1 后改为忠诚度解锁，Kappa 门槛同步降低 |
-| 33 | [商人任务线图鉴](entries/trader-questlines.md) | 八条任务线的特征、代表任务与回报 |
-| 34 | [经济周期](entries/economic-cycle.md) | 一个赛季内价格的四阶段规律与应对 |
-| 35 | [声望与 Karma](entries/karma.md) | 忠诚度与 Scav 声望：真正的采购权限 |
-| 36 | [技能系统](entries/skills.md) | 用行为练出来的被动加成，隐形战力差 |
+| 29 | [商人系统](entries/traders.md) | 八位商人各有分工，声望就是购买力（1.1 起售价整体上调） |
+| 30 | [跳蚤市场](entries/flea-market.md) | 玩家经济的中枢，变现与捡漏的主战场 |
+| 31 | [跳蚤定价与手续费](entries/flea-pricing.md) | 费率公式、底价反推与定价算法 |
+| 32 | [藏身处](entries/hideout.md) | 离线收益与被动技能，穷人的复利 |
+| 33 | [藏身处模块详解](entries/hideout-modules.md) | 二十余个模块的功能与建造优先级 |
+| 34 | [任务系统](entries/quests.md) | 1.1 后改为忠诚度解锁，Kappa 门槛同步降低 |
+| 35 | [商人任务线图鉴](entries/trader-questlines.md) | 八条任务线的特征、代表任务与回报 |
+| 36 | [经济周期](entries/economic-cycle.md) | 一个赛季内价格的四阶段规律与应对 |
+| 37 | [战利品分布与热点](entries/loot.md) | 按区域类型判断收益，用“每格价值”做取舍 |
+| 38 | [声望与 Karma](entries/karma.md) | 逐项加减分与声望影响的全部面向 |
+| 39 | [技能系统](entries/skills.md) | 用行为练出来的被动加成，隐形战力差 |
+| 40 | [成就系统](entries/achievements.md) | 任务之外的长期目标，以及“绝版”的含义 |
 
 ### 第五篇：进阶战斗机制（同一套装备，不同的结局）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 37 | [耐力与移速](entries/stamina.md) | 负重与机动性的定价，决定你能不能跑掉 |
-| 38 | [手雷与投掷物](entries/grenades.md) | 逼位与封路，最便宜的重武器 |
-| 39 | [夜视与热成像](entries/night-vision.md) | 夜间视野的军备竞赛与反制 |
-| 40 | [听声辨位与音频机制](entries/audio.md) | 耳机决定的信息差，先听见的人先开枪 |
-| 41 | [组队与协作](entries/squads.md) | 没有 HUD 标识的小队规则与友伤代价 |
-| 42 | [敌我识别与身份判断](entries/iff.md) | 没有名字标签、也没有队友点位时，怎么判断对面是谁 |
-| 43 | [Boss 图鉴](entries/bosses.md) | 全首领势力对照：刷新、护卫与打法 |
+| 41 | [耐力与移速](entries/stamina.md) | 负重与机动性的定价，决定你能不能跑掉 |
+| 42 | [手雷与投掷物](entries/grenades.md) | 逼位与封路，最便宜的重武器 |
+| 43 | [夜视与热成像](entries/night-vision.md) | 夜间视野的军备竞赛与反制 |
+| 44 | [听声辨位与音频机制](entries/audio.md) | 耳机决定的信息差，先听见的人先开枪 |
+| 45 | [组队与协作](entries/squads.md) | 没有 HUD 标识的小队规则与友伤代价 |
+| 46 | [敌我识别与身份判断](entries/iff.md) | 没有名字标签、也没有队友点位时，怎么判断对面是谁 |
+| 47 | [AI 行为逻辑](entries/ai-behavior.md) | 感知三环节、0.16.1.3 侦测重做与声响诱导 |
+| 48 | [Scav 互动与叛徒判定](entries/scav-relations.md) | 一枪作废的中立协议与声望后果 |
+| 49 | [Boss 图鉴](entries/bosses.md) | 首领对照、护卫编队与刷新概率的两层结构 |
 
 ### 第六篇：赛季与衍生内容（1.1 之后的新规则）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 44 | [赛季与修改器](entries/seasons.md) | 清档从强制变为可选，规则可以自选 |
-| 45 | [联赛系统](entries/leagues.md) | 每周 50 人的经验值天梯 |
-| 46 | [竞技场](entries/arena.md) | 独立进度的纯对抗模式 |
+| 50 | [赛季与修改器](entries/seasons.md) | 三种档案（持久 / 赛季 / PvE）与赛季规则 |
+| 51 | [赛季修改器逐项](entries/season-modifiers.md) | 全局 6 项 + 33 张个人卡的点数市场 |
+| 52 | [联赛系统](entries/leagues.md) | 每周 50 人的经验值天梯 |
+| 53 | [竞技场](entries/arena.md) | 独立进度的纯对抗模式 |
 
 ### 第七篇：场景与转场（把一局打成一条线）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 47 | [转场与 BTR](entries/transit.md) | 不结束战局也能换图，经验倍率与物流通道 |
-| 48 | [撤离点详解](entries/extraction-points.md) | 条件型撤离点速查：钥匙、信号弹、合作、付费 |
+| 54 | [转场与 BTR](entries/transit.md) | 不结束战局也能换图，经验倍率与物流通道 |
+| 55 | [撤离点详解](entries/extraction-points.md) | 条件型撤离点速查：钥匙、信号弹、合作、付费 |
+
+### 第八篇：世界规则（最后补上环境这一层）
+
+| 顺序 | 条目 | 为什么这样排 |
+|------|------|-------------|
+| 56 | [天气与时间系统](entries/weather.md) | 七倍速时钟、进图两个档位与天气的双向作用 |
+| 57 | [光照与夜战](entries/lighting.md) | 光源是双刃剑：照亮与被照亮只差一秒 |
 
 ---
 
@@ -142,11 +159,12 @@ flowchart LR
 - [新手成长路线](docs/progression.md) — 1 级到满级该干什么
 - [重大版本更新史](docs/version-history.md) — 2016 至今的版本变迁、作用与玩家反馈
 - [待收录清单](docs/roadmap.md) — 下一批条目的规划
+- [标签分类](tags.md) — 29 个标签的词表与覆盖范围
 - [条目模板](template.md) — 想贡献新条目从这里开始
 
 ---
 
-📖 [查看全部 48 个条目](entries/index.md)
+📖 [查看全部 57 个条目](entries/index.md)
 
 ⬆️ **[回到顶部](#top)**
 

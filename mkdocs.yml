@@ -99,6 +99,7 @@ nav:
           - 弹道与穿透机制: entries/ballistics.md
           - 护甲与头盔: entries/armor.md
           - 护甲与头盔图鉴: entries/armor-catalog.md
+          - 护甲修复与耐久: entries/armor-repair.md
           - 医疗物资: entries/medical.md
           - 枪械改装: entries/gunsmith.md
           - 枪械图鉴: entries/weapons.md
@@ -106,13 +107,16 @@ nav:
       - 第四篇 · 经济与成长:
           - 商人系统: entries/traders.md
           - 跳蚤市场: entries/flea-market.md
+          - 跳蚤定价与手续费: entries/flea-pricing.md
           - 藏身处: entries/hideout.md
           - 藏身处模块详解: entries/hideout-modules.md
           - 任务系统: entries/quests.md
           - 商人任务线图鉴: entries/trader-questlines.md
           - 经济周期: entries/economic-cycle.md
+          - 战利品分布与热点: entries/loot.md
           - 声望与 Karma: entries/karma.md
           - 技能系统: entries/skills.md
+          - 成就系统: entries/achievements.md
       - 第五篇 · 进阶战斗机制:
           - 耐力与移速: entries/stamina.md
           - 手雷与投掷物: entries/grenades.md
@@ -120,14 +124,20 @@ nav:
           - 听声辨位与音频机制: entries/audio.md
           - 组队与协作: entries/squads.md
           - 敌我识别与身份判断: entries/iff.md
+          - AI 行为逻辑: entries/ai-behavior.md
+          - Scav 互动与叛徒判定: entries/scav-relations.md
           - Boss 图鉴: entries/bosses.md
       - 第六篇 · 赛季与衍生内容:
           - 赛季与修改器: entries/seasons.md
+          - 赛季修改器逐项: entries/season-modifiers.md
           - 联赛系统: entries/leagues.md
           - 竞技场: entries/arena.md
       - 第七篇 · 场景与转场:
           - 转场与 BTR: entries/transit.md
           - 撤离点详解: entries/extraction-points.md
+      - 第八篇 · 世界规则:
+          - 天气与时间系统: entries/weather.md
+          - 光照与夜战: entries/lighting.md
   - 参考:
       - 项目欢迎页: docs/index.md
       - 机制速查表: docs/mechanics.md

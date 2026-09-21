@@ -3,6 +3,7 @@ tags:
   - 机制
   - 装备
   - 战斗
+  - 环境
 ---
 # 听声辨位与音频机制 (Audio & Sound Cues)
 
@@ -116,10 +117,11 @@ tags:
 - [组队与协作](squads.md) — 队伍内的信息传递效率
 - [撤离点详解](extraction-points.md) — 用声音判断撤离点是否被蹲
 - [Boss 图鉴](bosses.md) — 高反应 AI 的听觉逻辑
+- [AI 行为逻辑](ai-behavior.md) — 声音如何驱动 AI 决策
 
 ## 📚 所有条目
 
-📖 [查看全部 48 个条目](index.md)
+📖 [查看全部 57 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 

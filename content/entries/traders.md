@@ -96,10 +96,11 @@ tags:
 
 - [PMC 与 Scav](pmc-scav.md) — Fence 与 Karma 的关系
 - [枪械改装](gunsmith.md) — Mechanic 的配件货架
+- [跳蚤定价与手续费](flea-pricing.md) — 回购价与底价的关系
 
 ## 📚 所有条目
 
-📖 [查看全部 48 个条目](index.md)
+📖 [查看全部 57 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 
