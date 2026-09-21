@@ -234,6 +234,7 @@ tags:
 ## 📖 延伸阅读
 
 - [机制速查表](mechanics.md) — 当前版本下的核心规则一页速读
+- [购买指南（地区与版本）](buying-guide.md) — 版本体系、定价调整与渠道差异的“当前状态”
 - [新手成长路线](progression.md) — 在赛季化之后该怎么起步
 - [任务系统](../entries/quests.md) — 1.1 重构后的任务逻辑
 - [商人系统](../entries/traders.md) — 价格重整后的经济环境
