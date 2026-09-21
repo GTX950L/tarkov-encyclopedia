@@ -12,16 +12,16 @@ tags:
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| 机制 | 16 | ai-behavior · audio · extraction · extraction-points · health · iff · insurance · inventory · mechanics · pmc-scav · scav-relations · skills · squads · stamina · transit · weather |
+| 机制 | 19 | ai-behavior · audio · extraction · extraction-points · health · iff · insurance · inventory · mail · mechanics · movement · pmc-scav · prestige · scav-relations · skills · squads · stamina · transit · weather |
+| 装备 | 17 | ammo · ammo-table · armor · armor-catalog · armor-repair · audio · ballistics · containers · grenades · gunsmith · inventory · keys · lighting · medical · night-vision · weapon-mastery · weapons |
+| 经济 | 16 | armor-repair · barter · containers · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · insurance · karma · keys · loot · mail · quests · trader-questlines · traders |
 | 地图 | 15 | customs · factory · ground-zero · icebreaker · interchange · labs · labyrinth · lighthouse · loot · reserve · shoreline · streets · terminal · transit · woods |
-| 装备 | 15 | ammo · ammo-table · armor · armor-catalog · armor-repair · audio · ballistics · grenades · gunsmith · inventory · keys · lighting · medical · night-vision · weapons |
-| 经济 | 13 | armor-repair · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · insurance · karma · keys · loot · quests · trader-questlines · traders |
-| 成长 | 12 | achievements · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · karma · progression · quests · skills · trader-questlines · traders |
-| 战斗 | 12 | ai-behavior · audio · bosses · factory · grenades · iff · lighting · night-vision · scav-relations · squads · stamina · woods |
-| 任务 | 4 | customs · ground-zero · quests · trader-questlines |
+| 成长 | 15 | achievements · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · karma · prestige · progression · quests · skills · story-chapters · trader-questlines · traders · weapon-mastery |
+| 战斗 | 13 | ai-behavior · audio · bosses · factory · grenades · iff · lighting · movement · night-vision · scav-relations · squads · stamina · woods |
+| 任务 | 5 | customs · ground-zero · quests · story-chapters · trader-questlines |
 | 赛季 | 3 | leagues · season-modifiers · seasons |
+| 商人 | 3 | barter · trader-questlines · traders |
 | 竞技 | 2 | arena · leagues |
-| 商人 | 2 | trader-questlines · traders |
 
 ## 场景与环境
 
@@ -35,9 +35,9 @@ tags:
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| 中期 | 18 | ai-behavior · arena · armor-repair · economic-cycle · extraction-points · flea-pricing · grenades · interchange · karma · keys · lighting · loot · scav-relations · shoreline · skills · stamina · weapons · weather |
-| 后期 | 9 | achievements · icebreaker · labs · labyrinth · night-vision · season-modifiers · seasons · streets · terminal |
-| 入门 | 7 | customs · extraction · ground-zero · health · insurance · inventory · pmc-scav |
+| 中期 | 20 | ai-behavior · arena · armor-repair · barter · economic-cycle · extraction-points · flea-pricing · grenades · interchange · karma · keys · lighting · loot · scav-relations · shoreline · skills · stamina · weapon-mastery · weapons · weather |
+| 后期 | 11 | achievements · icebreaker · labs · labyrinth · night-vision · prestige · season-modifiers · seasons · story-chapters · streets · terminal |
+| 入门 | 10 | containers · customs · extraction · ground-zero · health · insurance · inventory · mail · movement · pmc-scav |
 | 中后期 | 3 | bosses · lighthouse · reserve |
 | 终局 | 2 | icebreaker · labyrinth |
 
@@ -69,4 +69,4 @@ tags:
 
 > 标签体系供站内检索与分类导航使用。**标签只写在 frontmatter 里**——新增条目时请沿用本页既有标签，不要新造同义标签（例如用「装备」而不是「器械」），否则检索会把同类条目切散。
 >
-> 本页篇数与覆盖条目由 `content/` 下全部 markdown 的 frontmatter 直接统计得出；改动条目标签后请同步本页。
+> 本页篇数与覆盖条目由 `content/` 下全部 markdown 的 frontmatter 直接统计得出，可用 `scripts/tag_stats.py` 复现；改动条目标签后请同步本页。

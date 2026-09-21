@@ -78,6 +78,7 @@ nav:
           - 生命与身体部位系统: entries/health.md
           - 保险机制: entries/insurance.md
           - 背包与容器系统: entries/inventory.md
+          - 安全箱与容器: entries/containers.md
           - PMC 与 Scav: entries/pmc-scav.md
       - 第二篇 · 地图:
           - 工厂: entries/factory.md
@@ -106,19 +107,25 @@ nav:
           - 钥匙与钥匙房: entries/keys.md
       - 第四篇 · 经济与成长:
           - 商人系统: entries/traders.md
+          - 以物换物: entries/barter.md
           - 跳蚤市场: entries/flea-market.md
           - 跳蚤定价与手续费: entries/flea-pricing.md
+          - 邮件与领取: entries/mail.md
           - 藏身处: entries/hideout.md
           - 藏身处模块详解: entries/hideout-modules.md
           - 任务系统: entries/quests.md
           - 商人任务线图鉴: entries/trader-questlines.md
+          - 剧情章节与主线任务: entries/story-chapters.md
           - 经济周期: entries/economic-cycle.md
           - 战利品分布与热点: entries/loot.md
           - 声望与 Karma: entries/karma.md
           - 技能系统: entries/skills.md
+          - 武器掌握: entries/weapon-mastery.md
           - 成就系统: entries/achievements.md
+          - Prestige 转生: entries/prestige.md
       - 第五篇 · 进阶战斗机制:
           - 耐力与移速: entries/stamina.md
+          - 姿态、移动与射击: entries/movement.md
           - 手雷与投掷物: entries/grenades.md
           - 夜视与热成像: entries/night-vision.md
           - 听声辨位与音频机制: entries/audio.md
