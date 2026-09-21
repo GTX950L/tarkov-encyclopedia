@@ -126,10 +126,11 @@ Boss **Toggle 之影**是 Tagilla 的变体，在本图**必定刷新**：
 - [终点站](terminal.md) — 同类的单人化终局场景
 - [破冰船](icebreaker.md) — 同样“保险不生效”的高风险场景
 - [撤离点详解](extraction-points.md) — 条件型撤离点的判定逻辑
+- [彩蛋与制作组的恶意](easter-eggs.md) — “设计好的死亡”的集中样本
 
 ## 📚 所有条目
 
-📖 [查看全部 66 个条目](index.md)
+📖 [查看全部 67 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 

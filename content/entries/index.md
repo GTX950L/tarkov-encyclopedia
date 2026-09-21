@@ -6,7 +6,7 @@ tags:
 
 <a id="top"></a>
 
-目前已收录 **66 个**条目。按主题分为八篇，也可用右上角搜索直接查词。
+目前已收录 **67 个**条目。按主题分为八篇，也可用右上角搜索直接查词。
 
 ## 📊 条目一览表
 
@@ -78,13 +78,14 @@ tags:
 | 64 | [撤离点详解](extraction-points.md) | 场景 | 条件型撤离点速查 |
 | 65 | [天气与时间系统](weather.md) | 世界 | 七倍速的时钟与天气 |
 | 66 | [光照与夜战](lighting.md) | 世界 | 光源是双刃剑 |
+| 67 | [彩蛋与制作组的恶意](easter-eggs.md) | 世界 | 彩蛋点位与设计好的陷阱 |
 
 ## 🗂️ 按标签浏览
 
 - **机制**（21 篇）：extraction · health · insurance · inventory · containers · pmc-scav · mail · movement · prestige · pve · stamina · skills · audio · squads · iff · ai-behavior · scav-relations · death-review · transit · extraction-points · weather
 - **装备**（17 篇）：ammo · ammo-table · ballistics · armor · armor-catalog · armor-repair · medical · gunsmith · weapons · keys · containers · grenades · night-vision · weapon-mastery · inventory · lighting · audio
 - **经济**（16 篇）：traders · barter · flea-market · flea-pricing · mail · hideout · hideout-modules · quests · trader-questlines · story-chapters · economic-cycle · loot · karma · keys · insurance · armor-repair
-- **地图**（15 篇）：factory · customs · woods · shoreline · interchange · reserve · labs · ground-zero · lighthouse · streets · terminal · icebreaker · labyrinth · loot · transit
+- **地图**（17 篇）：factory · customs · woods · shoreline · interchange · reserve · labs · ground-zero · lighthouse · streets · terminal · icebreaker · labyrinth · loot · transit · easter-eggs · map-guide
 - **成长**（15 篇）：traders · flea-market · flea-pricing · hideout · hideout-modules · quests · trader-questlines · story-chapters · economic-cycle · karma · skills · weapon-mastery · achievements · prestige · progression
 - **战斗**（14 篇）：stamina · movement · grenades · night-vision · audio · squads · iff · ai-behavior · scav-relations · bosses · death-review · lighting · factory · woods
 - **场景与环境**：地形（6）· 环境（4）· 军事（2）
@@ -97,6 +98,7 @@ tags:
 ## 📚 补充资料
 
 - [机制速查表](../docs/mechanics.md)
+- [地图对照速查](../docs/map-guide.md)
 - [新手成长路线](../docs/progression.md)
 - [购买指南（地区与版本）](../docs/buying-guide.md)
 - [配置与性能](../docs/performance.md)

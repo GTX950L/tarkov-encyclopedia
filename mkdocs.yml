@@ -147,9 +147,11 @@ nav:
       - 第八篇 · 世界规则:
           - 天气与时间系统: entries/weather.md
           - 光照与夜战: entries/lighting.md
+          - 彩蛋与制作组的恶意: entries/easter-eggs.md
   - 参考:
       - 项目欢迎页: docs/index.md
       - 机制速查表: docs/mechanics.md
+      - 地图对照速查: docs/map-guide.md
       - 购买指南（地区与版本）: docs/buying-guide.md
       - 配置与性能: docs/performance.md
       - 新手成长路线: docs/progression.md

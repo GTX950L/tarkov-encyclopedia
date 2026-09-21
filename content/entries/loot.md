@@ -154,10 +154,11 @@ tags:
 - [背包与容器系统](inventory.md) — 格位与安全箱规则
 - [撤离点详解](extraction-points.md) — 撤离路线的规划
 - [保险机制](insurance.md) — 掉了之后能回来多少
+- [彩蛋与制作组的恶意](easter-eggs.md) — 彩蛋点位常与高价值区重合
 
 ## 📚 所有条目
 
-📖 [查看全部 66 个条目](index.md)
+📖 [查看全部 67 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 

@@ -221,10 +221,11 @@ tags:
 - [储备站](reserve.md) — 中期任务重镇
 - [成就系统](achievements.md) — 任务之外的长期目标
 - [安全箱与容器](containers.md) — Kappa 的获取条件与型号对照
+- [彩蛋与制作组的恶意](easter-eggs.md) — Fence 的彩蛋任务线与唯一容器奖励
 
 ## 📚 所有条目
 
-📖 [查看全部 66 个条目](index.md)
+📖 [查看全部 67 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 
