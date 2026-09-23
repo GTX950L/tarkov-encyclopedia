@@ -30,7 +30,7 @@
 | 依赖锁定 | `requirements.txt` 只写 `zensical`（无版本）；workflow 拿它做 pip 缓存键、却执行 `pip install zensical`，**两者不同源** | 锁定版本 + 改为 `pip install -r requirements.txt` |
 | canonical 域名 | `site_url` 用了大写 `GTX950L`，**传染到 canonical 与 sitemap 的全部 URL** | 改为小写规范域名 |
 | 可发现性 | 仓库 `homepage` 为空、`topics` 为空——**站点做完也没有入口** | 补齐站点链接与 topics |
-| sitemap 声明 | `sitemap.xml` 存在，但 `robots.txt` 是 404 | 新增 `robots.txt` |
+| sitemap 声明 | `sitemap.xml` 存在，但站点上没有 `robots.txt` | 补上 `content/robots.txt`（构建后落在站点根）。**局限要说清**：GitHub Pages **项目站点**的爬虫只读域名根 `https://gtx950l.github.io/robots.txt`，子路径站点提供不了它——所以这条 Sitemap 声明的**实际作用有限**，真正的发现入口仍是页面内链接与搜索引擎自然收录 |
 | 搜索前提 | 中文分词由浏览器 `Intl.Segmenter` 提供，旧浏览器会静默退化 | 使用须知补一条浏览器建议 |
 | 入链洼地 | 上一批新增的两篇入链仅 1 | 补反向链接 |
 | 版本登记 | PvE 转生的奖励已公布但未登记 | 写进待收录清单 |
