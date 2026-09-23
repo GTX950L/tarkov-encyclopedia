@@ -18,7 +18,7 @@ flowchart LR
     A[第一篇<br/>入门机制<br/>6 篇] --> B[第二篇<br/>地图<br/>13 篇]
     B --> C[第三篇<br/>装备与枪械<br/>10 篇]
     C --> D[第四篇<br/>经济与成长<br/>17 篇]
-    D --> E[第五篇<br/>进阶战斗机制<br/>13 篇]
+    D --> E[第五篇<br/>进阶战斗机制<br/>14 篇]
     E --> F[第六篇<br/>赛季与衍生<br/>5 篇]
     F --> G[第七篇<br/>场景与转场<br/>2 篇]
     G --> H[第八篇<br/>世界规则<br/>3 篇]
@@ -128,33 +128,34 @@ flowchart LR
 | 55 | [遇敌处置与接战决策](entries/contact-drill.md) | 遇到人的前 3 秒：打、躲，还是走 |
 | 56 | [AI 行为逻辑](entries/ai-behavior.md) | 感知三环节、0.16.1.3 侦测重做与声响诱导 |
 | 57 | [Scav 互动与叛徒判定](entries/scav-relations.md) | 一枪作废的中立协议与声望后果 |
-| 58 | [Boss 图鉴](entries/bosses.md) | 首领对照、护卫编队与刷新概率的两层结构 |
-| 59 | [战斗复盘与常见死因](entries/death-review.md) | 用结算界面上的五个数字，找出自己重复犯的那个错误 |
+| 58 | [Scav 指挥与随从系统](entries/scav-command.md) | 声望换来的指挥权：六个指令与随从 |
+| 59 | [Boss 图鉴](entries/bosses.md) | 首领对照、护卫编队与刷新概率的两层结构 |
+| 60 | [战斗复盘与常见死因](entries/death-review.md) | 用结算界面上的五个数字，找出自己重复犯的那个错误 |
 
 ### 第六篇：赛季与衍生内容（1.1 之后的新规则）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 60 | [赛季与修改器](entries/seasons.md) | 三种档案（持久 / 赛季 / PvE）与赛季规则 |
-| 61 | [赛季修改器逐项](entries/season-modifiers.md) | 全局 6 项 + 33 张个人卡的点数市场 |
-| 62 | [联赛系统](entries/leagues.md) | 每周 50 人的经验值天梯 |
-| 63 | [竞技场](entries/arena.md) | 独立进度的纯对抗模式 |
-| 64 | [PvE 模式](entries/pve.md) | 没有真人对手、永不 wipe 的持久档案 |
+| 61 | [赛季与修改器](entries/seasons.md) | 三种档案（持久 / 赛季 / PvE）与赛季规则 |
+| 62 | [赛季修改器逐项](entries/season-modifiers.md) | 全局 6 项 + 33 张个人卡的点数市场 |
+| 63 | [联赛系统](entries/leagues.md) | 每周 50 人的经验值天梯 |
+| 64 | [竞技场](entries/arena.md) | 独立进度的纯对抗模式 |
+| 65 | [PvE 模式](entries/pve.md) | 没有真人对手、永不 wipe 的持久档案 |
 
 ### 第七篇：场景与转场（把一局打成一条线）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 65 | [转场与 BTR](entries/transit.md) | 不结束战局也能换图，经验倍率与物流通道 |
-| 66 | [撤离点详解](entries/extraction-points.md) | 条件型撤离点速查：钥匙、信号弹、合作、付费 |
+| 66 | [转场与 BTR](entries/transit.md) | 不结束战局也能换图，经验倍率与物流通道 |
+| 67 | [撤离点详解](entries/extraction-points.md) | 条件型撤离点速查：钥匙、信号弹、合作、付费 |
 
 ### 第八篇：世界规则（最后补上环境这一层）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 67 | [天气与时间系统](entries/weather.md) | 七倍速时钟、进图两个档位与天气的双向作用 |
-| 68 | [光照与夜战](entries/lighting.md) | 光源是双刃剑：照亮与被照亮只差一秒 |
-| 69 | [彩蛋与制作组的恶意](entries/easter-eggs.md) | 制作组藏在图里的玩笑，以及那些“设计好的死亡”——雷区、阔剑、不生效的保险 |
+| 68 | [天气与时间系统](entries/weather.md) | 七倍速时钟、进图两个档位与天气的双向作用 |
+| 69 | [光照与夜战](entries/lighting.md) | 光源是双刃剑：照亮与被照亮只差一秒 |
+| 70 | [彩蛋与制作组的恶意](entries/easter-eggs.md) | 制作组藏在图里的玩笑，以及那些“设计好的死亡”——雷区、阔剑、不生效的保险 |
 
 ---
 
@@ -180,7 +181,7 @@ flowchart LR
 
 ---
 
-📖 [查看全部 69 个条目](entries/index.md)
+📖 [查看全部 70 个条目](entries/index.md)
 
 ⬆️ **[回到顶部](#top)**
 

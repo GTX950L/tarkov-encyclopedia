@@ -12,12 +12,12 @@ tags:
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| 机制 | 23 | ai-behavior · audio · death-review · contact-drill · engagement-rules · extraction · extraction-points · health · iff · insurance · inventory · mail · mechanics · movement · pmc-scav · prestige · pve · scav-relations · skills · squads · stamina · transit · weather |
+| 机制 | 24 | ai-behavior · audio · death-review · contact-drill · engagement-rules · extraction · extraction-points · health · iff · insurance · inventory · mail · mechanics · movement · pmc-scav · prestige · pve · scav-command · scav-relations · skills · squads · stamina · transit · weather |
 | 装备 | 17 | ammo · ammo-table · armor · armor-catalog · armor-repair · audio · ballistics · containers · grenades · gunsmith · inventory · keys · lighting · medical · night-vision · weapon-mastery · weapons |
 | 经济 | 16 | armor-repair · barter · containers · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · insurance · karma · keys · loot · mail · quests · trader-questlines · traders |
 | 地图 | 17 | customs · easter-eggs · factory · ground-zero · icebreaker · interchange · labs · labyrinth · lighthouse · loot · map-guide · reserve · shoreline · streets · terminal · transit · woods |
 | 成长 | 15 | achievements · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · karma · prestige · progression · quests · skills · story-chapters · trader-questlines · traders · weapon-mastery |
-| 战斗 | 16 | ai-behavior · audio · bosses · death-review · contact-drill · engagement-rules · factory · grenades · iff · lighting · movement · night-vision · scav-relations · squads · stamina · woods |
+| 战斗 | 17 | ai-behavior · audio · bosses · death-review · contact-drill · engagement-rules · factory · grenades · iff · lighting · movement · night-vision · scav-command · scav-relations · squads · stamina · woods |
 | 任务 | 6 | customs · easter-eggs · ground-zero · quests · story-chapters · trader-questlines |
 | 赛季 | 3 | leagues · season-modifiers · seasons |
 | 商人 | 3 | barter · trader-questlines · traders |
@@ -35,7 +35,7 @@ tags:
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| 中期 | 23 | ai-behavior · arena · armor-repair · barter · contact-drill · death-review · easter-eggs · economic-cycle · extraction-points · flea-pricing · grenades · interchange · karma · keys · lighting · loot · scav-relations · shoreline · skills · stamina · weapon-mastery · weapons · weather |
+| 中期 | 24 | ai-behavior · arena · armor-repair · barter · contact-drill · death-review · easter-eggs · economic-cycle · extraction-points · flea-pricing · grenades · interchange · karma · keys · lighting · loot · scav-command · scav-relations · shoreline · skills · stamina · weapon-mastery · weapons · weather |
 | 后期 | 11 | achievements · icebreaker · labs · labyrinth · night-vision · prestige · season-modifiers · seasons · story-chapters · streets · terminal |
 | 入门 | 11 | containers · customs · extraction · ground-zero · health · insurance · inventory · mail · movement · pmc-scav · pve |
 | 中后期 | 3 | bosses · lighthouse · reserve |
@@ -54,7 +54,7 @@ tags:
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| AI | 5 | ai-behavior · bosses · engagement-rules · pmc-scav · scav-relations |
+| AI | 6 | ai-behavior · bosses · engagement-rules · pmc-scav · scav-command · scav-relations |
 | 撤离 | 2 | extraction · extraction-points |
 | 协作 | 2 | iff · squads |
 | 离线收益 | 2 | hideout · hideout-modules |

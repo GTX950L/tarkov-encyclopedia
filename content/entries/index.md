@@ -6,7 +6,7 @@ tags:
 
 <a id="top"></a>
 
-目前已收录 **69 个**条目。按主题分为八篇，也可用右上角搜索直接查词。
+目前已收录 **70 个**条目。按主题分为八篇，也可用右上角搜索直接查词。
 
 ## 📊 条目一览表
 
@@ -69,27 +69,28 @@ tags:
 | 55 | [遇敌处置与接战决策](contact-drill.md) | 战斗 | 前 3 秒看完这五件事 |
 | 56 | [AI 行为逻辑](ai-behavior.md) | 战斗 | 感知、记忆与声响诱导 |
 | 57 | [Scav 互动与叛徒判定](scav-relations.md) | 战斗 | 一枪作废的中立协议 |
-| 58 | [Boss 图鉴](bosses.md) | 战斗 | 首领对照与护卫编队 |
-| 59 | [战斗复盘与常见死因](death-review.md) | 战斗 | 从死因倒推可改进项 |
-| 60 | [赛季与修改器](seasons.md) | 赛季 | 三种档案与赛季规则 |
-| 61 | [赛季修改器逐项](season-modifiers.md) | 赛季 | 全局 6 项 + 个人卡构筑 |
-| 62 | [联赛系统](leagues.md) | 赛季 | 每周 50 人的经验值天梯 |
-| 63 | [竞技场](arena.md) | 衍生 | 独立进度的纯对抗模式 |
-| 64 | [PvE 模式](pve.md) | 衍生 | 没有真人对手的持久档案 |
-| 65 | [转场与 BTR](transit.md) | 场景 | 不撤离也能换图 |
-| 66 | [撤离点详解](extraction-points.md) | 场景 | 条件型撤离点速查 |
-| 67 | [天气与时间系统](weather.md) | 世界 | 七倍速的时钟与天气 |
-| 68 | [光照与夜战](lighting.md) | 世界 | 光源是双刃剑 |
-| 69 | [彩蛋与制作组的恶意](easter-eggs.md) | 世界 | 彩蛋点位与设计好的陷阱 |
+| 58 | [Scav 指挥与随从系统](scav-command.md) | 战斗 | 六个指令让 AI 替你开枪 |
+| 59 | [Boss 图鉴](bosses.md) | 战斗 | 首领对照与护卫编队 |
+| 60 | [战斗复盘与常见死因](death-review.md) | 战斗 | 从死因倒推可改进项 |
+| 61 | [赛季与修改器](seasons.md) | 赛季 | 三种档案与赛季规则 |
+| 62 | [赛季修改器逐项](season-modifiers.md) | 赛季 | 全局 6 项 + 个人卡构筑 |
+| 63 | [联赛系统](leagues.md) | 赛季 | 每周 50 人的经验值天梯 |
+| 64 | [竞技场](arena.md) | 衍生 | 独立进度的纯对抗模式 |
+| 65 | [PvE 模式](pve.md) | 衍生 | 没有真人对手的持久档案 |
+| 66 | [转场与 BTR](transit.md) | 场景 | 不撤离也能换图 |
+| 67 | [撤离点详解](extraction-points.md) | 场景 | 条件型撤离点速查 |
+| 68 | [天气与时间系统](weather.md) | 世界 | 七倍速的时钟与天气 |
+| 69 | [光照与夜战](lighting.md) | 世界 | 光源是双刃剑 |
+| 70 | [彩蛋与制作组的恶意](easter-eggs.md) | 世界 | 彩蛋点位与设计好的陷阱 |
 
 ## 🗂️ 按标签浏览
 
-- **机制**（23 篇）：extraction · health · insurance · inventory · containers · pmc-scav · mail · movement · prestige · pve · stamina · skills · audio · squads · iff · engagement-rules · contact-drill · ai-behavior · scav-relations · death-review · transit · extraction-points · weather
+- **机制**（24 篇）：extraction · health · insurance · inventory · containers · pmc-scav · mail · movement · prestige · pve · stamina · skills · audio · squads · iff · engagement-rules · contact-drill · ai-behavior · scav-relations · scav-command · death-review · transit · extraction-points · weather
 - **装备**（17 篇）：ammo · ammo-table · ballistics · armor · armor-catalog · armor-repair · medical · gunsmith · weapons · keys · containers · grenades · night-vision · weapon-mastery · inventory · lighting · audio
 - **经济**（16 篇）：traders · barter · flea-market · flea-pricing · mail · hideout · hideout-modules · quests · trader-questlines · story-chapters · economic-cycle · loot · karma · keys · insurance · armor-repair
 - **地图**（17 篇）：factory · customs · woods · shoreline · interchange · reserve · labs · ground-zero · lighthouse · streets · terminal · icebreaker · labyrinth · loot · transit · easter-eggs · map-guide
 - **成长**（15 篇）：traders · flea-market · flea-pricing · hideout · hideout-modules · quests · trader-questlines · story-chapters · economic-cycle · karma · skills · weapon-mastery · achievements · prestige · progression
-- **战斗**（16 篇）：stamina · movement · grenades · night-vision · audio · squads · iff · engagement-rules · contact-drill · ai-behavior · scav-relations · bosses · death-review · lighting · factory · woods
+- **战斗**（17 篇）：stamina · movement · grenades · night-vision · audio · squads · iff · engagement-rules · contact-drill · ai-behavior · scav-relations · scav-command · bosses · death-review · lighting · factory · woods
 - **场景与环境**：地形（6）· 环境（4）· 军事（2）
 - **赛季与衍生**（6 篇）：seasons · season-modifiers · leagues · arena · pve · version-history
 

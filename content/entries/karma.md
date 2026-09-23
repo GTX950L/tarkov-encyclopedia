@@ -170,12 +170,13 @@ Scav 阵营的声望（通常称 Karma）记录你的行为：
 
 - [跳蚤市场](flea-market.md) — 声望与市场解锁的关系
 - [阵营关系与交战规则](engagement-rules.md) — 开火之后，哪一笔记在哪一本账上
+- [Scav 指挥与随从系统](scav-command.md) — 声望唯一的一项“主动用法”
 - [任务系统](quests.md) — Fence 的限时任务是 Scav 声望最稳定的来源
 - [技能系统](skills.md) — 另一条被动成长路径
 
 ## 📚 所有条目
 
-📖 [查看全部 69 个条目](index.md)
+📖 [查看全部 70 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 
