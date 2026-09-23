@@ -18,7 +18,7 @@ flowchart LR
     A[第一篇<br/>入门机制<br/>6 篇] --> B[第二篇<br/>地图<br/>13 篇]
     B --> C[第三篇<br/>装备与枪械<br/>10 篇]
     C --> D[第四篇<br/>经济与成长<br/>17 篇]
-    D --> E[第五篇<br/>进阶战斗机制<br/>11 篇]
+    D --> E[第五篇<br/>进阶战斗机制<br/>12 篇]
     E --> F[第六篇<br/>赛季与衍生<br/>5 篇]
     F --> G[第七篇<br/>场景与转场<br/>2 篇]
     G --> H[第八篇<br/>世界规则<br/>3 篇]
@@ -124,35 +124,36 @@ flowchart LR
 | 51 | [听声辨位与音频机制](entries/audio.md) | 耳机决定的信息差，先听见的人先开枪 |
 | 52 | [组队与协作](entries/squads.md) | 没有 HUD 标识的小队规则与友伤代价 |
 | 53 | [敌我识别与身份判断](entries/iff.md) | 没有名字标签、也没有队友点位时，怎么判断对面是谁 |
-| 54 | [AI 行为逻辑](entries/ai-behavior.md) | 感知三环节、0.16.1.3 侦测重做与声响诱导 |
-| 55 | [Scav 互动与叛徒判定](entries/scav-relations.md) | 一枪作废的中立协议与声望后果 |
-| 56 | [Boss 图鉴](entries/bosses.md) | 首领对照、护卫编队与刷新概率的两层结构 |
-| 57 | [战斗复盘与常见死因](entries/death-review.md) | 用结算界面上的五个数字，找出自己重复犯的那个错误 |
+| 54 | [阵营关系与交战规则](entries/engagement-rules.md) | 每一枪分别记在哪本账上 |
+| 55 | [AI 行为逻辑](entries/ai-behavior.md) | 感知三环节、0.16.1.3 侦测重做与声响诱导 |
+| 56 | [Scav 互动与叛徒判定](entries/scav-relations.md) | 一枪作废的中立协议与声望后果 |
+| 57 | [Boss 图鉴](entries/bosses.md) | 首领对照、护卫编队与刷新概率的两层结构 |
+| 58 | [战斗复盘与常见死因](entries/death-review.md) | 用结算界面上的五个数字，找出自己重复犯的那个错误 |
 
 ### 第六篇：赛季与衍生内容（1.1 之后的新规则）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 58 | [赛季与修改器](entries/seasons.md) | 三种档案（持久 / 赛季 / PvE）与赛季规则 |
-| 59 | [赛季修改器逐项](entries/season-modifiers.md) | 全局 6 项 + 33 张个人卡的点数市场 |
-| 60 | [联赛系统](entries/leagues.md) | 每周 50 人的经验值天梯 |
-| 61 | [竞技场](entries/arena.md) | 独立进度的纯对抗模式 |
-| 62 | [PvE 模式](entries/pve.md) | 没有真人对手、永不 wipe 的持久档案 |
+| 59 | [赛季与修改器](entries/seasons.md) | 三种档案（持久 / 赛季 / PvE）与赛季规则 |
+| 60 | [赛季修改器逐项](entries/season-modifiers.md) | 全局 6 项 + 33 张个人卡的点数市场 |
+| 61 | [联赛系统](entries/leagues.md) | 每周 50 人的经验值天梯 |
+| 62 | [竞技场](entries/arena.md) | 独立进度的纯对抗模式 |
+| 63 | [PvE 模式](entries/pve.md) | 没有真人对手、永不 wipe 的持久档案 |
 
 ### 第七篇：场景与转场（把一局打成一条线）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 63 | [转场与 BTR](entries/transit.md) | 不结束战局也能换图，经验倍率与物流通道 |
-| 64 | [撤离点详解](entries/extraction-points.md) | 条件型撤离点速查：钥匙、信号弹、合作、付费 |
+| 64 | [转场与 BTR](entries/transit.md) | 不结束战局也能换图，经验倍率与物流通道 |
+| 65 | [撤离点详解](entries/extraction-points.md) | 条件型撤离点速查：钥匙、信号弹、合作、付费 |
 
 ### 第八篇：世界规则（最后补上环境这一层）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 65 | [天气与时间系统](entries/weather.md) | 七倍速时钟、进图两个档位与天气的双向作用 |
-| 66 | [光照与夜战](entries/lighting.md) | 光源是双刃剑：照亮与被照亮只差一秒 |
-| 67 | [彩蛋与制作组的恶意](entries/easter-eggs.md) | 制作组藏在图里的玩笑，以及那些“设计好的死亡”——雷区、阔剑、不生效的保险 |
+| 66 | [天气与时间系统](entries/weather.md) | 七倍速时钟、进图两个档位与天气的双向作用 |
+| 67 | [光照与夜战](entries/lighting.md) | 光源是双刃剑：照亮与被照亮只差一秒 |
+| 68 | [彩蛋与制作组的恶意](entries/easter-eggs.md) | 制作组藏在图里的玩笑，以及那些“设计好的死亡”——雷区、阔剑、不生效的保险 |
 
 ---
 
@@ -178,7 +179,7 @@ flowchart LR
 
 ---
 
-📖 [查看全部 67 个条目](entries/index.md)
+📖 [查看全部 68 个条目](entries/index.md)
 
 ⬆️ **[回到顶部](#top)**
 
