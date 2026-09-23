@@ -134,7 +134,7 @@ Scav 每局自带**随机装备**，**零风险、免费钱**。三条用法：
 **目标**：枪法、数值、地图三位一体。
 
 - 系统学习[弹道与穿透机制](../entries/ballistics.md)与[枪械改装](../entries/gunsmith.md)；
-- 按地图配弹配甲，形成自己的“进图检查清单”（可参考[地图对照速查](map-guide.md)）；
+- 按地图配弹配甲，形成自己的“进图检查清单”（详见[地图对照速查](map-guide.md)）；
 - 把[姿态、移动与射击](../entries/movement.md)练成本能：**开阔地冲刺、掩体前慢走、探身必侧身**；
 - **推进主线剧情**：从 **Tour** 起步，接上 **Falling Skies**——它是转生门槛的上游，早推早省事（[剧情章节与主线任务](../entries/story-chapters.md)）；
 - 挑战 Boss：Reshala、Killa、Shturman、Sanitar、Glukhar；

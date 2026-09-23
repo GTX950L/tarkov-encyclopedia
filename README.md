@@ -49,5 +49,5 @@
 
 ---
 
-**维护者**: [GTX950L](https://github.com/GTX950L)
+**维护者**: [GTX950L](https://github.com/GTX950L)<br>
 **最后更新**: 2026年9月

@@ -91,7 +91,7 @@ tags:
 ## 🗂️ 按标签浏览
 
 - **机制**（26 篇）：extraction · health · insurance · inventory · containers · pmc-scav · mail · movement · prestige · pve · stamina · skills · audio · squads · iff · spawn-and-opening · food-and-water · engagement-rules · contact-drill · ai-behavior · scav-relations · scav-command · death-review · transit · extraction-points · weather
-- **装备**（19 篇）： weapon-maintenance · clothing · ammo · ammo-table · ballistics · armor · armor-catalog · armor-repair · medical · gunsmith · weapons · keys · containers · grenades · night-vision · weapon-mastery · inventory · lighting · audio
+- **装备**（19 篇）：weapon-maintenance · clothing · ammo · ammo-table · ballistics · armor · armor-catalog · armor-repair · medical · gunsmith · weapons · keys · containers · grenades · night-vision · weapon-mastery · inventory · lighting · audio
 - **经济**（16 篇）：traders · barter · flea-market · flea-pricing · mail · hideout · hideout-modules · quests · trader-questlines · story-chapters · economic-cycle · loot · karma · keys · insurance · armor-repair
 - **地图**（17 篇）：factory · customs · woods · shoreline · interchange · reserve · labs · ground-zero · lighthouse · streets · terminal · icebreaker · labyrinth · loot · transit · easter-eggs · map-guide
 - **成长**（15 篇）：traders · flea-market · flea-pricing · hideout · hideout-modules · quests · trader-questlines · story-chapters · economic-cycle · karma · skills · weapon-mastery · achievements · prestige · progression
@@ -117,6 +117,6 @@ tags:
 
 ⬆️ **[回到顶部](#top)**
 
-**最后更新**: 2026年9月
-**贡献者**: GTX950L
+**最后更新**: 2026年9月<br>
+**贡献者**: GTX950L<br>
 **License**: MIT

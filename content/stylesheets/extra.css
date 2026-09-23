@@ -8,7 +8,6 @@
   --tk-brand-dark: #303f9f;
   --tk-brand-soft: #e8eaf6;
   --tk-ink: #1f2430;
-  --tk-muted: #5b6472;
   --tk-line: #dcdfe6;
   --tk-quote-bg: #f6f7fd;
   --tk-zebra: #fafbff;
@@ -72,6 +71,21 @@
   vertical-align: top;
 }
 
+/* 3 列及以上的宽表：窄屏下保持可读列宽，改为「容器内横向滚动」。
+   为什么需要：中文可以逐字断行，表格的 min-content 极小，单靠 table 上的
+   overflow-x 永远不会触发滚动——结果是列被压窄、每行只剩几个字。
+   给一个最小宽度才能真正滚动起来；父容器必须可滚，否则会把整页撑宽。
+   :has() 不被支持时本规则自动失效、退回原行为，无副作用。 */
+
+.md-typeset__table {
+  display: block;
+  overflow-x: auto;
+}
+
+.md-typeset table:not([class]):has(thead th:nth-child(3)) {
+  min-width: 36rem;
+}
+
 /* --------------------------------------------------------------------------
    3. 引言 / 老兵经验：品牌蓝竖线 + 浅底，与正文拉开层次
    -------------------------------------------------------------------------- */
@@ -90,10 +104,10 @@
 }
 
 /* --------------------------------------------------------------------------
-   4. 回顶部 / 条目索引链接：右侧药丸按钮，便于长页面快速归位
+   4. 回顶部链接：药丸按钮，便于长页面快速归位
    -------------------------------------------------------------------------- */
 
-.md-typeset a[href^="#top"] {
+.md-typeset a[href$="#top"] {
   display: inline-block;
   margin-top: .8em;
   padding: .35em .9em;
@@ -107,7 +121,7 @@
   transition: background .15s ease, color .15s ease;
 }
 
-.md-typeset a[href^="#top"]:hover {
+.md-typeset a[href$="#top"]:hover {
   background: var(--tk-brand);
   color: #fff;
 }
@@ -132,13 +146,12 @@
   --tk-brand-dark: #c5cae9;
   --tk-brand-soft: #2c3155;
   --tk-ink: #e6e8f0;
-  --tk-muted: #a8b0c0;
   --tk-line: #3a4152;
   --tk-quote-bg: #232839;
   --tk-zebra: #1e2230;
 }
 
-[data-md-color-scheme="slate"] .md-typeset a[href^="#top"] {
+[data-md-color-scheme="slate"] .md-typeset a[href$="#top"] {
   background: transparent;
 }
 
@@ -184,7 +197,7 @@
     page-break-inside: avoid;
   }
 
-  .md-typeset a[href^="#top"] {
+  .md-typeset a[href$="#top"] {
     display: none;
   }
 }
