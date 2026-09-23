@@ -134,12 +134,13 @@ tags:
 
 - [敌我识别与身份判断](iff.md) — 判敌的全部线索
 - [阵营关系与交战规则](engagement-rules.md) — 面对 PMC / Boss / Raider / Rogue 各该怎么办
+- [遇敌处置与接战决策](contact-drill.md) — 遇到人时先躲还是先开枪
 - [组队与协作](squads.md) — 友伤与队伍纪律
 - [撤离点详解](extraction-points.md) — 合作与付费撤离的条件
 
 ## 📚 所有条目
 
-📖 [查看全部 68 个条目](index.md)
+📖 [查看全部 69 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 

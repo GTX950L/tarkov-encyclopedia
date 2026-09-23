@@ -146,13 +146,14 @@ AI 不是“你躲起来就忘”。它会记住最后确认到的位置，朝�
 - [敌我识别与身份判断](iff.md) — 轮廓与行为如何暴露身份
 - [Scav 互动与叛徒判定](scav-relations.md) — 行为如何改变全场 AI 的敌对度
 - [阵营关系与交战规则](engagement-rules.md) — AI PMC 的四档态度与阵营判断
+- [遇敌处置与接战决策](contact-drill.md) — 用感知与记忆规则决定“躲还是打”
 - [Boss 图鉴](bosses.md) — 精英 AI 与护卫编队
 - [战斗复盘与常见死因](death-review.md) — 把 AI 战死因单独归类的方法
 - [PvE 模式](pve.md) — AI 是唯一对手的模式
 
 ## 📚 所有条目
 
-📖 [查看全部 68 个条目](index.md)
+📖 [查看全部 69 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 
