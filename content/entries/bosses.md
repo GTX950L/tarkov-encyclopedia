@@ -212,10 +212,11 @@ Boss 的威胁上限由**编队规模**决定。下表是可稳定参考的护�
 - [储备站](reserve.md) — Glukhar 的主场
 - [战斗复盘与常见死因](death-review.md) — Boss 战死因的固定模式
 - [阵营关系与交战规则](engagement-rules.md) — PMC 业力与 Partisan 的猎杀逻辑
+- [世界观与阵营背景](worldview.md) — 各势力在设定中的由来
 
 ## 📚 所有条目
 
-📖 [查看全部 74 个条目](index.md)
+📖 [查看全部 75 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 

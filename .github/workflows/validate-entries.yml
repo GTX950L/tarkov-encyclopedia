@@ -1,8 +1,9 @@
 name: Validate Entries
 
+# 校验有两道：
+#   - pull request → 本 workflow 拦截（不部署）
+#   - push 到 main → 由 deploy-pages.yml 的 validate job 前置拦截，通过才允许部署
 on:
-  push:
-    branches: ["main"]
   pull_request:
   workflow_dispatch:
 

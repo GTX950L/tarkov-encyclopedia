@@ -1,6 +1,6 @@
 site_name: 逃离塔科夫百科全书
 site_description: 系统性介绍《逃离塔科夫》地图、机制、装备与经济系统的中文开源百科
-site_url: https://GTX950L.github.io/tarkov-encyclopedia/
+site_url: https://gtx950l.github.io/tarkov-encyclopedia/
 repo_url: https://github.com/GTX950L/tarkov-encyclopedia
 repo_name: GTX950L/tarkov-encyclopedia
 docs_dir: content
@@ -155,6 +155,7 @@ nav:
           - 天气与时间系统: entries/weather.md
           - 光照与夜战: entries/lighting.md
           - 彩蛋与制作组的恶意: entries/easter-eggs.md
+          - 世界观与阵营背景: entries/worldview.md
   - 参考:
       - 项目欢迎页: docs/index.md
       - 机制速查表: docs/mechanics.md

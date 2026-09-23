@@ -80,10 +80,11 @@ tags:
 
 - [储备站](reserve.md) — 军事题材的中等强度对照
 - [立交桥](interchange.md) — 全室内攻防的入门课
+- [世界观与阵营背景](worldview.md) — TerraGroup 是谁、实验室为什么在这里
 
 ## 📚 所有条目
 
-📖 [查看全部 74 个条目](index.md)
+📖 [查看全部 75 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 

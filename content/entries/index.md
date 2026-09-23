@@ -6,7 +6,7 @@ tags:
 
 <a id="top"></a>
 
-目前已收录 **74 个**条目。按主题分为八篇，也可用右上角搜索直接查词。
+目前已收录 **75 个**条目。按主题分为八篇，也可用右上角搜索直接查词。
 
 ## 📊 条目一览表
 
@@ -86,16 +86,17 @@ tags:
 | 72 | [天气与时间系统](weather.md) | 世界 | 七倍速的时钟与天气 |
 | 73 | [光照与夜战](lighting.md) | 世界 | 光源是双刃剑 |
 | 74 | [彩蛋与制作组的恶意](easter-eggs.md) | 世界 | 彩蛋点位与设计好的陷阱 |
+| 75 | [世界观与阵营背景](worldview.md) | 世界 | 诺文斯克封锁与两大 PMC 的由来 |
 
 ## 🗂️ 按标签浏览
 
-- **机制**（26 篇）：extraction · health · insurance · inventory · containers · pmc-scav · mail · movement · prestige · pve · stamina · skills · audio · squads · iff · spawn-and-opening · food-and-water engagement-rules · contact-drill · ai-behavior · scav-relations · scav-command · death-review · transit · extraction-points · weather
-- **装备**（19 篇）： weapon-maintenance · clothingammo · ammo-table · ballistics · armor · armor-catalog · armor-repair · medical · gunsmith · weapons · keys · containers · grenades · night-vision · weapon-mastery · inventory · lighting · audio
+- **机制**（26 篇）：extraction · health · insurance · inventory · containers · pmc-scav · mail · movement · prestige · pve · stamina · skills · audio · squads · iff · spawn-and-opening · food-and-water · engagement-rules · contact-drill · ai-behavior · scav-relations · scav-command · death-review · transit · extraction-points · weather
+- **装备**（19 篇）： weapon-maintenance · clothing · ammo · ammo-table · ballistics · armor · armor-catalog · armor-repair · medical · gunsmith · weapons · keys · containers · grenades · night-vision · weapon-mastery · inventory · lighting · audio
 - **经济**（16 篇）：traders · barter · flea-market · flea-pricing · mail · hideout · hideout-modules · quests · trader-questlines · story-chapters · economic-cycle · loot · karma · keys · insurance · armor-repair
 - **地图**（17 篇）：factory · customs · woods · shoreline · interchange · reserve · labs · ground-zero · lighthouse · streets · terminal · icebreaker · labyrinth · loot · transit · easter-eggs · map-guide
 - **成长**（15 篇）：traders · flea-market · flea-pricing · hideout · hideout-modules · quests · trader-questlines · story-chapters · economic-cycle · karma · skills · weapon-mastery · achievements · prestige · progression
 - **战斗**（17 篇）：stamina · movement · grenades · night-vision · audio · squads · iff · engagement-rules · contact-drill · ai-behavior · scav-relations · scav-command · bosses · death-review · lighting · factory · woods
-- **场景与环境**：地形（6）· 环境（4）· 军事（2）
+- **场景与环境**：地形（6）· 环境（4）· 军事（3）
 - **赛季与衍生**（6 篇）：seasons · season-modifiers · leagues · arena · pve · version-history
 
 更多标签见[标签分类页](../tags.md)。

@@ -29,7 +29,7 @@ tags:
 |------|------|----------|
 | 地形 | 6 | factory · interchange · labs · shoreline · streets · woods |
 | 环境 | 4 | audio · lighting · night-vision · weather |
-| 军事 | 2 | lighthouse · reserve |
+| 军事 | 3 | lighthouse · reserve · worldview |
 
 ## 玩家阶段
 
@@ -37,7 +37,7 @@ tags:
 |------|------|----------|
 | 中期 | 26 | ai-behavior · arena · armor-repair · barter · clothing · contact-drill · death-review · easter-eggs · economic-cycle · extraction-points · flea-pricing · grenades · interchange · karma · keys · lighting · loot · scav-command · scav-relations · shoreline · skills · stamina · weapon-maintenance · weapon-mastery · weapons · weather |
 | 后期 | 11 | achievements · icebreaker · labs · labyrinth · night-vision · prestige · season-modifiers · seasons · story-chapters · streets · terminal |
-| 入门 | 13 | containers · customs · extraction · food-and-water · ground-zero · health · insurance · inventory · mail · movement · pmc-scav · pve · spawn-and-opening |
+| 入门 | 14 | containers · customs · extraction · food-and-water · ground-zero · health · insurance · inventory · mail · movement · pmc-scav · pve · spawn-and-opening · worldview |
 | 中后期 | 3 | bosses · lighthouse · reserve |
 | 终局 | 2 | icebreaker · labyrinth |
 

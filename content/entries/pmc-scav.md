@@ -121,10 +121,11 @@ PMC 进图时**没有任何阵营约束**：USEC 与 BEAR 之间不存在和平�
 - [储备站](reserve.md) — Scav 流派经典地图
 - [任务系统](quests.md) — 只属于 PMC 的成长线
 - [Scav 互动与叛徒判定](scav-relations.md) — 行为边界与后果
+- [世界观与阵营背景](worldview.md) — 封锁怎么形成、玩家为什么出不去
 
 ## 📚 所有条目
 
-📖 [查看全部 74 个条目](index.md)
+📖 [查看全部 75 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 

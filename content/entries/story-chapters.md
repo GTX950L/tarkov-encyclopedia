@@ -171,10 +171,11 @@ Tour 是 Mechanic 线的剧情开头，**在工厂起步**。它的重要性不�
 - [邮件与领取](mail.md) — 剧情道具的交付与特殊槽
 - [藏身处模块详解](hideout-modules.md) — 情报中心与工作台的建造
 - [成就系统](achievements.md) — 章节选择对应的成就
+- [世界观与阵营背景](worldview.md) — 这套设定本身：诺文斯克、TerraGroup 与两支 PMC
 
 ## 📚 所有条目
 
-📖 [查看全部 74 个条目](index.md)
+📖 [查看全部 75 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 
