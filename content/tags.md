@@ -12,8 +12,8 @@ tags:
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| 机制 | 24 | ai-behavior · audio · death-review · contact-drill · engagement-rules · extraction · extraction-points · health · iff · insurance · inventory · mail · mechanics · movement · pmc-scav · prestige · pve · scav-command · scav-relations · skills · squads · stamina · transit · weather |
-| 装备 | 17 | ammo · ammo-table · armor · armor-catalog · armor-repair · audio · ballistics · containers · grenades · gunsmith · inventory · keys · lighting · medical · night-vision · weapon-mastery · weapons |
+| 机制 | 26 | ai-behavior · audio · contact-drill · death-review · engagement-rules · extraction · extraction-points · food-and-water · health · iff · insurance · inventory · mail · mechanics · movement · pmc-scav · prestige · pve · scav-command · scav-relations · skills · spawn-and-opening · squads · stamina · transit · weather |
+| 装备 | 19 | ammo · ammo-table · armor · armor-catalog · armor-repair · audio · ballistics · clothing · containers · grenades · gunsmith · inventory · keys · lighting · medical · night-vision · weapon-maintenance · weapon-mastery · weapons |
 | 经济 | 16 | armor-repair · barter · containers · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · insurance · karma · keys · loot · mail · quests · trader-questlines · traders |
 | 地图 | 17 | customs · easter-eggs · factory · ground-zero · icebreaker · interchange · labs · labyrinth · lighthouse · loot · map-guide · reserve · shoreline · streets · terminal · transit · woods |
 | 成长 | 15 | achievements · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · karma · prestige · progression · quests · skills · story-chapters · trader-questlines · traders · weapon-mastery |
@@ -35,9 +35,9 @@ tags:
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| 中期 | 24 | ai-behavior · arena · armor-repair · barter · contact-drill · death-review · easter-eggs · economic-cycle · extraction-points · flea-pricing · grenades · interchange · karma · keys · lighting · loot · scav-command · scav-relations · shoreline · skills · stamina · weapon-mastery · weapons · weather |
+| 中期 | 26 | ai-behavior · arena · armor-repair · barter · clothing · contact-drill · death-review · easter-eggs · economic-cycle · extraction-points · flea-pricing · grenades · interchange · karma · keys · lighting · loot · scav-command · scav-relations · shoreline · skills · stamina · weapon-maintenance · weapon-mastery · weapons · weather |
 | 后期 | 11 | achievements · icebreaker · labs · labyrinth · night-vision · prestige · season-modifiers · seasons · story-chapters · streets · terminal |
-| 入门 | 11 | containers · customs · extraction · ground-zero · health · insurance · inventory · mail · movement · pmc-scav · pve |
+| 入门 | 13 | containers · customs · extraction · food-and-water · ground-zero · health · insurance · inventory · mail · movement · pmc-scav · pve · spawn-and-opening |
 | 中后期 | 3 | bosses · lighthouse · reserve |
 | 终局 | 2 | icebreaker · labyrinth |
 
@@ -45,7 +45,7 @@ tags:
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| 生存 | 4 | armor · armor-catalog · health · medical |
+| 生存 | 5 | armor · armor-catalog · food-and-water · health · medical |
 | 核心数值 | 3 | ammo · ammo-table · ballistics |
 | 护甲 | 3 | armor · armor-catalog · armor-repair |
 | 弹药 | 2 | ammo · ammo-table |
@@ -65,7 +65,7 @@ tags:
 |------|------|----------|
 | 版本 | 6 | achievements · leagues · pve · season-modifiers · seasons · version-history |
 | 索引 | 6 | glossary · index · roadmap · tags · template · version-history |
-| 速查 | 6 | buying-guide · glossary · map-guide · mechanics · performance · progression |
+| 速查 | 7 | buying-guide · game-settings · glossary · map-guide · mechanics · performance · progression |
 
 > 标签体系供站内检索与分类导航使用。**标签只写在 frontmatter 里**——新增条目时请沿用本页既有标签，不要新造同义标签（例如用「装备」而不是「器械」），否则检索会把同类条目切散。
 >

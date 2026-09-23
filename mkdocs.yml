@@ -74,8 +74,10 @@ nav:
   - 百科条目:
       - 总览: entries/index.md
       - 第一篇 · 入门机制:
+          - 开局与出生点: entries/spawn-and-opening.md
           - 撤离机制: entries/extraction.md
           - 生命与身体部位系统: entries/health.md
+          - 食物与水分: entries/food-and-water.md
           - 保险机制: entries/insurance.md
           - 背包与容器系统: entries/inventory.md
           - 安全箱与容器: entries/containers.md
@@ -101,9 +103,11 @@ nav:
           - 护甲与头盔: entries/armor.md
           - 护甲与头盔图鉴: entries/armor-catalog.md
           - 护甲修复与耐久: entries/armor-repair.md
+          - 武器故障与耐久维护: entries/weapon-maintenance.md
           - 医疗物资: entries/medical.md
           - 枪械改装: entries/gunsmith.md
           - 枪械图鉴: entries/weapons.md
+          - 服装与外观: entries/clothing.md
           - 钥匙与钥匙房: entries/keys.md
       - 第四篇 · 经济与成长:
           - 商人系统: entries/traders.md
@@ -158,6 +162,7 @@ nav:
       - 术语与黑话速查: docs/glossary.md
       - 购买指南（地区与版本）: docs/buying-guide.md
       - 配置与性能: docs/performance.md
+      - 操作与设置: docs/game-settings.md
       - 新手成长路线: docs/progression.md
       - 重大版本更新史: docs/version-history.md
       - 标签分类: tags.md

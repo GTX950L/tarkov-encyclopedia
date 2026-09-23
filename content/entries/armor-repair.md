@@ -157,10 +157,11 @@ tags:
 - [经济周期](economic-cycle.md) — 修复成本在经济周期中的位置
 - [跳蚤定价与手续费](flea-pricing.md) — 修复与置换的成本比较
 - [赛季修改器逐项](season-modifiers.md) — “护甲短缺”如何改写本季经济
+- [武器故障与耐久维护](weapon-maintenance.md) — 同一套维修与强化系统的武器侧
 
 ## 📚 所有条目
 
-📖 [查看全部 70 个条目](index.md)
+📖 [查看全部 74 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 
