@@ -217,7 +217,31 @@ def main() -> int:
                         f"总览页「按标签浏览」列了不存在的条目: {s}（标签「{tag}」）"
                     )
 
-    # 8. 汇总
+    # 8. 主条目必须链接到它的细分条目
+    #    「细分 → 主」是回望（"基础规则见…"），「主 → 细分」才是深入。
+    #    缺后者时，读者读完整篇也不知道还有更细的一篇。
+    SUBPAGE_PAIRS = [
+        ("armor", "armor-catalog"),
+        ("armor", "armor-repair"),
+        ("ammo", "ammo-table"),
+        ("hideout", "hideout-modules"),
+        ("extraction", "extraction-points"),
+        ("seasons", "season-modifiers"),
+        ("flea-market", "flea-pricing"),
+        ("scav-relations", "scav-command"),
+        ("quests", "trader-questlines"),
+        ("lighting", "night-vision"),
+    ]
+    for main_slug, sub_slug in SUBPAGE_PAIRS:
+        main_md = CONTENT / "entries" / f"{main_slug}.md"
+        sub_md = CONTENT / "entries" / f"{sub_slug}.md"
+        if not main_md.exists() or not sub_md.exists():
+            warnings.append(f"主-细分对涉及的文件缺失: {main_slug} / {sub_slug}")
+            continue
+        if f"]({sub_slug}.md)" not in main_md.read_text(encoding="utf-8"):
+            errors.append(f"主条目未链接到细分条目: {main_slug}.md 缺 -> {sub_slug}.md")
+
+    # 9. 汇总
     print("=" * 60)
     print(f"内容文件总数: {len(md_files)}")
     print(f"百科条目数:   {n_entries}")
