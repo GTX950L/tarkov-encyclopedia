@@ -178,7 +178,7 @@ def main() -> int:
             if tag not in declared:
                 warnings.append(f"标签未登记在 tags.md: {tag}")
 
-    # 6. 中文正文直引号残留
+    # 6. 中文正文直引号残留（行内代码里的引号是合法写法，先剥掉再判断）
     for md in md_files:
         in_code = False
         for lineno, line in enumerate(md.read_text(encoding="utf-8").splitlines(), 1):
@@ -189,7 +189,8 @@ def main() -> int:
                 continue
             if re.match(r"\s*<[a-zA-Z/]", line):
                 continue
-            if '"' in line and CN_CHAR.search(line):
+            prose = re.sub(r"`[^`]*`", "", line)
+            if '"' in prose and CN_CHAR.search(prose):
                 errors.append(f"中文行残留直引号: {md.relative_to(ROOT)}:{lineno}")
 
     # 7. 总览页「按标签浏览」：slug 必须真实存在、条数必须与声明一致、分隔符必须统一
