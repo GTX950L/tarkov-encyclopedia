@@ -136,7 +136,6 @@ nav:
           - 组队与协作: entries/squads.md
           - 敌我识别与身份判断: entries/iff.md
           - 阵营关系与交战规则: entries/engagement-rules.md
-          - 遇敌处置与接战决策: entries/contact-drill.md
           - AI 行为逻辑: entries/ai-behavior.md
           - Scav 互动与叛徒判定: entries/scav-relations.md
           - Scav 指挥与随从系统: entries/scav-command.md
@@ -159,9 +158,10 @@ nav:
       - 第九篇 · 战局内行为手册:
           - 战局流程与节奏: entries/raid-flow.md
           - 搜刮效率与战利品取舍: entries/looting.md
-          - 战中伤情处置: entries/combat-medical.md
-          - 投掷物来袭处置: entries/grenade-response.md
+          - 遇敌处置与接战决策: entries/contact-drill.md
           - 交火中的技术动作: entries/firefight.md
+          - 投掷物来袭处置: entries/grenade-response.md
+          - 战中伤情处置: entries/combat-medical.md
   - 参考:
       - 项目欢迎页: docs/index.md
       - 机制速查表: docs/mechanics.md
