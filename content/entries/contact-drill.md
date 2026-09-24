@@ -235,10 +235,11 @@ tags:
 - [耐力与移速](stamina.md) — 冲刺什么时候用
 - [Scav 互动与叛徒判定](scav-relations.md) — Scav 侧的红线
 - [PvE 模式](pve.md) — 全是 AI 时，这套决策的变形
+- [交火中的技术动作](firefight.md) — 决定要打之后，手上具体该怎么做
 
 ## 📚 所有条目
 
-📖 [查看全部 79 个条目](index.md)
+📖 [查看全部 80 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 

@@ -161,6 +161,7 @@ nav:
           - 搜刮效率与战利品取舍: entries/looting.md
           - 战中伤情处置: entries/combat-medical.md
           - 投掷物来袭处置: entries/grenade-response.md
+          - 交火中的技术动作: entries/firefight.md
   - 参考:
       - 项目欢迎页: docs/index.md
       - 机制速查表: docs/mechanics.md

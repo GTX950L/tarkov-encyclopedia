@@ -22,7 +22,7 @@ flowchart LR
     E --> F[第六篇<br/>赛季与衍生<br/>5 篇]
     F --> G[第七篇<br/>场景与转场<br/>2 篇]
     G --> H[第八篇<br/>世界与背景<br/>4 篇]
-    H --> I[第九篇<br/>战局内行为手册<br/>4 篇]
+    H --> I[第九篇<br/>战局内行为手册<br/>5 篇]
 
     A -. 先懂撤离与保险<br/>才敢进图 .-> B
     B -. 知道死在哪<br/>才懂该练什么 .-> C
@@ -173,6 +173,7 @@ flowchart LR
 | 77 | [搜刮效率与战利品取舍](entries/looting.md) | 到了地方之后，怎么在最短的暴露时间里拿完 |
 | 78 | [战中伤情处置](entries/combat-medical.md) | 受伤之后先做什么——顺序错了，等于没治 |
 | 79 | [投掷物来袭处置](entries/grenade-response.md) | 拔销声能骗人、也能被趁虚而入；引信决定你躲不躲得掉 |
+| 80 | [交火中的技术动作](entries/firefight.md) | 打起来之后手上怎么做：探头、掩体、换弹、切副武器、进房 |
 
 ---
 
@@ -200,7 +201,7 @@ flowchart LR
 
 ---
 
-📖 [查看全部 79 个条目](entries/index.md)
+📖 [查看全部 80 个条目](entries/index.md)
 
 ⬆️ **[回到顶部](#top)**
 

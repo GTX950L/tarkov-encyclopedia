@@ -6,7 +6,7 @@ tags:
 
 <a id="top"></a>
 
-目前已收录 **79 个**条目。按主题分为九篇，也可用右上角搜索直接查词。
+目前已收录 **80 个**条目。按主题分为九篇，也可用右上角搜索直接查词。
 
 ## 📊 条目一览表
 
@@ -91,6 +91,7 @@ tags:
 | 77 | [搜刮效率与战利品取舍](looting.md) | 行为 | 搜索是一段不能开枪的静止 |
 | 78 | [战中伤情处置](combat-medical.md) | 行为 | 会继续变坏的伤先治 |
 | 79 | [投掷物来袭处置](grenade-response.md) | 行为 | 拔销声是一张双向的牌 |
+| 80 | [交火中的技术动作](firefight.md) | 行为 | 露多大、露多久，比枪法更决定生死 |
 
 ## 🗂️ 按标签浏览
 
@@ -99,7 +100,7 @@ tags:
 - **经济**（17 篇）：armor-repair · barter · containers · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · insurance · karma · keys · loot · looting · mail · quests · trader-questlines · traders
 - **地图**（17 篇）：factory · customs · woods · shoreline · interchange · reserve · labs · ground-zero · lighthouse · streets · terminal · icebreaker · labyrinth · loot · transit · easter-eggs · map-guide
 - **成长**（15 篇）：traders · flea-market · flea-pricing · hideout · hideout-modules · quests · trader-questlines · story-chapters · economic-cycle · karma · skills · weapon-mastery · achievements · prestige · progression
-- **战斗**（20 篇）：ai-behavior · audio · bosses · combat-medical · contact-drill · death-review · engagement-rules · factory · grenade-response · grenades · iff · lighting · movement · night-vision · raid-flow · scav-command · scav-relations · squads · stamina · woods
+- **战斗**（21 篇）：ai-behavior · audio · bosses · combat-medical · contact-drill · death-review · engagement-rules · factory · firefight · grenade-response · grenades · iff · lighting · movement · night-vision · raid-flow · scav-command · scav-relations · squads · stamina · woods
 - **场景与环境**：地形（6）· 环境（4）· 军事（3）
 - **赛季与衍生**（6 篇）：seasons · season-modifiers · leagues · arena · pve · version-history
 
