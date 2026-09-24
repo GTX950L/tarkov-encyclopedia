@@ -177,6 +177,7 @@ tags:
 | [开局与出生点](../entries/spawn-and-opening.md) | bot 出生机制重做会**改变 PvE 的开局判断** |
 | [AI 行为逻辑](../entries/ai-behavior.md) | AI 行为重做后复核感知与交战段落 |
 | [保险机制](../entries/insurance.md)、[赛季与修改器](../entries/season-modifiers.md) | 确认是否有连带规则变动 |
+| [购买指南（地区与版本）](buying-guide.md) | **PvE 转生落地后复核「PvE 值不值 ¥119」那一段**；若推出新的版本档位或调价，同步价格表与页首的复核记录 |
 | 两处 README | 更新“版本基线”那一句话 |
 
 ---
