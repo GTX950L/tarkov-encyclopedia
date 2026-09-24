@@ -22,6 +22,7 @@ flowchart LR
     E --> F[第六篇<br/>赛季与衍生<br/>5 篇]
     F --> G[第七篇<br/>场景与转场<br/>2 篇]
     G --> H[第八篇<br/>世界与背景<br/>4 篇]
+    H --> I[第九篇<br/>战局内行为手册<br/>4 篇]
 
     A -. 先懂撤离与保险<br/>才敢进图 .-> B
     B -. 知道死在哪<br/>才懂该练什么 .-> C
@@ -30,6 +31,7 @@ flowchart LR
     E -. 想换规则重来<br/>才用得上赛季 .-> F
     F -. 想一局连打多张图<br/>才用得上转场 .-> G
     G -. 最后补上设定与环境<br/>才算看懂战场 .-> H
+    H -. 懂完规则就上手<br/>把知识变成动作 .-> I
 
     style A fill:#e3f2fd,stroke:#1565c0
     style B fill:#e8f5e9,stroke:#2e7d32
@@ -39,6 +41,7 @@ flowchart LR
     style F fill:#e0f7fa,stroke:#00838f
     style G fill:#f3e5f5,stroke:#6a1b9a
     style H fill:#e0f2f1,stroke:#00695c
+    style I fill:#fff8e1,stroke:#f9a825
 ```
 
 路径图只是建议。已经在玩的玩家可以直接跳到对应条目查漏补缺——**兴趣驱动的跳跃式阅读也是常见的打开方式**。
@@ -162,6 +165,15 @@ flowchart LR
 | 74 | [彩蛋与制作组的恶意](entries/easter-eggs.md) | 制作组藏在图里的玩笑，以及那些“设计好的死亡”——雷区、阔剑、不生效的保险 |
 | 75 | [世界观与阵营背景](entries/worldview.md) | 诺文斯克为什么被封锁、USEC 与 BEAR 从哪来——解释“你为什么出不去” |
 
+### 第九篇：战局内行为手册（把机制变成动作）
+
+| 顺序 | 条目 | 为什么这样排 |
+|------|------|-------------|
+| 76 | [战局流程与节奏](entries/raid-flow.md) | 先拿到全局：四段结构、搜刮动线、什么时候必须撤 |
+| 77 | [搜刮效率与战利品取舍](entries/looting.md) | 到了地方之后，怎么在最短的暴露时间里拿完 |
+| 78 | [战中伤情处置](entries/combat-medical.md) | 受伤之后先做什么——顺序错了，等于没治 |
+| 79 | [投掷物来袭处置](entries/grenade-response.md) | 引信 2 秒和 5 秒，是两个完全不同的答案 |
+
 ---
 
 ## 📖 使用须知
@@ -188,7 +200,7 @@ flowchart LR
 
 ---
 
-📖 [查看全部 75 个条目](entries/index.md)
+📖 [查看全部 79 个条目](entries/index.md)
 
 ⬆️ **[回到顶部](#top)**
 

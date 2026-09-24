@@ -120,10 +120,11 @@ tags:
 
 - [海岸线](shoreline.md) — Sanitar 与稀有医疗品
 - [背包与容器系统](inventory.md) — 医疗品的格子管理
+- [战中伤情处置](combat-medical.md) — 受伤之后先做什么：按“会不会继续变坏”排序
 
 ## 📚 所有条目
 
-📖 [查看全部 75 个条目](index.md)
+📖 [查看全部 79 个条目](index.md)
 
 ⬆️ **[回到顶部](#top)**
 
