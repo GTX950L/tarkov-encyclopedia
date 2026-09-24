@@ -172,7 +172,7 @@ flowchart LR
 | 76 | [战局流程与节奏](entries/raid-flow.md) | 先拿到全局：四段结构、搜刮动线、什么时候必须撤 |
 | 77 | [搜刮效率与战利品取舍](entries/looting.md) | 到了地方之后，怎么在最短的暴露时间里拿完 |
 | 78 | [战中伤情处置](entries/combat-medical.md) | 受伤之后先做什么——顺序错了，等于没治 |
-| 79 | [投掷物来袭处置](entries/grenade-response.md) | 引信 2 秒和 5 秒，是两个完全不同的答案 |
+| 79 | [投掷物来袭处置](entries/grenade-response.md) | 拔销声能骗人、也能被趁虚而入；引信决定你躲不躲得掉 |
 
 ---
 
