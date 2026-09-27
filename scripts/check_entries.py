@@ -33,6 +33,11 @@ LINK_RE = re.compile(r"\[[^\]]*\]\(([^)#]+?)(?:#[^)]*)?\)")
 COUNT_RE = re.compile(r"查看全部 (\d+) 个条目")
 CN_CHAR = re.compile(r"[\u4e00-\u9fff]")
 TAG_LINE = re.compile(r"^\s*-\s*(.+?)\s*$")
+# nav 里的「第X篇」分组行（缩进的分组标题）
+NAV_GROUP_RE = re.compile(r"^\s+-\s*(第[一二三四五六七八九十]篇)", re.M)
+# 正文里的篇数声明：「分为八篇」/「分八篇组织」/「分八篇：…」
+GROUP_DECL_RE = re.compile(r"分(?:为)?([一二三四五六七八九十])篇")
+CN_NUM = {c: i for i, c in enumerate("一二三四五六七八九十", 1)}
 # tags.md 的表格行：| 标签 | 篇数 | 覆盖条目 |
 TAGS_ROW_RE = re.compile(r"^\|\s*([^|]+?)\s*\|\s*(\d+)\s*\|\s*([^|]*?)\s*\|\s*$", re.M)
 
@@ -41,6 +46,13 @@ def load_nav_targets() -> list[str]:
     """从 mkdocs.yml 的 nav 段提取所有 .md 引用（简易解析，不引入依赖）。"""
     text = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
     return re.findall(r":\s*([\w/\-\.]+\.md)", text)
+
+
+def load_nav_group_count() -> int:
+    """nav 里「第X篇」分组的数量——篇数口径的唯一事实来源。"""
+    text = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
+    names = [m.group(1) for m in NAV_GROUP_RE.finditer(text)]
+    return len(set(names))
 
 
 def read_frontmatter_tags(md: Path) -> list[str]:
@@ -158,6 +170,34 @@ def main() -> int:
                 f"实际 {n_entries}"
             )
 
+    # 4b. 篇数口径：声明的篇数必须与 nav 的「第X篇」分组数一致
+    #     条目数对了不代表篇数对——取消/合并一篇时总数不变，只有篇数会变，
+    #     而三处声明散在 index / content README / 根 README，靠肉眼一定会漏。
+    n_groups = load_nav_group_count()
+    if n_groups == 0:
+        errors.append("mkdocs.yml 未解析到任何「第X篇」分组")
+    for path, label in [
+        (CONTENT / "entries" / "index.md", "总览页首句"),
+        (CONTENT / "README.md", "站点首页首段"),
+        (ROOT / "README.md", "仓库首页首段"),
+    ]:
+        if not path.exists():
+            continue
+        found = GROUP_DECL_RE.search(path.read_text(encoding="utf-8"))
+        if not found:
+            # 与计数那条同理：找不到声明句比数字写错更隐蔽——数字错会报错，
+            # 找不到就静默通过。声明句被改写时这里必须响。
+            errors.append(
+                f"篇数声明缺失（{label}）: {path.relative_to(ROOT)} 里找不到「分N篇」的声明"
+            )
+            continue
+        declared = CN_NUM[found.group(1)]
+        if declared != n_groups:
+            errors.append(
+                f"篇数不一致（{label}）: {path.relative_to(ROOT)} 写的是 {found.group(1)}篇，"
+                f"nav 实际 {n_groups} 篇"
+            )
+
     # 5. tags.md 与 frontmatter 实际统计是否一致
     tagmap: dict[str, set[str]] = defaultdict(set)
     for md in md_files:
@@ -245,6 +285,8 @@ def main() -> int:
         ("scav-relations", "scav-command"),
         ("quests", "trader-questlines"),
         ("lighting", "night-vision"),
+        ("gunsmith", "weapons"),
+        ("traders", "trader-questlines"),
     ]
     for main_slug, sub_slug in SUBPAGE_PAIRS:
         main_md = CONTENT / "entries" / f"{main_slug}.md"

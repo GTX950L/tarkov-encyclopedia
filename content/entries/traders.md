@@ -88,6 +88,7 @@ tags:
 ## 📖 延伸阅读
 
 - [任务系统](quests.md) — 声望的发动机
+- [商人任务线图鉴](trader-questlines.md) — 八个商人各自的任务线与 Kappa 门槛
 - [跳蚤市场](flea-market.md) — 商人体系的补充市场
 
 ---
