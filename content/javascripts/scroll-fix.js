@@ -32,3 +32,25 @@ document$.subscribe(function () {
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }
+
+/* --------------------------------------------------------------------------
+   第三层：点击导航链接的**那一刻**就先复位
+   --------------------------------------------------------------------------
+   只靠 document$ 复位有一个体感问题：它要等新页面的内容（XHR）就绪才触发，
+   弱网下会明显滞后——实测同一操作有时 80ms 归零、有时要等 500–1000ms，
+   读者看到的是「停在半中间顿一下，再跳回顶部」。
+
+   所以这里在点下去的瞬间先复位一次（内容到达后再由 document$ 兜第二次）。
+
+   两条放行规则：
+     1. 带锚点的链接（#xxx）不处理——那是读者主动要求跳到某处；
+     2. 外链（http/https）不处理——不是站内换页。
+   -------------------------------------------------------------------------- */
+document.addEventListener("click", function (e) {
+  var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+  if (!a) return;
+  var href = a.getAttribute("href") || "";
+  if (!href || href.charAt(0) === "#" || href.indexOf("#") >= 0) return;
+  if (/^https?:\/\//i.test(href)) return;
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+}, true);
