@@ -14,11 +14,11 @@
 ## 🧭 推荐学习路径
 
 <div class="tk-path">
-<a class="tk-step tk-s1" href="entries/spawn-and-opening.md"><b>第一篇</b><em>入门机制</em><i>9 篇</i></a>
+<a class="tk-step tk-s1" href="entries/spawn-and-opening.md"><b>第一篇</b><em>入门机制</em><i>11 篇</i></a>
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s2" href="entries/factory.md"><b>第二篇</b><em>地图</em><i>13 篇</i></a>
 <span class="tk-arrow">→</span>
-<a class="tk-step tk-s3" href="entries/ammo.md"><b>第三篇</b><em>装备与枪械</em><i>13 篇</i></a>
+<a class="tk-step tk-s3" href="entries/ammo.md"><b>第三篇</b><em>装备与枪械</em><i>11 篇</i></a>
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s4" href="entries/traders.md"><b>第四篇</b><em>经济与成长</em><i>18 篇</i></a>
 <span class="tk-arrow">→</span>
@@ -53,42 +53,42 @@
 | 3 | [生命与身体部位系统](entries/health.md) | 理解“为什么突然黑屏”——七部位血量与状态异常是生存的底层逻辑 |
 | 4 | [食物与水分](entries/food-and-water.md) | 两条隐形资源里，先见底的一定是水 |
 | 5 | [食物与饮料图鉴](entries/food-catalog.md) | 先认清“能量高但扣水”的那几样，再谈带什么 |
-| 6 | [保险机制](entries/insurance.md) | 新手最容易被忽略的“后悔药”，决定了你敢带什么进图（赛季中可能被禁用） |
-| 7 | [背包与容器系统](entries/inventory.md) | 安全箱与背包管理，是收益差距的第一来源 |
-| 8 | [安全箱与容器](entries/containers.md) | 六个安全箱型号的尺寸与获取路径，以及专用容器怎么扩仓库 |
-| 9 | [PMC 与 Scav](entries/pmc-scav.md) | 弄清两条命、两套规则，Scav 是新手的免费练习券 |
+| 6 | [医疗物资](entries/medical.md) | 先认功能再挑型号——伤情处置的取舍逻辑 |
+| 7 | [医疗物资图鉴](entries/medical-catalog.md) | 单次治疗量比总容量重要：胸腔治不满就是一枪死 |
+| 8 | [保险机制](entries/insurance.md) | 新手最容易被忽略的“后悔药”，决定了你敢带什么进图（赛季中可能被禁用） |
+| 9 | [背包与容器系统](entries/inventory.md) | 安全箱与背包管理，是收益差距的第一来源 |
+| 10 | [安全箱与容器](entries/containers.md) | 六个安全箱型号的尺寸与获取路径，以及专用容器怎么扩仓库 |
+| 11 | [PMC 与 Scav](entries/pmc-scav.md) | 弄清两条命、两套规则，Scav 是新手的免费练习券 |
 
 ### 第二篇：地图（按体量从小到大）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 10 | [工厂](entries/factory.md) | 最小最乱的 CQB 图，练近战的课堂 |
-| 11 | [海关](entries/customs.md) | 经典中的经典，任务最密集的中型图 |
-| 12 | [森林](entries/woods.md) | 大型开阔图，狙击与听声辨位的考场 |
-| 13 | [海岸线](entries/shoreline.md) | 疗养院垂直攻防与远距离交火并存 |
-| 14 | [立交桥](entries/interchange.md) | 全室内商城，光线昏暗、背身刺杀频发 |
-| 15 | [储备站](entries/reserve.md) | 军事基地与地下掩体，高价值任务枢纽 |
-| 16 | [实验室](entries/labs.md) | 无 Scav、全 PMC 的顶级风险区 |
-| 17 | [地面零点](entries/ground-zero.md) | 面向低等级玩家的市区图，任务起点 |
-| 18 | [灯塔](entries/lighthouse.md) | 重做后的海岸军事图，Lightkeeper 线起点 |
-| 19 | [街区](entries/streets.md) | 全游戏最大的城市图，双 Boss 与地雷区 |
-| 20 | [终点站](entries/terminal.md) | 1.0 主线压轴，剧情向的终局场景 |
-| 21 | [破冰船](entries/icebreaker.md) | 全 PvE 终局场景，辐射与黑师 |
-| 22 | [迷宫](entries/labyrinth.md) | 不在选图列表里的解谜型场景，保险不生效 |
+| 12 | [工厂](entries/factory.md) | 最小最乱的 CQB 图，练近战的课堂 |
+| 13 | [海关](entries/customs.md) | 经典中的经典，任务最密集的中型图 |
+| 14 | [森林](entries/woods.md) | 大型开阔图，狙击与听声辨位的考场 |
+| 15 | [海岸线](entries/shoreline.md) | 疗养院垂直攻防与远距离交火并存 |
+| 16 | [立交桥](entries/interchange.md) | 全室内商城，光线昏暗、背身刺杀频发 |
+| 17 | [储备站](entries/reserve.md) | 军事基地与地下掩体，高价值任务枢纽 |
+| 18 | [实验室](entries/labs.md) | 无 Scav、全 PMC 的顶级风险区 |
+| 19 | [地面零点](entries/ground-zero.md) | 面向低等级玩家的市区图，任务起点 |
+| 20 | [灯塔](entries/lighthouse.md) | 重做后的海岸军事图，Lightkeeper 线起点 |
+| 21 | [街区](entries/streets.md) | 全游戏最大的城市图，双 Boss 与地雷区 |
+| 22 | [终点站](entries/terminal.md) | 1.0 主线压轴，剧情向的终局场景 |
+| 23 | [破冰船](entries/icebreaker.md) | 全 PvE 终局场景，辐射与黑师 |
+| 24 | [迷宫](entries/labyrinth.md) | 不在选图列表里的解谜型场景，保险不生效 |
 
 ### 第三篇：装备与枪械（看懂数值，才知道为什么死）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 23 | [弹药与穿深等级](entries/ammo.md) | **塔科夫第一真理：子弹比枪重要** |
-| 24 | [弹药选型速查表](entries/ammo-table.md) | 按对手的护甲等级反推今天带哪盒弹 |
-| 25 | [弹道与穿透机制](entries/ballistics.md) | 穿深、护甲伤害、有效性衰减的底层规则 |
-| 26 | [护甲与头盔](entries/armor.md) | 护甲等级、材质与耐久，护住哪里才划算 |
-| 27 | [护甲与头盔图鉴](entries/armor-catalog.md) | 载体 + 软质层 + 插板的三层结构与代表型号 |
-| 28 | [护甲修复与耐久](entries/armor-repair.md) | 上限只降不升：什么时候该修、什么时候该换 |
-| 29 | [武器故障与耐久维护](entries/weapon-maintenance.md) | 卡壳不是运气，是耐久与过热的账 |
-| 30 | [医疗物资](entries/medical.md) | 止血、复位、手术包的取舍与携带逻辑 |
-| 31 | [医疗物资图鉴](entries/medical-catalog.md) | 单次治疗量比总容量重要——胸腔治不满就是一枪死 |
+| 25 | [弹药与穿深等级](entries/ammo.md) | **塔科夫第一真理：子弹比枪重要** |
+| 26 | [弹药选型速查表](entries/ammo-table.md) | 按对手的护甲等级反推今天带哪盒弹 |
+| 27 | [弹道与穿透机制](entries/ballistics.md) | 穿深、护甲伤害、有效性衰减的底层规则 |
+| 28 | [护甲与头盔](entries/armor.md) | 护甲等级、材质与耐久，护住哪里才划算 |
+| 29 | [护甲与头盔图鉴](entries/armor-catalog.md) | 载体 + 软质层 + 插板的三层结构与代表型号 |
+| 30 | [护甲修复与耐久](entries/armor-repair.md) | 上限只降不升：什么时候该修、什么时候该换 |
+| 31 | [武器故障与耐久维护](entries/weapon-maintenance.md) | 卡壳不是运气，是耐久与过热的账 |
 | 32 | [枪械改装](entries/gunsmith.md) | 人机工效、后坐力、精度的改装三角 |
 | 33 | [枪械图鉴](entries/weapons.md) | 按口径与枪型选主武器，先弹后枪 |
 | 34 | [服装与外观](entries/clothing.md) | 不挡子弹，但影响别人的第一次判断 |
