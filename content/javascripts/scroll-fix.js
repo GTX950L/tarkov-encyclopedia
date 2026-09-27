@@ -44,13 +44,24 @@ if ("scrollRestoration" in history) {
 
    两条放行规则：
      1. 带锚点的链接（#xxx）不处理——那是读者主动要求跳到某处；
-     2. 外链（http/https）不处理——不是站内换页。
-   -------------------------------------------------------------------------- */
+     2. **站外**链接不处理——不是站内换页。
+
+   ⚠️ 第 2 条不能用「href 以 http 开头」来判断：Material 构建后，站内导航链接
+   的 href 是**绝对 URL**（https://…/entries/bosses/），那一刀会**把所有站内
+   链接都误判成外链**，这一层就形同虚设（本站踩过）。必须用 origin 比对。
+-------------------------------------------------------------------------- */
 document.addEventListener("click", function (e) {
   var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
   if (!a) return;
   var href = a.getAttribute("href") || "";
-  if (!href || href.charAt(0) === "#" || href.indexOf("#") >= 0) return;
-  if (/^https?:\/\//i.test(href)) return;
+  if (!href) return;
+  var url;
+  try {
+    url = new URL(a.href, location.href);
+  } catch (err) {
+    return;
+  }
+  if (url.origin !== location.origin) return;   // 站外：不管
+  if (url.hash) return;                          // 带锚点：读者自己要跳到某处
   window.scrollTo({ top: 0, left: 0, behavior: "instant" });
 }, true);
