@@ -24,6 +24,7 @@ tags:
 | **唯一的跨阵营和平机制** | 合作撤离（PMC 与 Scav 同时站在撤离区内） |
 | **不属 Scav 阵营的 AI** | Raider、Rogue、邪教徒——击杀**不扣** Scav 业力 |
 | **口径来源** | 官方支持站 `knowledge/519`《Karma in Escape from Tarkov》、0.15.0.0 补丁说明、官方 wiki |
+| **配套条目** | [遇敌处置与接战决策](contact-drill.md) 讲**开火之前怎么决定**；本篇讲**开火之后记哪本账** |
 
 ---
 
