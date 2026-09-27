@@ -13,36 +13,30 @@
 
 ## 🧭 推荐学习路径
 
-```mermaid
-flowchart LR
-    A[第一篇<br/>入门机制<br/>8 篇] --> B[第二篇<br/>地图<br/>13 篇]
-    B --> C[第三篇<br/>装备与枪械<br/>12 篇]
-    C --> D[第四篇<br/>经济与成长<br/>17 篇]
-    D --> E[第五篇<br/>进阶战斗机制<br/>13 篇]
-    E --> F[第六篇<br/>赛季与衍生<br/>5 篇]
-    F --> G[第七篇<br/>场景与转场<br/>2 篇]
-    G --> H[第八篇<br/>世界与背景<br/>4 篇]
-    H --> I[第九篇<br/>战局内行为手册<br/>6 篇]
+<div class="tk-path">
+<a class="tk-step tk-s1" href="entries/spawn-and-opening.md"><b>第一篇</b><em>入门机制</em><i>8 篇</i></a>
+<span class="tk-arrow">→</span>
+<a class="tk-step tk-s2" href="entries/factory.md"><b>第二篇</b><em>地图</em><i>13 篇</i></a>
+<span class="tk-arrow">→</span>
+<a class="tk-step tk-s3" href="entries/ammo.md"><b>第三篇</b><em>装备与枪械</em><i>12 篇</i></a>
+<span class="tk-arrow">→</span>
+<a class="tk-step tk-s4" href="entries/traders.md"><b>第四篇</b><em>经济与成长</em><i>17 篇</i></a>
+<span class="tk-arrow">→</span>
+<a class="tk-step tk-s5" href="entries/stamina.md"><b>第五篇</b><em>进阶战斗机制</em><i>13 篇</i></a>
+<span class="tk-arrow">→</span>
+<a class="tk-step tk-s6" href="entries/seasons.md"><b>第六篇</b><em>赛季与衍生</em><i>5 篇</i></a>
+<span class="tk-arrow">→</span>
+<a class="tk-step tk-s7" href="entries/extraction-points.md"><b>第七篇</b><em>场景与转场</em><i>2 篇</i></a>
+<span class="tk-arrow">→</span>
+<a class="tk-step tk-s8" href="entries/lighting.md"><b>第八篇</b><em>世界与背景</em><i>4 篇</i></a>
+<span class="tk-arrow">→</span>
+<a class="tk-step tk-s9" href="entries/raid-flow.md"><b>第九篇</b><em>战局内行为手册</em><i>6 篇</i></a>
+</div>
 
-    A -. 先懂撤离与保险<br/>才敢进图 .-> B
-    B -. 知道死在哪<br/>才懂该练什么 .-> C
-    C -. 看懂穿深与护甲<br/>才明白为什么死 .-> D
-    D -. 有装备有任务<br/>才谈得上进阶 .-> E
-    E -. 想换规则重来<br/>才用得上赛季 .-> F
-    F -. 想一局连打多张图<br/>才用得上转场 .-> G
-    G -. 最后补上设定与环境<br/>才算看懂战场 .-> H
-    H -. 懂完规则就上手<br/>把知识变成动作 .-> I
-
-    style A fill:#e3f2fd,stroke:#1565c0
-    style B fill:#e8f5e9,stroke:#2e7d32
-    style C fill:#fff3e0,stroke:#ef6c00
-    style D fill:#fce4ec,stroke:#c62828
-    style E fill:#ede7f6,stroke:#4527a0
-    style F fill:#e0f7fa,stroke:#00838f
-    style G fill:#f3e5f5,stroke:#6a1b9a
-    style H fill:#e0f2f1,stroke:#00695c
-    style I fill:#fff8e1,stroke:#f9a825
-```
+<div class="tk-reason">
+<b>为什么这样排</b>
+<p>先懂撤离与保险，才敢进图 → 知道死在哪，才懂该练什么 → 看懂穿深与护甲，才明白为什么死 → 有装备有任务，才谈得上进阶 → 想换规则重来，才用得上赛季 → 想一局连打多张图，才用得上转场 → 最后补上设定与环境，才算看懂战场 → 懂完规则就上手，把知识变成动作。</p>
+</div>
 
 路径图只是建议。已经在玩的玩家可以直接跳到对应条目查漏补缺——**兴趣驱动的跳跃式阅读也是常见的打开方式**。
 

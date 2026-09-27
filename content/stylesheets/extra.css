@@ -90,7 +90,14 @@
    3. 引言 / 老兵经验：品牌蓝竖线 + 浅底，与正文拉开层次
    -------------------------------------------------------------------------- */
 
-.md-typeset blockquote {
+/* 选择器必须带 [dir="ltr"]：Material 主题有一条
+   `[dir="ltr"] .md-typeset blockquote`（多一个属性选择器，优先级更高），
+   只写 `.md-typeset blockquote` 会被它覆盖——左侧竖线会退回主题灰
+   （rgba(0,0,0,.32)），品牌蓝竖线不生效。同时写逻辑属性与物理属性，
+   避免主题换用 border-inline-start 时再次失效。 */
+.md-typeset blockquote,
+[dir="ltr"] .md-typeset blockquote {
+  border-inline-start: 4px solid var(--tk-brand);
   border-left: 4px solid var(--tk-brand);
   background: var(--tk-quote-bg);
   color: var(--tk-ink);
@@ -125,6 +132,98 @@
   background: var(--tk-brand);
   color: #fff;
 }
+
+/* --------------------------------------------------------------------------
+   4b. 首页学习路径条：零依赖纯 CSS（替代 mermaid）
+        为什么替代：站点 bundle 的 mermaid 是从 unpkg.com 懒加载的 3.5 MB 单文件，
+        弱网 / 离线时加载不出来，首页第一屏会直接吐出一大段 mermaid 源码；
+        即便加载成功，九个节点横排也会被压成一排看不清的小方块。
+        纯 CSS 版本零额外请求、秒出、可点击、可打印。
+   -------------------------------------------------------------------------- */
+
+.tk-path {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: .35rem;
+  margin: 1.1em 0 .5em;
+}
+
+.tk-step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 7rem;
+  min-width: 7rem;
+  max-width: 9rem;          /* 防止换行后最后一块被拉满整行 */
+  padding: .5em .65em;
+  border: 1px solid var(--tk-line);
+  border-top: 3px solid var(--tk-line);
+  border-radius: 6px;
+  background: #fff;
+  text-decoration: none;
+  line-height: 1.35;
+  transition: box-shadow .15s ease, transform .15s ease;
+}
+
+.tk-step:hover {
+  box-shadow: 0 2px 10px rgba(63, 81, 181, .2);
+  transform: translateY(-1px);
+}
+
+.tk-step b  { font-size: .66rem; font-weight: 700; }
+.tk-step em { font-style: normal; font-size: .76rem; font-weight: 600; color: var(--tk-ink); }
+.tk-step i  { font-style: normal; font-size: .64rem; color: #6b7280; }
+
+.tk-arrow {
+  align-self: center;
+  color: var(--tk-brand);
+  font-weight: 700;
+  font-size: .85rem;
+}
+
+/* 九段各配一套浅色，沿用原 mermaid 图的配色 */
+.tk-s1 { background: #e3f2fd; border-top-color: #1565c0; }
+.tk-s1 b { color: #1565c0; }
+.tk-s2 { background: #e8f5e9; border-top-color: #2e7d32; }
+.tk-s2 b { color: #2e7d32; }
+.tk-s3 { background: #fff3e0; border-top-color: #ef6c00; }
+.tk-s3 b { color: #ef6c00; }
+.tk-s4 { background: #fce4ec; border-top-color: #c62828; }
+.tk-s4 b { color: #c62828; }
+.tk-s5 { background: #ede7f6; border-top-color: #4527a0; }
+.tk-s5 b { color: #4527a0; }
+.tk-s6 { background: #e0f7fa; border-top-color: #00838f; }
+.tk-s6 b { color: #00838f; }
+.tk-s7 { background: #f3e5f5; border-top-color: #6a1b9a; }
+.tk-s7 b { color: #6a1b9a; }
+.tk-s8 { background: #e0f2f1; border-top-color: #00695c; }
+.tk-s8 b { color: #00695c; }
+.tk-s9 { background: #fff8e1; border-top-color: #f9a825; }
+.tk-s9 b { color: #b07d00; }
+
+.tk-reason {
+  border: 1px solid var(--tk-line);
+  border-left: 4px solid var(--tk-brand);
+  border-radius: 0 6px 6px 0;
+  background: var(--tk-quote-bg);
+  padding: .6em .9em;
+  margin: 0 0 1em;
+  font-size: .76rem;
+}
+
+.tk-reason b { color: var(--tk-brand-dark); }
+.tk-reason p { margin: .3em 0 0; }
+
+/* 深色兜底：方块改用低饱和深底，避免浅色块在暗色下刺眼 */
+[data-md-color-scheme="slate"] .tk-step {
+  background: #232839;
+  border-top-color: #3a4152;
+}
+[data-md-color-scheme="slate"] .tk-step em { color: #e6e8f0; }
+[data-md-color-scheme="slate"] .tk-step b  { color: #9fa8da; }
+[data-md-color-scheme="slate"] .tk-step i  { color: #8b93a7; }
+[data-md-color-scheme="slate"] .tk-path .tk-step { background: #232839; }
 
 /* --------------------------------------------------------------------------
    5. 行内提示（⚠️ / 💡 提示行等）：弱化底色，避免和引言抢视觉
