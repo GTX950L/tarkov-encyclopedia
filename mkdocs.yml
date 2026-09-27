@@ -69,6 +69,9 @@ extra:
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - javascripts/scroll-fix.js
+
 nav:
   - 首页: README.md
   - 百科条目:

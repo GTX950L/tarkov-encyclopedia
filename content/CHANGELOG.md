@@ -2,6 +2,47 @@
 
 本文件记录面向用户的条目内容变更。历史条目一经发布，只做修订不做改写。
 
+## 2026-09（v1.30.0）
+
+### 修复：点击左侧导航后，新页面偶尔不停留在顶端
+
+**起因**：读者反馈「点击左侧栏目后到新的页面，并没有直接回到顶端」。
+
+**这个必须实测——而且第一次差点测出错误结论。** 首次测试（从[工厂](entries/factory.md) 滚到 900px 再点导航）结果是 `scrollY = 0`，看起来「没有问题」。**换几个场景重测才发现**：
+
+| 场景 | 结果 |
+|------|------|
+| 从[工厂](entries/factory.md) 滚到 **900px** → 点导航 | `scrollY = 900` ❌ |
+| 从[地图对照速查](docs/map-guide.md) 滚到 **3000px** → 点导航 | `scrollY = 3000` ❌ |
+| 从[总览页](entries/index.md) 滚到 1500px → 点导航 | `scrollY = 0` ✅ |
+| 从[术语速查](docs/glossary.md) 滚到 2500px → 点导航 | `scrollY = 0` ✅ |
+
+**注意 900 → 900、3000 → 3000：滚动位置是被原样保留的**，不是「归零失败」。再重复测三次同一场景，**同一站点、同样操作，结果还会不一样**——**这是间歇性缺陷**。这也解释了为什么第一次没测出来。
+
+**根因**：站点启用了 Material 的 `navigation.instant`（XHR 换页、不整页刷新）。它的滚动复位是**靠不住的**——在网络时序稍有变化时就会跳过复位，把上一页的滚动位置带进新页面。
+
+**修法：加一段兜底 JS（`content/javascripts/scroll-fix.js`）**
+
+```js
+document$.subscribe(function () {
+  if (!window.location.hash) {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }
+});
+```
+
+- `document$` 是 Material 提供的 observable，**首次加载与每次 instant 切换后都会触发**；
+- **带锚点的跳转不处理**——那是读者主动要求跳到某处，强制复位会打断它（本页内的「回到顶部」也是一样）。
+
+**验证（三项都跑过）**：
+
+| 检查 | 结果 |
+|------|------|
+| **产物里有没有这个文件** | ✅ `site/javascripts/scroll-fix.js`——**这一步必做**：`extra_javascript` 与 `extra_css` 一样，路径相对 `docs_dir`，放错位置会**静默失效**（本项目 `extra_css` 当年就栽过） |
+| 页面是否真的引用它 | ✅ `src="../../javascripts/scroll-fix.js"` |
+| 普通导航是否回顶 | ✅ `scrollY = 0` |
+| **锚点跳转是否被破坏** | ✅ 访问 `/entries/factory/#boss` 仍正确滚到 2433px——说明 `location.hash` 判断生效 |
+
 ## 2026-09（v1.29.0）
 
 ### 全站内容审计：无同类重复，修三处体例
