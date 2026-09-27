@@ -76,6 +76,7 @@ nav:
       - 第一篇 · 入门机制:
           - 开局与出生点: entries/spawn-and-opening.md
           - 撤离机制: entries/extraction.md
+          - 撤离点详解: entries/extraction-points.md
           - 生命与身体部位系统: entries/health.md
           - 食物与水分: entries/food-and-water.md
           - 食物与饮料图鉴: entries/food-catalog.md
@@ -103,6 +104,7 @@ nav:
               - 终点站: entries/terminal.md
               - 破冰船: entries/icebreaker.md
               - 迷宫: entries/labyrinth.md
+          - 转场与 BTR: entries/transit.md
       - 第三篇 · 装备与枪械:
           - 弹药与穿深等级: entries/ammo.md
           - 弹药选型速查表: entries/ammo-table.md
@@ -154,15 +156,12 @@ nav:
           - 联赛系统: entries/leagues.md
           - 竞技场: entries/arena.md
           - PvE 模式: entries/pve.md
-      - 第七篇 · 场景与转场:
-          - 转场与 BTR: entries/transit.md
-          - 撤离点详解: entries/extraction-points.md
-      - 第八篇 · 世界与背景:
+      - 第七篇 · 世界与背景:
           - 天气与时间系统: entries/weather.md
           - 光照与夜战: entries/lighting.md
           - 彩蛋与制作组的恶意: entries/easter-eggs.md
           - 世界观与阵营背景: entries/worldview.md
-      - 第九篇 · 战局内行为手册:
+      - 第八篇 · 战局内行为手册:
           - 战局流程与节奏: entries/raid-flow.md
           - 搜刮效率与战利品取舍: entries/looting.md
           - 遇敌处置与接战决策: entries/contact-drill.md
