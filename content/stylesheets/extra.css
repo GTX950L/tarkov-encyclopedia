@@ -273,7 +273,67 @@
 }
 
 /* --------------------------------------------------------------------------
-   8. 打印友好：截图 / 打印贴墙时去掉导航，表格与段落不跨页断开
+   8. 术语悬浮提示：正文里首次出现的塔科夫术语带虚线底边，悬停 / 点击显示释义
+      （数据源见 scripts/build_glossary.py，逻辑见 javascripts/glossary-tooltip.js）
+      配色沿用品牌蓝 + --tk-ink，深浅色都有兜底，打印时自动隐藏。
+   -------------------------------------------------------------------------- */
+
+.md-typeset .tk-term {
+  position: relative;
+  border-bottom: 1px dashed var(--tk-brand);
+  cursor: help;
+  color: inherit;
+}
+
+.md-typeset .tk-term::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translate(-50%, -.5em);
+  z-index: 30;
+  width: max-content;
+  max-width: min(22rem, 78vw);
+  padding: .5em .7em;
+  border-radius: 6px;
+  background: var(--tk-ink);
+  color: #fff;
+  font-size: .68rem;
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: left;
+  white-space: normal;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+.md-typeset .tk-term:hover::after,
+.md-typeset .tk-term:focus::after,
+.md-typeset .tk-term.is-open::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -.2em);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .tk-term::after {
+  background: #e6e8f0;
+  color: #1f2430;
+}
+
+@media print {
+  .md-typeset .tk-term {
+    border-bottom: 0;
+  }
+
+  .md-typeset .tk-term::after {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. 打印友好：截图 / 打印贴墙时去掉导航，表格与段落不跨页断开
    -------------------------------------------------------------------------- */
 
 @media print {

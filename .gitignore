@@ -6,6 +6,10 @@ __pycache__/
 site/
 .cache/
 
+# 构建产物：由 scripts/build_glossary.py 从 content/docs/glossary.md 自动生成，
+# 不纳入版本管理（CI 在 build 前会重新生成，见 .github/workflows/deploy-pages.yml）
+content/javascripts/terms-data.js
+
 # IDE
 .vscode/
 .idea/

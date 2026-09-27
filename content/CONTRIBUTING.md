@@ -44,6 +44,25 @@ python scripts/check_entries.py
 >
 > `deploy-pages.yml` 以校验为**部署前置**——校验不通过就不会上线。
 
+## 🖥️ 本地预览与构建
+
+想在本地看效果，三步（**顺序不能反**）：
+
+```bash
+pip install -r requirements.txt
+python scripts/build_glossary.py    # ① 生成术语数据
+zensical serve                       # ② 打开 http://localhost:8000
+```
+
+**为什么必须先跑 `build_glossary.py`**：站点的**术语悬浮提示**依赖 `content/javascripts/terms-data.js`，而这个文件是**从本页上方提到的[术语速查](docs/glossary.md)自动生成**的——**改术语表，提示会自动跟着变，不需要手改两处**。
+
+它属于构建产物、**不纳入版本管理**，所以：
+
+- **CI 会在每次部署前自动生成**（见 `.github/workflows/deploy-pages.yml`）；
+- **本地若跳过这一步**，术语提示会**静默不显示**——但页面其余部分完全正常、也不会报错。**排查“提示怎么没了”时，先看这个文件在不在。**
+
+只跑 `zensical build`（不 serve）也可以，用于确认构建无误。
+
 ## 🐛 报告问题
 
 - 数值过期 → Issue 标注版本号；
