@@ -60,20 +60,20 @@
 | 10 | [安全箱与容器](entries/containers.md) | 六个安全箱型号的尺寸与获取路径，以及专用容器怎么扩仓库 |
 | 11 | [PMC 与 Scav](entries/pmc-scav.md) | 弄清两条命、两套规则，Scav 是新手的免费练习券 |
 
-### 第二篇：地图（按体量从小到大）
+### 第二篇：地图（按推荐阶段分四组：新手 → 常规 → 进阶 → 终局）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 12 | [工厂](entries/factory.md) | 最小最乱的 CQB 图，练近战的课堂 |
-| 13 | [海关](entries/customs.md) | 经典中的经典，任务最密集的中型图 |
-| 14 | [森林](entries/woods.md) | 大型开阔图，狙击与听声辨位的考场 |
-| 15 | [海岸线](entries/shoreline.md) | 疗养院垂直攻防与远距离交火并存 |
+| 12 | [地面零点](entries/ground-zero.md) | 面向低等级玩家的市区图，任务起点 |
+| 13 | [工厂](entries/factory.md) | 最小最乱的 CQB 图，练近战的课堂 |
+| 14 | [海关](entries/customs.md) | 经典中的经典，任务最密集的中型图 |
+| 15 | [森林](entries/woods.md) | 大型开阔图，狙击与听声辨位的考场 |
 | 16 | [立交桥](entries/interchange.md) | 全室内商城，光线昏暗、背身刺杀频发 |
 | 17 | [储备站](entries/reserve.md) | 军事基地与地下掩体，高价值任务枢纽 |
-| 18 | [实验室](entries/labs.md) | 无 Scav、全 PMC 的顶级风险区 |
-| 19 | [地面零点](entries/ground-zero.md) | 面向低等级玩家的市区图，任务起点 |
-| 20 | [灯塔](entries/lighthouse.md) | 重做后的海岸军事图，Lightkeeper 线起点 |
-| 21 | [街区](entries/streets.md) | 全游戏最大的城市图，双 Boss 与地雷区 |
+| 18 | [海岸线](entries/shoreline.md) | 疗养院垂直攻防与远距离交火并存 |
+| 19 | [灯塔](entries/lighthouse.md) | 重做后的海岸军事图，Lightkeeper 线起点 |
+| 20 | [街区](entries/streets.md) | 全游戏最大的城市图，双 Boss 与地雷区 |
+| 21 | [实验室](entries/labs.md) | 无 Scav、全 PMC 的顶级风险区 |
 | 22 | [终点站](entries/terminal.md) | 1.0 主线压轴，剧情向的终局场景 |
 | 23 | [破冰船](entries/icebreaker.md) | 全 PvE 终局场景，辐射与黑师 |
 | 24 | [迷宫](entries/labyrinth.md) | 不在选图列表里的解谜型场景，保险不生效 |

@@ -86,19 +86,23 @@ nav:
           - 安全箱与容器: entries/containers.md
           - PMC 与 Scav: entries/pmc-scav.md
       - 第二篇 · 地图:
-          - 工厂: entries/factory.md
-          - 海关: entries/customs.md
-          - 森林: entries/woods.md
-          - 海岸线: entries/shoreline.md
-          - 立交桥: entries/interchange.md
-          - 储备站: entries/reserve.md
-          - 实验室: entries/labs.md
-          - 地面零点: entries/ground-zero.md
-          - 灯塔: entries/lighthouse.md
-          - 街区: entries/streets.md
-          - 终点站: entries/terminal.md
-          - 破冰船: entries/icebreaker.md
-          - 迷宫: entries/labyrinth.md
+          - 新手图:
+              - 地面零点: entries/ground-zero.md
+              - 工厂: entries/factory.md
+          - 常规图:
+              - 海关: entries/customs.md
+              - 森林: entries/woods.md
+              - 立交桥: entries/interchange.md
+              - 储备站: entries/reserve.md
+          - 进阶图:
+              - 海岸线: entries/shoreline.md
+              - 灯塔: entries/lighthouse.md
+              - 街区: entries/streets.md
+              - 实验室: entries/labs.md
+          - 终局图:
+              - 终点站: entries/terminal.md
+              - 破冰船: entries/icebreaker.md
+              - 迷宫: entries/labyrinth.md
       - 第三篇 · 装备与枪械:
           - 弹药与穿深等级: entries/ammo.md
           - 弹药选型速查表: entries/ammo-table.md
