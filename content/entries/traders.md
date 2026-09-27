@@ -97,6 +97,7 @@ tags:
 - [PMC 与 Scav](pmc-scav.md) — Fence 与 Karma 的关系
 - [枪械改装](gunsmith.md) — Mechanic 的配件货架
 - [跳蚤定价与手续费](flea-pricing.md) — 回购价与底价的关系
+- [等级与经验体系](levels.md) — 忠诚度档位是「等级 + 声望 + 消费额」三条件，等级只是其中之一
 
 ## 📚 所有条目
 

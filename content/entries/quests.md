@@ -222,6 +222,7 @@ tags:
 - [成就系统](achievements.md) — 任务之外的长期目标
 - [安全箱与容器](containers.md) — Kappa 的获取条件与型号对照
 - [彩蛋与制作组的恶意](easter-eggs.md) — Fence 的彩蛋任务线与唯一容器奖励
+- [等级与经验体系](levels.md) — 经验与解锁的最大来源都在这里
 
 ## 📚 所有条目
 

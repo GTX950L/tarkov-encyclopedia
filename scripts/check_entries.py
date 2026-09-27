@@ -144,7 +144,15 @@ def main() -> int:
         if not path.exists():
             continue
         found = re.search(pattern, path.read_text(encoding="utf-8"))
-        if found and int(found.group(1)) != n_entries:
+        if not found:
+            # 声明了要检查、却在文件里找不到那句话，说明要么句子被改写了、要么该处漏了计数。
+            # 这比"数字写错"更隐蔽：数字写错会报错，而找不到就静默通过（本条即因此长期空转）。
+            errors.append(
+                f"计数声明缺失（{label}）: {path.relative_to(ROOT)} 里找不到声明句，"
+                f"预期模式 {pattern}"
+            )
+            continue
+        if int(found.group(1)) != n_entries:
             errors.append(
                 f"计数不一致（{label}）: {path.relative_to(ROOT)} 写的是 {found.group(1)}，"
                 f"实际 {n_entries}"
