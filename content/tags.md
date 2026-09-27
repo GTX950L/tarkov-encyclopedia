@@ -13,7 +13,7 @@ tags:
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
 | 机制 | 29 | ai-behavior · audio · contact-drill · death-review · engagement-rules · extraction · extraction-points · food-and-water · health · iff · insurance · inventory · levels · looting · mail · mechanics · movement · pmc-scav · prestige · pve · raid-flow · scav-command · scav-relations · skills · spawn-and-opening · squads · stamina · transit · weather |
-| 装备 | 19 | ammo · ammo-table · armor · armor-catalog · armor-repair · audio · ballistics · clothing · containers · grenades · gunsmith · inventory · keys · lighting · medical · night-vision · weapon-maintenance · weapon-mastery · weapons |
+| 装备 | 21 | ammo · ammo-table · armor · armor-catalog · armor-repair · audio · ballistics · clothing · containers · food-catalog · grenades · gunsmith · inventory · keys · lighting · medical · medical-catalog · night-vision · weapon-maintenance · weapon-mastery · weapons |
 | 经济 | 17 | armor-repair · barter · containers · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · insurance · karma · keys · loot · looting · mail · quests · trader-questlines · traders |
 | 地图 | 17 | customs · easter-eggs · factory · ground-zero · icebreaker · interchange · labs · labyrinth · lighthouse · loot · map-guide · reserve · shoreline · streets · terminal · transit · woods |
 | 成长 | 16 | achievements · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · karma · levels · prestige · progression · quests · skills · story-chapters · trader-questlines · traders · weapon-mastery |
@@ -37,7 +37,7 @@ tags:
 |------|------|----------|
 | 中期 | 32 | ai-behavior · arena · armor-repair · barter · clothing · combat-medical · contact-drill · death-review · easter-eggs · economic-cycle · extraction-points · firefight · flea-pricing · grenade-response · grenades · interchange · karma · keys · levels · lighting · loot · looting · raid-flow · scav-command · scav-relations · shoreline · skills · stamina · weapon-maintenance · weapon-mastery · weapons · weather |
 | 后期 | 11 | achievements · icebreaker · labs · labyrinth · night-vision · prestige · season-modifiers · seasons · story-chapters · streets · terminal |
-| 入门 | 14 | containers · customs · extraction · food-and-water · ground-zero · health · insurance · inventory · mail · movement · pmc-scav · pve · spawn-and-opening · worldview |
+| 入门 | 15 | containers · customs · extraction · food-and-water · food-catalog · ground-zero · health · insurance · inventory · mail · movement · pmc-scav · pve · spawn-and-opening · worldview |
 | 中后期 | 3 | bosses · lighthouse · reserve |
 | 终局 | 2 | icebreaker · labyrinth |
 
@@ -45,7 +45,7 @@ tags:
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| 生存 | 6 | armor · armor-catalog · combat-medical · food-and-water · health · medical |
+| 生存 | 8 | armor · armor-catalog · combat-medical · food-and-water · food-catalog · health · medical · medical-catalog |
 | 核心数值 | 3 | ammo · ammo-table · ballistics |
 | 护甲 | 3 | armor · armor-catalog · armor-repair |
 | 弹药 | 2 | ammo · ammo-table |
