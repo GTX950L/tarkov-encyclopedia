@@ -6,7 +6,7 @@ tags:
 
 <a id="top"></a>
 
-目前已收录 **80 个**条目。按主题分为九篇，也可用右上角搜索直接查词。
+目前已收录 **81 个**条目。按主题分为九篇，也可用右上角搜索直接查词。
 
 ## 📊 条目一览表
 
@@ -58,48 +58,49 @@ tags:
 | 44 | [经济周期](economic-cycle.md) | 经济 | 赛季内价格的四阶段规律 |
 | 45 | [战利品分布与热点](loot.md) | 经济 | 按区域类型判断收益 |
 | 46 | [声望与 Karma](karma.md) | 经济 | 逐项加减分与声望收益 |
-| 47 | [技能系统](skills.md) | 成长 | 用行为练出来的被动加成 |
-| 48 | [武器掌握](weapon-mastery.md) | 成长 | 命中换来的换弹动作升级 |
-| 49 | [成就系统](achievements.md) | 成长 | 任务之外的长期目标 |
-| 50 | [Prestige 转生](prestige.md) | 成长 | 自愿重置换永久奖励 |
-| 51 | [耐力与移速](stamina.md) | 战斗 | 重量与机动性的定价 |
-| 52 | [姿态、移动与射击](movement.md) | 战斗 | 站蹲卧与慢走的取舍 |
-| 53 | [手雷与投掷物](grenades.md) | 战斗 | 逼位、封路与反弹风险 |
-| 54 | [夜视与热成像](night-vision.md) | 战斗 | 夜间视野的军备竞赛 |
-| 55 | [听声辨位与音频机制](audio.md) | 战斗 | 耳机决定的信息差 |
-| 56 | [组队与协作](squads.md) | 战斗 | 无 HUD 标识的小队规则 |
-| 57 | [敌我识别与身份判断](iff.md) | 战斗 | 没有名字标签时怎么看人 |
-| 58 | [阵营关系与交战规则](engagement-rules.md) | 战斗 | 谁能打谁、开火之后记哪本账 |
-| 59 | [AI 行为逻辑](ai-behavior.md) | 战斗 | 感知、记忆与声响诱导 |
-| 60 | [Scav 互动与叛徒判定](scav-relations.md) | 战斗 | 一枪作废的中立协议 |
-| 61 | [Scav 指挥与随从系统](scav-command.md) | 战斗 | 六个指令让 AI 替你开枪 |
-| 62 | [Boss 图鉴](bosses.md) | 战斗 | 首领对照与护卫编队 |
-| 63 | [战斗复盘与常见死因](death-review.md) | 战斗 | 从死因倒推可改进项 |
-| 64 | [赛季与修改器](seasons.md) | 赛季 | 三种档案与赛季规则 |
-| 65 | [赛季修改器逐项](season-modifiers.md) | 赛季 | 全局 6 项 + 个人卡构筑 |
-| 66 | [联赛系统](leagues.md) | 赛季 | 每周 50 人的经验值天梯 |
-| 67 | [竞技场](arena.md) | 衍生 | 独立进度的纯对抗模式 |
-| 68 | [PvE 模式](pve.md) | 衍生 | 没有真人对手的持久档案 |
-| 69 | [转场与 BTR](transit.md) | 场景 | 不撤离也能换图 |
-| 70 | [撤离点详解](extraction-points.md) | 场景 | 条件型撤离点速查 |
-| 71 | [天气与时间系统](weather.md) | 世界 | 七倍速的时钟与天气 |
-| 72 | [光照与夜战](lighting.md) | 世界 | 光源是双刃剑 |
-| 73 | [彩蛋与制作组的恶意](easter-eggs.md) | 世界 | 彩蛋点位与设计好的陷阱 |
-| 74 | [世界观与阵营背景](worldview.md) | 世界 | 诺文斯克封锁与两大 PMC 的由来 |
-| 75 | [战局流程与节奏](raid-flow.md) | 行为 | 时间是唯一不可再生的预算 |
-| 76 | [搜刮效率与战利品取舍](looting.md) | 行为 | 搜索是一段不能开枪的静止 |
-| 77 | [遇敌处置与接战决策](contact-drill.md) | 行为 | 前 3 秒看完这五件事 |
-| 78 | [交火中的技术动作](firefight.md) | 行为 | 露多大、露多久，比枪法更决定生死 |
-| 79 | [投掷物来袭处置](grenade-response.md) | 行为 | 拔销声是一张双向的牌 |
-| 80 | [战中伤情处置](combat-medical.md) | 行为 | 会继续变坏的伤先治 |
+| 47 | [等级与经验体系](levels.md) | 成长 | 等级只开门，不给属性；经验从任务与撤离来 |
+| 48 | [技能系统](skills.md) | 成长 | 用行为练出来的被动加成 |
+| 49 | [武器掌握](weapon-mastery.md) | 成长 | 命中换来的换弹动作升级 |
+| 50 | [成就系统](achievements.md) | 成长 | 任务之外的长期目标 |
+| 51 | [Prestige 转生](prestige.md) | 成长 | 自愿重置换永久奖励 |
+| 52 | [耐力与移速](stamina.md) | 战斗 | 重量与机动性的定价 |
+| 53 | [姿态、移动与射击](movement.md) | 战斗 | 站蹲卧与慢走的取舍 |
+| 54 | [手雷与投掷物](grenades.md) | 战斗 | 逼位、封路与反弹风险 |
+| 55 | [夜视与热成像](night-vision.md) | 战斗 | 夜间视野的军备竞赛 |
+| 56 | [听声辨位与音频机制](audio.md) | 战斗 | 耳机决定的信息差 |
+| 57 | [组队与协作](squads.md) | 战斗 | 无 HUD 标识的小队规则 |
+| 58 | [敌我识别与身份判断](iff.md) | 战斗 | 没有名字标签时怎么看人 |
+| 59 | [阵营关系与交战规则](engagement-rules.md) | 战斗 | 谁能打谁、开火之后记哪本账 |
+| 60 | [AI 行为逻辑](ai-behavior.md) | 战斗 | 感知、记忆与声响诱导 |
+| 61 | [Scav 互动与叛徒判定](scav-relations.md) | 战斗 | 一枪作废的中立协议 |
+| 62 | [Scav 指挥与随从系统](scav-command.md) | 战斗 | 六个指令让 AI 替你开枪 |
+| 63 | [Boss 图鉴](bosses.md) | 战斗 | 首领对照与护卫编队 |
+| 64 | [战斗复盘与常见死因](death-review.md) | 战斗 | 从死因倒推可改进项 |
+| 65 | [赛季与修改器](seasons.md) | 赛季 | 三种档案与赛季规则 |
+| 66 | [赛季修改器逐项](season-modifiers.md) | 赛季 | 全局 6 项 + 个人卡构筑 |
+| 67 | [联赛系统](leagues.md) | 赛季 | 每周 50 人的经验值天梯 |
+| 68 | [竞技场](arena.md) | 衍生 | 独立进度的纯对抗模式 |
+| 69 | [PvE 模式](pve.md) | 衍生 | 没有真人对手的持久档案 |
+| 70 | [转场与 BTR](transit.md) | 场景 | 不撤离也能换图 |
+| 71 | [撤离点详解](extraction-points.md) | 场景 | 条件型撤离点速查 |
+| 72 | [天气与时间系统](weather.md) | 世界 | 七倍速的时钟与天气 |
+| 73 | [光照与夜战](lighting.md) | 世界 | 光源是双刃剑 |
+| 74 | [彩蛋与制作组的恶意](easter-eggs.md) | 世界 | 彩蛋点位与设计好的陷阱 |
+| 75 | [世界观与阵营背景](worldview.md) | 世界 | 诺文斯克封锁与两大 PMC 的由来 |
+| 76 | [战局流程与节奏](raid-flow.md) | 行为 | 时间是唯一不可再生的预算 |
+| 77 | [搜刮效率与战利品取舍](looting.md) | 行为 | 搜索是一段不能开枪的静止 |
+| 78 | [遇敌处置与接战决策](contact-drill.md) | 行为 | 前 3 秒看完这五件事 |
+| 79 | [交火中的技术动作](firefight.md) | 行为 | 露多大、露多久，比枪法更决定生死 |
+| 80 | [投掷物来袭处置](grenade-response.md) | 行为 | 拔销声是一张双向的牌 |
+| 81 | [战中伤情处置](combat-medical.md) | 行为 | 会继续变坏的伤先治 |
 
 ## 🗂️ 按标签浏览
 
-- **机制**（28 篇）：ai-behavior · audio · contact-drill · death-review · engagement-rules · extraction · extraction-points · food-and-water · health · iff · insurance · inventory · looting · mail · mechanics · movement · pmc-scav · prestige · pve · raid-flow · scav-command · scav-relations · skills · spawn-and-opening · squads · stamina · transit · weather
+- **机制**（29 篇）：ai-behavior · audio · contact-drill · death-review · engagement-rules · extraction · extraction-points · food-and-water · health · iff · insurance · inventory · levels · looting · mail · mechanics · movement · pmc-scav · prestige · pve · raid-flow · scav-command · scav-relations · skills · spawn-and-opening · squads · stamina · transit · weather
 - **装备**（19 篇）：weapon-maintenance · clothing · ammo · ammo-table · ballistics · armor · armor-catalog · armor-repair · medical · gunsmith · weapons · keys · containers · grenades · night-vision · weapon-mastery · inventory · lighting · audio
 - **经济**（17 篇）：armor-repair · barter · containers · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · insurance · karma · keys · loot · looting · mail · quests · trader-questlines · traders
 - **地图**（17 篇）：factory · customs · woods · shoreline · interchange · reserve · labs · ground-zero · lighthouse · streets · terminal · icebreaker · labyrinth · loot · transit · easter-eggs · map-guide
-- **成长**（15 篇）：traders · flea-market · flea-pricing · hideout · hideout-modules · quests · trader-questlines · story-chapters · economic-cycle · karma · skills · weapon-mastery · achievements · prestige · progression
+- **成长**（16 篇）：traders · flea-market · flea-pricing · hideout · hideout-modules · quests · trader-questlines · story-chapters · economic-cycle · karma · levels · skills · weapon-mastery · achievements · prestige · progression
 - **战斗**（21 篇）：ai-behavior · audio · bosses · combat-medical · contact-drill · death-review · engagement-rules · factory · firefight · grenade-response · grenades · iff · lighting · movement · night-vision · raid-flow · scav-command · scav-relations · squads · stamina · woods
 - **场景与环境**：地形（6）· 环境（4）· 军事（3）
 - **赛季与衍生**（6 篇）：seasons · season-modifiers · leagues · arena · pve · version-history

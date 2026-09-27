@@ -20,7 +20,7 @@
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s3" href="entries/ammo.md"><b>第三篇</b><em>装备与枪械</em><i>12 篇</i></a>
 <span class="tk-arrow">→</span>
-<a class="tk-step tk-s4" href="entries/traders.md"><b>第四篇</b><em>经济与成长</em><i>17 篇</i></a>
+<a class="tk-step tk-s4" href="entries/traders.md"><b>第四篇</b><em>经济与成长</em><i>18 篇</i></a>
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s5" href="entries/stamina.md"><b>第五篇</b><em>进阶战斗机制</em><i>13 篇</i></a>
 <span class="tk-arrow">→</span>
@@ -109,65 +109,66 @@
 | 44 | [经济周期](entries/economic-cycle.md) | 一个赛季内价格的四阶段规律与应对 |
 | 45 | [战利品分布与热点](entries/loot.md) | 按区域类型判断收益，用“每格价值”做取舍 |
 | 46 | [声望与 Karma](entries/karma.md) | 逐项加减分与声望影响的全部面向 |
-| 47 | [技能系统](entries/skills.md) | 用行为练出来的被动加成，隐形战力差 |
-| 48 | [武器掌握](entries/weapon-mastery.md) | 命中换来的换弹动作升级，L3 可瞄具内换弹 |
-| 49 | [成就系统](entries/achievements.md) | 任务之外的长期目标，以及“绝版”的含义 |
-| 50 | [Prestige 转生](entries/prestige.md) | 自愿把角色打回 1 级，换永久奖励——不可逆 |
+| 47 | [等级与经验体系](entries/levels.md) | 等级是钥匙不是属性——先搞懂“升级到底解锁了什么” |
+| 48 | [技能系统](entries/skills.md) | 用行为练出来的被动加成，隐形战力差 |
+| 49 | [武器掌握](entries/weapon-mastery.md) | 命中换来的换弹动作升级，L3 可瞄具内换弹 |
+| 50 | [成就系统](entries/achievements.md) | 任务之外的长期目标，以及“绝版”的含义 |
+| 51 | [Prestige 转生](entries/prestige.md) | 自愿把角色打回 1 级，换永久奖励——不可逆 |
 
 ### 第五篇：进阶战斗机制（同一套装备，不同的结局）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 51 | [耐力与移速](entries/stamina.md) | 负重与机动性的定价，决定你能不能跑掉 |
-| 52 | [姿态、移动与射击](entries/movement.md) | 站蹲卧的取舍、慢走如何关掉地形噪音、侧身怎么用 |
-| 53 | [手雷与投掷物](entries/grenades.md) | 逼位与封路，最便宜的重武器 |
-| 54 | [夜视与热成像](entries/night-vision.md) | 夜间视野的军备竞赛与反制 |
-| 55 | [听声辨位与音频机制](entries/audio.md) | 耳机决定的信息差，先听见的人先开枪 |
-| 56 | [组队与协作](entries/squads.md) | 没有 HUD 标识的小队规则与友伤代价 |
-| 57 | [敌我识别与身份判断](entries/iff.md) | 没有名字标签、也没有队友点位时，怎么判断对面是谁 |
-| 58 | [阵营关系与交战规则](entries/engagement-rules.md) | 每一枪分别记在哪本账上 |
-| 59 | [AI 行为逻辑](entries/ai-behavior.md) | 感知三环节、0.16.1.3 侦测重做与声响诱导 |
-| 60 | [Scav 互动与叛徒判定](entries/scav-relations.md) | 一枪作废的中立协议与声望后果 |
-| 61 | [Scav 指挥与随从系统](entries/scav-command.md) | 声望换来的指挥权：六个指令与随从 |
-| 62 | [Boss 图鉴](entries/bosses.md) | 首领对照、护卫编队与刷新概率的两层结构 |
-| 63 | [战斗复盘与常见死因](entries/death-review.md) | 用结算界面上的五个数字，找出自己重复犯的那个错误 |
-| 64 | [赛季与修改器](entries/seasons.md) | 三种档案（持久 / 赛季 / PvE）与赛季规则 |
+| 52 | [耐力与移速](entries/stamina.md) | 负重与机动性的定价，决定你能不能跑掉 |
+| 53 | [姿态、移动与射击](entries/movement.md) | 站蹲卧的取舍、慢走如何关掉地形噪音、侧身怎么用 |
+| 54 | [手雷与投掷物](entries/grenades.md) | 逼位与封路，最便宜的重武器 |
+| 55 | [夜视与热成像](entries/night-vision.md) | 夜间视野的军备竞赛与反制 |
+| 56 | [听声辨位与音频机制](entries/audio.md) | 耳机决定的信息差，先听见的人先开枪 |
+| 57 | [组队与协作](entries/squads.md) | 没有 HUD 标识的小队规则与友伤代价 |
+| 58 | [敌我识别与身份判断](entries/iff.md) | 没有名字标签、也没有队友点位时，怎么判断对面是谁 |
+| 59 | [阵营关系与交战规则](entries/engagement-rules.md) | 每一枪分别记在哪本账上 |
+| 60 | [AI 行为逻辑](entries/ai-behavior.md) | 感知三环节、0.16.1.3 侦测重做与声响诱导 |
+| 61 | [Scav 互动与叛徒判定](entries/scav-relations.md) | 一枪作废的中立协议与声望后果 |
+| 62 | [Scav 指挥与随从系统](entries/scav-command.md) | 声望换来的指挥权：六个指令与随从 |
+| 63 | [Boss 图鉴](entries/bosses.md) | 首领对照、护卫编队与刷新概率的两层结构 |
+| 64 | [战斗复盘与常见死因](entries/death-review.md) | 用结算界面上的五个数字，找出自己重复犯的那个错误 |
+| 65 | [赛季与修改器](entries/seasons.md) | 三种档案（持久 / 赛季 / PvE）与赛季规则 |
 
 ### 第六篇：赛季与衍生内容（1.1 之后的新规则）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 65 | [赛季修改器逐项](entries/season-modifiers.md) | 全局 6 项 + 33 张个人卡的点数市场 |
-| 66 | [联赛系统](entries/leagues.md) | 每周 50 人的经验值天梯 |
-| 67 | [竞技场](entries/arena.md) | 独立进度的纯对抗模式 |
-| 68 | [PvE 模式](entries/pve.md) | 没有真人对手、永不 wipe 的持久档案 |
-| 69 | [转场与 BTR](entries/transit.md) | 不结束战局也能换图，经验倍率与物流通道 |
+| 66 | [赛季修改器逐项](entries/season-modifiers.md) | 全局 6 项 + 33 张个人卡的点数市场 |
+| 67 | [联赛系统](entries/leagues.md) | 每周 50 人的经验值天梯 |
+| 68 | [竞技场](entries/arena.md) | 独立进度的纯对抗模式 |
+| 69 | [PvE 模式](entries/pve.md) | 没有真人对手、永不 wipe 的持久档案 |
+| 70 | [转场与 BTR](entries/transit.md) | 不结束战局也能换图，经验倍率与物流通道 |
 
 ### 第七篇：场景与转场（把一局打成一条线）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 70 | [撤离点详解](entries/extraction-points.md) | 条件型撤离点速查：钥匙、信号弹、合作、付费 |
-| 71 | [天气与时间系统](entries/weather.md) | 七倍速时钟、进图两个档位与天气的双向作用 |
+| 71 | [撤离点详解](entries/extraction-points.md) | 条件型撤离点速查：钥匙、信号弹、合作、付费 |
+| 72 | [天气与时间系统](entries/weather.md) | 七倍速时钟、进图两个档位与天气的双向作用 |
 
 ### 第八篇：世界与背景（环境、元内容与设定三条线索）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 72 | [光照与夜战](entries/lighting.md) | 光源是双刃剑：照亮与被照亮只差一秒 |
-| 73 | [彩蛋与制作组的恶意](entries/easter-eggs.md) | 制作组藏在图里的玩笑，以及那些“设计好的死亡”——雷区、阔剑、不生效的保险 |
-| 74 | [世界观与阵营背景](entries/worldview.md) | 诺文斯克为什么被封锁、USEC 与 BEAR 从哪来——解释“你为什么出不去” |
-| 75 | [战局流程与节奏](entries/raid-flow.md) | 先拿到全局：四段结构、搜刮动线、什么时候必须撤 |
+| 73 | [光照与夜战](entries/lighting.md) | 光源是双刃剑：照亮与被照亮只差一秒 |
+| 74 | [彩蛋与制作组的恶意](entries/easter-eggs.md) | 制作组藏在图里的玩笑，以及那些“设计好的死亡”——雷区、阔剑、不生效的保险 |
+| 75 | [世界观与阵营背景](entries/worldview.md) | 诺文斯克为什么被封锁、USEC 与 BEAR 从哪来——解释“你为什么出不去” |
+| 76 | [战局流程与节奏](entries/raid-flow.md) | 先拿到全局：四段结构、搜刮动线、什么时候必须撤 |
 
 ### 第九篇：战局内行为手册（把机制变成动作）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 76 | [搜刮效率与战利品取舍](entries/looting.md) | 到了地方之后，怎么在最短的暴露时间里拿完 |
-| 77 | [遇敌处置与接战决策](entries/contact-drill.md) | 遇到人的前 3 秒：打、躲，还是走 |
-| 78 | [交火中的技术动作](entries/firefight.md) | 打起来之后手上怎么做：探头、掩体、换弹、切副武器、进房 |
-| 79 | [投掷物来袭处置](entries/grenade-response.md) | 拔销声能骗人、也能被趁虚而入；引信决定你躲不躲得掉 |
-| 80 | [战中伤情处置](entries/combat-medical.md) | 受伤之后先做什么——顺序错了，等于没治 |
+| 77 | [搜刮效率与战利品取舍](entries/looting.md) | 到了地方之后，怎么在最短的暴露时间里拿完 |
+| 78 | [遇敌处置与接战决策](entries/contact-drill.md) | 遇到人的前 3 秒：打、躲，还是走 |
+| 79 | [交火中的技术动作](entries/firefight.md) | 打起来之后手上怎么做：探头、掩体、换弹、切副武器、进房 |
+| 80 | [投掷物来袭处置](entries/grenade-response.md) | 拔销声能骗人、也能被趁虚而入；引信决定你躲不躲得掉 |
+| 81 | [战中伤情处置](entries/combat-medical.md) | 受伤之后先做什么——顺序错了，等于没治 |
 
 ---
 
@@ -195,7 +196,7 @@
 
 ---
 
-📖 [查看全部 80 个条目](entries/index.md)
+📖 [查看全部 81 个条目](entries/index.md)
 
 ⬆️ **[回到顶部](#top)**
 

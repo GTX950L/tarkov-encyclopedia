@@ -115,6 +115,10 @@ def main() -> int:
     # 4. 条目计数一致性
     n_entries = len(entries)
     for md in md_files:
+        # CHANGELOG 里出现的是历史记录（“当时全站尾行更新为 N 个条目”），
+        # 描述的是那一次的现状而不是当前口径——历史记录不改写，也不参与计数校验。
+        if md.name == "CHANGELOG.md":
+            continue
         text = md.read_text(encoding="utf-8")
         for m in COUNT_RE.finditer(text):
             if int(m.group(1)) != n_entries:
@@ -122,8 +126,10 @@ def main() -> int:
                     f"计数不一致: {md.relative_to(ROOT)} 写的是「{m.group(1)} 个条目」，"
                     f"实际 {n_entries} 个"
                 )
-        # 路径图：各篇篇数之和应等于条目总数
-        parts = re.findall(r"第[一二三四五六七八九十]篇<br/>[^<]*<br/>(\d+) 篇", text)
+        # 路径图：各篇篇数之和应等于条目总数。
+        # 首页的学习路径图已由 mermaid 改为零依赖纯 CSS 路径条（见 CHANGELOG v1.21.0），
+        # 标记形态随之变为 <b>第X篇</b><em>篇名</em><i>N 篇</i>。
+        parts = re.findall(r"<b>第[一二三四五六七八九十]篇</b><em>[^<]*</em><i>(\d+) 篇</i>", text)
         if parts and sum(int(x) for x in parts) != n_entries:
             errors.append(
                 f"路径图篇数之和为 {sum(int(x) for x in parts)}，与条目总数 {n_entries} 不符: "
