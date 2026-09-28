@@ -65,7 +65,7 @@
 |------|------|-------------|
 | 13 | [地面零点](entries/ground-zero.md) | 面向低等级玩家的市区图，任务起点 |
 | 14 | [工厂](entries/factory.md) | 最小最乱的 CQB 图，练近战的课堂 |
-| 15 | [海关](entries/customs.md) | 经典中的经典，任务最密集的中型图 |
+| 15 | [海关](entries/customs.md) | 经典中的经典，开局任务最集中的中型图 |
 | 16 | [森林](entries/woods.md) | 大型开阔图，狙击与听声辨位的考场 |
 | 17 | [立交桥](entries/interchange.md) | 全室内商城，光线昏暗、背身刺杀频发 |
 | 18 | [储备站](entries/reserve.md) | 军事基地与地下掩体，高价值任务枢纽 |
