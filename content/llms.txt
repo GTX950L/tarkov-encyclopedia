@@ -1,0 +1,59 @@
+# 逃离塔科夫百科全书
+
+> 面向玩家与 AI 智能体的《逃离塔科夫》中文结构化资料库：86 个条目 + 参考页，分八篇组织。
+> 静态事实对照官方来源核验；动态数值标注实时口径；全站不使用任何配图，弱网环境可流畅阅读。
+
+版本基线：2026 年 9 月
+游戏版本基准：Escape from Tarkov 1.1.5.1（第一赛季 KORD BREACH）
+最后更新：2026-09-28
+
+**引用本资料前请先读**：[数据口径与引用说明](https://gtx950l.github.io/tarkov-encyclopedia/docs/citation/) —— 它说明哪一部分可以直接引用、哪一部分必须附加限定语、哪些事项属于未决项。
+
+## 篇目录
+
+- [百科条目总览](https://gtx950l.github.io/tarkov-encyclopedia/entries/)：全部 86 个条目的索引，含按标签浏览
+- [第一篇 · 入门机制](https://gtx950l.github.io/tarkov-encyclopedia/entries/spawn-and-opening/)：开局与出生点、撤离机制与撤离点、生命与身体部位、食物与水分、医疗、保险、背包与容器、PMC 与 Scav
+- [第二篇 · 地图](https://gtx950l.github.io/tarkov-encyclopedia/entries/ground-zero/)：13 张地图逐图条目 + 转场与 BTR
+- [第三篇 · 装备与枪械](https://gtx950l.github.io/tarkov-encyclopedia/entries/ammo/)：弹药与穿深、弹道、护甲与头盔、载具、耳机、枪械改装与图鉴、钥匙
+- [第四篇 · 经济与成长](https://gtx950l.github.io/tarkov-encyclopedia/entries/traders/)：商人、以物换物、跳蚤市场、邮件、藏身处、任务与商人任务线、经济周期、声望与等级、技能与成就、Prestige
+- [第五篇 · 进阶战斗机制](https://gtx950l.github.io/tarkov-encyclopedia/entries/stamina/)：耐力、姿态与移动、手雷、夜视与热成像、听声辨位、组队、敌我识别、阵营交战规则、AI 行为、Scav 互动与指挥、Boss 图鉴
+- [第六篇 · 赛季与衍生内容](https://gtx950l.github.io/tarkov-encyclopedia/entries/seasons/)：赛季与修改器、联赛、竞技场、PvE 模式
+- [第七篇 · 世界与背景](https://gtx950l.github.io/tarkov-encyclopedia/entries/weather/)：天气与时间、光照与夜战、彩蛋、世界观与阵营背景
+- [第八篇 · 战局内行为手册](https://gtx950l.github.io/tarkov-encyclopedia/entries/raid-flow/)：战局流程与节奏、搜刮效率、遇敌处置、交火技术动作、投掷物来袭处置、战中伤情处置
+
+## 参考区
+
+- [数据口径与引用说明](https://gtx950l.github.io/tarkov-encyclopedia/docs/citation/)：三档口径、基准快照、已知未决项、资料来源分级、引用建议
+- [机制速查表](https://gtx950l.github.io/tarkov-encyclopedia/docs/mechanics/)：一页看懂所有核心规则
+- [术语与黑话速查](https://gtx950l.github.io/tarkov-encyclopedia/docs/glossary/)：全称、缩写与社区俗称双向可查
+- [新手成长路线](https://gtx950l.github.io/tarkov-encyclopedia/docs/progression/)：按阶段该做什么
+- [地图对照速查](https://gtx950l.github.io/tarkov-encyclopedia/docs/map-guide/)：逐图的交战风格、资源类型、风险与适合阶段（不列坐标）
+- [购买指南（地区与版本）](https://gtx950l.github.io/tarkov-encyclopedia/docs/buying-guide/)
+- [配置与性能](https://gtx950l.github.io/tarkov-encyclopedia/docs/performance/)
+- [操作与设置](https://gtx950l.github.io/tarkov-encyclopedia/docs/game-settings/)
+- [重大版本更新史](https://gtx950l.github.io/tarkov-encyclopedia/docs/version-history/)
+- [待收录清单](https://gtx950l.github.io/tarkov-encyclopedia/docs/roadmap/)：含「版本敏感内容（收录前需复核）」完整清单
+- [标签分类](https://gtx950l.github.io/tarkov-encyclopedia/tags/)
+- [条目模板](https://gtx950l.github.io/tarkov-encyclopedia/template/)
+- [贡献指南](https://gtx950l.github.io/tarkov-encyclopedia/CONTRIBUTING/)
+- [更新日志](https://gtx950l.github.io/tarkov-encyclopedia/CHANGELOG/)
+
+## 引用口径（摘要，完整版见引用说明页）
+
+- **静态事实**（历史、编制、阵营关系、机制原理、地理与区域结构）：可直接引用。
+- **动态数值**（人数、时长、刷新率、价格与手续费、穿深与耐久、门槛与等级、赛季修改器）：随版本与赛季变动，**引用时必须附「截至 1.1.5.1 / 2026 年 9 月，以当前版本为准」**。
+- **社区口径**（官方从未公布、仅有玩家实测或社区共识的内容）：不得作为单一依据引用。
+- **已知未决项**：涉及两处来源口径不一致的事项，引用时请回避，或按本站写法并列两种口径并注明存疑。清单见引用说明页第三节。
+
+## 资料来源分级
+
+- 一级（官方）：官方 Wiki、官方补丁说明与 changelog、官方支持页、游戏内文本与物品说明
+- 二级（官方数据工具）：tarkov.dev 的静态数据端点 —— 站内定量结论（任务数、人数、时长、配件条目数）的来源
+- 三级（社区）：玩家实测、社区共识、中文维基、攻略站 —— 只作起点参考，必须标注为社区口径
+
+## 相关资源
+
+- 逃离塔科夫中文 Wiki：https://www.eftarkov.com/
+- tarkov.dev（实时价格与掉落数据）：https://tarkov.dev/
+- 项目仓库：https://github.com/GTX950L/tarkov-encyclopedia
+- 许可协议（MIT）：https://github.com/GTX950L/tarkov-encyclopedia/blob/main/LICENSE

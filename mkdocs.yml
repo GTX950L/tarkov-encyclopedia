@@ -179,6 +179,7 @@ nav:
           - 战中伤情处置: entries/combat-medical.md
   - 参考:
       - 项目欢迎页: docs/index.md
+      - 数据口径与引用说明: docs/citation.md
       - 新手成长路线: docs/progression.md
       - 机制速查表: docs/mechanics.md
       - 地图对照速查: docs/map-guide.md
