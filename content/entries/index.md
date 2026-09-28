@@ -107,7 +107,9 @@ tags:
 - **地图**（17 篇）：factory · customs · woods · shoreline · interchange · reserve · labs · ground-zero · lighthouse · streets · terminal · icebreaker · labyrinth · loot · transit · easter-eggs · map-guide
 - **成长**（16 篇）：traders · flea-market · flea-pricing · hideout · hideout-modules · quests · trader-questlines · story-chapters · economic-cycle · karma · levels · skills · weapon-mastery · achievements · prestige · progression
 - **战斗**（22 篇）：ai-behavior · audio · headsets · bosses · combat-medical · contact-drill · death-review · engagement-rules · factory · firefight · grenade-response · grenades · iff · lighting · movement · night-vision · raid-flow · scav-command · scav-relations · squads · stamina · woods
-- **场景与环境**：地形（6）· 环境（4）· 军事（3）
+- **地形**（6 篇）：factory · interchange · labs · shoreline · streets · woods
+- **环境**（4 篇）：audio · lighting · night-vision · weather
+- **军事**（3 篇）：lighthouse · reserve · worldview
 - **赛季与衍生**（6 篇）：seasons · season-modifiers · leagues · arena · pve · version-history
 
 更多标签见[标签分类页](../tags.md)。
