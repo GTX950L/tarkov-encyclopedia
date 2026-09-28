@@ -42,11 +42,29 @@
    2. 表格：窄屏横向滚动（关键：不撑破正文），表头品牌蓝，偶数行淡底
    -------------------------------------------------------------------------- */
 
+/* ⚠️ 这里【必须显式写 overflow: visible】，不能只是「删掉 overflow 声明」。
+   原因：Material 主题自己就有一条**同特异性**的规则
+       .md-typeset table:not([class]) { display:inline-block; max-width:100%; overflow:auto }
+   —— 也就是「表格自身滚动」。本文件加载更晚、特异性相同，所以只要显式写就能覆盖它；
+   若只删不写，主题的 overflow:auto 立刻生效，表格又会自己滚、又画一条。
+   （主题另有 `html .md-typeset__table table { overflow:hidden }` 想关掉表格自身滚动，
+     但它的特异性 (0,1,2) 低于 (0,2,1)，被自己那条 overflow:auto 打败，形同虚设。）
+
+   实测（线上 ground-zero 表 1，视口 1220px 附近）：
+     修复前  table 自身 sw/cw = 764/718 → 画第 1 条
+             __table    sw/cw = 752/705 → 画第 2 条  ← 用户看到的「两个拖动条」
+     修复后  table 不再滚动；__table 的滚动范围 752 → 781，完整覆盖内容 764。
+   复现要点：只在**正文可用宽落在 min-width: 36rem 与内容实际宽度之间**时出现
+   （本例约视口 1220px，Material 双侧栏断点处）；且必须用**线上**（Web 字体已加载）
+   才能复现——本地构建的表格内容宽 718px，压根不溢出。
+   滚动统一交给下面 .md-typeset__table 那层负责。
+   —— 2026-09-28 修复「表格出现两个拖动条」 */
+
 .md-typeset table:not([class]) {
-  display: block;              /* 让宽表在窄屏可横向滚动 */
-  overflow-x: auto;
+  display: block;              /* table 作为块级盒子参与布局（滚动由父层负责） */
   width: 100%;
   max-width: 100%;
+  overflow: visible;           /* 覆盖主题的 overflow:auto —— 见上，禁止 table 自身滚动 */
   border: 1px solid var(--tk-line);
   border-radius: 6px;
   font-size: .74rem;
@@ -75,7 +93,13 @@
    为什么需要：中文可以逐字断行，表格的 min-content 极小，单靠 table 上的
    overflow-x 永远不会触发滚动——结果是列被压窄、每行只剩几个字。
    给一个最小宽度才能真正滚动起来；父容器必须可滚，否则会把整页撑宽。
-   :has() 不被支持时本规则自动失效、退回原行为，无副作用。 */
+   :has() 不被支持时本规则自动失效、退回原行为，无副作用。
+
+   ⚠️ 本层是全站**唯一**的表格滚动容器。上面 table 自身已显式设
+   overflow: visible（覆盖主题那条同特异性的 overflow:auto）——两层同时
+   溢出不仅会画出两条滚动条，外层的滚动范围还会吃不到内层溢出的内容。
+   主题自带的 .md-typeset__scrollwrap 在外层，子元素宽度等于它自己，
+   不会溢出，因此也不会画滚动条。改这一段前先读上面那条注释。 */
 
 .md-typeset__table {
   display: block;
