@@ -287,6 +287,9 @@ def main() -> int:
         ("lighting", "night-vision"),
         ("gunsmith", "weapons"),
         ("traders", "trader-questlines"),
+        # 机制 → 图鉴：与 armor/ammo 同理，「机制篇」必须指向它的「型号篇」
+        ("audio", "headsets"),
+        ("inventory", "loadout-carriers"),
     ]
     for main_slug, sub_slug in SUBPAGE_PAIRS:
         main_md = CONTENT / "entries" / f"{main_slug}.md"

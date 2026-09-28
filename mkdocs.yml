@@ -118,9 +118,12 @@ nav:
           - 护甲与头盔: entries/armor.md
           - 护甲与头盔图鉴: entries/armor-catalog.md
           - 护甲修复与耐久: entries/armor-repair.md
+          - "载具图鉴：背包与胸挂": entries/loadout-carriers.md
+          - 耳机与听力装备: entries/headsets.md
           - 武器故障与耐久维护: entries/weapon-maintenance.md
           - 枪械改装: entries/gunsmith.md
           - 枪械图鉴: entries/weapons.md
+          - "特殊槽装备与工具": entries/special-equipment.md
           - 服装与外观: entries/clothing.md
           - 钥匙与钥匙房: entries/keys.md
       - 第四篇 · 经济与成长:
