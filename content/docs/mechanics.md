@@ -47,7 +47,7 @@ tags:
 - **两条隐形资源**：水分与能量随时间下降，**归零后持续掉血**；**水比食物难找、耗尽也更致命**——安全箱里优先放水（见[食物与水分](../entries/food-and-water.md)）。
 - **腿黑 + 无手术包** = 止痛药跛行撤离。
 - **伤分两类**：**会继续变坏的**（出血、脱水、中毒）立刻处理；**已经变坏但稳定的**（骨折、疼痛、黑肢）可以延后——这就是“大出血排在骨折前面”的原因（见[战中伤情处置](../entries/combat-medical.md)）。
-- 详见[生命与身体部位系统](../entries/health.md)、[医疗物资](../entries/medical.md)。
+- 详见[生命与身体部位系统](../entries/health.md)、[医疗物资](../entries/medical.md)、[食物与饮料图鉴](../entries/food-catalog.md)、[医疗物资图鉴](../entries/medical-catalog.md)。
 
 ## 🔫 交火规则
 
@@ -60,7 +60,7 @@ tags:
 - **死完先看两处再下结论**：结算界面的**交战距离**、医疗界面的**弹种与命中次数**。
 - **投掷物看引信**：2 秒（VOG-25）到 5 秒（M67）；**短引信跑不出半径，正解是压低 + 贴硬掩体**；雷落在隔断另一侧时，不动常优于移动（见[投掷物来袭处置](../entries/grenade-response.md)）。
 - **分清朝三级掩体**：**硬掩体**（挡子弹，能换弹打药）/ **半身掩体**（只能蹲着打）/ **遮蔽物**（只挡视线，**绝不能用来对枪**）；换弹前先退到硬掩体后（见[交火中的技术动作](../entries/firefight.md)）。
-- 详见[弹道与穿透机制](../entries/ballistics.md)、[武器掌握](../entries/weapon-mastery.md)、[战斗复盘与常见死因](../entries/death-review.md)。
+- 详见[弹道与穿透机制](../entries/ballistics.md)、[武器掌握](../entries/weapon-mastery.md)、[战斗复盘与常见死因](../entries/death-review.md)、[枪械图鉴](../entries/weapons.md)。
 
 ## 🚶 移动与姿态规则
 
@@ -79,7 +79,7 @@ tags:
 - 头盔永远要戴；**耳机尽量别被面罩挤掉**——戴哪一款、值不值得为它降头盔等级，见[耳机与听力装备](../entries/headsets.md)。
 - 重甲代价是移速与耐力。
 - **特殊槽的三个格子死亡不掉、对手也搜不走**，进图前先填满（[特殊槽装备与工具](../entries/special-equipment.md)）。
-- 详见[护甲与头盔](../entries/armor.md)、[护甲与头盔图鉴](../entries/armor-catalog.md)。
+- 详见[护甲与头盔](../entries/armor.md)、[护甲与头盔图鉴](../entries/armor-catalog.md)、[夜视与热成像](../entries/night-vision.md)。
 
 ## 💰 经济规则
 

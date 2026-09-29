@@ -2,6 +2,47 @@
 
 本文件记录面向用户的条目内容变更。历史条目一经发布，只做修订不做改写。
 
+## 2026-09（v1.38.4）
+
+本批**不新增条目（86 → 86 篇）**，但**每一篇都变了** —— **86 篇条目全部补上版本口径页眉**，其中 14 篇另加一行「未决项」提示。一句话结论：
+
+> **规范的价值不在写下来，在于它能不能被机器对账。** 页眉模板 2026-09-28 就写好了，但它没有检查器，于是「新写的带、老的全没有」——**规范立了、也没人违反，只是没人执行。**
+
+### 1. 86 篇条目补上版本口径页眉
+
+[引用说明](docs/citation.md) 的「条目页眉模板」两行现在**全站齐备**（此前实测 **0 / 86**）：
+
+> 版本基线：2026 年 9 月 ｜ 1.1.5.1（第一赛季 KORD BREACH）｜ 数据来源：官方 Wiki 与补丁说明（一级）、tarkov.dev（二级）
+> 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+这一行是**整站引用口径落在单篇上的唯一载体**。此前读者拿到某一篇时，页面上没有任何地方告诉他这一页属于哪一档口径（静态 / 动态 / 社区）——只有[引用说明](docs/citation.md) 那一页在说。
+
+**其中 14 篇加第三行**，把站内已知的未决项直接标在条目上（编号与[引用说明](docs/citation.md) 第三节逐字一致）：
+
+> ⚠️ 本页含未决项：**A1** —— 见[引用说明第三节](docs/citation.md)
+
+涉及 [armor-catalog](entries/armor-catalog.md)（B8）、[bosses](entries/bosses.md)（A8）、[containers](entries/containers.md)（A1）、[engagement-rules](entries/engagement-rules.md)（B2、B3）、[headsets](entries/headsets.md)（B4）、[labs](entries/labs.md)（B9）、[lighthouse](entries/lighthouse.md)（A6）、[mail](entries/mail.md)（A4）、[night-vision](entries/night-vision.md)（A7）、[prestige](entries/prestige.md)（B5、B6）、[pve](entries/pve.md)（A2）、[scav-command](entries/scav-command.md)（A5、B1）、[spawn-and-opening](entries/spawn-and-opening.md)（B7）、[traders](entries/traders.md)（A3）。
+
+> 在这一行落地之前，未决项**只存在于[引用说明](docs/citation.md) 的表格里** —— 读者读到条目时是看不到的。
+
+### 2. 参考区补上 4 处图鉴缺口
+
+[机制速查表](docs/mechanics.md) 与[新手成长路线](docs/progression.md) 是**总结型页面**，新条目落地后它们不会自动更新。实测发现**有 4 篇图鉴从这两个入口都到不了**：[食物与饮料图鉴](entries/food-catalog.md)、[医疗物资图鉴](entries/medical-catalog.md)、[枪械图鉴](entries/weapons.md)、[夜视与热成像](entries/night-vision.md)。已补 5 处链接。
+
+**为什么这是漏项而不是「参考区不列图鉴」的设计**：同类图鉴里**四篇有引用、两篇是 0** —— 不对称才是漂移的证据；若同类全都 0 引用，那才是设计。
+
+### 3. 新增三项「覆盖率」检查
+
+`scripts/check_entries.py` 原有九项**全在查一致性**（数字对不对、链接通不通、标签齐不齐），**一致性全绿时覆盖率照样可以是 0**。本批补三项：页眉覆盖率、参考区覆盖率、`llms.txt` 一致性。**先立检查器，再让检查器驱动修复** —— 反过来做，补完这 86 篇，下一批照样会漏。
+
+**站务**：**不新增条目（86 → 86 篇）**。
+
+- **内容层**：86 篇条目页眉（+272 行，含 14 篇未决项行）；[机制速查表](docs/mechanics.md) 补 4 处图鉴链接、[新手成长路线](docs/progression.md) 补 1 处；[待收录清单](docs/roadmap.md) 补页面页脚；
+- **规范层**：[引用说明](docs/citation.md) 的页眉模板增「第三行」写法并更新回填状态；[条目模板](template.md) 的写作要求同步；
+- **工程层**：`scripts/check_entries.py` 增第 9–11 项覆盖率检查（含从[引用说明](docs/citation.md) 派生基线与未决项编号，**不硬编码**）；编纂手册由 2 册增到 **4 册**（补「单条事实订正」与「改名与术语统一」）；
+- **回归**：`scripts/check_entries.py` 通过（103 个内容文件、86 条目、29 个标签，内部链接 **2385 → 2455**）；`scripts/skills_consistency.py` 路径断言 **32/32**；`scripts/check-freshness.py` 扫描 **96 页**；`scripts/build_glossary.py` 收录术语 **27 条不变**；`zensical build` 无告警。
+- **顺带发现（只登记、不夹带）**：[新手成长路线](docs/progression.md) 连机制篇[食物与水分](entries/food-and-water.md) 也没有引用（全站 grep 为 0）——食物这一线在成长路线上整个缺席。已登记进[待收录清单](docs/roadmap.md) 站务区。
+
 ## 2026-09（v1.38.3）
 
 本批**不新增条目（86 → 86 篇）**，改的是**引用与维护这一层**——面向读者的是[引用说明](docs/citation.md) 多了一节，面向 AI 的是仓库里多了一套编纂手册。一句话结论：

@@ -53,9 +53,13 @@
 
 ## 维护与编纂（承接本仓库时先读）
 
-- **编纂手册**：`.agent/skills/` —— 新增条目（`tarkov-encyclopedia-new-entry`）、只读巡检（`tarkov-encyclopedia-audit`）两册，各含必读规范清单与回归步骤
-- **内容约定**：`content/template.md`（骨架与页脚写法）、`content/CONTRIBUTING.md`（体例仲裁规则）、`content/docs/citation.md`（三档口径与已知未决项）
-- **校验脚本**：`scripts/check_entries.py`（内容一致性）、`scripts/skills_consistency.py`（手册与实现是否脱节）、`scripts/check-freshness.py`（内容新鲜度，信息性）
+- **编纂手册**：`.agent/skills/` —— 四册，按任务类型分：
+  - `tarkov-encyclopedia-new-entry`：新增条目（先读四份硬约束规范 → 同步七处 → 回归）
+  - `tarkov-encyclopedia-fix-fact`：单条事实订正（核心纪律 —— **改一处必须 grep 全站**，因为补一个事实往往会牵出好几处早就写错、且分散在不同文件里的连带结论）
+  - `tarkov-encyclopedia-rename`：改名与术语统一（**「覆盖面」任务而非「查找替换」**；判据是「历史记录里的旧名不改写、正文里的旧名必须改」）
+  - `tarkov-encyclopedia-audit`：只读巡检（跑确定性脚本 → 按「读者会不会因此做错决定」排优先级）
+- **内容约定**：`content/template.md`（骨架与页眉写法）、`content/CONTRIBUTING.md`（体例仲裁规则）、`content/docs/citation.md`（三档口径、条目页眉模板与已知未决项）
+- **校验脚本**：`scripts/check_entries.py`（一致性 + **覆盖率**，CI 门禁）、`scripts/skills_consistency.py`（手册与实现是否脱节，CI 门禁）、`scripts/check-freshness.py`（内容新鲜度，信息性）
 - **改动纪律**：同一个实体在站内出现多处时，改一处必须 grep 全站 —— 否则别处会静默变错
 
 ## 相关资源

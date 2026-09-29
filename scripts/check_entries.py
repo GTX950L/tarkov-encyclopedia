@@ -1,14 +1,25 @@
 #!/usr/bin/env python3
-"""条目一致性校验（只读，不改文件）。
+"""条目一致性 + 覆盖率校验（只读，不改文件）。
 
-检查内容：
+一致性类（第 1–8 项）：
 1. mkdocs.yml nav 中引用的所有 markdown 文件是否存在；
 2. content/ 下所有 markdown 内的相对链接（.md）是否可解析；
-3. entries/ 条目骨架完整性（固定章节是否存在）；
+3. entries/ 条目骨架完整性（frontmatter + 固定章节）；
 4. 条目计数一致性：全站「查看全部 N 个条目」、总览页、两处 README、路径图篇数之和；
+4b. 篇数口径：声明的「分N篇」必须与 nav 的「第X篇」分组数一致；
 5. tags.md 的篇数与覆盖条目是否与 frontmatter 实际统计一致（防手工维护漂移）；
 6. 中文正文中是否残留直引号（英文/代码行不计）；
-7. 统计条目数，输出汇总报告。
+7. 总览页「按标签浏览」：slug 真实存在、条数一致、分隔符统一；
+8. 主条目必须链接到它的细分条目（「主 → 细分」是深入，「细分 → 主」只是回望）。
+
+覆盖率类（第 9–11 项）：
+9. 条目页眉覆盖率（citation.md「条目页眉模板」的两行）+ 页眉未决项编号与 citation.md
+   第三节是否逐字一致；
+10. 参考区「总结型页面」是否覆盖全部图鉴层条目（速查表 / 成长路线不会自动更新）；
+11. llms.txt（面向 AI 的入口）的条目数、篇数、页面 slug 与参考区清单是否与实际一致。
+
+第 9–11 项为什么必须单独存在：前八项问的是「**一致性**」，它们全绿时覆盖率照样可以是 0。
+规范写了要做、而没有检查器在看的地方，就是缺口长期积聚的地方。
 
 用法：python scripts/check_entries.py
 """
@@ -40,6 +51,88 @@ GROUP_DECL_RE = re.compile(r"分(?:为)?([一二三四五六七八九十])篇")
 CN_NUM = {c: i for i, c in enumerate("一二三四五六七八九十", 1)}
 # tags.md 的表格行：| 标签 | 篇数 | 覆盖条目 |
 TAGS_ROW_RE = re.compile(r"^\|\s*([^|]+?)\s*\|\s*(\d+)\s*\|\s*([^|]*?)\s*\|\s*$", re.M)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 覆盖率类检查的清单
+#
+# 第 1–8 项问的都是「**一致性**」：数字对不对、链接通不通、标签齐不齐。
+# 下面三项问的是「**覆盖率**」：规范要求的东西，到底做了多少。
+# 两者会各自出问题 —— 数字全对、链接全通时，覆盖率照样可以是 0，而前者
+# 有检查器、后者没有，所以缺口总是长在后者身上（第三十四批的判据）。
+# ─────────────────────────────────────────────────────────────────────────────
+
+# 条目页眉（规范见 citation.md「条目页眉模板」，两行都必须有）
+HEADER_LINE1_RE = re.compile(
+    r"^> 版本基线：\s*(\d{4})\s*年\s*(\d{1,2})\s*月\s*｜\s*([^｜]+?)\s*｜\s*数据来源：", re.M
+)
+HEADER_LINE2_RE = re.compile(r"^> 本页数值随版本调整", re.M)
+# 未决项提示行（页眉第三行）——A/B 编号必须与 citation.md 第三节逐字一致
+PENDING_LINE_RE = re.compile(r"^> ⚠️ 本页含未决项：(.+)$", re.M)
+PENDING_ID_RE = re.compile(r"\b([AB]\d+)\b")
+
+# citation.md 第二节的基线声明 —— 单一事实源，页眉必须与它对齐
+BASELINE_MONTH_RE = re.compile(r"\*\*基线快照时间\*\*\s*\|\s*\*\*(\d{4})\s*年\s*(\d{1,2})\s*月\*\*")
+BASELINE_VER_RE = re.compile(r"\*\*全站基线版本\*\*\s*\|\s*\*\*([^*（(]+?)\s*[（(]")
+
+# 参考区「总结型页面」——新条目落地后它们不会自动更新（站内已知盲区）
+SUMMARY_PAGES = ["docs/mechanics.md", "docs/progression.md"]
+
+# 图鉴层条目：机制篇之外另有「型号 / 清单」层的那一篇。
+# 判据见 roadmap「装备线：机制层完整、图鉴层缺失」一节 ——
+# 站内已为某子系统确立「机制篇 + 图鉴篇」两篇体例时，图鉴篇必须能从总结型参考页到达。
+# ⚠️ 规则取「**合计覆盖**」：每个图鉴条目至少被 SUMMARY_PAGES 中一页引用。
+#    判据是不对称性 —— 同类里「部分被引用、部分 0 引用」= 漂移；
+#    若同类**全都** 0 引用，那才是「参考区不列图鉴」的设计，不该报错。
+CATALOG_SLUGS = [
+    "armor-catalog", "ammo-table", "food-catalog", "medical-catalog",
+    "hideout-modules", "trader-questlines", "weapons", "night-vision",
+    "headsets", "special-equipment", "loadout-carriers",
+]
+
+
+def read_baseline() -> tuple[str, str]:
+    """从 citation.md 第二节读「基线快照时间」与「全站基线版本」。
+
+    基线不从代码里硬编码 —— 季节一换，页眉就该全部跟着动，
+    而这里读不到就报错退出（声明缺失必须响，不能静默通过）。
+    """
+    page = CONTENT / "docs" / "citation.md"
+    if not page.exists():
+        raise SystemExit("[错误] 找不到 content/docs/citation.md，无法确定基线")
+    text = page.read_text(encoding="utf-8")
+    m1 = BASELINE_MONTH_RE.search(text)
+    m2 = BASELINE_VER_RE.search(text)
+    if not m1 or not m2:
+        raise SystemExit(
+            "[错误] citation.md 第二节里找不到基线声明"
+            "（应为「**基线快照时间** | **YYYY 年 M 月**」与「**全站基线版本** | **X.Y.Z（…）」）"
+        )
+    return f"{int(m1.group(1))} 年 {int(m1.group(2))} 月", m2.group(1).strip()
+
+
+def read_pending_map() -> dict[str, list[str]]:
+    """从 citation.md 第三节的 A / B 两类表格建立 {条目 slug: [编号…]}。
+
+    这两张表是「哪一篇里哪一处存疑」的唯一登记处。条目页眉的第三行由它派生，
+    所以两边一旦不一致就必须报错 —— 否则读者在条目上看到的编号会指向不存在的事项。
+    """
+    text = (CONTENT / "docs" / "citation.md").read_text(encoding="utf-8")
+    section = re.search(r"^## 三、.*?(?=^## |\Z)", text, re.M | re.S)
+    if not section:
+        raise SystemExit("[错误] citation.md 里找不到「三、已知未决项」一节")
+    out: dict[str, list[str]] = defaultdict(list)
+    for line in section.group(0).splitlines():
+        if not line.strip().startswith("|"):
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) < 3:
+            continue
+        m = re.match(r"\*\*([AB]\d+)\*\*", cells[0])
+        if not m:
+            continue
+        for slug in re.findall(r"\.\./entries/([a-z0-9-]+)\.md", cells[1]):
+            out[slug].append(m.group(1))
+    return {k: sorted(set(v)) for k, v in out.items()}
 
 
 def load_nav_targets() -> list[str]:
@@ -300,7 +393,99 @@ def main() -> int:
         if f"]({sub_slug}.md)" not in main_md.read_text(encoding="utf-8"):
             errors.append(f"主条目未链接到细分条目: {main_slug}.md 缺 -> {sub_slug}.md")
 
-    # 9. 汇总
+    # 9. 条目页眉覆盖率 + 未决项编号一致性
+    #    规范见 citation.md「条目页眉模板」、骨架见 template.md；2026-09-28 之前
+    #    收录的条目从未回填。这一行是「整站引用口径」落在单篇上的唯一载体 ——
+    #    读者拿到某一篇时，只有它告诉读者这篇属于哪一档口径。
+    base_month, base_ver = read_baseline()
+    pending_map = read_pending_map()
+    missing_header: list[str] = []
+    stale_header: list[str] = []
+    bad_pending: list[str] = []
+    for entry in entries:
+        text = entry.read_text(encoding="utf-8")
+        m1 = HEADER_LINE1_RE.search(text)
+        if not m1 or not HEADER_LINE2_RE.search(text):
+            missing_header.append(entry.name)
+        elif f"{int(m1.group(1))} 年 {int(m1.group(2))} 月" != base_month or base_ver not in m1.group(3):
+            stale_header.append(
+                f"{entry.name}（写的是 {int(m1.group(1))} 年 {int(m1.group(2))} 月）"
+            )
+        expected = pending_map.get(entry.stem, [])
+        m2 = PENDING_LINE_RE.search(text)
+        actual = sorted(set(PENDING_ID_RE.findall(m2.group(1)))) if m2 else []
+        if sorted(set(expected)) != actual:
+            bad_pending.append(
+                f"{entry.name} 页眉标注「{'、'.join(actual) or '无'}」"
+                f"，citation 登记「{'、'.join(expected) or '无'}」"
+            )
+    if missing_header:
+        show = "、".join(missing_header[:5]) + ("…" if len(missing_header) > 5 else "")
+        errors.append(
+            f"条目页眉缺失 {len(missing_header)}/{len(entries)} 篇"
+            f"（规范：citation.md「条目页眉模板」，两行都要）: {show}"
+        )
+    if stale_header:
+        errors.append(
+            f"条目页眉与基线不一致（应写「{base_month} ｜ {base_ver}」）: "
+            + "、".join(stale_header[:5])
+        )
+    if bad_pending:
+        errors.append("页眉未决项编号与 citation.md 第三节不一致: " + "；".join(bad_pending))
+
+    # 10. 参考区「总结型页面」必须能到达图鉴层
+    #     速查表与成长路线是总结型页面，新条目落地后它们不会自动更新 ——
+    #     这是站内已知盲区，此前靠人工记得去补，现在改成机器记得。
+    reachable: set[str] = set()
+    for rel in SUMMARY_PAGES:
+        p = CONTENT / rel
+        if not p.exists():
+            warnings.append(f"参考区页面缺失: {rel}")
+            continue
+        reachable |= set(re.findall(r"\.\./entries/([a-z0-9-]+)\.md", p.read_text(encoding="utf-8")))
+    unreachable = [s for s in CATALOG_SLUGS if s not in reachable]
+    if unreachable:
+        errors.append(
+            "参考区到不了这些图鉴条目（总结型页面不会自动更新，需手工补链）: "
+            + "、".join(f"{s}.md" for s in unreachable)
+        )
+
+    # 11. llms.txt —— AI 的第一入口，此前没有任何检查器覆盖
+    #     它手写着条目数、篇数、篇目录与参考区清单。漂移时页面读者未必发现，
+    #     但 AI 会照着错的清单去引用 —— 所以它的护栏优先级不低于正文。
+    llms = CONTENT / "llms.txt"
+    if not llms.exists():
+        errors.append("缺少 content/llms.txt（面向 AI 的入口索引）")
+    else:
+        text = llms.read_text(encoding="utf-8")
+        counts = re.findall(r"(\d+) 个条目", text)
+        if not counts:
+            errors.append("llms.txt 里找不到条目计数声明（声明缺失必须响，不能静默通过）")
+        for c in set(counts):
+            if int(c) != n_entries:
+                errors.append(f"llms.txt 计数不一致: 写的是「{c} 个条目」，实际 {n_entries} 个")
+        g = GROUP_DECL_RE.search(text)
+        if not g:
+            errors.append("llms.txt 里找不到「分N篇」的篇数声明")
+        elif CN_NUM[g.group(1)] != n_groups:
+            errors.append(f"llms.txt 篇数不一致: 写的是 {g.group(1)}篇，nav 实际 {n_groups} 篇")
+        for slug in sorted(set(re.findall(r"/(?:entries|docs)/([a-z0-9-]+)/", text))):
+            if not (
+                (CONTENT / "entries" / f"{slug}.md").exists()
+                or (CONTENT / "docs" / f"{slug}.md").exists()
+            ):
+                errors.append(f"llms.txt 列了不存在的页面: {slug}")
+        missing_docs = [
+            p.stem
+            for p in sorted((CONTENT / "docs").glob("*.md"))
+            if p.stem != "index" and f"/docs/{p.stem}/" not in text
+        ]
+        if missing_docs:
+            errors.append(
+                "llms.txt 参考区未列出这些参考页: " + "、".join(missing_docs)
+            )
+
+    # 12. 汇总
     print("=" * 60)
     print(f"内容文件总数: {len(md_files)}")
     print(f"百科条目数:   {n_entries}")
@@ -317,7 +502,10 @@ def main() -> int:
         for e in errors:
             print(f"  [错误] {e}")
         return 1
-    print("✅ 校验通过：nav 完整、无断链、骨架齐整、计数与标签一致、无直引号残留。")
+    print(
+        "✅ 校验通过：nav 完整、无断链、骨架齐整、计数与标签一致、无直引号残留；"
+        "页眉覆盖齐全、参考区可达全部图鉴、llms.txt 与实际一致。"
+    )
     return 0
 
 

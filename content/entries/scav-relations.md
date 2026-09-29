@@ -7,6 +7,9 @@ tags:
 ---
 # Scav 互动与叛徒判定 (Scav Relations & Traitor)
 
+> 版本基线：2026 年 9 月 ｜ 1.1.5.1（第一赛季 KORD BREACH）｜ 数据来源：官方 Wiki 与补丁说明（一级）、tarkov.dev（二级）
+> 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
 <a id="top"></a>
 
 > “玩家 Scav 的和平不打折，但一枪就作废。”
