@@ -82,7 +82,7 @@ tags:
 
 - [弹药与穿深等级](ammo.md) — 军备竞赛的另一端
 - [弹道与穿透机制](ballistics.md) — 结算的底层规则
-- [立交桥](interchange.md) — Killa 的重甲课堂
+- [立交桥](interchange.md) — Killa 与 Tagilla 的重甲课堂
 
 ---
 

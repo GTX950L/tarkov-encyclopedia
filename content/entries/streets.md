@@ -79,7 +79,9 @@ tags:
 
 ### 1. 双 Boss 同图
 
-街区是全游戏唯一一张可能同时刷新两名专属 Boss 的地图：**Kaban** 与 **Kollontay**。
+街区的招牌之一：**同一局里可能同时出现两名 Boss**——**Kaban** 与 **Kollontay**。
+
+> **注意口径**：**「同局两名 Boss」不止街区一处**——[立交桥](interchange.md)（Killa + Tagilla）与[终点站](terminal.md)（黑师指挥官 + 一位轮换 Boss）同样可能。街区真正的不同在于**两名 Boss 各有独立据点、彼此相距较远**；另外 **Kollontay 也见于[地面零点](ground-zero.md)**，并非本图专属。
 
 ### 2. Kaban 的据点化防守
 

@@ -22,7 +22,7 @@
    > - **`核心打法流派` 这一节只有老图有** —— 老图体例（地面零点 / 工厂 / 海关 / 森林 / 立交桥 / 储备站 / 海岸线）在「区域结构」之后多设一节；新图体例（实验室 / 灯塔 / 街区 / 终点站 / 破冰船 / 迷宫）不设，打法内容并入「核心机制」。
    >
    > **Boss 节的命名按内容性质定，不跟体例走**（三种都合规）：
-   > - `Boss：<Boss 名>` —— 该图有**单一固定 Boss**（工厂 Tagilla / 海关 Reshala / 森林 Shturman / 立交桥 Killa / 储备站 Glukhar / 海岸线 Sanitar / 迷宫 Toggle 之影）；
+   > - `Boss：<Boss 名>`（**同图两位稳定 Boss 时写 `Boss：<A> 与 <B>`**）—— 该图有**单一或成对的固定 Boss**（工厂 Tagilla / 海关 Reshala / 森林 Shturman / 储备站 Glukhar / 海岸线 Sanitar / 迷宫 Toggle 之影 / **立交桥 Killa 与 Tagilla**）；
    > - `Boss 与关键 AI` —— **没有单一固定 Boss**，或多个 AI 需要并列讲（地面零点 / 灯塔 / 街区 / 终点站 / 破冰船）；
    > - `关键 AI：<单位名>` —— **只有精英 AI、没有 Boss**（实验室 Raiders）。
    >
