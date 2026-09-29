@@ -47,8 +47,28 @@ DATA_UNITS = r"米|秒|分钟|小时|天|格|级|发|次|发/分|%|卢布|₽|�
 DATA_UNITS += r"|个|位|环|档|条|套|种|张|把|件|名|人|轮|页"
 NUM_UNIT = re.compile(r"([\u4e00-\u9fff]{2,8})[^\n。；]{0,12}?(\d+(?:\.\d+)?)\s*(" + DATA_UNITS + r")")
 DATA_POINT = re.compile(r"\d+(?:\.\d+)?\s*(?:" + DATA_UNITS + r")")
-# 来源标记：出现这些词就算「这一页声明了来源层级」
+# 2026-09-29 口径第二次加宽：**表格单元格里「整格是数字」也算一个数据点**。
+#   为什么必须加：数值表最常见的形式就是「表头写单位、格子里只放数字」
+#   （`| 容器 | 格数 | 效率 |` 下面是 `| 196 | 13.07 |`）——**只认「数字+单位」会把整张数值表漏掉**，
+#   而那恰恰是这个指标最该看见的东西。实测：某页加了 30+ 个数值单元格，读数只从 1 涨到 3。
+#   ⚠️ 只数**非第一列**：第一列通常是名称/型号，若是序号列则会整列虚增。
+BARE_CELL = re.compile(r"^[+\-−]?\d[\d,]*\.?\d*$")
 SOURCE_MARK = re.compile(r"一级|二级|社区口径|社区来源|官方 Wiki|官方 wiki|tarkov\.dev|knowledge/\d+|知识库")
+
+
+def count_table_numbers(body: str) -> int:
+    """数表格里「非第一列的纯数字单元格」。"""
+    n = 0
+    for ln in body.split("\n"):
+        s = ln.strip()
+        if not s.startswith("|"):
+            continue
+        cells = [c.strip() for c in s.strip("|").split("|")]
+        for c in cells[1:]:                      # 跳过第一列（名称/序号）
+            c = c.replace("*", "").replace(" ", "")
+            if BARE_CELL.match(c):
+                n += 1
+    return n
 
 
 def strip_code_and_meta(text: str) -> str:
@@ -65,8 +85,8 @@ def strip_code_and_meta(text: str) -> str:
 
 
 def count_data_points(body: str) -> int:
-    """数据点 = 「数字 + 计量单位」的出现次数。"""
-    return len(DATA_POINT.findall(body))
+    """数据点 =「数字 + 单位」的出现次数 ＋「表格里非第一列的纯数字单元格」数。"""
+    return len(DATA_POINT.findall(body)) + count_table_numbers(body)
 
 
 def month_index(year: int, month: int) -> int:
@@ -193,10 +213,14 @@ def main() -> int:
     print()
     print("【D】数据密度 —— 站规要求「数据详实」，这些页面给的数据偏少（信息性，不阻断）")
     print("     （口径：数字+单位 的出现次数 ÷ 正文汉字数 × 1000‰，不含代码块与页眉页脚；")
-    print("       单位含计量与计数两类：米/秒/小时/格/级/%/卢布… 与 个/位/环/档/条/名…）")
+    print("       单位含计量与计数两类；**另计「表格里非第一列的纯数字单元格」**（数值表常见形式）")
     print("     ⚠️ **这是「候审」，不是「工单」**：密度低有两种原因，必须人工分——")
     print("        ① 该给数而没给（要补）；② **这一页本来就以判断为主**（行为层/设定层，不必补）。")
     print("        例：engagement-rules 是最厚的一页，密度也低，但那是对的。")
+    print("     ⚠️ **口径盲区（已知）**：**无单位、也不在表格里的数值仍然漏掉**——")
+    print("        例：Karma 值（+0.01）、收购系数（0.56–0.63）、倍率、比例。")
+    print("        想放宽会把版本号（1.1.5.1）一并算进来，噪音更大——**宁可漏、不可滥**；")
+    print("        所以本表列出的页**必须人工复核**，确认是真缺数还是「口径没覆盖」。")
     density: list[tuple[float, int, int, str]] = []
     for rel, path in pages:
         if not rel.startswith("entries/"):
