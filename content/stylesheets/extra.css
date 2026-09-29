@@ -1,20 +1,174 @@
 /* ==========================================================================
    逃离塔科夫百科全书 · 自定义样式 (extra.css)
-   设计基调：浅色优先、品牌蓝、表格可读、窄屏不溢出、打印友好
+
+   设计方向：军用档案纸 (Field Manual Paper)
+   —— 用塔科夫官方品牌色做一套【浅色】战术风，而不是照搬游戏内的暗色 HUD。
+      官方依据：Battlestate Games 品牌色 #4A596C（色名 Fiord）；
+               官方 logo 提取色板 #0E0D0C / #6C6250 / #AEA489 / #D6C49F / #E8E6DD；
+               官方 UI 风格关键词 utilitarian / austerity（无装饰）。
+
+   四条改造规则：
+     ① 方角化 —— 圆角一律 0–2px，药丸按钮改直角边框
+     ② 等宽字承担结构 —— 编号 / 标签 / 页脚 / 表格首列
+     ③ 色面用官方原值 #4A596C（承色块），文字用加深版 #3D4A5C（留可读性余量）
+     ④ 纸底不纯白 —— #FAF9F6 微暖米白
+
+   所有文字色对比度均按 WCAG 2.1 实算，见 docs/roadmap 的第三十五批记录。
+   原则：浅色优先、表格可读、窄屏不溢出、打印友好。
    ========================================================================== */
 
 :root {
-  --tk-brand: #3f51b5;
-  --tk-brand-dark: #303f9f;
-  --tk-brand-soft: #e8eaf6;
-  --tk-ink: #1f2430;
-  --tk-line: #dcdfe6;
-  --tk-quote-bg: #f6f7fd;
-  --tk-zebra: #fafbff;
+  /* —— 塔科夫「军用档案纸」色板 —— */
+  --tk-paper:      #FAF9F6;   /* 纸底（页面背景） */
+  --tk-panel:      #F4F2ED;   /* 浅面板 / 引言底 */
+  --tk-panel-2:    #EFECE4;   /* 更浅一档 */
+  --tk-ink:        #1C1A17;   /* 正文墨色（纸底 16.49:1 AAA） */
+  --tk-ink-2:      #5C5850;   /* 次要文字（纸底 6.72:1 AA） */
+
+  --tk-line:       #C2BAA6;   /* 表格内部格线（网格辅助，1.84:1） */
+  --tk-line-2:     #B5AC96;   /* 区块分隔线（2.14:1） */
+  --tk-line-3:     #8F8368;   /* 表格外框（结构边界，3.55:1 ≥ WCAG 1.4.11） */
+
+  --tk-fiord:      #4A596C;   /* 官方品牌色 Fiord —— 用于【承色块】 */
+  --tk-fiord-lt:   #67788D;
+  --tk-brand:      #3D4A5C;   /* Fiord 加深 —— 用于【文字】（纸底 8.55:1 AAA） */
+  --tk-brand-dark: #2E3846;   /* 更深 —— 强强调 */
+  --tk-brand-soft: #E7EAE9;   /* 主色浅色面 */
+
+  --tk-olive:      #6C6250;   /* 橄榄褐 —— 强调 / 引言竖线（5.70:1 AA） */
+  --tk-khaki:      #7A6E4F;   /* 卡其 —— 标注（4.78:1 AA） */
+  --tk-sand:       #D6C49F;   /* 沙 —— 危险条纹带 */
+
+  --tk-amber:      #96671A;   /* 琥珀 · 注意（4.69:1 AA） */
+  --tk-amber-bg:   #FBF3DF;
+  --tk-red:        #A32B2B;   /* 警示 · 危险（6.79:1 AA） */
+  --tk-red-bg:     #FAECEC;
+  --tk-grn:        #4A5D2A;   /* 军绿 · 安全（6.90:1 AA） */
+  --tk-grn-bg:     #EEF2E2;
+
+  --tk-zebra:      #F7F5F0;   /* 斑马行 */
+  /* ⚠️ 这里【不要】写 --tk-quote-bg: var(--tk-panel) 这类「别名」。
+     :root 上的 var() 会在 **html 层**就完成替换（得到浅色的 #F4F2ED），
+     再作为字面值继承下去 —— 于是暗色方案里改 --tk-panel 也不跟随，
+     引言底会永远是浅色、压上浅色字 → 暗色下 1.14:1，等于看不见。
+     需要「一处改、两处用」时，直接在用到的地方写 var(--tk-panel)。 */
+  --tk-mono:       Consolas, "DejaVu Sans Mono", "Courier New", monospace;
 }
 
 /* --------------------------------------------------------------------------
-   1. 标题层级：章节带品牌蓝下边框，和徽章式标题区分开
+   0. 接管 Material 主题的调色变量
+      在 mkdocs.yml 里 palette 已改为 primary: custom / accent: custom，
+      主题不会再加 [data-md-color-primary=indigo] 这类属性选择器，变量由本文件定义。
+
+      ⚠️ 两个踩过的坑（2026-09-29 实测）：
+      ① data-md-color-scheme 属性挂在 <body> 上，【不是】<html>。
+         写成 html[data-md-color-scheme=...] 会完全匹配不到，整块变量静默失效。
+      ② 主题把 --md-primary-fg-color 的默认值定义在 :root（#4051b5）。
+         所以覆盖必须用 body[data-md-color-scheme=...]（特异性 0,1,1），
+         高于 :root 与主题的 [data-md-color-scheme=...]（均为 0,1,0）。
+   -------------------------------------------------------------------------- */
+
+body[data-md-color-scheme="default"] {
+  --md-default-bg-color:          var(--tk-paper);
+  --md-default-fg-color:          var(--tk-ink);
+  --md-default-fg-color--light:   var(--tk-ink-2);
+
+  /* 半透明派生色：Material 的默认值是「纯黑/纯白 + alpha」，
+     换成纸色与暖墨的 alpha 版本，否则回顶悬浮钮、页脚描边等会残留冷灰 */
+  --md-default-fg-color--lighter:  rgba(28, 26, 23, .32);
+  --md-default-fg-color--lightest: rgba(28, 26, 23, .07);
+  --md-default-bg-color--light:    rgba(250, 249, 246, .72);
+  --md-default-bg-color--lighter:  rgba(250, 249, 246, .30);
+  --md-default-bg-color--lightest: rgba(250, 249, 246, .12);
+
+  --md-typeset-color:             var(--tk-ink);
+  --md-typeset-a-color:           var(--tk-brand);
+  --md-typeset-table-color:       var(--tk-line);
+  /* 高亮笔（==文字==）：用沙色，像档案上的荧光笔 */
+  --md-typeset-mark-color:        rgba(214, 196, 159, .55);
+
+  --md-primary-fg-color:          var(--tk-fiord);
+  --md-primary-fg-color--light:   var(--tk-fiord-lt);
+  --md-primary-fg-color--dark:    var(--tk-brand-dark);
+  --md-primary-bg-color:          #F5F4F0;
+
+  --md-accent-fg-color:           var(--tk-olive);
+  /* ⚠️ 激活导航项的背景用的是这个令牌（默认 #526cfe1a 蓝），
+     只换 --md-accent-fg-color 不换它，侧栏当前项会残留 Material 蓝 */
+  --md-accent-fg-color--transparent: rgba(108, 98, 80, .12);
+
+  --md-code-bg-color:             var(--tk-panel);
+  --md-code-fg-color:             var(--tk-ink);
+  --md-warning-bg-color:          var(--tk-amber-bg);
+  --md-warning-fg-color:          var(--tk-ink);
+}
+
+/* --------------------------------------------------------------------------
+   1. 页头：官方 Fiord 承色块 + 底部危险条纹带
+
+   ⚠️ 为什么必须显式写 background-color / color：
+      这个 Material 版本的 .md-header 规则是
+          background-color: var(--md-default-bg-color--light)   ← 半透明玻璃
+          color:            var(--md-default-fg-color)
+      它【不读】--md-primary-fg-color。所以只改调色变量，页头会一直是白的，
+      必须在这层直接覆盖。
+   -------------------------------------------------------------------------- */
+
+.md-header {
+  position: relative;
+  background-color: var(--tk-fiord);
+  color: #F5F4F0;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-bottom: 3px solid var(--tk-olive);
+}
+
+/* 危险条纹带（hazard stripe）—— 塔科夫物料最典型的记号，纯 CSS 无图片 */
+.md-header::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 5px;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--tk-sand) 0 8px,
+    #3A362B 8px 16px
+  );
+  opacity: .92;
+  pointer-events: none;
+}
+
+/* 深色页头上的搜索框：改为半透明浅色描边，保证与页头对比足够 */
+.md-search__form {
+  background-color: rgba(245, 244, 240, .16);
+  border-radius: 2px;
+}
+
+.md-search__input {
+  color: #F5F4F0;
+}
+
+.md-search__input::placeholder {
+  color: rgba(245, 244, 240, .72);
+}
+
+.md-search__icon {
+  color: #F5F4F0;
+}
+
+.md-search__options,
+.md-search__options .md-icon {
+  color: rgba(245, 244, 240, .72);
+}
+
+/* 搜索展开后的结果面板留在纸色底上（不跟着页头变深） */
+.md-search__output {
+  background-color: var(--tk-paper);
+  color: var(--tk-ink);
+}
+
+/* --------------------------------------------------------------------------
+   2. 标题层级：标题用 Fiord 加深版（文字色），下划线用纸感暖线
    -------------------------------------------------------------------------- */
 
 .md-typeset h1 {
@@ -26,7 +180,7 @@
 
 .md-typeset h2 {
   color: var(--tk-brand);
-  border-bottom: 2px solid var(--tk-brand-soft);
+  border-bottom: 2px solid var(--tk-line-2);
   padding-bottom: .28em;
   margin-top: 2em;
   font-weight: 700;
@@ -39,10 +193,9 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. 表格：窄屏横向滚动（关键：不撑破正文），表头品牌蓝，偶数行淡底
-   -------------------------------------------------------------------------- */
+   3. 表格：窄屏横向滚动（关键：不撑破正文），表头 Fiord 承色块，偶数行淡底
 
-/* ⚠️ 这里【必须显式写 overflow: visible】，不能只是「删掉 overflow 声明」。
+   ⚠️ 这里【必须显式写 overflow: visible】，不能只是「删掉 overflow 声明」。
    原因：Material 主题自己就有一条**同特异性**的规则
        .md-typeset table:not([class]) { display:inline-block; max-width:100%; overflow:auto }
    —— 也就是「表格自身滚动」。本文件加载更晚、特异性相同，所以只要显式写就能覆盖它；
@@ -60,23 +213,38 @@
    滚动统一交给下面 .md-typeset__table 那层负责。
    —— 2026-09-28 修复「表格出现两个拖动条」 */
 
+/* ⚠️ display 必须是 table，不能是 block —— 2026-09-29 实测新增：
+   写成 display:block（width:100%）时，<table> 不再是表格盒，其 thead/tbody/tr/td
+   会被 CSS 的「匿名表格盒重建」规则重新包一层，而这一层是 **shrink-to-fit**：
+   只按内容自然宽度排，**不跟随外层 block 盒的 width:100%**。
+   后果：表格元素盒宽 = 容器宽，但真正的表格网格窄一截，**右侧空出一片**——
+   表头承色块（Fiord）**提前中断**，看起来像表格少了半列。
+   实测（1280px 视口，改 display 前）：
+     ammo-table 第 2 张表  表宽 720 / 网格右缘 806 → 空档 200px
+     首页 第 2 张表        空档 218px；首页其余多张 33 / 58 / 200px
+   改 display: table 后：**全站每张表空档 1px（= 取整误差）**。
+   注意这一条与颜色无关——它一直存在，只是旧表头是浅蓝 #e8eaf6、空档是白底，
+   几乎看不出来；换成深色 Fiord 承色块后才暴露。 */
+
 .md-typeset table:not([class]) {
-  display: block;              /* table 作为块级盒子参与布局（滚动由父层负责） */
+  display: table;              /* 必须是 table：block 会触发匿名表盒 shrink-to-fit，右侧留空档（见上） */
   width: 100%;
   max-width: 100%;
   overflow: visible;           /* 覆盖主题的 overflow:auto —— 见上，禁止 table 自身滚动 */
-  border: 1px solid var(--tk-line);
-  border-radius: 6px;
+  border: 1px solid var(--tk-line-3);   /* 外框 = 结构边界，3.55:1 */
+  border-radius: 2px;                   /* 方角化：6px → 2px */
   font-size: .74rem;
   line-height: 1.55;
 }
 
+/* 表头 = Fiord 承色块（官方原值）+ 米白字（6.50:1 AA） */
 .md-typeset table:not([class]) thead th {
-  background: var(--tk-brand-soft);
-  color: var(--tk-brand-dark);
+  background: var(--tk-fiord);
+  color: #F5F4F0;
   font-weight: 700;
   white-space: nowrap;
-  border-bottom: 2px solid var(--tk-brand);
+  border: 1px solid var(--tk-fiord);
+  border-bottom: 2px solid var(--tk-brand-dark);
 }
 
 .md-typeset table:not([class]) tbody tr:nth-child(even) {
@@ -87,6 +255,13 @@
 .md-typeset table:not([class]) th {
   padding: .5em .75em;
   vertical-align: top;
+  border-color: var(--tk-line);
+}
+
+/* 表格首列：等宽字，承担「表格是数据表」的文档感（中文自动回退，无副作用） */
+.md-typeset table:not([class]) tbody td:first-child {
+  font-family: var(--tk-mono);
+  font-size: .72rem;
 }
 
 /* 3 列及以上的宽表：窄屏下保持可读列宽，改为「容器内横向滚动」。
@@ -111,21 +286,26 @@
 }
 
 /* --------------------------------------------------------------------------
-   3. 引言 / 老兵经验：品牌蓝竖线 + 浅底，与正文拉开层次
-   -------------------------------------------------------------------------- */
+   4. 引言 / 老兵经验：橄榄褐竖线 + 米色面板 + 方角
+
+   与「条例页眉」共用 blockquote 元素（页眉 166 处 / 真引言 775 处），
+   所以【不能】给 blockquote 加固定标签或角标 —— 会同时打到页眉上。 */
+/* -------------------------------------------------------------------------- */
 
 /* 选择器必须带 [dir="ltr"]：Material 主题有一条
    `[dir="ltr"] .md-typeset blockquote`（多一个属性选择器，优先级更高），
    只写 `.md-typeset blockquote` 会被它覆盖——左侧竖线会退回主题灰
-   （rgba(0,0,0,.32)），品牌蓝竖线不生效。同时写逻辑属性与物理属性，
+   （rgba(0,0,0,.32)），橄榄褐竖线不生效。同时写逻辑属性与物理属性，
    避免主题换用 border-inline-start 时再次失效。 */
 .md-typeset blockquote,
 [dir="ltr"] .md-typeset blockquote {
-  border-inline-start: 4px solid var(--tk-brand);
-  border-left: 4px solid var(--tk-brand);
-  background: var(--tk-quote-bg);
+  border-inline-start: 4px solid var(--tk-olive);
+  border-left: 4px solid var(--tk-olive);
+  /* ⚠️ 这里必须直接写 var(--tk-panel)，不能走 :root 里的别名 ——
+     见本文件 :root 顶部那条注释：别名会在 html 层解析，暗色方案不跟随。 */
+  background: var(--tk-panel);
   color: var(--tk-ink);
-  border-radius: 0 6px 6px 0;
+  border-radius: 0;            /* 方角化 */
   padding: .7em 1em;
   margin: 1.2em 0;
 }
@@ -135,7 +315,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   4. 回顶部链接：药丸按钮，便于长页面快速归位
+   5. 回顶部链接：方角描边按钮（原为药丸），等宽字
    -------------------------------------------------------------------------- */
 
 .md-typeset a[href$="#top"] {
@@ -143,26 +323,67 @@
   margin-top: .8em;
   padding: .35em .9em;
   border: 1px solid var(--tk-brand);
-  border-radius: 999px;
-  background: #fff;
+  border-radius: 0;                       /* 方角化：999px → 0 */
+  background: transparent;
   color: var(--tk-brand);
-  font-size: .72rem;
+  font-family: var(--tk-mono);
+  font-size: .7rem;
   font-weight: 700;
+  letter-spacing: .04em;
   text-decoration: none;
   transition: background .15s ease, color .15s ease;
 }
 
 .md-typeset a[href$="#top"]:hover {
   background: var(--tk-brand);
-  color: #fff;
+  color: var(--tk-paper);
+}
+
+/* —— 方角化收口：全站圆角元素清点（2026-09-29 实机扫描，落实规则①「圆角一律 0–2px」）——
+   扫描方法：遍历 body 下所有元素，取四角 border-radius 最大值 >2px 且「可见着色」者
+   （要求有背景色或可见边框，并排除 < 8px 的装饰件）。全站共命中 6 处，逐项收口如下。
+
+   ⚠️ 两个容易漏的点：
+   ① .md-top 是 Material 的【悬浮】回顶药丸（1.6rem 圆角，右下角浮出），
+      与本节上面的 a[href$="#top"]【行内】回顶链接是**两个不同的元素**，
+      只改后者的话，页面上那颗药丸还是圆的。
+   ② .md-tag 是真实存在的组件（条目页尾 nav.md-tags 里的标签胶囊，98 个页面都有），
+      不是「写了样式没人用」。 */
+.md-top,
+.md-dialog,
+.md-search__button,
+.md-nav__link,
+.md-typeset .md-tag,
+.md-typeset code {
+  border-radius: 2px;
+}
+
+/* 悬浮回顶药丸：直角 + 细描边 + 等宽字，与行内回顶链接同一套语言；
+   去掉阴影是照「utilitarian / austerity（功能主义、无装饰）」这条官方 UI 描述 */
+.md-top {
+  border-radius: 0;
+  background-color: var(--tk-paper);
+  border: 1px solid var(--tk-line-2);
+  box-shadow: none;
+  color: var(--tk-ink-2);
+  font-family: var(--tk-mono);
+}
+
+/* 代码块容器保持直角（行内 code 才留 2px，块级不留圆角） */
+.md-typeset pre > code {
+  border-radius: 0;
 }
 
 /* --------------------------------------------------------------------------
-   4b. 首页学习路径条：零依赖纯 CSS（替代 mermaid）
+   6. 首页学习路径条：零依赖纯 CSS（替代 mermaid）
         为什么替代：站点 bundle 的 mermaid 是从 unpkg.com 懒加载的 3.5 MB 单文件，
         弱网 / 离线时加载不出来，首页第一屏会直接吐出一大段 mermaid 源码；
         即便加载成功，九个节点横排也会被压成一排看不清的小方块。
         纯 CSS 版本零额外请求、秒出、可点击、可打印。
+
+   九段配色改为「危险等级梯度」：绿(入门) → 卡其 → 琥珀 → 暗红(终局)。
+   为什么不用原来的彩虹九色：① 彩虹色与全站配色完全不搭；
+   ② 梯度本身有语义 —— 越靠后越难，正好契合「入门 → 进阶 → 终局」的推进。
    -------------------------------------------------------------------------- */
 
 .tk-path {
@@ -181,23 +402,23 @@
   min-width: 7rem;
   max-width: 9rem;          /* 防止换行后最后一块被拉满整行 */
   padding: .5em .65em;
-  border: 1px solid var(--tk-line);
-  border-top: 3px solid var(--tk-line);
-  border-radius: 6px;
-  background: #fff;
+  border: 1px solid var(--tk-line-2);
+  border-top: 3px solid var(--tk-line-2);
+  border-radius: 2px;       /* 方角化 */
+  background: var(--tk-panel);
   text-decoration: none;
   line-height: 1.35;
   transition: box-shadow .15s ease, transform .15s ease;
 }
 
 .tk-step:hover {
-  box-shadow: 0 2px 10px rgba(63, 81, 181, .2);
+  box-shadow: 0 2px 10px rgba(74, 89, 108, .22);
   transform: translateY(-1px);
 }
 
 .tk-step b  { font-size: .66rem; font-weight: 700; }
 .tk-step em { font-style: normal; font-size: .76rem; font-weight: 600; color: var(--tk-ink); }
-.tk-step i  { font-style: normal; font-size: .64rem; color: #6b7280; }
+.tk-step i  { font-style: normal; font-size: .64rem; color: var(--tk-ink-2); }
 
 .tk-arrow {
   align-self: center;
@@ -206,31 +427,31 @@
   font-size: .85rem;
 }
 
-/* 九段各配一套浅色，沿用原 mermaid 图的配色 */
-.tk-s1 { background: #e3f2fd; border-top-color: #1565c0; }
-.tk-s1 b { color: #1565c0; }
-.tk-s2 { background: #e8f5e9; border-top-color: #2e7d32; }
-.tk-s2 b { color: #2e7d32; }
-.tk-s3 { background: #fff3e0; border-top-color: #ef6c00; }
-.tk-s3 b { color: #ef6c00; }
-.tk-s4 { background: #fce4ec; border-top-color: #c62828; }
-.tk-s4 b { color: #c62828; }
-.tk-s5 { background: #ede7f6; border-top-color: #4527a0; }
-.tk-s5 b { color: #4527a0; }
-.tk-s6 { background: #e0f7fa; border-top-color: #00838f; }
-.tk-s6 b { color: #00838f; }
-.tk-s7 { background: #f3e5f5; border-top-color: #6a1b9a; }
-.tk-s7 b { color: #6a1b9a; }
-.tk-s8 { background: #e0f2f1; border-top-color: #00695c; }
-.tk-s8 b { color: #00695c; }
-.tk-s9 { background: #fff8e1; border-top-color: #f9a825; }
-.tk-s9 b { color: #b07d00; }
+/* 九段 = 危险等级梯度（绿 → 卡其 → 琥珀 → 暗红） */
+.tk-s1 { background: #EEF2E2; border-top-color: #4A5D2A; }
+.tk-s1 b { color: #3E4E23; }
+.tk-s2 { background: #E9F0DA; border-top-color: #4A5D2A; }
+.tk-s2 b { color: #3E4E23; }
+.tk-s3 { background: #EFF0DC; border-top-color: #5F6B2E; }
+.tk-s3 b { color: #4C5624; }
+.tk-s4 { background: #F2EAD6; border-top-color: #7A6E4F; }
+.tk-s4 b { color: #63593F; }
+.tk-s5 { background: #F5E9D2; border-top-color: #96671A; }
+.tk-s5 b { color: #7C5515; }
+.tk-s6 { background: #F8E8CE; border-top-color: #96671A; }
+.tk-s6 b { color: #7C5515; }
+.tk-s7 { background: #F7E4CC; border-top-color: #8A5A18; }
+.tk-s7 b { color: #734A13; }
+.tk-s8 { background: #F7E1DA; border-top-color: #9E3F2A; }
+.tk-s8 b { color: #853322; }
+.tk-s9 { background: #FAE3E3; border-top-color: #A32B2B; }
+.tk-s9 b { color: #8C2424; }
 
 .tk-reason {
-  border: 1px solid var(--tk-line);
-  border-left: 4px solid var(--tk-brand);
-  border-radius: 0 6px 6px 0;
-  background: var(--tk-quote-bg);
+  border: 1px solid var(--tk-line-2);
+  border-left: 4px solid var(--tk-olive);
+  border-radius: 0;
+  background: var(--tk-panel);   /* 同 §4：不走 :root 别名，否则暗色下不跟随 */
   padding: .6em .9em;
   margin: 0 0 1em;
   font-size: .76rem;
@@ -239,47 +460,130 @@
 .tk-reason b { color: var(--tk-brand-dark); }
 .tk-reason p { margin: .3em 0 0; }
 
-/* 深色兜底：方块改用低饱和深底，避免浅色块在暗色下刺眼 */
-[data-md-color-scheme="slate"] .tk-step {
-  background: #232839;
-  border-top-color: #3a4152;
-}
-[data-md-color-scheme="slate"] .tk-step em { color: #e6e8f0; }
-[data-md-color-scheme="slate"] .tk-step b  { color: #9fa8da; }
-[data-md-color-scheme="slate"] .tk-step i  { color: #8b93a7; }
-[data-md-color-scheme="slate"] .tk-path .tk-step { background: #232839; }
-
 /* --------------------------------------------------------------------------
-   5. 行内提示（⚠️ / 💡 提示行等）：弱化底色，避免和引言抢视觉
+   7. 页脚 / 版权行：等宽字，技术标签气质
    -------------------------------------------------------------------------- */
 
-.md-typeset .admonition,
-.md-typeset details {
-  border-radius: 6px;
-  font-size: .76rem;
+.md-footer-meta__inner,
+.md-copyright,
+.md-copyright__highlight {
+  font-family: var(--tk-mono);
+  font-size: .66rem;
+  letter-spacing: .02em;
 }
 
 /* --------------------------------------------------------------------------
-   6. 深色方案兜底：让自定义色在暗色主题下依然可读
-      （本站以浅色为主，暗色仅作切换兼容）
+   8. 深色方案兜底：让自定义色在暗色主题下依然可读
+      （本站以浅色为主，暗色仅作切换兼容 —— 只做一致性维护，不做增强）
+
+      对比度实测（底色 #1B1A17）：正文 13.70:1 AAA ｜ 次要文字 7.01:1 AAA
+      主色 7.86:1 AAA ｜ 卡其 7.74:1 AAA ｜ 琥珀 8.56:1 AAA
+      军绿 8.69:1 AAA ｜ 橄榄褐 6.43:1 AA ｜ 警示红 6.77:1 AA
    -------------------------------------------------------------------------- */
 
 [data-md-color-scheme="slate"] {
-  --tk-brand: #9fa8da;
-  --tk-brand-dark: #c5cae9;
-  --tk-brand-soft: #2c3155;
-  --tk-ink: #e6e8f0;
-  --tk-line: #3a4152;
-  --tk-quote-bg: #232839;
-  --tk-zebra: #1e2230;
+  --tk-paper:      #1B1A17;
+  --tk-panel:      #232220;
+  --tk-panel-2:    #2A2926;
+  --tk-ink:        #E6E4DF;
+  --tk-ink-2:      #A9A49A;
+
+  --tk-line:       #3A3833;
+  --tk-line-2:     #4A473F;
+  --tk-line-3:     #5A564C;
+
+  --tk-fiord:      #3A4859;
+  --tk-fiord-lt:   #4A5A6E;
+  --tk-brand:      #9FB0C4;
+  --tk-brand-dark: #C3CFDD;
+  --tk-brand-soft: #28303B;
+
+  --tk-olive:      #A99C82;
+  --tk-khaki:      #B8AC90;
+  --tk-sand:       #6B5F3E;
+
+  --tk-amber:      #D9B061;
+  --tk-amber-bg:   #2E2718;
+  --tk-red:        #E08A8A;
+  --tk-red-bg:     #2E1D1D;
+  --tk-grn:        #A8C07A;
+  --tk-grn-bg:     #232A19;
+
+  --tk-zebra:      #1F1E1B;
 }
 
-[data-md-color-scheme="slate"] .md-typeset a[href$="#top"] {
-  background: transparent;
+body[data-md-color-scheme="slate"] {
+  --md-default-bg-color:        var(--tk-paper);
+  --md-default-fg-color:        var(--tk-ink);
+  --md-default-fg-color--light: var(--tk-ink-2);
+
+  --md-default-fg-color--lighter:  rgba(230, 228, 223, .32);
+  --md-default-fg-color--lightest: rgba(230, 228, 223, .08);
+  --md-default-bg-color--light:    rgba(27, 26, 23, .72);
+  --md-default-bg-color--lighter:  rgba(27, 26, 23, .30);
+  --md-default-bg-color--lightest: rgba(27, 26, 23, .12);
+
+  --md-typeset-color:           var(--tk-ink);
+  --md-typeset-a-color:         var(--tk-brand);
+  --md-typeset-table-color:     var(--tk-line);
+  --md-typeset-mark-color:      rgba(107, 95, 62, .55);
+
+  --md-primary-fg-color:        var(--tk-fiord);
+  --md-primary-fg-color--light: var(--tk-fiord-lt);
+  --md-primary-fg-color--dark:  #2B3846;
+  --md-primary-bg-color:        #E6E4DF;
+
+  --md-accent-fg-color:         var(--tk-olive);
+  --md-accent-fg-color--transparent: rgba(169, 156, 130, .14);
+
+  --md-code-bg-color:           var(--tk-panel);
+  --md-code-fg-color:           var(--tk-ink);
+  --md-warning-bg-color:        var(--tk-amber-bg);
+  --md-warning-fg-color:        var(--tk-ink);
 }
+
+/* 暗色页头：同样要显式覆盖（见第 1 节说明） */
+[data-md-color-scheme="slate"] .md-header {
+  background-color: var(--tk-fiord);
+  color: #E6E4DF;
+}
+
+/* 暗色下表格：表头承色块用暗版 Fiord（#E6E4DF 压在上 = 7.34:1 AAA） */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) thead th {
+  background: var(--tk-fiord);
+  color: #E6E4DF;
+  border-color: var(--tk-fiord);
+}
+
+/* 暗色下九段梯度：低饱和深底，避免浅色块在暗色下刺眼 */
+[data-md-color-scheme="slate"] .tk-step { background: #232220; border-color: #4A473F; border-top-color: #4A473F; }
+[data-md-color-scheme="slate"] .tk-step em { color: #E6E4DF; }
+[data-md-color-scheme="slate"] .tk-step i  { color: #A9A49A; }
+[data-md-color-scheme="slate"] .tk-step b  { color: #9FB0C4; }
+[data-md-color-scheme="slate"] .tk-s1,
+[data-md-color-scheme="slate"] .tk-s2,
+[data-md-color-scheme="slate"] .tk-s3 { border-top-color: #A8C07A; }
+[data-md-color-scheme="slate"] .tk-s1 b,
+[data-md-color-scheme="slate"] .tk-s2 b,
+[data-md-color-scheme="slate"] .tk-s3 b { color: #A8C07A; }
+[data-md-color-scheme="slate"] .tk-s4 { border-top-color: #B8AC90; }
+[data-md-color-scheme="slate"] .tk-s4 b { color: #B8AC90; }
+[data-md-color-scheme="slate"] .tk-s5,
+[data-md-color-scheme="slate"] .tk-s6 { border-top-color: #D9B061; }
+[data-md-color-scheme="slate"] .tk-s5 b,
+[data-md-color-scheme="slate"] .tk-s6 b { color: #D9B061; }
+[data-md-color-scheme="slate"] .tk-s7 { border-top-color: #C99A55; }
+[data-md-color-scheme="slate"] .tk-s7 b { color: #C99A55; }
+[data-md-color-scheme="slate"] .tk-s8 { border-top-color: #D08A72; }
+[data-md-color-scheme="slate"] .tk-s8 b { color: #D08A72; }
+[data-md-color-scheme="slate"] .tk-s9 { border-top-color: #E08A8A; }
+[data-md-color-scheme="slate"] .tk-s9 b { color: #E08A8A; }
+
+/* 暗色下页头条纹带：压暗，避免刺眼 */
+[data-md-color-scheme="slate"] .md-header::after { opacity: .55; }
 
 /* --------------------------------------------------------------------------
-   7. 窄屏适配：缩小字号与内距，长术语表不再横向挤压
+   9. 窄屏适配：缩小字号与内距，长术语表不再横向挤压
    -------------------------------------------------------------------------- */
 
 @media screen and (max-width: 44.9375em) {
@@ -297,9 +601,9 @@
 }
 
 /* --------------------------------------------------------------------------
-   8. 术语悬浮提示：正文里首次出现的塔科夫术语带虚线底边，悬停 / 点击显示释义
+   10. 术语悬浮提示：正文里首次出现的塔科夫术语带虚线底边，悬停 / 点击显示释义
       （数据源见 scripts/build_glossary.py，逻辑见 javascripts/glossary-tooltip.js）
-      配色沿用品牌蓝 + --tk-ink，深浅色都有兜底，打印时自动隐藏。
+      配色沿用主色 + --tk-ink，深浅色都有兜底，打印时自动隐藏。
    -------------------------------------------------------------------------- */
 
 .md-typeset .tk-term {
@@ -319,9 +623,9 @@
   width: max-content;
   max-width: min(22rem, 78vw);
   padding: .5em .7em;
-  border-radius: 6px;
+  border-radius: 2px;
   background: var(--tk-ink);
-  color: #fff;
+  color: var(--tk-paper);
   font-size: .68rem;
   line-height: 1.5;
   font-weight: 400;
@@ -342,8 +646,8 @@
 }
 
 [data-md-color-scheme="slate"] .md-typeset .tk-term::after {
-  background: #e6e8f0;
-  color: #1f2430;
+  background: #E6E4DF;
+  color: #1B1A17;
 }
 
 @media print {
@@ -357,7 +661,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   9. 打印友好：截图 / 打印贴墙时去掉导航，表格与段落不跨页断开
+   11. 打印友好：截图 / 打印贴墙时去掉导航，表格与段落不跨页断开
    -------------------------------------------------------------------------- */
 
 @media print {
@@ -373,6 +677,12 @@
     display: table;
     overflow: visible;
     font-size: 9pt;
+    border-color: #9C9078;          /* 纸上加深，避免打印机打不出浅线 */
+  }
+
+  .md-typeset table:not([class]) td,
+  .md-typeset table:not([class]) th {
+    border-color: #9C9078;
   }
 
   .md-typeset tr,
@@ -382,5 +692,12 @@
 
   .md-typeset a[href$="#top"] {
     display: none;
+  }
+
+  /* 打印时背景色常被浏览器丢弃，表头必须靠描边立住 */
+  .md-typeset table:not([class]) thead th {
+    background: transparent !important;
+    color: #1C1A17 !important;
+    border-bottom: 2px solid #1C1A17;
   }
 }

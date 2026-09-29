@@ -9,8 +9,9 @@ edit_uri: edit/main/content/
 theme:
   name: material
   language: zh
+  favicon: assets/favicon.svg
   icon:
-    logo: material/shield-search
+    logo: material/crosshairs
   features:
     - navigation.instant
     - navigation.instant.progress
@@ -22,18 +23,23 @@ theme:
     - search.suggest
     - search.highlight
     - content.code.copy
+  # palette 用 custom 而不是预设色名（如 indigo）
+  # —— 这样主题不会给 <html> 加 [data-md-color-primary=indigo] 这类属性选择器，
+  #    配色变量改由 content/stylesheets/extra.css 定义（塔科夫「军用档案纸」色板）。
+  #    若改回预设色名，extra.css 里的 --md-primary-fg-color 会被主题自带的
+  #    同特异性规则压掉，页头会退回 Material 蓝。
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-night
         name: 切换暗色模式
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: 切换亮色模式

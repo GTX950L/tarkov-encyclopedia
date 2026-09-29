@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="逃离塔科夫百科全书">
+  <rect width="32" height="32" rx="2" fill="#4A596C"/>
+  <g stroke="#F5F4F0" stroke-width="2.4" fill="none" stroke-linecap="square">
+    <circle cx="16" cy="16" r="7.5"/>
+    <path d="M16 3.6v6.2M16 22.2v6.2M3.6 16h6.2M22.2 16h6.2"/>
+  </g>
+  <circle cx="16" cy="16" r="1.9" fill="#D6C49F"/>
+</svg>
