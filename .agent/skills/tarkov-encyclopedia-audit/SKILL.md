@@ -7,13 +7,14 @@ description: 只读巡检《逃离塔科夫百科全书》的内容新鲜度与�
 
 **这份 skill 只读，不改任何文件。** 它产出一份可执行的清单，改不改由人决定 —— 与仓库「审查 ≠ 修复」的工作方式一致。
 
-## Step 1 — 跑四个确定性脚本（不要凭印象）
+## Step 1 — 跑五个确定性脚本（不要凭印象）
 
 ```bash
 python scripts/check-freshness.py    # ① 新鲜度（只读，信息性）
 python scripts/check_entries.py      # ② 内容一致性（硬错误，CI 门禁）
 python scripts/check_icons.py        # ③ 图标语义表对账（硬错误，CI 门禁）
-python scripts/skills_consistency.py # ④ 手册一致性（硬错误，CI 门禁）
+python scripts/check_promises.py     # ④ 未决项承诺对账（硬错误，CI 门禁）
+python scripts/skills_consistency.py # ⑤ 手册一致性（硬错误，CI 门禁）
 ```
 
 | 脚本 | 回答什么 | 是否阻断部署 |
@@ -21,9 +22,10 @@ python scripts/skills_consistency.py # ④ 手册一致性（硬错误，CI 门�
 | `scripts/check-freshness.py` | **哪些内容该回头核了** —— 版本敏感但页脚早于基线、久未更新、页脚缺失 | 否（信息性，恒返回 0） |
 | `scripts/check_entries.py` | **有没有硬错误** —— 断链、计数漂移、骨架缺失、直引号残留 | 是（CI 部署前置） |
 | `scripts/check_icons.py` | **图标有没有各写各的** —— 内容里用了表外的 emoji、表里有悬空项、template.md 的统计数字过期 | 是（CI 部署前置） |
+| `scripts/check_promises.py` | **《引用说明》第三节的承诺还算不算数** —— 每条未决项的「现行处理方式」在正文里是否真的落实（含「不得出现某数字」的阴性断言） | 是（CI 部署前置） |
 | `scripts/skills_consistency.py` | **这套手册自己有没有过期** —— 引用的路径是否还在、声称的 CI 门禁是否属实 | 是（CI 部署前置） |
 
-> 后两个之所以必须存在：手册与图标语义表写错都不会报错，只会让智能体安静地跳过或各写各的。**巡检工具本身也在巡检范围内。**
+> 后三个之所以必须存在：手册、图标语义表、未决项声明**写错都不会报错**，只会让智能体安静地跳过、或让照着引用的读者被误导。**巡检工具本身也在巡检范围内。**
 
 ## Step 2 — 解读，并给出优先级
 
