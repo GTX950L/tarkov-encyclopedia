@@ -42,8 +42,13 @@ CJK = re.compile(r"[\u4e00-\u9fff]")
 FENCE_RE = re.compile(r"^\s*(```|~~~)")
 HEADER_FOOTER_RE = re.compile(r"^(\*\*最后更新\*\*|\*\*贡献者\*\*|\*\*License\*\*|> 版本基线：|> 本页数值随版本调整|> ⚠️ 本页含未决项)")
 DATA_UNITS = r"米|秒|分钟|小时|天|格|级|发|次|发/分|%|卢布|₽|万|kg|mm|m"
+# ⚠️ 2026-09-29 口径加宽：只算「计量单位」会**系统性少算**——「23 个模块」「4 位码」
+#    「5 环任务线」「LL2 档」这些都是实打实的数据，却一个都不计入。加进**计数单位**。
+DATA_UNITS += r"|个|位|环|档|条|套|种|张|把|件|名|人|轮|页"
 NUM_UNIT = re.compile(r"([\u4e00-\u9fff]{2,8})[^\n。；]{0,12}?(\d+(?:\.\d+)?)\s*(" + DATA_UNITS + r")")
 DATA_POINT = re.compile(r"\d+(?:\.\d+)?\s*(?:" + DATA_UNITS + r")")
+# 来源标记：出现这些词就算「这一页声明了来源层级」
+SOURCE_MARK = re.compile(r"一级|二级|社区口径|社区来源|官方 Wiki|官方 wiki|tarkov\.dev|knowledge/\d+|知识库")
 
 
 def strip_code_and_meta(text: str) -> str:
@@ -187,7 +192,11 @@ def main() -> int:
     #   密度   = 数据点 / 正文汉字数 × 1000（‰）。
     print()
     print("【D】数据密度 —— 站规要求「数据详实」，这些页面给的数据偏少（信息性，不阻断）")
-    print("     （口径：数字+单位 的出现次数 ÷ 正文汉字数 × 1000‰，不含代码块与页眉页脚）")
+    print("     （口径：数字+单位 的出现次数 ÷ 正文汉字数 × 1000‰，不含代码块与页眉页脚；")
+    print("       单位含计量与计数两类：米/秒/小时/格/级/%/卢布… 与 个/位/环/档/条/名…）")
+    print("     ⚠️ **这是「候审」，不是「工单」**：密度低有两种原因，必须人工分——")
+    print("        ① 该给数而没给（要补）；② **这一页本来就以判断为主**（行为层/设定层，不必补）。")
+    print("        例：engagement-rules 是最厚的一页，密度也低，但那是对的。")
     density: list[tuple[float, int, int, str]] = []
     for rel, path in pages:
         if not rel.startswith("entries/"):
@@ -201,10 +210,22 @@ def main() -> int:
         density.append((n / cjk * 1000, n, cjk, rel))
     density.sort()
     if density:
+        zeros = [d for d in density if d[1] <= 1]
         print(f"  · 全站条目 {len(density)} 篇：密度中位 {density[len(density) // 2][0]:.1f}‰")
-        print("  · 最缺数据的 10 篇（这些就是「补数据」的工单）：")
-        for d, n, cjk, rel in density[:10]:
+        print(f"  · 【A 档｜最该看】数据点 ≤ 1 的 {len(zeros)} 篇 —— 这一档基本可以断定「该给数而没给」：")
+        for d, n, cjk, rel in zeros[:12]:
+            print(f"      {d:5.1f}‰  数据点 {n:2} ／ 正文 {cjk:5} 字   {rel}")
+        print(f"  · 【B 档｜参考】密度最低的其余 8 篇（**先判是不是「以判断为主」的页面**）：")
+        rest = [d for d in density if d[1] > 1]
+        for d, n, cjk, rel in rest[:8]:
             print(f"      {d:5.1f}‰  数据点 {n:3} ／ 正文 {cjk:5} 字   {rel}")
+        # 有数据、但整页没声明来源层级 —— 「数据详实」规矩的另一半：数要能说清从哪来
+        nosrc = [(n, rel) for _, n, _, rel in density
+                 if n > 0 and not SOURCE_MARK.search((CONTENT / rel).read_text(encoding="utf-8"))]
+        print(f"\n  · 有数据但**整页未声明来源层级**的：{len(nosrc)} 篇"
+              "（源层级 / 官方 Wiki / 社区口径 等一个都没有）")
+        for n, rel in sorted(nosrc, reverse=True)[:8]:
+            print(f"      数据点 {n:3}   {rel}")
 
     # ── 【E】跨页数值候审（2026-09-29 新增）─────────────────────────────────
     # 同一「名词 + 单位」在不同页出现不同取值。**信噪比低**（多数是不同实体共用
