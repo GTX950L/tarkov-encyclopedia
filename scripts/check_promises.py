@@ -77,6 +77,18 @@ ASSERTIONS: dict[str, list[tuple[str, str, bool, str]]] = {
     "A8": [
         ("entries/bosses.md", r"尚未实装", True, "Povodyr 标记尚未实装"),
     ],
+    "A10": [
+        ("entries/combat-medical.md", r"16 / 20 秒", True,
+         "并列第一说：中文 Wiki 物品表的 CMS 16 秒 / Surv12 20 秒"),
+        ("entries/combat-medical.md", r"5–7 秒", True,
+         "并列第二说：社区实测常报的 5–7 秒"),
+    ],
+    "A11": [
+        ("entries/combat-medical.md", r"1\.36", True,
+         "现行口径：轻度出血 1.36 HP / 6 秒（每未损毁部位）"),
+        ("entries/combat-medical.md", r"0\.8", True,
+         "旧口径：轻度出血 0.8（中文资料仍在沿用，须并列保留）"),
+    ],
     # A9（实验室暗版门槛）已于 2026-09-29 核实并**移出**第三节：按官方 Wiki 的
     #   Events 页，入场靠 TerraGroup Labs 访问钥匙卡、与等级无关；正文已直接写出
     #   并标注来源层级。原来那条「不许回写 100 级」的断言移到了下面的 LEGACY_WRONG
