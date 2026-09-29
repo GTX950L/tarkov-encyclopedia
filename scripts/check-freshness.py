@@ -37,6 +37,32 @@ STALE_MONTHS = 6
 # frontmatter）。豁免它，避免每次巡检都报一条已知噪音。
 FOOTER_EXEMPT = {"docs/index.md"}
 
+# ── 【D】【E】两节用的口径（写死，便于复算）──────────────────────────────────
+CJK = re.compile(r"[\u4e00-\u9fff]")
+FENCE_RE = re.compile(r"^\s*(```|~~~)")
+HEADER_FOOTER_RE = re.compile(r"^(\*\*最后更新\*\*|\*\*贡献者\*\*|\*\*License\*\*|> 版本基线：|> 本页数值随版本调整|> ⚠️ 本页含未决项)")
+DATA_UNITS = r"米|秒|分钟|小时|天|格|级|发|次|发/分|%|卢布|₽|万|kg|mm|m"
+NUM_UNIT = re.compile(r"([\u4e00-\u9fff]{2,8})[^\n。；]{0,12}?(\d+(?:\.\d+)?)\s*(" + DATA_UNITS + r")")
+DATA_POINT = re.compile(r"\d+(?:\.\d+)?\s*(?:" + DATA_UNITS + r")")
+
+
+def strip_code_and_meta(text: str) -> str:
+    """去掉围栏代码块与页眉/页脚元信息行，剩下的才算「正文」。"""
+    keep, in_fence = [], False
+    for ln in text.split("\n"):
+        if FENCE_RE.match(ln):
+            in_fence = not in_fence
+            continue
+        if in_fence or HEADER_FOOTER_RE.match(ln):
+            continue
+        keep.append(ln)
+    return "\n".join(keep)
+
+
+def count_data_points(body: str) -> int:
+    """数据点 = 「数字 + 计量单位」的出现次数。"""
+    return len(DATA_POINT.findall(body))
+
 
 def month_index(year: int, month: int) -> int:
     """把年月折算成可相减的月序号。"""
@@ -147,6 +173,58 @@ def main() -> int:
     if no_footer:
         for rel in no_footer:
             print(f"  · {rel:<34} 找不到「**最后更新**: YYYY年M月」")
+    else:
+        print("  （无）")
+
+    # ── 【D】数据密度（2026-09-29 新增）─────────────────────────────────────
+    # 背景：站规的写作方向已从「数值克制」改为「**数据详实**」（见 CONTRIBUTING
+    # 「数据详实」）。这条规则**不是硬错误**（页面数据少不等于错），所以放进这份
+    # 信息性巡检，产出**补数据的工单**而不是卡发布。
+    #
+    # 口径（写死，便于复算）：
+    #   数据点 = 该页出现的「数字 + 计量单位」次数（单位表见 DATA_UNITS），
+    #            不含围栏代码块、不含页眉三行与页脚三行。
+    #   密度   = 数据点 / 正文汉字数 × 1000（‰）。
+    print()
+    print("【D】数据密度 —— 站规要求「数据详实」，这些页面给的数据偏少（信息性，不阻断）")
+    print("     （口径：数字+单位 的出现次数 ÷ 正文汉字数 × 1000‰，不含代码块与页眉页脚）")
+    density: list[tuple[float, int, int, str]] = []
+    for rel, path in pages:
+        if not rel.startswith("entries/"):
+            continue
+        text = path.read_text(encoding="utf-8")
+        body = strip_code_and_meta(text)
+        cjk = len(CJK.findall(body))
+        if cjk < 300:
+            continue
+        n = count_data_points(body)
+        density.append((n / cjk * 1000, n, cjk, rel))
+    density.sort()
+    if density:
+        print(f"  · 全站条目 {len(density)} 篇：密度中位 {density[len(density) // 2][0]:.1f}‰")
+        print("  · 最缺数据的 10 篇（这些就是「补数据」的工单）：")
+        for d, n, cjk, rel in density[:10]:
+            print(f"      {d:5.1f}‰  数据点 {n:3} ／ 正文 {cjk:5} 字   {rel}")
+
+    # ── 【E】跨页数值候审（2026-09-29 新增）─────────────────────────────────
+    # 同一「名词 + 单位」在不同页出现不同取值。**信噪比低**（多数是不同实体共用
+    # 名词，如不同 Prestige 档、不同止血带），所以只列候选、交人工判；但**真冲突
+    # 的代价很高**（读者会照着错数做决定），故必须有人定期看一眼。
+    print()
+    print("【E】跨页数值候审 —— 同一「名词+单位」在不同页取不同值（需人工判，不是错误清单）")
+    groups: dict[tuple[str, str], list[tuple[str, str, int]]] = {}
+    for rel, path in pages:
+        for i, ln in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+            for m in NUM_UNIT.finditer(ln):
+                groups.setdefault((m.group(1), m.group(3)), []).append((m.group(2), rel, i))
+    suspects = [(k, sorted({v[0] for v in vs}), vs) for k, vs in groups.items()
+                if len({v[0] for v in vs}) > 1 and len(vs) >= 2]
+    suspects.sort(key=lambda x: (-len(x[1]), x[0][0]))
+    if suspects:
+        print(f"  · 候选 {len(suspects)} 组，列出前 8 组（其余自行 grep）：")
+        for (noun, unit), vals, vs in suspects[:8]:
+            where = "、".join(f"{r}:{i}" for _, r, i in vs[:3])
+            print(f"      「{noun}·{unit}」取值 {vals}   → {where}")
     else:
         print("  （无）")
 

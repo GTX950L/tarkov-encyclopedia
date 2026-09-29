@@ -77,12 +77,10 @@ ASSERTIONS: dict[str, list[tuple[str, str, bool, str]]] = {
     "A8": [
         ("entries/bosses.md", r"尚未实装", True, "Povodyr 标记尚未实装"),
     ],
-    "A9": [
-        ("entries/labs.md", r"100\s*级", False,
-         "⚠️ 阴性断言：等级上限是 79，正文**不得**再出现「100 级」这个门槛"),
-        ("entries/labs.md", r"表注（门槛为什么不写数字）", True,
-         "必须留一段说明「为什么不写数字」，否则读者会以为漏写"),
-    ],
+    # A9（实验室暗版门槛）已于 2026-09-29 核实并**移出**第三节：按官方 Wiki 的
+    #   Events 页，入场靠 TerraGroup Labs 访问钥匙卡、与等级无关；正文已直接写出
+    #   并标注来源层级。原来那条「不许回写 100 级」的断言移到了下面的 LEGACY_WRONG
+    #   —— **未决项一旦核实移出，断言就不能留在本表里**（否则反向对账会报「脚本里有、本表已无」）。
     # ── B 类：口径不稳（只有社区口径 / 官方明说会变）────────────────────────
     "B1": [
         ("entries/scav-command.md", r"社区", True, "指令成功率百分比标为社区口径"),
@@ -118,6 +116,22 @@ ASSERTIONS: dict[str, list[tuple[str, str, bool, str]]] = {
          "钥匙卡表的性质与产出来自社区来源，表注必须写明"),
     ],
 }
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 历史错值黑名单（**不属于第三节**，条目不随未决项的增删而变）
+#
+# 为什么单独立一个：未决项核实完就从第三节移出，**断言也必须一起撤掉**（否则反向
+# 对账会报「脚本里有、本表已无」）。但「订正过的错值不许回写」这条护栏不该跟着消失
+# —— 一个错数字被订正掉之后，最容易发生的事就是下一批又从旧资料里抄回来。
+# 所以把这类值集中记在这里：**它们是「已经证否的数字」，不是「待核的项」。**
+#
+# 每条 = (相对 content/ 的文件, 正则, 说明)　—— 命中即报错。
+# ─────────────────────────────────────────────────────────────────────────────
+LEGACY_WRONG: list[tuple[str, str, str]] = [
+    ("entries/labs.md", r"100\s*级",
+     "「暗版实验室 = 100 级」是 2026-09-29 已证否的旧值（等级上限只有 79，且入场靠钥匙卡、与等级无关）"),
+]
 
 
 def declared_ids() -> list[str]:
@@ -172,12 +186,25 @@ def main() -> int:
                     + f"（{note}）"
                 )
 
+    # 4. 历史错值黑名单：已证否的旧值不许回写
+    legacy_rows: list[tuple[str, str, str]] = []
+    for rel, pattern, note in LEGACY_WRONG:
+        path = CONTENT / rel
+        if not path.exists():
+            errors.append(f"历史错值黑名单：文件不存在 {rel}")
+            continue
+        hit = re.search(pattern, path.read_text(encoding="utf-8")) is not None
+        legacy_rows.append((rel, "✗ 旧值被写回来了" if hit else "✓ 未出现", note))
+        if hit:
+            errors.append(f"历史错值黑名单：{rel} 里出现了「{pattern}」—— {note}")
+
     # ── 输出 ────────────────────────────────────────────────────────────────
     print("=" * 78)
     print("未决项承诺对账（只读，未改动任何文件）")
     print("=" * 78)
     print(f"citation.md 第三节登记编号：{len(ids)} 个 —— {'、'.join(ids)}")
     print(f"断言登记：{len(ASSERTIONS)} 个编号 / {sum(len(v) for v in ASSERTIONS.values())} 条断言")
+    print(f"历史错值黑名单：{len(LEGACY_WRONG)} 条")
     print("-" * 78)
     cur = None
     for i, rel, verdict, note in rows:
@@ -185,6 +212,10 @@ def main() -> int:
             print(f"\n【{i}】")
             cur = i
         print(f"  {verdict:<14} {rel:<34} {note}")
+    if legacy_rows:
+        print("\n【历史错值（不属于第三节，防回写）】")
+        for rel, verdict, note in legacy_rows:
+            print(f"  {verdict:<18} {rel:<34} {note}")
     print("\n" + "=" * 78)
     if errors:
         print(f"校验失败，共 {len(errors)} 个问题：")
@@ -193,7 +224,7 @@ def main() -> int:
         return 1
     print(
         f"✅ 校验通过：第三节 {len(ids)} 项承诺逐条对账通过，"
-        "正文与声明一致，无遗漏登记。"
+        f"正文与声明一致，无遗漏登记；{len(LEGACY_WRONG)} 条历史错值未回写。"
     )
     return 0
 
