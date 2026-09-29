@@ -5,7 +5,7 @@
 
 版本基线：2026 年 9 月
 游戏版本基准：Escape from Tarkov 1.1.5.1（第一赛季 KORD BREACH）
-最后更新：2026-09-28
+最后更新：2026-09-29
 
 **引用本资料前请先读**：[数据口径与引用说明](https://gtx950l.github.io/tarkov-encyclopedia/docs/citation/) —— 它说明哪一部分可以直接引用、哪一部分必须附加限定语、哪些事项属于未决项。
 
@@ -25,7 +25,7 @@
 
 - [数据口径与引用说明](https://gtx950l.github.io/tarkov-encyclopedia/docs/citation/)：三档口径、基准快照、已知未决项、资料来源分级、引用建议
 - [机制速查表](https://gtx950l.github.io/tarkov-encyclopedia/docs/mechanics/)：一页看懂所有核心规则
-- [术语与黑话速查](https://gtx950l.github.io/tarkov-encyclopedia/docs/glossary/)：全称、缩写与社区俗称双向可查
+- [术语与黑话速查](https://gtx950l.github.io/tarkov-encyclopedia/docs/glossary/)：全称、缩写、社区俗称与名称溯源双向可查
 - [新手成长路线](https://gtx950l.github.io/tarkov-encyclopedia/docs/progression/)：按阶段该做什么
 - [地图对照速查](https://gtx950l.github.io/tarkov-encyclopedia/docs/map-guide/)：逐图的交战风格、资源类型、风险与适合阶段（不列坐标）
 - [购买指南（地区与版本）](https://gtx950l.github.io/tarkov-encyclopedia/docs/buying-guide/)
