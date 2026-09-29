@@ -280,4 +280,4 @@ PMC 业力不管你和 Scav 的关系，它管的是**你在这一局里体面�
 
 **最后更新**: 2026年9月<br>
 **贡献者**: GTX950L<br>
-**License**: MIT
+**License**: CC BY-NC-SA 4.0

@@ -182,4 +182,4 @@ Kollontay 是前警察上校，武器从冲锋枪到霰弹枪到轻机枪都有�
 
 **最后更新**: 2026年9月<br>
 **贡献者**: GTX950L<br>
-**License**: MIT
+**License**: CC BY-NC-SA 4.0

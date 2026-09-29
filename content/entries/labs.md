@@ -202,4 +202,4 @@ Raiders 会**拉枪线、会包抄、会补枪**——他们的战术素养接�
 
 **最后更新**: 2026年9月<br>
 **贡献者**: GTX950L<br>
-**License**: MIT
+**License**: CC BY-NC-SA 4.0

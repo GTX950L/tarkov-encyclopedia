@@ -51,9 +51,16 @@
 - 二级（官方数据工具）：tarkov.dev 的静态数据端点 —— 站内定量结论（任务数、人数、时长、配件条目数）的来源
 - 三级（社区）：玩家实测、社区共识、中文维基、攻略站 —— 只作起点参考，必须标注为社区口径
 
+## 维护与编纂（承接本仓库时先读）
+
+- **编纂手册**：`.agent/skills/` —— 新增条目（`tarkov-encyclopedia-new-entry`）、只读巡检（`tarkov-encyclopedia-audit`）两册，各含必读规范清单与回归步骤
+- **内容约定**：`content/template.md`（骨架与页脚写法）、`content/CONTRIBUTING.md`（体例仲裁规则）、`content/docs/citation.md`（三档口径与已知未决项）
+- **校验脚本**：`scripts/check_entries.py`（内容一致性）、`scripts/skills_consistency.py`（手册与实现是否脱节）、`scripts/check-freshness.py`（内容新鲜度，信息性）
+- **改动纪律**：同一个实体在站内出现多处时，改一处必须 grep 全站 —— 否则别处会静默变错
+
 ## 相关资源
 
 - 逃离塔科夫中文 Wiki：https://www.eftarkov.com/
 - tarkov.dev（实时价格与掉落数据）：https://tarkov.dev/
 - 项目仓库：https://github.com/GTX950L/tarkov-encyclopedia
-- 许可协议（MIT）：https://github.com/GTX950L/tarkov-encyclopedia/blob/main/LICENSE
+- 许可协议（CC BY-NC-SA 4.0）：https://github.com/GTX950L/tarkov-encyclopedia/blob/main/LICENSE

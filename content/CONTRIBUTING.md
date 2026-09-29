@@ -80,4 +80,4 @@ zensical serve                       # ② 打开 http://localhost:8000
 
 ## 📜 许可证
 
-提交即表示同意内容以 [MIT License](https://github.com/GTX950L/tarkov-encyclopedia/blob/main/LICENSE) 发布。
+提交即表示同意内容以 [CC BY-NC-SA 4.0](https://github.com/GTX950L/tarkov-encyclopedia/blob/main/LICENSE) 发布。

@@ -181,4 +181,4 @@ Tour 是 Mechanic 线的剧情开头，**在工厂起步**。它的重要性不�
 
 **最后更新**: 2026年9月<br>
 **贡献者**: GTX950L<br>
-**License**: MIT
+**License**: CC BY-NC-SA 4.0

@@ -20,3 +20,6 @@ jobs:
 
       - name: Run consistency checks
         run: python scripts/check_entries.py
+
+      - name: Check agent manual consistency
+        run: python scripts/skills_consistency.py

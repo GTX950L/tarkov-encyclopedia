@@ -34,10 +34,21 @@
 
 ## 📎 参考区
 
+- [数据口径与引用说明](content/docs/citation.md) — **引用本站前先读**：三档口径、已知未决项、来源分级
 - [机制速查表](content/docs/mechanics.md) — 一页看懂所有核心规则
+- [术语与黑话速查](content/docs/glossary.md) — 全称、缩写与社区俗称双向可查
 - [新手成长路线](content/docs/progression.md) — 分阶段的成长目标
+- [地图对照速查](content/docs/map-guide.md) — 逐图的交战风格、资源类型、风险与适合阶段
 - [重大版本更新史](content/docs/version-history.md) — 2016 至今的重大更新、作用与玩家反馈
 - [待收录清单](content/docs/roadmap.md) — 下一批条目规划
+
+## 🤖 给 AI 智能体
+
+- **入口索引**：[llms.txt](content/llms.txt) — 面向 AI 的全站结构、版本基线与引用口径摘要
+- **引用口径**：[数据口径与引用说明](content/docs/citation.md) — 哪一部分可直接引、哪一部分必须挂限定语
+- **维护工作流**：[.agent/skills/](.agent/skills/) — 写新条目与内容巡检的可执行规范
+
+> 只给 `llms.txt` 不给口径页，AI 会把动态数值当成静态事实引用——**两份一起给**。
 
 ## 🤝 如何贡献
 
@@ -45,7 +56,13 @@
 
 ## 📜 许可证
 
-[MIT License](https://github.com/GTX950L/tarkov-encyclopedia/blob/main/LICENSE)
+本项目**文字内容**采用 **[CC BY-NC-SA 4.0](https://github.com/GTX950L/tarkov-encyclopedia/blob/main/LICENSE)**（署名—非商业性使用—相同方式共享 4.0 国际）发布：
+
+- **署名** —— 转载、翻译、改编须注明作者与出处，并保留协议声明；
+- **非商业性使用** —— 不得用于商业目的（含搬运到带广告的站点、付费内容）；
+- **相同方式共享** —— 基于本作品创作的新作品，须以相同协议分发。
+
+游戏《逃离塔科夫》的名称、商标、游戏内文本与数据归 Battlestate Games 所有，不在本协议授权范围内。
 
 ---
 

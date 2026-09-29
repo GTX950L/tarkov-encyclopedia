@@ -174,4 +174,4 @@ Zryachiy 是驻守半岛的**盲眼狙击手**：
 
 **最后更新**: 2026年9月<br>
 **贡献者**: GTX950L<br>
-**License**: MIT
+**License**: CC BY-NC-SA 4.0

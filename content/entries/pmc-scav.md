@@ -131,4 +131,4 @@ PMC 进图时**没有任何阵营约束**：USEC 与 BEAR 之间不存在和平�
 
 **最后更新**: 2026年9月<br>
 **贡献者**: GTX950L<br>
-**License**: MIT
+**License**: CC BY-NC-SA 4.0

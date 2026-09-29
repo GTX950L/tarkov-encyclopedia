@@ -129,4 +129,4 @@ Tarkov 的负载结构和多数 FPS 不同。下面三条是**社区长期共识
 
 **最后更新**: 2026年9月<br>
 **贡献者**: GTX950L<br>
-**License**: MIT
+**License**: CC BY-NC-SA 4.0
