@@ -34,7 +34,7 @@
 - **页脚许可行**替换 **101 个文件 / 101 处**（含全站条目与参考页），许可协议本体 `LICENSE` 重建；
 - **派生文件**同步 4 个：[贡献指南](CONTRIBUTING.md)、[llms.txt](llms.txt)、[站点首页](README.md)、根 README；
 - **工程层新增**：编纂手册 `.agent/skills/` **2 册**（新增条目 / 只读巡检）、巡检脚本 `scripts/check-freshness.py`、手册一致性脚本 `scripts/skills_consistency.py`；两个 workflow 各接入一步门禁（`skills_consistency.py`）；
-- **回归**：`scripts/check_entries.py` 通过（103 个内容文件、86 条目、29 个标签，内部链接 **2358 → 2372**）；`scripts/skills_consistency.py` 路径断言 **18/18**；`scripts/check-freshness.py` 扫描 **96 页**（顺带登记 1 项：本页所在参考区的[路线图](docs/roadmap.md) 缺页脚，**只登记、不夹带修复**）；`scripts/build_glossary.py` 收录术语 **27 条不变**；`zensical build` 无告警。
+- **回归**：`scripts/check_entries.py` 通过（103 个内容文件、86 条目、29 个标签，内部链接 **2358 → 2385**）；`scripts/skills_consistency.py` 路径断言 **18/18**；`scripts/check-freshness.py` 扫描 **96 页**（顺带登记 1 项：本页所在参考区的[路线图](docs/roadmap.md) 缺页脚，**只登记、不夹带修复**）；`scripts/build_glossary.py` 收录术语 **27 条不变**；`zensical build` 无告警。
 
 ## 2026-09（v1.38.2）
 
