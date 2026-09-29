@@ -5,7 +5,7 @@ description: 给《逃离塔科夫百科全书》新增一篇条目，并完成�
 
 # 新增条目
 
-目标：写出一篇**能通过 `scripts/check_entries.py` 与 `zensical build`** 的条目，并让它出现在所有该出现的地方。
+目标：写出一篇**能通过 `scripts/check_entries.py`、`scripts/check_icons.py` 与 `zensical build`** 的条目，并让它出现在所有该出现的地方。
 
 ## 第一步：先读规范，再动手（不要跳过）
 
@@ -54,10 +54,13 @@ wc -l content/entries/*.md | tail -5          # 100 行以上基本等于已被�
 ```bash
 python scripts/build_glossary.py      # ① 术语数据（改了术语表才有变化）
 python scripts/check_entries.py       # ② 内容一致性，必须全绿
-python -m zensical build              # ③ 构建，最后一行必须是 No issues found
-python scripts/skills_consistency.py  # ④ 只在改了 .agent/skills/ 时补跑
+python scripts/check_icons.py         # ③ 图标语义表对账（新内容里用了表外 emoji 会在这里挂掉）
+python -m zensical build              # ④ 构建，最后一行必须是 No issues found
+python scripts/skills_consistency.py  # ⑤ 只在改了 .agent/skills/ 时补跑
 ```
 
-**三个都过才算完成**。校验查不到 nav 缩进错误、查不到表格列数串列、也查不到整张表不渲染 —— 那些只有真实构建与产物检查能发现。
+**五个都过才算完成**。校验查不到 nav 缩进错误、查不到表格列数串列、也查不到整张表不渲染 —— 那些只有真实构建与产物检查能发现。
 
-> 改了本手册（或动了它引用的脚本、文件）时补跑 ④：它断言手册里提到的每个路径真实存在、每条「CI 门禁」声明与 workflow 实际一致。
+> ③ 的常见触发：正文里随手打了个 `✓`、`🎨` 之类不在 `content/template.md`「图标语义表」里的符号。**要么换成表内图标，要么同一批回来更新那张表**（表里第 3 档是「不新增」的冻结清单，只收已存在的长尾图标）。
+
+> 改了本手册（或动了它引用的脚本、文件）时补跑 ⑤：它断言手册里提到的每个路径真实存在、每条「CI 门禁」声明与 workflow 实际一致。

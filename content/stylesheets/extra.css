@@ -99,6 +99,31 @@ body[data-md-color-scheme="default"] {
 
   --md-code-bg-color:             var(--tk-panel);
   --md-code-fg-color:             var(--tk-ink);
+
+  /* —— 代码高亮令牌（Pygments 的短类名 .k/.s2/.mf/.nb… 全部走这些变量）——
+     主题默认给的是 Material 自己的蓝紫红：keyword #3f6ec6、constant #6e59d9、
+     function #a846b9、number #d52a2a、special #db1457、string #1c7d4d。本站是暖纸底，
+     这几个是代码块里**唯一的残留冷色**。这里整组换成塔科夫色板。
+     只覆盖「不在色板上」的八个：comment / operator / punctuation / generic / variable
+     原本就是 var(--md-default-fg-color--light)，已随上面那几条自动成为 --tk-ink-2。
+     对比度实算（代码块底色 = --tk-panel #F4F2ED）：最低 5.36:1，全部 ≥ AA 4.5:1。 */
+  --md-code-hl-keyword-color:     var(--tk-brand);        /* 8.05:1 蓝灰 */
+  --md-code-hl-name-color:        var(--tk-ink);          /* 15.52:1 */
+  --md-code-hl-function-color:    var(--tk-brand-dark);   /* 10.60:1 */
+  --md-code-hl-variable-color:    var(--tk-brand-dark);   /* 10.60:1 */
+  --md-code-hl-constant-color:    var(--tk-olive);        /* 5.36:1 橄榄褐 */
+  --md-code-hl-string-color:      var(--tk-grn);          /* 6.49:1 军绿 */
+  --md-code-hl-number-color:      var(--tk-red);          /* 6.39:1 暗红 */
+  --md-code-hl-special-color:     var(--tk-red);          /* 6.39:1 与 number 同族（转义 / 错误） */
+
+  /* 行高亮：左缘 2px 标记条用 --md-code-hl-color，行底纹用 --md-code-hl-color--light */
+  --md-code-hl-color:             var(--tk-amber);
+  --md-code-hl-color--light:      rgba(214, 196, 159, .55);   /* 沙色，同 --md-typeset-mark-color */
+
+  /* 代码块右上角复制按钮的底：主题默认是 #f5f5f5 系冷灰，在暖纸底上发青 */
+  --md-code-bg-color--lighter:    rgba(244, 242, 237, .30);
+  --md-code-bg-color--light:      rgba(244, 242, 237, .80);
+
   --md-warning-bg-color:          var(--tk-amber-bg);
   --md-warning-fg-color:          var(--tk-ink);
 }
@@ -538,6 +563,25 @@ body[data-md-color-scheme="slate"] {
 
   --md-code-bg-color:           var(--tk-panel);
   --md-code-fg-color:           var(--tk-ink);
+
+  /* 代码高亮令牌：与浅色同一套语义，取值跟随暗色色板（见第 0 节浅色块的说明）。
+     对比度实算（底色 = 暗色 --tk-panel #232220）：最低 5.88:1，全部 ≥ AA 4.5:1。
+     ⚠️ 不要在这里用 --tk-fiord（#3A4859）：它在暗色代码底上只有 1.70:1，等于看不见。 */
+  --md-code-hl-keyword-color:   var(--tk-brand);          /* 7.18:1 */
+  --md-code-hl-name-color:      var(--tk-ink);            /* 12.51:1 */
+  --md-code-hl-function-color:  var(--tk-brand-dark);     /* 10.06:1 */
+  --md-code-hl-variable-color:  var(--tk-brand-dark);     /* 10.06:1 */
+  --md-code-hl-constant-color:  var(--tk-olive);          /* 5.88:1 */
+  --md-code-hl-string-color:    var(--tk-grn);            /* 7.94:1 */
+  --md-code-hl-number-color:    var(--tk-red);            /* 6.19:1 */
+  --md-code-hl-special-color:   var(--tk-red);            /* 6.19:1 */
+
+  --md-code-hl-color:           var(--tk-amber);
+  --md-code-hl-color--light:    rgba(107, 95, 62, .55);
+
+  --md-code-bg-color--lighter:  rgba(35, 34, 32, .30);
+  --md-code-bg-color--light:    rgba(35, 34, 32, .80);
+
   --md-warning-bg-color:        var(--tk-amber-bg);
   --md-warning-fg-color:        var(--tk-ink);
 }
@@ -616,7 +660,13 @@ body[data-md-color-scheme="slate"] {
 .md-typeset .tk-term::after {
   content: attr(data-tip);
   position: absolute;
-  left: 50%;
+  /* 水平锚点由 glossary-tooltip.js 现算后写进 --tk-tip-left。
+     气泡最宽 22rem，而术语可能贴着容器右缘——纯居中会让气泡右半截伸到可视区
+     外面；主题又给 html 设了 overflow-x:hidden，伸出去的部分既滚不到也看不见
+     （等于被裁），那批「看不见的框」还会把整页滚动区顶宽。
+     ⚠️ 这里的 50% 只是「JS 没跑」时的兜底，别把它当居中的保证：术语跨行断开时
+     浏览器算出的 50% 可能是 0。真正的定位一律由 JS 显式写。 */
+  left: var(--tk-tip-left, 50%);
   bottom: 100%;
   transform: translate(-50%, -.5em);
   z-index: 30;

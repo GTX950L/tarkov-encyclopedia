@@ -14,6 +14,10 @@
      3. 跳过标题、代码块、链接文字，以及术语速查页自身。
 
    交互：桌面悬停显示；移动端没有 hover，所以额外支持**点击切换**（并可 Esc 关闭）。
+
+   定位：气泡默认居中（CSS 里的 left:50%），这里负责在「居中装不下」时把它
+         钳回裁剪边之内——见下面「气泡定位」一节。没有这段，贴右缘的术语
+         气泡会被裁掉，整页滚动区也会被顶宽。
    ========================================================================== */
 
 (function () {
@@ -69,6 +73,79 @@
     parent.removeChild(node);
     return span;
   }
+
+  /* --------------------------------------------------------------------------
+     气泡定位：把气泡钳进「会裁剪它的那个盒子」的可见区
+     --------------------------------------------------------------------------
+     CSS 默认让气泡居中（left:50% + translateX(-50%)）。气泡最宽 22rem，术语却
+     可能贴着容器右缘，于是右半截伸出可视区；主题又给 html 设了
+     overflow-x:hidden + scrollbar-gutter:stable，伸出去的部分既滚不到也看不见，
+     实测就等于**被裁**（390px 下 CHANGELOG 的「叛徒」被切 61px）。
+     顺带那批「看不见的框」还把整页滚动区顶宽——实测 ammo-table 390px：
+     文档 scrollWidth 369 → 469，页面能横向拖走 100px 的空白。
+
+     做法：算出气泡中心该摆哪，把偏移量写进 CSS 变量 --tk-tip-left。
+
+     ⚠️ 两点别踩：
+       1. 可见窗口**不总是视口**。宽表格外面套了 overflow-x:auto 的滚动层
+          （.md-typeset__table），术语在表格里时裁它的是那一层；按视口钳会算错。
+       2. 兜底窗口要用 body.clientWidth，**不能用 documentElement.clientWidth**——
+          主题给 html 设了 scrollbar-gutter:stable，后者会把预留的滚动条槽也算进
+          来（本机 390px 下报 390，真实内容宽只有 369），按它钳会留下 13px 溢出。
+       3. **不能拿 CSS 的 left:50% 当「居中」用，偏移量必须每次显式写。**
+          术语跨行断开时（inline 被切成两个 fragment），浏览器算出的 50% 可能是 0：
+          实测「PMC 业力」在 390px 下被切成 [298,350] + [16,31] 两段，left 解析成
+          **0px**，气泡整块右移，把页面撑宽 82px、气泡被裁。所以这里不留
+          「反正居中装得下、不用动」的捷径，一律写死。
+     -------------------------------------------------------------------------- */
+
+  var TIP_MARGIN = 8;      // 气泡离裁剪边至少留这么多
+
+  function visibleWindow(el) {
+    var p = el.parentElement, guard = 0;
+    while (p && p !== document.body && guard++ < 40) {
+      var cs = getComputedStyle(p);
+      if (cs.overflowX !== "visible" || cs.overflowY !== "visible") {
+        var r = p.getBoundingClientRect();
+        var left = r.left + p.clientLeft;
+        return { left: left, right: left + p.clientWidth };
+      }
+      p = p.parentElement;
+    }
+    return { left: 0, right: document.body.clientWidth };
+  }
+
+  function place(el) {
+    // 先清掉上次算的——量宽度必须在「没被钳制」的状态下做，否则会读到上一次的布局
+    el.style.removeProperty("--tk-tip-left");
+
+    // ⚠️ 必须用**第一段**（getClientRects()[0]），不能用 getBoundingClientRect()。
+    //    术语跨行断开时，inline 被切成多个 fragment，边界框给的是所有段的**并集**：
+    //    实测「PMC 业力」在 390px 下被切成 [298,350] + [16,31]，并集是 [16,350]（宽 334），
+    //    而伪元素的包含块是锚在**第一段**上的（探针实测包含块原点 = 298 = 首段左边）。
+    //    拿并集当锚 → 气泡被甩到框外 249px（390px）/ 484px（768px）。
+    var rects = el.getClientRects();
+    if (!rects.length) return;
+    var seg = rects[0];
+
+    var w = parseFloat(getComputedStyle(el, "::after").width) || 0;
+    if (!w) return;                        // 气泡没被排版（例如 print 里 display:none），不动
+
+    var win = visibleWindow(el);
+    var center = seg.left + seg.width / 2;
+    var lo = win.left + w / 2 + TIP_MARGIN;
+    var hi = win.right - w / 2 - TIP_MARGIN;
+    var target = Math.min(Math.max(center, lo), Math.max(lo, hi));
+
+    el.style.setProperty("--tk-tip-left", (target - seg.left).toFixed(2) + "px");
+  }
+
+  function placeAll() {
+    var list = document.querySelectorAll("." + CLS);
+    for (var i = 0; i < list.length; i++) place(list[i]);
+  }
+
+  var resizeRaf = 0;
 
   function run() {
     var terms = window.TARKOV_TERMS;
@@ -128,6 +205,14 @@
         node = next;
       }
     }
+
+    // 标注完立刻摆位：气泡盒本来就在布局里，不摆的话页面当场能横向拖走
+    placeAll();
+
+    // 网络字体换上来会改文本宽度，进而改气泡宽度——换完再摆一次
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(placeAll).catch(function () {});
+    }
   }
 
   // Material 的 document$ 在首次加载与每次 instant 切换后都会触发
@@ -139,12 +224,32 @@
     run();
   }
 
+  /* 摆在哪，取决于「此刻」术语离裁剪边有多远——所以悬停 / 聚焦时现算一次。
+     加载时算的那一份会过期：读者把宽表格横向拖过去之后再悬停术语，容器窗口
+     没动、术语动了，原来算的偏移就偏了（实测最差偏出 375px）。 */
+  function reposition(e) {
+    var t = e.target;
+    if (!t || !t.closest) return;
+    var el = t.closest("." + CLS);
+    if (el) place(el);
+  }
+  document.addEventListener("mouseover", reposition, true);
+  document.addEventListener("focusin", reposition, true);
+
+  window.addEventListener("resize", function () {
+    if (resizeRaf) cancelAnimationFrame(resizeRaf);
+    resizeRaf = requestAnimationFrame(placeAll);
+  }, { passive: true });
+
   // 移动端：点击术语切换展开（并支持 Esc / 点别处关闭）
   document.addEventListener("click", function (e) {
     var el = e.target.closest && e.target.closest("." + CLS);
     var open = document.querySelector("." + CLS + ".is-open");
     if (open && open !== el) open.classList.remove("is-open");
-    if (el) el.classList.toggle("is-open");
+    if (el) {
+      el.classList.toggle("is-open");
+      if (el.classList.contains("is-open")) place(el);
+    }
   });
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
