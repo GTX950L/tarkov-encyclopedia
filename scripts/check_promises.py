@@ -13,12 +13,15 @@
 其中 2 处是**断言根本不在登记所指向的那一页**（A1、A6）——
 按登记去找，一处也找不到。
 
-本脚本做三件事，任何一件不成立即返回 1：
+本脚本做四件事，任何一件不成立即返回 1：
 
 1. **覆盖对账**：第三节里的每个编号，都必须在下面的 `ASSERTIONS` 里有断言登记。
    —— 新增未决项时**必须同一批**在这里写清「去哪一页、找什么」，否则 CI 直接拦下。
 2. **反向对账**：`ASSERTIONS` 里的编号必须在第三节仍然存在（防删了未决项却留着断言）。
 3. **逐条对账**：每条断言按「文件 + 正则 + 必须命中/必须不命中」实跑。
+4. **计数对账**：正文里写死的那句「A / B 两类共 N 项」必须与实算一致。
+   —— 第四十九批发现该句长期停在 **17**，而当时实算已是 **19**：**没有断言在看它**。
+   「声明了却没人检查」正是这类数字漂移的成因，故一并纳入（与 §5x 的判据同源）。
 
 用法：python scripts/check_promises.py
 """
@@ -35,6 +38,9 @@ CITATION = CONTENT / "docs" / "citation.md"
 
 # 第三节的表格行：| **A1** | 事项 | 分歧点 | 现行处理 |   （B 类只有三列）
 ROW_RE = re.compile(r"^\|\s*\*\*([AB]\d+)\*\*\s*\|")
+
+# 正文里写死的计数声明（防「声明了却没人检查」——第四十九批实测它已漂移 17 vs 19）
+COUNT_RE = re.compile(r"A / B 两类共\s*(\d+)\s*项")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 断言登记表
@@ -95,6 +101,17 @@ ASSERTIONS: dict[str, list[tuple[str, str, bool, str]]] = {
         ("entries/combat-medical.md", r"0\.8", True,
          "旧口径：轻度出血 0.8（中文资料仍在沿用，须并列保留）"),
     ],
+    # 2026-09-30（第四十九批）新增：读者问「救星结局到底怎么逃离的塔科夫」时，
+    #   顺带查出四个结局的叙述在「是否真的离开」上存在来源分歧。**断言在实体页**
+    #   （story-chapters.md），与 A1 / A6「断言不在实体页」的情况正好相反。
+    "A12": [
+        ("entries/story-chapters.md", r"Escaped from Tarkov", True,
+         "官方成就名含 Escape —— 站内按官方口径处理（旧债沉疴 / 陨落之人都算离开了）"),
+        ("entries/story-chapters.md", r"没能离开塔科夫", True,
+         "社区另说必须并列保留，不得只留官方一说"),
+        ("entries/story-chapters.md", r"把子任务名当成了结局", True,
+         "必须点明分歧的来源：`\"Stay in Tarkov\"` 是债务的比喻，不是结局事实"),
+    ],
     # A9（实验室暗版门槛）已于 2026-09-29 核实并**移出**第三节：按英文 EFT Wiki 的
     #   Events 页，入场靠 TerraGroup Labs 访问钥匙卡、与等级无关；正文已直接写出
     #   并标注来源层级。原来那条「不许回写 100 级」的断言移到了下面的 LEGACY_WRONG
@@ -132,6 +149,15 @@ ASSERTIONS: dict[str, list[tuple[str, str, bool, str]]] = {
     "B9": [
         ("entries/labs.md", r"社区", True,
          "钥匙卡表的性质与产出来自社区来源，表注必须写明"),
+    ],
+    # 2026-09-30（第四十九批）新增：四个结局的**叙事演出**只有社区口径。
+    #   官方公布了结局名与成就文本，但**没有以文本形式公布结局演出**——
+    #   「船长被击毙」「城市遭核打击」这类情节全部来自社区通关录像与媒体报道。
+    "B10": [
+        ("entries/story-chapters.md", r"并未以文本形式公布", True,
+         "必须明写「结局演出没有官方文本」——这是本项存在的理由"),
+        ("entries/story-chapters.md", r"社区实录与媒体报道", True,
+         "来源须标为社区实录与媒体报道，不得写成官方设定"),
     ],
 }
 
@@ -204,7 +230,21 @@ def main() -> int:
                     + f"（{note}）"
                 )
 
-    # 4. 历史错值黑名单：已证否的旧值不许回写
+    # 4. 计数对账：正文写死的「A / B 两类共 N 项」必须与实算一致
+    #    「匹配不到就报错」是刻意的 —— 声明句消失属于规范被破坏，不能静默通过。
+    cited = COUNT_RE.search(CITATION.read_text(encoding="utf-8"))
+    if not cited:
+        errors.append(
+            "计数声明缺失（citation.md 第三节）：找不到「A / B 两类共 N 项」这句，"
+            r"预期模式「A / B 两类共 (\d+) 项」"
+        )
+    elif int(cited.group(1)) != len(ids):
+        errors.append(
+            f"未决项计数不一致：citation.md 写「共 {cited.group(1)} 项」，实算 {len(ids)} 项 "
+            f"—— 请把该句改为「A / B 两类共 {len(ids)} 项」"
+        )
+
+    # 5. 历史错值黑名单：已证否的旧值不许回写
     legacy_rows: list[tuple[str, str, str]] = []
     for rel, pattern, note in LEGACY_WRONG:
         path = CONTENT / rel
@@ -222,6 +262,7 @@ def main() -> int:
     print("=" * 78)
     print(f"citation.md 第三节登记编号：{len(ids)} 个 —— {'、'.join(ids)}")
     print(f"断言登记：{len(ASSERTIONS)} 个编号 / {sum(len(v) for v in ASSERTIONS.values())} 条断言")
+    print(f"计数对账：正文声明「共 {cited.group(1) if cited else '?'} 项」 / 实算 {len(ids)} 项")
     print(f"历史错值黑名单：{len(LEGACY_WRONG)} 条")
     print("-" * 78)
     cur = None
@@ -242,7 +283,8 @@ def main() -> int:
         return 1
     print(
         f"✅ 校验通过：第三节 {len(ids)} 项承诺逐条对账通过，"
-        f"正文与声明一致，无遗漏登记；{len(LEGACY_WRONG)} 条历史错值未回写。"
+        f"计数声明与实算一致（{len(ids)} 项），正文无遗漏登记；"
+        f"{len(LEGACY_WRONG)} 条历史错值未回写。"
     )
     return 0
 
