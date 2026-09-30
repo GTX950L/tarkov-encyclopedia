@@ -32,6 +32,7 @@
 - [配置与性能](https://gtx950l.github.io/tarkov-encyclopedia/docs/performance/)
 - [操作与设置](https://gtx950l.github.io/tarkov-encyclopedia/docs/game-settings/)
 - [重大版本更新史](https://gtx950l.github.io/tarkov-encyclopedia/docs/version-history/)
+- [游戏数值变更台账](https://gtx950l.github.io/tarkov-encyclopedia/docs/value-changes/)：某个值在哪一版上从多少变成了多少（数值级，区别于版本级的更新史）
 - [待收录清单](https://gtx950l.github.io/tarkov-encyclopedia/docs/roadmap/)：含「版本敏感内容（收录前需复核）」完整清单
 - [标签分类](https://gtx950l.github.io/tarkov-encyclopedia/tags/)
 - [条目模板](https://gtx950l.github.io/tarkov-encyclopedia/template/)

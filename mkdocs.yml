@@ -194,6 +194,7 @@ nav:
       - 配置与性能: docs/performance.md
       - 操作与设置: docs/game-settings.md
       - 重大版本更新史: docs/version-history.md
+      - 游戏数值变更台账: docs/value-changes.md
       - 标签分类: tags.md
       - 条目模板: template.md
       - 更新日志: CHANGELOG.md

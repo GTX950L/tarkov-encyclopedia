@@ -63,8 +63,8 @@ tags:
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| 版本 | 6 | achievements · leagues · pve · season-modifiers · seasons · version-history |
-| 索引 | 6 | glossary · index · roadmap · tags · template · version-history |
+| 版本 | 7 | achievements · leagues · pve · season-modifiers · seasons · value-changes · version-history |
+| 索引 | 7 | glossary · index · roadmap · tags · template · value-changes · version-history |
 | 速查 | 7 | buying-guide · game-settings · glossary · map-guide · mechanics · performance · progression |
 
 > 标签体系供站内检索与分类导航使用。**标签只写在 frontmatter 里**——新增条目时请沿用本页既有标签，不要新造同义标签（例如用「装备」而不是「器械」），否则检索会把同类条目切散。
