@@ -6,7 +6,7 @@ tags:
 ---
 # 剧情章节与主线任务 (Story Chapters)
 
-> 版本基线：2026 年 9 月 ｜ 1.1.5.1（第一赛季 KORD BREACH）｜ 数据来源：官方 Wiki 与补丁说明（一级）、tarkov.dev（二级）
+> 版本基线：2026 年 9 月 ｜ 1.1.5.1（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
 
 <a id="top"></a>
@@ -173,7 +173,7 @@ Tour 是 Mechanic 线的剧情开头，**在工厂起步**。它的重要性不�
 
 ### 7. 为什么它对你的“终局”影响最大
 
-**转生的绝大多数档位，门槛都是剧情章节。** 官方 wiki 列出的前置包括：**Tour、Falling Skies、取得 Ticket from Tarkov、They Are Already Here、收藏家**。
+**转生的绝大多数档位，门槛都是剧情章节。** 英文 EFT Wiki 列出的前置包括：**Tour、Falling Skies、取得 Ticket from Tarkov、They Are Already Here、收藏家**。
 
 这意味着：**不推剧情，就永远卡在低转生档**。而低档位意味着**转生能带走的技能与装备比例更低**——**剧情进度直接换算成终局收益**。
 

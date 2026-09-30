@@ -9,6 +9,8 @@
 
 > 💡 本站**全文不使用配图**，弱网环境可流畅阅读。所有数值描述以“机制原理”为主，具体数值随版本变动，请以游戏内为准。
 
+> ⓘ **本站是非官方粉丝资料站**：由爱好者独立维护，**与 Battlestate Games 没有隶属、合作或背书关系**；「Escape from Tarkov」「逃离塔科夫」及相关名称、标志与游戏内容的**商标权与著作权归 Battlestate Games 及其关联方所有**。本站**不使用任何游戏美术资源**，文字内容以 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 授权。详见[数据口径与引用说明](docs/citation.md)。
+
 ---
 
 ## 🧭 推荐学习路径
@@ -42,7 +44,7 @@
 
 ## 📋 任务图鉴（独立栏目，不在这条路径里）
 
-[**任务图鉴**](quests/index.md) 是**按需查阅**的栏目，不属于上面“从零上手”的学习顺序：它把持久 PvP 档案下的 **515 个任务**（共 **1441** 条目标）逐条列出**要求、完成奖励、接取门槛、前置任务、需要钥匙与失败条件**——只搬运官方任务定义的原文，**不含坐标，也不写逐步攻略**。卡在某个任务上时从那里查。
+[**任务图鉴**](quests/index.md) 是**按需查阅**的栏目，不属于上面“从零上手”的学习顺序：它把持久 PvP 档案下的 **515 个任务**（共 **1441** 条目标）逐条列出**要求、完成奖励、接取门槛、前置任务、需要钥匙与失败条件**——数据取自官方任务定义的**结构化字段**（要求、奖励、门槛等），**不含坐标，也不写逐步攻略**。卡在某个任务上时从那里查。
 
 按商人分页（每页按等级门槛升序）：[Mechanic](quests/mechanic.md) · [Prapor](quests/prapor.md) · [Skier](quests/skier.md) · [Jaeger](quests/jaeger.md) · [Ragman](quests/ragman.md) · [Therapist](quests/therapist.md) · [Peacekeeper](quests/peacekeeper.md) · [Fence](quests/fence.md) · [Ref（竞技场裁判）](quests/ref.md) · [BTR 司机](quests/btr-driver.md) · [Lightkeeper](quests/lightkeeper.md)
 

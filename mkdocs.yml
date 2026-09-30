@@ -6,6 +6,9 @@ repo_name: GTX950L/tarkov-encyclopedia
 docs_dir: content
 edit_uri: edit/main/content/
 
+copyright: >-
+  本站为非官方粉丝资料站，与 Battlestate Games 无隶属或合作关系；「Escape from Tarkov」及相关名称、标志与游戏内容的商标权与著作权归 Battlestate Games 及其关联方所有。站内文字以 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="license noopener">CC BY-NC-SA 4.0</a> 授权。
+
 theme:
   name: material
   language: zh

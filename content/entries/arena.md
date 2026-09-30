@@ -5,7 +5,7 @@ tags:
 ---
 # 竞技场 (Arena)
 
-> 版本基线：2026 年 9 月 ｜ 1.1.5.1（第一赛季 KORD BREACH）｜ 数据来源：官方 Wiki 与补丁说明（一级）、tarkov.dev（二级）
+> 版本基线：2026 年 9 月 ｜ 1.1.5.1（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
 
 <a id="top"></a>
@@ -59,7 +59,7 @@ tags:
 | **Warrior** | 3900–5000 | **Flame Warrior** | 前 100 名 |
 | **Gladiator** | 4900–6000 | **Big Boss / Legend of the Arena** | 前 10 / 第 1 名 |
 
-来源：一级（官方 Wiki）。**相邻段位的区间是重叠的**（如 Jackal 900–2000 与 Marauder 1–1000）——这是因为**段位按当前 ARP 落点判定，而不是累计**。
+来源：二级（英文 EFT Wiki）。**相邻段位的区间是重叠的**（如 Jackal 900–2000 与 Marauder 1–1000）——这是因为**段位按当前 ARP 落点判定，而不是累计**。
 
 **BattlePass（赛季通行证）的关键数**：
 

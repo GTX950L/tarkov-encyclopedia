@@ -6,7 +6,7 @@ tags:
 ---
 # 阵营关系与交战规则 (Factions & Rules of Engagement)
 
-> 版本基线：2026 年 9 月 ｜ 1.1.5.1（第一赛季 KORD BREACH）｜ 数据来源：官方 Wiki 与补丁说明（一级）、tarkov.dev（二级）
+> 版本基线：2026 年 9 月 ｜ 1.1.5.1（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
 > ⚠️ 本页含未决项：**A6**、**B2**、**B3** —— 见[引用说明第三节](../docs/citation.md)
 
@@ -27,7 +27,7 @@ tags:
 | **Scav 侧约束** | **叛徒判定**：对 Scav 阵营成员造成**任何伤害**即全场敌对，**当局限定、不可撤销** |
 | **唯一的跨阵营和平机制** | 合作撤离（PMC 与 Scav 同时站在撤离区内） |
 | **不属 Scav 阵营的 AI** | Raider、Rogue、邪教徒——击杀**不扣** Scav 业力 |
-| **口径来源** | 官方支持站 `knowledge/519`《Karma in Escape from Tarkov》、0.15.0.0 补丁说明、官方 wiki |
+| **口径来源** | 官方支持站 `knowledge/519`《Karma in Escape from Tarkov》、0.15.0.0 补丁说明、英文 EFT Wiki |
 | **配套条目** | [遇敌处置与接战决策](contact-drill.md) 讲**开火之前怎么决定**；本篇讲**开火之后记哪本账** |
 
 ---

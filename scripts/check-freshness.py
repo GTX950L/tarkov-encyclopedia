@@ -53,7 +53,7 @@ DATA_POINT = re.compile(r"\d+(?:\.\d+)?\s*(?:" + DATA_UNITS + r")")
 #   而那恰恰是这个指标最该看见的东西。实测：某页加了 30+ 个数值单元格，读数只从 1 涨到 3。
 #   ⚠️ 只数**非第一列**：第一列通常是名称/型号，若是序号列则会整列虚增。
 BARE_CELL = re.compile(r"^[+\-−]?\d[\d,]*\.?\d*$")
-SOURCE_MARK = re.compile(r"一级|二级|社区口径|社区来源|官方 Wiki|官方 wiki|tarkov\.dev|knowledge/\d+|知识库")
+SOURCE_MARK = re.compile(r"一级|二级|社区口径|社区来源|英文 EFT Wiki|官方 Wiki|tarkov\.dev|knowledge/\d+|知识库")
 
 
 def count_table_numbers(body: str) -> int:
@@ -247,7 +247,7 @@ def main() -> int:
         nosrc = [(n, rel) for _, n, _, rel in density
                  if n > 0 and not SOURCE_MARK.search((CONTENT / rel).read_text(encoding="utf-8"))]
         print(f"\n  · 有数据但**整页未声明来源层级**的：{len(nosrc)} 篇"
-              "（源层级 / 官方 Wiki / 社区口径 等一个都没有）")
+              "（源层级 / 英文 EFT Wiki / 社区口径 等一个都没有）")
         for n, rel in sorted(nosrc, reverse=True)[:8]:
             print(f"      数据点 {n:3}   {rel}")
 

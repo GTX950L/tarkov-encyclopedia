@@ -7,7 +7,7 @@ tags:
 ---
 # Scav 指挥与随从系统 (Scav Command & Retinue)
 
-> 版本基线：2026 年 9 月 ｜ 1.1.5.1（第一赛季 KORD BREACH）｜ 数据来源：官方 Wiki 与补丁说明（一级）、tarkov.dev（二级）
+> 版本基线：2026 年 9 月 ｜ 1.1.5.1（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
 > ⚠️ 本页含未决项：**A5**、**B1** —— 见[引用说明第三节](../docs/citation.md)
 

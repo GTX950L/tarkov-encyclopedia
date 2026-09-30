@@ -66,3 +66,7 @@ tags:
 > 本页篇数与覆盖条目由 `content/` 下全部 markdown 的 frontmatter 直接统计得出，可用 `scripts/tag_stats.py` 复现；改动条目标签后请同步本页。
 >
 > 「覆盖条目」列已写成 markdown 链接形式（显示文字仍是 slug）。`scripts/check_entries.py` 解析时会剥掉链接只比对 slug，所以**加链接不会影响一致性校验**——但 slug 本身写错仍会被抓出来。
+
+---
+
+> ⓘ 本站为非官方粉丝资料站，与 Battlestate Games 无隶属关系；「Escape from Tarkov」及相关名称、标志与游戏内容的商标权与著作权归 Battlestate Games 及其关联方所有。文字内容以 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 授权。

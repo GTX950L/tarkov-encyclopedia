@@ -22,3 +22,7 @@
 1. **新手**：先读[新手成长路线](progression.md)，它按等级分好阶段、每阶段都有可验证的毕业标准；再回到首页的“推荐阅读顺序”补机制篇，然后进图。
 2. **老玩家**：直接搜索术语（中英文都支持），或从[总览页](../entries/index.md)按需取阅。
 3. **贡献者**：阅读[贡献指南](../CONTRIBUTING.md)，用[条目模板](../template.md)开新篇，**标签请从[标签分类](../tags.md)的既有词表中挑选**。
+
+---
+
+> ⓘ 本站为非官方粉丝资料站，与 Battlestate Games 无隶属关系；「Escape from Tarkov」及相关名称、标志与游戏内容的商标权与著作权归 Battlestate Games 及其关联方所有。文字内容以 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 授权。
