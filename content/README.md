@@ -5,7 +5,7 @@
 > “这是一个没有 HUD、没有教学、没有第二次机会的世界。”
 > —— 塔科夫，诺文斯克地区的封锁区
 
-《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **86 个**条目，分八篇组织；另有一个独立栏目[**任务图鉴**](quests/index.md)，把 **515 个任务**的要求、奖励与门槛逐条列全。
+《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **86 个**条目，分十篇组织：**前八篇**是“从零上手”的主线，**第九篇 · [任务图鉴](quests/index.md)** 把 **515 个任务**的要求、奖励与接取门槛逐条列全，**第十篇 · [参考](docs/index.md)** 收齐速查表与站务工具页。
 
 > 💡 本站**全文不使用配图**，弱网环境可流畅阅读。所有数值描述以“机制原理”为主，具体数值随版本变动，请以游戏内为准。
 
@@ -26,25 +26,30 @@
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s5" href="entries/stamina.md"><b>第五篇</b><em>进阶战斗机制</em><i>13 篇</i></a>
 <span class="tk-arrow">→</span>
-<a class="tk-step tk-s6" href="entries/seasons.md"><b>第六篇</b><em>赛季与衍生</em><i>5 篇</i></a>
+<a class="tk-step tk-s6" href="entries/raid-flow.md"><b>第六篇</b><em>战局内行为手册</em><i>6 篇</i></a>
 <span class="tk-arrow">→</span>
-<a class="tk-step tk-s7" href="entries/weather.md"><b>第七篇</b><em>世界与背景</em><i>4 篇</i></a>
+<a class="tk-step tk-s7" href="entries/seasons.md"><b>第七篇</b><em>赛季与衍生内容</em><i>5 篇</i></a>
 <span class="tk-arrow">→</span>
-<a class="tk-step tk-s8" href="entries/raid-flow.md"><b>第八篇</b><em>战局内行为手册</em><i>6 篇</i></a>
+<a class="tk-step tk-s8" href="entries/weather.md"><b>第八篇</b><em>世界与背景</em><i>4 篇</i></a>
+<span class="tk-arrow">→</span>
+<a class="tk-step tk-s9" href="quests/index.md"><b>第九篇</b><em>任务图鉴</em><i>12 篇</i></a>
+<span class="tk-arrow">→</span>
+<a class="tk-step tk-s10" href="docs/index.md"><b>第十篇</b><em>参考</em><i>16 篇</i></a>
 </div>
 
 <div class="tk-reason">
 <b>为什么这样排</b>
-<p>先懂撤离与保险，才敢进图 → 知道死在哪，才懂该练什么 → 看懂穿深与护甲，才明白为什么死 → 有装备有任务，才谈得上进阶 → 想换规则重来，才用得上赛季 → 最后补上设定与环境，才算看懂战场 → 懂完规则就上手，把知识变成动作。</p>
+<p>先懂撤离与保险，才敢进图 → 知道死在哪，才懂该练什么 → 看懂穿深与护甲，才明白为什么死 → 把每一条命变成资产，才有本钱练 → 同一套装备为什么打出不同结局，想通这个才谈得上进阶 → 机制吃透了，再把知识变成动作 → 会玩了、想换规则重来，才用得上赛季 → 最后补上设定与环境，才算看懂战场。</p>
+<p>前八篇是这条顺序；<b>第九 · 第十篇不在其中</b>——它们是随查随用的栏目（卡任务翻第九篇，查速查表与站务页翻第十篇），所以那两张卡用中性色，不参与“从入门到终局”的难度梯度。</p>
 </div>
 
 路径图只是建议。已经在玩的玩家可以直接跳到对应条目查漏补缺——**兴趣驱动的跳跃式阅读也是常见的打开方式**。
 
 ---
 
-## 📋 任务图鉴（独立栏目，不在这条路径里）
+## 📋 任务图鉴（第九篇：随查随用）
 
-[**任务图鉴**](quests/index.md) 是**按需查阅**的栏目，不属于上面“从零上手”的学习顺序：它把持久 PvP 档案下的 **515 个任务**（共 **1441** 条目标）逐条列出**要求、完成奖励、接取门槛、前置任务、需要钥匙与失败条件**——数据取自官方任务定义的**结构化字段**（要求、奖励、门槛等），**不含坐标，也不写逐步攻略**。卡在某个任务上时从那里查。
+[**任务图鉴**](quests/index.md) 排在“从零上手”的主线之后，不属于前八篇那条学习顺序：它把持久 PvP 档案下的 **515 个任务**（共 **1441** 条目标）逐条列出**要求、完成奖励、接取门槛、前置任务、需要钥匙与失败条件**——数据取自官方任务定义的**结构化字段**（要求、奖励、门槛等），**不含坐标，也不写逐步攻略**。卡在某个任务上时从那里查。
 
 按商人分页（每页按等级门槛升序）：[Mechanic](quests/mechanic.md) · [Prapor](quests/prapor.md) · [Skier](quests/skier.md) · [Jaeger](quests/jaeger.md) · [Ragman](quests/ragman.md) · [Therapist](quests/therapist.md) · [Peacekeeper](quests/peacekeeper.md) · [Fence](quests/fence.md) · [Ref（竞技场裁判）](quests/ref.md) · [BTR 司机](quests/btr-driver.md) · [Lightkeeper](quests/lightkeeper.md)
 
@@ -149,35 +154,38 @@
 | 69 | [Scav 指挥与随从系统](entries/scav-command.md) | 声望换来的指挥权：六个指令与随从 |
 | 70 | [Boss 图鉴](entries/bosses.md) | 首领对照、护卫编队与刷新概率的两层结构 |
 | 71 | [战斗复盘与常见死因](entries/death-review.md) | 用结算界面上的五个数字，找出自己重复犯的那个错误 |
-### 第六篇：赛季与衍生内容（1.1 之后的新规则）
+### 第六篇：战局内行为手册（把机制变成动作）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 72 | [赛季与修改器](entries/seasons.md) | 三种档案（持久 / 赛季 / PvE）与赛季规则 |
-| 73 | [赛季修改器逐项](entries/season-modifiers.md) | 全局 6 项 + 33 张个人卡的点数市场 |
-| 74 | [联赛系统](entries/leagues.md) | 每周 50 人的经验值天梯 |
-| 75 | [竞技场](entries/arena.md) | 独立进度的纯对抗模式 |
-| 76 | [PvE 模式](entries/pve.md) | 没有真人对手、永不 wipe 的持久档案 |
+| 72 | [战局流程与节奏](entries/raid-flow.md) | 先拿到全局：四段结构、搜刮动线、什么时候必须撤 |
+| 73 | [搜刮效率与战利品取舍](entries/looting.md) | 到了地方之后，怎么在最短的暴露时间里拿完 |
+| 74 | [遇敌处置与接战决策](entries/contact-drill.md) | 遇到人的前 3 秒：打、躲，还是走 |
+| 75 | [交火中的技术动作](entries/firefight.md) | 打起来之后手上怎么做：探头、掩体、换弹、切副武器、进房 |
+| 76 | [投掷物来袭处置](entries/grenade-response.md) | 拔销声能骗人、也能被趁虚而入；引信决定你躲不躲得掉 |
+| 77 | [战中伤情处置](entries/combat-medical.md) | 受伤之后先做什么——顺序错了，等于没治 |
 
-### 第七篇：世界与背景（环境、元内容与设定三条线索）
-
-| 顺序 | 条目 | 为什么这样排 |
-|------|------|-------------|
-| 77 | [天气与时间系统](entries/weather.md) | 七倍速时钟、进图两个档位与天气的双向作用 |
-| 78 | [光照与夜战](entries/lighting.md) | 光源是双刃剑：照亮与被照亮只差一秒 |
-| 79 | [彩蛋与制作组的恶意](entries/easter-eggs.md) | 制作组藏在图里的玩笑，以及那些“设计好的死亡”——雷区、阔剑、不生效的保险 |
-| 80 | [世界观与阵营背景](entries/worldview.md) | 诺文斯克为什么被封锁、USEC 与 BEAR 从哪来——解释“你为什么出不去” |
-
-### 第八篇：战局内行为手册（把机制变成动作）
+### 第七篇：赛季与衍生内容（1.1 之后的新规则）
 
 | 顺序 | 条目 | 为什么这样排 |
 |------|------|-------------|
-| 81 | [战局流程与节奏](entries/raid-flow.md) | 先拿到全局：四段结构、搜刮动线、什么时候必须撤 |
-| 82 | [搜刮效率与战利品取舍](entries/looting.md) | 到了地方之后，怎么在最短的暴露时间里拿完 |
-| 83 | [遇敌处置与接战决策](entries/contact-drill.md) | 遇到人的前 3 秒：打、躲，还是走 |
-| 84 | [交火中的技术动作](entries/firefight.md) | 打起来之后手上怎么做：探头、掩体、换弹、切副武器、进房 |
-| 85 | [投掷物来袭处置](entries/grenade-response.md) | 拔销声能骗人、也能被趁虚而入；引信决定你躲不躲得掉 |
-| 86 | [战中伤情处置](entries/combat-medical.md) | 受伤之后先做什么——顺序错了，等于没治 |
+| 78 | [赛季与修改器](entries/seasons.md) | 三种档案（持久 / 赛季 / PvE）与赛季规则 |
+| 79 | [赛季修改器逐项](entries/season-modifiers.md) | 全局 6 项 + 33 张个人卡的点数市场 |
+| 80 | [联赛系统](entries/leagues.md) | 每周 50 人的经验值天梯 |
+| 81 | [竞技场](entries/arena.md) | 独立进度的纯对抗模式 |
+| 82 | [PvE 模式](entries/pve.md) | 没有真人对手、永不 wipe 的持久档案 |
+
+### 第八篇：世界与背景（环境、元内容与设定三条线索）
+
+| 顺序 | 条目 | 为什么这样排 |
+|------|------|-------------|
+| 83 | [天气与时间系统](entries/weather.md) | 七倍速时钟、进图两个档位与天气的双向作用 |
+| 84 | [光照与夜战](entries/lighting.md) | 光源是双刃剑：照亮与被照亮只差一秒 |
+| 85 | [彩蛋与制作组的恶意](entries/easter-eggs.md) | 制作组藏在图里的玩笑，以及那些“设计好的死亡”——雷区、阔剑、不生效的保险 |
+| 86 | [世界观与阵营背景](entries/worldview.md) | 诺文斯克为什么被封锁、USEC 与 BEAR 从哪来——解释“你为什么出不去” |
+
+> 第九 · 第十篇没有“先后”——任务图鉴与参考是查阅型栏目：卡任务翻[任务图鉴](quests/index.md)，查数值口径、速查表与站务页翻下方「📁 其他资源」。
+
 ---
 
 ## 📖 使用须知

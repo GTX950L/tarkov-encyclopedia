@@ -452,7 +452,10 @@ body[data-md-color-scheme="default"] {
   font-size: .85rem;
 }
 
-/* 九段 = 危险等级梯度（绿 → 卡其 → 琥珀 → 暗红） */
+/* 前八段 = 难度梯度（绿 → 卡其 → 琥珀 → 暗红）。
+   梯度本身有语义（见 §6 开头的说明：越靠后越难），所以**只有内容篇**参与它。
+   第九 / 第十篇是查阅型栏目（任务图鉴 / 参考），没有难度可言 ——
+   给它们另起一套中性石板色，一眼就能和主线的八段区分开。 */
 .tk-s1 { background: #EEF2E2; border-top-color: #4A5D2A; }
 .tk-s1 b { color: #3E4E23; }
 .tk-s2 { background: #E9F0DA; border-top-color: #4A5D2A; }
@@ -469,8 +472,11 @@ body[data-md-color-scheme="default"] {
 .tk-s7 b { color: #734A13; }
 .tk-s8 { background: #F7E1DA; border-top-color: #9E3F2A; }
 .tk-s8 b { color: #853322; }
-.tk-s9 { background: #FAE3E3; border-top-color: #A32B2B; }
-.tk-s9 b { color: #8C2424; }
+/* 第九 / 第十篇：查阅型栏目，中性石板色（不参与上面的难度梯度） */
+.tk-s9  { background: #EDEFF1; border-top-color: #5C6874; }
+.tk-s9 b { color: #4A5561; }
+.tk-s10  { background: #E6E9EC; border-top-color: #47525E; }
+.tk-s10 b { color: #3A444E; }
 
 .tk-reason {
   border: 1px solid var(--tk-line-2);
@@ -599,7 +605,9 @@ body[data-md-color-scheme="slate"] {
   border-color: var(--tk-fiord);
 }
 
-/* 暗色下九段梯度：低饱和深底，避免浅色块在暗色下刺眼 */
+/* 暗色下八段梯度：低饱和深底，避免浅色块在暗色下刺眼。
+   第九 / 第十篇**故意不在这里出现** —— 它们不属于梯度，
+   直接沿用下面那条 `.tk-step` 的中性默认值即可（不加覆盖才是对的）。 */
 [data-md-color-scheme="slate"] .tk-step { background: #232220; border-color: #4A473F; border-top-color: #4A473F; }
 [data-md-color-scheme="slate"] .tk-step em { color: #E6E4DF; }
 [data-md-color-scheme="slate"] .tk-step i  { color: #A9A49A; }
@@ -620,8 +628,6 @@ body[data-md-color-scheme="slate"] {
 [data-md-color-scheme="slate"] .tk-s7 b { color: #C99A55; }
 [data-md-color-scheme="slate"] .tk-s8 { border-top-color: #D08A72; }
 [data-md-color-scheme="slate"] .tk-s8 b { color: #D08A72; }
-[data-md-color-scheme="slate"] .tk-s9 { border-top-color: #E08A8A; }
-[data-md-color-scheme="slate"] .tk-s9 b { color: #E08A8A; }
 
 /* 暗色下页头条纹带：压暗，避免刺眼 */
 [data-md-color-scheme="slate"] .md-header::after { opacity: .55; }

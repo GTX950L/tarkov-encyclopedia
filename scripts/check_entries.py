@@ -44,11 +44,14 @@ LINK_RE = re.compile(r"\[[^\]]*\]\(([^)#]+?)(?:#[^)]*)?\)")
 COUNT_RE = re.compile(r"查看全部 (\d+) 个条目")
 CN_CHAR = re.compile(r"[\u4e00-\u9fff]")
 TAG_LINE = re.compile(r"^\s*-\s*(.+?)\s*$")
-# nav 里的「第X篇」分组行（缩进的分组标题）
-NAV_GROUP_RE = re.compile(r"^\s+-\s*(第[一二三四五六七八九十]篇)", re.M)
-# 正文里的篇数声明：「分为八篇」/「分八篇组织」/「分八篇：…」
+# nav 里的「第X篇」分组标题：`- 第一篇 · 入门机制:` / `- 第九篇 · 任务图鉴:`
+NAV_GROUP_RE = re.compile(r"^(\s*)-\s*(第[一二三四五六七八九十]篇)\s*·\s*(.+?):\s*$")
+# 正文里的篇数声明：「分为十篇」/「分十篇组织」/「分十篇：…」
 GROUP_DECL_RE = re.compile(r"分(?:为)?([一二三四五六七八九十])篇")
 CN_NUM = {c: i for i, c in enumerate("一二三四五六七八九十", 1)}
+# 首页路径图的单张卡片：`<b>第X篇</b><em>篇名</em><i>N 篇</i>`
+# （v1.21.0 起由 mermaid 改为零依赖纯 CSS 路径条，标记形态随之固定）
+PATH_CARD_RE = re.compile(r"<b>(第[一二三四五六七八九十]篇)</b><em>([^<]*)</em><i>(\d+) 篇</i>")
 # tags.md 的表格行：| 标签 | 篇数 | 覆盖条目 |
 TAGS_ROW_RE = re.compile(r"^\|\s*([^|]+?)\s*\|\s*(\d+)\s*\|\s*([^|]*?)\s*\|\s*$", re.M)
 # 「覆盖条目」列允许写成 markdown 链接（`[slug](path)`）——解析时只取显示文字。
@@ -145,11 +148,58 @@ def load_nav_targets() -> list[str]:
     return re.findall(r":\s*([\w/\-\.]+\.md)", text)
 
 
-def load_nav_group_count() -> int:
-    """nav 里「第X篇」分组的数量——篇数口径的唯一事实来源。"""
-    text = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
-    names = [m.group(1) for m in NAV_GROUP_RE.finditer(text)]
-    return len(set(names))
+def load_nav_groups() -> dict[str, tuple[str, int, bool]]:
+    """nav 里每个「第X篇」→ (篇名, 该篇的页面数, 是否全部由 entries/ 页面组成)。
+
+    这是「篇数」与「路径图篇数」两件事的**唯一事实来源**。
+
+    为什么不再用「各篇篇数之和 = 条目总数」：第九 / 第十篇（任务图鉴 / 参考栏目）
+    的页面在 quests/ 与 docs/ 下，**不进 `entries/*.md`**，那条等式天然不成立。
+    取而代之的是两条更本质、也更难绕过的判据：
+
+      ① **逐卡对账**：每张路径图卡的页数 = 该篇在 nav 里实际的页面数
+         （旧判据只看总和 —— 把一张卡改对、另一张改错，总和不变就照样全绿）；
+      ② **内容篇之和 = 条目总数**：页面全在 `entries/` 下的那几篇加起来
+         必须正好等于 `entries/*.md`（除 index.md）—— 这条保住「86 个条目」的口径；
+      ③ 卡片**数量**也必须等于 nav 的「第X篇」分组数（旧判据完全没看卡片数）。
+    """
+    lines = (ROOT / "mkdocs.yml").read_text(encoding="utf-8").splitlines()
+    try:
+        start = next(i for i, ln in enumerate(lines) if ln.startswith("nav:")) + 1
+    except StopIteration:
+        return {}
+    pages: dict[str, set[str]] = defaultdict(set)
+    names: dict[str, str] = {}
+    order: list[str] = []
+    cur: str | None = None
+    cur_indent = -1
+    for ln in lines[start:]:
+        m = re.match(r"^(\s*)-\s*(.*)$", ln)
+        if not m:
+            continue
+        g = NAV_GROUP_RE.match(ln)
+        if g:
+            cur = g.group(2)
+            if cur not in names:
+                order.append(cur)
+            names[cur] = g.group(3).strip().strip("\"'")
+            cur_indent = len(g.group(1))
+            continue
+        if cur is not None and len(m.group(1)) <= cur_indent:
+            cur = None          # 离开该分组（顶层栏目 / 首页等）
+            continue
+        if cur is not None:
+            _, _, value = m.group(2).partition(":")
+            for t in re.findall(r"([\w/\-\.]+\.md)", value):
+                pages[cur].add(t)
+    return {
+        k: (
+            names[k],
+            len(pages.get(k, ())),
+            bool(pages.get(k)) and all(p.startswith("entries/") for p in pages[k]),
+        )
+        for k in order
+    }
 
 
 def read_frontmatter_tags(md: Path) -> list[str]:
@@ -194,6 +244,14 @@ def main() -> int:
         if not (CONTENT / target).exists():
             errors.append(f"nav 引用的文件不存在: {target}")
 
+    # 1b. nav 的「第X篇」分组 —— 篇数、每篇页数、以及「哪些篇是内容篇」都从这里读。
+    #     先算好一次，后面「篇数声明」「路径图逐卡对账」「内容篇之和」三处共用，
+    #     免得同一件事各算各的（那正是口径漂移的温床）。
+    nav_groups = load_nav_groups()
+    n_groups = len(nav_groups)
+    if n_groups == 0:
+        errors.append("mkdocs.yml 未解析到任何「第X篇」分组")
+
     # 2. content 内相对链接解析（排除代码块，模板占位符不受影响）
     md_files = sorted(CONTENT.rglob("*.md"))
     link_count = 0
@@ -235,15 +293,40 @@ def main() -> int:
                     f"计数不一致: {md.relative_to(ROOT)} 写的是「{m.group(1)} 个条目」，"
                     f"实际 {n_entries} 个"
                 )
-        # 路径图：各篇篇数之和应等于条目总数。
-        # 首页的学习路径图已由 mermaid 改为零依赖纯 CSS 路径条（见 CHANGELOG v1.21.0），
-        # 标记形态随之变为 <b>第X篇</b><em>篇名</em><i>N 篇</i>。
-        parts = re.findall(r"<b>第[一二三四五六七八九十]篇</b><em>[^<]*</em><i>(\d+) 篇</i>", text)
-        if parts and sum(int(x) for x in parts) != n_entries:
-            errors.append(
-                f"路径图篇数之和为 {sum(int(x) for x in parts)}，与条目总数 {n_entries} 不符: "
-                f"{md.relative_to(ROOT)}"
-            )
+        # 路径图：**逐卡对账 nav**。旧判据是「各篇篇数之和 = 条目总数」，
+        # 只能证明总和没变 —— 一张卡改对、另一张改错，总和不变照样全绿。
+        # 第九 / 第十篇引入后那条等式也不再成立（它们的页面不在 entries/ 下），
+        # 于是改为三条更本质的断言：卡片数 = nav 分组数；每张卡的**篇名**与**页数**
+        # 都与该篇在 nav 里的实际值一致；且 nav 里不存在「没画进路径图」的篇。
+        cards = PATH_CARD_RE.findall(text)
+        if cards:
+            if len(cards) != n_groups:
+                errors.append(
+                    f"路径图卡片数为 {len(cards)}，与 nav 的「第X篇」分组数 {n_groups} 不符: "
+                    f"{md.relative_to(ROOT)}"
+                )
+            drawn: set[str] = set()
+            for num, name, cnt in cards:
+                drawn.add(num)
+                actual = nav_groups.get(num)
+                if actual is None:
+                    errors.append(f"路径图有「{num}」，但 nav 里没有这个分组: {md.relative_to(ROOT)}")
+                    continue
+                if name != actual[0]:
+                    errors.append(
+                        f"路径图篇名与 nav 不一致: 「{num}」画的是「{name}」，"
+                        f"nav 写的是「{actual[0]}」: {md.relative_to(ROOT)}"
+                    )
+                if int(cnt) != actual[1]:
+                    errors.append(
+                        f"路径图篇数漂移: 「{num} · {name}」画的是 {cnt}，"
+                        f"nav 实际 {actual[1]} 个页面: {md.relative_to(ROOT)}"
+                    )
+            for num, (name, _size, _is_content) in nav_groups.items():
+                if num not in drawn:
+                    errors.append(
+                        f"nav 的「{num} · {name}」没有画进路径图: {md.relative_to(ROOT)}"
+                    )
     for path, pattern, label in [
         (CONTENT / "entries" / "index.md", r"已收录 \*\*(\d+) 个\*\*条目", "总览页首句"),
         (CONTENT / "README.md", r"已收录 \*\*(\d+) 个\*\*条目", "站点首页首句"),
@@ -267,12 +350,21 @@ def main() -> int:
                 f"实际 {n_entries}"
             )
 
+    # 4a. 内容篇之和 = 条目总数
+    #     「篇」现在有两类：前八篇是**内容篇**（页面全在 entries/ 下，就是那 86 个条目），
+    #     第九 / 第十篇是**栏目**（任务图鉴 / 参考，页面在 quests/ 与 docs/ 下）。
+    #     分类是**从 nav 派生的**（该篇的页面是否全在 entries/ 下），不是写死的篇号区间 ——
+    #     所以将来再加/再并一篇，这条断言自动跟着走。
+    content_sum = sum(size for _name, size, is_content in nav_groups.values() if is_content)
+    if content_sum != n_entries:
+        errors.append(
+            f"内容篇（页面全在 entries/ 下的那几篇）的篇数之和为 {content_sum}，"
+            f"与条目总数 {n_entries} 不符 —— 要么某篇的页面挂错了目录，要么条目没进 nav"
+        )
+
     # 4b. 篇数口径：声明的篇数必须与 nav 的「第X篇」分组数一致
     #     条目数对了不代表篇数对——取消/合并一篇时总数不变，只有篇数会变，
     #     而三处声明散在 index / content README / 根 README，靠肉眼一定会漏。
-    n_groups = load_nav_group_count()
-    if n_groups == 0:
-        errors.append("mkdocs.yml 未解析到任何「第X篇」分组")
     for path, label in [
         (CONTENT / "entries" / "index.md", "总览页首句"),
         (CONTENT / "README.md", "站点首页首段"),
@@ -502,6 +594,8 @@ def main() -> int:
     print("=" * 60)
     print(f"内容文件总数: {len(md_files)}")
     print(f"百科条目数:   {n_entries}")
+    n_content = sum(1 for _n, _s, c in nav_groups.values() if c)
+    print(f"分区数:       {n_groups}（内容篇 {n_content} + 栏目 {n_groups - n_content}）")
     print(f"nav 目标数:   {len(nav_targets)}")
     print(f"内部链接数:   {link_count}")
     print(f"标签总数:     {len(tagmap)}")

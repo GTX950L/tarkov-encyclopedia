@@ -171,25 +171,25 @@ nav:
           - Scav 指挥与随从系统: entries/scav-command.md
           - Boss 图鉴: entries/bosses.md
           - 战斗复盘与常见死因: entries/death-review.md
-      - 第六篇 · 赛季与衍生内容:
-          - 赛季与修改器: entries/seasons.md
-          - 赛季修改器逐项: entries/season-modifiers.md
-          - 联赛系统: entries/leagues.md
-          - 竞技场: entries/arena.md
-          - PvE 模式: entries/pve.md
-      - 第七篇 · 世界与背景:
-          - 天气与时间系统: entries/weather.md
-          - 光照与夜战: entries/lighting.md
-          - 彩蛋与制作组的恶意: entries/easter-eggs.md
-          - 世界观与阵营背景: entries/worldview.md
-      - 第八篇 · 战局内行为手册:
+      - 第六篇 · 战局内行为手册:
           - 战局流程与节奏: entries/raid-flow.md
           - 搜刮效率与战利品取舍: entries/looting.md
           - 遇敌处置与接战决策: entries/contact-drill.md
           - 交火中的技术动作: entries/firefight.md
           - 投掷物来袭处置: entries/grenade-response.md
           - 战中伤情处置: entries/combat-medical.md
-  - 任务图鉴:
+      - 第七篇 · 赛季与衍生内容:
+          - 赛季与修改器: entries/seasons.md
+          - 赛季修改器逐项: entries/season-modifiers.md
+          - 联赛系统: entries/leagues.md
+          - 竞技场: entries/arena.md
+          - PvE 模式: entries/pve.md
+      - 第八篇 · 世界与背景:
+          - 天气与时间系统: entries/weather.md
+          - 光照与夜战: entries/lighting.md
+          - 彩蛋与制作组的恶意: entries/easter-eggs.md
+          - 世界观与阵营背景: entries/worldview.md
+  - 第九篇 · 任务图鉴:
       - 总览: quests/index.md
       - Mechanic: quests/mechanic.md
       - Prapor: quests/prapor.md
@@ -202,7 +202,7 @@ nav:
       - Ref（竞技场裁判）: quests/ref.md
       - BTR 司机: quests/btr-driver.md
       - Lightkeeper: quests/lightkeeper.md
-  - 参考:
+  - 第十篇 · 参考:
       - 项目欢迎页: docs/index.md
       - 数据口径与引用说明: docs/citation.md
       - 新手成长路线: docs/progression.md

@@ -1,6 +1,6 @@
 # 逃离塔科夫百科全书
 
-> 面向玩家与 AI 智能体的《逃离塔科夫》中文结构化资料库：86 个条目 + 参考页，分八篇组织。
+> 面向玩家与 AI 智能体的《逃离塔科夫》中文结构化资料库：86 个条目 + 参考页，分十篇组织（前八篇是条目主线，第九 / 第十篇是查阅型栏目）。
 > 静态事实对照官方来源核验；动态数值标注实时口径；全站不使用任何配图，弱网环境可流畅阅读。
 
 版本基线：2026 年 9 月
@@ -19,11 +19,13 @@
 - [第三篇 · 装备与枪械](https://gtx950l.github.io/tarkov-encyclopedia/entries/ammo/)：弹药与穿深、弹道、护甲与头盔、载具、耳机、枪械改装与图鉴、钥匙
 - [第四篇 · 经济与成长](https://gtx950l.github.io/tarkov-encyclopedia/entries/traders/)：商人、以物换物、跳蚤市场、邮件、藏身处、任务与商人任务线、经济周期、声望与等级、技能与成就、Prestige
 - [第五篇 · 进阶战斗机制](https://gtx950l.github.io/tarkov-encyclopedia/entries/stamina/)：耐力、姿态与移动、手雷、夜视与热成像、听声辨位、组队、敌我识别、阵营交战规则、AI 行为、Scav 互动与指挥、Boss 图鉴
-- [第六篇 · 赛季与衍生内容](https://gtx950l.github.io/tarkov-encyclopedia/entries/seasons/)：赛季与修改器、联赛、竞技场、PvE 模式
-- [第七篇 · 世界与背景](https://gtx950l.github.io/tarkov-encyclopedia/entries/weather/)：天气与时间、光照与夜战、彩蛋、世界观与阵营背景
-- [第八篇 · 战局内行为手册](https://gtx950l.github.io/tarkov-encyclopedia/entries/raid-flow/)：战局流程与节奏、搜刮效率、遇敌处置、交火技术动作、投掷物来袭处置、战中伤情处置
+- [第六篇 · 战局内行为手册](https://gtx950l.github.io/tarkov-encyclopedia/entries/raid-flow/)：战局流程与节奏、搜刮效率、遇敌处置、交火技术动作、投掷物来袭处置、战中伤情处置
+- [第七篇 · 赛季与衍生内容](https://gtx950l.github.io/tarkov-encyclopedia/entries/seasons/)：赛季与修改器、联赛、竞技场、PvE 模式
+- [第八篇 · 世界与背景](https://gtx950l.github.io/tarkov-encyclopedia/entries/weather/)：天气与时间、光照与夜战、彩蛋、世界观与阵营背景
+- [第九篇 · 任务图鉴](https://gtx950l.github.io/tarkov-encyclopedia/quests/)：515 个任务的逐条要求、奖励、接取门槛、前置与失败条件 —— **查阅型栏目，不属前八篇的学习顺序**
+- [第十篇 · 参考](https://gtx950l.github.io/tarkov-encyclopedia/docs/)：项目欢迎页、数据口径与引用说明、新手成长路线、机制速查表及其余站务页 —— **查阅型栏目，不属前八篇的学习顺序**
 
-## 任务图鉴（逐任务明细，独立栏目）
+## 任务图鉴（第九篇 · 逐任务明细）
 
 > 覆盖持久 PvP 档案下**全部 515 个任务**：每个任务的要求、完成奖励、接取门槛（商人忠诚度／声望）、
 > 前置任务、需要钥匙与失败条件。**不含坐标**（含真实 x/y/z 的字段在抓取阶段整体剔除）**与逐步攻略**。
@@ -32,7 +34,7 @@
 - [任务图鉴总览](https://gtx950l.github.io/tarkov-encyclopedia/quests/)：数据口径、十条字段判读、按商人／等级／关键标记的分布统计
 - 按商人分页（每页按等级门槛升序）：[Mechanic](https://gtx950l.github.io/tarkov-encyclopedia/quests/mechanic/) · [Prapor](https://gtx950l.github.io/tarkov-encyclopedia/quests/prapor/) · [Skier](https://gtx950l.github.io/tarkov-encyclopedia/quests/skier/) · [Jaeger](https://gtx950l.github.io/tarkov-encyclopedia/quests/jaeger/) · [Ragman](https://gtx950l.github.io/tarkov-encyclopedia/quests/ragman/) · [Therapist](https://gtx950l.github.io/tarkov-encyclopedia/quests/therapist/) · [Peacekeeper](https://gtx950l.github.io/tarkov-encyclopedia/quests/peacekeeper/) · [Fence](https://gtx950l.github.io/tarkov-encyclopedia/quests/fence/) · [Ref（竞技场裁判）](https://gtx950l.github.io/tarkov-encyclopedia/quests/ref/) · [BTR 司机](https://gtx950l.github.io/tarkov-encyclopedia/quests/btr-driver/) · [Lightkeeper](https://gtx950l.github.io/tarkov-encyclopedia/quests/lightkeeper/)
 
-## 参考区
+## 参考区（第十篇）
 
 - [数据口径与引用说明](https://gtx950l.github.io/tarkov-encyclopedia/docs/citation/)：三档口径、基准快照、已知未决项、资料来源分级、引用建议
 - [机制速查表](https://gtx950l.github.io/tarkov-encyclopedia/docs/mechanics/)：一页看懂所有核心规则
