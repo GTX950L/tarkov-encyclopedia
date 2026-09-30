@@ -66,7 +66,12 @@ def main():
         rel = os.path.relpath(path, ROOT).replace("\\", "/")
         stem = os.path.splitext(os.path.basename(rel))[0]
         for t in read_tags(path):
-            tagmap[t].append(stem)
+            # 按 stem 去重：`entries/index.md` 与 `quests/index.md` 同名，
+            # 不去重会让「索引」这一行印成 `index · index`、篇数虚高 1 ——
+            # 而 check_entries.py 那边用的是 set，两边口径必须一致，
+            # 否则照本页输出回填 tags.md 就会被门禁判成「篇数漂移」。
+            if stem not in tagmap[t]:
+                tagmap[t].append(stem)
 
     for tag in sorted(tagmap, key=lambda t: (-len(tagmap[t]), t)):
         items = tagmap[tag]

@@ -18,9 +18,9 @@ tags:
 | 地图 | 17 | customs · easter-eggs · factory · ground-zero · icebreaker · interchange · labs · labyrinth · lighthouse · loot · map-guide · reserve · shoreline · streets · terminal · transit · woods |
 | 成长 | 16 | achievements · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · karma · levels · prestige · progression · quests · skills · story-chapters · trader-questlines · traders · weapon-mastery |
 | 战斗 | 22 | ai-behavior · audio · bosses · combat-medical · contact-drill · death-review · engagement-rules · factory · firefight · grenade-response · grenades · headsets · iff · lighting · movement · night-vision · raid-flow · scav-command · scav-relations · squads · stamina · woods |
-| 任务 | 6 | customs · easter-eggs · ground-zero · quests · story-chapters · trader-questlines |
+| 任务 | 17 | customs · easter-eggs · ground-zero · quests · story-chapters · trader-questlines · btr-driver · fence · jaeger · lightkeeper · mechanic · peacekeeper · prapor · ragman · ref · skier · therapist |
 | 赛季 | 3 | leagues · season-modifiers · seasons |
-| 商人 | 3 | barter · trader-questlines · traders |
+| 商人 | 14 | barter · trader-questlines · traders · btr-driver · fence · jaeger · lightkeeper · mechanic · peacekeeper · prapor · ragman · ref · skier · therapist |
 | 竞技 | 2 | arena · leagues |
 
 ## 场景与环境

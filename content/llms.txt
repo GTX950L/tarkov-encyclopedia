@@ -5,7 +5,7 @@
 
 版本基线：2026 年 9 月
 游戏版本基准：Escape from Tarkov 1.1.5.1（第一赛季 KORD BREACH）
-最后更新：2026-09-29
+最后更新：2026-09-30
 
 **引用本资料前请先读**：[数据口径与引用说明](https://gtx950l.github.io/tarkov-encyclopedia/docs/citation/) —— 它说明哪一部分可以直接引用、哪一部分必须附加限定语、哪些事项属于未决项。
 
@@ -20,6 +20,15 @@
 - [第六篇 · 赛季与衍生内容](https://gtx950l.github.io/tarkov-encyclopedia/entries/seasons/)：赛季与修改器、联赛、竞技场、PvE 模式
 - [第七篇 · 世界与背景](https://gtx950l.github.io/tarkov-encyclopedia/entries/weather/)：天气与时间、光照与夜战、彩蛋、世界观与阵营背景
 - [第八篇 · 战局内行为手册](https://gtx950l.github.io/tarkov-encyclopedia/entries/raid-flow/)：战局流程与节奏、搜刮效率、遇敌处置、交火技术动作、投掷物来袭处置、战中伤情处置
+
+## 任务图鉴（逐任务明细，独立栏目）
+
+> 覆盖持久 PvP 档案下**全部 515 个任务**：每个任务的要求、完成奖励、接取门槛（商人忠诚度／声望）、
+> 前置任务、需要钥匙与失败条件。**不含坐标**（含真实 x/y/z 的字段在抓取阶段整体剔除）**与逐步攻略**。
+> 口径：官方任务数据端点（二级来源），2026-09-30 抓取。
+
+- [任务图鉴总览](https://gtx950l.github.io/tarkov-encyclopedia/quests/)：数据口径、十条字段判读、按商人／等级／关键标记的分布统计
+- 按商人分页（每页按等级门槛升序）：[Mechanic](https://gtx950l.github.io/tarkov-encyclopedia/quests/mechanic/) · [Prapor](https://gtx950l.github.io/tarkov-encyclopedia/quests/prapor/) · [Skier](https://gtx950l.github.io/tarkov-encyclopedia/quests/skier/) · [Jaeger](https://gtx950l.github.io/tarkov-encyclopedia/quests/jaeger/) · [Ragman](https://gtx950l.github.io/tarkov-encyclopedia/quests/ragman/) · [Therapist](https://gtx950l.github.io/tarkov-encyclopedia/quests/therapist/) · [Peacekeeper](https://gtx950l.github.io/tarkov-encyclopedia/quests/peacekeeper/) · [Fence](https://gtx950l.github.io/tarkov-encyclopedia/quests/fence/) · [Ref（竞技场裁判）](https://gtx950l.github.io/tarkov-encyclopedia/quests/ref/) · [BTR 司机](https://gtx950l.github.io/tarkov-encyclopedia/quests/btr-driver/) · [Lightkeeper](https://gtx950l.github.io/tarkov-encyclopedia/quests/lightkeeper/)
 
 ## 参考区
 
@@ -61,6 +70,7 @@
   - `tarkov-encyclopedia-audit`：只读巡检（跑确定性脚本 → 按「读者会不会因此做错决定」排优先级）
 - **内容约定**：`content/template.md`（骨架与页眉写法）、`content/CONTRIBUTING.md`（体例仲裁规则）、`content/docs/citation.md`（三档口径、条目页眉模板与已知未决项）
 - **校验脚本**：`scripts/check_entries.py`（一致性 + **覆盖率**，CI 门禁）、`scripts/skills_consistency.py`（手册与实现是否脱节，CI 门禁）、`scripts/check-freshness.py`（内容新鲜度，信息性）
+- **生成器**：`scripts/gen_quests.py`（任务图鉴）—— 分「抓取」与「生成」两步，页面生成**不依赖网络**，改动后重跑 `python scripts/gen_quests.py --fetch` 即可整栏重建
 - **改动纪律**：同一个实体在站内出现多处时，改一处必须 grep 全站 —— 否则别处会静默变错
 
 ## 相关资源

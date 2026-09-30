@@ -183,6 +183,19 @@ nav:
           - 交火中的技术动作: entries/firefight.md
           - 投掷物来袭处置: entries/grenade-response.md
           - 战中伤情处置: entries/combat-medical.md
+  - 任务图鉴:
+      - 总览: quests/index.md
+      - Mechanic: quests/mechanic.md
+      - Prapor: quests/prapor.md
+      - Skier: quests/skier.md
+      - Jaeger: quests/jaeger.md
+      - Ragman: quests/ragman.md
+      - Therapist: quests/therapist.md
+      - Peacekeeper: quests/peacekeeper.md
+      - Fence: quests/fence.md
+      - Ref（竞技场裁判）: quests/ref.md
+      - BTR 司机: quests/btr-driver.md
+      - Lightkeeper: quests/lightkeeper.md
   - 参考:
       - 项目欢迎页: docs/index.md
       - 数据口径与引用说明: docs/citation.md
