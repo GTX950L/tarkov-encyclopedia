@@ -9,6 +9,7 @@
 4b. 篇数口径：声明的「分N篇」必须与 nav 的「第X篇」分组数一致；
 5. tags.md 的篇数与覆盖条目是否与 frontmatter 实际统计一致（防手工维护漂移）；
 6. 中文正文中是否残留直引号（行内代码与 HTML 属性里的语法引号不计）；
+6b. 表格行之后是否留了空行 —— 不留的话下一个块会被吞进表格（标题变单元格）；
 7. 总览页「按标签浏览」：slug 真实存在、条数一致、分隔符统一；
 8. 主条目必须链接到它的细分条目（「主 → 细分」是深入，「细分 → 主」只是回望）。
 
@@ -445,6 +446,34 @@ def main() -> int:
             if '"' in prose and CN_CHAR.search(prose):
                 errors.append(f"中文行残留直引号: {md.relative_to(ROOT)}:{lineno}")
 
+    # 6b. 块级边界：表格行之后必须有空行 —— 否则下一个块会被「吞」进表格。
+    #     Python-Markdown 的表格解析**遇到空行才结束**：表格行后面紧跟的非空行
+    #     （标题 / 引用块 / 段落都算）会被当成表格行处理 —— 标题渲染成
+    #     `<td>### …</td>`、引用块渲染成 `<td>&gt; …</td>`（连 `>` 都以字符
+    #     形式留在正文里），而 `zensical build` 照常报 No issues found。
+    #     与 skill 手册第五步「build 通过 ≠ 渲染正确」是同一类静默缺陷：
+    #     读者看得见，机器看不见。
+    #     2026-09-30 全站扫出 7 处长期在线缺陷（首页「第六篇」标题渲染丢失 +
+    #     tags.md 5 个二级标题与 1 个引用块被吞），此后由本条断言兜底。
+    #     注：代码围栏内的表格示例是演示文本，不做断言（与第 6 项同一套 in_code）。
+    for md in md_files:
+        in_code = False
+        prev_is_table = False
+        for lineno, line in enumerate(md.read_text(encoding="utf-8").splitlines(), 1):
+            stripped = line.strip()
+            if stripped.startswith("```"):
+                in_code = not in_code
+                prev_is_table = False
+                continue
+            if in_code:
+                continue
+            if prev_is_table and stripped and not stripped.startswith("|"):
+                errors.append(
+                    f"表格后缺空行（该行会被吞进表格渲染）: "
+                    f"{md.relative_to(ROOT)}:{lineno}「{stripped[:24]}」"
+                )
+            prev_is_table = stripped.startswith("|")
+
     # 7. 总览页「按标签浏览」：slug 必须真实存在、条数必须与声明一致、分隔符必须统一
     index_md = CONTENT / "entries" / "index.md"
     if index_md.exists():
@@ -610,7 +639,7 @@ def main() -> int:
             print(f"  [错误] {e}")
         return 1
     print(
-        "✅ 校验通过：nav 完整、无断链、骨架齐整、计数与标签一致、无直引号残留；"
+        "✅ 校验通过：nav 完整、无断链、骨架齐整、计数与标签一致、无直引号残留、表格边界规范；"
         "页眉覆盖齐全、参考区可达全部图鉴、llms.txt 与实际一致。"
     )
     return 0

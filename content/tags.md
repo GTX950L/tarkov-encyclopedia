@@ -22,6 +22,7 @@ tags:
 | 赛季 | 3 | [leagues](entries/leagues.md) · [season-modifiers](entries/season-modifiers.md) · [seasons](entries/seasons.md) |
 | 商人 | 14 | [barter](entries/barter.md) · [trader-questlines](entries/trader-questlines.md) · [traders](entries/traders.md) · [btr-driver](quests/btr-driver.md) · [fence](quests/fence.md) · [jaeger](quests/jaeger.md) · [lightkeeper](quests/lightkeeper.md) · [mechanic](quests/mechanic.md) · [peacekeeper](quests/peacekeeper.md) · [prapor](quests/prapor.md) · [ragman](quests/ragman.md) · [ref](quests/ref.md) · [skier](quests/skier.md) · [therapist](quests/therapist.md) |
 | 竞技 | 2 | [arena](entries/arena.md) · [leagues](entries/leagues.md) |
+
 ## 场景与环境
 
 | 标签 | 篇数 | 覆盖条目 |
@@ -29,6 +30,7 @@ tags:
 | 地形 | 6 | [factory](entries/factory.md) · [interchange](entries/interchange.md) · [labs](entries/labs.md) · [shoreline](entries/shoreline.md) · [streets](entries/streets.md) · [woods](entries/woods.md) |
 | 环境 | 4 | [audio](entries/audio.md) · [lighting](entries/lighting.md) · [night-vision](entries/night-vision.md) · [weather](entries/weather.md) |
 | 军事 | 3 | [lighthouse](entries/lighthouse.md) · [reserve](entries/reserve.md) · [worldview](entries/worldview.md) |
+
 ## 玩家阶段
 
 | 标签 | 篇数 | 覆盖条目 |
@@ -38,6 +40,7 @@ tags:
 | 入门 | 15 | [containers](entries/containers.md) · [customs](entries/customs.md) · [extraction](entries/extraction.md) · [food-and-water](entries/food-and-water.md) · [food-catalog](entries/food-catalog.md) · [ground-zero](entries/ground-zero.md) · [health](entries/health.md) · [insurance](entries/insurance.md) · [inventory](entries/inventory.md) · [mail](entries/mail.md) · [movement](entries/movement.md) · [pmc-scav](entries/pmc-scav.md) · [pve](entries/pve.md) · [spawn-and-opening](entries/spawn-and-opening.md) · [worldview](entries/worldview.md) |
 | 中后期 | 3 | [bosses](entries/bosses.md) · [lighthouse](entries/lighthouse.md) · [reserve](entries/reserve.md) |
 | 终局 | 2 | [icebreaker](entries/icebreaker.md) · [labyrinth](entries/labyrinth.md) |
+
 ## 装备与数值
 
 | 标签 | 篇数 | 覆盖条目 |
@@ -46,6 +49,7 @@ tags:
 | 核心数值 | 3 | [ammo](entries/ammo.md) · [ammo-table](entries/ammo-table.md) · [ballistics](entries/ballistics.md) |
 | 护甲 | 3 | [armor](entries/armor.md) · [armor-catalog](entries/armor-catalog.md) · [armor-repair](entries/armor-repair.md) |
 | 弹药 | 2 | [ammo](entries/ammo.md) · [ammo-table](entries/ammo-table.md) |
+
 ## 行为机制
 
 | 标签 | 篇数 | 覆盖条目 |
@@ -54,6 +58,7 @@ tags:
 | 撤离 | 2 | [extraction](entries/extraction.md) · [extraction-points](entries/extraction-points.md) |
 | 协作 | 2 | [iff](entries/iff.md) · [squads](entries/squads.md) |
 | 离线收益 | 2 | [hideout](entries/hideout.md) · [hideout-modules](entries/hideout-modules.md) |
+
 ## 参考区与索引
 
 | 标签 | 篇数 | 覆盖条目 |
@@ -61,6 +66,7 @@ tags:
 | 版本 | 7 | [achievements](entries/achievements.md) · [leagues](entries/leagues.md) · [pve](entries/pve.md) · [season-modifiers](entries/season-modifiers.md) · [seasons](entries/seasons.md) · [value-changes](docs/value-changes.md) · [version-history](docs/version-history.md) |
 | 索引 | 7 | [glossary](docs/glossary.md) · [index](entries/index.md) · [roadmap](docs/roadmap.md) · [tags](tags.md) · [template](template.md) · [value-changes](docs/value-changes.md) · [version-history](docs/version-history.md) |
 | 速查 | 7 | [buying-guide](docs/buying-guide.md) · [game-settings](docs/game-settings.md) · [glossary](docs/glossary.md) · [map-guide](docs/map-guide.md) · [mechanics](docs/mechanics.md) · [performance](docs/performance.md) · [progression](docs/progression.md) |
+
 > 标签体系供站内检索与分类导航使用。**标签只写在 frontmatter 里**——新增条目时请沿用本页既有标签，不要新造同义标签（例如用「装备」而不是「器械」），否则检索会把同类条目切散。
 >
 > 本页篇数与覆盖条目由 `content/` 下全部 markdown 的 frontmatter 直接统计得出，可用 `scripts/tag_stats.py` 复现；改动条目标签后请同步本页。
