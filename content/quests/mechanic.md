@@ -18,14 +18,115 @@ tags:
 | **任务数** | 89 |
 | **等级跨度** | Lv0–Lv45 |
 | **排序** | 按**等级门槛升序**，同级按任务名 |
+| **分档** | 每 10 级一档（Lv0–9 …），与[总览](index.md)「按等级门槛」同口径 |
 | **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |
 | **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md) |
 
 ---
 
-## 📋 Mechanic 的 89 个任务
+## 🔎 任务索引 ｜ 89 项
 
-### 一臂之力
+点任务名跳到下方明细。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`。
+
+| # | 任务 | 门槛 | 地图 | 标记 |
+|---|------|------|------|------|
+| 1 | <a href="#q01">一臂之力</a> | Lv0 | 森林 | — |
+| 2 | <a href="#q02">不良嗜好</a> | Lv0 | — | **必须战局内找到** |
+| 3 | <a href="#q03">介绍</a> | Lv0 | 森林 | — |
+| 4 | <a href="#q04">侦查</a> | Lv0 | 工厂 | — |
+| 5 | <a href="#q05">公司福报</a> | Lv0 | 塔科夫街区 | 需钥匙 |
+| 6 | <a href="#q06">化学橱柜</a> | Lv0 | 海岸线 | 需钥匙 |
+| 7 | <a href="#q07">化工厂的秘密</a> | Lv0 | — | — |
+| 8 | <a href="#q08">半导体危机</a> | Lv0 | — | **必须战局内找到** |
+| 9 | <a href="#q09">咚咚咚</a> | Lv0 | 灯塔 | **Lightkeeper** |
+| 10 | <a href="#q10">商业机密</a> | Lv0 | 灯塔 | — |
+| 11 | <a href="#q11">大海捞针</a> | Lv0 | — | — |
+| 12 | <a href="#q12">天神射手</a> | Lv0 | — | **Kappa** |
+| 13 | <a href="#q13">工欲善其事</a> | Lv0 | 海关 | — |
+| 14 | <a href="#q14">影子雇员</a> | Lv0 | 中心区 | — |
+| 15 | <a href="#q15">急先锋</a> | Lv0 | 海关 | — |
+| 16 | <a href="#q16">恶意环伺</a> | Lv0 | 海岸线 | — |
+| 17 | <a href="#q17">投机第一步</a> | Lv0 | 工厂 | — |
+| 18 | <a href="#q18">挖矿</a> | Lv0 | 海关 | 需钥匙 |
+| 19 | <a href="#q19">探望</a> | Lv0 | 塔科夫街区 | 需钥匙 |
+| 20 | <a href="#q20">暗藏玄机</a> | Lv0 | — | — |
+| 21 | <a href="#q21">枪匠 - AK-105</a> | Lv0 | — | — |
+| 22 | <a href="#q22">枪匠 - AKS-74N</a> | Lv0 | — | — |
+| 23 | <a href="#q23">枪匠 - AKS-74U</a> | Lv0 | — | — |
+| 24 | <a href="#q24">枪匠 - HK MP5</a> | Lv0 | — | — |
+| 25 | <a href="#q25">枪匠 - M870</a> | Lv0 | — | — |
+| 26 | <a href="#q26">枪匠 - MP-133</a> | Lv0 | — | — |
+| 27 | <a href="#q27">枪匠 - MPX</a> | Lv0 | — | — |
+| 28 | <a href="#q28">枪匠 - OP-SKS</a> | Lv0 | — | — |
+| 29 | <a href="#q29">枪匠 - P226R</a> | Lv0 | — | — |
+| 30 | <a href="#q30">枪匠 - Vector 9x19</a> | Lv0 | — | — |
+| 31 | <a href="#q31">灯塔之匙</a> | Lv0 | 灯塔 | **必须战局内找到** · **Lightkeeper** |
+| 32 | <a href="#q32">目标与手段</a> | Lv0 | — | — |
+| 33 | <a href="#q33">破镜重圆</a> | Lv0 | 灯塔 | — |
+| 34 | <a href="#q34">破镜重圆</a> | Lv0 | — | — |
+| 35 | <a href="#q35">破镜重圆</a> | Lv0 | — | — |
+| 36 | <a href="#q36">破镜重圆 - 大扫除</a> | Lv0 | 储备站 | — |
+| 37 | <a href="#q37">破镜重圆 - 安保</a> | Lv0 | 灯塔 | — |
+| 38 | <a href="#q38">破镜重圆 - 收买人心</a> | Lv0 | — | — |
+| 39 | <a href="#q39">破镜重圆 - 装备</a> | Lv0 | — | **必须战局内找到** |
+| 40 | <a href="#q40">破镜重圆 - 软件</a> | Lv0 | — | **必须战局内找到** |
+| 41 | <a href="#q41">破镜重圆 - 隔离</a> | Lv0 | 实验室 | 需钥匙 |
+| 42 | <a href="#q42">神秘的门</a> | Lv0 | 塔科夫街区 | 需钥匙 |
+| 43 | <a href="#q43">稳定信号</a> | Lv0 | 森林 | — |
+| 44 | <a href="#q44">网络供应商 - 1</a> | Lv0 | — | **必须战局内找到** · **Lightkeeper** |
+| 45 | <a href="#q45">网络供应商 - 2</a> | Lv0 | 灯塔 | **Lightkeeper** |
+| 46 | <a href="#q46">肥料</a> | Lv0 | — | **必须战局内找到** |
+| 47 | <a href="#q47">能源危机</a> | Lv0 | 灯塔 | — |
+| 48 | <a href="#q48">试探 - 1</a> | Lv0 | 灯塔 | **Lightkeeper** |
+| 49 | <a href="#q49">试探 - 2</a> | Lv0 | 森林 | **Lightkeeper** |
+| 50 | <a href="#q50">试探 - 3</a> | Lv0 | 实验室 | **必须战局内找到** · **Lightkeeper** |
+| 51 | <a href="#q51">进口</a> | Lv0 | — | **必须战局内找到** |
+| 52 | <a href="#q52">邂逅</a> | Lv0 | 灯塔 | — |
+| 53 | <a href="#q53">高效秘诀</a> | Lv0 | 塔科夫街区 | 需钥匙 |
+| 54 | <a href="#q54">救援行动</a> | Lv1 | 中心区 | — |
+| 55 | <a href="#q55">你被盯上了</a> | Lv12 | 塔科夫街区 | 需钥匙 |
+| 56 | <a href="#q56">圈内人</a> | Lv12 | — | — |
+| 57 | <a href="#q57">挖矿 - 2</a> | Lv12 | — | **必须战局内找到** |
+| 58 | <a href="#q58">捕鼠计划</a> | Lv12 | — | **必须战局内找到** |
+| 59 | <a href="#q59">直播 - 1</a> | Lv12 | 灯塔 | 需钥匙 |
+| 60 | <a href="#q60">直播 - 2</a> | Lv12 | 塔科夫街区 | — |
+| 61 | <a href="#q61">航空包裹</a> | Lv12 | 森林 | — |
+| 62 | <a href="#q62">镜头就位，开拍！</a> | Lv12 | — | **必须战局内找到** |
+| 63 | <a href="#q63">黑天鹅计划</a> | Lv12 | 工厂 | — |
+| 64 | <a href="#q64">信号 - 3</a> | Lv15 | 海岸线 | — |
+| 65 | <a href="#q65">信号 - 4</a> | Lv15 | — | — |
+| 66 | <a href="#q66">后门</a> | Lv26 | 储备站 | — |
+| 67 | <a href="#q67">枪匠 - AKM</a> | Lv26 | — | — |
+| 68 | <a href="#q68">枪匠 - M4A1</a> | Lv26 | — | — |
+| 69 | <a href="#q69">检验假说</a> | Lv26 | 迷宫 | **必须战局内找到** |
+| 70 | <a href="#q70">武装侦察</a> | Lv26 | — | — |
+| 71 | <a href="#q71">物尽其用</a> | Lv26 | 储备站 | 需钥匙 |
+| 72 | <a href="#q72">枪匠 - AS VAL</a> | Lv29 | — | — |
+| 73 | <a href="#q73">枪匠大师 - 1</a> | Lv40 | — | — |
+| 74 | <a href="#q74">枪匠大师 - 10</a> | Lv40 | — | — |
+| 75 | <a href="#q75">枪匠大师 - 11</a> | Lv40 | — | — |
+| 76 | <a href="#q76">枪匠大师 - 12</a> | Lv40 | — | — |
+| 77 | <a href="#q77">枪匠大师 - 13</a> | Lv40 | — | — |
+| 78 | <a href="#q78">枪匠大师 - 2</a> | Lv40 | — | — |
+| 79 | <a href="#q79">枪匠大师 - 3</a> | Lv40 | — | — |
+| 80 | <a href="#q80">枪匠大师 - 4</a> | Lv40 | — | — |
+| 81 | <a href="#q81">枪匠大师 - 5</a> | Lv40 | — | — |
+| 82 | <a href="#q82">枪匠大师 - 6</a> | Lv40 | — | — |
+| 83 | <a href="#q83">枪匠大师 - 7</a> | Lv40 | — | — |
+| 84 | <a href="#q84">枪匠大师 - 8</a> | Lv40 | — | — |
+| 85 | <a href="#q85">枪匠大师 - 9</a> | Lv40 | — | — |
+| 86 | <a href="#q86">狙击疯魔</a> | Lv40 | — | 可重接 |
+| 87 | <a href="#q87">致命校准</a> | Lv40 | — | — |
+| 88 | <a href="#q88">轻重缓急</a> | Lv40 | — | — |
+| 89 | <a href="#q89">同好俱乐部</a> | Lv45 | — | — |
+
+> 📖 本页共 89 个任务，按等级分 **4 档**，档位分隔在索引表下方。要**按地图或商人横向找**，回[总览](index.md)。
+
+---
+
+## Lv0–9 ｜ 54 个任务
+
+<h3 id="q01">一臂之力<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -39,7 +140,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **“明眼”迫击炮袭告警装置** ×1
 
-### 不良嗜好
+<h3 id="q02">不良嗜好<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -56,7 +157,7 @@ tags:
   - 声望：**Mechanic** +0.1
 - **接取即得**：解锁 **云尔斯顿香烟 ×5（工作站 Lv1）**
 
-### 介绍
+<h3 id="q03">介绍<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -76,7 +177,7 @@ tags:
   - 解锁商人等级：**Jaeger**
   - 解锁对话：**Jaeger**
 
-### 侦查
+<h3 id="q04">侦查<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -97,7 +198,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Mechanic** +0.25
 
-### 公司福报
+<h3 id="q05">公司福报<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -117,7 +218,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Mechanic** +0.25
 
-### 化学橱柜
+<h3 id="q06">化学橱柜<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -136,7 +237,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Mechanic** +0.25
 
-### 化工厂的秘密
+<h3 id="q07">化工厂的秘密<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -154,7 +255,7 @@ tags:
   - 声望：**Mechanic** +0.25
   - 解锁购买：**5.7x28毫米 R37.F（Mechanic LL3）**／**GP-25 附件包 AK 后座力缓冲垫（Prapor LL2）**
 
-### 半导体危机
+<h3 id="q08">半导体危机<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -173,7 +274,7 @@ tags:
   - 声望：**Mechanic** +0.75
   - 解锁购买：**AK-104 7.62x39 突击步枪 T-SAW（Mechanic LL3）**
 
-### 咚咚咚
+<h3 id="q09">咚咚咚<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -192,7 +293,7 @@ tags:
   - 声望：**Lightkeeper** +0.01
 - **接取即得**：**Digital secure DSP无线电收发器** ×1
 
-### 商业机密
+<h3 id="q10">商业机密<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -212,7 +313,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Mechanic** +0.75
 
-### 大海捞针
+<h3 id="q11">大海捞针<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -231,7 +332,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **弹药箱** ×1
 
-### 天神射手
+<h3 id="q12">天神射手<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -254,7 +355,7 @@ tags:
   - 技能：**栓动式步枪** +4 级
   - 解锁购买：**THICC 武器箱（Mechanic LL4）**
 
-### 工欲善其事
+<h3 id="q13">工欲善其事<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -272,7 +373,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Mechanic** +0.1
 
-### 影子雇员
+<h3 id="q14">影子雇员<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -290,7 +391,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **Steiner LAS/TAC 2 战术手电** ×2
 
-### 急先锋
+<h3 id="q15">急先锋<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -309,7 +410,7 @@ tags:
   - 解锁购买：**弹药箱（Mechanic LL1）**
 - **接取即得**：**Trijicon REAP-IR热成像步枪瞄准镜** ×1
 
-### 恶意环伺
+<h3 id="q16">恶意环伺<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -330,7 +431,7 @@ tags:
   - 声望：**Mechanic** +0.25
 - **接取即得**：**信号干扰器** ×2 ｜ 解锁 **信号干扰器（Mechanic LL1）**
 
-### 投机第一步
+<h3 id="q17">投机第一步<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -349,7 +450,7 @@ tags:
   - 声望：**Mechanic** +0.25
   - 解锁购买：**弹药箱（Mechanic LL2）**
 
-### 挖矿
+<h3 id="q18">挖矿<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -370,7 +471,7 @@ tags:
   - 声望：**Mechanic** +0.1
   - 解锁购买：**PP-19-01 勇士 9x19 冲锋枪 Zenit（Mechanic LL1）**／**PP-19-01 勇士 9x19 冲锋枪 Zenit（Ref（竞技场裁判） LL1）**
 
-### 探望
+<h3 id="q19">探望<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -389,7 +490,7 @@ tags:
 - **完成奖励**：经验 **12,000** ｜ **卢布** ×165,000
   - 声望：**Mechanic** +0.25
 
-### 暗藏玄机
+<h3 id="q20">暗藏玄机<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -405,7 +506,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **FN SCAR-H 7.62x51 突击步枪 (FDE) 默认** ×1 ｜ **FN SCAR-H 7.62x51 20发弹匣 （FDE）** ×3 ｜ **7.62x51mm M80 弹药包（20发装）** ×4
 
-### 枪匠 - AK-105
+<h3 id="q21">枪匠 - AK-105<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -420,7 +521,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Mechanic** +0.75
 
-### 枪匠 - AKS-74N
+<h3 id="q22">枪匠 - AKS-74N<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -435,7 +536,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Mechanic** +0.75
 
-### 枪匠 - AKS-74U
+<h3 id="q23">枪匠 - AKS-74U<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -451,7 +552,7 @@ tags:
   - 声望：**Mechanic** +0.1
 - **接取即得**：**AKS-74U 5.45x39 短突击步枪 默认** ×1
 
-### 枪匠 - HK MP5
+<h3 id="q24">枪匠 - HK MP5<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -468,7 +569,7 @@ tags:
   - 解锁购买：**Glock 17 9x19 手枪 Tac 3（Mechanic LL1）**
 - **接取即得**：**HK MP5 9x19 冲锋枪（海军三发点射） 默认** ×1
 
-### 枪匠 - M870
+<h3 id="q25">枪匠 - M870<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -485,7 +586,7 @@ tags:
   - 解锁购买：**AK-104 7.62x39 突击步枪 RPKT mod.1（Ref（竞技场裁判） LL2）**／**Tromix 怪爪 12 铅径膛口制退器（Mechanic LL3）**
 - **接取即得**：**雷明顿 Model 870 12铅径泵动式霰弹枪 默认** ×1
 
-### 枪匠 - MP-133
+<h3 id="q26">枪匠 - MP-133<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -501,7 +602,7 @@ tags:
   - 声望：**Mechanic** +0.1
 - **接取即得**：**MP-133 12 铅径泵动式霰弹枪 默认** ×1
 
-### 枪匠 - MPX
+<h3 id="q27">枪匠 - MPX<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -517,7 +618,7 @@ tags:
   - 声望：**Mechanic** +0.75
   - 解锁购买：**柯尔特 M4A1 5.56x45 卡宾枪 SAI（Ref（竞技场裁判） LL2）**／**柯尔特 M4A1 5.56x45 卡宾枪 SOPMOD I（Mechanic LL3）**
 
-### 枪匠 - OP-SKS
+<h3 id="q28">枪匠 - OP-SKS<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -533,7 +634,7 @@ tags:
   - 声望：**Mechanic** +0.25
 - **接取即得**：**西蒙诺夫 OP-SKS 7.62x39 卡宾枪 默认** ×1
 
-### 枪匠 - P226R
+<h3 id="q29">枪匠 - P226R<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -548,7 +649,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Mechanic** +0.75
 
-### 枪匠 - Vector 9x19
+<h3 id="q30">枪匠 - Vector 9x19<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -563,7 +664,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Mechanic** +0.75
 
-### 灯塔之匙
+<h3 id="q31">灯塔之匙<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -585,7 +686,7 @@ tags:
 
 - **完成奖励**：经验 **30,500**
 
-### 目标与手段
+<h3 id="q32">目标与手段<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -603,7 +704,7 @@ tags:
   - 技能：**TroubleShooting** +4 级
   - 解锁购买：**AS“巨浪”MOD.4 9x39 特种突击步枪 默认（Mechanic LL4）**
 
-### 破镜重圆
+<h3 id="q33">破镜重圆<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -629,7 +730,7 @@ tags:
   - **商人声望** **Lightkeeper** ｜ **≤ 0**
 - **失败扣除**：**Mechanic** 声望 -0.02
 
-### 破镜重圆
+<h3 id="q34">破镜重圆<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -648,7 +749,7 @@ tags:
   - 声望：**Lightkeeper** +0.01
   - 声望：**Mechanic** +0.01
 
-### 破镜重圆
+<h3 id="q35">破镜重圆<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -667,7 +768,7 @@ tags:
   - 声望：**Lightkeeper** +0.01
   - 声望：**Mechanic** +0.01
 
-### 破镜重圆 - 大扫除
+<h3 id="q36">破镜重圆 - 大扫除<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -684,7 +785,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Lightkeeper** +0.01
 
-### 破镜重圆 - 安保
+<h3 id="q37">破镜重圆 - 安保<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -705,7 +806,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Lightkeeper** +0.01
 
-### 破镜重圆 - 收买人心
+<h3 id="q38">破镜重圆 - 收买人心<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -721,7 +822,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Lightkeeper** +0.01
 
-### 破镜重圆 - 装备
+<h3 id="q39">破镜重圆 - 装备<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -736,7 +837,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Lightkeeper** +0.01
 
-### 破镜重圆 - 软件
+<h3 id="q40">破镜重圆 - 软件<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -752,7 +853,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Lightkeeper** +0.01
 
-### 破镜重圆 - 隔离
+<h3 id="q41">破镜重圆 - 隔离<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -770,7 +871,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Lightkeeper** +0.01
 
-### 神秘的门
+<h3 id="q42">神秘的门<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -791,7 +892,7 @@ tags:
   - 声望：**Mechanic** +0.75
 - **接取即得**：解锁 **WIFI摄像头（Mechanic LL1）**
 
-### 稳定信号
+<h3 id="q43">稳定信号<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -809,7 +910,7 @@ tags:
   - 声望：**Mechanic** +0.1
 - **接取即得**：**MS2000指示器** ×1
 
-### 网络供应商 - 1
+<h3 id="q44">网络供应商 - 1<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -828,7 +929,7 @@ tags:
 
 - **完成奖励**：经验 **18,600**
 
-### 网络供应商 - 2
+<h3 id="q45">网络供应商 - 2<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -848,7 +949,7 @@ tags:
 - **完成奖励**：经验 **19,100**
 - **接取即得**：**无线电中继器** ×4 ｜ 解锁 **无线电中继器（工作站 Lv1）**
 
-### 肥料
+<h3 id="q46">肥料<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -866,7 +967,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Mechanic** +0.75
 
-### 能源危机
+<h3 id="q47">能源危机<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -886,7 +987,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Mechanic** +0.75
 
-### 试探 - 1
+<h3 id="q48">试探 - 1<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -902,7 +1003,7 @@ tags:
 
 - **完成奖励**：经验 **23,500**
 
-### 试探 - 2
+<h3 id="q49">试探 - 2<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -921,7 +1022,7 @@ tags:
 
 - **完成奖励**：经验 **24,200**
 
-### 试探 - 3
+<h3 id="q50">试探 - 3<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -940,7 +1041,7 @@ tags:
 
 - **完成奖励**：经验 **24,800**
 
-### 进口
+<h3 id="q51">进口<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -959,7 +1060,7 @@ tags:
   - 声望：**Mechanic** +0.75
   - 解锁购买：**弹匣箱（Mechanic LL3）**
 
-### 邂逅
+<h3 id="q52">邂逅<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -984,7 +1085,7 @@ tags:
 - **失败条件**：
   - **商人声望** **Lightkeeper** ｜ **≤ 0**
 
-### 高效秘诀
+<h3 id="q53">高效秘诀<a class="headerlink" href="#q53" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -1003,7 +1104,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Mechanic** +0.25
 
-### 救援行动
+<h3 id="q54">救援行动<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv1** ｜ **无前置**
 
@@ -1024,7 +1125,9 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Mechanic** +0.1
 
-### 你被盯上了
+## Lv10–19 ｜ 11 个任务
+
+<h3 id="q55">你被盯上了<a class="headerlink" href="#q55" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv12** ｜ **无前置**
 
@@ -1044,7 +1147,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Mechanic** +0.25
 
-### 圈内人
+<h3 id="q56">圈内人<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv12** ｜ 前置 **2** 个
 
@@ -1059,7 +1162,7 @@ tags:
 - **完成奖励**：经验 **6,700** ｜ **欧元** ×800 ｜ **SilencerCo Osprey 9 9x19毫米抑制器** ×2
   - 声望：**Mechanic** +0.02
 
-### 挖矿 - 2
+<h3 id="q57">挖矿 - 2<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个
 
@@ -1079,7 +1182,7 @@ tags:
 - **完成奖励**：经验 **5,500** ｜ **卢布** ×15,000 ｜ **ASh-12 12.7x55 突击步枪 默认** ×1 ｜ **NIXXOR镜头** ×1
   - 声望：**Mechanic** +0.02
 
-### 捕鼠计划
+<h3 id="q58">捕鼠计划<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv12** ｜ **无前置**
 
@@ -1099,7 +1202,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Mechanic** +0.25
 
-### 直播 - 1
+<h3 id="q59">直播 - 1<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv12** ｜ **无前置**
 
@@ -1117,7 +1220,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **弹药箱** ×1
 
-### 直播 - 2
+<h3 id="q60">直播 - 2<a class="headerlink" href="#q60" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个
 
@@ -1134,7 +1237,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **Steyr AUG A1 5.56x45突击步枪 默认** ×1 ｜ **Steyr AUG 5.56x45 30发容量弹匣** ×2 ｜ **5.56x45mm M855A1 弹药包（100发装）** ×1
 
-### 航空包裹
+<h3 id="q61">航空包裹<a class="headerlink" href="#q61" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个
 
@@ -1151,7 +1254,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **NcSTAR Tactical LAM模块 蓝色激光** ×2 ｜ **Zenit Klesch-2IKS 红外补光/激光指示器** ×2
 - **接取即得**：**RSP-30 反应式信号弹（红色）** ×1
 
-### 镜头就位，开拍！
+<h3 id="q62">镜头就位，开拍！<a class="headerlink" href="#q62" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个
 
@@ -1176,7 +1279,7 @@ tags:
 
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **TerraGroup实验室访问钥匙卡** ×3
 
-### 黑天鹅计划
+<h3 id="q63">黑天鹅计划<a class="headerlink" href="#q63" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv12** ｜ **无前置**
 
@@ -1194,7 +1297,7 @@ tags:
   - 声望：**Mechanic** +0.25
 - **接取即得**：**MS2000指示器** ×1
 
-### 信号 - 3
+<h3 id="q64">信号 - 3<a class="headerlink" href="#q64" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv15** ｜ 前置 **1** 个
 
@@ -1214,7 +1317,7 @@ tags:
   - 声望：**Mechanic** +0.02
 - **接取即得**：**信号干扰器** ×3 ｜ 解锁 **信号干扰器（Mechanic LL1）**
 
-### 信号 - 4
+<h3 id="q65">信号 - 4<a class="headerlink" href="#q65" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv15** ｜ 前置 **1** 个
 
@@ -1229,7 +1332,9 @@ tags:
 - **完成奖励**：经验 **8,600** ｜ **卢布** ×150,000 ｜ **Vortex Razor HD Gen.2 1-6x24 30 毫米步枪瞄准镜** ×1
   - 声望：**Mechanic** +0.01
 
-### 后门
+## Lv20–29 ｜ 7 个任务
+
+<h3 id="q66">后门<a class="headerlink" href="#q66" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv26** ｜ **无前置**
 
@@ -1248,7 +1353,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Mechanic** +0.75
 
-### 枪匠 - AKM
+<h3 id="q67">枪匠 - AKM<a class="headerlink" href="#q67" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv26** ｜ **无前置**
 
@@ -1263,7 +1368,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Mechanic** +0.75
 
-### 枪匠 - M4A1
+<h3 id="q68">枪匠 - M4A1<a class="headerlink" href="#q68" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv26** ｜ **无前置**
 
@@ -1278,7 +1383,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Mechanic** +0.75
 
-### 检验假说
+<h3 id="q69">检验假说<a class="headerlink" href="#q69" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv26** ｜ 前置 **1** 个
 
@@ -1296,7 +1401,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **防弹插板箱** ×1
 - **接取即得**：**Labrys 访问钥匙卡** ×1
 
-### 武装侦察
+<h3 id="q70">武装侦察<a class="headerlink" href="#q70" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv26** ｜ 前置 **1** 个
 
@@ -1312,7 +1417,7 @@ tags:
 
 - **完成奖励**：经验 **28,000** ｜ **Labrys 访问钥匙卡** ×1
 
-### 物尽其用
+<h3 id="q71">物尽其用<a class="headerlink" href="#q71" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv26** ｜ **无前置**
 
@@ -1331,7 +1436,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Mechanic** +0.75
 
-### 枪匠 - AS VAL
+<h3 id="q72">枪匠 - AS VAL<a class="headerlink" href="#q72" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv29** ｜ **无前置**
 
@@ -1347,7 +1452,9 @@ tags:
   - 声望：**Mechanic** +0.75
   - 解锁购买：**柯尔特 M4A1 5.56x45 卡宾枪 SAI（Ref（竞技场裁判） LL2）**／**柯尔特 M4A1 5.56x45 卡宾枪 SOPMOD I（Mechanic LL3）**
 
-### 枪匠大师 - 1
+## Lv40–49 ｜ 17 个任务
+
+<h3 id="q73">枪匠大师 - 1<a class="headerlink" href="#q73" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ **无前置**
 
@@ -1362,7 +1469,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **HK Ergo PSG-1 样式 AR-15 手枪式握把** ×1 ｜ **Strike Industries 先进机匣延长缓冲管** ×1
   - 解锁购买：**HK Ergo PSG-1 样式 AR-15 手枪式握把（Mechanic LL4）**／**Strike Industries 先进机匣延长缓冲管（Mechanic LL4）**
 
-### 枪匠大师 - 10
+<h3 id="q74">枪匠大师 - 10<a class="headerlink" href="#q74" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
 
@@ -1376,7 +1483,7 @@ tags:
 
 - **完成奖励**：经验 **28,000** ｜ **武器箱** ×1
 
-### 枪匠大师 - 11
+<h3 id="q75">枪匠大师 - 11<a class="headerlink" href="#q75" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
 
@@ -1392,7 +1499,7 @@ tags:
   - 解锁购买：**Trijicon REAP-IR热成像步枪瞄准镜（Mechanic LL4）**
   - 解锁制作：**Trijicon REAP-IR热成像步枪瞄准镜（工作站 Lv3）**
 
-### 枪匠大师 - 12
+<h3 id="q76">枪匠大师 - 12<a class="headerlink" href="#q76" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
 
@@ -1409,7 +1516,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **实验室钥匙卡·黑** ×1
   - 解锁购买：**实验室钥匙卡·黑（Mechanic LL4）**
 
-### 枪匠大师 - 13
+<h3 id="q77">枪匠大师 - 13<a class="headerlink" href="#q77" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
 
@@ -1425,7 +1532,7 @@ tags:
   - 解锁购买：**PKM 7.62x54R 机枪 默认（Mechanic LL4）**
   - 成就：**集大成者**
 
-### 枪匠大师 - 2
+<h3 id="q78">枪匠大师 - 2<a class="headerlink" href="#q78" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
 
@@ -1439,7 +1546,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **AI .338 LM战术声音抑制器** ×1 ｜ **Silencerco Hybrid 46多口径消音器** ×1
 
-### 枪匠大师 - 3
+<h3 id="q79">枪匠大师 - 3<a class="headerlink" href="#q79" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
 
@@ -1454,7 +1561,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **Stark SE-5 Express Forward握把（FDE）** ×2 ｜ **SE-5 Express握把** ×2
   - 解锁购买：**Stark SE-5 Express Forward握把（FDE）（Mechanic LL4）**／**SE-5 Express握把（Mechanic LL4）**
 
-### 枪匠大师 - 4
+<h3 id="q80">枪匠大师 - 4<a class="headerlink" href="#q80" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
 
@@ -1469,7 +1576,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **Hera Arms CQR47 AKM/AK-74 一体式枪托** ×1
   - 解锁购买：**Hera Arms CQR47 AKM/AK-74 一体式枪托（Mechanic LL4）**
 
-### 枪匠大师 - 5
+<h3 id="q81">枪匠大师 - 5<a class="headerlink" href="#q81" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
 
@@ -1483,7 +1590,7 @@ tags:
 
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **EOTech Vudu 1-6x24 30 毫米 步枪瞄准镜** ×1 ｜ **Hexagon Reactor 5.45x39 AK 膛口制退器** ×1
 
-### 枪匠大师 - 6
+<h3 id="q82">枪匠大师 - 6<a class="headerlink" href="#q82" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
 
@@ -1498,7 +1605,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **.45 ACP RIP弹药包（50发装）** ×2
   - 解锁购买：**.45 RIP（Mechanic LL4）**
 
-### 枪匠大师 - 7
+<h3 id="q83">枪匠大师 - 7<a class="headerlink" href="#q83" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
 
@@ -1513,7 +1620,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **Magpul MOE 卡宾枪橡胶枪托垫** ×3
   - 解锁购买：**Magpul MOE 卡宾枪橡胶枪托垫（Peacekeeper LL4）**
 
-### 枪匠大师 - 8
+<h3 id="q84">枪匠大师 - 8<a class="headerlink" href="#q84" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
 
@@ -1528,7 +1635,7 @@ tags:
 
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **手枪收纳箱** ×1 ｜ **7.62x51mm M993弹药包（20发装）** ×3
 
-### 枪匠大师 - 9
+<h3 id="q85">枪匠大师 - 9<a class="headerlink" href="#q85" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
 
@@ -1542,7 +1649,7 @@ tags:
 
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **弹匣箱** ×1
 
-### 狙击疯魔
+<h3 id="q86">狙击疯魔<a class="headerlink" href="#q86" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ **无前置**
 
@@ -1567,7 +1674,7 @@ tags:
 - **失败条件**：
   - **撤离** 撤离点状态：行动中阵亡(KIA)／行动中失踪 (MIA)／离开行动 —— 任务进行过程中不得死亡，或以其它状态离开战局（阵亡、擅离、失踪均会导致失败）
 
-### 致命校准
+<h3 id="q87">致命校准<a class="headerlink" href="#q87" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ **无前置**
 
@@ -1585,7 +1692,7 @@ tags:
   - 技能：**智力** +2 级
   - 解锁购买：**5.45x39毫米 7N40（Prapor LL4）**
 
-### 轻重缓急
+<h3 id="q88">轻重缓急<a class="headerlink" href="#q88" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ **无前置**
 
@@ -1603,7 +1710,7 @@ tags:
   - 技能：**智力** +4 级
   - 解锁购买：**防弹插板箱（Mechanic LL2）**
 
-### 同好俱乐部
+<h3 id="q89">同好俱乐部<a class="headerlink" href="#q89" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv45** ｜ **无前置**
 

@@ -700,6 +700,107 @@ body[data-md-color-scheme="slate"] {
   color: #1B1A17;
 }
 
+/* --------------------------------------------------------------------------
+   10. 搜索索引未就绪时的提示条
+   --------------------------------------------------------------------------
+   由 content/javascripts/search-ready.js 注入。Zensical 的全文搜索 UI 建在
+   Shadow DOM 里，索引（本站约 2 MB）解析完之前**输入框根本不存在**——
+   那段时间点搜索按钮毫无反应，看起来就是"搜索坏了"。
+   这条提示存在的唯一目的是把"假死"变成"请稍等"。
+
+   定位在页头下方居中，不参与文档流，也不抢焦点。
+   -------------------------------------------------------------------------- */
+
+.tk-searchwait {
+  position: fixed;
+  top: 3.4rem;                      /* 页头高 2.4rem + 一点余量 */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  max-width: min(32rem, calc(100vw - 2rem));
+  padding: .6rem 1rem;
+  border: 1px solid var(--tk-sand);
+  border-left: 3px solid var(--tk-amber);
+  border-radius: .3rem;
+  background: var(--tk-amber-bg);
+  color: var(--tk-ink);
+  font-size: .72rem;
+  line-height: 1.5;
+  box-shadow: 0 .15rem .5rem rgba(28, 26, 23, .16);
+}
+
+.tk-searchwait[hidden] {
+  display: none;
+}
+
+[data-md-color-scheme="slate"] .tk-searchwait {
+  background: #2E2B24;
+  color: #EDE8DC;
+  border-color: #6B5F45;
+  border-left-color: var(--tk-sand);
+}
+
+@media print {
+  .tk-searchwait {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10b. 篇章面包屑
+   --------------------------------------------------------------------------
+   由 content/javascripts/breadcrumb.js 注入，内容从导航 DOM 推导。
+   它回答的是「我在哪一篇」——从搜索或外链直接落到某一条目时，这是页面上
+   唯一能说明层级位置的地方（右侧目录只列当前页的 `##` 小节）。
+
+   刻意做小、做轻：它是定位工具，不是导航出口（出口在左侧栏）。
+   -------------------------------------------------------------------------- */
+
+.tk-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .35em;
+  margin: 0 0 1.1em;
+  padding-bottom: .5em;
+  border-bottom: 1px solid var(--tk-line-2);
+  color: var(--tk-ink-2);
+  font-size: .68rem;
+  line-height: 1.6;
+}
+
+.tk-crumb a {
+  color: var(--tk-brand);
+  text-decoration: none;
+}
+
+.tk-crumb a:hover {
+  text-decoration: underline;
+}
+
+.tk-crumb__sep {
+  color: var(--tk-line-3);
+}
+
+/* 当前页：加深、加粗，与祖先拉开层次 */
+.tk-crumb__here {
+  color: var(--tk-ink);
+  font-weight: 700;
+}
+
+[data-md-color-scheme="slate"] .tk-crumb {
+  color: #B6AFA2;
+  border-bottom-color: #4A473F;
+}
+
+[data-md-color-scheme="slate"] .tk-crumb a {
+  color: #C6CFDB;
+}
+
+[data-md-color-scheme="slate"] .tk-crumb__here {
+  color: #EDE8DC;
+}
+
 @media print {
   .md-typeset .tk-term {
     border-bottom: 0;

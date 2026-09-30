@@ -730,8 +730,14 @@ def render_req_line(reqs: list[dict]) -> str:
     return ""
 
 
-def render_task(rec: dict) -> list[str]:
-    L: list[str] = [f"### {rec['name']}", ""]
+def render_task(rec: dict, i: int) -> list[str]:
+    """单个任务的明细块。
+
+    `i` 是它在**本页**的序号（从 1 开始），用来生成锚点 `q01`，并让页首索引表
+    的编号与这里的标题一一对应 —— 编号错位比没有编号更糟。标题本身由
+    `task_heading` 输出成原生 HTML，原因见该函数的说明。
+    """
+    L: list[str] = [task_heading(i, rec["name"]), ""]
     meta = [f"**{TRADER_LABEL.get(rec['trader'], rec['trader'])}**", f"需 **Lv{rec['level']}**"]
     meta.append(f"前置 **{len(rec['prereqs'])}** 个" if rec["prereqs"] else "**无前置**")
     flags = []
@@ -829,10 +835,28 @@ FOOTER = [
 ]
 
 
+# ── 等级分档：全栏目唯一口径 ────────────────────────────────────────────────
+#
+# 总览页的「按等级门槛」表与各商人页的分档**必须同一套档位**。两处各写一份
+# `// 10` 是漂移的温床 —— 改一处漏一处，读者拿着总览页的档位来商人页找会对不上，
+# 而这属于「口径不一致」类缺陷，页面本身不会有任何报错。
+BAND = 10          # 每档跨度。= 总览页「Lv0–9 / Lv10–19 …」的既有口径
+
+
+def band_of(lv: int) -> int:
+    """等级 → 所属档位的下界。"""
+    return (lv // BAND) * BAND
+
+
+def band_label(lo: int) -> str:
+    """档位下界 → 显示标签。**由 BAND 派生**，不写死 `+9`。"""
+    return f"Lv{lo}–{lo + BAND - 1}"
+
+
 def write_index(tasks: list[dict]) -> None:
     n = len(tasks)
     levels = [t["level"] for t in tasks]
-    band = Counter(f"{(lv // 10) * 10}–{(lv // 10) * 10 + 9}" for lv in levels)
+    band = Counter(band_of(lv) for lv in levels)
     obj_n = sum(len(t["objectives"]) for t in tasks)
     fir = sum(1 for t in tasks for o in t["objectives"] if o.get("fir"))
     kappa = sum(1 for t in tasks if t["kappa"])
@@ -922,8 +946,8 @@ def write_index(tasks: list[dict]) -> None:
         "### 按等级门槛", "",
         "| 等级段 | 任务数 |", "|--------|--------|",
     ]
-    for lo in sorted({(lv // 10) * 10 for lv in levels}):
-        L.append(f"| Lv{lo}–{lo + 9} | {band[f'{lo}–{lo + 9}']} |")
+    for lo in sorted(band):
+        L.append(f"| {band_label(lo)} | {band[lo]} |")
     L += [
         "",
         "### 关键标记与条件", "",
@@ -958,9 +982,94 @@ def write_index(tasks: list[dict]) -> None:
     (OUT_DIR / "index.md").write_text("\n".join(L) + "\n", encoding="utf-8")
 
 
+# ── 页首索引表 + 等级区间分组 ────────────────────────────────────────────────
+#
+# 为什么要有（第四十七批交互层审查实测）：
+# 单个商人页最多 **89 个任务 / 27,524 字 / 移动端约 60 屏**，而右侧目录本身
+# 有 **91 项、2,779 px（3.6 屏）**。读者来这里的问题是「我卡在这个任务了，
+# 它要什么」，却只能靠浏览器 Ctrl+F —— 移动端连这个都没有。
+#
+# 索引表把 89 行压成**一屏可扫**，任务名直接跳到下方明细；等级区间分组给页面
+# 一个中间层，让「先按等级缩小范围」这件事有个落点。
+
+def anchor_of(i: int) -> str:
+    """任务锚点。**用序号而不是标题自动生成的 id** —— 中文标题走主题的 slug
+    规则会退化成 `_2`/`_3`（实测就是如此：既不可读、也无法在正文里引用），
+    `q01` 这种由生成器自己掌握的锚点不会随 Markdown 扩展变化而漂移。"""
+    return f"q{i:02d}"
+
+
+def html_escape(s: str) -> str:
+    """原生 HTML 里的转义必须自己做。任务名实测只有 `天降大礼 [PVP ZONE]`
+    一处带方括号（在 HTML 里是安全字符），所以这三个替换是**防将来**、
+    不是补现在 —— 但少了它，一个带 `<` 的任务名会直接把整页结构打破。"""
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def task_heading(i: int, name: str) -> str:
+    """任务标题用**原生 HTML** 而不是 markdown `###` —— 这是一处必须写下来的取舍：
+
+    1. **右侧目录从 91 项降到十来个。** `toc` 扩展只收集 Markdown 解析出来的
+       标题元素；本项目**没有启用 `md_in_html`**（见 mkdocs.yml 的
+       markdown_extensions），原生 HTML 块会被 stash 成占位符文本，不进
+       `page.toc`。标题层级（h2 分档 → h3 任务）与视觉呈现都不变。
+       ⚠️ **若将来启用 `md_in_html`，这条立即失效**，目录会涨回 91 项。
+    2. **锚点由生成器自己给**（`q01`），而不是主题按中文标题生成的 `_2`/`_3`。
+    3. 手动补回主题的 `¶` 永久链接 —— 否则读者会失去「复制某任务的直达链接」
+       这个原有能力，属于纯粹的功能退化。
+    """
+    safe = html_escape(quote_cn(one_line(name)))
+    a = anchor_of(i)
+    return (f'<h3 id="{a}">{safe}'
+            f'<a class="headerlink" href="#{a}" title="Permanent link">&para;</a></h3>')
+
+
+def link_cell(i: int, name: str) -> str:
+    """索引表里的任务名。同样用**原生 HTML 锚点**而不是 markdown 链接：
+    `天降大礼 [PVP ZONE]` 的方括号嵌在 markdown 链接文字里，解析结果取决于
+    实现，不值得赌。HTML 形式对全部名字一视同仁。"""
+    return f'<a href="#{anchor_of(i)}">{html_escape(cell(name))}</a>'
+
+
+def render_index(rows: list[dict]) -> list[str]:
+    """一屏扫完的任务索引。
+
+    标记列只放**影响出发前准备**的项 —— 「必须战局内找到」漏一个是白跑一趟，
+    「Kappa / Lightkeeper」漏一个是不算两条主线。能从下方明细一眼看出来的
+    （地图、门槛）另设列，不挤进标记。
+    """
+    L = ["| # | 任务 | 门槛 | 地图 | 标记 |",
+         "|---|------|------|------|------|"]
+    for i, rec in enumerate(rows, 1):
+        flags = []
+        if any(o.get("fir") for o in rec["objectives"]):
+            flags.append("**必须战局内找到**")
+        if rec["keys"]:
+            flags.append("需钥匙")
+        if rec["kappa"]:
+            flags.append("**Kappa**")
+        if rec["lightkeeper"]:
+            flags.append("**Lightkeeper**")
+        if rec["faction"]:
+            flags.append(f"仅 {rec['faction']}")
+        if rec["prestige"]:
+            flags.append(f"威望 P{rec['prestige']}")
+        if len(rec["prereqs"]) >= 3:
+            flags.append(f"前置 ×{len(rec['prereqs'])}")
+        if rec["restartable"]:
+            flags.append("可重接")
+        L.append(
+            f"| {i} | {link_cell(i, rec['name'])} | Lv{rec['level']} | "
+            f"{cell(rec['map']) if rec['map'] else '—'} | "
+            f"{' · '.join(flags) if flags else '—'} |"
+        )
+    return L
+
+
 def write_trader_page(key: str, rows: list[dict]) -> None:
     label = TRADER_LABEL.get(key, key)
     lv = [t["level"] for t in rows]
+    los = sorted({band_of(t["level"]) for t in rows})
     L: list[str] = [
         "---", "tags:", "  - 任务", "  - 商人", "---", "",
         f"# {label} 的任务 (Quest Catalog)", "",
@@ -970,15 +1079,32 @@ def write_trader_page(key: str, rows: list[dict]) -> None:
         f"| **任务数** | {len(rows)} |",
         f"| **等级跨度** | Lv{min(lv)}–Lv{max(lv)} |",
         "| **排序** | 按**等级门槛升序**，同级按任务名 |",
+        f"| **分档** | 每 {BAND} 级一档（{band_label(los[0])} …），"
+        "与[总览](index.md)「按等级门槛」同口径 |",
         "| **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |",
         f"| **数据口径** | 官方任务数据（二级），**持久 PvP**，{FETCH_DATE} 抓取；"
         "**不含坐标**，字段判读见[任务图鉴总览](index.md) |",
         "",
         "---", "",
-        f"## 📋 {label} 的 {len(rows)} 个任务", "",
+        f"## 🔎 任务索引 ｜ {len(rows)} 项",
+        "",
+        "点任务名跳到下方明细。**标记列只列影响出发前准备的项**——"
+        "`必须战局内找到`（跳蚤市场买的不算数）、`需钥匙`、"
+        "`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、"
+        "`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`。",
+        "",
+        *render_index(rows),
+        "",
+        f"> 📖 本页共 {len(rows)} 个任务，按等级分 **{len(los)} 档**，"
+        "档位分隔在索引表下方。要**按地图或商人横向找**，回[总览](index.md)。",
+        "",
+        "---", "",
     ]
-    for rec in rows:
-        L.extend(render_task(rec))
+    for lo in los:
+        seg = [(i, r) for i, r in enumerate(rows, 1) if band_of(r["level"]) == lo]
+        L += [f"## {band_label(lo)} ｜ {len(seg)} 个任务", ""]
+        for i, rec in seg:
+            L.extend(render_task(rec, i))
     L += [
         "---", "",
         "📖 [返回任务图鉴总览](index.md) ｜ [商人任务线图鉴](../entries/trader-questlines.md)",

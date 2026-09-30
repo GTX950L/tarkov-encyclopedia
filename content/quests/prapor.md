@@ -18,14 +18,92 @@ tags:
 | **任务数** | 66 |
 | **等级跨度** | Lv0–Lv46 |
 | **排序** | 按**等级门槛升序**，同级按任务名 |
+| **分档** | 每 10 级一档（Lv0–9 …），与[总览](index.md)「按等级门槛」同口径 |
 | **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |
 | **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md) |
 
 ---
 
-## 📋 Prapor 的 66 个任务
+## 🔎 任务索引 ｜ 66 项
 
-### 一信之缘
+点任务名跳到下方明细。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`。
+
+| # | 任务 | 门槛 | 地图 | 标记 |
+|---|------|------|------|------|
+| 1 | <a href="#q01">一信之缘</a> | Lv0 | 塔科夫街区 | — |
+| 2 | <a href="#q02">半满半空</a> | Lv0 | — | **必须战局内找到** |
+| 3 | <a href="#q03">占有者</a> | Lv0 | 工厂 | — |
+| 4 | <a href="#q04">地区巡逻</a> | Lv0 | 塔科夫街区 | — |
+| 5 | <a href="#q05">塔市进口货</a> | Lv0 | — | — |
+| 6 | <a href="#q06">多鱼之漏</a> | Lv0 | 储备站 | — |
+| 7 | <a href="#q07">奢靡人生</a> | Lv0 | 中心区 | — |
+| 8 | <a href="#q08">屋顶战神</a> | Lv0 | 塔科夫街区 | — |
+| 9 | <a href="#q09">引路先驱</a> | Lv0 | 海关 | — |
+| 10 | <a href="#q10">往事速递</a> | Lv0 | — | 需钥匙 |
+| 11 | <a href="#q11">恐吓者</a> | Lv0 | — | — |
+| 12 | <a href="#q12">惩罚者 - 1</a> | Lv0 | 海关 | — |
+| 13 | <a href="#q13">惩罚者 - 2</a> | Lv0 | 海岸线 | — |
+| 14 | <a href="#q14">我们的土地，我们的血</a> | Lv0 | 灯塔 | 仅 BEAR |
+| 15 | <a href="#q15">掠地攻城</a> | Lv0 | — | — |
+| 16 | <a href="#q16">探囊取物</a> | Lv0 | 海关 | 需钥匙 |
+| 17 | <a href="#q17">搜索任务</a> | Lv0 | 森林 | — |
+| 18 | <a href="#q18">最好的差事</a> | Lv0 | — | — |
+| 19 | <a href="#q19">横插一杠</a> | Lv0 | — | — |
+| 20 | <a href="#q20">武力说服</a> | Lv0 | — | — |
+| 21 | <a href="#q21">武装郊游</a> | Lv0 | — | — |
+| 22 | <a href="#q22">油料交换</a> | Lv0 | 破冰船 | **必须战局内找到** |
+| 23 | <a href="#q23">油料快车</a> | Lv0 | 海关 | — |
+| 24 | <a href="#q24">特别联络</a> | Lv0 | — | — |
+| 25 | <a href="#q25">特殊订单</a> | Lv0 | — | **必须战局内找到** |
+| 26 | <a href="#q26">硝烟野餐</a> | Lv0 | 森林 | — |
+| 27 | <a href="#q27">绿色通道</a> | Lv0 | 塔科夫街区 | 仅 BEAR |
+| 28 | <a href="#q28">缔结友谊</a> | Lv0 | 海岸线 | — |
+| 29 | <a href="#q29">罪证</a> | Lv0 | — | 需钥匙 |
+| 30 | <a href="#q30">背景调查</a> | Lv0 | 海关 | 需钥匙 |
+| 31 | <a href="#q31">财不外露</a> | Lv0 | 塔科夫街区 | 需钥匙 |
+| 32 | <a href="#q32">货运延误 - 1</a> | Lv0 | 森林 | — |
+| 33 | <a href="#q33">踩点行动</a> | Lv0 | 灯塔 | — |
+| 34 | <a href="#q34">邮递员派特 - 1</a> | Lv0 | 工厂 | **Kappa** |
+| 35 | <a href="#q35">铁证如山</a> | Lv0 | — | **必须战局内找到** |
+| 36 | <a href="#q36">首秀</a> | Lv0 | — | — |
+| 37 | <a href="#q37">麻醉</a> | Lv0 | 海岸线 | — |
+| 38 | <a href="#q38">打靶训练</a> | Lv1 | 中心区 | — |
+| 39 | <a href="#q39">掷弹兵</a> | Lv6 | — | — |
+| 40 | <a href="#q40">苏共之辉</a> | Lv6 | 塔科夫街区 | — |
+| 41 | <a href="#q41">蛋卷冰淇淋</a> | Lv6 | 森林 | **必须战局内找到** |
+| 42 | <a href="#q42">大客户</a> | Lv9 | 海关 | — |
+| 43 | <a href="#q43">人间地狱 - 1</a> | Lv12 | — | — |
+| 44 | <a href="#q44">往昔时光 - 1</a> | Lv12 | 工厂 | — |
+| 45 | <a href="#q45">往昔时光 - 2</a> | Lv12 | — | — |
+| 46 | <a href="#q46">忠实观众</a> | Lv12 | — | — |
+| 47 | <a href="#q47">苏共之辉 - 1</a> | Lv17 | 塔科夫街区 | — |
+| 48 | <a href="#q48">人间地狱 - 2</a> | Lv21 | — | — |
+| 49 | <a href="#q49">叛无所依</a> | Lv21 | 储备站 | — |
+| 50 | <a href="#q50">地堡</a> | Lv21 | 储备站 | — |
+| 51 | <a href="#q51">地堡 - 2</a> | Lv21 | 储备站 | — |
+| 52 | <a href="#q52">小菜一碟</a> | Lv21 | 灯塔 | — |
+| 53 | <a href="#q53">小菜一碟 - 2</a> | Lv21 | 灯塔 | — |
+| 54 | <a href="#q54">惩罚者 - 3</a> | Lv21 | 储备站 | **必须战局内找到** |
+| 55 | <a href="#q55">爱国者的使命</a> | Lv25 | — | — |
+| 56 | <a href="#q56">体验独一份</a> | Lv35 | — | — |
+| 57 | <a href="#q57">左右逢源</a> | Lv35 | — | — |
+| 58 | <a href="#q58">出警 - 商场</a> | Lv36 | 塔科夫街区 | — |
+| 59 | <a href="#q59">出警 - 检票</a> | Lv36 | 塔科夫街区 | — |
+| 60 | <a href="#q60">惩罚者 - 4</a> | Lv36 | 灯塔 | **必须战局内找到** |
+| 61 | <a href="#q61">惩罚者 - 5</a> | Lv36 | — | **必须战局内找到** |
+| 62 | <a href="#q62">惩罚者 - 6</a> | Lv36 | — | 可重接 |
+| 63 | <a href="#q63">管制材料</a> | Lv36 | — | **必须战局内找到** |
+| 64 | <a href="#q64">艺术就是爆炸</a> | Lv36 | — | — |
+| 65 | <a href="#q65">透透气</a> | Lv36 | — | — |
+| 66 | <a href="#q66">护送</a> | Lv46 | — | 可重接 |
+
+> 📖 本页共 66 个任务，按等级分 **5 档**，档位分隔在索引表下方。要**按地图或商人横向找**，回[总览](index.md)。
+
+---
+
+## Lv0–9 ｜ 42 个任务
+
+<h3 id="q01">一信之缘<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -39,7 +117,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-### 半满半空
+<h3 id="q02">半满半空<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -55,7 +133,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **Altyn 防弹头盔（橄榄绿）** ×2 ｜ **Altyn面罩** ×2
 - **接取即得**：**RSP-30 反应式信号弹（特种黄）** ×1
 
-### 占有者
+<h3 id="q03">占有者<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -69,7 +147,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-### 地区巡逻
+<h3 id="q04">地区巡逻<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -82,7 +160,7 @@ tags:
 - **完成奖励**：经验 **8,300** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-### 塔市进口货
+<h3 id="q05">塔市进口货<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -99,7 +177,7 @@ tags:
   - 解锁制作：**9x39毫米 PAB-9 ×100（工作站 Lv2）**
 - **接取即得**：**奈特军械公司 (KAC) SR-25 7.62x51 精确射手步枪 PM II 1-8x24** ×1
 
-### 多鱼之漏
+<h3 id="q06">多鱼之漏<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -121,7 +199,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Prapor** +0.75
 
-### 奢靡人生
+<h3 id="q07">奢靡人生<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -140,7 +218,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Prapor** +0.1
 
-### 屋顶战神
+<h3 id="q08">屋顶战神<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -158,7 +236,7 @@ tags:
   - 声望：**Prapor** +0.25
   - 解锁购买：**SV-98 7.62x54 狙击步枪 默认（Prapor LL2）**
 
-### 引路先驱
+<h3 id="q09">引路先驱<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -176,7 +254,7 @@ tags:
   - 声望：**Prapor** +0.1
 - **接取即得**：**RSP-30 反应式信号弹（绿色）** ×1
 
-### 往事速递
+<h3 id="q10">往事速递<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -194,7 +272,7 @@ tags:
   - 声望：**Prapor** +0.25
   - 外观解锁：**英式人字纹**
 
-### 恐吓者
+<h3 id="q11">恐吓者<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -212,7 +290,7 @@ tags:
   - 技能：**冲锋枪** +4 级
   - 解锁制作：**7.62x39毫米 BP ×60（工作站 Lv3）**
 
-### 惩罚者 - 1
+<h3 id="q12">惩罚者 - 1<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -225,7 +303,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **DVL-10 7.62x51 栓动式狙击步枪 Urbana** ×1
   - 解锁制作：**5.45x39毫米 PP ×120（工作站 Lv2）**
 
-### 惩罚者 - 2
+<h3 id="q13">惩罚者 - 2<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -242,7 +320,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **RPK-16 5.45x39 轻机枪 6L26** ×1 ｜ **6L31 5.45x39 AK-74 60发弹匣** ×1
   - 解锁购买：**7.62x39毫米 PS（Prapor LL3）**／**SV-98 7.62x54 狙击步枪 默认（Prapor LL2）**
 
-### 我们的土地，我们的血
+<h3 id="q14">我们的土地，我们的血<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -261,7 +339,7 @@ tags:
   - 解锁购买：**刚玉-VM 防弹插板（前部）（Prapor LL3）**／**23x75毫米“红星”闪光弹（Prapor LL3）**
 - **接取即得**：解锁 **GP-25“篝火”40 毫米下挂式榴弹发射器（Prapor LL3）** ｜ 解锁 **40毫米VOG-25榴弹（Prapor LL3）**
 
-### 掠地攻城
+<h3 id="q15">掠地攻城<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -272,7 +350,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-### 探囊取物
+<h3 id="q16">探囊取物<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -294,7 +372,7 @@ tags:
   - 解锁购买：**9x21毫米 SP13（Prapor LL3）**
 - **接取即得**：**宿舍203房间钥匙** ×1
 
-### 搜索任务
+<h3 id="q17">搜索任务<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -309,7 +387,7 @@ tags:
   - 声望：**Prapor** +0.1
 - **接取即得**：**EYE MK.2 手持指南针专业版** ×1
 
-### 最好的差事
+<h3 id="q18">最好的差事<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -326,7 +404,7 @@ tags:
   - 技能：**弹匣训练** +4 级
   - 解锁购买：**ASh-12 12.7x55 突击步枪 默认（Prapor LL4）**
 
-### 横插一杠
+<h3 id="q19">横插一杠<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -340,7 +418,7 @@ tags:
 
 - **完成奖励**：经验 **28,000** ｜ **AS VAL“巨浪” 9x39 特种突击步枪 默认** ×1 ｜ **VSS/VAL 9x39 6L25 20发弹匣（黑红色）** ×3 ｜ **9x39mm PAB-9 弹药包（20发装）** ×4
 
-### 武力说服
+<h3 id="q20">武力说服<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -357,7 +435,7 @@ tags:
   - 外观解锁：**鸭子靶纸**
 - **接取即得**：**HK MP5 9x19 冲锋枪（海军三发点射） PRO** ×1 ｜ 解锁 **HK MP5 9x19 冲锋枪（海军三发点射） PRO（Mechanic LL1）**
 
-### 武装郊游
+<h3 id="q21">武装郊游<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -373,7 +451,7 @@ tags:
   - 声望：**Prapor** +0.75
 - **接取即得**：**SR-2M 石楠 9x21 冲锋枪 SV-1381** ×1
 
-### 油料交换
+<h3 id="q22">油料交换<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -387,7 +465,7 @@ tags:
 - **完成奖励**：经验 **32,000** ｜ **卢布** ×330,000
   - 解锁购买：**AK-308 7.62x51 突击步枪 Vudu 1-6（Prapor LL1）**
 
-### 油料快车
+<h3 id="q23">油料快车<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -406,7 +484,7 @@ tags:
   - 解锁购买：**9x21毫米 SP13（Prapor LL3）**
 - **接取即得**：**MS2000指示器** ×1
 
-### 特别联络
+<h3 id="q24">特别联络<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -424,7 +502,7 @@ tags:
   - 声望：**Prapor** +0.75
 - **接取即得**：**Bulbex剪线器** ×1 ｜ **军用电缆** ×1
 
-### 特殊订单
+<h3 id="q25">特殊订单<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -441,7 +519,7 @@ tags:
   - 技能：**魅力** +2 级
   - 解锁购买：**TKPD 9.3x64 突击卡宾枪 XPS3-2（Prapor LL4）**／**9.3x64毫米 FMJ（Prapor LL4）**
 
-### 硝烟野餐
+<h3 id="q26">硝烟野餐<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -458,7 +536,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Prapor** +0.1
 
-### 绿色通道
+<h3 id="q27">绿色通道<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -473,7 +551,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-### 缔结友谊
+<h3 id="q28">缔结友谊<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ 前置 **2** 个
 
@@ -490,7 +568,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **AK-12 5.45x39 突击步枪 默认** ×1 ｜ **6L26 5.45x39 AK-74 45发弹匣** ×3 ｜ **5.45x39mm BP弹药包（120发装）** ×2
 
-### 罪证
+<h3 id="q29">罪证<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -511,7 +589,7 @@ tags:
   - 声望：**Prapor** +0.1
 - **接取即得**：**简易工棚钥匙** ×1
 
-### 背景调查
+<h3 id="q30">背景调查<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -531,7 +609,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Prapor** +0.1
 
-### 财不外露
+<h3 id="q31">财不外露<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -551,7 +629,7 @@ tags:
 - **完成奖励**：经验 **6,600** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-### 货运延误 - 1
+<h3 id="q32">货运延误 - 1<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -567,7 +645,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **7.62x54mm R 7N1 弹药包（20发装）** ×3 ｜ **5.45x39mm 7N40盒装弹药（30发装）** ×3
 
-### 踩点行动
+<h3 id="q33">踩点行动<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -586,7 +664,7 @@ tags:
   - 声望：**Prapor** +0.75
   - 解锁购买：**Tokarev AVT-40 7.62x54R自动步枪 默认（Prapor LL3）**
 
-### 邮递员派特 - 1
+<h3 id="q34">邮递员派特 - 1<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -605,7 +683,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-### 铁证如山
+<h3 id="q35">铁证如山<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -623,7 +701,7 @@ tags:
   - 解锁购买：**刚玉-VM 防弹插板（前部）（Prapor LL3）**／**23x75毫米“红星”闪光弹（Prapor LL3）**
 - **接取即得**：解锁 **GP-25“篝火”40 毫米下挂式榴弹发射器（Prapor LL3）** ｜ 解锁 **40毫米VOG-25榴弹（Prapor LL3）**
 
-### 首秀
+<h3 id="q36">首秀<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -634,7 +712,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Prapor** +0.1
 
-### 麻醉
+<h3 id="q37">麻醉<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -653,7 +731,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-### 打靶训练
+<h3 id="q38">打靶训练<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv1** ｜ **无前置**
 
@@ -668,7 +746,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Prapor** +0.1
 
-### 掷弹兵
+<h3 id="q39">掷弹兵<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv6** ｜ **无前置**
 
@@ -684,7 +762,7 @@ tags:
   - 声望：**Prapor** +0.25
 - **接取即得**：**VOG-25 Khattabka 简易手榴弹** ×3 ｜ **VOG-17 Khattabka 简易手榴弹** ×3 ｜ **RGN手榴弹** ×3
 
-### 苏共之辉
+<h3 id="q40">苏共之辉<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv6** ｜ **无前置**
 
@@ -704,7 +782,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-### 蛋卷冰淇淋
+<h3 id="q41">蛋卷冰淇淋<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv6** ｜ **无前置**
 
@@ -725,7 +803,7 @@ tags:
   - 声望：**Prapor** +0.25
 - **接取即得**：解锁 **6L31 5.45x39 AK-74 60发弹匣（工作站 Lv1）**
 
-### 大客户
+<h3 id="q42">大客户<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv9** ｜ 前置 **1** 个
 
@@ -748,7 +826,9 @@ tags:
   - **任务状态** **化学品 - 4** ｜ 状态：完成
   - **任务状态** **出于好奇** ｜ 状态：完成
 
-### 人间地狱 - 1
+## Lv10–19 ｜ 5 个任务
+
+<h3 id="q43">人间地狱 - 1<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv12** ｜ 前置 **1** 个
 
@@ -762,7 +842,7 @@ tags:
 
 - **完成奖励**：经验 **2,300** ｜ **卢布** ×80,000
 
-### 往昔时光 - 1
+<h3 id="q44">往昔时光 - 1<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv12** ｜ **无前置**
 
@@ -779,7 +859,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **春田 M1A 7.62x51 步枪 2k18 NY** ×1 ｜ **M1A 7.62x51 20发弹匣** ×2 ｜ **7.62x51mm M62 曳光弹 弹药包（20发装）** ×3
 - **接取即得**：**6B43 屏障-Sh 防弹衣（数码丛林迷彩） 默认** ×1 ｜ **FORT Kiver-M 防弹头盔** ×1
 
-### 往昔时光 - 2
+<h3 id="q45">往昔时光 - 2<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv12** ｜ 前置 **1** 个
 
@@ -794,7 +874,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **弹药箱** ×2
 - **接取即得**：**托卡列夫 TT-33 7.62x25 黄金手枪 默认** ×1
 
-### 忠实观众
+<h3 id="q46">忠实观众<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv12** ｜ 前置 **1** 个
 
@@ -810,7 +890,7 @@ tags:
 
 - **完成奖励**：经验 **65,000** ｜ **卢布** ×400,000 ｜ **瓶装 Pevko 淡啤酒** ×5 ｜ **Tarkovskaya瓶装伏特加** ×5
 
-### 苏共之辉 - 1
+<h3 id="q47">苏共之辉 - 1<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv17** ｜ 前置 **1** 个
 
@@ -828,7 +908,9 @@ tags:
 - **完成奖励**：经验 **7,300** ｜ **卢布** ×42,000 ｜ **Tarkovskaya瓶装伏特加** ×2
   - 声望：**Prapor** +0.02
 
-### 人间地狱 - 2
+## Lv20–29 ｜ 8 个任务
+
+<h3 id="q48">人间地狱 - 2<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个
 
@@ -844,7 +926,7 @@ tags:
 - **完成奖励**：经验 **16,000** ｜ **卢布** ×275,000 ｜ **VOG-25 Khattabka 简易手榴弹** ×3 ｜ **RGN手榴弹** ×3 ｜ **RGO手榴弹** ×3
 - **接取即得**：**MP-43-1C 12 铅径双管霰弹枪 Short** ×1
 
-### 叛无所依
+<h3 id="q49">叛无所依<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv21** ｜ **无前置**
 
@@ -861,7 +943,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Prapor** +0.75
 
-### 地堡
+<h3 id="q50">地堡<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv21** ｜ **无前置**
 
@@ -884,7 +966,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Prapor** +0.75
 
-### 地堡 - 2
+<h3 id="q51">地堡 - 2<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个
 
@@ -906,7 +988,7 @@ tags:
 - **完成奖励**：经验 **9,200** ｜ **卢布** ×25,000 ｜ **AKS-74UB 5.45x39 短突击步枪 默认** ×1 ｜ **5.45x39mm BS弹药包（120发装）** ×1 ｜ **CAA RS47 AK 护木** ×1 ｜ **CAA AKTS AK74M 缓冲管** ×1
   - 声望：**Prapor** +0.03
 
-### 小菜一碟
+<h3 id="q52">小菜一碟<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv21** ｜ **无前置**
 
@@ -925,7 +1007,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Prapor** +0.75
 
-### 小菜一碟 - 2
+<h3 id="q53">小菜一碟 - 2<a class="headerlink" href="#q53" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个
 
@@ -944,7 +1026,7 @@ tags:
   - 解锁购买：**Molot Arms 7.62x39 AK 75发弹鼓（Prapor LL3）**
   - 外观解锁：**脏天花板**
 
-### 惩罚者 - 3
+<h3 id="q54">惩罚者 - 3<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个
 
@@ -965,7 +1047,7 @@ tags:
   - 解锁购买：**7.62x39毫米 PS（Prapor LL3）**
 - **接取即得**：**KBP VSK-94 9x39步枪 默认** ×1
 
-### 爱国者的使命
+<h3 id="q55">爱国者的使命<a class="headerlink" href="#q55" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv25** ｜ **无前置**
 
@@ -982,7 +1064,9 @@ tags:
   - 解锁制作：**VOG-25 Khattabka 简易手榴弹 ×5（工作站 Lv2）**
 - **接取即得**：**AK-12 5.45x39 突击步枪 PS320 1/6x** ×1
 
-### 体验独一份
+## Lv30–39 ｜ 10 个任务
+
+<h3 id="q56">体验独一份<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv35** ｜ **无前置**
 
@@ -1002,7 +1086,7 @@ tags:
   - 解锁制作：**5.45x39毫米 BP ×60（工作站 Lv3）**
 - **接取即得**：**Aklys Defense 迅猛龙 .300 Blackout 突击步枪 默认** ×1 ｜ 解锁 **.300 Blackout CBJ弹药包（50发装）（Mechanic LL3）**
 
-### 左右逢源
+<h3 id="q57">左右逢源<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv35** ｜ 前置 **1** 个
 
@@ -1024,7 +1108,7 @@ tags:
   - 声望：**Prapor** +0.02
   - 解锁购买：**SR-3M 9x39紧凑型突击步枪 默认（Prapor LL4）**
 
-### 出警 - 商场
+<h3 id="q58">出警 - 商场<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个
 
@@ -1042,7 +1126,7 @@ tags:
   - 声望：**Prapor** +0.02
   - 解锁购买：**谢尔久科夫 SR1MP 9x21 “斑蝰蛇” 半自动手枪 Tactical 2（Prapor LL4）**
 
-### 出警 - 检票
+<h3 id="q59">出警 - 检票<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个
 
@@ -1060,7 +1144,7 @@ tags:
   - 声望：**Prapor** +0.03
   - 解锁购买：**SR-2M 石楠 9x21 冲锋枪 FSB（Prapor LL4）**
 
-### 惩罚者 - 4
+<h3 id="q60">惩罚者 - 4<a class="headerlink" href="#q60" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个
 
@@ -1081,7 +1165,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **7.62x54mm R 7N1 弹药包（20发装）** ×3 ｜ **9x39mm SP-6 弹药包（20发装）** ×3
   - 解锁购买：**7.62x54R 7N1狙击弹（Prapor LL4）**／**9x39毫米 SP-6（Prapor LL4）**
 
-### 惩罚者 - 5
+<h3 id="q61">惩罚者 - 5<a class="headerlink" href="#q61" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个
 
@@ -1103,7 +1187,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **AK-308 7.62x51 突击步枪 默认** ×1 ｜ **AK-308 7.62x51 快拆式消音器** ×1 ｜ **文件包** ×1
   - 解锁购买：**AK-308 7.62x51 突击步枪 默认（Prapor LL4）**／**AK-308 7.62x51 快拆式消音器（Prapor LL4）**
 
-### 惩罚者 - 6
+<h3 id="q62">惩罚者 - 6<a class="headerlink" href="#q62" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个
 
@@ -1122,7 +1206,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **9x39mm SP-6 弹药包（20发装）** ×5 ｜ **SR-3M 9x39紧凑型突击步枪 默认** ×1 ｜ **Epsilon 安全箱** ×1
   - 解锁购买：**SR-3M 9x39紧凑型突击步枪 默认（Prapor LL4）**
 
-### 管制材料
+<h3 id="q63">管制材料<a class="headerlink" href="#q63" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ **无前置**
 
@@ -1142,7 +1226,7 @@ tags:
   - 技能：**魅力** +2 级
   - 解锁制作：**6-STEN-140-M军用电池（工作站 Lv1）**
 
-### 艺术就是爆炸
+<h3 id="q64">艺术就是爆炸<a class="headerlink" href="#q64" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ **无前置**
 
@@ -1160,7 +1244,7 @@ tags:
   - 技能：**下挂发射器** +4 级
   - 解锁购买：**RShG-2 72.5 毫米火箭发射器 默认（Prapor LL4）**／**Granit 4防弹插板（前部）（Prapor LL4）**
 
-### 透透气
+<h3 id="q65">透透气<a class="headerlink" href="#q65" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ **无前置**
 
@@ -1179,7 +1263,9 @@ tags:
   - 解锁购买：**Molot Arms 7.62x39 AK 75发弹鼓（Prapor LL3）**
 - **接取即得**：**RPDN 7.62x39 轻机枪 EKP-1S-03** ×1
 
-### 护送
+## Lv40–49 ｜ 1 个任务
+
+<h3 id="q66">护送<a class="headerlink" href="#q66" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv46** ｜ **无前置**
 

@@ -18,14 +18,40 @@ tags:
 | **任务数** | 14 |
 | **等级跨度** | Lv0–Lv35 |
 | **排序** | 按**等级门槛升序**，同级按任务名 |
+| **分档** | 每 10 级一档（Lv0–9 …），与[总览](index.md)「按等级门槛」同口径 |
 | **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |
 | **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md) |
 
 ---
 
-## 📋 Lightkeeper 的 14 个任务
+## 🔎 任务索引 ｜ 14 项
 
-### 以牙还牙
+点任务名跳到下方明细。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`。
+
+| # | 任务 | 门槛 | 地图 | 标记 |
+|---|------|------|------|------|
+| 1 | <a href="#q01">以牙还牙</a> | Lv0 | 储备站 | — |
+| 2 | <a href="#q02">外部订单</a> | Lv0 | — | — |
+| 3 | <a href="#q03">大显身手</a> | Lv0 | — | — |
+| 4 | <a href="#q04">大都会之谜</a> | Lv0 | 塔科夫街区 | — |
+| 5 | <a href="#q05">失踪的线人</a> | Lv0 | 塔科夫街区 | 需钥匙 |
+| 6 | <a href="#q06">归还人情</a> | Lv0 | 森林 | — |
+| 7 | <a href="#q07">情报之源</a> | Lv0 | — | — |
+| 8 | <a href="#q08">抢夺先机</a> | Lv0 | — | 需钥匙 |
+| 9 | <a href="#q09">按图索骥</a> | Lv0 | — | 需钥匙 |
+| 10 | <a href="#q10">挑衅</a> | Lv0 | 立交桥 | 需钥匙 |
+| 11 | <a href="#q11">简单副业</a> | Lv0 | — | — |
+| 12 | <a href="#q12">观察员</a> | Lv0 | 塔科夫街区 | 需钥匙 |
+| 13 | <a href="#q13">守望者箴言</a> | Lv26 | 迷宫 | 需钥匙 · 前置 ×6 |
+| 14 | <a href="#q14">天降大礼 [PVP ZONE]</a> | Lv35 | — | 需钥匙 |
+
+> 📖 本页共 14 个任务，按等级分 **3 档**，档位分隔在索引表下方。要**按地图或商人横向找**，回[总览](index.md)。
+
+---
+
+## Lv0–9 ｜ 12 个任务
+
+<h3 id="q01">以牙还牙<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -46,7 +72,7 @@ tags:
   - 声望：**Lightkeeper** +0.03
   - 解锁购买：**DevTac 浪人面罩（Ragman LL4）**
 
-### 外部订单
+<h3 id="q02">外部订单<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -67,7 +93,7 @@ tags:
 - **失败条件**：
   - **任务状态** **电池换新** ｜ 状态：完成
 
-### 大显身手
+<h3 id="q03">大显身手<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -85,7 +111,7 @@ tags:
 - **完成奖励**：**相控阵单元** ×2
   - 声望：**Lightkeeper** +0.04
 
-### 大都会之谜
+<h3 id="q04">大都会之谜<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -107,7 +133,7 @@ tags:
   - 声望：**Lightkeeper** +0.05
   - 解锁购买：**SIG MCX SPEAR 6.8x51突击步枪 默认（Peacekeeper LL4）**／**Lancer L7AWM 7.62x51 AR-10 25发弹匣（Peacekeeper LL4）**／**6.8x51毫米 SIG Hybrid（Peacekeeper LL4）**／**直流变压器（Mechanic LL4）**
 
-### 失踪的线人
+<h3 id="q05">失踪的线人<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -128,7 +154,7 @@ tags:
   - 声望：**Lightkeeper** +0.01
   - 解锁购买：**微控制器电路板（Mechanic LL4）**
 
-### 归还人情
+<h3 id="q06">归还人情<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -147,7 +173,7 @@ tags:
 - **完成奖励**：**硅基光电集成电路教材** ×1
   - 声望：**Lightkeeper** +0.03
 
-### 情报之源
+<h3 id="q07">情报之源<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -170,7 +196,7 @@ tags:
 - **完成奖励**：**先进电子材料教材** ×1
   - 声望：**Lightkeeper** +0.01
 
-### 抢夺先机
+<h3 id="q08">抢夺先机<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -194,7 +220,7 @@ tags:
   - 解锁购买：**Atomic Defense CQCM 防弹面具（黑色）（Ragman LL4）**
   - 解锁制作：**UHF RFID固定式读取器（工作站 Lv2）**
 
-### 按图索骥
+<h3 id="q09">按图索骥<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -217,7 +243,7 @@ tags:
   - 声望：**Lightkeeper** +0.04
   - 解锁购买：**GPS信号放大单元（Mechanic LL4）**
 
-### 挑衅
+<h3 id="q10">挑衅<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -240,7 +266,7 @@ tags:
   - 声望：**Lightkeeper** +0.03
   - 解锁制作：**FLIR RS-32 2.25-9x 35毫米 60Hz热成像步枪瞄准镜（工作站 Lv3）**
 
-### 简单副业
+<h3 id="q11">简单副业<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -261,7 +287,7 @@ tags:
 - **失败条件**：
   - **任务状态** **对空遮断** ｜ 状态：完成
 
-### 观察员
+<h3 id="q12">观察员<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -284,7 +310,9 @@ tags:
   - 声望：**Lightkeeper** +0.04
   - 解锁制作：**微控制器电路板 ×4（工作站 Lv3）**
 
-### 守望者箴言
+## Lv20–29 ｜ 1 个任务
+
+<h3 id="q13">守望者箴言<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv26** ｜ 前置 **6** 个
 
@@ -304,7 +332,9 @@ tags:
 - **完成奖励**：经验 **56,800** ｜ **美元** ×4,200 ｜ **Virtex可编程处理器** ×1 ｜ **SICC 收纳包** ×1 ｜ **神圣护身符** ×1
   - 声望：**Lightkeeper** +0.03
 
-### 天降大礼 [PVP ZONE]
+## Lv30–39 ｜ 1 个任务
+
+<h3 id="q14">天降大礼 [PVP ZONE]<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv35** ｜ 前置 **1** 个
 

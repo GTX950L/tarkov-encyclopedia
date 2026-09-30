@@ -18,14 +18,78 @@ tags:
 | **任务数** | 52 |
 | **等级跨度** | Lv0–Lv38 |
 | **排序** | 按**等级门槛升序**，同级按任务名 |
+| **分档** | 每 10 级一档（Lv0–9 …），与[总览](index.md)「按等级门槛」同口径 |
 | **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |
 | **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md) |
 
 ---
 
-## 📋 Therapist 的 52 个任务
+## 🔎 任务索引 ｜ 52 项
 
-### 一般储备
+点任务名跳到下方明细。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`。
+
+| # | 任务 | 门槛 | 地图 | 标记 |
+|---|------|------|------|------|
+| 1 | <a href="#q01">一般储备</a> | Lv0 | — | **必须战局内找到** |
+| 2 | <a href="#q02">供给计划</a> | Lv0 | 森林 | — |
+| 3 | <a href="#q03">健全替代</a> | Lv0 | — | — |
+| 4 | <a href="#q04">兽医也是医</a> | Lv0 | 塔科夫街区 | **必须战局内找到** · 需钥匙 |
+| 5 | <a href="#q05">兽医也是医 - 2</a> | Lv0 | 塔科夫街区 | — |
+| 6 | <a href="#q06">医疗隐私 - 1</a> | Lv0 | 海岸线 | — |
+| 7 | <a href="#q07">卫生标准</a> | Lv0 | 工厂 | **必须战局内找到** |
+| 8 | <a href="#q08">城市的解药</a> | Lv0 | 塔科夫街区 | — |
+| 9 | <a href="#q09">塔科夫屠夫</a> | Lv0 | — | — |
+| 10 | <a href="#q10">塔科夫式手腕</a> | Lv0 | 海岸线 | 需钥匙 |
+| 11 | <a href="#q11">带血的水</a> | Lv0 | 海关 | — |
+| 12 | <a href="#q12">平易近人</a> | Lv0 | 海关 | — |
+| 13 | <a href="#q13">急诊室的故事</a> | Lv0 | 塔科夫街区 | — |
+| 14 | <a href="#q14">战争从未改变</a> | Lv0 | 破冰船 | **必须战局内找到** |
+| 15 | <a href="#q15">无主货物</a> | Lv0 | 海关 | — |
+| 16 | <a href="#q16">水瓶座行动</a> | Lv0 | 海关 | **必须战局内找到** · 需钥匙 |
+| 17 | <a href="#q17">汽车修理</a> | Lv0 | — | **必须战局内找到** |
+| 18 | <a href="#q18">海边假期</a> | Lv0 | 灯塔 | — |
+| 19 | <a href="#q19">生化分析</a> | Lv0 | 破冰船 | **必须战局内找到** |
+| 20 | <a href="#q20">病历</a> | Lv0 | 储备站 | 需钥匙 |
+| 21 | <a href="#q21">短缺</a> | Lv0 | — | **必须战局内找到** |
+| 22 | <a href="#q22">秋季综合征</a> | Lv0 | — | **必须战局内找到** |
+| 23 | <a href="#q23">缉毒行动</a> | Lv0 | 灯塔 | — |
+| 24 | <a href="#q24">艰难抉择</a> | Lv0 | — | **必须战局内找到** |
+| 25 | <a href="#q25">药剂师</a> | Lv0 | 海关 | 需钥匙 |
+| 26 | <a href="#q26">货运追踪</a> | Lv0 | 海关 | 需钥匙 |
+| 27 | <a href="#q27">邮递员派特 - 2</a> | Lv0 | — | **Kappa** |
+| 28 | <a href="#q28">新手上路</a> | Lv1 | 中心区 | **必须战局内找到** |
+| 29 | <a href="#q29">人口普查</a> | Lv5 | 塔科夫街区 | — |
+| 30 | <a href="#q30">刨根问底</a> | Lv5 | 工厂 | — |
+| 31 | <a href="#q31">医疗隐私 - 2</a> | Lv5 | 海岸线 | 需钥匙 |
+| 32 | <a href="#q32">医疗隐私 - 3</a> | Lv5 | 森林 | — |
+| 33 | <a href="#q33">救助站点</a> | Lv5 | — | — |
+| 34 | <a href="#q34">卫生标准 - 2</a> | Lv8 | — | **必须战局内找到** |
+| 35 | <a href="#q35">出于好奇</a> | Lv9 | 海关 | — |
+| 36 | <a href="#q36">口干舌燥 - 往日回响</a> | Lv9 | 海岸线 | — |
+| 37 | <a href="#q37">口干舌燥 - 秘密配方</a> | Lv9 | — | **必须战局内找到** |
+| 38 | <a href="#q38">质量标准</a> | Lv12 | 实验室 | — |
+| 39 | <a href="#q39">危险之路</a> | Lv15 | 塔科夫街区 | — |
+| 40 | <a href="#q40">一天一个苹果 - 医生远离我</a> | Lv18 | — | — |
+| 41 | <a href="#q41">医疗隐私 - 4</a> | Lv18 | — | — |
+| 42 | <a href="#q42">医疗隐私 - 5</a> | Lv18 | 夜间工厂 | — |
+| 43 | <a href="#q43">同事</a> | Lv18 | 海岸线 | — |
+| 44 | <a href="#q44">善良之针</a> | Lv18 | — | **必须战局内找到** |
+| 45 | <a href="#q45">消失的线人</a> | Lv18 | 灯塔 | — |
+| 46 | <a href="#q46">这带子糟透了</a> | Lv26 | 迷宫 | — |
+| 47 | <a href="#q47">运动员</a> | Lv30 | — | — |
+| 48 | <a href="#q48">私人诊所</a> | Lv35 | — | **必须战局内找到** |
+| 49 | <a href="#q49">医疗隐私 - 6</a> | Lv37 | 工厂 | **必须战局内找到** · 需钥匙 |
+| 50 | <a href="#q50">灭虫服务</a> | Lv37 | 实验室 | — |
+| 51 | <a href="#q51">街区之下</a> | Lv37 | — | — |
+| 52 | <a href="#q52">急单</a> | Lv38 | — | **必须战局内找到** |
+
+> 📖 本页共 52 个任务，按等级分 **4 档**，档位分隔在索引表下方。要**按地图或商人横向找**，回[总览](index.md)。
+
+---
+
+## Lv0–9 ｜ 37 个任务
+
+<h3 id="q01">一般储备<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -42,7 +106,7 @@ tags:
   - 声望：**Therapist** +0.25
 - **接取即得**：解锁 **炖牛肉罐头（工作站 Lv1）**
 
-### 供给计划
+<h3 id="q02">供给计划<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -66,7 +130,7 @@ tags:
 - **失败条件**：
   - **任务状态** **暗中破坏** ｜ 状态：完成 —— 暗中破坏 - 成功
 
-### 健全替代
+<h3 id="q03">健全替代<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -85,7 +149,7 @@ tags:
 - **失败条件**：
   - **任务状态** **悬结已解** ｜ 状态：完成
 
-### 兽医也是医
+<h3 id="q04">兽医也是医<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -108,7 +172,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **Surv12野战手术包** ×2
   - 声望：**Therapist** +0.25
 
-### 兽医也是医 - 2
+<h3 id="q05">兽医也是医 - 2<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -128,7 +192,7 @@ tags:
 - **完成奖励**：经验 **9,000** ｜ **卢布** ×55,000 ｜ **一次性注射器** ×4 ｜ **一堆药** ×4 ｜ **吗啡注射器** ×2 ｜ **L1（去甲肾上腺素）注射器** ×2
   - 声望：**Therapist** +0.02
 
-### 医疗隐私 - 1
+<h3 id="q06">医疗隐私 - 1<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -144,7 +208,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000 ｜ **车载急救包** ×2
   - 解锁购买：**车载急救包（Therapist LL1）**／**OLOLO瓶装复合维生素（Therapist LL1）**
 
-### 卫生标准
+<h3 id="q07">卫生标准<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -163,7 +227,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Therapist** +0.25
 
-### 城市的解药
+<h3 id="q08">城市的解药<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -183,7 +247,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Therapist** +0.25
 
-### 塔科夫屠夫
+<h3 id="q09">塔科夫屠夫<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -199,7 +263,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **Surv12野战手术包** ×2
   - 声望：**Therapist** +0.25
 
-### 塔科夫式手腕
+<h3 id="q10">塔科夫式手腕<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -220,7 +284,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Therapist** +0.75
 
-### 带血的水
+<h3 id="q11">带血的水<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -237,7 +301,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Therapist** +0.1
 
-### 平易近人
+<h3 id="q12">平易近人<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -255,7 +319,7 @@ tags:
 - **完成奖励**：经验 **10,300** ｜ **卢布** ×10,300 ｜ **便携式除颤器** ×2
   - 声望：**Therapist** +0.02
 
-### 急诊室的故事
+<h3 id="q13">急诊室的故事<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -274,7 +338,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Therapist** +0.25
 
-### 战争从未改变
+<h3 id="q14">战争从未改变<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -287,7 +351,7 @@ tags:
 
 - **完成奖励**：经验 **27,000** ｜ **卢布** ×250,000 ｜ **曲马多注射器** ×5 ｜ **Surv12野战手术包** ×2
 
-### 无主货物
+<h3 id="q15">无主货物<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -312,7 +376,7 @@ tags:
   - 声望：**Therapist** +0.1
 - **接取即得**：**MS2000指示器** ×1
 
-### 水瓶座行动
+<h3 id="q16">水瓶座行动<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -331,7 +395,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Therapist** +0.1
 
-### 汽车修理
+<h3 id="q17">汽车修理<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -350,7 +414,7 @@ tags:
   - 声望：**Therapist** +0.75
 - **接取即得**：解锁 **汽车蓄电池 ×5（工作站 Lv1）**
 
-### 海边假期
+<h3 id="q18">海边假期<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -368,7 +432,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Therapist** +0.75
 
-### 生化分析
+<h3 id="q19">生化分析<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -385,7 +449,7 @@ tags:
 - **完成奖励**：经验 **32,000** ｜ **卢布** ×360,000
   - 解锁购买：**钱箱（Therapist LL1）**
 
-### 病历
+<h3 id="q20">病历<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -406,7 +470,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **检眼镜** ×1
   - 声望：**Therapist** +0.75
 
-### 短缺
+<h3 id="q21">短缺<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -423,7 +487,7 @@ tags:
   - 声望：**Therapist** +0.1
 - **接取即得**：解锁 **Salewa急救包（工作站 Lv1）**
 
-### 秋季综合征
+<h3 id="q22">秋季综合征<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -439,7 +503,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **一堆药** ×2 ｜ **卢布** ×80,000
   - 声望：**Therapist** +0.1
 
-### 缉毒行动
+<h3 id="q23">缉毒行动<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -458,7 +522,7 @@ tags:
   - 声望：**Therapist** +0.75
 - **接取即得**：**WIFI摄像头** ×1
 
-### 艰难抉择
+<h3 id="q24">艰难抉择<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -483,7 +547,7 @@ tags:
 - **失败条件**：
   - **击杀／射击** **击杀** ｜ 目标：Sanitar
 
-### 药剂师
+<h3 id="q25">药剂师<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -504,7 +568,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Therapist** +0.1
 
-### 货运追踪
+<h3 id="q26">货运追踪<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -523,7 +587,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000 ｜ **一堆药** ×2
   - 声望：**Therapist** +0.1
 
-### 邮递员派特 - 2
+<h3 id="q27">邮递员派特 - 2<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -540,7 +604,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 解锁购买：**Salewa急救包（Therapist LL1）**
 
-### 新手上路
+<h3 id="q28">新手上路<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv1** ｜ **无前置**
 
@@ -558,7 +622,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Therapist** +0.1
 
-### 人口普查
+<h3 id="q29">人口普查<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv5** ｜ **无前置**
 
@@ -576,7 +640,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Therapist** +0.25
 
-### 刨根问底
+<h3 id="q30">刨根问底<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv5** ｜ **无前置**
 
@@ -594,7 +658,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Therapist** +0.25
 
-### 医疗隐私 - 2
+<h3 id="q31">医疗隐私 - 2<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv5** ｜ 前置 **1** 个
 
@@ -615,7 +679,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **Propital 再生兴奋剂注射器** ×2
   - 解锁购买：**Propital 再生兴奋剂注射器（Therapist LL2）**
 
-### 医疗隐私 - 3
+<h3 id="q32">医疗隐私 - 3<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv5** ｜ 前置 **1** 个
 
@@ -634,7 +698,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **Grizzly急救包** ×2
   - 解锁购买：**Grizzly急救包（Therapist LL2）**
 
-### 救助站点
+<h3 id="q33">救助站点<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv5** ｜ **无前置**
 
@@ -656,7 +720,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Therapist** +0.25
 
-### 卫生标准 - 2
+<h3 id="q34">卫生标准 - 2<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv8** ｜ 前置 **1** 个
 
@@ -672,7 +736,7 @@ tags:
 - **完成奖励**：经验 **4,500** ｜ **卢布** ×30,000 ｜ **Propital 再生兴奋剂注射器** ×1
   - 声望：**Therapist** +0.03
 
-### 出于好奇
+<h3 id="q35">出于好奇<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv9** ｜ 前置 **1** 个
 
@@ -695,7 +759,7 @@ tags:
   - **任务状态** **化学品 - 4** ｜ 状态：完成
   - **任务状态** **大客户** ｜ 状态：完成
 
-### 口干舌燥 - 往日回响
+<h3 id="q36">口干舌燥 - 往日回响<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv9** ｜ 前置 **1** 个
 
@@ -713,7 +777,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **Aquamari带滤嘴水瓶** ×4 ｜ **M.U.L.E. 兴奋剂注射器** ×2
 
-### 口干舌燥 - 秘密配方
+<h3 id="q37">口干舌燥 - 秘密配方<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv9** ｜ 前置 **1** 个
 
@@ -729,7 +793,9 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **2A2-(b-TG) 兴奋剂注射器** ×12 ｜ **注射器收纳盒** ×1
 
-### 质量标准
+## Lv10–19 ｜ 8 个任务
+
+<h3 id="q38">质量标准<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv12** ｜ 前置 **1** 个
 
@@ -747,7 +813,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **Propital 再生兴奋剂注射器** ×5 ｜ **eTG-change 再生兴奋剂注射器** ×5
 - **接取即得**：**TerraGroup实验室访问钥匙卡** ×1
 
-### 危险之路
+<h3 id="q39">危险之路<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv15** ｜ 前置 **1** 个
 
@@ -764,7 +830,7 @@ tags:
 - **完成奖励**：经验 **7,800** ｜ **卢布** ×45,000 ｜ **铝固定夹板** ×2 ｜ **CALOK-B止血剂** ×2
   - 声望：**Therapist** +0.01
 
-### 一天一个苹果 - 医生远离我
+<h3 id="q40">一天一个苹果 - 医生远离我<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv18** ｜ 前置 **1** 个
 
@@ -779,7 +845,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 技能：**健康** +2 级
 
-### 医疗隐私 - 4
+<h3 id="q41">医疗隐私 - 4<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv18** ｜ 前置 **1** 个
 
@@ -795,7 +861,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **铝固定夹板** ×3
   - 解锁购买：**铝固定夹板（Therapist LL3）**
 
-### 医疗隐私 - 5
+<h3 id="q42">医疗隐私 - 5<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv18** ｜ 前置 **1** 个
 
@@ -813,7 +879,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **IFAK单兵急救包** ×3
   - 解锁购买：**IFAK单兵急救包（Therapist LL3）**
 
-### 同事
+<h3 id="q43">同事<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv18** ｜ **无前置**
 
@@ -833,7 +899,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Therapist** +0.75
 
-### 善良之针
+<h3 id="q44">善良之针<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv18** ｜ **无前置**
 
@@ -849,7 +915,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Therapist** +0.75
 
-### 消失的线人
+<h3 id="q45">消失的线人<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv18** ｜ **无前置**
 
@@ -867,7 +933,9 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Therapist** +0.75
 
-### 这带子糟透了
+## Lv20–29 ｜ 1 个任务
+
+<h3 id="q46">这带子糟透了<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv26** ｜ 前置 **1** 个
 
@@ -885,7 +953,9 @@ tags:
 
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **SJ12 TGLabs 战斗兴奋剂注射器** ×2 ｜ **米屈肼注射器** ×2 ｜ **3-(b-TG) 兴奋剂注射器** ×2 ｜ **“陶鲁斯”海报** ×1
 
-### 运动员
+## Lv30–39 ｜ 6 个任务
+
+<h3 id="q47">运动员<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv30** ｜ 前置 **1** 个
 
@@ -901,7 +971,7 @@ tags:
   - 声望：**Therapist** +0.04
   - 解锁购买：**肾上腺素注射器（Therapist LL4）**
 
-### 私人诊所
+<h3 id="q48">私人诊所<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv35** ｜ 前置 **1** 个
 
@@ -919,7 +989,7 @@ tags:
 - **完成奖励**：经验 **30,600** ｜ **卢布** ×130,000 ｜ **疗养院东楼 306 房间钥匙** ×1 ｜ **THICC 物品箱** ×1
   - 声望：**Therapist** +0.05
 
-### 医疗隐私 - 6
+<h3 id="q49">医疗隐私 - 6<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv37** ｜ 前置 **1** 个
 
@@ -940,7 +1010,7 @@ tags:
 - **完成奖励**：经验 **65,000** ｜ **卢布** ×400,000 ｜ **医疗物品箱** ×1 ｜ **吗啡注射器** ×3 ｜ **肾上腺素注射器** ×3
   - 解锁购买：**吗啡注射器（Therapist LL4）**／**肾上腺素注射器（Therapist LL4）**
 
-### 灭虫服务
+<h3 id="q50">灭虫服务<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv37** ｜ **无前置**
 
@@ -960,7 +1030,7 @@ tags:
   - 技能：**免疫** +4 级
   - 解锁制作：**M.U.L.E. 兴奋剂注射器（工作站 Lv2）**
 
-### 街区之下
+<h3 id="q51">街区之下<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv37** ｜ **无前置**
 
@@ -984,7 +1054,7 @@ tags:
   - 解锁制作：**eTG-change 再生兴奋剂注射器（工作站 Lv2）**
 - **接取即得**：**TerraGroup实验室访问钥匙卡** ×1
 
-### 急单
+<h3 id="q52">急单<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv38** ｜ **无前置**
 

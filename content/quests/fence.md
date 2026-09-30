@@ -18,14 +18,42 @@ tags:
 | **任务数** | 16 |
 | **等级跨度** | Lv0–Lv50 |
 | **排序** | 按**等级门槛升序**，同级按任务名 |
+| **分档** | 每 10 级一档（Lv0–9 …），与[总览](index.md)「按等级门槛」同口径 |
 | **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |
 | **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md) |
 
 ---
 
-## 📋 Fence 的 16 个任务
+## 🔎 任务索引 ｜ 16 项
 
-### 亡羊补牢 - Wergild
+点任务名跳到下方明细。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`。
+
+| # | 任务 | 门槛 | 地图 | 标记 |
+|---|------|------|------|------|
+| 1 | <a href="#q01">亡羊补牢 - Wergild</a> | Lv0 | — | — |
+| 2 | <a href="#q02">亡羊补牢 - 信任</a> | Lv0 | — | **必须战局内找到** |
+| 3 | <a href="#q03">亡羊补牢 - 收藏</a> | Lv0 | — | **必须战局内找到** |
+| 4 | <a href="#q04">亡羊补牢 - 赌注</a> | Lv0 | — | — |
+| 5 | <a href="#q05">亡羊补牢 - 酒保</a> | Lv0 | — | **必须战局内找到** |
+| 6 | <a href="#q06">免疫力</a> | Lv0 | — | — |
+| 7 | <a href="#q07">小本生意 - 1</a> | Lv0 | — | **必须战局内找到** |
+| 8 | <a href="#q08">小本生意 - 2</a> | Lv0 | — | 可重接 |
+| 9 | <a href="#q09">小本生意 - 3</a> | Lv0 | — | — |
+| 10 | <a href="#q10">建立联系</a> | Lv0 | — | — |
+| 11 | <a href="#q11">陌路相交</a> | Lv0 | — | 可重接 |
+| 12 | <a href="#q12">两害相权（PVP）</a> | Lv10 | 海关 | — |
+| 13 | <a href="#q13">良心作祟 - 1（PVP）</a> | Lv10 | 海关 | 需钥匙 |
+| 14 | <a href="#q14">这是什么梗？</a> | Lv25 | — | 需钥匙 |
+| 15 | <a href="#q15">收藏家</a> | Lv42 | — | **必须战局内找到** · **Kappa** · 前置 ×5 |
+| 16 | <a href="#q16">抉择</a> | Lv50 | — | — |
+
+> 📖 本页共 16 个任务，按等级分 **5 档**，档位分隔在索引表下方。要**按地图或商人横向找**，回[总览](index.md)。
+
+---
+
+## Lv0–9 ｜ 11 个任务
+
+<h3 id="q01">亡羊补牢 - Wergild<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -40,7 +68,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Fence** +1
 
-### 亡羊补牢 - 信任
+<h3 id="q02">亡羊补牢 - 信任<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -56,7 +84,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Fence** +1
 
-### 亡羊补牢 - 收藏
+<h3 id="q03">亡羊补牢 - 收藏<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -71,7 +99,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Fence** +1
 
-### 亡羊补牢 - 赌注
+<h3 id="q04">亡羊补牢 - 赌注<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -86,7 +114,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Fence** +1
 
-### 亡羊补牢 - 酒保
+<h3 id="q05">亡羊补牢 - 酒保<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -102,7 +130,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Fence** +1
 
-### 免疫力
+<h3 id="q06">免疫力<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -117,7 +145,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **欧元** ×1,150 ｜ **xTG-12 解毒剂注射器** ×5
   - 声望：**Fence** +0.02
 
-### 小本生意 - 1
+<h3 id="q07">小本生意 - 1<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -149,7 +177,7 @@ tags:
 - **完成奖励**：经验 **22,800** ｜ **欧元** ×1,800 ｜ **Virtex可编程处理器** ×3
   - 声望：**Fence** +0.02
 
-### 小本生意 - 2
+<h3 id="q08">小本生意 - 2<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -171,7 +199,7 @@ tags:
 - **失败条件**：
   - **击杀／射击** **击杀** ｜ 目标：Kaban／Reshala／Glukhar／Killa／Knight／Shturman／Kollontay／Sanitar／Tagilla／Zryachiy／Big Pipe／Birdeye／Partisan
 
-### 小本生意 - 3
+<h3 id="q09">小本生意 - 3<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -189,7 +217,7 @@ tags:
 - **完成奖励**：经验 **30,000** ｜ **欧元** ×2,000 ｜ **无名者之声** ×1
   - 声望：**Fence** +0.03
 
-### 建立联系
+<h3 id="q10">建立联系<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -204,7 +232,7 @@ tags:
 - **完成奖励**：经验 **8,800** ｜ **欧元** ×600
   - 声望：**Fence** +0.02
 
-### 陌路相交
+<h3 id="q11">陌路相交<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -226,7 +254,9 @@ tags:
 - **失败条件**：
   - **击杀／射击** **击杀** ｜ 目标：Scav／Kaban／Kaban Guard (Sniper)／Reshala／黑色军团／Glukhar／Killa／Vengeful Killa／Shturman／Kollontay／Partisan／Sanitar／bossStormtrooper／Tagilla／Shadow of Tagilla／Zryachiy／Kaban Guard／Basmach／Gus／Reshala Guard／Glukhar Guard (Assault)／Glukhar Guard (Scout)／Glukhar Guard (Security)／Glukhar 保镖 (Snipe)／Shturman Guard／保镖 (Assault)／保镖 (Security)／Sanitar Guard／狙击手
 
-### 两害相权（PVP）
+## Lv10–19 ｜ 2 个任务
+
+<h3 id="q12">两害相权（PVP）<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv10** ｜ 前置 **1** 个
 
@@ -252,7 +282,7 @@ tags:
   - **任务状态** **两难抉择（PVP）** ｜ 状态：完成 —— 该任务线与“两难抉择”冲突
   - **任务状态** **天降大礼 [PVP ZONE]** ｜ 状态：完成 —— 该任务线与“天降大礼”冲突
 
-### 良心作祟 - 1（PVP）
+<h3 id="q13">良心作祟 - 1（PVP）<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv10** ｜ 前置 **2** 个
 
@@ -272,7 +302,9 @@ tags:
 
 - **完成奖励**：经验 **11,700** ｜ **卢布** ×50,000 ｜ **CQC 鱼鹰 MK4A 防弹胸挂（突击型，多地形迷彩） 默认** ×1 ｜ **HK 416A5 5.56x45 突击步枪 默认** ×1 ｜ **HK 钢制防水腐蚀 5.56x45 STANAG 30发弹匣** ×3 ｜ **5.56x45mm MK 318 Mod 0 (SOST) 弹药包（50发装）** ×3 ｜ **竞技场臂带** ×2
 
-### 这是什么梗？
+## Lv20–29 ｜ 1 个任务
+
+<h3 id="q14">这是什么梗？<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv25** ｜ **无前置**
 
@@ -313,7 +345,9 @@ tags:
 
 - **完成奖励**：经验 **30,000** ｜ **卢布** ×200,000 ｜ **主播物品箱** ×1
 
-### 收藏家
+## Lv40–49 ｜ 1 个任务
+
+<h3 id="q15">收藏家<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv42** ｜ 前置 **5** 个
 
@@ -373,7 +407,9 @@ tags:
 
 - **完成奖励**：**Kappa 安全箱** ×1 ｜ **「DEADSKUL」 臂带** ×1
 
-### 抉择
+## Lv50–59 ｜ 1 个任务
+
+<h3 id="q16">抉择<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv50** ｜ 前置 **1** 个
 

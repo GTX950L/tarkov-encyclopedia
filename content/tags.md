@@ -4,7 +4,7 @@ tags:
 ---
 # 标签分类
 
-所有条目的 frontmatter 标签汇总。点击标签可在站内搜索（右上角放大镜）复现同标签条目。
+所有条目的 frontmatter 标签汇总。**本站没有标签筛选页**——想按某个标签找同类条目，把标签名复制到右上角搜索即可；下表「覆盖条目」一列已做成**可点击的条目链接**，直接点过去更快。
 
 > 词表已整理：原先 22 个只覆盖单篇的标签（CQB、狙击、城市、室内之类）已并入下方分类标签，**新增条目请只从本页既有标签中挑选**。
 
@@ -12,61 +12,57 @@ tags:
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| 机制 | 29 | ai-behavior · audio · contact-drill · death-review · engagement-rules · extraction · extraction-points · food-and-water · health · iff · insurance · inventory · levels · looting · mail · mechanics · movement · pmc-scav · prestige · pve · raid-flow · scav-command · scav-relations · skills · spawn-and-opening · squads · stamina · transit · weather |
-| 装备 | 24 | ammo · ammo-table · armor · armor-catalog · armor-repair · audio · ballistics · clothing · containers · food-catalog · grenades · gunsmith · headsets · inventory · keys · lighting · loadout-carriers · medical · medical-catalog · night-vision · special-equipment · weapon-maintenance · weapon-mastery · weapons |
-| 经济 | 17 | armor-repair · barter · containers · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · insurance · karma · keys · loot · looting · mail · quests · trader-questlines · traders |
-| 地图 | 17 | customs · easter-eggs · factory · ground-zero · icebreaker · interchange · labs · labyrinth · lighthouse · loot · map-guide · reserve · shoreline · streets · terminal · transit · woods |
-| 成长 | 16 | achievements · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · karma · levels · prestige · progression · quests · skills · story-chapters · trader-questlines · traders · weapon-mastery |
-| 战斗 | 22 | ai-behavior · audio · bosses · combat-medical · contact-drill · death-review · engagement-rules · factory · firefight · grenade-response · grenades · headsets · iff · lighting · movement · night-vision · raid-flow · scav-command · scav-relations · squads · stamina · woods |
-| 任务 | 17 | customs · easter-eggs · ground-zero · quests · story-chapters · trader-questlines · btr-driver · fence · jaeger · lightkeeper · mechanic · peacekeeper · prapor · ragman · ref · skier · therapist |
-| 赛季 | 3 | leagues · season-modifiers · seasons |
-| 商人 | 14 | barter · trader-questlines · traders · btr-driver · fence · jaeger · lightkeeper · mechanic · peacekeeper · prapor · ragman · ref · skier · therapist |
-| 竞技 | 2 | arena · leagues |
-
+| 机制 | 29 | [ai-behavior](entries/ai-behavior.md) · [audio](entries/audio.md) · [contact-drill](entries/contact-drill.md) · [death-review](entries/death-review.md) · [engagement-rules](entries/engagement-rules.md) · [extraction](entries/extraction.md) · [extraction-points](entries/extraction-points.md) · [food-and-water](entries/food-and-water.md) · [health](entries/health.md) · [iff](entries/iff.md) · [insurance](entries/insurance.md) · [inventory](entries/inventory.md) · [levels](entries/levels.md) · [looting](entries/looting.md) · [mail](entries/mail.md) · [mechanics](docs/mechanics.md) · [movement](entries/movement.md) · [pmc-scav](entries/pmc-scav.md) · [prestige](entries/prestige.md) · [pve](entries/pve.md) · [raid-flow](entries/raid-flow.md) · [scav-command](entries/scav-command.md) · [scav-relations](entries/scav-relations.md) · [skills](entries/skills.md) · [spawn-and-opening](entries/spawn-and-opening.md) · [squads](entries/squads.md) · [stamina](entries/stamina.md) · [transit](entries/transit.md) · [weather](entries/weather.md) |
+| 装备 | 24 | [ammo](entries/ammo.md) · [ammo-table](entries/ammo-table.md) · [armor](entries/armor.md) · [armor-catalog](entries/armor-catalog.md) · [armor-repair](entries/armor-repair.md) · [audio](entries/audio.md) · [ballistics](entries/ballistics.md) · [clothing](entries/clothing.md) · [containers](entries/containers.md) · [food-catalog](entries/food-catalog.md) · [grenades](entries/grenades.md) · [gunsmith](entries/gunsmith.md) · [headsets](entries/headsets.md) · [inventory](entries/inventory.md) · [keys](entries/keys.md) · [lighting](entries/lighting.md) · [loadout-carriers](entries/loadout-carriers.md) · [medical](entries/medical.md) · [medical-catalog](entries/medical-catalog.md) · [night-vision](entries/night-vision.md) · [special-equipment](entries/special-equipment.md) · [weapon-maintenance](entries/weapon-maintenance.md) · [weapon-mastery](entries/weapon-mastery.md) · [weapons](entries/weapons.md) |
+| 经济 | 17 | [armor-repair](entries/armor-repair.md) · [barter](entries/barter.md) · [containers](entries/containers.md) · [economic-cycle](entries/economic-cycle.md) · [flea-market](entries/flea-market.md) · [flea-pricing](entries/flea-pricing.md) · [hideout](entries/hideout.md) · [hideout-modules](entries/hideout-modules.md) · [insurance](entries/insurance.md) · [karma](entries/karma.md) · [keys](entries/keys.md) · [loot](entries/loot.md) · [looting](entries/looting.md) · [mail](entries/mail.md) · [quests](entries/quests.md) · [trader-questlines](entries/trader-questlines.md) · [traders](entries/traders.md) |
+| 地图 | 17 | [customs](entries/customs.md) · [easter-eggs](entries/easter-eggs.md) · [factory](entries/factory.md) · [ground-zero](entries/ground-zero.md) · [icebreaker](entries/icebreaker.md) · [interchange](entries/interchange.md) · [labs](entries/labs.md) · [labyrinth](entries/labyrinth.md) · [lighthouse](entries/lighthouse.md) · [loot](entries/loot.md) · [map-guide](docs/map-guide.md) · [reserve](entries/reserve.md) · [shoreline](entries/shoreline.md) · [streets](entries/streets.md) · [terminal](entries/terminal.md) · [transit](entries/transit.md) · [woods](entries/woods.md) |
+| 成长 | 16 | [achievements](entries/achievements.md) · [economic-cycle](entries/economic-cycle.md) · [flea-market](entries/flea-market.md) · [flea-pricing](entries/flea-pricing.md) · [hideout](entries/hideout.md) · [hideout-modules](entries/hideout-modules.md) · [karma](entries/karma.md) · [levels](entries/levels.md) · [prestige](entries/prestige.md) · [progression](docs/progression.md) · [quests](entries/quests.md) · [skills](entries/skills.md) · [story-chapters](entries/story-chapters.md) · [trader-questlines](entries/trader-questlines.md) · [traders](entries/traders.md) · [weapon-mastery](entries/weapon-mastery.md) |
+| 战斗 | 22 | [ai-behavior](entries/ai-behavior.md) · [audio](entries/audio.md) · [bosses](entries/bosses.md) · [combat-medical](entries/combat-medical.md) · [contact-drill](entries/contact-drill.md) · [death-review](entries/death-review.md) · [engagement-rules](entries/engagement-rules.md) · [factory](entries/factory.md) · [firefight](entries/firefight.md) · [grenade-response](entries/grenade-response.md) · [grenades](entries/grenades.md) · [headsets](entries/headsets.md) · [iff](entries/iff.md) · [lighting](entries/lighting.md) · [movement](entries/movement.md) · [night-vision](entries/night-vision.md) · [raid-flow](entries/raid-flow.md) · [scav-command](entries/scav-command.md) · [scav-relations](entries/scav-relations.md) · [squads](entries/squads.md) · [stamina](entries/stamina.md) · [woods](entries/woods.md) |
+| 任务 | 17 | [customs](entries/customs.md) · [easter-eggs](entries/easter-eggs.md) · [ground-zero](entries/ground-zero.md) · [quests](entries/quests.md) · [story-chapters](entries/story-chapters.md) · [trader-questlines](entries/trader-questlines.md) · [btr-driver](quests/btr-driver.md) · [fence](quests/fence.md) · [jaeger](quests/jaeger.md) · [lightkeeper](quests/lightkeeper.md) · [mechanic](quests/mechanic.md) · [peacekeeper](quests/peacekeeper.md) · [prapor](quests/prapor.md) · [ragman](quests/ragman.md) · [ref](quests/ref.md) · [skier](quests/skier.md) · [therapist](quests/therapist.md) |
+| 赛季 | 3 | [leagues](entries/leagues.md) · [season-modifiers](entries/season-modifiers.md) · [seasons](entries/seasons.md) |
+| 商人 | 14 | [barter](entries/barter.md) · [trader-questlines](entries/trader-questlines.md) · [traders](entries/traders.md) · [btr-driver](quests/btr-driver.md) · [fence](quests/fence.md) · [jaeger](quests/jaeger.md) · [lightkeeper](quests/lightkeeper.md) · [mechanic](quests/mechanic.md) · [peacekeeper](quests/peacekeeper.md) · [prapor](quests/prapor.md) · [ragman](quests/ragman.md) · [ref](quests/ref.md) · [skier](quests/skier.md) · [therapist](quests/therapist.md) |
+| 竞技 | 2 | [arena](entries/arena.md) · [leagues](entries/leagues.md) |
 ## 场景与环境
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| 地形 | 6 | factory · interchange · labs · shoreline · streets · woods |
-| 环境 | 4 | audio · lighting · night-vision · weather |
-| 军事 | 3 | lighthouse · reserve · worldview |
-
+| 地形 | 6 | [factory](entries/factory.md) · [interchange](entries/interchange.md) · [labs](entries/labs.md) · [shoreline](entries/shoreline.md) · [streets](entries/streets.md) · [woods](entries/woods.md) |
+| 环境 | 4 | [audio](entries/audio.md) · [lighting](entries/lighting.md) · [night-vision](entries/night-vision.md) · [weather](entries/weather.md) |
+| 军事 | 3 | [lighthouse](entries/lighthouse.md) · [reserve](entries/reserve.md) · [worldview](entries/worldview.md) |
 ## 玩家阶段
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| 中期 | 35 | ai-behavior · arena · armor-repair · barter · clothing · combat-medical · contact-drill · death-review · easter-eggs · economic-cycle · extraction-points · firefight · flea-pricing · grenade-response · grenades · headsets · interchange · karma · keys · levels · lighting · loadout-carriers · loot · looting · raid-flow · scav-command · scav-relations · shoreline · skills · special-equipment · stamina · weapon-maintenance · weapon-mastery · weapons · weather |
-| 后期 | 11 | achievements · icebreaker · labs · labyrinth · night-vision · prestige · season-modifiers · seasons · story-chapters · streets · terminal |
-| 入门 | 15 | containers · customs · extraction · food-and-water · food-catalog · ground-zero · health · insurance · inventory · mail · movement · pmc-scav · pve · spawn-and-opening · worldview |
-| 中后期 | 3 | bosses · lighthouse · reserve |
-| 终局 | 2 | icebreaker · labyrinth |
-
+| 中期 | 35 | [ai-behavior](entries/ai-behavior.md) · [arena](entries/arena.md) · [armor-repair](entries/armor-repair.md) · [barter](entries/barter.md) · [clothing](entries/clothing.md) · [combat-medical](entries/combat-medical.md) · [contact-drill](entries/contact-drill.md) · [death-review](entries/death-review.md) · [easter-eggs](entries/easter-eggs.md) · [economic-cycle](entries/economic-cycle.md) · [extraction-points](entries/extraction-points.md) · [firefight](entries/firefight.md) · [flea-pricing](entries/flea-pricing.md) · [grenade-response](entries/grenade-response.md) · [grenades](entries/grenades.md) · [headsets](entries/headsets.md) · [interchange](entries/interchange.md) · [karma](entries/karma.md) · [keys](entries/keys.md) · [levels](entries/levels.md) · [lighting](entries/lighting.md) · [loadout-carriers](entries/loadout-carriers.md) · [loot](entries/loot.md) · [looting](entries/looting.md) · [raid-flow](entries/raid-flow.md) · [scav-command](entries/scav-command.md) · [scav-relations](entries/scav-relations.md) · [shoreline](entries/shoreline.md) · [skills](entries/skills.md) · [special-equipment](entries/special-equipment.md) · [stamina](entries/stamina.md) · [weapon-maintenance](entries/weapon-maintenance.md) · [weapon-mastery](entries/weapon-mastery.md) · [weapons](entries/weapons.md) · [weather](entries/weather.md) |
+| 后期 | 11 | [achievements](entries/achievements.md) · [icebreaker](entries/icebreaker.md) · [labs](entries/labs.md) · [labyrinth](entries/labyrinth.md) · [night-vision](entries/night-vision.md) · [prestige](entries/prestige.md) · [season-modifiers](entries/season-modifiers.md) · [seasons](entries/seasons.md) · [story-chapters](entries/story-chapters.md) · [streets](entries/streets.md) · [terminal](entries/terminal.md) |
+| 入门 | 15 | [containers](entries/containers.md) · [customs](entries/customs.md) · [extraction](entries/extraction.md) · [food-and-water](entries/food-and-water.md) · [food-catalog](entries/food-catalog.md) · [ground-zero](entries/ground-zero.md) · [health](entries/health.md) · [insurance](entries/insurance.md) · [inventory](entries/inventory.md) · [mail](entries/mail.md) · [movement](entries/movement.md) · [pmc-scav](entries/pmc-scav.md) · [pve](entries/pve.md) · [spawn-and-opening](entries/spawn-and-opening.md) · [worldview](entries/worldview.md) |
+| 中后期 | 3 | [bosses](entries/bosses.md) · [lighthouse](entries/lighthouse.md) · [reserve](entries/reserve.md) |
+| 终局 | 2 | [icebreaker](entries/icebreaker.md) · [labyrinth](entries/labyrinth.md) |
 ## 装备与数值
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| 生存 | 9 | armor · armor-catalog · combat-medical · food-and-water · food-catalog · health · loadout-carriers · medical · medical-catalog |
-| 核心数值 | 3 | ammo · ammo-table · ballistics |
-| 护甲 | 3 | armor · armor-catalog · armor-repair |
-| 弹药 | 2 | ammo · ammo-table |
-
+| 生存 | 9 | [armor](entries/armor.md) · [armor-catalog](entries/armor-catalog.md) · [combat-medical](entries/combat-medical.md) · [food-and-water](entries/food-and-water.md) · [food-catalog](entries/food-catalog.md) · [health](entries/health.md) · [loadout-carriers](entries/loadout-carriers.md) · [medical](entries/medical.md) · [medical-catalog](entries/medical-catalog.md) |
+| 核心数值 | 3 | [ammo](entries/ammo.md) · [ammo-table](entries/ammo-table.md) · [ballistics](entries/ballistics.md) |
+| 护甲 | 3 | [armor](entries/armor.md) · [armor-catalog](entries/armor-catalog.md) · [armor-repair](entries/armor-repair.md) |
+| 弹药 | 2 | [ammo](entries/ammo.md) · [ammo-table](entries/ammo-table.md) |
 ## 行为机制
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| AI | 6 | ai-behavior · bosses · engagement-rules · pmc-scav · scav-command · scav-relations |
-| 撤离 | 2 | extraction · extraction-points |
-| 协作 | 2 | iff · squads |
-| 离线收益 | 2 | hideout · hideout-modules |
-
+| AI | 6 | [ai-behavior](entries/ai-behavior.md) · [bosses](entries/bosses.md) · [engagement-rules](entries/engagement-rules.md) · [pmc-scav](entries/pmc-scav.md) · [scav-command](entries/scav-command.md) · [scav-relations](entries/scav-relations.md) |
+| 撤离 | 2 | [extraction](entries/extraction.md) · [extraction-points](entries/extraction-points.md) |
+| 协作 | 2 | [iff](entries/iff.md) · [squads](entries/squads.md) |
+| 离线收益 | 2 | [hideout](entries/hideout.md) · [hideout-modules](entries/hideout-modules.md) |
 ## 参考区与索引
 
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
-| 版本 | 7 | achievements · leagues · pve · season-modifiers · seasons · value-changes · version-history |
-| 索引 | 7 | glossary · index · roadmap · tags · template · value-changes · version-history |
-| 速查 | 7 | buying-guide · game-settings · glossary · map-guide · mechanics · performance · progression |
-
+| 版本 | 7 | [achievements](entries/achievements.md) · [leagues](entries/leagues.md) · [pve](entries/pve.md) · [season-modifiers](entries/season-modifiers.md) · [seasons](entries/seasons.md) · [value-changes](docs/value-changes.md) · [version-history](docs/version-history.md) |
+| 索引 | 7 | [glossary](docs/glossary.md) · [index](entries/index.md) · [roadmap](docs/roadmap.md) · [tags](tags.md) · [template](template.md) · [value-changes](docs/value-changes.md) · [version-history](docs/version-history.md) |
+| 速查 | 7 | [buying-guide](docs/buying-guide.md) · [game-settings](docs/game-settings.md) · [glossary](docs/glossary.md) · [map-guide](docs/map-guide.md) · [mechanics](docs/mechanics.md) · [performance](docs/performance.md) · [progression](docs/progression.md) |
 > 标签体系供站内检索与分类导航使用。**标签只写在 frontmatter 里**——新增条目时请沿用本页既有标签，不要新造同义标签（例如用「装备」而不是「器械」），否则检索会把同类条目切散。
 >
 > 本页篇数与覆盖条目由 `content/` 下全部 markdown 的 frontmatter 直接统计得出，可用 `scripts/tag_stats.py` 复现；改动条目标签后请同步本页。
+>
+> 「覆盖条目」列已写成 markdown 链接形式（显示文字仍是 slug）。`scripts/check_entries.py` 解析时会剥掉链接只比对 slug，所以**加链接不会影响一致性校验**——但 slug 本身写错仍会被抓出来。

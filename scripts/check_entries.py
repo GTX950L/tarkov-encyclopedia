@@ -8,7 +8,7 @@
 4. 条目计数一致性：全站「查看全部 N 个条目」、总览页、两处 README、路径图篇数之和；
 4b. 篇数口径：声明的「分N篇」必须与 nav 的「第X篇」分组数一致；
 5. tags.md 的篇数与覆盖条目是否与 frontmatter 实际统计一致（防手工维护漂移）；
-6. 中文正文中是否残留直引号（英文/代码行不计）；
+6. 中文正文中是否残留直引号（行内代码与 HTML 属性里的语法引号不计）；
 7. 总览页「按标签浏览」：slug 真实存在、条数一致、分隔符统一；
 8. 主条目必须链接到它的细分条目（「主 → 细分」是深入，「细分 → 主」只是回望）。
 
@@ -51,6 +51,10 @@ GROUP_DECL_RE = re.compile(r"分(?:为)?([一二三四五六七八九十])篇")
 CN_NUM = {c: i for i, c in enumerate("一二三四五六七八九十", 1)}
 # tags.md 的表格行：| 标签 | 篇数 | 覆盖条目 |
 TAGS_ROW_RE = re.compile(r"^\|\s*([^|]+?)\s*\|\s*(\d+)\s*\|\s*([^|]*?)\s*\|\s*$", re.M)
+# 「覆盖条目」列允许写成 markdown 链接（`[slug](path)`）——解析时只取显示文字。
+# 这一列在页面上是**可点击的**（读者拿到 slug 才知道是哪一篇），所以链接是常态而非例外；
+# 不剥掉的话，「把 slug 变成链接」这个纯可读性改进会被判成 tags.md 漂移。
+MD_LINK_RE = re.compile(r"\[([^\]]+)\]\([^)]*\)")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 覆盖率类检查的清单
@@ -303,7 +307,8 @@ def main() -> int:
             tag = tag.strip()
             if set(tag) <= set("-: "):
                 continue
-            entry_list = {x.strip() for x in items.split("·") if x.strip()}
+            entry_list = {MD_LINK_RE.sub(lambda m: m.group(1), x).strip()
+                          for x in items.split("·") if x.strip()}
             declared[tag] = (int(num), entry_list)
         for tag, (num, items) in declared.items():
             actual = tagmap.get(tag, set())
@@ -325,7 +330,14 @@ def main() -> int:
             if tag not in declared:
                 warnings.append(f"标签未登记在 tags.md: {tag}")
 
-    # 6. 中文正文直引号残留（行内代码里的引号是合法写法，先剥掉再判断）
+    # 6. 中文正文直引号残留
+    #    判据是「**正文**里不许有直引号」，所以两类**语法引号**必须先剥掉：
+    #    ① 行内代码 `` `"x"` `` —— 那是引号本身的写法，不是正文的标点；
+    #    ② 原生 HTML 标签的属性引号 —— `<a href="#q01">` 里的引号属于标记语法。
+    #    第 ② 类原先靠「行首是 `<` 就整行跳过」躲过去，但任务图鉴的索引表把
+    #    `<a>` 写在**表格单元格里**（行首是 `|`），于是 515 行索引全被误报。
+    #    按标签剥离（只去掉标签、保留标签内外的文字）既消掉误报，又不放过
+    #    「段落里真的打了直引号」那种真问题 —— 例如 `<b>"引号"</b>` 仍会被抓到。
     for md in md_files:
         in_code = False
         for lineno, line in enumerate(md.read_text(encoding="utf-8").splitlines(), 1):
@@ -337,6 +349,7 @@ def main() -> int:
             if re.match(r"\s*<[a-zA-Z/]", line):
                 continue
             prose = re.sub(r"`[^`]*`", "", line)
+            prose = re.sub(r"<[^>]*>", "", prose)
             if '"' in prose and CN_CHAR.search(prose):
                 errors.append(f"中文行残留直引号: {md.relative_to(ROOT)}:{lineno}")
 

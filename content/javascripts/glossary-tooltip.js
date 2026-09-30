@@ -13,6 +13,15 @@
      2. 全页**总量上限**（MAX_PER_PAGE）；
      3. 跳过标题、代码块、链接文字，以及术语速查页自身。
 
+   ⚠️ **第 3 条里的「跳过链接文字」不是覆盖率低的原因**（第四十七批实测否证）：
+   曾按"术语大多以条目链接形式出现"放行正文链接内的标注（表格 / 面包屑 /
+   整行就是一个链接的清单仍排除），结果 10 页抽样只多出 **1 个**标注
+   （均值 4.2 → 4.3），任务图鉴页 **0 个**——改动撤回。
+   真正的约束是「**每术语每页只标第一次**」加上每页出现的**不同**术语数：
+   实测均值 4.2 / 上限 15，**上限根本不是瓶颈**。
+   想再提高覆盖率，要动的是第 1 条（每术语标几次），那会改掉"克制"这个前提，
+   属需要拍板的取舍，见 roadmap。
+
    交互：桌面悬停显示；移动端没有 hover，所以额外支持**点击切换**（并可 Esc 关闭）。
 
    定位：气泡默认居中（CSS 里的 left:50%），这里负责在「居中装不下」时把它
@@ -170,6 +179,8 @@
           return NodeFilter.FILTER_REJECT;
         }
         if (p.closest("." + CLS)) return NodeFilter.FILTER_REJECT;
+        // 面包屑（breadcrumb.js 注入）是导航，不是正文 —— 标注它只会变成噪音
+        if (p.closest(".tk-crumb")) return NodeFilter.FILTER_REJECT;
         if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }

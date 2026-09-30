@@ -18,14 +18,92 @@ tags:
 | **任务数** | 66 |
 | **等级跨度** | Lv0–Lv50 |
 | **排序** | 按**等级门槛升序**，同级按任务名 |
+| **分档** | 每 10 级一档（Lv0–9 …），与[总览](index.md)「按等级门槛」同口径 |
 | **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |
 | **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md) |
 
 ---
 
-## 📋 Skier 的 66 个任务
+## 🔎 任务索引 ｜ 66 项
 
-### Polikhim流浪汉
+点任务名跳到下方明细。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`。
+
+| # | 任务 | 门槛 | 地图 | 标记 |
+|---|------|------|------|------|
+| 1 | <a href="#q01">Polikhim流浪汉</a> | Lv0 | — | — |
+| 2 | <a href="#q02">U盘里有什么？</a> | Lv0 | — | **必须战局内找到** |
+| 3 | <a href="#q03">人往高处走</a> | Lv0 | 森林 | — |
+| 4 | <a href="#q04">供应商</a> | Lv0 | — | — |
+| 5 | <a href="#q05">供货</a> | Lv0 | — | **必须战局内找到** |
+| 6 | <a href="#q06">借刀杀人</a> | Lv0 | 海关 | — |
+| 7 | <a href="#q07">偏离路线</a> | Lv0 | 塔科夫街区 | — |
+| 8 | <a href="#q08">关键伙伴</a> | Lv0 | — | — |
+| 9 | <a href="#q09">化学品 - 1</a> | Lv0 | 海关 | 需钥匙 · **Kappa** |
+| 10 | <a href="#q10">化学品 - 2</a> | Lv0 | 海关 | 需钥匙 · **Kappa** |
+| 11 | <a href="#q11">北国新秀</a> | Lv0 | — | — |
+| 12 | <a href="#q12">发财计划</a> | Lv0 | 塔科夫街区 | — |
+| 13 | <a href="#q13">后知后觉</a> | Lv0 | 森林 | — |
+| 14 | <a href="#q14">夜间扫荡</a> | Lv0 | — | — |
+| 15 | <a href="#q15">头号机密</a> | Lv0 | 灯塔 | 需钥匙 |
+| 16 | <a href="#q16">安全通道</a> | Lv0 | 储备站 | **必须战局内找到** |
+| 17 | <a href="#q17">安慰奖</a> | Lv0 | 实验室 | — |
+| 18 | <a href="#q18">情报就是力量</a> | Lv0 | — | — |
+| 19 | <a href="#q19">敲诈者</a> | Lv0 | 海关 | 需钥匙 |
+| 20 | <a href="#q20">暗中破坏</a> | Lv0 | — | — |
+| 21 | <a href="#q21">禁止打劫</a> | Lv0 | 海岸线 | — |
+| 22 | <a href="#q22">私人俱乐部</a> | Lv0 | 海关 | — |
+| 23 | <a href="#q23">秘制食谱</a> | Lv0 | 塔科夫街区 | 需钥匙 |
+| 24 | <a href="#q24">维他命</a> | Lv0 | — | **必须战局内找到** · 需钥匙 |
+| 25 | <a href="#q25">老赖</a> | Lv0 | 塔科夫街区 | — |
+| 26 | <a href="#q26">肮脏游戏</a> | Lv0 | 海岸线 | — |
+| 27 | <a href="#q27">致命论据</a> | Lv0 | 森林 | — |
+| 28 | <a href="#q28">西方来客</a> | Lv0 | — | — |
+| 29 | <a href="#q29">识时务者为俊杰</a> | Lv0 | — | — |
+| 30 | <a href="#q30">转口贸易</a> | Lv0 | 灯塔 | — |
+| 31 | <a href="#q31">软禁</a> | Lv0 | 塔科夫街区 | 需钥匙 |
+| 32 | <a href="#q32">金色失物</a> | Lv0 | 海关 | 需钥匙 |
+| 33 | <a href="#q33">长路漫漫</a> | Lv0 | — | — |
+| 34 | <a href="#q34">隔墙有“眼”</a> | Lv0 | 工厂 | — |
+| 35 | <a href="#q35">风波</a> | Lv0 | 工厂 | — |
+| 36 | <a href="#q36">快车初体验</a> | Lv1 | 中心区 | — |
+| 37 | <a href="#q37">出口在此</a> | Lv7 | 工厂 | — |
+| 38 | <a href="#q38">好吃到上瘾</a> | Lv7 | 塔科夫街区 | 需钥匙 |
+| 39 | <a href="#q39">愿者上钩</a> | Lv7 | — | — |
+| 40 | <a href="#q40">化学品 - 3</a> | Lv9 | 工厂 | **Kappa** |
+| 41 | <a href="#q41">化学品 - 4</a> | Lv9 | 海关 | — |
+| 42 | <a href="#q42">口干舌燥 - 养家糊口</a> | Lv9 | — | **必须战局内找到** |
+| 43 | <a href="#q43">口干舌燥 - 送货服务</a> | Lv9 | — | — |
+| 44 | <a href="#q44">收买人心</a> | Lv9 | — | — |
+| 45 | <a href="#q45">西方来客 - 2</a> | Lv9 | — | — |
+| 46 | <a href="#q46">赚点快钱 - 1（PVP）</a> | Lv10 | 海关 | — |
+| 47 | <a href="#q47">一报还一报</a> | Lv12 | — | — |
+| 48 | <a href="#q48">严词指控</a> | Lv12 | 海岸线 | — |
+| 49 | <a href="#q49">高光时刻</a> | Lv12 | 立交桥 | — |
+| 50 | <a href="#q50">失踪货物</a> | Lv22 | 灯塔 | — |
+| 51 | <a href="#q51">绝密技术</a> | Lv22 | 储备站 | — |
+| 52 | <a href="#q52">诱人新货</a> | Lv22 | 立交桥 | 需钥匙 |
+| 53 | <a href="#q53">绝对威信</a> | Lv26 | 迷宫 | — |
+| 54 | <a href="#q54">软禁 - 2</a> | Lv33 | 塔科夫街区 | 需钥匙 |
+| 55 | <a href="#q55">坚如燧石</a> | Lv35 | — | — |
+| 56 | <a href="#q56">一派胡言</a> | Lv38 | 灯塔 | 可重接 |
+| 57 | <a href="#q57">大音希声</a> | Lv38 | — | — |
+| 58 | <a href="#q58">致命道具</a> | Lv38 | — | — |
+| 59 | <a href="#q59">公道价 - 1</a> | Lv45 | — | — |
+| 60 | <a href="#q60">公道价 - 2</a> | Lv45 | 森林 | — |
+| 61 | <a href="#q61">人生之课</a> | Lv50 | — | — |
+| 62 | <a href="#q62">利润保留</a> | Lv50 | — | — |
+| 63 | <a href="#q63">学无止境</a> | Lv50 | — | — |
+| 64 | <a href="#q64">安全保障</a> | Lv50 | — | — |
+| 65 | <a href="#q65">有利可图的生意</a> | Lv50 | — | — |
+| 66 | <a href="#q66">站稳脚跟</a> | Lv50 | — | — |
+
+> 📖 本页共 66 个任务，按等级分 **6 档**，档位分隔在索引表下方。要**按地图或商人横向找**，回[总览](index.md)。
+
+---
+
+## Lv0–9 ｜ 45 个任务
+
+<h3 id="q01">Polikhim流浪汉<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -40,7 +118,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **欧元** ×450
   - 声望：**Skier** +0.1
 
-### U盘里有什么？
+<h3 id="q02">U盘里有什么？<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -56,7 +134,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **欧元** ×450 ｜ **一包螺钉** ×2
   - 声望：**Skier** +0.1
 
-### 人往高处走
+<h3 id="q03">人往高处走<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -77,7 +155,7 @@ tags:
 - **失败条件**：
   - **任务状态** **独立的代价** ｜ 状态：完成
 
-### 供应商
+<h3 id="q04">供应商<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -93,7 +171,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **欧元** ×450
   - 声望：**Skier** +0.1
 
-### 供货
+<h3 id="q05">供货<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -113,7 +191,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **欧元** ×1,000
   - 声望：**Skier** +0.25
 
-### 借刀杀人
+<h3 id="q06">借刀杀人<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -130,7 +208,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **欧元** ×1,000 ｜ **Xenomorph发泡密封胶** ×3
   - 声望：**Skier** +0.25
 
-### 偏离路线
+<h3 id="q07">偏离路线<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -157,7 +235,7 @@ tags:
 - **失败条件**：
   - **任务状态** **独立的代价** ｜ 状态：完成
 
-### 关键伙伴
+<h3 id="q08">关键伙伴<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -176,7 +254,7 @@ tags:
 - **失败条件**：
   - **任务状态** **独立的代价** ｜ 状态：完成
 
-### 化学品 - 1
+<h3 id="q09">化学品 - 1<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -198,7 +276,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **MSA ACH TC-2002 MICH系列头盔** ×1 ｜ **欧元** ×450 ｜ **7.62x54mm R SP BT 弹药包（20发装）** ×2
   - 解锁购买：**7.62x54R SP BT（Skier LL1）**
 
-### 化学品 - 2
+<h3 id="q10">化学品 - 2<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -221,7 +299,7 @@ tags:
   - 解锁制作：**xTG-12 解毒剂注射器（工作站 Lv2）**
 - **接取即得**：**宿舍220房间钥匙** ×1
 
-### 北国新秀
+<h3 id="q11">北国新秀<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -239,7 +317,7 @@ tags:
   - 技能：**隐蔽行动** +4 级
   - 解锁购买：**Sako TRG M10 .338 LM 栓动狙击步枪 默认（Skier LL4）**
 
-### 发财计划
+<h3 id="q12">发财计划<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -267,7 +345,7 @@ tags:
   - 声望：**Skier** +0.75
   - 解锁购买：**TDI KRISS Vector Gen.2 .45 ACP 冲锋枪 默认（Skier LL3）**
 
-### 后知后觉
+<h3 id="q13">后知后觉<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -291,7 +369,7 @@ tags:
 - **失败条件**：
   - **任务状态** **独立的代价** ｜ 状态：完成
 
-### 夜间扫荡
+<h3 id="q14">夜间扫荡<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -311,7 +389,7 @@ tags:
   - 技能：**抗压** +4 级
   - 解锁购买：**CMMG Mk47 Mutant 7.62x39 突击步枪 默认（Skier LL4）**／**Magpul MOE 卡宾枪橡胶枪托垫（Skier LL4）**
 
-### 头号机密
+<h3 id="q15">头号机密<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -332,7 +410,7 @@ tags:
   - 声望：**Skier** +0.75
   - 解锁购买：**Lone Star TX-15 DML 5.56x45 半自动卡宾枪 默认（Skier LL3）**／**Magpul MOE AR-15 卡宾枪托（黑色）（Skier LL3）**
 
-### 安全通道
+<h3 id="q16">安全通道<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -350,7 +428,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **欧元** ×1,650
   - 声望：**Skier** +0.75
 
-### 安慰奖
+<h3 id="q17">安慰奖<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -378,7 +456,7 @@ tags:
   - 技能：**投掷物** +1 级
   - 技能：**下挂发射器** +1 级
 
-### 情报就是力量
+<h3 id="q18">情报就是力量<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -395,7 +473,7 @@ tags:
   - 声望：**Skier** +0.1
 - **接取即得**：解锁 **WIFI摄像头（Mechanic LL1）**
 
-### 敲诈者
+<h3 id="q19">敲诈者<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -416,7 +494,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **欧元** ×450
   - 声望：**Skier** +0.1
 
-### 暗中破坏
+<h3 id="q20">暗中破坏<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -436,7 +514,7 @@ tags:
 - **失败条件**：
   - **任务状态** **供给计划** ｜ 状态：完成 —— 供给计划 - 成功
 
-### 禁止打劫
+<h3 id="q21">禁止打劫<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -453,7 +531,7 @@ tags:
 - **完成奖励**：经验 **12,000** ｜ **欧元** ×450 ｜ **一包螺钉** ×2
   - 声望：**Skier** +0.1
 
-### 私人俱乐部
+<h3 id="q22">私人俱乐部<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -471,7 +549,7 @@ tags:
 - **完成奖励**：经验 **11,000** ｜ **欧元** ×450
   - 声望：**Skier** +0.1
 
-### 秘制食谱
+<h3 id="q23">秘制食谱<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -490,7 +568,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **欧元** ×1,000
   - 声望：**Skier** +0.25
 
-### 维他命
+<h3 id="q24">维他命<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -511,7 +589,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **欧元** ×1,000
   - 声望：**Skier** +0.25
 
-### 老赖
+<h3 id="q25">老赖<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -531,7 +609,7 @@ tags:
   - 声望：**Skier** +0.25
 - **接取即得**：**Chekannaya 15号公寓钥匙** ×1
 
-### 肮脏游戏
+<h3 id="q26">肮脏游戏<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -551,7 +629,7 @@ tags:
   - 声望：**Skier** +0.75
 - **接取即得**：**MS2000指示器** ×3
 
-### 致命论据
+<h3 id="q27">致命论据<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个
 
@@ -573,7 +651,7 @@ tags:
 - **失败条件**：
   - **任务状态** **独立的代价** ｜ 状态：完成
 
-### 西方来客
+<h3 id="q28">西方来客<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -588,7 +666,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **欧元** ×1,000
   - 声望：**Skier** +0.25
 
-### 识时务者为俊杰
+<h3 id="q29">识时务者为俊杰<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **2** 个
 
@@ -613,7 +691,7 @@ tags:
 - **失败条件**：
   - **任务状态** **独立的代价** ｜ 状态：完成
 
-### 转口贸易
+<h3 id="q30">转口贸易<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -632,7 +710,7 @@ tags:
   - 声望：**Skier** +0.75
   - 解锁购买：**TDI KRISS Vector Gen.2 9x19 冲锋枪 默认（Skier LL3）**
 
-### 软禁
+<h3 id="q31">软禁<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -653,7 +731,7 @@ tags:
   - 声望：**Skier** +0.25
 - **接取即得**：**铁门钥匙** ×1
 
-### 金色失物
+<h3 id="q32">金色失物<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -673,7 +751,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **欧元** ×450 ｜ **一包螺钉** ×2
   - 声望：**Skier** +0.1
 
-### 长路漫漫
+<h3 id="q33">长路漫漫<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -689,7 +767,7 @@ tags:
   - 声望：**Skier** +0.75
   - 解锁购买：**DVL-10 7.62x51 栓动式狙击步枪 Urbana（Skier LL3）**
 
-### 隔墙有“眼”
+<h3 id="q34">隔墙有“眼”<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -710,7 +788,7 @@ tags:
   - 解锁购买：**12/70 RIP弹药包（5发装）（Skier LL2）**
 - **接取即得**：**WIFI摄像头** ×3
 
-### 风波
+<h3 id="q35">风波<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置**
 
@@ -727,7 +805,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **欧元** ×450
   - 声望：**Skier** +0.25
 
-### 快车初体验
+<h3 id="q36">快车初体验<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv1** ｜ **无前置**
 
@@ -745,7 +823,7 @@ tags:
   - 声望：**Skier** +0.1
 - **接取即得**：**卢布** ×20,000
 
-### 出口在此
+<h3 id="q37">出口在此<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv7** ｜ **无前置**
 
@@ -762,7 +840,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **欧元** ×1,000
   - 声望：**Skier** +0.25
 
-### 好吃到上瘾
+<h3 id="q38">好吃到上瘾<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv7** ｜ **无前置**
 
@@ -781,7 +859,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **欧元** ×1,000
   - 声望：**Skier** +0.25
 
-### 愿者上钩
+<h3 id="q39">愿者上钩<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv7** ｜ **无前置**
 
@@ -798,7 +876,7 @@ tags:
   - 声望：**Skier** +0.25
 - **接取即得**：**金项链** ×4
 
-### 化学品 - 3
+<h3 id="q40">化学品 - 3<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个
 
@@ -817,7 +895,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **欧元** ×1,000 ｜ **ORSIS T-5000M 7.62x51 栓动式狙击步枪 默认** ×1 ｜ **7.62x51mm M80 弹药包（20发装）** ×1
   - 解锁购买：**ORSIS T-5000M 7.62x51 栓动式狙击步枪 默认（Skier LL2）**
 
-### 化学品 - 4
+<h3 id="q41">化学品 - 4<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个
 
@@ -841,7 +919,7 @@ tags:
   - **任务状态** **大客户** ｜ 状态：完成
   - **任务状态** **出于好奇** ｜ 状态：完成
 
-### 口干舌燥 - 养家糊口
+<h3 id="q42">口干舌燥 - 养家糊口<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个
 
@@ -856,7 +934,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **欧元** ×1,000 ｜ **野营燃料桶** ×1
 
-### 口干舌燥 - 送货服务
+<h3 id="q43">口干舌燥 - 送货服务<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个
 
@@ -874,7 +952,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **武器箱** ×1
 - **接取即得**：**5升丙烷罐** ×2
 
-### 收买人心
+<h3 id="q44">收买人心<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个
 
@@ -889,7 +967,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Skier** +0.25
 
-### 西方来客 - 2
+<h3 id="q45">西方来客 - 2<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个
 
@@ -905,7 +983,9 @@ tags:
   - 声望：**Skier** +0.05
   - 解锁购买：**TDI KRISS Vector Gen.2 .45 ACP 冲锋枪 默认（Skier LL3）**
 
-### 赚点快钱 - 1（PVP）
+## Lv10–19 ｜ 4 个任务
+
+<h3 id="q46">赚点快钱 - 1（PVP）<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv10** ｜ **无前置**
 
@@ -923,7 +1003,7 @@ tags:
   - 解锁商人等级：**Ref（竞技场裁判）**
 - **接取即得**：**竞技场广告海报** ×3
 
-### 一报还一报
+<h3 id="q47">一报还一报<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv12** ｜ 前置 **1** 个
 
@@ -939,7 +1019,7 @@ tags:
 
 - **完成奖励**：经验 **65,000** ｜ **欧元** ×2,400 ｜ **金蛋** ×2 ｜ **Tetriz便携式游戏机** ×2
 
-### 严词指控
+<h3 id="q48">严词指控<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv12** ｜ 前置 **1** 个
 
@@ -956,7 +1036,7 @@ tags:
 
 - **完成奖励**：经验 **28,000** ｜ **欧元** ×1,650 ｜ **L3Harris AN/PVS-14 单筒夜视仪** ×1 ｜ **AN/PVS-14单目夜视仪双燕尾槽安装座** ×1 ｜ **Norotos钛合金高级战术支架** ×1
 
-### 高光时刻
+<h3 id="q49">高光时刻<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv12** ｜ 前置 **1** 个
 
@@ -974,7 +1054,9 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **欧元** ×1,650 ｜ **AWC Thor PSR XL多口径消音器** ×2 ｜ **AWC PSR 7.62x51 AR-10 膛口制退器** ×2 ｜ **SIG Sauer SRD762Ti 7.62x51 消音器** ×2
   - 外观解锁：**脏天花板**
 
-### 失踪货物
+## Lv20–29 ｜ 4 个任务
+
+<h3 id="q50">失踪货物<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv22** ｜ **无前置**
 
@@ -993,7 +1075,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **欧元** ×1,650
   - 声望：**Skier** +0.75
 
-### 绝密技术
+<h3 id="q51">绝密技术<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv22** ｜ **无前置**
 
@@ -1011,7 +1093,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **欧元** ×1,650
   - 声望：**Skier** +0.75
 
-### 诱人新货
+<h3 id="q52">诱人新货<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv22** ｜ **无前置**
 
@@ -1030,7 +1112,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **欧元** ×1,650 ｜ **MPS Auto Assault-12 Gen 1 12铅径自动霰弹枪 默认** ×1 ｜ **12/70 箭形弹 弹药包（25发装）** ×2
   - 解锁购买：**MPS Auto Assault-12 Gen 1 12铅径自动霰弹枪 默认（Skier LL3）**
 
-### 绝对威信
+<h3 id="q53">绝对威信<a class="headerlink" href="#q53" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv26** ｜ 前置 **1** 个
 
@@ -1048,7 +1130,9 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **欧元** ×1,650 ｜ **塔科夫之魂海报** ×1 ｜ **CSS AK 凸缘拉机柄** ×3 ｜ **Zenit RK-1 B-25U基座前握把** ×3
   - 解锁购买：**CSS AK 凸缘拉机柄（Skier LL3）**／**Zenit RK-1 B-25U基座前握把（Skier LL4）**
 
-### 软禁 - 2
+## Lv30–39 ｜ 5 个任务
+
+<h3 id="q54">软禁 - 2<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv33** ｜ 前置 **1** 个
 
@@ -1068,7 +1152,7 @@ tags:
 - **完成奖励**：经验 **29,200** ｜ **卢布** ×114,000 ｜ **TDI KRISS Vector Gen.2 9x19 冲锋枪 默认** ×1
   - 声望：**Skier** +0.03
 
-### 坚如燧石
+<h3 id="q55">坚如燧石<a class="headerlink" href="#q55" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv35** ｜ 前置 **1** 个
 
@@ -1084,7 +1168,7 @@ tags:
   - 声望：**Skier** +0.05
   - 解锁购买：**Miller Bros. Blades M-2 战术剑（Skier LL4）**
 
-### 一派胡言
+<h3 id="q56">一派胡言<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv38** ｜ **无前置**
 
@@ -1114,7 +1198,7 @@ tags:
 - **失败条件**：
   - **击杀／射击** **击杀** ｜ 目标：Big Pipe／Birdeye／游荡者／Knight —— 任务进行期间不得击杀海关的 Scav
 
-### 大音希声
+<h3 id="q57">大音希声<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv38** ｜ **无前置**
 
@@ -1132,7 +1216,7 @@ tags:
   - 技能：**专注** +4 级
   - 解锁购买：**Kiba Arms Titan防弹插板（Skier LL3）**／**Custom Arms AGS-74 PRO + 狙击套件 AK 手枪式握把（Skier LL4）**／**Miller Bros. Blades M-2 战术剑（Skier LL4）**
 
-### 致命道具
+<h3 id="q58">致命道具<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv38** ｜ 前置 **1** 个
 
@@ -1149,7 +1233,9 @@ tags:
   - 解锁购买：**MPS Auto Assault-12 Gen 2 12铅径自动霰弹枪 默认（Skier LL4）**
 - **接取即得**：**MPS Auto Assault-12 Gen 1 12铅径自动霰弹枪 Drum** ×1
 
-### 公道价 - 1
+## Lv40–49 ｜ 2 个任务
+
+<h3 id="q59">公道价 - 1<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv45** ｜ 前置 **1** 个
 
@@ -1163,7 +1249,7 @@ tags:
 
 - **完成奖励**：经验 **10,000**
 
-### 公道价 - 2
+<h3 id="q60">公道价 - 2<a class="headerlink" href="#q60" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv45** ｜ 前置 **1** 个
 
@@ -1181,7 +1267,9 @@ tags:
 
 - **完成奖励**：经验 **28,000**
 
-### 人生之课
+## Lv50–59 ｜ 6 个任务
+
+<h3 id="q61">人生之课<a class="headerlink" href="#q61" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个
 
@@ -1206,7 +1294,7 @@ tags:
   - 技能：**弹匣训练** +1 级
   - 技能：**TroubleShooting** +1 级
 
-### 利润保留
+<h3 id="q62">利润保留<a class="headerlink" href="#q62" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个
 
@@ -1231,7 +1319,7 @@ tags:
   - 技能：**活力** +1 级
   - 技能：**抗压** +1 级
 
-### 学无止境
+<h3 id="q63">学无止境<a class="headerlink" href="#q63" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个
 
@@ -1256,7 +1344,7 @@ tags:
   - 技能：**魅力** +1 级
   - 技能：**智力** +1 级
 
-### 安全保障
+<h3 id="q64">安全保障<a class="headerlink" href="#q64" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv50** ｜ **无前置**
 
@@ -1281,7 +1369,7 @@ tags:
   - 技能：**感知** +1 级
   - 技能：**抗压** +1 级
 
-### 有利可图的生意
+<h3 id="q65">有利可图的生意<a class="headerlink" href="#q65" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv50** ｜ **无前置**
 
@@ -1304,7 +1392,7 @@ tags:
   - 技能：**武器维护** +1 级
   - 技能：**TroubleShooting** +1 级
 
-### 站稳脚跟
+<h3 id="q66">站稳脚跟<a class="headerlink" href="#q66" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个
 
