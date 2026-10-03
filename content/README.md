@@ -34,7 +34,7 @@
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s9" href="quests/index.md"><b>第九篇</b><em>任务图鉴</em><i>12 篇</i></a>
 <span class="tk-arrow">→</span>
-<a class="tk-step tk-s10" href="docs/index.md"><b>第十篇</b><em>参考</em><i>16 篇</i></a>
+<a class="tk-step tk-s10" href="docs/index.md"><b>第十篇</b><em>参考</em><i>17 篇</i></a>
 </div>
 
 <div class="tk-reason">
@@ -201,6 +201,7 @@
 
 - [任务图鉴](quests/index.md) — **515 个任务**逐条列出要求、奖励、接取门槛与前置（不含坐标与攻略），卡任务时从这里查
 - [新手成长路线](docs/progression.md) — 1 级到满级该干什么，每阶段都有可验证的毕业标准
+- [新手开局检查清单](docs/starter-checklist.md) — 一张可打印的勾选表：每局进图前、撤离前照着勾一遍
 - [机制速查表](docs/mechanics.md) — 一页看懂所有核心规则
 - [地图对照速查](docs/map-guide.md) — 逐图对照：打什么、产什么、有什么坑、什么时候来
 - [术语与黑话速查](docs/glossary.md) — 新手第一站：把攻略里的黑话翻译成人话

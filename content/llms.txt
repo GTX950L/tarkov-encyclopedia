@@ -40,6 +40,7 @@
 - [机制速查表](https://gtx950l.github.io/tarkov-encyclopedia/docs/mechanics/)：一页看懂所有核心规则
 - [术语与黑话速查](https://gtx950l.github.io/tarkov-encyclopedia/docs/glossary/)：全称、缩写、社区俗称与名称溯源双向可查
 - [新手成长路线](https://gtx950l.github.io/tarkov-encyclopedia/docs/progression/)：按阶段该做什么
+- [新手开局检查清单](https://gtx950l.github.io/tarkov-encyclopedia/docs/starter-checklist/)：可打印的每局勾选表（进图前 / 撤离前照着勾）
 - [地图对照速查](https://gtx950l.github.io/tarkov-encyclopedia/docs/map-guide/)：逐图的交战风格、资源类型、风险与适合阶段（不列坐标）
 - [购买指南（地区与版本）](https://gtx950l.github.io/tarkov-encyclopedia/docs/buying-guide/)
 - [配置与性能](https://gtx950l.github.io/tarkov-encyclopedia/docs/performance/)

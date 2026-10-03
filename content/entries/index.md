@@ -122,6 +122,7 @@ tags:
 - [地图对照速查](../docs/map-guide.md)
 - [术语与黑话速查](../docs/glossary.md)
 - [新手成长路线](../docs/progression.md)
+- [新手开局检查清单](../docs/starter-checklist.md)
 - [购买指南（地区与版本）](../docs/buying-guide.md)
 - [配置与性能](../docs/performance.md)
 - [操作与设置](../docs/game-settings.md) — 哪些设置真的影响战斗
