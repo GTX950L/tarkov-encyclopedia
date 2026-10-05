@@ -25,7 +25,11 @@ https://json.tarkov.dev/regular/tasks       # 任务（任务图鉴用，见 gen
 | 脚本 | 产出 | 落在哪 |
 |------|------|--------|
 | `scripts/gen_ammo_values.py` | 200 条弹药 × 8 列 | `content/entries/ammo-table.md` |
-| `scripts/gen_armor_values.py` | 49 防弹衣 ＋ 112 头盔 | `content/entries/armor-catalog.md` |
+| `scripts/gen_armor_values.py` | 49 防弹衣 ＋ 112 头盔 ＋ 117 附加护甲 | `content/entries/armor-catalog.md` |
+| `scripts/gen_weapon_values.py` | 172 把武器 | `content/entries/weapons.md` |
+| `scripts/gen_food_values.py` | 46 种食物与饮料 | `content/entries/food-catalog.md` |
+| `scripts/gen_medical_values.py` | 43 件医疗物资（急救包 / 物品 / 兴奋剂） | `content/entries/medical-catalog.md` |
+| `scripts/gen_quest_items.py` | 79 种物品的**任务需求反查** ＋ 任务速查 | `content/quests/index.md` |
 
 ## Step 2 — 怎么挑条目：按 `propertiesType` 分桶
 
@@ -40,6 +44,11 @@ https://json.tarkov.dev/regular/tasks       # 任务（任务图鉴用，见 gen
 | `ItemPropertiesChestRig` | 105 | 胸挂 |
 | `ItemPropertiesWeapon` | 172 | 武器 |
 | `ItemPropertiesKey` | 257 | 钥匙 |
+
+> ⚠️ **一个只看字段名发现不了的坑（聚合任务数据时尤其致命）**：任务 `objectives` 里的 `items`
+> **不是「需求物品」的同义词**——`sellItem`（「卖任何物品给某商人」）的 `items` 是一张**几百条的许可白名单**。
+> 把它算进"需求"，「已密封的武器箱」会以 **200 次**虚假登顶，整张榜失真。
+> **只统计 `giveItem` / `findItem` / `findQuestItem` / `giveQuestItem` / `plantItem` / `plantQuestItem` 六类。**
 
 ## Step 3 — 写入方式：AUTO-GEN 标记
 
