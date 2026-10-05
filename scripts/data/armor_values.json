@@ -1,0 +1,1456 @@
+{
+ "fetched": "2026-10-06",
+ "body": [
+  {
+   "name": "6B43",
+   "class": 6,
+   "dur": 510,
+   "mat": "芳纶",
+   "type": "重型",
+   "blunt": 0.297,
+   "pen": "-9% / -5.5% / -7%"
+  },
+  {
+   "name": "Redut-T5",
+   "class": 6,
+   "dur": 504,
+   "mat": "芳纶",
+   "type": "重型",
+   "blunt": 0.2376,
+   "pen": "-8% / -3% / -5%"
+  },
+  {
+   "name": "THOR IC",
+   "class": 6,
+   "dur": 466,
+   "mat": "超高分子量聚乙烯",
+   "type": "—",
+   "blunt": 0,
+   "pen": "-8% / -5% / -6%"
+  },
+  {
+   "name": "6B45",
+   "class": 6,
+   "dur": 374,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.32,
+   "pen": "-5% / -3% / -3%"
+  },
+  {
+   "name": "Zhuk-6a",
+   "class": 6,
+   "dur": 305,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.3,
+   "pen": "-1.5% / 0% / 0%"
+  },
+  {
+   "name": "Slick",
+   "class": 6,
+   "dur": 200,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2259,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "Slick",
+   "class": 6,
+   "dur": 200,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2259,
+   "pen": "-5% / -1% / 0%"
+  },
+  {
+   "name": "Slick",
+   "class": 6,
+   "dur": 200,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2259,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "Hexgrid",
+   "class": 6,
+   "dur": 100,
+   "mat": "超高分子量聚乙烯",
+   "type": "—",
+   "blunt": 0,
+   "pen": "-1% / -1% / -1%"
+  },
+  {
+   "name": "Gen4全防护",
+   "class": 5,
+   "dur": 398,
+   "mat": "芳纶",
+   "type": "重型",
+   "blunt": 0.2619,
+   "pen": "-7% / -4% / -6%"
+  },
+  {
+   "name": "Gen4突击型",
+   "class": 5,
+   "dur": 362,
+   "mat": "芳纶",
+   "type": "重型",
+   "blunt": 0.2619,
+   "pen": "-5% / -4% / -5%"
+  },
+  {
+   "name": "Redut-M",
+   "class": 5,
+   "dur": 358,
+   "mat": "芳纶",
+   "type": "重型",
+   "blunt": 0.2376,
+   "pen": "-3% / -3% / -3%"
+  },
+  {
+   "name": "Redut-M",
+   "class": 5,
+   "dur": 358,
+   "mat": "芳纶",
+   "type": "重型",
+   "blunt": 0.2376,
+   "pen": "-3% / -3% / -3%"
+  },
+  {
+   "name": "Redut-M",
+   "class": 5,
+   "dur": 358,
+   "mat": "芳纶",
+   "type": "重型",
+   "blunt": 0.2376,
+   "pen": "-3% / -4% / -3%"
+  },
+  {
+   "name": "Redut-M",
+   "class": 5,
+   "dur": 358,
+   "mat": "芳纶",
+   "type": "重型",
+   "blunt": 0.2376,
+   "pen": "-3% / -4% / -3%"
+  },
+  {
+   "name": "Gladiator-S",
+   "class": 5,
+   "dur": 345,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2853,
+   "pen": "-3% / -2% / -2%"
+  },
+  {
+   "name": "Gen4高机动型",
+   "class": 5,
+   "dur": 320,
+   "mat": "芳纶",
+   "type": "重型",
+   "blunt": 0.2619,
+   "pen": "-2% / -4% / -4%"
+  },
+  {
+   "name": "Defender-2",
+   "class": 5,
+   "dur": 320,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.2376,
+   "pen": "-1% / -4% / -1%"
+  },
+  {
+   "name": "Defender-2",
+   "class": 5,
+   "dur": 320,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.2376,
+   "pen": "-1% / -4% / -1%"
+  },
+  {
+   "name": "Korund-VM",
+   "class": 5,
+   "dur": 310,
+   "mat": "芳纶",
+   "type": "重型",
+   "blunt": 0.2853,
+   "pen": "-5% / -2.5% / -3%"
+  },
+  {
+   "name": "Korund-VM",
+   "class": 5,
+   "dur": 310,
+   "mat": "芳纶",
+   "type": "重型",
+   "blunt": 0.2853,
+   "pen": "-5% / -2.5% / -3%"
+  },
+  {
+   "name": "Gzhel-K",
+   "class": 5,
+   "dur": 259,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.1431,
+   "pen": "-1.5% / 0% / 0%"
+  },
+  {
+   "name": "6B13 Killa",
+   "class": 5,
+   "dur": 249,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2376,
+   "pen": "-1% / 0% / 0%"
+  },
+  {
+   "name": "6B13 圣诞",
+   "class": 5,
+   "dur": 249,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2376,
+   "pen": "-1% / 0% / 0%"
+  },
+  {
+   "name": "HPC",
+   "class": 5,
+   "dur": 90,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2259,
+   "pen": "0% / -1% / 0%"
+  },
+  {
+   "name": "HPC",
+   "class": 5,
+   "dur": 90,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2259,
+   "pen": "0% / -1% / 0%"
+  },
+  {
+   "name": "6B23-2 山地",
+   "class": 4,
+   "dur": 246,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.33,
+   "pen": "-1% / -1% / -2.5%"
+  },
+  {
+   "name": "OTV",
+   "class": 4,
+   "dur": 222,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.33,
+   "pen": "-2% / -1% / 0%"
+  },
+  {
+   "name": "OTV",
+   "class": 4,
+   "dur": 222,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.33,
+   "pen": "-2% / -1% / 0%"
+  },
+  {
+   "name": "6B13 丛林",
+   "class": 4,
+   "dur": 203,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.32,
+   "pen": "-1% / 0% / -1%"
+  },
+  {
+   "name": "6B13 EMR",
+   "class": 4,
+   "dur": 203,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.32,
+   "pen": "-1% / 0% / -1%"
+  },
+  {
+   "name": "Trooper",
+   "class": 4,
+   "dur": 180,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.33,
+   "pen": "-1% / -1% / 0%"
+  },
+  {
+   "name": "Trooper",
+   "class": 4,
+   "dur": 180,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.33,
+   "pen": "-1% / -1% / 0%"
+  },
+  {
+   "name": "THOR 隐蔽型",
+   "class": 4,
+   "dur": 170,
+   "mat": "超高分子量聚乙烯",
+   "type": "—",
+   "blunt": 0,
+   "pen": "0% / -1% / 0%"
+  },
+  {
+   "name": "THOR 隐蔽型",
+   "class": 4,
+   "dur": 170,
+   "mat": "超高分子量聚乙烯",
+   "type": "—",
+   "blunt": 0,
+   "pen": "0% / -1% / 0%"
+  },
+  {
+   "name": "Kirasa-N",
+   "class": 3,
+   "dur": 240,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.2853,
+   "pen": "0% / 0% / -1%"
+  },
+  {
+   "name": "Kirasa-N",
+   "class": 3,
+   "dur": 240,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.2853,
+   "pen": "0% / 0% / -1%"
+  },
+  {
+   "name": "6B23-1 EMR",
+   "class": 3,
+   "dur": 206,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2142,
+   "pen": "-1% / -1% / -2.5%"
+  },
+  {
+   "name": "Zhuk",
+   "class": 3,
+   "dur": 185,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2853,
+   "pen": "-1.5% / 0% / 0%"
+  },
+  {
+   "name": "Kora-Kulon",
+   "class": 3,
+   "dur": 128,
+   "mat": "ArmoredSteel",
+   "type": "轻型",
+   "blunt": 0.298,
+   "pen": "-1% / -1% / -1%"
+  },
+  {
+   "name": "Kora-Kulon数字迷彩",
+   "class": 3,
+   "dur": 128,
+   "mat": "ArmoredSteel",
+   "type": "轻型",
+   "blunt": 0.298,
+   "pen": "-1% / -1% / -1%"
+  },
+  {
+   "name": "DRD",
+   "class": 3,
+   "dur": 120,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.3564,
+   "pen": "-1% / -1% / -1%"
+  },
+  {
+   "name": "MF-UN",
+   "class": 3,
+   "dur": 100,
+   "mat": "铝",
+   "type": "轻型",
+   "blunt": 0.2376,
+   "pen": "-3% / -1% / -2%"
+  },
+  {
+   "name": "6B2",
+   "class": 2,
+   "dur": 128,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2853,
+   "pen": "-1% / -1% / -1%"
+  },
+  {
+   "name": "PACA",
+   "class": 2,
+   "dur": 100,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.3564,
+   "pen": "-1% / 0% / -1%"
+  },
+  {
+   "name": "PACA TR",
+   "class": 2,
+   "dur": 100,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.3564,
+   "pen": "-1% / 0% / -1%"
+  },
+  {
+   "name": "Module-3M",
+   "class": 2,
+   "dur": 80,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.4158,
+   "pen": "-1% / -1% / 0%"
+  },
+  {
+   "name": "PLATEminus V2",
+   "class": 2,
+   "dur": 68,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.4158,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "PLATEminus V2",
+   "class": 2,
+   "dur": 68,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.4158,
+   "pen": "0% / 0% / 0%"
+  }
+ ],
+ "helmet": [
+  {
+   "name": "”ZABEY”",
+   "class": 6,
+   "dur": 100,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.05,
+   "pen": "0% / 0% / -10%"
+  },
+  {
+   "name": "Rys-T",
+   "class": 5,
+   "dur": 90,
+   "mat": "钛",
+   "type": "重型",
+   "blunt": 0.1431,
+   "pen": "0% / -2% / -3%"
+  },
+  {
+   "name": "Altyn",
+   "class": 5,
+   "dur": 81,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.1665,
+   "pen": "-1% / -4% / -3%"
+  },
+  {
+   "name": "Altyn",
+   "class": 5,
+   "dur": 81,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.1665,
+   "pen": "-1% / -4% / -3%"
+  },
+  {
+   "name": "Vulkan-5",
+   "class": 5,
+   "dur": 75,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.1314,
+   "pen": "0% / -2% / -3%"
+  },
+  {
+   "name": "Vulkan-5",
+   "class": 5,
+   "dur": 75,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.1314,
+   "pen": "0% / -2% / -3%"
+  },
+  {
+   "name": "Vulkan-5",
+   "class": 5,
+   "dur": 75,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.1314,
+   "pen": "0% / -2% / -3%"
+  },
+  {
+   "name": "Vulkan-5",
+   "class": 5,
+   "dur": 75,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.1314,
+   "pen": "0% / -2% / -3%"
+  },
+  {
+   "name": "”UBEY”",
+   "class": 5,
+   "dur": 40,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.198,
+   "pen": "-2% / -10% / -15%"
+  },
+  {
+   "name": "”Gorilla”",
+   "class": 5,
+   "dur": 40,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.198,
+   "pen": "-2% / -10% / -15%"
+  },
+  {
+   "name": "浪人面罩",
+   "class": 4,
+   "dur": 180,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1548,
+   "pen": "-1% / -2% / -1%"
+  },
+  {
+   "name": "浪人面罩",
+   "class": 4,
+   "dur": 180,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1548,
+   "pen": "-1% / -2% / -1%"
+  },
+  {
+   "name": "浪人面罩",
+   "class": 4,
+   "dur": 180,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1548,
+   "pen": "-1% / -2% / -1%"
+  },
+  {
+   "name": "Ronin Respirator",
+   "class": 4,
+   "dur": 180,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0,
+   "pen": "-1% / -2% / -1%"
+  },
+  {
+   "name": "Maska-1SCh",
+   "class": 4,
+   "dur": 108,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.1726,
+   "pen": "0% / -1% / -4%"
+  },
+  {
+   "name": "Maska-1SCh KE",
+   "class": 4,
+   "dur": 108,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.1726,
+   "pen": "0% / -1% / -4%"
+  },
+  {
+   "name": "Maska-1SCh 圣诞",
+   "class": 4,
+   "dur": 108,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.1726,
+   "pen": "0% / -1% / -4%"
+  },
+  {
+   "name": "Maska-1SCh VE",
+   "class": 4,
+   "dur": 108,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.1726,
+   "pen": "0% / -1% / -4%"
+  },
+  {
+   "name": "冠军",
+   "class": 4,
+   "dur": 100,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.208,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "LSHZ-2DTM",
+   "class": 4,
+   "dur": 99,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.1431,
+   "pen": "0% / -3% / -3%"
+  },
+  {
+   "name": "Titan",
+   "class": 4,
+   "dur": 78,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1314,
+   "pen": "0% / -1% / -3%"
+  },
+  {
+   "name": "NeoSteel",
+   "class": 4,
+   "dur": 72,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.1726,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "NeoSteel",
+   "class": 4,
+   "dur": 72,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.1726,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "NeoSteel",
+   "class": 4,
+   "dur": 72,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.1726,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "NovaSteel",
+   "class": 4,
+   "dur": 72,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.1726,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "NovaSteel",
+   "class": 4,
+   "dur": 72,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.1726,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "NovaSteel",
+   "class": 4,
+   "dur": 72,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.1726,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "ULACH",
+   "class": 4,
+   "dur": 66,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.208,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "ULACH",
+   "class": 4,
+   "dur": 66,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.208,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "ULACH",
+   "class": 4,
+   "dur": 66,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.208,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "ULACH",
+   "class": 4,
+   "dur": 66,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.208,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "ULACH",
+   "class": 4,
+   "dur": 66,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.208,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "ULACH",
+   "class": 4,
+   "dur": 66,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.208,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "ULACH",
+   "class": 4,
+   "dur": 66,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.5,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "ZSh-1-2M",
+   "class": 4,
+   "dur": 63,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.1548,
+   "pen": "0% / -2% / 0%"
+  },
+  {
+   "name": "ZSh-1-2M",
+   "class": 4,
+   "dur": 63,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.1548,
+   "pen": "0% / -2% / 0%"
+  },
+  {
+   "name": "EXFIL",
+   "class": 4,
+   "dur": 54,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.1548,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "EXFIL",
+   "class": 4,
+   "dur": 54,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.1548,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "EXFIL",
+   "class": 4,
+   "dur": 54,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.1548,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "BAC Bastion",
+   "class": 4,
+   "dur": 50,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.208,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "BAC Bastion",
+   "class": 4,
+   "dur": 50,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.208,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "BAC Bastion",
+   "class": 4,
+   "dur": 50,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.208,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "FLUX",
+   "class": 4,
+   "dur": 50,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1548,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "FLUX",
+   "class": 4,
+   "dur": 50,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1548,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "FAST MT",
+   "class": 4,
+   "dur": 48,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1431,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "FAST MT",
+   "class": 4,
+   "dur": 48,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1431,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "AirFrame",
+   "class": 4,
+   "dur": 48,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1314,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "DA Bastion",
+   "class": 4,
+   "dur": 48,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.1314,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "AirFrame",
+   "class": 4,
+   "dur": 48,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1314,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "AirFrame",
+   "class": 4,
+   "dur": 48,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1314,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "AirFrame",
+   "class": 4,
+   "dur": 48,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1314,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "AirFrame",
+   "class": 4,
+   "dur": 48,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "AirFrame M-LOK",
+   "class": 4,
+   "dur": 48,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1314,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "AirFrame M-LOK",
+   "class": 4,
+   "dur": 48,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1314,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "AirFrame",
+   "class": 4,
+   "dur": 48,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1314,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "Titan",
+   "class": 4,
+   "dur": 48,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1314,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "Titan",
+   "class": 4,
+   "dur": 48,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1314,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "AirFrame",
+   "class": 4,
+   "dur": 48,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "Titan Aramid",
+   "class": 4,
+   "dur": 48,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.131,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "STRIKE",
+   "class": 4,
+   "dur": 40,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1548,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "STRIKE",
+   "class": 4,
+   "dur": 40,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1548,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "STRIKE",
+   "class": 4,
+   "dur": 40,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "ACHHC",
+   "class": 4,
+   "dur": 36,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1548,
+   "pen": "0% / -1% / -2%"
+  },
+  {
+   "name": "ACHHC",
+   "class": 4,
+   "dur": 36,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1548,
+   "pen": "0% / -1% / -2%"
+  },
+  {
+   "name": "TC 800",
+   "class": 4,
+   "dur": 36,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1548,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "ACHHC",
+   "class": 4,
+   "dur": 36,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1548,
+   "pen": "0% / -1% / -2%"
+  },
+  {
+   "name": "TC-2002",
+   "class": 4,
+   "dur": 32,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.1548,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "TC-2001",
+   "class": 4,
+   "dur": 30,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.1548,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "Ronin",
+   "class": 3,
+   "dur": 180,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.22,
+   "pen": "0% / 0% / -1%"
+  },
+  {
+   "name": "Ronin",
+   "class": 3,
+   "dur": 180,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.22,
+   "pen": "0% / 0% / -1%"
+  },
+  {
+   "name": "Ronin",
+   "class": 3,
+   "dur": 180,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.22,
+   "pen": "0% / 0% / -1%"
+  },
+  {
+   "name": "Ronin",
+   "class": 3,
+   "dur": 180,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.22,
+   "pen": "0% / 0% / -1%"
+  },
+  {
+   "name": "Ronin",
+   "class": 3,
+   "dur": 180,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.22,
+   "pen": "0% / 0% / -1%"
+  },
+  {
+   "name": "SFERA-S",
+   "class": 3,
+   "dur": 135,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.09,
+   "pen": "0% / -2% / -2%"
+  },
+  {
+   "name": "Tor-2",
+   "class": 3,
+   "dur": 81,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.1548,
+   "pen": "-1% / 0% / -3%"
+  },
+  {
+   "name": "HJELM",
+   "class": 3,
+   "dur": 78,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1448,
+   "pen": "0% / 0% / -1%"
+  },
+  {
+   "name": "Kiver-M",
+   "class": 3,
+   "dur": 63,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.218,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "凯门鳄",
+   "class": 3,
+   "dur": 60,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1548,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "凯门鳄",
+   "class": 3,
+   "dur": 60,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1548,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "凯门鳄",
+   "class": 3,
+   "dur": 60,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.1548,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "凯门鳄",
+   "class": 3,
+   "dur": 60,
+   "mat": "复合材料",
+   "type": "轻型",
+   "blunt": 0.72,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "SSh-68",
+   "class": 3,
+   "dur": 54,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.1726,
+   "pen": "0% / -2% / -3%"
+  },
+  {
+   "name": "6B47",
+   "class": 3,
+   "dur": 45,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2376,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "6B47",
+   "class": 3,
+   "dur": 45,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2376,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "UNTAR",
+   "class": 3,
+   "dur": 45,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2376,
+   "pen": "0% / -2% / -1%"
+  },
+  {
+   "name": "6B47 EMRA",
+   "class": 3,
+   "dur": 45,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2376,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "LZSh",
+   "class": 3,
+   "dur": 36,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2376,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "CQCM",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.198,
+   "pen": "-1% / -3% / -2%"
+  },
+  {
+   "name": "微笑",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.198,
+   "pen": "-1% / -3% / -2%"
+  },
+  {
+   "name": "Stop Me",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.198,
+   "pen": "-1% / -3% / -2%"
+  },
+  {
+   "name": "战疤",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.198,
+   "pen": "-1% / -3% / -2%"
+  },
+  {
+   "name": "标靶",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.198,
+   "pen": "-1% / -3% / -2%"
+  },
+  {
+   "name": "骷髅",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.198,
+   "pen": "-1% / -3% / -2%"
+  },
+  {
+   "name": "恶魔",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.198,
+   "pen": "-1% / -3% / -2%"
+  },
+  {
+   "name": "亡灵",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.198,
+   "pen": "-1% / -3% / -2%"
+  },
+  {
+   "name": "未读",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.198,
+   "pen": "-1% / -3% / -2%"
+  },
+  {
+   "name": "路易伪登",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.198,
+   "pen": "-1% / -3% / -2%"
+  },
+  {
+   "name": "生化",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.198,
+   "pen": "-1% / -3% / -2%"
+  },
+  {
+   "name": "碰撞测试",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.198,
+   "pen": "-1% / -3% / -2%"
+  },
+  {
+   "name": "恶魔獠牙",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.198,
+   "pen": "-1% / -3% / -2%"
+  },
+  {
+   "name": "LP",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.198,
+   "pen": "-1% / -3% / -2%"
+  },
+  {
+   "name": "冰爆",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.9,
+   "pen": "-1% / -3% / -2%"
+  },
+  {
+   "name": "Djeta",
+   "class": 2,
+   "dur": 156,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.217,
+   "pen": "0% / -3% / -3%"
+  },
+  {
+   "name": "SHPM",
+   "class": 2,
+   "dur": 96,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.225,
+   "pen": "0% / -3% / -2%"
+  },
+  {
+   "name": "安全帽",
+   "class": 2,
+   "dur": 96,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.225,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "安全帽",
+   "class": 2,
+   "dur": 96,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.225,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "Kolpak",
+   "class": 2,
+   "dur": 45,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2376,
+   "pen": "0% / -2% / -2%"
+  },
+  {
+   "name": "南瓜",
+   "class": 2,
+   "dur": 40,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.18,
+   "pen": "0% / -1% / 0%"
+  },
+  {
+   "name": "Bomber",
+   "class": 1,
+   "dur": 150,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.216,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "坦克头盔",
+   "class": 1,
+   "dur": 105,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.2576,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "Death Knight",
+   "class": 1,
+   "dur": 55,
+   "mat": "芳纶",
+   "type": "轻型",
+   "blunt": 0.198,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "TK Fast MT",
+   "class": 1,
+   "dur": 48,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.33,
+   "pen": "0% / 0% / 0%"
+  }
+ ]
+}

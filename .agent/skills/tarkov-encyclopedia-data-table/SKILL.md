@@ -1,0 +1,81 @@
+---
+name: tarkov-encyclopedia-data-table
+description: 从 tarkov.dev 结构化端点生成或刷新《逃离塔科夫百科全书》里的行式数值表（已落地：弹药、护甲；可扩展：武器 / 医疗 / 食物），写入条目的 AUTO-GEN 标记区，手写正文一律不碰。触发词：数值表 / 补数据 / 刷新数据 / 弹药数据 / 护甲数据 / 逐型号 / tarkov.dev。
+---
+
+# 数值表生成与刷新
+
+**这份手册管的是「把外部结构化数据变成站内的一张表」，不改机制、不写判断。**
+判据来自 `content/docs/roadmap.md`：**先问这一页在分工里负责什么**——「以判断为主」的页不塞数字。
+
+## Step 1 — 数据源（只有一处，且**路径必须带 `/regular/`**）
+
+```
+https://json.tarkov.dev/regular/items       # 全部物品的结构化数值（约 17 MB）
+https://json.tarkov.dev/regular/items_zh    # 中文译名字典（约 1.6 MB）
+https://json.tarkov.dev/regular/tasks       # 任务（任务图鉴用，见 gen_quests.py）
+```
+
+> ⚠️ **两条硬规矩**（都是踩过的坑）：
+> 1. **少写 `/regular/` 会 404**——`https://json.tarkov.dev/` 是不存在的路径；
+> 2. **`items` 的文本字段全是占位符**（形如 `"5447a9cd4bdc2dbd208b4567 Name"`），**只能取数值**；中文名一律走 `items_zh`，键形如 `<id> Name` / `<id> ShortName`。**查不到译名就退回英文 `normalizedName`，绝不自己编。**
+
+已落地两个脚本，**新表照抄它们的骨架**：
+
+| 脚本 | 产出 | 落在哪 |
+|------|------|--------|
+| `scripts/gen_ammo_values.py` | 200 条弹药 × 8 列 | `content/entries/ammo-table.md` |
+| `scripts/gen_armor_values.py` | 49 防弹衣 ＋ 112 头盔 | `content/entries/armor-catalog.md` |
+
+## Step 2 — 怎么挑条目：按 `propertiesType` 分桶
+
+`items` 是 `{id: item}` 的字典，用 `properties.propertiesType` 精确分桶（**别用 `types` 数组**——手雷也带 `ammo` 标签，会把 RGD-5 混进弹药表）：
+
+| propertiesType | 条数 | 是什么 |
+|---|---|---|
+| `ItemPropertiesAmmo` | 200 | 真弹药（子弹） |
+| `ItemPropertiesArmor` | 49 | 防弹衣 |
+| `ItemPropertiesHelmet` | 112 | 头盔 |
+| `ItemPropertiesArmorAttachment` | 117 | 插板 / 附加护甲 |
+| `ItemPropertiesChestRig` | 105 | 胸挂 |
+| `ItemPropertiesWeapon` | 172 | 武器 |
+| `ItemPropertiesKey` | 257 | 钥匙 |
+
+## Step 3 — 写入方式：AUTO-GEN 标记
+
+**绝不整页重建**（那是 `gen_quests.py` 的特权，因为任务页整页都是生成的）。数值表是**手写正文 + 生成表**混编，所以：
+
+1. 先在手写页里放一对标记：
+
+   ```markdown
+   <!-- AUTO-GEN:AMMO-VALUES:START -->
+
+   <!-- AUTO-GEN:AMMO-VALUES:END -->
+   ```
+
+2. 脚本**只替换标记之间的内容**，标记外一律不动；
+3. 找不到标记就**报错退出**，不要静默新建。
+
+**表注必须写清三件事**：口径日期 ＋ 基线版本 ＋ 来源层级（二级）；列义（尤其"甲伤""钝伤穿透"这类）；**边界**（哪些没收录、哪些数值口径不同，如霰弹伤害是"每颗弹丸"）。
+
+## Step 4 — 交付前回归（四道门禁 + 三个易漏项）
+
+```bash
+python scripts/check_entries.py      # 含「中文正文不留直引号」「表格吞块」
+python scripts/check_icons.py        # 图标计数 —— 见下方坑 1
+python scripts/check_promises.py
+python scripts/skills_consistency.py
+```
+
+| 坑 | 表现 | 正确做法 |
+|---|---|---|
+| **1. 图标计数是连锁的** | 表里加一个 `📊`、表注加一个 `⚠️` → `check_icons` 立刻报「template.md 写 1483、实算 1485」 | **所有文件改完再跑一次**，把 `template.md` 的计数一次改到位；**别边改边跑** |
+| **2. CHANGELOG 的回归读数必须最后填** | 先写读数再补内容 → 读数永远是错的（已连踩三批） | 先写 CHANGELOG 主体 → 跑 `check_entries` → **再**补读数行 |
+| **3. 中文正文不用直引号** | 在 CHANGELOG 里写 `"……"` → `check_entries` 报错 | 一律用 `「」` 或 `""`（全角） |
+
+## Step 5 — 什么该做、什么不该做
+
+- **该做**：逐型号数值、可排序的对照表、能改变"要不要投入"判断的字段（耐久 / 惩罚 / 穿深）；
+- **不该做**：把「以判断为主」的页（`loot` / `lighting` / `contact-drill` / `starter-checklist`）塞满数字；照抄含义不明的字段（例：头盔的 `ricochetX/Y/Z` **官方未公开含义，留白不猜**）。
+
+> **一句话**：**能核实的写足，核不到的留白。** 详实 ≠ 编数据。
