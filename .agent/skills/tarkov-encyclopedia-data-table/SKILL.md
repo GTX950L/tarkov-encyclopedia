@@ -29,7 +29,9 @@ https://json.tarkov.dev/regular/tasks       # 任务（任务图鉴用，见 gen
 | `scripts/gen_weapon_values.py` | 172 把武器 | `content/entries/weapons.md` |
 | `scripts/gen_food_values.py` | 46 种食物与饮料 | `content/entries/food-catalog.md` |
 | `scripts/gen_medical_values.py` | 43 件医疗物资（急救包 / 物品 / 兴奋剂） | `content/entries/medical-catalog.md` |
-| `scripts/gen_quest_items.py` | 79 种物品的**任务需求反查** ＋ 任务速查 | `content/quests/index.md` |
+| `scripts/gen_quest_items.py` | 79 种物品的**任务需求反查** ＋ **奖励反查** ＋ 任务速查 | `content/quests/index.md` |
+| `scripts/gen_gear_values.py` | 耳机 28 / 夜视 6 / 手雷 13 / 近战 25 | 四个条目页各一处 |
+| `scripts/gen_boss_values.py` | Boss 各部位血量（17 个）＋ 各图刷新率 | `content/entries/bosses.md` |
 
 ## Step 2 — 怎么挑条目：按 `propertiesType` 分桶
 
@@ -80,7 +82,10 @@ python scripts/skills_consistency.py
 |---|---|---|
 | **1. 图标计数是连锁的** | 表里加一个 `📊`、表注加一个 `⚠️` → `check_icons` 立刻报「template.md 写 1483、实算 1485」 | **所有文件改完再跑一次**，把 `template.md` 的计数一次改到位；**别边改边跑** |
 | **2. CHANGELOG 的回归读数必须最后填** | 先写读数再补内容 → 读数永远是错的（已连踩三批） | 先写 CHANGELOG 主体 → 跑 `check_entries` → **再**补读数行 |
-| **3. 中文正文不用直引号** | 在 CHANGELOG 里写 `"……"` → `check_entries` 报错 | 一律用 `「」` 或 `""`（全角） |
+| **3. 中文正文不用直引号** | 在 CHANGELOG 里写 `"……"` → `check_entries` 报错 | 一律用 `「」` 或 `“”`（全角） |
+| **4. 站内有「禁词」断言** | 耳机表注初稿写「官方未公布听音**曲线**」→ `check_promises` 报 **B4**（站内明令不再引用任何放大曲线数值） | **下笔前先跑一遍 `check_promises`**，或换措辞（改成「听感相关的参数」） |
+| **5. 端点的容器类型会变** | `maps["maps"]` 在 list 与 dict 之间变过；只写 `for x in maps["maps"]` 会遍历到字符串键 → `TypeError: string indices must be integers` | 遍历前判类型：`if isinstance(x, dict): x = list(x.values())` |
+| **6. 合并 / 归一化要放在渲染前** | 把「同图同 Boss 合并」写进 `fetch()` → **用缓存重生成时不生效**，重复行照旧 | 后处理放 `main()` 里、渲染之前；这样两条路径都吃到 |
 
 ## Step 5 — 什么该做、什么不该做
 
