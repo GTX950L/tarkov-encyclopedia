@@ -1,0 +1,396 @@
+{
+ "fetched": "2026-10-06",
+ "kit": [
+  {
+   "name": "Grizzly",
+   "hp": 1800,
+   "per": 175,
+   "time": 5,
+   "uses": null,
+   "cures": "轻出血 / 重出血 / 骨折 / 挫伤",
+   "eff": "—"
+  },
+  {
+   "name": "Salewa",
+   "hp": 400,
+   "per": 85,
+   "time": 3,
+   "uses": null,
+   "cures": "轻出血 / 重出血",
+   "eff": "—"
+  },
+  {
+   "name": "AFAK",
+   "hp": 400,
+   "per": 60,
+   "time": 3,
+   "uses": null,
+   "cures": "轻出血 / 重出血",
+   "eff": "—"
+  },
+  {
+   "name": "IFAK",
+   "hp": 300,
+   "per": 50,
+   "time": 3,
+   "uses": null,
+   "cures": "轻出血 / 重出血",
+   "eff": "—"
+  },
+  {
+   "name": "车载急救包",
+   "hp": 220,
+   "per": 70,
+   "time": 3,
+   "uses": null,
+   "cures": "轻出血",
+   "eff": "—"
+  },
+  {
+   "name": "AI-2",
+   "hp": 100,
+   "per": 50,
+   "time": 2,
+   "uses": null,
+   "cures": "—",
+   "eff": "—"
+  }
+ ],
+ "item": [
+  {
+   "name": "绷带",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": 1,
+   "cures": "轻出血",
+   "eff": "—"
+  },
+  {
+   "name": "绷带",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": 2,
+   "cures": "轻出血",
+   "eff": "—"
+  },
+  {
+   "name": "铝夹板",
+   "hp": null,
+   "per": null,
+   "time": 3,
+   "uses": 3,
+   "cures": "骨折",
+   "eff": "—"
+  },
+  {
+   "name": "止血剂",
+   "hp": null,
+   "per": null,
+   "time": 3,
+   "uses": 3,
+   "cures": "重出血",
+   "eff": "—"
+  },
+  {
+   "name": "CAT",
+   "hp": null,
+   "per": null,
+   "time": 3,
+   "uses": 1,
+   "cures": "重出血",
+   "eff": "—"
+  },
+  {
+   "name": "Tigzresq",
+   "hp": null,
+   "per": null,
+   "time": 3,
+   "uses": 7,
+   "cures": "骨折",
+   "eff": "—"
+  },
+  {
+   "name": "夹板",
+   "hp": null,
+   "per": null,
+   "time": 5,
+   "uses": 1,
+   "cures": "骨折",
+   "eff": "—"
+  },
+  {
+   "name": "Esmarch",
+   "hp": null,
+   "per": null,
+   "time": 5,
+   "uses": 1,
+   "cures": "重出血",
+   "eff": "—"
+  },
+  {
+   "name": "CMS",
+   "hp": null,
+   "per": null,
+   "time": 16,
+   "uses": 3,
+   "cures": "黑肢",
+   "eff": "—"
+  },
+  {
+   "name": "Surv12",
+   "hp": null,
+   "per": null,
+   "time": 20,
+   "uses": 9,
+   "cures": "骨折 / 黑肢",
+   "eff": "—"
+  }
+ ],
+ "stim": [
+  {
+   "name": "吗啡",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": 1,
+   "cures": "疼痛 / 挫伤",
+   "eff": "—"
+  },
+  {
+   "name": "Propital",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "疼痛 / 挫伤",
+   "eff": "回血 / 技能成长 / 抗手抖 / 特殊"
+  },
+  {
+   "name": "SJ1 TGLabs",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "—",
+   "eff": "技能成长 / 能量恢复 / 水分恢复"
+  },
+  {
+   "name": "SJ6 TGLabs",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "—",
+   "eff": "耐力上限 / 耐力恢复 / 抗手抖 / 特殊"
+  },
+  {
+   "name": "Zagustin",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "轻出血 / 重出血",
+   "eff": "技能成长 / 止全出血 / 抗手抖 / 水分恢复"
+  },
+  {
+   "name": "eTG-c",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "挫伤",
+   "eff": "回血 / 能量恢复 / 技能成长"
+  },
+  {
+   "name": "肾上腺素",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "疼痛 / 挫伤",
+   "eff": "技能成长 / 回血 / 水分恢复 / 能量恢复"
+  },
+  {
+   "name": "3-(b-TG)",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "—",
+   "eff": "技能成长 / 耐力恢复 / 抗手抖 / 能量恢复"
+  },
+  {
+   "name": "L1",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "疼痛",
+   "eff": "技能成长 / 耐力上限 / 水分恢复 / 能量恢复"
+  },
+  {
+   "name": "P22",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "—",
+   "eff": "技能成长 / 耐力恢复"
+  },
+  {
+   "name": "AHF1-M",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "轻出血 / 重出血",
+   "eff": "技能成长 / 止全出血 / 水分恢复"
+  },
+  {
+   "name": "米屈肼",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "—",
+   "eff": "技能成长 / 耐力恢复 / 水分恢复 / 能量恢复"
+  },
+  {
+   "name": "M.U.L.E",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "—",
+   "eff": "负重上限 / 回血"
+  },
+  {
+   "name": "Obdolbos",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "—",
+   "eff": "技能成长 / 耐力上限 / 回血 / 耐力恢复 / 负重上限 / 减伤 / 抗手抖 / 水分恢复 / 能量恢复"
+  },
+  {
+   "name": "xTG-12",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "—",
+   "eff": "解毒 / 技能成长"
+  },
+  {
+   "name": "SJ9",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "—",
+   "eff": "体温 / 技能成长 / 回血 / 抗手抖 / 止痛"
+  },
+  {
+   "name": "Obd 2",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "—",
+   "eff": "技能成长 / 负重上限 / 耐力上限 / 耐力恢复 / 回血"
+  },
+  {
+   "name": "SJ12",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "—",
+   "eff": "体温 / 能量恢复 / 水分恢复 / 技能成长"
+  },
+  {
+   "name": "PNB",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "挫伤",
+   "eff": "回血 / 技能成长 / 抗手抖"
+  },
+  {
+   "name": "曲马多",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "疼痛 / 挫伤",
+   "eff": "技能成长 / 耐力上限 / 耐力恢复 / 能量恢复 / 水分恢复"
+  },
+  {
+   "name": "人造血",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "中毒 / 轻出血 / 重出血",
+   "eff": "技能成长 / 解毒 / 止全出血 / 回血 / 能量恢复"
+  },
+  {
+   "name": "2A2-(b-TG)",
+   "hp": null,
+   "per": null,
+   "time": 2,
+   "uses": null,
+   "cures": "—",
+   "eff": "技能成长 / 负重上限 / 水分恢复"
+  },
+  {
+   "name": "止痛药",
+   "hp": null,
+   "per": null,
+   "time": 3,
+   "uses": 4,
+   "cures": "疼痛",
+   "eff": "—"
+  },
+  {
+   "name": "力百汀",
+   "hp": null,
+   "per": null,
+   "time": 5,
+   "uses": 1,
+   "cures": "疼痛",
+   "eff": "—"
+  },
+  {
+   "name": "布洛芬",
+   "hp": null,
+   "per": null,
+   "time": 5,
+   "uses": 8,
+   "cures": "疼痛 / 挫伤",
+   "eff": "—"
+  },
+  {
+   "name": "凡士林",
+   "hp": null,
+   "per": null,
+   "time": 6,
+   "uses": 3,
+   "cures": "疼痛",
+   "eff": "—"
+  },
+  {
+   "name": "金星",
+   "hp": null,
+   "per": null,
+   "time": 7,
+   "uses": 5,
+   "cures": "疼痛 / 挫伤",
+   "eff": "—"
+  }
+ ]
+}

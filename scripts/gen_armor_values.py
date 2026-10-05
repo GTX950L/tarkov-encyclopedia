@@ -75,7 +75,7 @@ def penalty(p: dict) -> str:
 def fetch() -> dict:
     items = get("items")["data"]["items"]
     zh = get("items_zh")["data"]
-    out = {"body": [], "helmet": []}
+    out = {"body": [], "helmet": [], "attach": []}
     for v in items.values():
         p = v.get("properties") or {}
         pt = p.get("propertiesType")
@@ -83,6 +83,8 @@ def fetch() -> dict:
             bucket = "body"
         elif pt == "ItemPropertiesHelmet":
             bucket = "helmet"
+        elif pt == "ItemPropertiesArmorAttachment":
+            bucket = "attach"
         else:
             continue
         iid = v["id"]
@@ -103,7 +105,7 @@ def fetch() -> dict:
         json.dumps({"fetched": FETCH_DATE, **out}, ensure_ascii=False, indent=1),
         encoding="utf-8",
     )
-    print(f"已抓取并缓存：防弹衣 {len(out['body'])} 条 / 头盔 {len(out['helmet'])} 条")
+    print(f"已抓取并缓存：防弹衣 {len(out['body'])} / 头盔 {len(out['helmet'])} / 附加护甲 {len(out['attach'])}")
     return out
 
 
@@ -131,8 +133,8 @@ def render(data: dict, fetched: str) -> str:
         "**钝伤穿透**越低，未击穿时透到身体的伤害越少；**惩罚**三项都是**负值**（越低越吃亏）。"
         "同一级内按耐久降序。",
         ">",
-        "> ⚠️ **本表不含插板与附加护甲**（另有 117 件，属[载具图鉴](loadout-carriers.md) 与装备面板的范畴）；"
-        "**头盔的跳弹参数未列入**（数据端点提供三参数，含义官方未公开）。**本表随版本调整，以游戏内为准。**",
+        "> ⚠️ **头盔的跳弹参数未列入**（数据端点提供三个参数，含义官方未公开）；插板类只列基础属性，**适配关系以装备面板为准**。"
+        "**本表随版本调整，以游戏内为准。**",
         "",
         f"### 防弹衣（{len(data['body'])} 款）",
         "",
@@ -140,6 +142,8 @@ def render(data: dict, fetched: str) -> str:
     out += table(data["body"])
     out += ["", f"### 头盔（{len(data['helmet'])} 款）", ""]
     out += table(data["helmet"])
+    out += ["", f"### 附加护甲：插板与面罩（{len(data['attach'])} 款）", ""]
+    out += table(data["attach"])
     return "\n".join(out)
 
 
@@ -164,7 +168,7 @@ def main() -> None:
             sys.exit("缓存不存在，先跑一次 --fetch。")
         d = json.loads(CACHE.read_text(encoding="utf-8"))
         fetched = d["fetched"]
-        data = {"body": d["body"], "helmet": d["helmet"]}
+        data = {"body": d["body"], "helmet": d["helmet"], "attach": d.get("attach", [])}
     write_section(render(data, fetched))
     print(f"已写入 {TARGET.relative_to(ROOT)}：防弹衣 {len(data['body'])} ／ 头盔 {len(data['helmet'])}")
 

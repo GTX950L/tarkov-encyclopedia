@@ -1,0 +1,282 @@
+{
+ "fetched": "2026-10-06",
+ "count": 46,
+ "rows": [
+  {
+   "name": "沙拉",
+   "energy": 100,
+   "hydra": -10,
+   "buff": "—"
+  },
+  {
+   "name": "GigaBeef",
+   "energy": 100,
+   "hydra": -50,
+   "buff": "—"
+  },
+  {
+   "name": "蛋黄酱",
+   "energy": 100,
+   "hydra": -99,
+   "buff": "技能成长"
+  },
+  {
+   "name": "Iskra",
+   "energy": 80,
+   "hydra": 0,
+   "buff": "—"
+  },
+  {
+   "name": "炼乳",
+   "energy": 75,
+   "hydra": -65,
+   "buff": "技能成长"
+  },
+  {
+   "name": "MRE",
+   "energy": 70,
+   "hydra": 0,
+   "buff": "能量恢复"
+  },
+  {
+   "name": "糖",
+   "energy": 70,
+   "hydra": -45,
+   "buff": "技能成长"
+  },
+  {
+   "name": "西鲱鱼",
+   "energy": 55,
+   "hydra": -5,
+   "buff": "—"
+  },
+  {
+   "name": "塔克肉干",
+   "energy": 55,
+   "hydra": -5,
+   "buff": "—"
+  },
+  {
+   "name": "肝酱",
+   "energy": 50,
+   "hydra": 5,
+   "buff": "—"
+  },
+  {
+   "name": "细鳞大马哈鱼罐头",
+   "energy": 50,
+   "hydra": -5,
+   "buff": "—"
+  },
+  {
+   "name": "炖牛肉罐头",
+   "energy": 50,
+   "hydra": -5,
+   "buff": "—"
+  },
+  {
+   "name": "香肠",
+   "energy": 50,
+   "hydra": -5,
+   "buff": "—"
+  },
+  {
+   "name": "秋刀鱼",
+   "energy": 48,
+   "hydra": -2,
+   "buff": "—"
+  },
+  {
+   "name": "鲱鱼",
+   "energy": 47,
+   "hydra": -3,
+   "buff": "—"
+  },
+  {
+   "name": "炖牛肉罐头",
+   "energy": 45,
+   "hydra": -5,
+   "buff": "—"
+  },
+  {
+   "name": "蔬菜泥",
+   "energy": 40,
+   "hydra": 0,
+   "buff": "—"
+  },
+  {
+   "name": "燕麦片",
+   "energy": 40,
+   "hydra": -13,
+   "buff": "—"
+  },
+  {
+   "name": "Coсaoo_",
+   "energy": 40,
+   "hydra": -18,
+   "buff": "—"
+  },
+  {
+   "name": "豌豆",
+   "energy": 35,
+   "hydra": 5,
+   "buff": "—"
+  },
+  {
+   "name": "Alyonka",
+   "energy": 35,
+   "hydra": -15,
+   "buff": "技能成长"
+  },
+  {
+   "name": "油墨香车",
+   "energy": 30,
+   "hydra": 100,
+   "buff": "—"
+  },
+  {
+   "name": "士腻架",
+   "energy": 30,
+   "hydra": -15,
+   "buff": "技能成长"
+  },
+  {
+   "name": "Superwater",
+   "energy": 25,
+   "hydra": 100,
+   "buff": "回血 / 技能成长"
+  },
+  {
+   "name": "方便面",
+   "energy": 25,
+   "hydra": -10,
+   "buff": "—"
+  },
+  {
+   "name": "Aquamari",
+   "energy": 20,
+   "hydra": 100,
+   "buff": "—"
+  },
+  {
+   "name": "牛奶",
+   "energy": 20,
+   "hydra": 30,
+   "buff": "技能成长"
+  },
+  {
+   "name": "六可乐",
+   "energy": 20,
+   "hydra": 20,
+   "buff": "能量恢复"
+  },
+  {
+   "name": "面包块",
+   "energy": 20,
+   "hydra": -10,
+   "buff": "水分恢复"
+  },
+  {
+   "name": "私酒",
+   "energy": 20,
+   "hydra": -10,
+   "buff": "技能成长 / 抗手抖"
+  },
+  {
+   "name": "格瓦斯",
+   "energy": 15,
+   "hydra": 65,
+   "buff": "—"
+  },
+  {
+   "name": "MaxEnergy",
+   "energy": 12,
+   "hydra": 20,
+   "buff": "技能成长"
+  },
+  {
+   "name": "Pevko",
+   "energy": 10,
+   "hydra": 40,
+   "buff": "技能成长"
+  },
+  {
+   "name": "热棒",
+   "energy": 10,
+   "hydra": 20,
+   "buff": "技能成长"
+  },
+  {
+   "name": "饼干",
+   "energy": 10,
+   "hydra": -5,
+   "buff": "—"
+  },
+  {
+   "name": "Emelya",
+   "energy": 10,
+   "hydra": -10,
+   "buff": "水分恢复"
+  },
+  {
+   "name": "威士忌",
+   "energy": 10,
+   "hydra": -35,
+   "buff": "技能成长 / 抗手抖"
+  },
+  {
+   "name": "菠萝汁",
+   "energy": 8,
+   "hydra": 30,
+   "buff": "能量恢复"
+  },
+  {
+   "name": "Vita果汁",
+   "energy": 8,
+   "hydra": 28,
+   "buff": "—"
+  },
+  {
+   "name": "西柚汁",
+   "energy": 6,
+   "hydra": 30,
+   "buff": "—"
+  },
+  {
+   "name": "应急用水",
+   "energy": 5,
+   "hydra": 50,
+   "buff": "—"
+  },
+  {
+   "name": "苹果汁",
+   "energy": 5,
+   "hydra": 25,
+   "buff": "—"
+  },
+  {
+   "name": "塔可乐",
+   "energy": 5,
+   "hydra": 15,
+   "buff": "能量恢复"
+  },
+  {
+   "name": "水",
+   "energy": 0,
+   "hydra": 60,
+   "buff": "—"
+  },
+  {
+   "name": "绿茶",
+   "energy": 0,
+   "hydra": 15,
+   "buff": "—"
+  },
+  {
+   "name": "伏特加",
+   "energy": 0,
+   "hydra": -50,
+   "buff": "技能成长 / 抗手抖"
+  }
+ ]
+}

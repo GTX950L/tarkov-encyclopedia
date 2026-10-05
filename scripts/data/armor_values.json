@@ -1452,5 +1452,1060 @@
    "blunt": 0.33,
    "pen": "0% / 0% / 0%"
   }
+ ],
+ "attach": [
+  {
+   "name": "Cult Termite",
+   "class": 6,
+   "dur": 65,
+   "mat": "钛",
+   "type": "重型",
+   "blunt": 0.14,
+   "pen": "-2% / -1.5% / -1%"
+  },
+  {
+   "name": "Granit Br5",
+   "class": 6,
+   "dur": 60,
+   "mat": "陶瓷",
+   "type": "重型",
+   "blunt": 0.28,
+   "pen": "-2% / -1.5% / -1.5%"
+  },
+  {
+   "name": "Korund-VM-K 前板",
+   "class": 6,
+   "dur": 60,
+   "mat": "陶瓷",
+   "type": "重型",
+   "blunt": 0.29,
+   "pen": "-3% / -1% / -2%"
+  },
+  {
+   "name": "NESCO 4400",
+   "class": 6,
+   "dur": 60,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.22,
+   "pen": "-2.5% / -1% / -1%"
+  },
+  {
+   "name": "ESAPI IV",
+   "class": 6,
+   "dur": 55,
+   "mat": "陶瓷",
+   "type": "重型",
+   "blunt": 0.3,
+   "pen": "-1.5% / -0.5% / -1.5%"
+  },
+  {
+   "name": "Granit 4RS前部",
+   "class": 6,
+   "dur": 55,
+   "mat": "陶瓷",
+   "type": "重型",
+   "blunt": 0.28,
+   "pen": "-2.5% / -2% / -1.5%"
+  },
+  {
+   "name": "1Sch面罩",
+   "class": 6,
+   "dur": 50,
+   "mat": "ArmoredSteel",
+   "type": "—",
+   "blunt": 0.0792,
+   "pen": "0% / 0% / -13%"
+  },
+  {
+   "name": "1Sch面罩",
+   "class": 6,
+   "dur": 50,
+   "mat": "ArmoredSteel",
+   "type": "—",
+   "blunt": 0.0792,
+   "pen": "0% / 0% / -13%"
+  },
+  {
+   "name": "Granit 4RS 背板",
+   "class": 6,
+   "dur": 50,
+   "mat": "陶瓷",
+   "type": "重型",
+   "blunt": 0.29,
+   "pen": "-2% / -1% / -1%"
+  },
+  {
+   "name": "KA Steel",
+   "class": 6,
+   "dur": 50,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.18,
+   "pen": "-3% / -1.5% / -1.5%"
+  },
+  {
+   "name": "GAC 4sss2",
+   "class": 6,
+   "dur": 50,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.26,
+   "pen": "-1.5% / -0.5% / -1.5%"
+  },
+  {
+   "name": "1SCh面罩",
+   "class": 6,
+   "dur": 50,
+   "mat": "ArmoredSteel",
+   "type": "—",
+   "blunt": 0.0792,
+   "pen": "0% / 0% / -13%"
+  },
+  {
+   "name": "KITECO SC",
+   "class": 6,
+   "dur": 45,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.26,
+   "pen": "-1.5% / -0.5% / -1.5%"
+  },
+  {
+   "name": "Korund-VM-K 背板",
+   "class": 6,
+   "dur": 45,
+   "mat": "陶瓷",
+   "type": "重型",
+   "blunt": 0.29,
+   "pen": "-1.5% / -1% / -1%"
+  },
+  {
+   "name": "Bastion",
+   "class": 6,
+   "dur": 40,
+   "mat": "陶瓷",
+   "type": "—",
+   "blunt": 0.0495,
+   "pen": "0% / -6% / -5%"
+  },
+  {
+   "name": "Granit侧板",
+   "class": 6,
+   "dur": 20,
+   "mat": "陶瓷",
+   "type": "重型",
+   "blunt": 0.28,
+   "pen": "-0.8% / -0.8% / 0%"
+  },
+  {
+   "name": "ESBI IV侧板",
+   "class": 6,
+   "dur": 18,
+   "mat": "陶瓷",
+   "type": "重型",
+   "blunt": 0.3,
+   "pen": "-0.5% / -0.5% / 0%"
+  },
+  {
+   "name": "Korund-VM 前板",
+   "class": 5,
+   "dur": 60,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.18,
+   "pen": "-2% / -1% / -1%"
+  },
+  {
+   "name": "Cult Locust",
+   "class": 5,
+   "dur": 60,
+   "mat": "钛",
+   "type": "重型",
+   "blunt": 0.14,
+   "pen": "-1.5% / -1% / -1%"
+  },
+  {
+   "name": "Rys-T面罩",
+   "class": 5,
+   "dur": 55,
+   "mat": "复合材料",
+   "type": "—",
+   "blunt": 0.0792,
+   "pen": "0% / -6% / -9%"
+  },
+  {
+   "name": "Granit Br4",
+   "class": 5,
+   "dur": 55,
+   "mat": "陶瓷",
+   "type": "重型",
+   "blunt": 0.28,
+   "pen": "-1.5% / -1% / -1%"
+  },
+  {
+   "name": "TC Guardian",
+   "class": 5,
+   "dur": 55,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.18,
+   "pen": "-2% / -0.5% / -1.5%"
+  },
+  {
+   "name": "Altyn面罩",
+   "class": 5,
+   "dur": 50,
+   "mat": "复合材料",
+   "type": "—",
+   "blunt": 0.0792,
+   "pen": "0% / -8% / -8%"
+  },
+  {
+   "name": "SAPI III+",
+   "class": 5,
+   "dur": 50,
+   "mat": "陶瓷",
+   "type": "重型",
+   "blunt": 0.3,
+   "pen": "-1% / -0.5% / -1.5%"
+  },
+  {
+   "name": "Granit 4前部",
+   "class": 5,
+   "dur": 50,
+   "mat": "陶瓷",
+   "type": "重型",
+   "blunt": 0.28,
+   "pen": "-2% / -1.5% / -1%"
+  },
+  {
+   "name": "Altyn FS",
+   "class": 5,
+   "dur": 50,
+   "mat": "复合材料",
+   "type": "—",
+   "blunt": 0.0792,
+   "pen": "0% / -8% / -8%"
+  },
+  {
+   "name": "Granit 4背部",
+   "class": 5,
+   "dur": 45,
+   "mat": "陶瓷",
+   "type": "重型",
+   "blunt": 0.29,
+   "pen": "-1% / -1% / -1%"
+  },
+  {
+   "name": "GAC 3s15m",
+   "class": 5,
+   "dur": 45,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.26,
+   "pen": "-1% / 0% / -1%"
+  },
+  {
+   "name": "Korund-VM 背板",
+   "class": 5,
+   "dur": 40,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.18,
+   "pen": "-1% / -0.5% / -1%"
+  },
+  {
+   "name": "护颈",
+   "class": 5,
+   "dur": 35,
+   "mat": "复合材料",
+   "type": "—",
+   "blunt": 0.0396,
+   "pen": "0% / -15% / -4%"
+  },
+  {
+   "name": "SLAAP",
+   "class": 5,
+   "dur": 30,
+   "mat": "超高分子量聚乙烯",
+   "type": "—",
+   "blunt": 0.0792,
+   "pen": "0% / -8% / -7%"
+  },
+  {
+   "name": "Korund-VM 侧板",
+   "class": 5,
+   "dur": 25,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.18,
+   "pen": "-0.5% / 0% / 0%"
+  },
+  {
+   "name": "SSAPI III+侧",
+   "class": 5,
+   "dur": 15,
+   "mat": "陶瓷",
+   "type": "重型",
+   "blunt": 0.3,
+   "pen": "-0.5% / -0.5% / 0%"
+  },
+  {
+   "name": "Vulkan面罩",
+   "class": 4,
+   "dur": 85,
+   "mat": "玻璃",
+   "type": "—",
+   "blunt": 0.0792,
+   "pen": "0% / -5% / -2%"
+  },
+  {
+   "name": "KA Titan",
+   "class": 4,
+   "dur": 55,
+   "mat": "钛",
+   "type": "重型",
+   "blunt": 0.14,
+   "pen": "-1% / -0.5% / -0.5%"
+  },
+  {
+   "name": "2DTM面罩",
+   "class": 4,
+   "dur": 50,
+   "mat": "玻璃",
+   "type": "—",
+   "blunt": 0.0693,
+   "pen": "0% / -5% / -4%"
+  },
+  {
+   "name": "6B33前部",
+   "class": 4,
+   "dur": 50,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.18,
+   "pen": "-2.5% / -1% / -1%"
+  },
+  {
+   "name": "SPRTN Omega",
+   "class": 4,
+   "dur": 50,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.18,
+   "pen": "-1.5% / -0.5% / -0.5%"
+  },
+  {
+   "name": "6B13背部",
+   "class": 4,
+   "dur": 45,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.18,
+   "pen": "-2.5% / 0% / -0.5%"
+  },
+  {
+   "name": "GA Steel",
+   "class": 4,
+   "dur": 45,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.18,
+   "pen": "-1.5% / -0.5% / -1%"
+  },
+  {
+   "name": "SPRTN Elaphros",
+   "class": 4,
+   "dur": 45,
+   "mat": "陶瓷",
+   "type": "重型",
+   "blunt": 0.3,
+   "pen": "-1% / 0% / -1.5%"
+  },
+  {
+   "name": "NST三级",
+   "class": 4,
+   "dur": 45,
+   "mat": "铝",
+   "type": "轻型",
+   "blunt": 0.27,
+   "pen": "-1% / -0.5% / -1%"
+  },
+  {
+   "name": "凯门鳄贴片",
+   "class": 4,
+   "dur": 40,
+   "mat": "超高分子量聚乙烯",
+   "type": "—",
+   "blunt": 0.0792,
+   "pen": "0% / -6% / -6%"
+  },
+  {
+   "name": "Monoclete PE",
+   "class": 4,
+   "dur": 40,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.26,
+   "pen": "-1% / 0% / -1%"
+  },
+  {
+   "name": "6B23-2背部",
+   "class": 4,
+   "dur": 40,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.18,
+   "pen": "-1.5% / 0% / -0.5%"
+  },
+  {
+   "name": "凯门鳄贴片",
+   "class": 4,
+   "dur": 40,
+   "mat": "超高分子量聚乙烯",
+   "type": "—",
+   "blunt": 0.0792,
+   "pen": "0% / -6% / -6%"
+  },
+  {
+   "name": "凯门鳄贴片",
+   "class": 4,
+   "dur": 40,
+   "mat": "超高分子量聚乙烯",
+   "type": "—",
+   "blunt": 0.0792,
+   "pen": "0% / -6% / -6%"
+  },
+  {
+   "name": "Ronin M2",
+   "class": 4,
+   "dur": 21,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "Ronin M2",
+   "class": 4,
+   "dur": 21,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "Ronin M2",
+   "class": 4,
+   "dur": 21,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "Ronin M2",
+   "class": 4,
+   "dur": 21,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "Ronin M2",
+   "class": 4,
+   "dur": 21,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "Ronin M2",
+   "class": 4,
+   "dur": 21,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "凯门鳄贴片",
+   "class": 4,
+   "dur": 20,
+   "mat": "超高分子量聚乙烯",
+   "type": "—",
+   "blunt": 0.72,
+   "pen": "0% / -6% / -6%"
+  },
+  {
+   "name": "Ronin F2",
+   "class": 4,
+   "dur": 14,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "-1% / 0% / 0%"
+  },
+  {
+   "name": "Ronin F2",
+   "class": 4,
+   "dur": 14,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.2,
+   "pen": "-1% / 0% / 0%"
+  },
+  {
+   "name": "Ronin F2",
+   "class": 4,
+   "dur": 14,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "-1% / 0% / 0%"
+  },
+  {
+   "name": "Ronin F2",
+   "class": 4,
+   "dur": 14,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "-1% / 0% / 0%"
+  },
+  {
+   "name": "Ronin F2",
+   "class": 4,
+   "dur": 14,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "-1% / 0% / 0%"
+  },
+  {
+   "name": "Ronin F2",
+   "class": 4,
+   "dur": 14,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "-1% / 0% / 0%"
+  },
+  {
+   "name": "ZSh-1-2M",
+   "class": 3,
+   "dur": 50,
+   "mat": "玻璃",
+   "type": "—",
+   "blunt": 0.099,
+   "pen": "0% / 0% / -4%"
+  },
+  {
+   "name": "6B12 前板",
+   "class": 3,
+   "dur": 50,
+   "mat": "ArmoredSteel",
+   "type": "重型",
+   "blunt": 0.18,
+   "pen": "-3% / -1% / -1.5%"
+  },
+  {
+   "name": "EXFIL面罩",
+   "class": 3,
+   "dur": 45,
+   "mat": "玻璃",
+   "type": "—",
+   "blunt": 0.1188,
+   "pen": "0% / -10% / -6%"
+  },
+  {
+   "name": "EXFIL面罩",
+   "class": 3,
+   "dur": 45,
+   "mat": "玻璃",
+   "type": "—",
+   "blunt": 0.1188,
+   "pen": "0% / -10% / -6%"
+  },
+  {
+   "name": "AR500 LP",
+   "class": 3,
+   "dur": 45,
+   "mat": "复合材料",
+   "type": "重型",
+   "blunt": 0.18,
+   "pen": "-2% / -1% / -1%"
+  },
+  {
+   "name": "FAST面罩",
+   "class": 3,
+   "dur": 40,
+   "mat": "玻璃",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / -8% / -6%"
+  },
+  {
+   "name": "Kiver面罩",
+   "class": 3,
+   "dur": 40,
+   "mat": "玻璃",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / 0% / -5%"
+  },
+  {
+   "name": "Zhuk-3前部",
+   "class": 3,
+   "dur": 40,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.24,
+   "pen": "-2% / -1.5% / -1%"
+  },
+  {
+   "name": "EXFIL Mandible",
+   "class": 3,
+   "dur": 36,
+   "mat": "超高分子量聚乙烯",
+   "type": "—",
+   "blunt": 0.19,
+   "pen": "0% / -0.5% / -1.5%"
+  },
+  {
+   "name": "EXFIL Mandible",
+   "class": 3,
+   "dur": 36,
+   "mat": "超高分子量聚乙烯",
+   "type": "—",
+   "blunt": 0.19,
+   "pen": "-1% / 0% / -2%"
+  },
+  {
+   "name": "EXFIL Mandible",
+   "class": 3,
+   "dur": 36,
+   "mat": "超高分子量聚乙烯",
+   "type": "—",
+   "blunt": 0.198,
+   "pen": "0% / -0.5% / -1.5%"
+  },
+  {
+   "name": "PRTCTR轻量化",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.26,
+   "pen": "-1% / 0% / -1%"
+  },
+  {
+   "name": "AF护颚",
+   "class": 3,
+   "dur": 30,
+   "mat": "铝",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "EXFIL护耳",
+   "class": 3,
+   "dur": 30,
+   "mat": "铝",
+   "type": "—",
+   "blunt": 0.1287,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "EXFIL护耳",
+   "class": 3,
+   "dur": 30,
+   "mat": "铝",
+   "type": "—",
+   "blunt": 0.1287,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "Tor-2面罩",
+   "class": 3,
+   "dur": 30,
+   "mat": "玻璃",
+   "type": "—",
+   "blunt": 0.1188,
+   "pen": "0% / -3% / -4%"
+  },
+  {
+   "name": "AF护颚",
+   "class": 3,
+   "dur": 30,
+   "mat": "铝",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "AF护颚",
+   "class": 3,
+   "dur": 30,
+   "mat": "铝",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "AF护颚",
+   "class": 3,
+   "dur": 30,
+   "mat": "铝",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "AF护颚",
+   "class": 3,
+   "dur": 30,
+   "mat": "铝",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "AF Chops",
+   "class": 3,
+   "dur": 30,
+   "mat": "铝",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / -1% / -1%"
+  },
+  {
+   "name": "AF护耳",
+   "class": 3,
+   "dur": 27,
+   "mat": "铝",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "AF护耳",
+   "class": 3,
+   "dur": 27,
+   "mat": "铝",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "AF护耳",
+   "class": 3,
+   "dur": 27,
+   "mat": "铝",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "AF护耳",
+   "class": 3,
+   "dur": 27,
+   "mat": "铝",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "AF护耳",
+   "class": 3,
+   "dur": 27,
+   "mat": "铝",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "AF Ears",
+   "class": 3,
+   "dur": 27,
+   "mat": "铝",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "侧甲",
+   "class": 3,
+   "dur": 25,
+   "mat": "铝",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "NeoSteel",
+   "class": 3,
+   "dur": 25,
+   "mat": "ArmoredSteel",
+   "type": "—",
+   "blunt": 0.1726,
+   "pen": "-1% / 0% / -2%"
+  },
+  {
+   "name": "NeoSteel",
+   "class": 3,
+   "dur": 25,
+   "mat": "ArmoredSteel",
+   "type": "—",
+   "blunt": 0.1726,
+   "pen": "-1% / 0% / -2%"
+  },
+  {
+   "name": "NeoSteel",
+   "class": 3,
+   "dur": 25,
+   "mat": "ArmoredSteel",
+   "type": "—",
+   "blunt": 0.1726,
+   "pen": "-1% / 0% / -2%"
+  },
+  {
+   "name": "Ronin M1",
+   "class": 3,
+   "dur": 21,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "0% / 0% / -1%"
+  },
+  {
+   "name": "Ronin M1",
+   "class": 3,
+   "dur": 21,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "0% / 0% / -1%"
+  },
+  {
+   "name": "Ronin M1",
+   "class": 3,
+   "dur": 21,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "0% / 0% / -1%"
+  },
+  {
+   "name": "Ronin M1",
+   "class": 3,
+   "dur": 21,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "0% / 0% / -1%"
+  },
+  {
+   "name": "Ronin M1",
+   "class": 3,
+   "dur": 21,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "0% / 0% / -1%"
+  },
+  {
+   "name": "Ronin M1",
+   "class": 3,
+   "dur": 21,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "0% / 0% / -1%"
+  },
+  {
+   "name": "NovaSteel Mandible",
+   "class": 3,
+   "dur": 20,
+   "mat": "ArmoredSteel",
+   "type": "—",
+   "blunt": 0.1726,
+   "pen": "0% / 0% / -1.2%"
+  },
+  {
+   "name": "NovaSteel Mandible",
+   "class": 3,
+   "dur": 20,
+   "mat": "ArmoredSteel",
+   "type": "—",
+   "blunt": 0.1726,
+   "pen": "-1% / 0% / -2%"
+  },
+  {
+   "name": "NovaSteel Mandible",
+   "class": 3,
+   "dur": 20,
+   "mat": "ArmoredSteel",
+   "type": "—",
+   "blunt": 0.1726,
+   "pen": "0% / 0% / -1.2%"
+  },
+  {
+   "name": "NovaSteel",
+   "class": 3,
+   "dur": 15,
+   "mat": "ArmoredSteel",
+   "type": "—",
+   "blunt": 0.1726,
+   "pen": "0% / -2% / 0%"
+  },
+  {
+   "name": "Ronin F1",
+   "class": 3,
+   "dur": 14,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "-1% / 0% / 0%"
+  },
+  {
+   "name": "Ronin F1",
+   "class": 3,
+   "dur": 14,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "-1% / 0% / 0%"
+  },
+  {
+   "name": "Ronin F1",
+   "class": 3,
+   "dur": 14,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "-1% / 0% / 0%"
+  },
+  {
+   "name": "Ronin F1",
+   "class": 3,
+   "dur": 14,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "-1% / 0% / 0%"
+  },
+  {
+   "name": "Ronin F1",
+   "class": 3,
+   "dur": 14,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "-1% / 0% / 0%"
+  },
+  {
+   "name": "Ronin F1",
+   "class": 3,
+   "dur": 14,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.22,
+   "pen": "-1% / 0% / 0%"
+  },
+  {
+   "name": "Heavy Trooper",
+   "class": 2,
+   "dur": 45,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.099,
+   "pen": "0% / -2% / -5%"
+  },
+  {
+   "name": "Kolpak面罩",
+   "class": 2,
+   "dur": 30,
+   "mat": "玻璃",
+   "type": "—",
+   "blunt": 0.099,
+   "pen": "0% / 0% / -3%"
+  },
+  {
+   "name": "凯门鳄护目",
+   "class": 2,
+   "dur": 30,
+   "mat": "玻璃",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / 0% / -3%"
+  },
+  {
+   "name": "F护目罩",
+   "class": 2,
+   "dur": 20,
+   "mat": "玻璃",
+   "type": "—",
+   "blunt": 0.1485,
+   "pen": "0% / 0% / 0%"
+  },
+  {
+   "name": "护颚",
+   "class": 2,
+   "dur": 20,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.198,
+   "pen": "0% / 0% / -3%"
+  },
+  {
+   "name": "凯门鳄护颚",
+   "class": 2,
+   "dur": 20,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.198,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "凯门鳄护颚",
+   "class": 2,
+   "dur": 20,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.198,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "凯门鳄护颚",
+   "class": 2,
+   "dur": 20,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.198,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "凯门鳄护颚",
+   "class": 2,
+   "dur": 20,
+   "mat": "芳纶",
+   "type": "—",
+   "blunt": 0.72,
+   "pen": "0% / 0% / -2%"
+  },
+  {
+   "name": "TK SAPI III+",
+   "class": 1,
+   "dur": 90,
+   "mat": "超高分子量聚乙烯",
+   "type": "轻型",
+   "blunt": 0.33,
+   "pen": "-0.5% / -0.2% / -0.5%"
+  }
  ]
 }
