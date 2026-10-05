@@ -95,6 +95,140 @@ tags:
 
 ---
 
+<!-- AUTO-GEN:QUEST-EXTRAS:START -->
+
+## 📊 速查：物品需求反查 ｜ 任务速查
+
+> **口径**：2026-09-30 抓取 ｜ 持久 PvP ｜ 来源：二级（tarkov.dev 官方任务数据）
+>
+> **这一节回答的是「我该攒什么」**——把 515 个任务的目标里**真正要上交或放置的物品**按物品聚合，**被 3 个及以上任务需要的物品共 79 种**。只统计 `上交 / 找到 / 放置` 类目标；`卖任何物品给某商人` 那类目标是**许可白名单、不是需求**，已排除。
+
+| 物品 | 需要它的任务数 | 合计数量 | 涉及商人 |
+|------|----------------|----------|----------|
+| WIFI摄像头 | 9 | 47 | Fence / Mechanic / Skier |
+| “凶狠跑刀崽”私酒 | 6 | 33 | BTR 司机 / Skier / Ragman |
+| 卢布 | 5 | 4400000 | Mechanic / Skier / Therapist |
+| 军用COFDM无线信号发射器 | 5 | 21 | Mechanic / Peacekeeper / Prapor |
+| 咸狗牛肉肠 | 5 | 21 | Jaeger / BTR 司机 / Ref |
+| LEDX皮肤透照仪 | 5 | 15 | Therapist |
+| BEAR 狗牌 | 4 | 575 | Peacekeeper / Prapor / Fence |
+| Dan Jackiel瓶装威士忌 | 4 | 46 | Ragman / Skier / Fence |
+| Tarkovskaya瓶装伏特加 | 4 | 45 | Ragman / BTR 司机 / Skier |
+| SJ6 TGLabs 战斗兴奋剂注射器 | 4 | 43 | Therapist / Mechanic / Skier |
+| M.U.L.E. 兴奋剂注射器 | 4 | 40 | Therapist / Peacekeeper / Skier |
+| 米屈肼注射器 | 4 | 40 | Therapist / Peacekeeper / Skier |
+| SJ9 TGLabs 战斗兴奋剂注射器 | 4 | 39 | Therapist / Mechanic / Skier |
+| OLOLO瓶装复合维生素 | 4 | 32 | Therapist |
+| 邪教徒之刃 | 4 | 32 | Fence / Lightkeeper / Skier |
+| 加密U盘 | 4 | 27 | Skier / Jaeger / Peacekeeper |
+| 6B43 屏障-Sh 防弹衣（数码丛林迷彩） | 4 | 23 | Ragman / Jaeger |
+| Salewa急救包 | 4 | 22 | Therapist / Jaeger |
+| BNTI Gzhel-K（彩瓷-K）防弹衣 | 4 | 21 | Ragman / Jaeger |
+| 医用输血工具 | 4 | 20 | Skier / Therapist |
+| 肾上腺素注射器 | 4 | 20 | Therapist |
+| 检眼镜 | 4 | 16 | Therapist |
+| 3-(b-TG) 兴奋剂注射器 | 4 | 12 | Therapist / Peacekeeper |
+| AHF1-M 兴奋剂注射器 | 4 | 12 | Therapist / Peacekeeper |
+| 金属燃料桶 | 4 | 10 | Peacekeeper / BTR 司机 / Jaeger |
+| USEC 狗牌 | 3 | 235 | Prapor / Peacekeeper / Fence |
+| 一堆药 | 3 | 48 | Therapist |
+| 炖牛肉罐头 | 3 | 45 | Therapist / Jaeger / Ref |
+| 显示卡 | 3 | 42 | Mechanic / Prapor / Skier |
+| Obdolbos 2 鸡尾酒兴奋剂注射器 | 3 | 38 | Therapist / Skier |
+| Propital 再生兴奋剂注射器 | 3 | 38 | Therapist / Skier |
+| SJ12 TGLabs 战斗兴奋剂注射器 | 3 | 38 | Therapist / Skier |
+| eTG-change 再生兴奋剂注射器 | 3 | 38 | Therapist / Skier |
+| BNTI Zhuk（甲虫）防弹衣（数码丛林迷彩） | 3 | 31 | Skier / Jaeger / Ragman |
+| Vulkan-5 (火神) LShZ-5 重型防弹头盔 (黑色) | 3 | 31 | Jaeger / Skier / Ragman |
+| 呼吸面罩 | 3 | 31 | Skier / Ragman |
+| 电线 | 3 | 31 | Mechanic / Prapor |
+| MRE个人即食口粮 | 3 | 25 | Peacekeeper / Jaeger / Ref |
+| Emelya黑麦面包块 | 3 | 23 | BTR 司机 / Jaeger / Ref |
+| SJ1 TGLabs 战斗兴奋剂注射器 | 3 | 23 | Therapist / Mechanic |
+| 黑麦面包块 | 3 | 23 | BTR 司机 / Jaeger / Ref |
+| FORT Defender-2 防弹衣 | 3 | 22 | Ragman / Jaeger |
+| FORT Redut-M（堡垒-M）防弹衣 | 3 | 22 | Ragman / Jaeger |
+| 一次性注射器 | 3 | 18 | Therapist |
+| Iskra（“火花”）单兵口粮 | 3 | 17 | Jaeger / Ref |
+| Trijicon REAP-IR热成像步枪瞄准镜 | 3 | 17 | Mechanic / Skier / Lightkeeper |
+| 雷硼嬉皮太阳镜 | 3 | 17 | Ragman |
+| AFAK单兵急救包 | 3 | 16 | Jaeger / Therapist |
+| AI-2急救组合 | 3 | 16 | Jaeger / Therapist |
+| CALOK-B止血剂 | 3 | 16 | Jaeger / Therapist |
+| CAT止血带 | 3 | 16 | Jaeger / Therapist |
+| CMS手术包 | 3 | 16 | Jaeger / Therapist |
+| Esmarch止血带 | 3 | 16 | Jaeger / Therapist |
+| Grizzly急救包 | 3 | 16 | Jaeger / Therapist |
+| IFAK单兵急救包 | 3 | 16 | Jaeger / Therapist |
+| Surv12野战手术包 | 3 | 16 | Jaeger / Therapist |
+| Virtex可编程处理器 | 3 | 16 | Peacekeeper / Prapor / Skier |
+| 军用绷带 | 3 | 16 | Jaeger / Therapist |
+| 印制电路板 | 3 | 16 | Mechanic / Prapor |
+| 固定夹板 | 3 | 16 | Jaeger / Therapist |
+| 无菌绷带 | 3 | 16 | Jaeger / Therapist |
+| 车载急救包 | 3 | 16 | Jaeger / Therapist |
+| 铝固定夹板 | 3 | 16 | Jaeger / Therapist |
+| 电子元件 | 3 | 15 | Mechanic / Prapor |
+| Tigzresq 夹板 | 3 | 14 | Jaeger / Therapist / Fence |
+| VOG-25 Khattabka 简易手榴弹 | 3 | 14 | BTR 司机 / Prapor / Peacekeeper |
+| 便携式除颤器 | 3 | 14 | Therapist |
+| 纯净水 | 3 | 14 | Ragman / Therapist / Ref |
+| 电脑CPU | 3 | 13 | Mechanic / Prapor |
+| 气体分析仪 | 3 | 11 | Therapist / Mechanic |
+| 盐水溶液 | 3 | 11 | Therapist |
+| 0.6升瓶装水 | 3 | 10 | Jaeger / Therapist / Ref |
+| L1（去甲肾上腺素）注射器 | 3 | 10 | Therapist / Peacekeeper |
+| Obdolbos 鸡尾酒兴奋剂注射器 | 3 | 10 | Therapist / Peacekeeper |
+| P22 (22 号化合物) 兴奋剂注射器 | 3 | 10 | Therapist / Peacekeeper |
+| 5升丙烷罐 | 3 | 9 | Skier / Peacekeeper |
+| MS2000指示器 | 3 | 6 | Skier / BTR 司机 |
+| 完好的硬盘驱动器 | 3 | 6 | Mechanic / Skier / Peacekeeper |
+| 裁判的黑料 | 3 | 6 | Fence / Ref / Lightkeeper |
+
+### 任务速查：几类容易被忽略的条件
+
+> **需要钥匙 / 有失败条件 / Kappa / Lightkeeper 已在上方「关键标记与条件」列出**，这里只补那一段没有的三类。
+
+| 类别 | 数量 | 说明 |
+|------|------|------|
+| **有接取延迟** | **13** | 接取后要等一段时间才能推进——**先把任务接上，再去做别的**，别白等 |
+| **可重接** | **16** | 失败或放弃后还能再接，试错代价比一次性任务低 |
+
+**经验奖励最高的十个任务**（`exp` 字段原值）：
+
+| 经验 | 任务 |
+|------|------|
+| 433333 | 抉择（Fence） |
+| 155000 | 护送（Prapor） |
+| 92000 | 实战考验（Ragman） |
+| 85500 | 特殊提议（Ragman） |
+| 85400 | 独立的代价（BTR 司机） |
+| 85400 | 独立的代价（BTR 司机） |
+| 65000 | 透透气（Prapor） |
+| 65000 | 轻重缓急（Mechanic） |
+| 65000 | 识时务者为俊杰（Skier） |
+| 65000 | 艺术就是爆炸（Prapor） |
+
+**有接取延迟的任务**（延迟值以分钟计，端点原值）：
+
+| 任务 | 延迟 |
+|------|------|
+| 灯塔之匙 | 86400 |
+| 以牙还牙 | 36000 |
+| 大显身手 | 36000 |
+| 大都会之谜 | 36000 |
+| 失踪的线人 | 36000 |
+| 归还人情 | 36000 |
+| 抢夺先机 | 36000 |
+| 按图索骥 | 36000 |
+| 挑衅 | 36000 |
+| 观察员 | 36000 |
+| 网络供应商 - 2 | 32400 |
+| 感官分析 - 1 | 2100 |
+| 情报之源 | 5 |
+
+<!-- AUTO-GEN:QUEST-EXTRAS:END -->
+
 ## 🧭 相关页面
 
 - [商人任务线图鉴](../entries/trader-questlines.md) —— **按商人看分布、等级跨度、长链与忠诚度门槛**，并给出 Kappa 的完整前置树；本栏目是它的**逐任务明细层**
