@@ -53,6 +53,18 @@ def main() -> None:
     rows = [(k, len(v), item_qty[k], item_traders[k]) for k, v in item_tasks.items() if len(v) >= 3]
     rows.sort(key=lambda r: (-r[1], -r[2], r[0]))
 
+    # 奖励反查：哪些任务会「给」某件物品——与上面的「需求反查」正好互补
+    rew_tasks: dict[str, set] = defaultdict(set)
+    rew_qty: dict[str, int] = defaultdict(int)
+    for q in tasks:
+        for pair in (q.get("rewards") or {}).get("items") or []:
+            if not isinstance(pair, (list, tuple)) or len(pair) < 2:
+                continue
+            rew_tasks[pair[0]].add(q["name"])
+            rew_qty[pair[0]] += pair[1] or 0
+    rew_rows = [(k, len(v), rew_qty[k]) for k, v in rew_tasks.items() if len(v) >= 3]
+    rew_rows.sort(key=lambda r: (-r[1], -r[2], r[0]))
+
     # 任务速查
     keys_tasks = [q["name"] for q in tasks if q.get("keys")]
     delay_tasks = [(q["name"], q.get("delay")) for q in tasks if q.get("delay")]
@@ -102,6 +114,20 @@ def main() -> None:
                 "| 任务 | 延迟 |", "|------|------|"]
         for name, dl in sorted(delay_tasks, key=lambda x: -(x[1] or 0)):
             out.append(f"| {name} | {dl} |")
+
+    if rew_rows:
+        out += [
+            "",
+            "### 奖励反查：哪些任务会「给」它",
+            "",
+            "> 与上面的**需求反查**正好互补——那个回答「我要攒什么」，这个回答「**这东西哪来的**」；"
+            "同样只列**被 3 个及以上任务作为奖励给出**的物品。",
+            "",
+            "| 物品 | 由几个任务给出 | 合计数量 |",
+            "|------|----------------|----------|",
+        ]
+        for name, n, qty in rew_rows:
+            out.append(f"| {name} | {n} | {qty} |")
 
     block = "\n".join(out)
     text = TARGET.read_text(encoding="utf-8")
