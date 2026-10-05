@@ -1,0 +1,1002 @@
+{
+ "fetched": "2026-10-06",
+ "hp": [
+  {
+   "name": "Zryachiy",
+   "parts": {
+    "Chest": 450,
+    "Head": 175,
+    "LeftArm": 190,
+    "LeftLeg": 190,
+    "RightArm": 190,
+    "RightLeg": 190,
+    "Stomach": 270
+   },
+   "total": 1655
+  },
+  {
+   "name": "Shadow of Tagilla",
+   "parts": {
+    "Chest": 360,
+    "Head": 105,
+    "LeftArm": 140,
+    "LeftLeg": 140,
+    "RightArm": 140,
+    "RightLeg": 140,
+    "Stomach": 280
+   },
+   "total": 1305
+  },
+  {
+   "name": "Kaban",
+   "parts": {
+    "Chest": 355,
+    "Head": 85,
+    "LeftArm": 150,
+    "LeftLeg": 150,
+    "RightArm": 150,
+    "RightLeg": 150,
+    "Stomach": 260
+   },
+   "total": 1300
+  },
+  {
+   "name": "Sanitar",
+   "parts": {
+    "Chest": 360,
+    "Head": 70,
+    "LeftArm": 120,
+    "LeftLeg": 230,
+    "RightArm": 120,
+    "RightLeg": 230,
+    "Stomach": 140
+   },
+   "total": 1270
+  },
+  {
+   "name": "Tagilla",
+   "parts": {
+    "Chest": 320,
+    "Head": 100,
+    "LeftArm": 130,
+    "LeftLeg": 140,
+    "RightArm": 130,
+    "RightLeg": 140,
+    "Stomach": 260
+   },
+   "total": 1220
+  },
+  {
+   "name": "Knight",
+   "parts": {
+    "Chest": 220,
+    "Head": 80,
+    "LeftArm": 150,
+    "LeftLeg": 150,
+    "RightArm": 150,
+    "RightLeg": 150,
+    "Stomach": 220
+   },
+   "total": 1120
+  },
+  {
+   "name": "Kollontay",
+   "parts": {
+    "Chest": 300,
+    "Head": 65,
+    "LeftArm": 150,
+    "LeftLeg": 120,
+    "RightArm": 150,
+    "RightLeg": 120,
+    "Stomach": 150
+   },
+   "total": 1055
+  },
+  {
+   "name": "Glukhar",
+   "parts": {
+    "Chest": 220,
+    "Head": 70,
+    "LeftArm": 145,
+    "LeftLeg": 145,
+    "RightArm": 145,
+    "RightLeg": 145,
+    "Stomach": 140
+   },
+   "total": 1010
+  },
+  {
+   "name": "Vengeful Killa",
+   "parts": {
+    "Chest": 260,
+    "Head": 80,
+    "LeftArm": 100,
+    "LeftLeg": 120,
+    "RightArm": 100,
+    "RightLeg": 120,
+    "Stomach": 180
+   },
+   "total": 960
+  },
+  {
+   "name": "Partisan",
+   "parts": {
+    "Chest": 220,
+    "Head": 80,
+    "LeftArm": 110,
+    "LeftLeg": 120,
+    "RightArm": 110,
+    "RightLeg": 120,
+    "Stomach": 190
+   },
+   "total": 950
+  },
+  {
+   "name": "Killa",
+   "parts": {
+    "Chest": 210,
+    "Head": 70,
+    "LeftArm": 100,
+    "LeftLeg": 120,
+    "RightArm": 100,
+    "RightLeg": 120,
+    "Stomach": 170
+   },
+   "total": 890
+  },
+  {
+   "name": "The Wedge (Labs)",
+   "parts": {
+    "Chest": 170,
+    "Head": 70,
+    "LeftArm": 120,
+    "LeftLeg": 130,
+    "RightArm": 120,
+    "RightLeg": 130,
+    "Stomach": 140
+   },
+   "total": 880
+  },
+  {
+   "name": "The Wedge",
+   "parts": {
+    "Chest": 170,
+    "Head": 70,
+    "LeftArm": 120,
+    "LeftLeg": 130,
+    "RightArm": 120,
+    "RightLeg": 130,
+    "Stomach": 140
+   },
+   "total": 880
+  },
+  {
+   "name": "Shturman",
+   "parts": {
+    "Chest": 180,
+    "Head": 62,
+    "LeftArm": 100,
+    "LeftLeg": 110,
+    "RightArm": 100,
+    "RightLeg": 110,
+    "Stomach": 150
+   },
+   "total": 812
+  },
+  {
+   "name": "黑色军团",
+   "parts": {
+    "Chest": 170,
+    "Head": 40,
+    "LeftArm": 110,
+    "LeftLeg": 110,
+    "RightArm": 110,
+    "RightLeg": 110,
+    "Stomach": 140
+   },
+   "total": 790
+  },
+  {
+   "name": "Reshala",
+   "parts": {
+    "Chest": 145,
+    "Head": 62,
+    "LeftArm": 100,
+    "LeftLeg": 110,
+    "RightArm": 100,
+    "RightLeg": 110,
+    "Stomach": 125
+   },
+   "total": 752
+  },
+  {
+   "name": "Kaban Guard (Sniper)",
+   "parts": {
+    "Chest": 140,
+    "Head": 50,
+    "LeftArm": 100,
+    "LeftLeg": 100,
+    "RightArm": 100,
+    "RightLeg": 100,
+    "Stomach": 120
+   },
+   "total": 710
+  }
+ ],
+ "spawns": [
+  {
+   "map": "中心区 21+",
+   "boss": "邪教徒祭司",
+   "chance": 0.02,
+   "escorts": 1
+  },
+  {
+   "map": "储备站",
+   "boss": "掠夺者",
+   "chance": 0.4,
+   "escorts": 1
+  },
+  {
+   "map": "储备站",
+   "boss": "掠夺者",
+   "chance": 0.3,
+   "escorts": 1
+  },
+  {
+   "map": "储备站",
+   "boss": "掠夺者",
+   "chance": 0.3,
+   "escorts": 1
+  },
+  {
+   "map": "储备站",
+   "boss": "掠夺者",
+   "chance": 0.3,
+   "escorts": 1
+  },
+  {
+   "map": "塔科夫街区",
+   "boss": "Kaban",
+   "chance": 0.6,
+   "escorts": 4
+  },
+  {
+   "map": "塔科夫街区",
+   "boss": "Kollontay",
+   "chance": 0.6,
+   "escorts": 2
+  },
+  {
+   "map": "夜间工厂",
+   "boss": "Tagilla",
+   "chance": 0.6,
+   "escorts": 0
+  },
+  {
+   "map": "夜间工厂",
+   "boss": "邪教徒祭司",
+   "chance": 0.08,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.6,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.6,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.45,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.45,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.45,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.45,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.4,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.35,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.35,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.35,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.35,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.35,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.35,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.35,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.35,
+   "escorts": 1
+  },
+  {
+   "map": "实验室",
+   "boss": "掠夺者",
+   "chance": 0.35,
+   "escorts": 1
+  },
+  {
+   "map": "实验室 (Dark)",
+   "boss": "掠夺者",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "实验室 (Dark)",
+   "boss": "掠夺者",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "实验室 (Dark)",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "实验室 (Dark)",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "实验室 (Dark)",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "实验室 (Dark)",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "实验室 (Dark)",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "实验室 (Dark)",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "实验室 (Dark)",
+   "boss": "The Wedge (Labs)",
+   "chance": 0.33,
+   "escorts": 1
+  },
+  {
+   "map": "工厂",
+   "boss": "Tagilla",
+   "chance": 0.35,
+   "escorts": 0
+  },
+  {
+   "map": "森林",
+   "boss": "Shturman",
+   "chance": 0.6,
+   "escorts": 1
+  },
+  {
+   "map": "森林",
+   "boss": "Knight",
+   "chance": 0.2,
+   "escorts": 2
+  },
+  {
+   "map": "森林",
+   "boss": "邪教徒祭司",
+   "chance": 0.2,
+   "escorts": 1
+  },
+  {
+   "map": "森林",
+   "boss": "Partisan",
+   "chance": 0.15,
+   "escorts": 0
+  },
+  {
+   "map": "海关",
+   "boss": "Reshala",
+   "chance": 0.6,
+   "escorts": 1
+  },
+  {
+   "map": "海关",
+   "boss": "Knight",
+   "chance": 0.2,
+   "escorts": 2
+  },
+  {
+   "map": "海关",
+   "boss": "邪教徒祭司",
+   "chance": 0.2,
+   "escorts": 1
+  },
+  {
+   "map": "海关",
+   "boss": "Partisan",
+   "chance": 0.15,
+   "escorts": 0
+  },
+  {
+   "map": "海岸线",
+   "boss": "守军",
+   "chance": 1,
+   "escorts": 0
+  },
+  {
+   "map": "海岸线",
+   "boss": "守军",
+   "chance": 1,
+   "escorts": 0
+  },
+  {
+   "map": "海岸线",
+   "boss": "Sanitar",
+   "chance": 0.6,
+   "escorts": 1
+  },
+  {
+   "map": "海岸线",
+   "boss": "Knight",
+   "chance": 0.2,
+   "escorts": 2
+  },
+  {
+   "map": "海岸线",
+   "boss": "邪教徒祭司",
+   "chance": 0.17,
+   "escorts": 1
+  },
+  {
+   "map": "海岸线",
+   "boss": "Partisan",
+   "chance": 0.15,
+   "escorts": 0
+  },
+  {
+   "map": "灯塔",
+   "boss": "Zryachiy",
+   "chance": 1,
+   "escorts": 0
+  },
+  {
+   "map": "灯塔",
+   "boss": "游荡者",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "灯塔",
+   "boss": "Glukhar",
+   "chance": 1,
+   "escorts": 3
+  },
+  {
+   "map": "灯塔",
+   "boss": "游荡者",
+   "chance": 0.9,
+   "escorts": 1
+  },
+  {
+   "map": "灯塔",
+   "boss": "游荡者",
+   "chance": 0.7,
+   "escorts": 1
+  },
+  {
+   "map": "灯塔",
+   "boss": "游荡者",
+   "chance": 0.5,
+   "escorts": 1
+  },
+  {
+   "map": "灯塔",
+   "boss": "游荡者",
+   "chance": 0.5,
+   "escorts": 1
+  },
+  {
+   "map": "灯塔",
+   "boss": "Knight",
+   "chance": 0.2,
+   "escorts": 2
+  },
+  {
+   "map": "灯塔",
+   "boss": "Partisan",
+   "chance": 0.15,
+   "escorts": 0
+  },
+  {
+   "map": "码头",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 2
+  },
+  {
+   "map": "码头",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "码头",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "码头",
+   "boss": "俄军",
+   "chance": 1,
+   "escorts": 0
+  },
+  {
+   "map": "码头",
+   "boss": "俄军",
+   "chance": 1,
+   "escorts": 2
+  },
+  {
+   "map": "码头",
+   "boss": "俄军",
+   "chance": 1,
+   "escorts": 2
+  },
+  {
+   "map": "码头",
+   "boss": "俄军",
+   "chance": 1,
+   "escorts": 2
+  },
+  {
+   "map": "码头",
+   "boss": "俄军",
+   "chance": 1,
+   "escorts": 2
+  },
+  {
+   "map": "码头",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 2
+  },
+  {
+   "map": "码头",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "码头",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 2
+  },
+  {
+   "map": "码头",
+   "boss": "俄军",
+   "chance": 1,
+   "escorts": 3
+  },
+  {
+   "map": "码头",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "码头",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "码头",
+   "boss": "俄军",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "码头",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "码头",
+   "boss": "俄军",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "码头",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 2
+  },
+  {
+   "map": "码头",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 3
+  },
+  {
+   "map": "码头",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 3
+  },
+  {
+   "map": "码头",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 2
+  },
+  {
+   "map": "码头",
+   "boss": "俄军",
+   "chance": 1,
+   "escorts": 3
+  },
+  {
+   "map": "码头",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 3
+  },
+  {
+   "map": "码头",
+   "boss": "Sanitar",
+   "chance": 0.2,
+   "escorts": 1
+  },
+  {
+   "map": "码头",
+   "boss": "Glukhar",
+   "chance": 0.2,
+   "escorts": 3
+  },
+  {
+   "map": "码头",
+   "boss": "Killa",
+   "chance": 0.2,
+   "escorts": 0
+  },
+  {
+   "map": "码头",
+   "boss": "Reshala",
+   "chance": 0.2,
+   "escorts": 1
+  },
+  {
+   "map": "码头",
+   "boss": "Tagilla",
+   "chance": 0.2,
+   "escorts": 0
+  },
+  {
+   "map": "破冰船",
+   "boss": "Knight",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "游荡者",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "游荡者",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "The Wedge",
+   "chance": 1,
+   "escorts": 0
+  },
+  {
+   "map": "破冰船",
+   "boss": "The Wedge",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "The Wedge",
+   "chance": 1,
+   "escorts": 0
+  },
+  {
+   "map": "破冰船",
+   "boss": "The Wedge",
+   "chance": 1,
+   "escorts": 0
+  },
+  {
+   "map": "破冰船",
+   "boss": "The Wedge",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "The Wedge",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "The Wedge",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "The Wedge",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "The Wedge",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "The Wedge",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "The Wedge",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "The Wedge",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 1,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "黑色军团",
+   "chance": 0.7,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "游荡者",
+   "chance": 0.5,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "游荡者",
+   "chance": 0.5,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "游荡者",
+   "chance": 0.5,
+   "escorts": 1
+  },
+  {
+   "map": "破冰船",
+   "boss": "游荡者",
+   "chance": 0.5,
+   "escorts": 1
+  },
+  {
+   "map": "立交桥",
+   "boss": "Killa",
+   "chance": 0.6,
+   "escorts": 0
+  },
+  {
+   "map": "立交桥",
+   "boss": "Tagilla",
+   "chance": 0.35,
+   "escorts": 0
+  },
+  {
+   "map": "迷宫",
+   "boss": "Shadow of Tagilla",
+   "chance": 1,
+   "escorts": 1
+  }
+ ]
+}

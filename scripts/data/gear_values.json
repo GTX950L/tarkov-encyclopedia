@@ -1,0 +1,476 @@
+{
+ "fetched": "2026-10-06",
+ "headset": [
+  {
+   "name": "GSSh-01",
+   "thr": -20,
+   "dist": 1,
+   "dis": 0.15
+  },
+  {
+   "name": "TEP-300",
+   "thr": -10,
+   "dist": 1,
+   "dis": 0.18
+  },
+  {
+   "name": "M32",
+   "thr": -22,
+   "dist": 1.01,
+   "dis": 0.15
+  },
+  {
+   "name": "M32",
+   "thr": -22,
+   "dist": 1.01,
+   "dis": 0.15
+  },
+  {
+   "name": "Razor",
+   "thr": -23,
+   "dist": 1.02,
+   "dis": 0.14
+  },
+  {
+   "name": "Razor",
+   "thr": -23,
+   "dist": 1.02,
+   "dis": 0.14
+  },
+  {
+   "name": "Razor",
+   "thr": -23,
+   "dist": 1.02,
+   "dis": 0.14
+  },
+  {
+   "name": "Razor",
+   "thr": -23,
+   "dist": 1.02,
+   "dis": 0.14
+  },
+  {
+   "name": "ComTac 2",
+   "thr": -23,
+   "dist": 1.03,
+   "dis": 0.15
+  },
+  {
+   "name": "Sordin",
+   "thr": -25,
+   "dist": 1.0375,
+   "dis": 0.12
+  },
+  {
+   "name": "XCEL",
+   "thr": -24,
+   "dist": 1.05,
+   "dis": 0.14
+  },
+  {
+   "name": "ProFlex",
+   "thr": -18,
+   "dist": 1.055,
+   "dis": 0.18
+  },
+  {
+   "name": "战术运动型",
+   "thr": -20,
+   "dist": 1.075,
+   "dis": 0.13
+  },
+  {
+   "name": "ComTac IV",
+   "thr": -22,
+   "dist": 1.08,
+   "dis": 0.1
+  },
+  {
+   "name": "Liberator",
+   "thr": -21,
+   "dist": 1.09,
+   "dis": 0.08
+  },
+  {
+   "name": "Liberator",
+   "thr": -21,
+   "dist": 1.09,
+   "dis": 0.08
+  },
+  {
+   "name": "Liberator",
+   "thr": -21,
+   "dist": 1.09,
+   "dis": 0.08
+  },
+  {
+   "name": "Liberator",
+   "thr": -21,
+   "dist": 1.09,
+   "dis": 0.08
+  },
+  {
+   "name": "Liberator",
+   "thr": -21,
+   "dist": 1.09,
+   "dis": 0.08
+  },
+  {
+   "name": "RAC",
+   "thr": -20,
+   "dist": 1.1,
+   "dis": 0.05
+  },
+  {
+   "name": "ComTac V",
+   "thr": -23,
+   "dist": 1.115,
+   "dis": 0.1
+  },
+  {
+   "name": "ComTac V",
+   "thr": -23,
+   "dist": 1.115,
+   "dis": 0.1
+  },
+  {
+   "name": "ComTac VI",
+   "thr": -24,
+   "dist": 1.135,
+   "dis": 0.08
+  },
+  {
+   "name": "ComTac VI",
+   "thr": -24,
+   "dist": 1.135,
+   "dis": 0.08
+  },
+  {
+   "name": "ComTac VI",
+   "thr": -24,
+   "dist": 1.135,
+   "dis": 0.08
+  },
+  {
+   "name": "ComTac VI",
+   "thr": -24,
+   "dist": 1.135,
+   "dis": 0.08
+  },
+  {
+   "name": "ComTac VI",
+   "thr": -24,
+   "dist": 1.135,
+   "dis": 0.08
+  },
+  {
+   "name": "ComTac VI",
+   "thr": -24,
+   "dist": 1.135,
+   "dis": 0.08
+  }
+ ],
+ "nvg": [
+  {
+   "name": "GPNVG-18",
+   "inten": 2.4,
+   "noise": 0.02
+  },
+  {
+   "name": "PVS-31A",
+   "inten": 2.4,
+   "noise": 0.02
+  },
+  {
+   "name": "PVS-14",
+   "inten": 2.3,
+   "noise": 0.02
+  },
+  {
+   "name": "N-15",
+   "inten": 1.85,
+   "noise": 0.04
+  },
+  {
+   "name": "PNV-10T",
+   "inten": 1.7,
+   "noise": 0.06
+  },
+  {
+   "name": "PNV-57E",
+   "inten": 1.3,
+   "noise": 0.06
+  }
+ ],
+ "grenade": [
+  {
+   "name": "M18",
+   "fuse": 1,
+   "rmin": 0,
+   "rmax": 0,
+   "frag": 0,
+   "cont": 0,
+   "type": "Smoke"
+  },
+  {
+   "name": "F-1 短",
+   "fuse": 1.5,
+   "rmin": 3,
+   "rmax": 7,
+   "frag": 90,
+   "cont": 12,
+   "type": "Grenade"
+  },
+  {
+   "name": "M7290",
+   "fuse": 1.5,
+   "rmin": 0,
+   "rmax": 0,
+   "frag": 0,
+   "cont": 10,
+   "type": "Flashbang"
+  },
+  {
+   "name": "VOG-25",
+   "fuse": 2,
+   "rmin": 2,
+   "rmax": 7,
+   "frag": 35,
+   "cont": 7,
+   "type": "Grenade"
+  },
+  {
+   "name": "Zarya",
+   "fuse": 2,
+   "rmin": 0,
+   "rmax": 0,
+   "frag": 0,
+   "cont": 10,
+   "type": "Flashbang"
+  },
+  {
+   "name": "VOG-17",
+   "fuse": 3,
+   "rmin": 2,
+   "rmax": 6,
+   "frag": 100,
+   "cont": 9,
+   "type": "Grenade"
+  },
+  {
+   "name": "V40",
+   "fuse": 3,
+   "rmin": 2,
+   "rmax": 5,
+   "frag": 25,
+   "cont": 7,
+   "type": "Grenade"
+  },
+  {
+   "name": "RGD-5",
+   "fuse": 3.5,
+   "rmin": 3,
+   "rmax": 7,
+   "frag": 70,
+   "cont": 10,
+   "type": "Grenade"
+  },
+  {
+   "name": "F-1",
+   "fuse": 3.5,
+   "rmin": 3,
+   "rmax": 7,
+   "frag": 90,
+   "cont": 12,
+   "type": "Grenade"
+  },
+  {
+   "name": "RGO",
+   "fuse": 3.5,
+   "rmin": 2,
+   "rmax": 7,
+   "frag": 85,
+   "cont": 12,
+   "type": "Impact Grenade"
+  },
+  {
+   "name": "RGN",
+   "fuse": 3.5,
+   "rmin": 2,
+   "rmax": 5,
+   "frag": 75,
+   "cont": 13,
+   "type": "Impact Grenade"
+  },
+  {
+   "name": "RDG-2B",
+   "fuse": 3.5,
+   "rmin": 0,
+   "rmax": 0,
+   "frag": 0,
+   "cont": 0,
+   "type": "Smoke"
+  },
+  {
+   "name": "M67",
+   "fuse": 5,
+   "rmin": 4,
+   "rmax": 8,
+   "frag": 75,
+   "cont": 11,
+   "type": "Grenade"
+  }
+ ],
+ "melee": [
+  {
+   "name": "双刃斧",
+   "slash": 166,
+   "stab": 199,
+   "hit": 0.9
+  },
+  {
+   "name": "短剑",
+   "slash": 38,
+   "stab": 57,
+   "hit": 0.8
+  },
+  {
+   "name": "针叶林-1",
+   "slash": 33,
+   "stab": 55,
+   "hit": 0.5
+  },
+  {
+   "name": "SCA",
+   "slash": 31,
+   "stab": 52,
+   "hit": 0.45
+  },
+  {
+   "name": "M-2",
+   "slash": 34,
+   "stab": 51,
+   "hit": 0.7
+  },
+  {
+   "name": "M-2",
+   "slash": 34,
+   "stab": 51,
+   "hit": 0.7
+  },
+  {
+   "name": "斧",
+   "slash": 28,
+   "stab": 49,
+   "hit": 0.45
+  },
+  {
+   "name": "PR-Taran",
+   "slash": 26,
+   "stab": 43,
+   "hit": 0.5
+  },
+  {
+   "name": "MPL-50",
+   "slash": 24,
+   "stab": 43,
+   "hit": 0.55
+  },
+  {
+   "name": "Hawk",
+   "slash": 32,
+   "stab": 40,
+   "hit": 0.45
+  },
+  {
+   "name": "SP-8",
+   "slash": 30,
+   "stab": 40,
+   "hit": 0.5
+  },
+  {
+   "name": "鲨",
+   "slash": 24,
+   "stab": 39,
+   "hit": 0.5
+  },
+  {
+   "name": "USMC",
+   "slash": 34,
+   "stab": 35,
+   "hit": 0.4
+  },
+  {
+   "name": "营斧",
+   "slash": 32,
+   "stab": 35,
+   "hit": 0.5
+  },
+  {
+   "name": "RedRebel",
+   "slash": 29,
+   "stab": 35,
+   "hit": 0.6
+  },
+  {
+   "name": "KATT",
+   "slash": 25,
+   "stab": 35,
+   "hit": 0.5
+  },
+  {
+   "name": "撬棍",
+   "slash": 25,
+   "stab": 34,
+   "hit": 0.5
+  },
+  {
+   "name": "M48军刀",
+   "slash": 27,
+   "stab": 32,
+   "hit": 0.4
+  },
+  {
+   "name": "仪式刀",
+   "slash": 25,
+   "stab": 32,
+   "hit": 0.35
+  },
+  {
+   "name": "6Kh5",
+   "slash": 24,
+   "stab": 31,
+   "hit": 0.4
+  },
+  {
+   "name": "芬卡",
+   "slash": 24,
+   "stab": 31,
+   "hit": 0.4
+  },
+  {
+   "name": "Jagdkommando",
+   "slash": 24,
+   "stab": 31,
+   "hit": 0.4
+  },
+  {
+   "name": "ER刺刀",
+   "slash": 25,
+   "stab": 27,
+   "hit": 0.4
+  },
+  {
+   "name": "A-2607",
+   "slash": 19,
+   "stab": 25,
+   "hit": 0.35
+  },
+  {
+   "name": "A-2607",
+   "slash": 18,
+   "stab": 25,
+   "hit": 0.35
+  }
+ ]
+}
