@@ -1234,7 +1234,11 @@ h3.tk-qdone { color: var(--tk-ink-2); }
 
 .tk-hut__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  /* 卡片内含「下一级材料」清单（最多 24 行），11rem 会把材料挤成一列一列 —— 20rem 起 */
+  /* ⚠️ 下限必须写成 min(20rem, 100%)，不能直接写 20rem ——
+     本站 html 字号是 125%，20rem = 400px，在 390px 视口下会直接撑破整页
+     （实测 scrollWidth 从基线 369 涨到 416）。min() 让它在窄屏退化成单列。 */
+  grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));
   gap: .5rem;
   margin-top: .6rem;
 }
@@ -1273,11 +1277,6 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   color: var(--tk-khaki);
 }
 
-.tk-hut__cap--unknown {
-  border-style: dashed;
-  color: var(--tk-ink-2);
-}
-
 .tk-hut__sel {
   padding: .15rem .3rem;
   background: transparent;
@@ -1285,4 +1284,189 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   border: 1px solid var(--tk-line-3);
   font: inherit;
   font-size: .72rem;
+}
+
+/* —— 51.7 数量步进控件（物品件数、藏身处材料共用一套） —— */
+
+.tk-cnt {
+  display: inline-flex;
+  align-items: center;
+  gap: .2rem;
+  vertical-align: middle;
+}
+
+.tk-cnt__btn {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.35rem;
+  height: 1.35rem;
+  padding: 0;
+  background: transparent;
+  color: var(--tk-ink);
+  border: 1px solid var(--tk-line-3);
+  font: inherit;
+  font-size: .8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.tk-cnt__btn:hover {
+  background: var(--tk-panel-2);
+  border-color: var(--tk-fiord);
+}
+
+.tk-cnt__in {
+  width: 3.4rem;
+  padding: .12rem .25rem;
+  background: transparent;
+  color: var(--tk-ink);
+  border: 1px solid var(--tk-line-3);
+  font: inherit;
+  font-family: var(--tk-mono);
+  font-size: .74rem;
+  text-align: right;
+}
+
+.tk-cnt__in:focus {
+  outline: none;
+  border-color: var(--tk-fiord);
+}
+
+/* 数字框右侧的上下箭头在窄格里很挤，且本站全用 −/＋ 按钮 */
+.tk-cnt__in::-webkit-outer-spin-button,
+.tk-cnt__in::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.tk-cnt__in[type="number"] { -moz-appearance: textfield; }
+
+.tk-cnt__need {
+  margin-left: .35rem;
+  font-style: normal;
+  font-family: var(--tk-mono);
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+  white-space: nowrap;
+}
+
+/* —— 51.8 达标状态（行 / 模块共用同一套语义） —— */
+
+.tk-board__tbl tr.tk-met,
+.tk-board__tbl tr.tk-met:nth-child(even) {
+  background: var(--tk-grn-bg);
+}
+
+.tk-board__tbl tr.tk-met > td { color: var(--tk-ink-2); }
+
+.tk-board__tbl tr.tk-met > td:first-child {
+  box-shadow: inset 3px 0 0 var(--tk-grn);
+}
+
+/* —— 51.9 藏身处：模块卡与下一级材料 —— */
+
+.tk-hut__en {
+  font-family: var(--tk-mono);
+  font-size: .62rem;
+  color: var(--tk-ink-2);
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.tk-hut__alias {
+  font-size: .62rem;
+  color: var(--tk-khaki);
+  border: 1px dashed var(--tk-line);
+  padding: 0 .25rem;
+}
+
+.tk-hut__lvl {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+.tk-hut__next {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  padding-top: .35rem;
+  border-top: 1px dashed var(--tk-line);
+}
+
+.tk-hut__nexthead {
+  font-family: var(--tk-mono);
+  font-size: .68rem;
+  color: var(--tk-brand);
+}
+
+.tk-hut__deps {
+  font-size: .66rem;
+  line-height: 1.7;
+  color: var(--tk-ink-2);
+}
+
+.tk-hut__mat {
+  display: flex;
+  flex-direction: column;
+  gap: .18rem;
+}
+
+.tk-hut__mrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .4rem;
+  padding: .1rem .2rem;
+}
+
+.tk-hut__mrow.tk-met {
+  background: var(--tk-grn-bg);
+  box-shadow: inset 3px 0 0 var(--tk-grn);
+}
+
+.tk-hut__mname {
+  font-size: .72rem;
+  color: var(--tk-ink);
+  min-width: 0;
+}
+
+.tk-hut__fir {
+  margin-left: .3rem;
+  padding: 0 .22rem;
+  border: 1px solid var(--tk-amber);
+  color: var(--tk-amber);
+  font-size: .6rem;
+  white-space: nowrap;
+}
+
+.tk-hut__nomat {
+  margin: 0;
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-hut__done {
+  padding: .15rem .5rem;
+  border: 1px solid var(--tk-grn);
+  color: var(--tk-grn);
+  font-size: .68rem;
+  font-family: var(--tk-mono);
+  align-self: flex-start;
+}
+
+.tk-hut__cell.is-maxed { border-left-color: var(--tk-grn); }
+
+/* 材料齐备但还没升：给一道琥珀色脊，与「已建造」的绿脊区分开 */
+.tk-hut__cell.is-ready {
+  border-left-color: var(--tk-amber);
+  background: var(--tk-amber-bg);
+}
+
+.tk-board__notready {
+  margin: .6rem 0 0;
+  padding: .6rem .8rem;
+  background: var(--tk-amber-bg);
+  border: 1px solid var(--tk-amber);
+  color: var(--tk-ink);
+  font-size: .74rem;
+  line-height: 1.75;
 }

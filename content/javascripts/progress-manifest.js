@@ -1,10 +1,10 @@
 /* 由 scripts/gen_progress_manifest.py 生成，请勿手工编辑。
    用途：「我的进度」三条轨的只读分母与列表（任务 / 物品收集 / 藏身处）。
    数据源与 content/quests/*.md、content/entries/hideout-modules.md 同源，
-   重抓数据或改动藏身处页后，要重跑本脚本。 */
+   重抓数据或改动藏身处页后，要按脚本头部写的顺序重跑。 */
 window.TARKOV_PROGRESS_MANIFEST = {
   "generated": "2026-10-06",
-  "source": "scripts/data/quests.json（json.tarkov.dev/regular，持久 PvP） + content/entries/hideout-modules.md",
+  "source": "scripts/data/quests.json（json.tarkov.dev/regular，持久 PvP） + scripts/data/hideout.json（同源，含 hideout_zh / items_zh 译名）",
   "baseline": "2026-09-30",
   "total": 515,
   "traders": [
@@ -67,6 +67,7 @@ window.TARKOV_PROGRESS_MANIFEST = {
   "items": {
     "threshold": 3,
     "total": 79,
+    "note": "「任务数」是有多少个任务需要它；「合计数量」是这些任务要求的**总件数**（跨任务求和，不是单次需求）。只列被 3 个及以上任务需要的物品。",
     "list": [
       {
         "name": "WIFI摄像头",
@@ -545,119 +546,3079 @@ window.TARKOV_PROGRESS_MANIFEST = {
     ]
   },
   "hideout": {
-    "total": 21,
-    "layers": [
-      "地基层",
-      "生存层",
-      "生产层",
-      "收益层",
-      "成长层"
-    ],
+    "total": 26,
+    "levelCount": 68,
+    "itemCount": 317,
+    "source": "json.tarkov.dev/regular（官方数据端点，二级）+ hideout_zh / items_zh（同一套译名）",
+    "baseline": "2026-10-06",
+    "note": "「材料」是该等级需要的建材与数量；「战局中」标记的必须自己带出，跳蚤市场买的不算数。",
     "list": [
       {
-        "name": "生成器",
+        "en": "generator",
+        "name": "发电机",
         "layer": "地基层",
-        "max": 3
+        "alias": "生成器",
+        "levels": [
+          {
+            "level": 1,
+            "time": 0,
+            "stations": [
+              {
+                "level": 1,
+                "name": "安保",
+                "en": "security"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 100000,
+                "fir": false
+              },
+              {
+                "name": "火花塞",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 3600,
+            "stations": [
+              {
+                "level": 1,
+                "name": "安保",
+                "en": "security"
+              },
+              {
+                "level": 1,
+                "name": "通风",
+                "en": "vents"
+              },
+              {
+                "level": 1,
+                "name": "发电机",
+                "en": "generator"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "电线",
+                "count": 15,
+                "fir": false
+              },
+              {
+                "name": "相位控制继电器",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "Bulbex剪线器",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "电动马达",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 57600,
+            "stations": [
+              {
+                "level": 3,
+                "name": "安保",
+                "en": "security"
+              },
+              {
+                "level": 3,
+                "name": "通风",
+                "en": "vents"
+              },
+              {
+                "level": 2,
+                "name": "发电机",
+                "en": "generator"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "供电单元",
+                "count": 5,
+                "fir": true
+              },
+              {
+                "name": "电动马达",
+                "count": 3,
+                "fir": true
+              },
+              {
+                "name": "火花塞",
+                "count": 16,
+                "fir": false
+              },
+              {
+                "name": "相位控制继电器",
+                "count": 12,
+                "fir": false
+              },
+              {
+                "name": "金属零件",
+                "count": 10,
+                "fir": false
+              }
+            ]
+          }
+        ]
       },
       {
+        "en": "solar-power",
         "name": "太阳能",
         "layer": "地基层",
-        "max": null
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 259200,
+            "stations": [
+              {
+                "level": 3,
+                "name": "发电机",
+                "en": "generator"
+              },
+              {
+                "level": 3,
+                "name": "工作台",
+                "en": "workbench"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "完好的液晶显示屏",
+                "count": 3,
+                "fir": true
+              },
+              {
+                "name": "欧元",
+                "count": 25000,
+                "fir": false
+              },
+              {
+                "name": "军用电源滤波器",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "军用电缆",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "相控阵单元",
+                "count": 6,
+                "fir": false
+              },
+              {
+                "name": "直流变压器",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          }
+        ]
       },
       {
-        "name": "水收集器",
-        "layer": "生存层",
-        "max": null
-      },
-      {
-        "name": "营养单元",
-        "layer": "生存层",
-        "max": null
-      },
-      {
-        "name": "医疗站",
-        "layer": "生存层",
-        "max": null
-      },
-      {
+        "en": "lavatory",
         "name": "卫生间",
         "layer": "生存层",
-        "max": null
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 0,
+            "stations": [],
+            "skills": [],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 2000,
+                "fir": false
+              },
+              {
+                "name": "卫生纸",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "牙膏",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "缝纫锥",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "肥皂",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 3600,
+            "stations": [
+              {
+                "level": 1,
+                "name": "集水器",
+                "en": "water-collector"
+              },
+              {
+                "level": 1,
+                "name": "通风",
+                "en": "vents"
+              },
+              {
+                "level": 1,
+                "name": "卫生间",
+                "en": "lavatory"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "一包螺钉",
+                "count": 6,
+                "fir": false
+              },
+              {
+                "name": "波纹软管",
+                "count": 6,
+                "fir": false
+              },
+              {
+                "name": "KEKTAPE管道胶带",
+                "count": 3,
+                "fir": false
+              },
+              {
+                "name": "针线盒",
+                "count": 2,
+                "fir": false
+              },
+              {
+                "name": "电钻",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 25200,
+            "stations": [
+              {
+                "level": 2,
+                "name": "通风",
+                "en": "vents"
+              },
+              {
+                "level": 2,
+                "name": "集水器",
+                "en": "water-collector"
+              },
+              {
+                "level": 2,
+                "name": "卫生间",
+                "en": "lavatory"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "压力表",
+                "count": 2,
+                "fir": true
+              },
+              {
+                "name": "一套工具",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "波纹软管",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "Xenomorph发泡密封胶",
+                "count": 6,
+                "fir": false
+              }
+            ]
+          }
+        ]
       },
       {
-        "name": "工作台",
-        "layer": "生产层",
-        "max": null
+        "en": "medstation",
+        "name": "医疗站",
+        "layer": "生存层",
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 0,
+            "stations": [],
+            "skills": [],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 50000,
+                "fir": false
+              },
+              {
+                "name": "无菌绷带",
+                "count": 2,
+                "fir": false
+              },
+              {
+                "name": "OLOLO瓶装复合维生素",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "一堆药",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "一次性注射器",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 3600,
+            "stations": [
+              {
+                "level": 1,
+                "name": "发电机",
+                "en": "generator"
+              },
+              {
+                "level": 1,
+                "name": "医疗站",
+                "en": "medstation"
+              }
+            ],
+            "skills": [
+              {
+                "name": "Health",
+                "level": 2
+              }
+            ],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 150000,
+                "fir": false
+              },
+              {
+                "name": "Esmarch止血带",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "盐水溶液",
+                "count": 6,
+                "fir": false
+              },
+              {
+                "name": "医疗工具",
+                "count": 3,
+                "fir": false
+              },
+              {
+                "name": "医用输血工具",
+                "count": 2,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 43200,
+            "stations": [
+              {
+                "level": 2,
+                "name": "发电机",
+                "en": "generator"
+              },
+              {
+                "level": 2,
+                "name": "卫生间",
+                "en": "lavatory"
+              },
+              {
+                "level": 2,
+                "name": "医疗站",
+                "en": "medstation"
+              }
+            ],
+            "skills": [
+              {
+                "name": "Vitality",
+                "level": 3
+              }
+            ],
+            "items": [
+              {
+                "name": "检眼镜",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "卢布",
+                "count": 500000,
+                "fir": false
+              },
+              {
+                "name": "盐水溶液",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "LEDX皮肤透照仪",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          }
+        ]
       },
       {
-        "name": "情报中心",
-        "layer": "生产层",
-        "max": 3
+        "en": "nutrition-unit",
+        "name": "营养部",
+        "layer": "生存层",
+        "alias": "营养单元",
+        "levels": [
+          {
+            "level": 1,
+            "time": 0,
+            "stations": [
+              {
+                "level": 1,
+                "name": "发电机",
+                "en": "generator"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 25000,
+                "fir": false
+              },
+              {
+                "name": "相位控制继电器",
+                "count": 2,
+                "fir": false
+              },
+              {
+                "name": "电源线",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "罐装白盐",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 0,
+            "stations": [
+              {
+                "level": 2,
+                "name": "卫生间",
+                "en": "lavatory"
+              },
+              {
+                "level": 1,
+                "name": "营养部",
+                "en": "nutrition-unit"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "扳手",
+                "count": 4,
+                "fir": false
+              },
+              {
+                "name": "波纹软管",
+                "count": 4,
+                "fir": false
+              },
+              {
+                "name": "相位控制继电器",
+                "count": 3,
+                "fir": false
+              },
+              {
+                "name": "碱性换热器表面洗涤剂",
+                "count": 2,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 50400,
+            "stations": [
+              {
+                "level": 2,
+                "name": "发电机",
+                "en": "generator"
+              },
+              {
+                "level": 2,
+                "name": "卫生间",
+                "en": "lavatory"
+              },
+              {
+                "level": 2,
+                "name": "仓库",
+                "en": "stash"
+              },
+              {
+                "level": 2,
+                "name": "营养部",
+                "en": "nutrition-unit"
+              }
+            ],
+            "skills": [
+              {
+                "name": "Metabolism",
+                "level": 3
+              }
+            ],
+            "items": [
+              {
+                "name": "Smoked Chimney下水道清洁剂",
+                "count": 2,
+                "fir": true
+              },
+              {
+                "name": "卢布",
+                "count": 125000,
+                "fir": false
+              },
+              {
+                "name": "碳酸氢钠",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "罐装 Majaica 咖啡豆",
+                "count": 5,
+                "fir": false
+              }
+            ]
+          }
+        ]
       },
       {
+        "en": "rest-space",
+        "name": "休息区",
+        "layer": "生存层",
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 0,
+            "stations": [
+              {
+                "level": 1,
+                "name": "通风",
+                "en": "vents"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 10000,
+                "fir": false
+              },
+              {
+                "name": "管道胶带",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "经典火柴",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 3600,
+            "stations": [
+              {
+                "level": 1,
+                "name": "发电机",
+                "en": "generator"
+              },
+              {
+                "level": 1,
+                "name": "休息区",
+                "en": "rest-space"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 75000,
+                "fir": false
+              },
+              {
+                "name": "节能灯泡",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "DVD光驱",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "电磁铁",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 7200,
+            "stations": [
+              {
+                "level": 2,
+                "name": "休息区",
+                "en": "rest-space"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "电线",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "电容",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "电源线",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "GreenBat锂电池",
+                "count": 4,
+                "fir": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "en": "water-collector",
+        "name": "集水器",
+        "layer": "生存层",
+        "alias": "水收集器",
+        "levels": [
+          {
+            "level": 1,
+            "time": 0,
+            "stations": [],
+            "skills": [],
+            "items": [
+              {
+                "name": "螺栓",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "螺母",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "波纹软管",
+                "count": 4,
+                "fir": false
+              },
+              {
+                "name": "管道胶带",
+                "count": 3,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 7200,
+            "stations": [
+              {
+                "level": 1,
+                "name": "工作台",
+                "en": "workbench"
+              },
+              {
+                "level": 1,
+                "name": "集水器",
+                "en": "water-collector"
+              }
+            ],
+            "skills": [
+              {
+                "name": "Attention",
+                "level": 3
+              }
+            ],
+            "items": [
+              {
+                "name": "波纹软管",
+                "count": 6,
+                "fir": false
+              },
+              {
+                "name": "KEKTAPE管道胶带",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "一套工具",
+                "count": 2,
+                "fir": false
+              },
+              {
+                "name": "电动马达",
+                "count": 2,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 57600,
+            "stations": [
+              {
+                "level": 3,
+                "name": "发电机",
+                "en": "generator"
+              },
+              {
+                "level": 2,
+                "name": "集水器",
+                "en": "water-collector"
+              },
+              {
+                "level": 2,
+                "name": "供暖",
+                "en": "heating"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "Elite钳子",
+                "count": 2,
+                "fir": true
+              },
+              {
+                "name": "棘轮扳手",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "卢布",
+                "count": 20000,
+                "fir": false
+              },
+              {
+                "name": "Shustrilo发泡密封胶",
+                "count": 10,
+                "fir": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "en": "air-filtering-unit",
         "name": "空气过滤单元",
         "layer": "生产层",
-        "max": 1
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 172800,
+            "stations": [
+              {
+                "level": 3,
+                "name": "发电机",
+                "en": "generator"
+              },
+              {
+                "level": 3,
+                "name": "通风",
+                "en": "vents"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "防毒面具滤罐",
+                "count": 5,
+                "fir": true
+              },
+              {
+                "name": "美元",
+                "count": 25000,
+                "fir": false
+              },
+              {
+                "name": "军用波纹软管",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "军用电源滤波器",
+                "count": 5,
+                "fir": false
+              }
+            ]
+          }
+        ]
       },
       {
+        "en": "intelligence-center",
+        "name": "情报中心",
+        "layer": "生产层",
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 0,
+            "stations": [
+              {
+                "level": 1,
+                "name": "安保",
+                "en": "security"
+              },
+              {
+                "level": 1,
+                "name": "通风",
+                "en": "vents"
+              },
+              {
+                "level": 1,
+                "name": "发电机",
+                "en": "generator"
+              },
+              {
+                "level": 1,
+                "name": "工作台",
+                "en": "workbench"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "地形调查地图",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "完好的液晶显示屏",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "工厂地图",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "情报文件夹",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "电源线",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 3600,
+            "stations": [
+              {
+                "level": 2,
+                "name": "安保",
+                "en": "security"
+              },
+              {
+                "level": 2,
+                "name": "医疗站",
+                "en": "medstation"
+              },
+              {
+                "level": 2,
+                "name": "营养部",
+                "en": "nutrition-unit"
+              },
+              {
+                "level": 1,
+                "name": "情报中心",
+                "en": "intelligence-center"
+              }
+            ],
+            "skills": [
+              {
+                "name": "Attention",
+                "level": 3
+              }
+            ],
+            "items": [
+              {
+                "name": "损坏的硬盘",
+                "count": 8,
+                "fir": false
+              },
+              {
+                "name": "电源线",
+                "count": 7,
+                "fir": false
+              },
+              {
+                "name": "加密U盘",
+                "count": 3,
+                "fir": false
+              },
+              {
+                "name": "情报文件夹",
+                "count": 3,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 86400,
+            "stations": [
+              {
+                "level": 3,
+                "name": "工作台",
+                "en": "workbench"
+              },
+              {
+                "level": 3,
+                "name": "发电机",
+                "en": "generator"
+              },
+              {
+                "level": 2,
+                "name": "情报中心",
+                "en": "intelligence-center"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "军用COFDM无线信号发射器",
+                "count": 2,
+                "fir": true
+              },
+              {
+                "name": "军用电缆",
+                "count": 8,
+                "fir": false
+              },
+              {
+                "name": "军用闪存装置",
+                "count": 8,
+                "fir": false
+              },
+              {
+                "name": "VPX闪存模块",
+                "count": 2,
+                "fir": false
+              },
+              {
+                "name": "加密磁带盒",
+                "count": 2,
+                "fir": false
+              },
+              {
+                "name": "GPS信号放大单元",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "en": "vents",
+        "name": "通风",
+        "layer": "生产层",
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 0,
+            "stations": [],
+            "skills": [],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 25000,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 3600,
+            "stations": [
+              {
+                "level": 1,
+                "name": "通风",
+                "en": "vents"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "CPU风扇",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "金属零件",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "汽车蓄电池",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "电动马达",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 36000,
+            "stations": [
+              {
+                "level": 1,
+                "name": "发电机",
+                "en": "generator"
+              },
+              {
+                "level": 2,
+                "name": "通风",
+                "en": "vents"
+              }
+            ],
+            "skills": [
+              {
+                "name": "Strength",
+                "level": 2
+              }
+            ],
+            "items": [
+              {
+                "name": "汽车蓄电池",
+                "count": 4,
+                "fir": true
+              },
+              {
+                "name": "电动马达",
+                "count": 4,
+                "fir": true
+              },
+              {
+                "name": "电线",
+                "count": 14,
+                "fir": false
+              },
+              {
+                "name": "金属零件",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "印制电路板",
+                "count": 5,
+                "fir": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "en": "workbench",
+        "name": "工作台",
+        "layer": "生产层",
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 0,
+            "stations": [],
+            "skills": [],
+            "items": [
+              {
+                "name": "螺栓",
+                "count": 2,
+                "fir": false
+              },
+              {
+                "name": "螺母",
+                "count": 2,
+                "fir": false
+              },
+              {
+                "name": "Leatherman多功能工具钳",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 3600,
+            "stations": [
+              {
+                "level": 1,
+                "name": "照明",
+                "en": "illumination"
+              },
+              {
+                "level": 1,
+                "name": "工作台",
+                "en": "workbench"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "螺栓",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "一套工具",
+                "count": 3,
+                "fir": false
+              },
+              {
+                "name": "武器零件",
+                "count": 3,
+                "fir": false
+              },
+              {
+                "name": "电钻",
+                "count": 2,
+                "fir": false
+              },
+              {
+                "name": "「Master」锉刀套装",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 39604,
+            "stations": [
+              {
+                "level": 2,
+                "name": "发电机",
+                "en": "generator"
+              },
+              {
+                "level": 2,
+                "name": "仓库",
+                "en": "stash"
+              },
+              {
+                "level": 2,
+                "name": "工作台",
+                "en": "workbench"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "Elite钳子",
+                "count": 2,
+                "fir": true
+              },
+              {
+                "name": "#FireKlean牌枪润滑油",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "卢布",
+                "count": 395000,
+                "fir": false
+              },
+              {
+                "name": "罐装铝热剂",
+                "count": 5,
+                "fir": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "en": "bitcoin-farm",
         "name": "比特币矿场",
         "layer": "收益层",
-        "max": 3
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 122400,
+            "stations": [
+              {
+                "level": 2,
+                "name": "情报中心",
+                "en": "intelligence-center"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "供电单元",
+                "count": 10,
+                "fir": true
+              },
+              {
+                "name": "CPU风扇",
+                "count": 15,
+                "fir": false
+              },
+              {
+                "name": "电源线",
+                "count": 15,
+                "fir": false
+              },
+              {
+                "name": "T形插座",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "VPX闪存模块",
+                "count": 2,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 180000,
+            "stations": [
+              {
+                "level": 1,
+                "name": "比特币矿场",
+                "en": "bitcoin-farm"
+              },
+              {
+                "level": 3,
+                "name": "发电机",
+                "en": "generator"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "印制电路板",
+                "count": 15,
+                "fir": true
+              },
+              {
+                "name": "CPU风扇",
+                "count": 15,
+                "fir": false
+              },
+              {
+                "name": "供电单元",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "相位控制继电器",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "军用电源滤波器",
+                "count": 5,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 381600,
+            "stations": [
+              {
+                "level": 2,
+                "name": "比特币矿场",
+                "en": "bitcoin-farm"
+              },
+              {
+                "level": 1,
+                "name": "太阳能",
+                "en": "solar-power"
+              },
+              {
+                "level": 3,
+                "name": "集水器",
+                "en": "water-collector"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "CPU风扇",
+                "count": 25,
+                "fir": true
+              },
+              {
+                "name": "硅胶管",
+                "count": 15,
+                "fir": false
+              },
+              {
+                "name": "压力表",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "电动马达",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "6-STEN-140-M军用电池",
+                "count": 2,
+                "fir": false
+              }
+            ]
+          }
+        ]
       },
       {
-        "name": "私酒厂",
+        "en": "booze-generator",
+        "name": "酿酒处",
         "layer": "收益层",
-        "max": 1
+        "alias": "私酒厂",
+        "levels": [
+          {
+            "level": 1,
+            "time": 172800,
+            "stations": [
+              {
+                "level": 3,
+                "name": "集水器",
+                "en": "water-collector"
+              },
+              {
+                "level": 3,
+                "name": "营养部",
+                "en": "nutrition-unit"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "压力表",
+                "count": 2,
+                "fir": true
+              },
+              {
+                "name": "模拟温度计",
+                "count": 2,
+                "fir": true
+              },
+              {
+                "name": "管道扳手",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "波纹软管",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "硅胶管",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "螺旋散热器",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "金属零件",
+                "count": 5,
+                "fir": false
+              }
+            ]
+          }
+        ]
       },
       {
-        "name": "Scav 包裹",
+        "en": "cultist-circle",
+        "name": "仪式圈",
         "layer": "收益层",
-        "max": null
+        "alias": "十字路口 / 供奉",
+        "levels": [
+          {
+            "level": 1,
+            "time": 3600,
+            "stations": [
+              {
+                "level": 1,
+                "name": "安保",
+                "en": "security"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "电灯泡",
+                "count": 5,
+                "fir": true
+              },
+              {
+                "name": "罐装白盐",
+                "count": 3,
+                "fir": true
+              },
+              {
+                "name": "Paid杀蟑剂",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "SurvL幸存者打火机",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "施工用测量卷尺",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "WIFI摄像头",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          }
+        ]
       },
       {
-        "name": "十字路口 / 供奉",
+        "en": "scav-case",
+        "name": "Scav宝箱",
         "layer": "收益层",
-        "max": null
+        "alias": "Scav 包裹",
+        "levels": [
+          {
+            "level": 1,
+            "time": 288000,
+            "stations": [
+              {
+                "level": 2,
+                "name": "情报中心",
+                "en": "intelligence-center"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "金项链",
+                "count": 8,
+                "fir": true
+              },
+              {
+                "name": "黄金骷髅指环",
+                "count": 6,
+                "fir": true
+              },
+              {
+                "name": "劳力土潜水金腕表",
+                "count": 4,
+                "fir": true
+              },
+              {
+                "name": "“凶狠跑刀崽”私酒",
+                "count": 3,
+                "fir": true
+              },
+              {
+                "name": "青铜狮雕",
+                "count": 3,
+                "fir": true
+              },
+              {
+                "name": "金公鸡塑像",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "幸运Scav垃圾箱",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          }
+        ]
       },
       {
-        "name": "健身房",
+        "en": "security",
+        "name": "安保",
+        "layer": "收益层",
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 0,
+            "stations": [],
+            "skills": [],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 20000,
+                "fir": false
+              },
+              {
+                "name": "施工用测量卷尺",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 3600,
+            "stations": [
+              {
+                "level": 1,
+                "name": "照明",
+                "en": "illumination"
+              },
+              {
+                "level": 1,
+                "name": "安保",
+                "en": "security"
+              }
+            ],
+            "skills": [
+              {
+                "name": "Endurance",
+                "level": 2
+              }
+            ],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 45000,
+                "fir": false
+              },
+              {
+                "name": "100毫升WD-40",
+                "count": 2,
+                "fir": false
+              },
+              {
+                "name": "TP-200 砖型TNT",
+                "count": 2,
+                "fir": false
+              },
+              {
+                "name": "Elite钳子",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 61200,
+            "stations": [
+              {
+                "level": 3,
+                "name": "照明",
+                "en": "illumination"
+              },
+              {
+                "level": 2,
+                "name": "安保",
+                "en": "security"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "完好的液晶显示屏",
+                "count": 2,
+                "fir": true
+              },
+              {
+                "name": "固态硬盘",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "电线",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "NIXXOR镜头",
+                "count": 8,
+                "fir": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "en": "gym",
+        "name": "健身区",
         "layer": "成长层",
-        "max": null
+        "alias": "健身房",
+        "levels": [
+          {
+            "level": 1,
+            "time": 14400,
+            "stations": [
+              {
+                "level": 6,
+                "name": "易碎墙",
+                "en": "defective-wall"
+              },
+              {
+                "level": 2,
+                "name": "照明",
+                "en": "illumination"
+              },
+              {
+                "level": 2,
+                "name": "通风",
+                "en": "vents"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "一套工具",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "电钻",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "金属切割剪刀",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "绝缘胶带",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "螺栓",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "螺母",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "100毫升WD-40",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          }
+        ]
       },
       {
-        "name": "射击场",
+        "en": "hall-of-fame",
+        "name": "荣耀展柜",
         "layer": "成长层",
-        "max": null
+        "alias": "名人堂",
+        "levels": [
+          {
+            "level": 1,
+            "time": 43207,
+            "stations": [
+              {
+                "level": 6,
+                "name": "易碎墙",
+                "en": "defective-wall"
+              },
+              {
+                "level": 2,
+                "name": "照明",
+                "en": "illumination"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "圆嘴钳",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "猫雕像",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "一包钉子",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "电灯泡",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "绒布布料",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "绝缘胶带",
+                "count": 5,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 64800,
+            "stations": [
+              {
+                "level": 1,
+                "name": "荣耀展柜",
+                "en": "hall-of-fame"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "Elite钳子",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "一套工具",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "技术指导文件",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "金公鸡塑像",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "节能灯泡",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "一包螺钉",
+                "count": 6,
+                "fir": false
+              },
+              {
+                "name": "Xenomorph发泡密封胶",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "管道胶带",
+                "count": 3,
+                "fir": false
+              },
+              {
+                "name": "Poxeram冷焊膏",
+                "count": 2,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 86400,
+            "stations": [
+              {
+                "level": 2,
+                "name": "荣耀展柜",
+                "en": "hall-of-fame"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "KEKTAPE管道胶带",
+                "count": 3,
+                "fir": true
+              },
+              {
+                "name": "「Master」锉刀套装",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "电钻",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "青铜狮雕",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "节能灯泡",
+                "count": 15,
+                "fir": false
+              },
+              {
+                "name": "金属零件",
+                "count": 15,
+                "fir": false
+              },
+              {
+                "name": "T形插座",
+                "count": 6,
+                "fir": false
+              },
+              {
+                "name": "电源线",
+                "count": 5,
+                "fir": false
+              }
+            ]
+          }
+        ]
       },
       {
+        "en": "library",
         "name": "图书馆",
         "layer": "成长层",
-        "max": null
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 194400,
+            "stations": [
+              {
+                "level": 3,
+                "name": "休息区",
+                "en": "rest-space"
+              }
+            ],
+            "skills": [
+              {
+                "name": "HideoutManagement",
+                "level": 5
+              }
+            ],
+            "items": [
+              {
+                "name": "项链",
+                "count": 2,
+                "fir": true
+              },
+              {
+                "name": "BakeEzy烹饪书",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "马雕像",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "卢布",
+                "count": 400000,
+                "fir": false
+              },
+              {
+                "name": "技术指导文件",
+                "count": 8,
+                "fir": false
+              },
+              {
+                "name": "日记",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "袖珍日记",
+                "count": 5,
+                "fir": false
+              }
+            ]
+          }
+        ]
       },
       {
-        "name": "名人堂",
+        "en": "shooting-range",
+        "name": "靶场",
         "layer": "成长层",
-        "max": null
+        "alias": "射击场",
+        "levels": [
+          {
+            "level": 1,
+            "time": 3600,
+            "stations": [
+              {
+                "level": 1,
+                "name": "照明",
+                "en": "illumination"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 20000,
+                "fir": false
+              },
+              {
+                "name": "螺栓",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "螺母",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "金属零件",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 86400,
+            "stations": [
+              {
+                "level": 3,
+                "name": "照明",
+                "en": "illumination"
+              },
+              {
+                "level": 2,
+                "name": "工作台",
+                "en": "workbench"
+              },
+              {
+                "level": 1,
+                "name": "靶场",
+                "en": "shooting-range"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "电动马达",
+                "count": 3,
+                "fir": true
+              },
+              {
+                "name": "一套工具",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "施工用测量卷尺",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "电钻",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "金属零件",
+                "count": 8,
+                "fir": false
+              },
+              {
+                "name": "电线",
+                "count": 6,
+                "fir": false
+              },
+              {
+                "name": "节能灯泡",
+                "count": 6,
+                "fir": false
+              },
+              {
+                "name": "Poxeram冷焊膏",
+                "count": 3,
+                "fir": false
+              },
+              {
+                "name": "WIFI摄像头",
+                "count": 3,
+                "fir": false
+              },
+              {
+                "name": "一包螺钉",
+                "count": 3,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 86400,
+            "stations": [
+              {
+                "level": 2,
+                "name": "靶场",
+                "en": "shooting-range"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "「Master」锉刀套装",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "技术指导文件",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "电线",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "印制电路板",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "电容",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "电源线",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "相位控制继电器",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "金属零件",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "Leatherman多功能工具钳",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          }
+        ]
       },
       {
-        "name": "加热器",
-        "layer": null,
-        "max": 3
-      },
-      {
-        "name": "照明",
-        "layer": null,
-        "max": 3
-      },
-      {
+        "en": "defective-wall",
         "name": "易碎墙",
         "layer": null,
-        "max": 5
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 0,
+            "stations": [
+              {
+                "level": 1,
+                "name": "医疗站",
+                "en": "medstation"
+              },
+              {
+                "level": 1,
+                "name": "集水器",
+                "en": "water-collector"
+              }
+            ],
+            "skills": [],
+            "items": []
+          },
+          {
+            "level": 2,
+            "time": 43200,
+            "stations": [
+              {
+                "level": 1,
+                "name": "易碎墙",
+                "en": "defective-wall"
+              }
+            ],
+            "skills": [],
+            "items": []
+          },
+          {
+            "level": 3,
+            "time": 86400,
+            "stations": [
+              {
+                "level": 2,
+                "name": "易碎墙",
+                "en": "defective-wall"
+              }
+            ],
+            "skills": [],
+            "items": []
+          },
+          {
+            "level": 4,
+            "time": 10800,
+            "stations": [
+              {
+                "level": 3,
+                "name": "易碎墙",
+                "en": "defective-wall"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "Fierce Blow重击锤",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 5,
+            "time": 10800,
+            "stations": [
+              {
+                "level": 4,
+                "name": "易碎墙",
+                "en": "defective-wall"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "一套工具",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "金属切割剪刀",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 6,
+            "time": 43200,
+            "stations": [
+              {
+                "level": 5,
+                "name": "易碎墙",
+                "en": "defective-wall"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "金属零件",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "波纹软管",
+                "count": 2,
+                "fir": false
+              },
+              {
+                "name": "电灯泡",
+                "count": 2,
+                "fir": false
+              },
+              {
+                "name": "电线",
+                "count": 2,
+                "fir": false
+              },
+              {
+                "name": "Elite钳子",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "Xenomorph发泡密封胶",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "一套工具",
+                "count": 1,
+                "fir": false
+              },
+              {
+                "name": "管道胶带",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          }
+        ]
       },
       {
+        "en": "gear-rack",
+        "name": "装备架",
+        "layer": null,
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 21600,
+            "stations": [
+              {
+                "level": 6,
+                "name": "易碎墙",
+                "en": "defective-wall"
+              },
+              {
+                "level": 2,
+                "name": "照明",
+                "en": "illumination"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "电钻",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "缝纫锥",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "针线盒",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "卢布",
+                "count": 300000,
+                "fir": false
+              },
+              {
+                "name": "螺栓",
+                "count": 15,
+                "fir": false
+              },
+              {
+                "name": "绒布布料",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "节能灯泡",
+                "count": 8,
+                "fir": false
+              },
+              {
+                "name": "Leatherman多功能工具钳",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 43200,
+            "stations": [
+              {
+                "level": 1,
+                "name": "荣耀展柜",
+                "en": "hall-of-fame"
+              },
+              {
+                "level": 1,
+                "name": "装备架",
+                "en": "gear-rack"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "扳手",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "电钻",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "卢布",
+                "count": 800000,
+                "fir": false
+              },
+              {
+                "name": "节能灯泡",
+                "count": 12,
+                "fir": false
+              },
+              {
+                "name": "芳纶纤维布料",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "一包钉子",
+                "count": 8,
+                "fir": false
+              },
+              {
+                "name": "Shustrilo发泡密封胶",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "管道胶带",
+                "count": 5,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 86400,
+            "stations": [
+              {
+                "level": 2,
+                "name": "荣耀展柜",
+                "en": "hall-of-fame"
+              },
+              {
+                "level": 2,
+                "name": "装备架",
+                "en": "gear-rack"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "「Master」锉刀套装",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "棘轮扳手",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "防弹衣维修套件",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "卢布",
+                "count": 1200000,
+                "fir": false
+              },
+              {
+                "name": "节能灯泡",
+                "count": 15,
+                "fir": false
+              },
+              {
+                "name": "金属零件",
+                "count": 15,
+                "fir": false
+              },
+              {
+                "name": "Cordura聚酰胺面料",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "KEKTAPE管道胶带",
+                "count": 10,
+                "fir": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "en": "heating",
+        "name": "供暖",
+        "layer": null,
+        "alias": "加热器",
+        "levels": [
+          {
+            "level": 1,
+            "time": 0,
+            "stations": [],
+            "skills": [],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 25000,
+                "fir": false
+              },
+              {
+                "name": "经典火柴",
+                "count": 2,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 3600,
+            "stations": [
+              {
+                "level": 1,
+                "name": "通风",
+                "en": "vents"
+              },
+              {
+                "level": 1,
+                "name": "供暖",
+                "en": "heating"
+              }
+            ],
+            "skills": [
+              {
+                "name": "Endurance",
+                "level": 1
+              }
+            ],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 50000,
+                "fir": false
+              },
+              {
+                "name": "Crickent打火机",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "固体燃料",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "Hunter火柴",
+                "count": 2,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 28800,
+            "stations": [
+              {
+                "level": 2,
+                "name": "发电机",
+                "en": "generator"
+              },
+              {
+                "level": 2,
+                "name": "工作台",
+                "en": "workbench"
+              },
+              {
+                "level": 2,
+                "name": "供暖",
+                "en": "heating"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "相位控制继电器",
+                "count": 4,
+                "fir": true
+              },
+              {
+                "name": "军用波纹软管",
+                "count": 2,
+                "fir": true
+              },
+              {
+                "name": "电线",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "螺旋散热器",
+                "count": 10,
+                "fir": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "en": "illumination",
+        "name": "照明",
+        "layer": null,
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 0,
+            "stations": [],
+            "skills": [],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 10000,
+                "fir": false
+              },
+              {
+                "name": "Crickent打火机",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 0,
+            "stations": [
+              {
+                "level": 1,
+                "name": "发电机",
+                "en": "generator"
+              },
+              {
+                "level": 1,
+                "name": "照明",
+                "en": "illumination"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "电灯泡",
+                "count": 14,
+                "fir": false
+              },
+              {
+                "name": "电线",
+                "count": 10,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 21600,
+            "stations": [
+              {
+                "level": 2,
+                "name": "发电机",
+                "en": "generator"
+              },
+              {
+                "level": 1,
+                "name": "工作台",
+                "en": "workbench"
+              },
+              {
+                "level": 2,
+                "name": "照明",
+                "en": "illumination"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "电容",
+                "count": 7,
+                "fir": true
+              },
+              {
+                "name": "卢布",
+                "count": 50000,
+                "fir": false
+              },
+              {
+                "name": "电线",
+                "count": 12,
+                "fir": false
+              },
+              {
+                "name": "节能灯泡",
+                "count": 12,
+                "fir": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "en": "stash",
         "name": "仓库",
         "layer": null,
-        "max": 4
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 0,
+            "stations": [],
+            "skills": [],
+            "items": []
+          },
+          {
+            "level": 2,
+            "time": 3600,
+            "stations": [
+              {
+                "level": 1,
+                "name": "通风",
+                "en": "vents"
+              },
+              {
+                "level": 1,
+                "name": "仓库",
+                "en": "stash"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 2500000,
+                "fir": false
+              },
+              {
+                "name": "一包螺钉",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "一包钉子",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "100毫升WD-40",
+                "count": 4,
+                "fir": false
+              },
+              {
+                "name": "手摇钻",
+                "count": 1,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 43200,
+            "stations": [
+              {
+                "level": 2,
+                "name": "通风",
+                "en": "vents"
+              },
+              {
+                "level": 2,
+                "name": "供暖",
+                "en": "heating"
+              },
+              {
+                "level": 2,
+                "name": "仓库",
+                "en": "stash"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "卢布",
+                "count": 8500000,
+                "fir": false
+              },
+              {
+                "name": "一包螺钉",
+                "count": 15,
+                "fir": false
+              },
+              {
+                "name": "一包钉子",
+                "count": 7,
+                "fir": false
+              },
+              {
+                "name": "电钻",
+                "count": 2,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 4,
+            "time": 345600,
+            "stations": [
+              {
+                "level": 3,
+                "name": "发电机",
+                "en": "generator"
+              },
+              {
+                "level": 3,
+                "name": "工作台",
+                "en": "workbench"
+              },
+              {
+                "level": 3,
+                "name": "供暖",
+                "en": "heating"
+              },
+              {
+                "level": 3,
+                "name": "仓库",
+                "en": "stash"
+              },
+              {
+                "level": 2,
+                "name": "情报中心",
+                "en": "intelligence-center"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "棘轮扳手",
+                "count": 2,
+                "fir": true
+              },
+              {
+                "name": "欧元",
+                "count": 200000,
+                "fir": false
+              },
+              {
+                "name": "螺栓",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "螺母",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "Shustrilo发泡密封胶",
+                "count": 8,
+                "fir": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "en": "weapon-rack",
+        "name": "武器架",
+        "layer": null,
+        "alias": null,
+        "levels": [
+          {
+            "level": 1,
+            "time": 43200,
+            "stations": [
+              {
+                "level": 3,
+                "name": "照明",
+                "en": "illumination"
+              },
+              {
+                "level": 2,
+                "name": "仓库",
+                "en": "stash"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "手摇钻",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "金属切割剪刀",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "螺栓",
+                "count": 15,
+                "fir": false
+              },
+              {
+                "name": "Xenomorph发泡密封胶",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "一包钉子",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "绝缘胶带",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "节能灯泡",
+                "count": 5,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "time": 64800,
+            "stations": [
+              {
+                "level": 2,
+                "name": "靶场",
+                "en": "shooting-range"
+              },
+              {
+                "level": 2,
+                "name": "工作台",
+                "en": "workbench"
+              },
+              {
+                "level": 3,
+                "name": "仓库",
+                "en": "stash"
+              },
+              {
+                "level": 1,
+                "name": "武器架",
+                "en": "weapon-rack"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "「Master」锉刀套装",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "电钻",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "一包螺钉",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "电线",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "管道胶带",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "节能灯泡",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "金属零件",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "武器零件",
+                "count": 5,
+                "fir": false
+              },
+              {
+                "name": "Poxeram冷焊膏",
+                "count": 3,
+                "fir": false
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "time": 86400,
+            "stations": [
+              {
+                "level": 3,
+                "name": "靶场",
+                "en": "shooting-range"
+              },
+              {
+                "level": 3,
+                "name": "工作台",
+                "en": "workbench"
+              },
+              {
+                "level": 2,
+                "name": "武器架",
+                "en": "weapon-rack"
+              }
+            ],
+            "skills": [],
+            "items": [
+              {
+                "name": "KEKTAPE管道胶带",
+                "count": 5,
+                "fir": true
+              },
+              {
+                "name": "#FireKlean牌枪润滑油",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "技术指导文件",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "电钻",
+                "count": 1,
+                "fir": true
+              },
+              {
+                "name": "电线",
+                "count": 15,
+                "fir": false
+              },
+              {
+                "name": "节能灯泡",
+                "count": 15,
+                "fir": false
+              },
+              {
+                "name": "金属零件",
+                "count": 10,
+                "fir": false
+              },
+              {
+                "name": "Shustrilo发泡密封胶",
+                "count": 5,
+                "fir": false
+              }
+            ]
+          }
+        ]
       }
     ]
   }
