@@ -656,6 +656,13 @@
       o.textContent = STATE_OPTS[i][1];
       sel.appendChild(o);
     }
+    /* ⚠️ 回填必须在这里做，不能只靠调用方。
+       「我的进度」看板的列表每次状态变更都**整块重建**；新建的 select 若停在
+       第一个选项，读者会看到「进行中 / 已完成」区里的任务、行首却写着「未标记」
+       —— 而他明明标过。任务页那边由 syncHead() 回填，看板当初漏了这一步，
+       于是同一份数据在两处的显示不一致。把回填放进工厂里，两个调用点就都不会漏。
+       （v1.75.1 修复：读者报「选的进行中，但前面还是写着未标记」。） */
+    sel.value = api.taskState(qid);
     sel.addEventListener("change", function () {
       api.setTaskState(qid, sel.value, trader);
     });
