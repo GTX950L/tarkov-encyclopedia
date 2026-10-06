@@ -1,0 +1,1486 @@
+/* ==========================================================================
+   进度看板（「我的进度」页的四块面板）—— **惰性模块**
+
+   为什么单独一个文件：
+     这四块只在「我的进度」一页出现，却要背 1000 行渲染代码。放进 progress.js
+     会让全部 118 个页面都多背一份 —— 由 progress.js 在检测到看板挂载点时才注入。
+
+   三份数据的加载时机（越靠后越重，也越少用）：
+     progress-manifest.js   全站加载  —— 物品 79 / 藏身处 26 / 任务总数
+     quests-graph.js        看板渲染时 —— 515 个节点 + 前置边 + 门槛 + 地图（63 KB）
+     quests-detail-*.js     展开任务时 —— 该任务的**目标明细与准备项**，按商人分块
+                                         （最大一块 41 KB，而不是整份 183 KB）
+   ========================================================================== */
+
+(function () {
+  "use strict";
+
+  var TP = window.TarkovProgress;
+  if (!TP) return;
+
+  var UI = TP._ui || {};
+  var el = UI.el, notReady = UI.notReady, loadScript = UI.loadScript,
+      makeStateSelect = UI.makeStateSelect, questUrl = UI.questUrl;
+  var MODE_LABEL = TP.MODE_LABEL, TRACKS = TP.TRACKS, TRACK_LABEL = TP.TRACK_LABEL;
+
+  /* 图节点字段下标 —— 与生成器里的 cols 一致，改一处要改两处。 */
+  var N_NAME = 0, N_TRADER = 1, N_LEVEL = 2, N_PRE = 3, N_FLAGS = 4,
+      N_LINK = 5, N_GATES = 6, N_MAP = 7;
+
+  var QROW_CAP = 80;
+
+  /* --------------------------------------------------------------------------
+     小工具
+     -------------------------------------------------------------------------- */
+
+  function fmtNum(n) {
+    var v = parseInt(n, 10);
+    return isFinite(v) ? v.toLocaleString("en-US") : "0";
+  }
+
+  function today() {
+    var d = new Date();
+    var p = function (n) { return String(n).padStart(2, "0"); };
+    return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
+  }
+
+  function download(name, text) {
+    var blob = new Blob([text], { type: "application/json" });
+    var url = URL.createObjectURL(blob);
+    var a = el("a");
+    a.href = url;
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+  }
+
+  /* 重画一段 DOM 前后保住键盘焦点 —— 重画会替换掉正在聚焦的元素。 */
+  function keepFocus(scope, fn) {
+    var a = document.activeElement;
+    var key = (a && a.getAttribute) ? a.getAttribute("data-focus-key") : null;
+    var pos = null;
+    if (key && a.selectionStart !== undefined) {
+      try { pos = [a.selectionStart, a.selectionEnd]; } catch (e) { pos = null; }
+    }
+    fn();
+    if (!key) return;
+    var nxt = scope.querySelector('[data-focus-key="' + key + '"]');
+    if (!nxt) return;
+    nxt.focus();
+    if (pos && nxt.setSelectionRange) {
+      try { nxt.setSelectionRange(pos[0], pos[1]); } catch (e) { /* 数字框不支持 */ }
+    }
+  }
+
+  function toast(host, msg, ok, undoFn) {
+    var t = host.querySelector(".tk-board__toast");
+    if (!t) {
+      t = el("div", "tk-board__toast");
+      t.setAttribute("role", "status");
+      t.setAttribute("aria-live", "polite");
+      host.appendChild(t);
+    }
+    t.textContent = "";
+    t.classList.toggle("is-bad", !ok);
+    t.appendChild(document.createTextNode(msg || ""));
+    if (typeof undoFn === "function") {
+      var b = el("button", "tk-board__undo", "撤销");
+      b.type = "button";
+      b.addEventListener("click", function () {
+        undoFn();
+        t.textContent = "已撤销。";
+        t.classList.remove("is-bad");
+      });
+      t.appendChild(b);
+      /* 6 秒后撤掉按钮：留一个永远能点的「撤销」比不给还危险 ——
+         读者会在完全不同的上下文里点到它。 */
+      setTimeout(function () {
+        var bb = t.querySelector(".tk-board__undo");
+        if (bb) bb.remove();
+      }, 6000);
+    }
+    var old = t.__hideTimer;
+    if (old) clearTimeout(old);
+    t.__hideTimer = setTimeout(function () { t.textContent = ""; }, 9000);
+  }
+
+  /* 数量步进控件：− / 输入框 / ＋。set 只在输入框没有焦点时写值 ——
+     否则用户正在敲「12」会被同步回写成「1」。 */
+  function countCtl(name, need) {
+    var box = el("span", "tk-cnt");
+    var minus = el("button", "tk-cnt__btn", "−");
+    minus.type = "button";
+    minus.setAttribute("aria-label", "减少「" + name + "」的数量");
+    var inp = document.createElement("input");
+    inp.type = "number";
+    inp.min = "0";
+    inp.className = "tk-cnt__in";
+    inp.setAttribute("inputmode", "numeric");
+    inp.setAttribute("aria-label", "「" + name + "」的数量");
+    var plus = el("button", "tk-cnt__btn", "+");
+    plus.type = "button";
+    plus.setAttribute("aria-label", "增加「" + name + "」的数量");
+
+    function set(n) {
+      var before = TP.itemCount(name);
+      TP.setItemCount(name, n);
+      return before;
+    }
+    minus.addEventListener("click", function () { set(TP.itemCount(name) - 1); });
+    plus.addEventListener("click", function () { set(TP.itemCount(name) + 1); });
+    inp.addEventListener("change", function () { set(inp.value); });
+    inp.addEventListener("blur", function () {
+      var v = TP.itemCount(name);
+      inp.value = v > 0 ? String(v) : "";
+    });
+
+    box.appendChild(minus);
+    box.appendChild(inp);
+    box.appendChild(plus);
+    if (need !== undefined) box.appendChild(el("em", "tk-cnt__need", "需 " + fmtNum(need)));
+    return {
+      el: box,
+      set: function (v) { if (document.activeElement !== inp) inp.value = v > 0 ? String(v) : ""; }
+    };
+  }
+
+  function wrapTable(headers, tbody) {
+    var tbl = el("table", "tk-board__tbl");
+    var thead = el("thead");
+    var htr = el("tr");
+    for (var i = 0; i < headers.length; i++) htr.appendChild(el("th", null, headers[i]));
+    thead.appendChild(htr);
+    tbl.appendChild(thead);
+    tbl.appendChild(tbody);
+    /* 套进 .md-typeset__table —— 全站唯一的表格横向滚动容器。
+       主题只给**构建期**就存在的表格套这一层，运行时建的表不自己套，
+       窄屏就会把整页撑宽（实测 390px 下 scrollWidth 从 369 涨到 441）。 */
+    var wrap = el("div", "md-typeset__table");
+    wrap.appendChild(tbl);
+    return wrap;
+  }
+
+  function sumCards(defs) {
+    var refs = {};
+    var box = el("div", "tk-board__sum");
+    for (var i = 0; i < defs.length; i++) {
+      var card = el("div", "tk-board__sumitem");
+      card.appendChild(el("em", null, defs[i][0]));
+      var b = el("b", null, defs[i][1] === undefined ? "—" : defs[i][1]);
+      card.appendChild(b);
+      refs[defs[i][0]] = b;
+      box.appendChild(card);
+    }
+    return { el: box, refs: refs };
+  }
+
+  /* --------------------------------------------------------------------------
+     数据加载
+     -------------------------------------------------------------------------- */
+
+  var graphState = 0;   // 0 未开始 / 1 加载中 / 2 就绪 / -1 失败
+
+  function ensureGraph(cb) {
+    if (window.TARKOV_QUEST_GRAPH) { cb(window.TARKOV_QUEST_GRAPH); return; }
+    if (graphState === -1) { cb(null); return; }
+    if (graphState === 1) return;
+    graphState = 1;
+    loadScript("quests-graph.js", ["TARKOV_QUEST_GRAPH"], function (ok) {
+      graphState = (ok && window.TARKOV_QUEST_GRAPH) ? 2 : -1;
+      cb(window.TARKOV_QUEST_GRAPH || null);
+    });
+  }
+
+  /* 按商人分块的明细：只在**展开某个任务**时才拉它所属的那一块。 */
+  var detailLoading = {};
+
+  /* 明细块的加载**不能复用 loadScript 的「全局已存在」短路**：
+     11 个分块写的是同一个全局（TARKOV_QUEST_DETAIL），第一块载完之后，
+     其余的会被当成「已经载过」而永远不请求 —— 实测踩到：
+     在手任务属于 mechanic，但只有 ragman 的块在，准备清单因此空着。
+     所以这里按**分块名**记状态，自己注入 script。 */
+  function ensureDetail(slug, cb) {
+    if (!slug) { cb(false); return; }
+    var store = window.TARKOV_QUEST_DETAIL;
+    if (store && store[slug]) { cb(true); return; }
+    if (detailLoading[slug] === "bad") { cb(false); return; }
+    if (detailLoading[slug] === "loading") return;
+    detailLoading[slug] = "loading";
+    var url = (UI.siteRoot ? UI.siteRoot() : "") + "javascripts/quests-detail-" + slug + ".js";
+    var sc = document.createElement("script");
+    sc.src = url;
+    var done = false;
+    function finish(ok) {
+      if (done) return;
+      done = true;
+      var s2 = window.TARKOV_QUEST_DETAIL;
+      var hit = !!(ok && s2 && s2[slug]);
+      detailLoading[slug] = hit ? "ok" : "bad";
+      cb(hit);
+    }
+    sc.onload = function () { finish(true); };
+    sc.onerror = function () { finish(false); };
+    document.head.appendChild(sc);
+  }
+
+  function detailOf(qid) {
+    var store = window.TARKOV_QUEST_DETAIL;
+    if (!store) return null;
+    for (var k in store) {
+      if (store[k] && store[k].tasks && store[k].tasks[qid]) return store[k].tasks[qid];
+    }
+    return null;
+  }
+
+  /* --------------------------------------------------------------------------
+     按前置树反推 + 门槛判定
+
+     规则：
+       · **在手任务的前置一律视为已完成**（能被接到，前置必然满足），沿链传递
+       · 只沿 c（complete）边传播；a/f 两类本站没有对应状态，只作提示
+       · 可接 = 未完成 + 未在手 + 前置满足 + 等级够 + **门槛满足**
+     门槛三类能吃到的都吃：商人忠诚度（level）、阵营、转生。
+     吃不到的（声望、跨任务计数器、对话）**不参与判定，但标出来** ——
+     算不出来的东西宁可让读者多看一眼，也不给一个靠猜的答案。
+     -------------------------------------------------------------------------- */
+
+  function gateCheck(node, gates) {
+    var g = node[N_GATES] || {};
+    var out = { ok: true, why: [], soft: [] };
+    var i;
+    if (g.f) {
+      if (gates.faction && gates.faction !== g.f) { out.ok = false; out.why.push("限 " + g.f); }
+      else if (!gates.faction) out.soft.push("限 " + g.f);
+    }
+    if (g.p) {
+      if ((gates.prestige || 0) >= g.p) { /* 满足 */ }
+      else { out.ok = false; out.why.push("需转生 " + g.p); }
+    }
+    var tr = g.t || [];
+    for (i = 0; i < tr.length; i++) {
+      var trader = tr[i][0], kind = tr[i][1], cmp = tr[i][2], val = tr[i][3];
+      if (kind !== "level") { out.soft.push("声望条件"); continue; }
+      var have = parseInt((gates.ll || {})[trader], 10) || 0;
+      var pass = cmp === "<=" ? have <= val : have >= val;
+      if (!have) out.soft.push("需 " + trader + " LL" + val);
+      else if (!pass) { out.ok = false; out.why.push("需 " + trader + " LL" + val); }
+    }
+    var oth = g.o || [];
+    for (i = 0; i < oth.length; i++) out.soft.push(oth[i]);
+    return out;
+  }
+
+  function computeTree(graph, explicit, inhand, gates) {
+    var tasks = (graph && graph.tasks) || {};
+    var done = {}, inferred = {}, id, seen = {}, stack = [];
+
+    for (id in explicit) if (explicit[id] !== undefined) { done[id] = true; stack.push(id); }
+    for (id in inhand) if (inhand[id] !== undefined) stack.push(id);
+
+    /* 传递闭包：栈 + seen 防环。没有 seen，一条环就能把页面卡死。 */
+    while (stack.length) {
+      var cur = stack.pop();
+      if (seen[cur]) continue;
+      seen[cur] = true;
+      var node = tasks[cur];
+      if (!node) continue;
+      var pre = node[N_PRE] || [];
+      for (var i = 0; i < pre.length; i++) {
+        var pid = pre[i][0];
+        if ((pre[i][1] || "").indexOf("c") < 0) continue;
+        if (done[pid] || !tasks[pid]) continue;
+        done[pid] = true;
+        inferred[pid] = true;
+        stack.push(pid);
+      }
+    }
+
+    var avail = [], locked = [], stat = {}, gate = {};
+    for (id in tasks) {
+      var n = tasks[id];
+      var pre2 = n[N_PRE] || [], need = 0, have = 0, ok = true;
+      for (var j = 0; j < pre2.length; j++) {
+        if ((pre2[j][1] || "").indexOf("c") < 0) continue;
+        need++;
+        if (done[pre2[j][0]]) have++;
+        else ok = false;
+      }
+      stat[id] = [have, need];
+      gate[id] = gateCheck(n, gates);
+      if (done[id] || inhand[id] !== undefined) continue;
+      if (ok && (gates.level <= 0 || (n[N_LEVEL] || 0) <= gates.level) && gate[id].ok) avail.push(id);
+      else locked.push(id);
+    }
+    return { done: done, inferred: inferred, avail: avail, locked: locked, stat: stat, gate: gate };
+  }
+
+  /* --------------------------------------------------------------------------
+     看板一：任务进度
+     -------------------------------------------------------------------------- */
+
+  var MAP_LABEL = {};
+
+  function renderQuestBoard(host, state) {
+    var mf = window.TARKOV_PROGRESS_MANIFEST;
+    var totalAll = (mf && mf.total) || 0;
+    var traders = (mf && mf.traders) || [];
+    var tname = {};
+    for (var ti = 0; ti < traders.length; ti++) tname[traders[ti].slug] = traders[ti].name;
+
+    host.textContent = "";
+
+    var cards = sumCards([["在手"], ["已完成"], ["其中由前置推断"], ["可接（条件满足）"]]);
+    host.appendChild(cards.el);
+
+    /* 工具条 */
+    var bar = el("div", "tk-board__filter");
+    var lvWrap = el("label", "tk-board__lv");
+    lvWrap.appendChild(el("span", null, "我的等级"));
+    var lvIn = document.createElement("input");
+    lvIn.type = "number"; lvIn.min = "1"; lvIn.max = "99";
+    lvIn.className = "tk-cnt__in";
+    lvIn.setAttribute("data-focus-key", "level");
+    lvIn.setAttribute("aria-label", "我的当前等级");
+    var lv0 = TP.myLevel();
+    lvIn.value = lv0 > 0 ? String(lv0) : "";
+    lvIn.addEventListener("change", function () { TP.setMyLevel(lvIn.value); });
+    lvWrap.appendChild(lvIn);
+    bar.appendChild(lvWrap);
+
+    /* 阵营 / 转生 / 门槛面板开关 */
+    var facWrap = el("span", "tk-board__seg");
+    ["BEAR", "USEC"].forEach(function (f) {
+      var b = el("button", "tk-board__segbtn", f);
+      b.type = "button";
+      b.setAttribute("data-focus-key", "faction-" + f);
+      b.addEventListener("click", function () {
+        TP.setFaction(TP.gates().faction === f ? "" : f);
+      });
+      facWrap.appendChild(b);
+    });
+    bar.appendChild(facWrap);
+
+    var gateBtn = el("button", "tk-board__segbtn", "门槛 ▾");
+    gateBtn.type = "button";
+    gateBtn.setAttribute("data-focus-key", "gatetoggle");
+    bar.appendChild(gateBtn);
+
+    var search = document.createElement("input");
+    search.type = "search";
+    search.className = "tk-board__search";
+    search.placeholder = "搜任务名 / 商人 · 515 个任务都在这里";
+    search.setAttribute("data-focus-key", "qsearch");
+    search.setAttribute("aria-label", "搜索任务");
+    bar.appendChild(search);
+
+    var cnt = el("span", "tk-board__filtercount");
+    bar.appendChild(cnt);
+    host.appendChild(bar);
+
+    /* 门槛面板：默认收起 —— 11 个商人各一个档位，展开会挤满屏幕 */
+    var gatePanel = el("div", "tk-board__gatepanel");
+    gatePanel.hidden = true;
+    var llRow = el("div", "tk-board__llrow");
+    for (var gt = 0; gt < traders.length; gt++) {
+      (function (slug, label) {
+        var w = el("label", "tk-board__ll");
+        w.appendChild(el("span", null, label));
+        var s = document.createElement("select");
+        s.className = "tk-qstate tk-qstate--ll";
+        s.setAttribute("data-focus-key", "ll-" + slug);
+        s.setAttribute("aria-label", label + " 忠诚度");
+        var o0 = document.createElement("option");
+        o0.value = ""; o0.textContent = "?";
+        s.appendChild(o0);
+        for (var v = 1; v <= 4; v++) {
+          var o = document.createElement("option");
+          o.value = String(v); o.textContent = "LL" + v;
+          s.appendChild(o);
+        }
+        s.addEventListener("change", function () { TP.setLL(slug, s.value); });
+        w.appendChild(s);
+        llRow.appendChild(w);
+      })(traders[gt].slug, traders[gt].name);
+    }
+    gatePanel.appendChild(llRow);
+    var prWrap = el("label", "tk-board__lv");
+    prWrap.appendChild(el("span", null, "转生次数"));
+    var prIn = document.createElement("input");
+    prIn.type = "number"; prIn.min = "0"; prIn.max = "19";
+    prIn.className = "tk-cnt__in";
+    prIn.setAttribute("data-focus-key", "prestige");
+    prIn.setAttribute("aria-label", "转生次数");
+    prIn.addEventListener("change", function () { TP.setPrestige(prIn.value); });
+    prWrap.appendChild(prIn);
+    gatePanel.appendChild(prWrap);
+    gatePanel.appendChild(el("p", "tk-board__note",
+      "填了才能判准「可接」。**填「?」的商人不会被用作筛选**，"
+      + "只在任务行上提示「需 XX LL2」—— 宁可不筛，也不猜。"));
+    host.appendChild(gatePanel);
+
+    /* 地图 + 预设 */
+    var chipbar = el("div", "tk-board__filter");
+    var mapSel = document.createElement("select");
+    mapSel.className = "tk-board__mapsel";
+    mapSel.setAttribute("data-focus-key", "map");
+    mapSel.setAttribute("aria-label", "按地图筛选");
+    var mo = document.createElement("option");
+    mo.value = ""; mo.textContent = "全部地图";
+    mapSel.appendChild(mo);
+    chipbar.appendChild(mapSel);
+
+    var presetWrap = el("span", "tk-board__seg");
+    [["kappa", "Kappa 线"], ["lk", "Lightkeeper 线"], ["prep", "出发前准备"]].forEach(function (pf) {
+      var b = el("button", "tk-board__segbtn", pf[1]);
+      b.type = "button";
+      b.setAttribute("data-focus-key", "preset-" + pf[0]);
+      b.setAttribute("data-preset", pf[0]);
+      chipbar.appendChild(b);
+    });
+    var cnt2 = el("span", "tk-board__filtercount");
+    chipbar.appendChild(cnt2);
+    host.appendChild(chipbar);
+
+    host.appendChild(el("p", "tk-board__hint",
+      "只填你**现在就知道**的：等级、门槛、以及任务列表里手上正拿着的那些。"
+      + "它们的**前置会被自动算作已完成**，你不用回忆过去做过什么。"));
+
+    var body = el("div", "tk-board__qbody");
+    host.appendChild(body);
+
+    var prepBox = el("div", "tk-board__prep");
+    host.appendChild(prepBox);
+
+    var summary = el("div", "tk-board__chips");
+    host.appendChild(summary);
+
+    var openTasks = {};   // 哪些任务被展开了（跨重画保留）
+    /* 预设按钮要在 sync() 内外都用：里面读状态、外面挂监听。
+       声明在 sync() 里会让外面的循环拿到 undefined —— 实测抛
+       ReferenceError，把后面的任务树加载一起带崩。 */
+    var pbtns = chipbar.querySelectorAll(".tk-board__segbtn");
+
+    /* —— 单行 —— */
+    function questRow(qid, node, extra, tree) {
+      var wrap = el("div", "tk-qrow");
+      var main = el("div", "tk-qrow__main");
+      wrap.appendChild(main);
+
+      var sel0 = makeStateSelect(qid, node[N_TRADER], "tk-qstate tk-qstate--row");
+      sel0.addEventListener("change", function () {
+        var d0 = detailOf(qid);
+        if (d0 && d0.o && d0.o.length) {
+          TP.alignObjectives(qid, d0.o.map(function (x) { return x[0]; }), sel0.value);
+        }
+      });
+      main.appendChild(sel0);
+
+      var url = questUrl(node[N_LINK]);
+      var nm = url ? el("a", "tk-qrow__name", node[N_NAME]) : el("span", "tk-qrow__name", node[N_NAME]);
+      if (url) nm.href = url;
+      main.appendChild(nm);
+
+      var meta = tname[node[N_TRADER]] || node[N_TRADER] || "—";
+      main.appendChild(el("em", "tk-qrow__meta", meta));
+      main.appendChild(el("em", "tk-qrow__lv", "Lv" + node[N_LEVEL]));
+      if (extra) main.appendChild(el("em", "tk-qrow__extra", extra));
+      if (node[N_FLAGS].indexOf("k") >= 0) main.appendChild(el("em", "tk-qrow__flag", "Kappa"));
+      if (node[N_FLAGS].indexOf("l") >= 0) main.appendChild(el("em", "tk-qrow__flag", "LK"));
+
+      var g = tree.gate[qid];
+      if (g && (g.why.length || g.soft.length)) {
+        var tag = el("em", "tk-qrow__gate", g.why.concat(g.soft).join(" · "));
+        tag.title = "这些条件本站无法完全判定，只作提示：算得出来的已用于筛选，算不出来的不影响列表";
+        main.appendChild(tag);
+      }
+
+      /* 展开按钮：拉该商人那一块明细，显示目标清单 */
+      var ex = el("button", "tk-qrow__exp", openTasks[qid] ? "收起" : "目标");
+      ex.type = "button";
+      ex.setAttribute("data-focus-key", "exp-" + qid);
+      ex.addEventListener("click", function () {
+        openTasks[qid] = !openTasks[qid];
+        sync();
+      });
+      main.appendChild(ex);
+
+      var st = TP.taskState(qid);
+      if (st === "inhand") wrap.className += " st-inhand";
+      if (st === "done") wrap.className += " st-done";
+
+      if (openTasks[qid]) {
+        var d = el("div", "tk-qrow__detail");
+        wrap.appendChild(d);
+        renderObjectives(d, qid, node);
+      }
+      return wrap;
+    }
+
+    /* —— 目标清单（按需加载该商人的明细块） —— */
+    function renderObjectives(box, qid, node) {
+      var det = detailOf(qid);
+      if (det) { fillObjectives(box, qid, det); return; }
+      box.appendChild(el("p", "tk-board__loading", "正在载入目标…"));
+      var slug = (node[N_LINK] || "").split("#")[0];
+      ensureDetail(slug, function (ok) {
+        box.textContent = "";
+        if (!ok) { box.appendChild(notReady("任务明细")); return; }
+        var d = detailOf(qid);
+        if (d) fillObjectives(box, qid, d);
+      });
+    }
+
+    function fillObjectives(box, qid, det) {
+      var objs = det.o || [];
+      var met = 0;
+      /* 自愈：任务记为「已完成」但目标一个没勾（可能在任务页上直接改的状态，
+         那里拿不到目标清单）→ 补勾，避免出现「已完成但 0/N」的矛盾。 */
+      if (TP.taskState(qid) === "done" && objs.length) {
+        var allDone = true;
+        for (var z = 0; z < objs.length; z++) if (!TP.objDone(qid, objs[z][0])) { allDone = false; break; }
+        if (!allDone) TP.alignObjectives(qid, objs.map(function (x) { return x[0]; }), "done");
+      }
+      for (var i = 0; i < objs.length; i++) {
+        var o = objs[i];
+        var row = el("label", "tk-obj");
+        var cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.checked = TP.objDone(qid, o[0]);
+        if (cb.checked) met++;
+        cb.setAttribute("data-focus-key", "obj-" + o[0]);
+        (function (oid) {
+          cb.addEventListener("change", function () {
+            var was = TP.objDone(qid, oid);
+            TP.setObjective(qid, oid, cb.checked);
+            syncObjectives(qid);
+            var host0 = box.closest(".tk-board__qbody") || box;
+            toast(host0, cb.checked ? "已勾选该目标。" : "已取消该目标。", true,
+              function () { TP.setObjective(qid, oid, was); syncObjectives(qid); sync(); });
+          });
+        })(o[0]);
+        row.appendChild(cb);
+        var txt = el("span", "tk-obj__text", o[1] || "（无描述）");
+        row.appendChild(txt);
+        if (o[2]) row.appendChild(el("em", "tk-obj__n", "×" + fmtNum(o[2])));
+        if (o[3]) row.appendChild(el("em", "tk-obj__fir", "战局中"));
+        box.appendChild(row);
+      }
+      if (!objs.length) box.appendChild(el("p", "tk-board__empty", "该任务在数据里没有目标条目。"));
+      else box.appendChild(el("p", "tk-board__note",
+        "目标进度 " + met + " / " + objs.length + " —— 全部勾完，任务会自动记为「已完成」。"));
+      if (det.p && det.p.length) {
+        var h = el("div", "tk-qrow__preph");
+        h.textContent = "这一条要带 / 要找（" + det.p.length + " 项）：";
+        box.appendChild(h);
+        var wrap2 = el("div", "tk-qrow__prep");
+        for (var k = 0; k < det.p.length; k++) {
+          var it = det.p[k];
+          var pr = el("span", "tk-prepitem");
+          pr.appendChild(el("span", "tk-prepitem__n", it[0]));
+          if (it[2]) pr.appendChild(el("em", "tk-prepitem__fir", "战局中"));
+          pr.appendChild(el("em", "tk-prepitem__c", "×" + fmtNum(it[1])));
+          pr.appendChild(el("em", "tk-prepitem__have", "已 " + fmtNum(TP.itemCount(it[0]))));
+          wrap2.appendChild(pr);
+        }
+        box.appendChild(wrap2);
+      }
+    }
+
+    /* 目标变化后回写任务状态：全勾=已完成；部分勾=在手；由已完成退回时降为在手 */
+    function syncObjectives(qid) {
+      var det = detailOf(qid);
+      if (!det || !det.o || !det.o.length) return;
+      var oids = det.o.map(function (x) { return x[0]; });
+      var n = TP.countObjectives(qid, oids);
+      var st = TP.taskState(qid);
+      if (n === oids.length && st !== "done") {
+        TP.setTaskState(qid, "done", "", undefined);
+      } else if (n > 0 && st === "done") {
+        TP.setTaskState(qid, "inhand", "", undefined);
+      } else if (n > 0 && st === "") {
+        TP.setTaskState(qid, "inhand", "", undefined);
+      }
+    }
+
+    /* —— 出发前准备（从在手任务聚合） —— */
+    function renderPrep(graph, inIds) {
+      /* ⚠️ 这里**不能**先清空：下面的 draw() 有缓存戳，戳命中时会直接返回，
+         于是「先清空、再被戳挡住」= 面板永远空着。清空必须挪到缓存判断之后。
+         实测踩到：准备清单一直显示 0 项。 */
+      if (!prepBox.__on) {
+        prepBox.textContent = "";
+        prepBox.__stamp = "";
+        return;
+      }
+      if (!inIds.length) {
+        prepBox.appendChild(el("p", "tk-board__note", "「出发前准备」来自**在手任务**。先标记几个在手任务。"));
+        return;
+      }
+      var slugs = {};
+      for (var i = 0; i < inIds.length; i++) {
+        var lk = (graph.tasks[inIds[i]] || [])[N_LINK] || "";
+        var sl = lk.split("#")[0];
+        if (sl) slugs[sl] = 1;
+      }
+      var keys = Object.keys(slugs), pending = keys.length, failed = 0;
+      keys.forEach(function (sl) {
+        ensureDetail(sl, function (ok) { if (!ok) failed++; pending--; draw(); });
+      });
+      draw();
+
+      function draw() {
+        /* ⚠️ 还有分块没到位时**必须直接返回、不能写缓存戳** ——
+           否则第一次画出来的是不完整的清单，而戳已经记下，
+           等缺的那块载完再进来就被戳挡住、永远不重画。 */
+        if (pending > 0) return;
+        if (prepBox.__stamp === inIds.join(",") + "|" + failed) return;
+        prepBox.__stamp = inIds.join(",") + "|" + failed;
+        prepBox.textContent = "";   // ← 清空在缓存判断之后
+        var agg = {};
+        for (var j = 0; j < inIds.length; j++) {
+          var det = detailOf(inIds[j]);
+          if (!det || !det.p) continue;
+          for (var k = 0; k < det.p.length; k++) {
+            var it = det.p[k];
+            var cur = agg[it[0]];
+            if (cur) { cur[1] += it[1]; cur[2] = cur[2] || !!it[2]; }
+            else agg[it[0]] = [it[0], it[1], !!it[2]];
+          }
+        }
+        var list = Object.keys(agg).map(function (k2) { return agg[k2]; });
+        list.sort(function (a, b) { return (a[2] === b[2]) ? b[1] - a[1] : (a[2] ? -1 : 1); });
+        var head = el("div", "tk-qsec__head");
+        head.appendChild(el("b", null, "出发前准备"));
+        head.appendChild(el("em", null, inIds.length + " 个在手任务 · " + list.length + " 项"));
+        prepBox.appendChild(head);
+        if (failed) {
+          prepBox.appendChild(el("p", "tk-board__note",
+            "有 " + failed + " 个商人的任务明细没载入，下面的清单不完整。"));
+        }
+        if (!list.length) {
+          prepBox.appendChild(el("p", "tk-board__empty", "这几个任务的数据里没有「要带 / 要找」的条目。"));
+          return;
+        }
+        var tbl = el("tbody");
+        for (var m = 0; m < list.length; m++) {
+          var it2 = list[m];
+          var tr = el("tr");
+          var td0 = el("td", "tk-board__pick");
+          td0.appendChild(countCtl(it2[0], it2[1]).el);
+          tr.appendChild(td0);
+          tr.appendChild(el("td", null, it2[0]));
+          tr.appendChild(el("td", null, it2[2] ? "必须战局中带出" : "可采购"));
+          var have = TP.itemCount(it2[0]);
+          tr.appendChild(el("td", "tk-board__num", fmtNum(have)));
+          if (have >= it2[1]) tr.className = "tk-met";
+          tbl.appendChild(tr);
+        }
+        var wrap3 = wrapTable(["已囤 / 需", "物品", "来源", "已囤"], tbl);
+        prepBox.appendChild(wrap3.firstChild);
+      }
+    }
+
+    /* —— 主同步 —— */
+    var gateOpen = false;
+    gateBtn.addEventListener("click", function () {
+      gateOpen = !gateOpen;
+      gatePanel.hidden = !gateOpen;
+      gateBtn.textContent = gateOpen ? "门槛 ▴" : "门槛 ▾";
+    });
+
+    function sync() {
+      var graph = window.TARKOV_QUEST_GRAPH || null;
+      var gates = TP.gates();
+
+      /* 工具条状态回填（只在没有焦点时写，免得打断输入） */
+      if (document.activeElement !== lvIn) lvIn.value = gates.level > 0 ? String(gates.level) : "";
+      if (document.activeElement !== prIn) prIn.value = gates.prestige > 0 ? String(gates.prestige) : "";
+      var segs = facWrap.querySelectorAll(".tk-board__segbtn");
+      for (var s = 0; s < segs.length; s++) {
+        segs[s].classList.toggle("is-on", segs[s].textContent === gates.faction);
+      }
+      var lls = llRow.querySelectorAll("select");
+      for (var q = 0; q < lls.length; q++) {
+        var slug0 = (lls[q].getAttribute("data-focus-key") || "").replace("ll-", "");
+        if (document.activeElement !== lls[q]) lls[q].value = gates.ll[slug0] || "";
+      }
+
+      if (!graph) {
+        body.textContent = "";
+        body.appendChild(graphState === 1 ? el("p", "tk-board__loading", "正在载入任务树…")
+                                         : notReady("任务树"));
+        cnt.textContent = "";
+        cnt2.textContent = "";
+        summary.textContent = "";
+        prepBox.textContent = "";
+        return;
+      }
+
+      /* 地图选项只要建一次 */
+      if (!mapSel.__filled) {
+        var ms = {};
+        for (var id0 in graph.tasks) {
+          var mv = graph.tasks[id0][N_MAP];
+          if (mv) ms[mv] = (ms[mv] || 0) + 1;
+        }
+        Object.keys(ms).sort(function (a, b) { return ms[b] - ms[a]; }).forEach(function (mv) {
+          var o = document.createElement("option");
+          o.value = mv; o.textContent = mv + "（" + ms[mv] + "）";
+          mapSel.appendChild(o);
+        });
+        mapSel.__filled = true;
+      }
+
+      var md = TP.data();
+      var explicit = md.modes[md.mode].quests || {};
+      var inhand = md.modes[md.mode].inhand || {};
+      var tree = computeTree(graph, explicit, inhand, gates);
+
+      var inIds = Object.keys(inhand), doneIds = Object.keys(tree.done);
+      var qtext = (search.value || "").trim().toLowerCase();
+      var mapPick = mapSel.value;
+
+      /* 预设筛选 */
+      var presets = {};
+      for (var pb = 0; pb < pbtns.length; pb++) {
+        presets[pbtns[pb].getAttribute("data-preset")] = pbtns[pb].classList.contains("is-on");
+      }
+      prepBox.__on = presets.prep;
+
+      function passPreset(qid) {
+        var n = graph.tasks[qid];
+        if (presets.kappa && n[N_FLAGS].indexOf("k") < 0) return false;
+        if (presets.lk && n[N_FLAGS].indexOf("l") < 0) return false;
+        return true;
+      }
+
+      cards.refs["在手"].textContent = String(inIds.length);
+      cards.refs["已完成"].textContent = String(doneIds.length);
+      cards.refs["其中由前置推断"].textContent = String(Object.keys(tree.inferred).length);
+      cards.refs["可接（条件满足）"].textContent = String(tree.avail.length);
+
+      function byLevel(a, b) {
+        return (graph.tasks[a][N_LEVEL] - graph.tasks[b][N_LEVEL]) ||
+               (graph.tasks[a][N_NAME] < graph.tasks[b][N_NAME] ? -1 : 1);
+      }
+
+      keepFocus(body, function () {
+        body.textContent = "";
+
+        if (qtext) {
+          var hits = [];
+          for (var id in graph.tasks) {
+            var n = graph.tasks[id];
+            var hay = (n[N_NAME] + " " + (tname[n[N_TRADER]] || n[N_TRADER] || "") + " " + n[N_LEVEL]).toLowerCase();
+            if (hay.indexOf(qtext) >= 0 && passPreset(id)) hits.push(id);
+          }
+          hits.sort(byLevel);
+          var s0 = section("搜索结果", hits.length + " 个任务匹配「" + search.value.trim() + "」");
+          for (var i0 = 0; i0 < hits.length && i0 < 100; i0++) {
+            s0.box.appendChild(questRow(hits[i0], graph.tasks[hits[i0]], null, tree));
+          }
+          if (hits.length > 100) s0.box.appendChild(el("p", "tk-board__note", "只显示了前 100 个，继续输入以缩小范围。"));
+          body.appendChild(s0.sec);
+          cnt.textContent = "匹配 " + hits.length + " / " + graph.total;
+          cnt2.textContent = "";
+          return;
+        }
+
+        function filtered(ids) {
+          var out = [];
+          for (var z = 0; z < ids.length; z++) {
+            var nn = graph.tasks[ids[z]];
+            if (!nn) continue;
+            if (mapPick && nn[N_MAP] !== mapPick) continue;
+            if (!passPreset(ids[z])) continue;
+            out.push(ids[z]);
+          }
+          return out;
+        }
+
+        var fIn = filtered(inIds).sort(byLevel);
+        var fAv = filtered(tree.avail).sort(byLevel);
+        var fDn = filtered(doneIds).sort(byLevel);
+
+        var s1 = section("在手", fIn.length + " 个" + (mapPick || Object.keys(presets).some(function (k) { return presets[k]; }) ? "（已筛）" : ""), "tk-qsec--inhand");
+        if (!fIn.length) {
+          s1.box.appendChild(el("p", "tk-board__empty",
+            inIds.length ? "当前筛选下没有在手任务。" : "还没标记任何任务。在下面「可接」里把状态改成「在手」，或用搜索框找任务。"));
+        } else {
+          for (var a1 = 0; a1 < fIn.length && a1 < QROW_CAP; a1++) {
+            s1.box.appendChild(questRow(fIn[a1], graph.tasks[fIn[a1]], null, tree));
+          }
+        }
+        body.appendChild(s1.sec);
+
+        var s2 = section("可接（前置 + 等级 + 门槛都满足）", fAv.length + " 个", "tk-qsec--avail");
+        if (!fAv.length) {
+          s2.box.appendChild(el("p", "tk-board__empty", tree.avail.length
+            ? "可接的任务都在筛选之外。"
+            : (gates.level > 0 ? "没有满足条件的任务 —— 检查等级、门槛或前置。" : "先填「我的等级」，否则无法筛出可接的任务。")));
+        } else {
+          for (var a2 = 0; a2 < fAv.length && a2 < QROW_CAP; a2++) {
+            var q2 = fAv[a2];
+            var st2 = tree.stat[q2] || [0, 0];
+            s2.box.appendChild(questRow(q2, graph.tasks[q2], st2[1] ? "前置 " + st2[0] + "/" + st2[1] : "无前置", tree));
+          }
+          if (fAv.length > QROW_CAP) s2.box.appendChild(el("p", "tk-board__note", "只显示了前 " + QROW_CAP + " 个（按等级升序），其余用搜索框找。"));
+        }
+        body.appendChild(s2.sec);
+
+        var s3 = section("已完成", fDn.length + " 个（含 " + Object.keys(tree.inferred).length + " 个由前置推断）", "tk-qsec--done");
+        if (!fDn.length) {
+          s3.box.appendChild(el("p", "tk-board__empty", "还没有已完成的任务。"));
+        } else {
+          for (var a3 = 0; a3 < fDn.length && a3 < QROW_CAP; a3++) {
+            var q3 = fDn[a3];
+            s3.box.appendChild(questRow(q3, graph.tasks[q3], tree.inferred[q3] ? "推断" : "手动", tree));
+          }
+          if (fDn.length > QROW_CAP) s3.box.appendChild(el("p", "tk-board__note", "只显示了前 " + QROW_CAP + " 个，其余用搜索框找。"));
+        }
+        body.appendChild(s3.sec);
+
+        cnt.textContent = "共 " + totalAll + " 个任务";
+        cnt2.textContent = (mapPick ? "地图 " + mapPick + " · " : "") + "在手 " + fIn.length + " / 可接 " + fAv.length;
+      });
+
+      renderPrep(graph, inIds);
+
+      var chips = el("div", "tk-board__chiprow");
+      var byTrader = {};
+      for (var t2 = 0; t2 < traders.length; t2++) byTrader[traders[t2].slug] = 0;
+      for (var d2 = 0; d2 < doneIds.length; d2++) {
+        var nd2 = graph.tasks[doneIds[d2]];
+        if (nd2 && byTrader[nd2[N_TRADER]] !== undefined) byTrader[nd2[N_TRADER]]++;
+      }
+      for (var t3 = 0; t3 < traders.length; t3++) {
+        var chip = el("span", "tk-chip");
+        chip.appendChild(el("i", null, traders[t3].name));
+        chip.appendChild(el("b", null, byTrader[traders[t3].slug] + "/" + traders[t3].count));
+        chips.appendChild(chip);
+      }
+      summary.textContent = "";
+      summary.appendChild(chips);
+    }
+
+    function section(title, sub, cls) {
+      var sec = el("div", "tk-qsec " + (cls || ""));
+      var head = el("div", "tk-qsec__head");
+      head.appendChild(el("b", null, title));
+      head.appendChild(el("em", null, sub));
+      sec.appendChild(head);
+      var box = el("div", "tk-qsec__body");
+      sec.appendChild(box);
+      return { sec: sec, head: head, box: box };
+    }
+
+    search.addEventListener("input", sync);
+    mapSel.addEventListener("change", sync);
+    for (var pb2 = 0; pb2 < pbtns.length; pb2++) {
+      pbtns[pb2].addEventListener("click", function (e) {
+        e.currentTarget.classList.toggle("is-on");
+        sync();
+      });
+    }
+    host.__tkSync = sync;
+
+    if (window.TARKOV_QUEST_GRAPH) sync();
+    else {
+      body.appendChild(el("p", "tk-board__loading", "正在载入任务树…"));
+      ensureGraph(function () { sync(); });
+    }
+  }
+
+  /* --------------------------------------------------------------------------
+     看板二：物品收集（数量式）
+     -------------------------------------------------------------------------- */
+
+  function renderItemBoard(host) {
+    var mf = window.TARKOV_PROGRESS_MANIFEST;
+    var items = (mf && mf.items) || { total: 0, list: [] };
+    var list = items.list || [];
+    host.textContent = "";
+    if (!list.length) { host.appendChild(notReady("物品清单")); return; }
+
+    var cards = sumCards([["已达标"], ["已囤种类"], ["已囤件数"], ["清单物品", String(items.total || list.length)]]);
+    var refs = cards.refs;
+    host.appendChild(cards.el);
+
+    var bar = el("div", "tk-board__filter");
+    var input = document.createElement("input");
+    input.type = "search";
+    input.className = "tk-board__search";
+    input.placeholder = "筛选物品名 / 商人名";
+    input.setAttribute("data-focus-key", "isearch");
+    input.setAttribute("aria-label", "筛选物品");
+    bar.appendChild(input);
+    var only = document.createElement("label");
+    only.className = "tk-board__check";
+    var cb = document.createElement("input");
+    cb.type = "checkbox";
+    only.appendChild(cb);
+    only.appendChild(document.createTextNode("只看未达标"));
+    bar.appendChild(only);
+    var count = el("span", "tk-board__filtercount");
+    bar.appendChild(count);
+    host.appendChild(bar);
+
+    var tbody = el("tbody");
+    var rows = [];
+    var cardTotal = list.length;
+
+    for (var i = 0; i < list.length; i++) {
+      var it = list[i];
+      var tr = el("tr");
+      var tdCtl = el("td", "tk-board__pick");
+      var ctl = countCtl(it.name, it.qty);
+      tdCtl.appendChild(ctl.el);
+      tr.appendChild(tdCtl);
+      tr.appendChild(el("td", null, it.name));
+      tr.appendChild(el("td", "tk-board__num", String(it.tasks)));
+      tr.appendChild(el("td", "tk-board__num", fmtNum(it.qty)));
+      tr.appendChild(el("td", "tk-board__who", it.traders || "—"));
+      rows.push({ tr: tr, ctl: ctl, it: it });
+      tbody.appendChild(tr);
+    }
+    host.appendChild(wrapTable(["已囤 / 需", "物品", "任务数", "合计数量", "涉及商人"], tbody));
+    host.appendChild(el("p", "tk-board__note", (items.note || "") + " 达标 = 已囤件数 ≥ 合计数量。"));
+
+    function apply() {
+      var q = (input.value || "").trim().toLowerCase();
+      var onlyOn = cb.checked;
+      var shown = 0, met = 0, kinds = 0, held = 0;
+      for (var r = 0; r < rows.length; r++) {
+        var v = TP.itemCount(rows[r].it.name);
+        var ok2 = v >= rows[r].it.qty;
+        if (ok2) met++;
+        if (v > 0) { kinds++; held += v; }
+        rows[r].ctl.set(v);
+        rows[r].tr.className = ok2 ? "tk-met" : "";
+        var hay = (rows[r].it.name + " " + (rows[r].it.traders || "")).toLowerCase();
+        var hit = (!q || hay.indexOf(q) >= 0) && (!onlyOn || !ok2);
+        rows[r].tr.hidden = !hit;
+        if (hit) shown++;
+      }
+      count.textContent = "显示 " + shown + " / " + rows.length;
+      refs["已达标"].textContent = met + " / " + cardTotal;
+      refs["已囤种类"].textContent = String(kinds);
+      refs["已囤件数"].textContent = fmtNum(held);
+    }
+    input.addEventListener("input", apply);
+    cb.addEventListener("change", apply);
+    host.__tkSync = apply;
+    apply();
+  }
+
+  /* --------------------------------------------------------------------------
+     看板三：藏身处（模块等级 + 下一级材料）
+     -------------------------------------------------------------------------- */
+
+  function topLevel(mod) {
+    var lv = (mod && mod.levels) || [], top = 0;
+    for (var i = 0; i < lv.length; i++) {
+      var n = parseInt(lv[i].level, 10);
+      if (isFinite(n) && n > top) top = n;
+    }
+    return top;
+  }
+
+  function nextLevelReq(mod, cur) {
+    var want = (parseInt(cur, 10) || 0) + 1;
+    var lv = (mod && mod.levels) || [];
+    for (var i = 0; i < lv.length; i++) {
+      if (parseInt(lv[i].level, 10) === want) {
+        return { level: want, time: lv[i].time, stations: lv[i].stations || [],
+                 skills: lv[i].skills || [], items: lv[i].items || [] };
+      }
+    }
+    return null;
+  }
+
+  function fmtTime(sec) {
+    var s = parseInt(sec, 10) || 0;
+    if (!s) return "即时";
+    var d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
+    var out = [];
+    if (d) out.push(d + " 天");
+    if (h) out.push(h + " 小时");
+    if (m && !d) out.push(m + " 分钟");
+    return out.join(" ");
+  }
+
+  function renderHideoutBoard(host) {
+    var mf = window.TARKOV_PROGRESS_MANIFEST;
+    var hut = (mf && mf.hideout) || { total: 0, list: [] };
+    var list = hut.list || [];
+    host.textContent = "";
+    if (!list.length) { host.appendChild(notReady("藏身处清单")); return; }
+
+    var cards = sumCards([["已建造"], ["已建满"], ["可升下一级"], ["模块总数", String(hut.total || list.length)]]);
+    var refs = cards.refs;
+    host.appendChild(cards.el);
+
+    var bar = el("div", "tk-board__filter");
+    var only = document.createElement("label");
+    only.className = "tk-board__check";
+    var cb = document.createElement("input");
+    cb.type = "checkbox";
+    only.appendChild(cb);
+    only.appendChild(document.createTextNode("只看材料未齐的模块"));
+    bar.appendChild(only);
+    var count = el("span", "tk-board__filtercount");
+    bar.appendChild(count);
+    host.appendChild(bar);
+
+    var cells = [];
+    var groups = [], byLayer = {};
+    for (var i = 0; i < list.length; i++) {
+      var key = list[i].layer || "（不按产出分层）";
+      if (!byLayer[key]) { byLayer[key] = []; groups.push(key); }
+      byLayer[key].push(list[i]);
+    }
+    for (var gi = 0; gi < groups.length; gi++) {
+      var sec = el("div", "tk-hut");
+      var head = el("div", "tk-hut__head");
+      head.appendChild(el("b", null, groups[gi]));
+      head.appendChild(el("em", null, byLayer[groups[gi]].length + " 个模块"));
+      sec.appendChild(head);
+      var grid = el("div", "tk-hut__grid");
+      for (var k = 0; k < byLayer[groups[gi]].length; k++) {
+        var built = hideoutCard(byLayer[groups[gi]][k]);
+        cells.push(built);
+        grid.appendChild(built.el);
+      }
+      sec.appendChild(grid);
+      host.appendChild(sec);
+    }
+    host.appendChild(el("p", "tk-board__note",
+      (hut.note || "") + " 「可升下一级」只看**材料**够不够 —— 前置设施与技能属游戏内状态，本站没有数据可判定，只做提示。"));
+
+    function apply() {
+      var onlyOn = cb.checked;
+      var builtN = 0, maxedN = 0, readyN = 0, shown = 0;
+      for (var r = 0; r < cells.length; r++) {
+        var st = cells[r].sync();
+        if (st.built) builtN++;
+        if (st.maxed) maxedN++;
+        if (st.ready) readyN++;
+        var show = !onlyOn || !st.ready;
+        cells[r].el.hidden = !show;
+        if (show) shown++;
+      }
+      count.textContent = "显示 " + shown + " / " + cells.length;
+      refs["已建造"].textContent = builtN + " / " + cells.length;
+      refs["已建满"].textContent = String(maxedN);
+      refs["可升下一级"].textContent = String(readyN);
+    }
+    cb.addEventListener("change", apply);
+    host.__tkSync = apply;
+    apply();
+  }
+
+  function hideoutCard(mod) {
+    var cell = el("div", "tk-hut__cell");
+    var name = el("div", "tk-hut__name");
+    name.appendChild(document.createTextNode(mod.name));
+    name.appendChild(el("code", "tk-hut__en", mod.en));
+    if (mod.alias) {
+      var al = el("span", "tk-hut__alias", "曾称 " + mod.alias);
+      al.title = "本页旧写法，搜索旧名也能命中";
+      name.appendChild(al);
+    }
+    cell.appendChild(name);
+
+    var lvl = el("div", "tk-hut__lvl");
+    var sel = document.createElement("select");
+    sel.className = "tk-hut__sel";
+    sel.setAttribute("data-focus-key", "hut-" + mod.en);
+    sel.setAttribute("aria-label", mod.name + " 当前等级");
+    var top = topLevel(mod);
+    var o0 = document.createElement("option");
+    o0.value = "0"; o0.textContent = "未建造";
+    sel.appendChild(o0);
+    for (var v = 1; v <= top; v++) {
+      var o = document.createElement("option");
+      o.value = String(v);
+      o.textContent = v + " 级" + (v === top ? "（满）" : "");
+      sel.appendChild(o);
+    }
+    sel.addEventListener("change", function () { TP.setHideoutLevel(mod.name, sel.value); });
+    lvl.appendChild(sel);
+    lvl.appendChild(el("em", "tk-hut__cap", "上限 " + top + " 级"));
+    cell.appendChild(lvl);
+
+    var next = el("div", "tk-hut__next");
+    cell.appendChild(next);
+    var nextHead = el("div", "tk-hut__nexthead");
+    var deps = el("div", "tk-hut__deps");
+    var matWrap = el("div", "tk-hut__mat");
+    next.appendChild(nextHead);
+    next.appendChild(deps);
+    next.appendChild(matWrap);
+    var doneBadge = el("div", "tk-hut__done", "已建满");
+    cell.appendChild(doneBadge);
+
+    var matRows = [];
+    function buildNext(req) {
+      nextHead.textContent = "下一级：" + req.level + " 级 ｜ 施工 " + fmtTime(req.time);
+      var d = [];
+      for (var i = 0; i < req.stations.length; i++) {
+        if (req.stations[i].name) d.push("前置 " + req.stations[i].name + " " + req.stations[i].level + " 级");
+      }
+      for (var j = 0; j < req.skills.length; j++) {
+        if (req.skills[j].name) d.push("技能 " + req.skills[j].name + " " + req.skills[j].level + " 级");
+      }
+      deps.textContent = d.length ? d.join(" · ") : "";
+      deps.hidden = !d.length;
+      matWrap.textContent = "";
+      matRows = [];
+      if (!req.items.length) {
+        matWrap.appendChild(el("p", "tk-hut__nomat", "该等级无材料要求。"));
+        return;
+      }
+      for (var k = 0; k < req.items.length; k++) {
+        var it = req.items[k];
+        var row = el("div", "tk-hut__mrow");
+        var nm = el("span", "tk-hut__mname", it.name);
+        if (it.fir) {
+          var fir = el("span", "tk-hut__fir", "战局中");
+          fir.title = "必须自己带出，跳蚤市场买的不算数";
+          nm.appendChild(fir);
+        }
+        row.appendChild(nm);
+        var ctl = countCtl(it.name, it.count);
+        row.appendChild(ctl.el);
+        matWrap.appendChild(row);
+        matRows.push({ row: row, ctl: ctl, need: it.count, name: it.name });
+      }
+    }
+
+    function sync() {
+      var level = TP.hideoutLevel(mod.name);
+      if (sel.value !== String(level)) sel.value = String(level);
+      var maxed = level >= top && top > 0;
+      var req = nextLevelReq(mod, level);
+      var stamp = maxed ? "max" : (req ? String(req.level) : "none");
+      if (cell.getAttribute("data-stamp") !== stamp) {
+        cell.setAttribute("data-stamp", stamp);
+        if (maxed) { next.hidden = true; doneBadge.hidden = false; }
+        else if (!req) { next.hidden = true; doneBadge.hidden = true; }
+        else { next.hidden = false; doneBadge.hidden = true; buildNext(req); }
+      }
+      var allMet = true;
+      for (var i = 0; i < matRows.length; i++) {
+        var got = TP.itemCount(matRows[i].name);
+        matRows[i].ctl.set(got);
+        var ok2 = got >= matRows[i].need;
+        if (!ok2) allMet = false;
+        matRows[i].row.className = ok2 ? "tk-hut__mrow tk-met" : "tk-hut__mrow";
+      }
+      if (!matRows.length) allMet = false;
+      cell.className = "tk-hut__cell"
+        + (level > 0 ? " is-built" : "")
+        + (maxed ? " is-maxed" : "")
+        + (!maxed && matRows.length && allMet ? " is-ready" : "");
+      return { built: level > 0, maxed: maxed, ready: !maxed && matRows.length > 0 && allMet };
+    }
+    return { el: cell, sync: sync };
+  }
+
+  /* --------------------------------------------------------------------------
+     看板四：进度管理（导出 / 导入 / 分享 / 分轨清空）
+     -------------------------------------------------------------------------- */
+
+  function b64url(bytes) {
+    var s = "";
+    for (var i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+    return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  }
+
+  function unb64url(str) {
+    var s = String(str || "").replace(/-/g, "+").replace(/_/g, "/");
+    while (s.length % 4) s += "=";
+    var bin = atob(s);
+    var out = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+    return out;
+  }
+
+  /* 把进度编成一段紧凑二进制，再 base64 进 URL 片段。
+     做法刻意保守：**只编码「有值」的条目**（勾过的任务、非零数量），
+     所以典型进度只有一两百字节，链接不至于长到被聊天软件截断。
+     字典（商人数、物品数）取自清单，顺序稳定；编码里带一个数据指纹，
+     版本对不上时导入侧会提示「可能有个别条目对不上」。 */
+  function encodeProgress() {
+    var mf = window.TARKOV_PROGRESS_MANIFEST || {};
+    var md = TP.data();
+    var mode = md.mode;
+    var md0 = md.modes[mode];
+    var qOrder = [], qIndex = {};
+    var graph = window.TARKOV_QUEST_GRAPH;
+    if (graph) {
+      for (var id in graph.tasks) { qIndex[id] = qOrder.length; qOrder.push(id); }
+    }
+    var items = ((mf.items || {}).list || []).map(function (x) { return x.name; });
+    var stations = ((mf.hideout || {}).list || []).map(function (x) { return x.name; });
+    var traders = (mf.traders || []).map(function (x) { return x.slug; });
+
+    var b = [];
+    function u8(v) { b.push(v & 0xff); }
+    function u16(v) { b.push(v & 0xff, (v >> 8) & 0xff); }
+    function u32(v) { v = v >>> 0; b.push(v & 0xff, (v >>> 8) & 0xff, (v >>> 16) & 0xff, (v >>> 24) & 0xff); }
+    function str(s) {
+      var enc = unescape(encodeURIComponent(String(s == null ? "" : s)));
+      u8(enc.length);
+      for (var i = 0; i < enc.length; i++) u8(enc.charCodeAt(i));
+    }
+    u8(1);                                   // 版本
+    u8(["pvp", "pve", "season"].indexOf(mode));
+    u8(md0.level || 0);
+    u8((md0.faction === "BEAR" ? 1 : md0.faction === "USEC" ? 2 : 0) | ((md0.prestige || 0) << 2));
+    str((mf.baseline || "").slice(0, 10));   // 数据指纹（基线日期）
+
+    u8(traders.length);
+    traders.forEach(function (t) { u8(parseInt(md0.ll[t], 10) || 0); });
+
+    if (graph) {
+      [["q", md0.quests], ["i", md0.inhand]].forEach(function (pair) {
+        var keys = Object.keys(pair[1]);
+        u16(keys.length);
+        keys.forEach(function (k) {
+          if (qIndex[k] === undefined) return;
+          u8(qIndex[k] & 0xff);
+          u8((qIndex[k] >> 8) & 0xff);
+        });
+      });
+      var objs = Object.keys(md0.objectives);
+      u16(objs.length);
+      objs.forEach(function (k) {
+        var parts = k.split("|");
+        if (qIndex[parts[0]] === undefined) return;
+        u8(qIndex[parts[0]] & 0xff);
+        u8((qIndex[parts[0]] >> 8) & 0xff);
+        str(parts[1] || "");
+      });
+    } else {
+      u16(0); u16(0); u16(0);
+    }
+
+    var iKeys = Object.keys(md0.items);
+    u16(iKeys.length);
+    // ⚠️ 件数必须是 4 字节：卢布这类需求上百万，用 u16 会被截断
+    iKeys.forEach(function (k) { u8(items.indexOf(k) & 0xff); u32(TP.itemCount(k)); });
+    var hKeys = Object.keys(md0.hideout);
+    u16(hKeys.length);
+    hKeys.forEach(function (k) { u8(stations.indexOf(k) & 0xff); u8(TP.hideoutLevel(k)); });
+    return b64url(b);
+  }
+
+  function decodeProgress(code) {
+    try {
+      /* ⚠️ 参数**不能**叫 str：下面有个读字符串的内部函数也叫 str，
+         函数声明会提升并覆盖同名参数 —— 于是 unb64url 收到的是一个函数，
+         atob 直接抛「not correctly encoded」。实测踩到。 */
+      var b = unb64url(code), i = 0;
+      function u8() { return b[i++]; }
+      function u16() { var v = b[i] | (b[i + 1] << 8); i += 2; return v; }
+      function u32() { var v = (b[i] | (b[i + 1] << 8) | (b[i + 2] << 16) | (b[i + 3] << 24)) >>> 0; i += 4; return v; }
+      function rdStr() { var n = u8(), acc = ""; for (var k = 0; k < n; k++) acc += String.fromCharCode(u8()); return decodeURIComponent(escape(acc)); }
+      var ver = u8();
+      if (ver !== 1) return null;
+      var mode = ["pvp", "pve", "season"][u8()] || "pvp";
+      var level = u8();
+      var fp = u8();
+      var fingerprint = rdStr();
+      var mf = window.TARKOV_PROGRESS_MANIFEST || {};
+      var out = {
+        v: 5, mode: mode,
+        modes: { pvp: { quests: {}, inhand: {}, items: {}, hideout: {}, objectives: {}, ll: {} },
+                 pve: { quests: {}, inhand: {}, items: {}, hideout: {}, objectives: {}, ll: {} },
+                 season: { quests: {}, inhand: {}, items: {}, hideout: {}, objectives: {}, ll: {} } }
+      };
+      var m = out.modes[mode];
+      m.level = level;
+      m.faction = (fp & 3) === 1 ? "BEAR" : (fp & 3) === 2 ? "USEC" : "";
+      m.prestige = fp >> 2;
+      var traders = (mf.traders || []).map(function (x) { return x.slug; });
+      var tn = u8();
+      for (var t = 0; t < tn && t < traders.length; t++) {
+        var v = u8();
+        if (v >= 1 && v <= 4) m.ll[traders[t]] = String(v);
+      }
+      var graph = window.TARKOV_QUEST_GRAPH;
+      var order = [];
+      if (graph) for (var id in graph.tasks) order.push(id);
+      var nQ = u16(), k;
+      for (k = 0; k < nQ; k++) { var qi = u16(); if (order[qi]) m.quests[order[qi]] = ""; }
+      var nI = u16();
+      for (k = 0; k < nI; k++) { var ii = u16(); if (order[ii]) m.inhand[order[ii]] = ""; }
+      var nO = u16();
+      for (k = 0; k < nO; k++) { var oi = u16(); var oid = rdStr(); if (order[oi] && oid) m.objectives[order[oi] + "|" + oid] = "1"; }
+      var items = ((mf.items || {}).list || []).map(function (x) { return x.name; });
+      var nIt = u16();
+      for (k = 0; k < nIt; k++) { var iidx = u8(); var cnt = u32(); if (items[iidx] && cnt) m.items[items[iidx]] = String(cnt); }
+      var stations = ((mf.hideout || {}).list || []).map(function (x) { return x.name; });
+      var nH = u16();
+      for (k = 0; k < nH; k++) { var sidx = u8(); var lvv = u8(); if (stations[sidx] && lvv) m.hideout[stations[sidx]] = String(lvv); }
+      var now = (mf.baseline || "").slice(0, 10);
+      return { data: out, stale: !!fingerprint && fingerprint !== now };
+    } catch (e) {
+      return { __err: String(e && e.message || e), __at: i };
+    }
+  }
+
+  /* 把一个节点所在的分页切到前台。
+     为什么需要：看着板的读者可能是**从别人分享的链接**进来的，而分享提示
+     在「进度管理」分页里 —— 不切过去，他根本不知道有这条提示。 */
+  function activateTabOf(node) {
+    try {
+      var block = node.closest ? node.closest(".tabbed-block") : null;
+      if (!block || !block.parentNode) return;
+      var blocks = Array.prototype.slice.call(block.parentNode.children);
+      var idx = blocks.indexOf(block);
+      var set = block.closest(".tabbed-set");
+      if (!set || idx < 0) return;
+      var labels = set.querySelectorAll(".tabbed-labels label");
+      if (labels[idx]) labels[idx].click();
+    } catch (e) { /* 主题结构变了就静默放弃，不影响功能 */ }
+  }
+
+  function renderOps(host) {
+    host.textContent = "";
+    var ops = el("div", "tk-board__ops");
+
+    var btnExport = el("button", "tk-board__btn", "导出进度（JSON）");
+    btnExport.type = "button";
+    btnExport.addEventListener("click", function () {
+      download("tarkov-progress-" + today() + ".json", TP.exportText());
+    });
+    ops.appendChild(btnExport);
+
+    var file = document.createElement("input");
+    file.type = "file";
+    file.accept = ".json,application/json";
+    file.hidden = true;
+    file.addEventListener("change", function () {
+      var f = file.files && file.files[0];
+      if (!f) return;
+      var reader = new FileReader();
+      reader.onload = function () {
+        var res = TP.importText(String(reader.result || ""));
+        toast(host, res.msg, res.ok);
+      };
+      reader.readAsText(f);
+      file.value = "";
+    });
+    ops.appendChild(file);
+
+    var btnImport = el("button", "tk-board__btn", "导入进度（JSON 文件）");
+    btnImport.type = "button";
+    btnImport.addEventListener("click", function () { file.click(); });
+    ops.appendChild(btnImport);
+
+    var btnShare = el("button", "tk-board__btn", "复制分享链接");
+    btnShare.type = "button";
+    btnShare.addEventListener("click", function () {
+      if (!window.TARKOV_QUEST_GRAPH) {
+        toast(host, "任务树还没载入，先回到「任务进度」分页等它载完再试。", false);
+        return;
+      }
+      var code = encodeProgress();
+      var url = location.origin + location.pathname + "#p=" + code;
+      var done = function (ok2) {
+        toast(host, ok2 ? "分享链接已复制（" + url.length + " 字符）。对方打开后可以选择导入。"
+                        : "复制失败，请手动复制地址栏里的链接。", ok2);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () { done(true); }, function () { done(false); });
+      } else {
+        location.hash = "p=" + code;
+        done(false);
+      }
+      try { history.replaceState(null, "", "#p=" + code); } catch (e) { /* 忽略 */ }
+    });
+    ops.appendChild(btnShare);
+
+    for (var i = 0; i < TRACKS.length; i++) {
+      (function (track) {
+        var b = el("button", "tk-board__btn tk-board__btn--warn", "清空" + TRACK_LABEL[track]);
+        b.type = "button";
+        b.addEventListener("click", function () {
+          var msg = "确定清空「" + MODE_LABEL[TP.mode()] + "」模式下的" + TRACK_LABEL[track]
+            + "进度吗？\n\n这个动作不可撤销（其他轨、其他模式的进度不受影响）。\n"
+            + "建议先点「导出进度」留一份备份。";
+          if (window.confirm(msg)) {
+            TP.clear(track);
+            toast(host, "已清空「" + MODE_LABEL[TP.mode()] + "」的" + TRACK_LABEL[track] + "进度。", true);
+          }
+        });
+        ops.appendChild(b);
+      })(TRACKS[i]);
+    }
+    host.appendChild(ops);
+    host.appendChild(el("p", "tk-board__note",
+      "导出 / 分享都是**纯本地**的：导出是一个 JSON 文件，分享是一条带进度数据的链接 —— "
+      + "两者都不经过服务器。导入时**任务取并集、件数与等级取较大值**，不会覆盖已有的进度。"));
+
+    /* 别人分享的链接：问一句再导入，绝不自动改读者的数据 */
+    var m = (location.hash || "").match(/#p=([A-Za-z0-9_-]+)/);
+    if (m) {
+      var dec = decodeProgress(m[1]);
+      if (!dec || dec.__err) {
+        host.appendChild(el("p", "tk-board__note", "链接里的进度数据读不出来（可能被截断了）。"));
+      } else {
+        var box = el("div", "tk-board__share");
+        box.appendChild(el("b", null, "检测到一条分享的进度"));
+        box.appendChild(el("p", null,
+          (dec.stale ? "⚠️ 这条链接的数据版本与本站当前不同，可能有个别条目对不上。\n" : "")
+          + "导入会把两个进度合并（任务取并集、件数与等级取较大值），不会覆盖你自己的记录。"));
+        var ok3 = el("button", "tk-board__btn", "合并进来");
+        ok3.type = "button";
+        ok3.addEventListener("click", function () {
+          var res = TP.importText(JSON.stringify(dec.data));
+          box.textContent = res.msg;
+          box.className = "tk-board__toast";
+        });
+        box.appendChild(ok3);
+        host.appendChild(box);
+        /* 把读者带到这条提示面前 —— 否则它藏在隐藏的分页里，等于没有提示 */
+        activateTabOf(box);
+      }
+    }
+  }
+
+  /* --------------------------------------------------------------------------
+     入口
+     -------------------------------------------------------------------------- */
+
+  function render(mounts) {
+    for (var i = 0; i < mounts.length; i++) {
+      var h = mounts[i];
+      var id = h.id;
+      h.textContent = "";
+      if (id === "tk-progress-board") renderQuestBoard(h);
+      else if (id === "tk-board-items") renderItemBoard(h);
+      else if (id === "tk-board-hideout") renderHideoutBoard(h);
+      else if (id === "tk-board-ops") renderOps(h);
+    }
+  }
+
+  function sync() {
+    var ids = ["tk-progress-board", "tk-board-items", "tk-board-hideout", "tk-board-ops"];
+    for (var i = 0; i < ids.length; i++) {
+      var h = document.getElementById(ids[i]);
+      if (h && h.__tkSync) h.__tkSync();
+    }
+  }
+
+  /* 编解码同时挂出来，供端到端测试直接做往返验证 ——
+     否则测试只能靠「点按钮 + 刷新 + 看界面」间接推断，定位不到出错的那一步。 */
+  window.TarkovProgressBoards = {
+    render: render, sync: sync,
+    _encode: encodeProgress, _decode: decodeProgress
+  };
+})();

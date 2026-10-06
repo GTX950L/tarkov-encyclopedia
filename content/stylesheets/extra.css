@@ -1576,10 +1576,7 @@ h3.tk-qdone { color: var(--tk-ink-2); }
 .tk-qsec__body { padding: .3rem .5rem .45rem; }
 
 .tk-qrow {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .22rem .3rem;
+  /* 弹性布局在 .tk-qrow__main 上 —— 本容器现在还要装可展开的目标明细 */
   border-bottom: 1px dashed var(--tk-line);
 }
 
@@ -1636,8 +1633,199 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 .tk-chip b { font-family: var(--tk-mono); color: var(--tk-ink); }
 
 @media screen and (max-width: 44.9375em) {
-  .tk-qrow { flex-wrap: wrap; }
+  .tk-qrow__main { flex-wrap: wrap; }
   .tk-qrow__name { flex-basis: 100%; order: 2; }
   .tk-qstate--row { order: 1; }
   .tk-qrow__meta, .tk-qrow__lv, .tk-qrow__extra { order: 3; }
 }
+
+/* —— 51.12 任务行：主行 + 可展开的目标明细 —— */
+
+.tk-qrow__main {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .22rem .3rem;
+}
+
+.tk-qrow__exp {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  padding: .05rem .45rem;
+  background: transparent;
+  color: var(--tk-ink-2);
+  border: 1px solid var(--tk-line-3);
+  font: inherit;
+  font-size: .66rem;
+  line-height: 1.7;
+  cursor: pointer;
+}
+
+.tk-qrow__exp:hover { background: var(--tk-panel-2); color: var(--tk-ink); }
+
+.tk-qrow__flag {
+  flex: none;
+  font-style: normal;
+  font-size: .62rem;
+  color: var(--tk-khaki);
+  border: 1px solid var(--tk-line);
+  padding: 0 .25rem;
+  white-space: nowrap;
+}
+
+.tk-qrow__gate {
+  flex: none;
+  font-style: normal;
+  font-size: .62rem;
+  color: var(--tk-amber);
+  border: 1px dashed var(--tk-amber);
+  padding: 0 .25rem;
+  white-space: nowrap;
+}
+
+.tk-qrow__detail {
+  padding: .35rem .4rem .5rem 2.4rem;
+  background: var(--tk-panel);
+  border-top: 1px dashed var(--tk-line);
+}
+
+.tk-obj {
+  display: flex;
+  align-items: flex-start;
+  gap: .45rem;
+  padding: .12rem 0;
+  font-size: .74rem;
+  cursor: pointer;
+}
+
+.tk-obj input { margin-top: .2rem; flex: none; accent-color: var(--tk-fiord); }
+.tk-obj__text { flex: 1 1 auto; min-width: 0; color: var(--tk-ink); line-height: 1.65; }
+
+.tk-obj__n,
+.tk-obj__fir {
+  flex: none;
+  font-style: normal;
+  font-family: var(--tk-mono);
+  font-size: .64rem;
+  color: var(--tk-ink-2);
+  white-space: nowrap;
+}
+
+.tk-obj__fir { color: var(--tk-amber); }
+
+.tk-qrow__preph {
+  margin: .6rem 0 .3rem;
+  font-size: .68rem;
+  font-family: var(--tk-mono);
+  color: var(--tk-brand);
+}
+
+.tk-qrow__prep { display: flex; flex-wrap: wrap; gap: .25rem; }
+
+.tk-prepitem {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .3rem;
+  padding: .1rem .4rem;
+  background: var(--tk-panel-2);
+  border: 1px solid var(--tk-line);
+  font-size: .66rem;
+}
+
+.tk-prepitem__fir { font-style: normal; color: var(--tk-amber); font-size: .62rem; }
+.tk-prepitem__c,
+.tk-prepitem__have { font-style: normal; font-family: var(--tk-mono); color: var(--tk-ink-2); }
+
+/* —— 51.13 工具条：分段按钮 / 地图 / 门槛面板 —— */
+
+.tk-board__seg { display: inline-flex; }
+
+.tk-board__segbtn {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: .18rem .6rem;
+  background: transparent;
+  color: var(--tk-ink-2);
+  border: 1px solid var(--tk-line-3);
+  border-right-width: 0;
+  font: inherit;
+  font-size: .7rem;
+  line-height: 1.6;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tk-board__segbtn:last-child { border-right-width: 1px; }
+.tk-board__segbtn:hover { background: var(--tk-panel-2); color: var(--tk-ink); }
+
+.tk-board__segbtn.is-on {
+  background: var(--tk-fiord);
+  border-color: var(--tk-fiord);
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.tk-board__mapsel {
+  padding: .18rem .35rem;
+  background: transparent;
+  color: var(--tk-ink);
+  border: 1px solid var(--tk-line-3);
+  font: inherit;
+  font-size: .7rem;
+}
+
+.tk-board__gatepanel {
+  margin: .2rem 0 .8rem;
+  padding: .6rem .7rem;
+  background: var(--tk-panel);
+  border: 1px solid var(--tk-line-2);
+  border-left: 4px solid var(--tk-fiord);
+}
+
+.tk-board__llrow { display: flex; flex-wrap: wrap; gap: .3rem .8rem; margin-bottom: .5rem; }
+
+.tk-board__ll {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+  white-space: nowrap;
+}
+
+.tk-qstate--ll { width: 3.9rem; margin: 0; }
+
+/* —— 51.14 撤销 / 分享 —— */
+
+.tk-board__undo {
+  margin-left: .7rem;
+  padding: .05rem .5rem;
+  background: transparent;
+  color: var(--tk-brand);
+  border: 1px solid var(--tk-line-3);
+  font: inherit;
+  font-size: .68rem;
+  cursor: pointer;
+}
+
+.tk-board__undo:hover { background: var(--tk-panel); }
+
+.tk-board__share {
+  margin-top: 1rem;
+  padding: .7rem .9rem;
+  background: var(--tk-amber-bg);
+  border: 1px solid var(--tk-amber);
+}
+
+.tk-board__share p {
+  margin: .4rem 0 .6rem;
+  font-size: .72rem;
+  line-height: 1.75;
+  white-space: pre-line;
+}
+
+.tk-board__share b { color: var(--tk-ink); }
+
+.tk-board__prep { margin-top: 1.2rem; }
