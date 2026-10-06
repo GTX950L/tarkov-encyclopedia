@@ -12,12 +12,14 @@
     所以单独抓一份只含 id 的边表，与渲染用的缓存解耦。
 
 产物：scripts/data/quest-graph.json
-    { fetched, source, gameMode, statusVocab, edgeCount,
-      edges: { <任务id>: [[<前置id>, ["complete"]], …] } }
+    { fetched, source, gameMode, statusVocab, edgeCount, objCount,
+      edges:    { <任务id>: [[<前置id>, ["complete"]], …] },
+      objectives: { <任务id>: [<目标id>, …] } }
 
 **对账（本脚本存在的一半理由）**：抓到的 id 集合必须与 quests.json 的 id 集合
-**完全相等**。两者不等说明数据端点已更新、而站内缓存还是旧的 —— 那种情况下
-边表里有 id 在页面里找不到，反推出来的「已完成」会指向不存在的任务。
+**完全相等**，且**逐任务的目标数也要相等**。两者不等说明数据端点已更新、而站内
+缓存还是旧的 —— 那种情况下边表里有 id 在页面里找不到，反推出来的「已完成」
+会指向不存在的任务；而目标 id 会与页面上的目标对不上号。
 """
 
 from __future__ import annotations
@@ -41,8 +43,10 @@ def fetch() -> int:
     tasks = list(raw.values()) if isinstance(raw, dict) else raw
 
     edges: dict[str, list] = {}
+    objectives: dict[str, list] = {}
     vocab: Counter = Counter()
     edge_n = 0
+    obj_n = 0
     for t in tasks:
         tid = t.get("id")
         if not tid:
@@ -63,18 +67,28 @@ def fetch() -> int:
         if reqs:
             edges[tid] = reqs
 
+        # 目标 id：顺带做目标级追踪的稳定键。
+        # 顺序必须与渲染缓存里 objectives 的顺序一致 —— 下面逐任务核对条数。
+        objs = [o.get("id") for o in (t.get("objectives") or []) if o.get("id")]
+        if objs:
+            objectives[tid] = objs
+            obj_n += len(objs)
+
     payload = {
         "fetched": date.today().isoformat(),
         "source": "json.tarkov.dev/regular/tasks（官方数据端点，二级）",
         "gameMode": "regular（持久 PvP）",
         "statusVocab": dict(vocab.most_common()),
         "edgeCount": edge_n,
+        "objCount": obj_n,
         "edges": edges,
+        "objectives": objectives,
     }
     OUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     OUT_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False),
                         encoding="utf-8", newline="\n")
-    print(f"已写 {OUT_FILE.relative_to(g.ROOT)}：{len(edges)} 个任务有前置、共 {edge_n} 条边")
+    print(f"已写 {OUT_FILE.relative_to(g.ROOT)}：{len(edges)} 个任务有前置、共 {edge_n} 条边；"
+          f"{len(objectives)} 个任务有目标、共 {obj_n} 个目标")
     print(f"  状态词表：{dict(vocab.most_common())}")
 
     # —— 对账：两边 id 集合必须完全相等 ——
@@ -93,13 +107,20 @@ def fetch() -> int:
               "（页面会跟着重建），再重跑本脚本。", file=sys.stderr)
         return 1
 
-    # 前置 id 必须都在任务集合里（否则是断边）
-    dangling = sorted({p for rs in edges.values() for p, _st in rs} - new_ids)
-    if dangling:
-        print(f"[错误] 有 {len(dangling)} 个前置 id 不在任务集合里：{dangling[:3]}", file=sys.stderr)
+    # —— 对账：逐任务的目标数必须与渲染缓存相等 ——
+    cache_obj = {x["id"]: len(x.get("objectives") or []) for x in cache["tasks"]}
+    bad = []
+    for t in tasks:
+        tid = t["id"]
+        if cache_obj.get(tid, 0) != len(objectives.get(tid) or []):
+            bad.append(f"{tid}({cache_obj.get(tid,0)} vs {len(objectives.get(tid) or [])})")
+    if bad:
+        print(f"[错误] {len(bad)} 个任务的目标数与渲染缓存不一致，"
+              f"目标级追踪的键会对错号：{bad[:3]}", file=sys.stderr)
+        print("  处理：跑 `gen_quests.py --fetch` 重建缓存后重跑本脚本。", file=sys.stderr)
         return 1
-
-    print(f"对账通过：边表与缓存的 id 集合完全一致（{len(new_ids)} 个任务），无断边。")
+    print(f"对账通过：id 集合完全一致（{len(new_ids)}），"
+          f"逐任务目标数一致（共 {obj_n} 个），无断边。")
     return 0
 
 

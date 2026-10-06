@@ -44,6 +44,7 @@ import gen_hideout as gh        # noqa: E402  复用藏身处数据文件 / 分�
 
 OUT_FILE = g.ROOT / "content" / "javascripts" / "progress-manifest.js"
 GRAPH_FILE = g.ROOT / "content" / "javascripts" / "quests-graph.js"
+DETAIL_DIR = g.ROOT / "content" / "javascripts"
 QUEST_INDEX = g.ROOT / "content" / "quests" / "index.md"
 HIDEOUT_PAGE = gh.PAGE
 GRAPH_SRC = g.ROOT / "scripts" / "data" / "quest-graph.json"
@@ -222,6 +223,38 @@ def build_hideout() -> tuple[dict, dict]:
 
 STATUS_FLAG = {"complete": "c", "active": "a", "failed": "f"}
 
+# 「出发前准备」只看这些目标类型里的物品 —— 它们是**要带 / 要找**的。
+# `sellItem` 是「卖任何物品给某商人」的许可白名单（不是需求），排除；
+# 与 gen_quest_items.py 的口径一致。
+PREP_TYPES = {"giveItem", "findItem", "findQuestItem", "giveQuestItem",
+              "plantItem", "plantQuestItem", "useItem"}
+
+
+def _other_req_text(r: dict) -> str:
+    """把 otherReqs 的条目写成一句人能读的中文。
+
+    这些是**无法用「前置任务完成」表达**的门槛 —— 例：跨任务的累计计数器
+    （"Mechanic 的计数器 ≥ 3"）、需要与商人对话。本站算不出来，但必须让读者
+    知道「这里还有别的条件」。
+    """
+    kind = r.get("kind") or ""
+    trader = r.get("trader") or ""
+    if not trader and r.get("traders"):
+        trader = "、".join(r["traders"])
+    cmp_ = r.get("cmp") or ">="
+    val = r.get("value")
+    if kind == "counter":
+        return f"{trader} 计数器 {cmp_} {val}"
+    if kind == "dialogue":
+        return f"需与 {trader} 对话"
+    if kind == "level":
+        return f"{trader} 等级要求 {cmp_} {val}"
+    if kind == "reputation":
+        return f"{trader} 声望 {cmp_} {val}"
+    if kind == "achievement":
+        return "需先达成某项成就"
+    return f"{kind or '其他条件'}{('（' + trader + '）') if trader else ''}"
+
 
 def build_graph(tasks: list[dict]) -> int:
     if not GRAPH_SRC.exists():
@@ -229,6 +262,7 @@ def build_graph(tasks: list[dict]) -> int:
         return -1
     raw = json.loads(GRAPH_SRC.read_text(encoding="utf-8"))
     edges = raw.get("edges") or {}
+    obj_ids = raw.get("objectives") or {}
 
     # 任务 id → "商人slug#锚点"，供前端直接链到任务明细
     anchor: dict[str, str] = {}
@@ -242,6 +276,7 @@ def build_graph(tasks: list[dict]) -> int:
             anchor[qid] = f"{slug}#{a}"
 
     nodes = {}
+    detail: dict[str, dict] = {}
     for t in tasks:
         tid = t.get("id")
         if not tid:
@@ -251,9 +286,63 @@ def build_graph(tasks: list[dict]) -> int:
         for pid, sts in (edges.get(tid) or []):
             flag = "".join(STATUS_FLAG.get(s, "") for s in sts)
             pre.append([pid, flag])
-        # 紧凑数组而不是对象：515 条 × 6 个字段，对象写法会白白多背一半体积
-        nodes[tid] = [t.get("name") or "", t.get("trader") or "", t.get("level") or 0,
-                      pre, flags, anchor.get(tid, "")]
+
+        # 门槛：商人忠诚度 / 阵营 / 转生 / 其他隐藏条件
+        g_traders = [[(r.get("trader") or ""), (r.get("kind") or "level"),
+                      (r.get("cmp") or ">="), r.get("value") or 0]
+                     for r in (t.get("traderReqs") or [])]
+        oth = []
+        for r in (t.get("otherReqs") or []):
+            txt = _other_req_text(r)
+            if txt and txt not in oth:
+                oth.append(txt)
+        gates = {}
+        if g_traders:
+            gates["t"] = g_traders
+        if t.get("faction"):
+            gates["f"] = t["faction"]
+        if t.get("prestige"):
+            gates["p"] = t["prestige"]
+        if oth:
+            gates["o"] = oth
+
+        # 出发前准备：从目标里聚合「要带 / 要找」的物品（按名字合并数量）
+        # 目标 id 来自边表（渲染缓存**故意没留** id）；两边靠**下标**对齐，
+        # 条数相等由 gen_quest_graph.py 与本函数末尾各校验一次。
+        ids_for_task = obj_ids.get(tid) or []
+        prep_map: dict[str, list] = {}
+        obj_detail = []
+        for oi, o in enumerate(t.get("objectives") or []):
+            oid = ids_for_task[oi] if oi < len(ids_for_task) else ""
+            if oid:
+                obj_detail.append([oid, o.get("text") or "",
+                                   o.get("count") or 0, 1 if o.get("fir") else 0])
+            if (o.get("type") or "") in PREP_TYPES:
+                n = o.get("count") or 1
+                for nm in (o.get("items") or []):
+                    if not nm:
+                        continue
+                    cur = prep_map.get(nm)
+                    if cur:
+                        cur[1] += n
+                        cur[2] = cur[2] or bool(o.get("fir"))
+                    else:
+                        prep_map[nm] = [nm, n, bool(o.get("fir"))]
+            for nm in (o.get("keys") or []):
+                if nm and nm not in prep_map:
+                    prep_map[nm] = [nm, 1, False]
+        prep = [prep_map[k] for k in prep_map]
+        prep.sort(key=lambda x: (not x[2], -x[1], x[0]))
+
+        # 紧凑数组而不是对象：515 条 × 8 个字段，对象写法会白白多背一半体积
+        nodes[tid] = [
+            t.get("name") or "", t.get("trader") or "", t.get("level") or 0,
+            pre, flags, anchor.get(tid, ""),
+            gates,
+            t.get("map") or "",
+        ]
+        if obj_detail or prep:
+            detail[tid] = {"o": obj_detail, "p": prep}
 
     body = json.dumps({
         "generated": date.today().isoformat(),
@@ -262,23 +351,59 @@ def build_graph(tasks: list[dict]) -> int:
         "statusVocab": raw.get("statusVocab"),
         "total": len(nodes),
         # 字段顺序写在这里，客户端按下标读 —— 紧凑格式的代价是这一句必须准确
-        "cols": ["name", "trader", "level", "prereqs", "flags", "link"],
+        "cols": ["name", "trader", "level", "prereqs", "flags", "link", "gates", "map"],
         "tasks": nodes,
     }, ensure_ascii=False, separators=(",", ":"))
 
     header = (
         "/* 由 scripts/gen_progress_manifest.py 生成，请勿手工编辑。\n"
-        "   任务前置树：id → [中文名, 商人 slug, 等级, [[前置 id, 状态标记], …], 标记, 页内链接]。\n"
-        "   状态标记 c=complete a=active f=failed；只有 c 用于「可接」判定。\n"
+        "   任务树（核心）：id → [中文名, 商人, 等级, [[前置id,标记],…], 标记, 页内链接, 门槛, 地图]。\n"
+        "   前置标记 c=complete a=active f=failed；只有 c 用于「可接」判定。\n"
+        "   门槛 gates = { t:[[商人,kind,cmp,value],…], f:阵营, p:转生, o:[其他条件文本] }。\n"
+        "   目标明细与出发前准备在 quests-detail.js —— 那份**只在展开任务/打开准备清单时**才载。\n"
         "   本文件**不进 extra_javascript** —— 由 progress.js 在进度页动态注入。 */\n"
     )
     GRAPH_FILE.write_text(header + "window.TARKOV_QUEST_GRAPH = " + body + ";\n",
                           encoding="utf-8", newline="\n")
-    kb = GRAPH_FILE.stat().st_size / 1024
-    print(f"已写 {GRAPH_FILE.relative_to(g.ROOT)}（{kb:.0f} KB）：{len(nodes)} 个节点、"
-          f"{sum(len(v[3]) for v in nodes.values())} 条前置边")
 
-    # 对账：节点 id 集合必须与渲染缓存一致；边两端都存在；每个任务都能定位到页内锚点
+    # 明细**按商人分块**：展开一个任务只需要它所属商人的那一块。
+    # 不切的话，点开任何一个任务都要拉整份 180+ KB —— 而「看一眼某个任务的目标」
+    # 是这一页最高频的动作，不该为它付全量体积。
+    by_slug: dict[str, dict] = {}
+    for tid, d in detail.items():
+        link = nodes.get(tid, [None, None, None, None, None, ""])[5]
+        slug = link.split("#")[0] if link else "_"
+        by_slug.setdefault(slug or "_", {})[tid] = d
+
+    for slug, chunk in sorted(by_slug.items()):
+        f = DETAIL_DIR / f"quests-detail-{slug}.js"
+        cbody = json.dumps({"cols": ["objectives", "prep"], "tasks": chunk},
+                           ensure_ascii=False, separators=(",", ":"))
+        cheader = (
+            "/* 由 scripts/gen_progress_manifest.py 生成，请勿手工编辑。\n"
+            f"   任务明细分块（商人 = {slug}）：id → {{ o:[目标…], p:[准备项…] }}。\n"
+            "   objectives: [[目标id, 目标文本, 数量, 是否战局中], …]；"
+            "prep: [[物品名, 数量, 是否必须战局中带出], …]。\n"
+            "   按商人分块是为了让「展开一个任务」只付那一块的体积。 */\n"
+        )
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text(cheader + f"window.TARKOV_QUEST_DETAIL = window.TARKOV_QUEST_DETAIL || {{}};\n"
+                              f"window.TARKOV_QUEST_DETAIL[{json.dumps(slug)}] = " + cbody + ";\n",
+                     encoding="utf-8", newline="\n")
+
+    n_obj = sum(len(v["o"]) for v in detail.values())
+    n_prep = sum(len(v["p"]) for v in detail.values())
+    n_gate = sum(1 for v in nodes.values() if v[6])
+    print(f"已写 {GRAPH_FILE.relative_to(g.ROOT)}（{GRAPH_FILE.stat().st_size/1024:.0f} KB）："
+          f"{len(nodes)} 个节点、{sum(len(v[3]) for v in nodes.values())} 条前置边、"
+          f"{n_gate} 条带门槛")
+    biggest = max(by_slug.items(), key=lambda kv: len(kv[1])) if by_slug else ("-", {})
+    print(f"已写 {DETAIL_DIR.relative_to(g.ROOT)}/quests-detail-*.js：{len(by_slug)} 块、"
+          f"{len(detail)} 个任务有明细、{n_obj} 个目标、{n_prep} 条准备项"
+          f"（最大块 {biggest[0]} {len(biggest[1])} 条 / "
+          f"{(DETAIL_DIR / ('quests-detail-' + biggest[0] + '.js')).stat().st_size/1024:.0f} KB）")
+
+    # 对账：节点 id 集合、边两端、锚点唯一性、目标数、门槛与明细的来源
     problems = []
     ids = set(nodes.keys())
     if len(ids) != len(tasks):
@@ -293,6 +418,16 @@ def build_graph(tasks: list[dict]) -> int:
         problems.append(f"{len(noanchor)} 个任务在 content/quests/*.md 里找不到锚点：{noanchor[:3]}")
     if len(anchor) != len(nodes):
         problems.append(f"任务页里的锚点共 {len(anchor)} 个，图节点 {len(nodes)} 个")
+    want_obj = {t["id"]: len(t.get("objectives") or []) for t in tasks}
+    got_obj = {k: len(v["o"]) for k, v in detail.items()}
+    bad_obj = [k for k in ids if got_obj.get(k, 0) != want_obj.get(k, 0)]
+    if bad_obj:
+        problems.append(f"{len(bad_obj)} 个任务的目标明细数与缓存不符：{bad_obj[:3]}")
+    if n_obj != sum(want_obj.values()):
+        problems.append(f"目标明细共 {n_obj} 个，缓存合计 {sum(want_obj.values())} 个")
+    if n_gate != sum(1 for t in tasks if t.get("traderReqs") or t.get("faction")
+                     or t.get("prestige") or t.get("otherReqs")):
+        problems.append("带门槛的节点数与缓存不符（traderReqs/faction/prestige/otherReqs）")
     if problems:
         print("[错误] 前置树与任务页/缓存对不上：", file=sys.stderr)
         for p in problems:
