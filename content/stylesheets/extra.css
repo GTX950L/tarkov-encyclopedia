@@ -2370,3 +2370,285 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   border-color: #4A473F;
   color: #E6E4DF;
 }
+
+/* --------------------------------------------------------------------------
+   55. 进度总览（javascripts/progress-boards.js 的 renderOverview）
+   --------------------------------------------------------------------------
+   设计意图：这一块回答「我打到哪了」，与「任务进度」那块（操作台）分工。
+   视觉上沿用军用档案纸：方角、结构线、等宽数字 —— 进度用**横条**而不是
+   圆环，一来与全站的横线语言一致，二来窄屏下横条更省纵向空间。
+
+   四种状态共用一个色系（避免彩虹）：
+     手动完成 = 军绿（明确、已完成）· 前置推断 = 军绿浅一档（同样是完成，
+     但不是你亲手标的）· 进行中 = 琥珀 · 未标记 = 中性浅灰。
+   -------------------------------------------------------------------------- */
+
+.tk-ov { margin: 0 0 1.1em; }
+
+.tk-ov__loading {
+  margin: 0;
+  font-size: .76rem;
+  color: var(--tk-ink-2);
+}
+
+/* —— 顶部：大数字 + 图例 + 分段条 —— */
+
+.tk-ov__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .3em 1.6em;
+  margin-bottom: .5em;
+}
+
+.tk-ov__big {
+  display: flex;
+  align-items: baseline;
+  gap: .3em;
+}
+
+.tk-ov__big b {
+  font-family: var(--tk-mono);
+  font-size: 1.65rem;
+  line-height: 1.1;
+  color: var(--tk-brand-dark);
+}
+
+.tk-ov__big span { font-size: .74rem; color: var(--tk-ink-2); }
+
+.tk-ov__pct {
+  display: flex;
+  align-items: baseline;
+  gap: .35em;
+}
+
+.tk-ov__pct b {
+  font-family: var(--tk-mono);
+  font-size: 1.05rem;
+  color: var(--tk-grn);
+}
+
+.tk-ov__pct span { font-size: .7rem; color: var(--tk-ink-2); }
+
+.tk-ov__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25em .9em;
+  margin-left: auto;
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-ov__lg { display: inline-flex; align-items: center; gap: .35em; }
+
+.tk-ov__dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--tk-line-3);
+}
+
+.tk-ov__dot--done { background: var(--tk-grn); border-color: var(--tk-grn); }
+.tk-ov__dot--infer { background: var(--tk-grn-bg); border-color: var(--tk-grn); }
+.tk-ov__dot--inhand { background: var(--tk-amber); border-color: var(--tk-amber); }
+.tk-ov__dot--rest { background: var(--tk-panel-2); }
+
+.tk-ov__bar {
+  display: flex;
+  height: 14px;
+  border: 1px solid var(--tk-line-3);
+  background: var(--tk-panel-2);
+  overflow: hidden;
+}
+
+.tk-ov__seg { display: block; height: 100%; }
+
+.tk-ov__seg--done { background: var(--tk-grn); }
+.tk-ov__seg--infer {
+  background: var(--tk-grn-bg);
+  border-left: 1px solid var(--tk-grn);
+  border-right: 1px solid var(--tk-grn);
+}
+.tk-ov__seg--inhand { background: var(--tk-amber); }
+.tk-ov__seg--rest { background: transparent; }
+
+/* —— 分区块 —— */
+
+.tk-ov__sec {
+  margin-top: 1.1em;
+  padding-top: .8em;
+  border-top: 1px solid var(--tk-line);
+}
+
+.tk-ov__sechead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .3em .7em;
+  margin-bottom: .55em;
+}
+
+.tk-ov__sechead b {
+  font-size: .8rem;
+  color: var(--tk-brand-dark);
+}
+
+.tk-ov__sechead em {
+  font-style: normal;
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+}
+
+/* —— 按商人：11 格矩阵 —— */
+
+.tk-ov__traders {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: .35rem;
+}
+
+.tk-ov__tr {
+  display: block;
+  padding: .35em .5em;
+  border: 1px solid var(--tk-line);
+  background: var(--tk-panel);
+  color: inherit;
+  text-decoration: none;
+}
+
+.tk-ov__tr:hover { border-color: var(--tk-line-3); background: var(--tk-paper); }
+
+.tk-ov__trhead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .4em;
+}
+
+.tk-ov__trname {
+  font-size: .72rem;
+  color: var(--tk-ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tk-ov__trnum {
+  font-family: var(--tk-mono);
+  font-size: .66rem;
+  color: var(--tk-ink-2);
+  white-space: nowrap;
+}
+
+.tk-ov__trbar {
+  height: 5px;
+  margin-top: .3em;
+  background: var(--tk-panel-2);
+  border: 1px solid var(--tk-line);
+}
+
+.tk-ov__trfill {
+  display: block;
+  height: 100%;
+  background: var(--tk-fiord-lt);
+}
+
+/* —— 长线目标 / 其它两轨 —— */
+
+.tk-ov__lines,
+.tk-ov__others {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: .35rem;
+}
+
+.tk-ov__line,
+.tk-ov__other {
+  padding: .4em .55em;
+  border: 1px solid var(--tk-line);
+  background: var(--tk-panel);
+}
+
+.tk-ov__linehint {
+  display: block;
+  margin-top: .3em;
+  font-style: normal;
+  font-size: .64rem;
+  color: var(--tk-ink-2);
+}
+
+/* —— 下一步：行动块 —— */
+
+.tk-ov__next {
+  padding: .7em .9em .8em;
+  border: 1px solid var(--tk-amber);
+  border-left-width: 4px;
+  background: var(--tk-amber-bg);
+}
+
+.tk-ov__next .tk-ov__sechead { margin-bottom: .4em; }
+.tk-ov__next .tk-ov__sechead b { color: var(--tk-amber); }
+
+.tk-ov__steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: .74rem;
+  line-height: 1.65;
+}
+
+.tk-ov__steps li {
+  position: relative;
+  padding-left: 1.05em;
+  margin: .3em 0;
+}
+
+.tk-ov__steps li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--tk-amber);
+}
+
+.tk-ov__steps b { color: var(--tk-ink); }
+.tk-ov__steps span { display: block; color: var(--tk-ink-2); font-size: .7rem; }
+
+.tk-ov__next .tk-board__note { margin-top: .6em; }
+
+/* —— 55.1 暗色覆盖 —— */
+
+[data-md-color-scheme="slate"] .tk-ov__big b { color: var(--tk-brand-dark); }
+[data-md-color-scheme="slate"] .tk-ov__pct b { color: var(--tk-grn); }
+[data-md-color-scheme="slate"] .tk-ov__dot--done { background: var(--tk-grn); border-color: var(--tk-grn); }
+[data-md-color-scheme="slate"] .tk-ov__dot--infer { background: var(--tk-grn-bg); border-color: var(--tk-grn); }
+[data-md-color-scheme="slate"] .tk-ov__dot--inhand { background: var(--tk-amber); border-color: var(--tk-amber); }
+[data-md-color-scheme="slate"] .tk-ov__dot--rest { background: #2A2926; }
+
+[data-md-color-scheme="slate"] .tk-ov__bar { background: #232220; border-color: #4A473F; }
+[data-md-color-scheme="slate"] .tk-ov__seg--done { background: var(--tk-grn); }
+[data-md-color-scheme="slate"] .tk-ov__seg--infer { background: #232A19; border-color: var(--tk-grn); }
+[data-md-color-scheme="slate"] .tk-ov__seg--inhand { background: var(--tk-amber); }
+
+[data-md-color-scheme="slate"] .tk-ov__tr,
+[data-md-color-scheme="slate"] .tk-ov__line,
+[data-md-color-scheme="slate"] .tk-ov__other {
+  background: #232220;
+  border-color: #4A473F;
+}
+
+[data-md-color-scheme="slate"] .tk-ov__tr:hover { background: #2A2825; }
+
+[data-md-color-scheme="slate"] .tk-ov__trbar { background: #1F1E1B; border-color: #4A473F; }
+
+[data-md-color-scheme="slate"] .tk-ov__next {
+  background: #2E2718;
+  border-color: var(--tk-amber);
+}
+
+[data-md-color-scheme="slate"] .tk-ov__steps b { color: #E6E4DF; }
+
+@media screen and (max-width: 44.9375em) {
+  .tk-ov__traders { grid-template-columns: repeat(auto-fill, minmax(7.6rem, 1fr)); }
+  .tk-ov__legend { margin-left: 0; }
+  .tk-ov__big b { font-size: 1.4rem; }
+}

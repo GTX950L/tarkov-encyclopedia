@@ -20,7 +20,8 @@
 
   var UI = TP._ui || {};
   var el = UI.el, notReady = UI.notReady, loadScript = UI.loadScript,
-      makeStateSelect = UI.makeStateSelect, questUrl = UI.questUrl;
+      makeStateSelect = UI.makeStateSelect, questUrl = UI.questUrl,
+      siteRoot = UI.siteRoot;
   var MODE_LABEL = TP.MODE_LABEL, TRACKS = TP.TRACKS, TRACK_LABEL = TP.TRACK_LABEL;
 
   /* 图节点字段下标 —— 与生成器里的 cols 一致，改一处要改两处。 */
@@ -181,15 +182,26 @@
      -------------------------------------------------------------------------- */
 
   var graphState = 0;   // 0 未开始 / 1 加载中 / 2 就绪 / -1 失败
+  var graphCbs = [];    // 加载中时的等待队列
 
+  /* ⚠️ 必须支持**多个等待者**。
+     本函数原来的写法是「加载中就直接 return」—— 当时只有一个看板用图，没暴露；
+     加入「总览」之后，总览先请求、任务看板紧随其后，第二个回调会被静默丢弃，
+     表现就是**任务看板永远停在「—」不渲染**。
+     凡「共享的异步资源 + 单一在途请求」都适用这条：请求合并可以，回调不能丢。 */
   function ensureGraph(cb) {
     if (window.TARKOV_QUEST_GRAPH) { cb(window.TARKOV_QUEST_GRAPH); return; }
     if (graphState === -1) { cb(null); return; }
+    graphCbs.push(cb);
     if (graphState === 1) return;
     graphState = 1;
     loadScript("quests-graph.js", ["TARKOV_QUEST_GRAPH"], function (ok) {
       graphState = (ok && window.TARKOV_QUEST_GRAPH) ? 2 : -1;
-      cb(window.TARKOV_QUEST_GRAPH || null);
+      var cbs = graphCbs;
+      graphCbs = [];
+      for (var i = 0; i < cbs.length; i++) {
+        cbs[i](window.TARKOV_QUEST_GRAPH || null);
+      }
     });
   }
 
@@ -314,6 +326,305 @@
       else locked.push(id);
     }
     return { done: done, inferred: inferred, avail: avail, locked: locked, stat: stat, gate: gate };
+  }
+
+  /* --------------------------------------------------------------------------
+     看板零：总览（「我的进度」页的第一个分页）
+     --------------------------------------------------------------------------
+     解决的问题：这一页原来直接落到「任务进度」——那是一张**操作台**（筛选、
+     勾选、展开目标），适合「要干活的时候」。但「看一眼我打到哪了」是另一种
+     需求，它需要的是**总览**：四条线各自的完成度、按商人拆开的分部进度、
+     以及「接下来该干什么」。本块补的就是这个视角。
+
+     与同类站点的分工（不照搬的地方）：
+       · 它们给**统计数字**；这里在同样位置多给一块「下一步」——
+         本站有完整的任务前置树，算得出「现在能接什么、差在哪」，
+         这是只有「有数据的站」才给得出的东西；
+       · 每一条数字都标**口径**：任务的「已完成」分「手动 / 推断」两个数
+         （推断 = 由进行中任务沿前置树反推），不揉成一个数；
+       · 纯 CSS 横条、无配图、弱网可读、离线可用（读本机记录，不登录）。
+
+     ⚠️ 口径必须与其它看板一致（否则同一页两个数读者会以为有一个是错的）：
+       · 任务：与「任务进度」看板同源 —— TP.data() + computeTree()；
+       · 藏身处：hideoutLevel() + topLevel()（同 hideoutCard 的判定）；
+       · 物品：itemCount() ≥ it.qty（同 renderItemBoard 的「达标」定义）。
+     -------------------------------------------------------------------------- */
+
+  function renderOverview(host) {
+    var mf = window.TARKOV_PROGRESS_MANIFEST || {};
+    var traders = mf.traders || [];
+    var totalAll = mf.total || 0;
+    var itemList = (mf.items && mf.items.list) || [];
+    var hutList = (mf.hideout && mf.hideout.list) || [];
+
+    host.textContent = "";
+    host.appendChild(el("p", "tk-ov__loading", "正在汇总进度…"));
+
+    /* 图数据到齐再画：没有图就算不出「推断完成」与「可接」。
+       图加载失败时降级为「只报手动数」——不装作有数据。 */
+    ensureGraph(function (graph) {
+      if (!host.isConnected) return;   // instant 换页后节点已被替换
+      host.textContent = "";
+
+      var md = TP.data();
+      var modeData = md.modes[md.mode] || {};
+      var explicit = modeData.quests || {};
+      var inhand = modeData.inhand || {};
+      var gates = TP.gates();
+      var tree = graph ? computeTree(graph, explicit, inhand, gates) : { done: {}, inferred: {}, avail: [] };
+
+      var doneAll = Object.keys(tree.done).length;
+      var inferredN = Object.keys(tree.inferred).length;
+      var manualN = doneAll - inferredN;
+      var inhandN = Object.keys(inhand).length;
+      var pct = totalAll ? Math.round(doneAll / totalAll * 1000) / 10 : 0;
+
+      /* —— 一、总条：一条横条里同时显示四段进度 —— */
+
+      var head = el("div", "tk-ov");
+      var top = el("div", "tk-ov__top");
+
+      var bigNum = el("div", "tk-ov__big");
+      bigNum.appendChild(el("b", null, String(doneAll)));
+      bigNum.appendChild(el("span", null, " / " + totalAll + " 个任务"));
+      top.appendChild(bigNum);
+
+      var pctEl = el("div", "tk-ov__pct");
+      pctEl.appendChild(el("b", null, pct + "%"));
+      pctEl.appendChild(el("span", null, "完成度（含推断）"));
+      top.appendChild(pctEl);
+
+      var legend = el("div", "tk-ov__legend");
+      [
+        ["done", "手动完成 " + manualN],
+        ["infer", "前置推断 " + inferredN],
+        ["inhand", "进行中 " + inhandN],
+        ["rest", "未标记 " + (totalAll - doneAll - inhandN)]
+      ].forEach(function (pair) {
+        var sp = el("span", "tk-ov__lg");
+        sp.appendChild(el("i", "tk-ov__dot tk-ov__dot--" + pair[0]));
+        sp.appendChild(document.createTextNode(pair[1]));
+        legend.appendChild(sp);
+      });
+      top.appendChild(legend);
+      head.appendChild(top);
+
+      /* 分段条：四段宽度按占比。0 宽的段也要保留（颜色图例对得上颜色）。 */
+      var bar = el("div", "tk-ov__bar");
+      bar.setAttribute("role", "img");
+      bar.setAttribute("aria-label", "任务进度：" + (totalAll ? (manualN / totalAll * 100).toFixed(1) : 0) + "% 手动完成、" +
+        (totalAll ? (inferredN / totalAll * 100).toFixed(1) : 0) + "% 由前置推断");
+      [
+        ["done", manualN], ["infer", inferredN], ["inhand", inhandN],
+        ["rest", Math.max(0, totalAll - doneAll - inhandN)]
+      ].forEach(function (pair) {
+        var seg = el("i", "tk-ov__seg tk-ov__seg--" + pair[0]);
+        seg.style.width = (totalAll ? (pair[1] / totalAll * 100) : 0) + "%";
+        if (!pair[1]) seg.style.display = "none";
+        bar.appendChild(seg);
+      });
+      head.appendChild(bar);
+
+      host.appendChild(head);
+
+      /* —— 二、按商人：11 格矩阵 ——
+         展示的是「该商人任务里，已完成（含推断）占比」。分母用站内
+         manifest 的 count（与任务图鉴的商人页总数同源）。 */
+
+      var doneByTrader = {};
+      for (var dId in tree.done) {
+        var nEx = graph && graph.tasks ? graph.tasks[dId] : null;
+        if (nEx) doneByTrader[nEx[N_TRADER]] = (doneByTrader[nEx[N_TRADER]] || 0) + 1;
+      }
+
+      var tSec = el("div", "tk-ov__sec");
+      var tHead = el("div", "tk-ov__sechead");
+      tHead.appendChild(el("b", null, "按商人"));
+      tHead.appendChild(el("em", null, "已完成 / 该商人任务总数（含前置推断）"));
+      tSec.appendChild(tHead);
+
+      var tGrid = el("div", "tk-ov__traders");
+      for (var t = 0; t < traders.length; t++) {
+        var tr = traders[t];
+        var got = doneByTrader[tr.slug] || 0;
+        var tot = tr.count || 0;
+        var p = tot ? Math.round(got / tot * 100) : 0;
+
+        var cell = el("a", "tk-ov__tr");
+        cell.href = siteRoot() + "quests/" + tr.slug + "/";
+        cell.title = tr.name + "：" + got + " / " + tot + "（" + p + "%）—— 点进该商人的任务页";
+
+        var line = el("div", "tk-ov__trhead");
+        line.appendChild(el("span", "tk-ov__trname", tr.name));
+        line.appendChild(el("span", "tk-ov__trnum", got + "/" + tot));
+        cell.appendChild(line);
+
+        var tb = el("div", "tk-ov__trbar");
+        var tf = el("i", "tk-ov__trfill");
+        tf.style.width = p + "%";
+        tb.appendChild(tf);
+        cell.appendChild(tb);
+
+        tGrid.appendChild(cell);
+      }
+      tSec.appendChild(tGrid);
+      host.appendChild(tSec);
+
+      /* —— 三、长线目标：Kappa 线 / Lightkeeper 链 ——
+         ⚠️ 这里**不是**「剧情章节进度」：章节（Tour / Falling Skies / The Ticket）
+         在官方任务数据里**没有对应字段**，站内也没有「章节 → 任务」的映射，
+         硬凑出来的百分比是编数据。改用**有标记支撑的两条长线**（任务节点上的
+         kappa / lightkeeper 标记），并给出剧情页入口。 */
+
+      var lines = [
+        { flag: "k", name: "Kappa 线", hint: "收藏家前置的 13 条必需任务" },
+        { flag: "l", name: "Lightkeeper 链", hint: "解锁灯塔主人所需的 7 条" }
+      ];
+      var lSec = el("div", "tk-ov__sec");
+      var lHead = el("div", "tk-ov__sechead");
+      lHead.appendChild(el("b", null, "长线目标"));
+      lHead.appendChild(el("em", null, "带标记的终局线 · 不含剧情章节（说明见下）"));
+      lSec.appendChild(lHead);
+
+      var lGrid = el("div", "tk-ov__lines");
+      for (var li = 0; li < lines.length; li++) {
+        var L = lines[li];
+        var ids = [], gotL = 0;
+        for (var qid in (graph && graph.tasks ? graph.tasks : {})) {
+          if ((graph.tasks[qid][N_FLAGS] || "").indexOf(L.flag) >= 0) {
+            ids.push(qid);
+            if (tree.done[qid]) gotL++;
+          }
+        }
+        var lCell = el("div", "tk-ov__line");
+        var lTop = el("div", "tk-ov__trhead");
+        lTop.appendChild(el("span", "tk-ov__trname", L.name));
+        lTop.appendChild(el("span", "tk-ov__trnum", gotL + "/" + ids.length));
+        lCell.appendChild(lTop);
+        var lb = el("div", "tk-ov__trbar");
+        var lf = el("i", "tk-ov__trfill");
+        lf.style.width = (ids.length ? Math.round(gotL / ids.length * 100) : 0) + "%";
+        lb.appendChild(lf);
+        lCell.appendChild(lb);
+        lCell.appendChild(el("em", "tk-ov__linehint", L.hint));
+        lGrid.appendChild(lCell);
+      }
+      lSec.appendChild(lGrid);
+      host.appendChild(lSec);
+
+      /* —— 四、藏身处 + 物品：两条非任务轨 —— */
+
+      var hutBuilt = 0, hutMaxed = 0, hutLevels = 0, hutLevelMax = 0;
+      for (var hi = 0; hi < hutList.length; hi++) {
+        var mod = hutList[hi];
+        var lv = TP.hideoutLevel(mod.name) || 0;
+        var top = topLevel(mod);
+        if (lv > 0) hutBuilt++;
+        if (lv >= top && top > 0) hutMaxed++;
+        hutLevels += lv;
+        hutLevelMax += top;
+      }
+      var itemMet = 0, itemKinds = 0;
+      for (var ii = 0; ii < itemList.length; ii++) {
+        var v = TP.itemCount(itemList[ii].name) || 0;
+        if (v >= itemList[ii].qty) itemMet++;
+        if (v > 0) itemKinds++;
+      }
+
+      var oSec = el("div", "tk-ov__sec");
+      var oHead = el("div", "tk-ov__sechead");
+      oHead.appendChild(el("b", null, "其它两条轨"));
+      oHead.appendChild(el("em", null, "点「藏身处」「物品收集」分页可继续记录"));
+      oSec.appendChild(oHead);
+
+      var oGrid = el("div", "tk-ov__others");
+      [
+        { name: "藏身处", got: hutBuilt, tot: hutList.length, extra: "已建满 " + hutMaxed + " 个 · 总等级 " + hutLevels + "/" + hutLevelMax, unit: "个模块" },
+        { name: "物品收集", got: itemMet, tot: itemList.length, extra: "已囤 " + itemKinds + " 种", unit: "种达标" }
+      ].forEach(function (o) {
+        var oCell = el("div", "tk-ov__other");
+        var oTop = el("div", "tk-ov__trhead");
+        oTop.appendChild(el("span", "tk-ov__trname", o.name));
+        oTop.appendChild(el("span", "tk-ov__trnum", o.got + "/" + o.tot + " " + o.unit));
+        oCell.appendChild(oTop);
+        var ob = el("div", "tk-ov__trbar");
+        var of = el("i", "tk-ov__trfill");
+        of.style.width = (o.tot ? Math.round(o.got / o.tot * 100) : 0) + "%";
+        ob.appendChild(of);
+        oCell.appendChild(ob);
+        oCell.appendChild(el("em", "tk-ov__linehint", o.extra));
+        oGrid.appendChild(oCell);
+      });
+      oSec.appendChild(oGrid);
+      host.appendChild(oSec);
+
+      /* —— 五、下一步：本站独有的行动块 ——
+         同类站点止于「统计」；这一块回答的是「我现在该做什么」，
+         全部结论来自上面的同一份计算，不引入新口径。 */
+
+      var nSec = el("div", "tk-ov__sec tk-ov__next");
+      var nHead = el("div", "tk-ov__sechead");
+      nHead.appendChild(el("b", null, "下一步"));
+      nHead.appendChild(el("em", null, "按当前记录算出来的建议"));
+      nSec.appendChild(nHead);
+
+      var nList = el("ul", "tk-ov__steps");
+      var steps = [];
+
+      if (inhandN > 0) {
+        steps.push(["先清手上的 " + inhandN + " 个进行中任务",
+          "它们在「任务进度」分页的顶部，标成已完成就从列表里移走"]);
+      }
+      if (tree.avail && tree.avail.length) {
+        var lowest = null;
+        for (var ai = 0; ai < tree.avail.length; ai++) {
+          var an = graph && graph.tasks[tree.avail[ai]];
+          if (!an) continue;
+          if (!lowest || an[N_LEVEL] < lowest[N_LEVEL]) lowest = an;
+        }
+        steps.push([tree.avail.length + " 个任务可接" + (lowest ? "（最低门槛 " + lowest[N_LEVEL] + " 级：" + lowest[N_NAME] + "）" : ""),
+          gates.level > 0 ? "前置、等级与门槛都已满足"
+                          : "填上「我的等级」能把可接判得更准"]);
+      } else if (gates.level <= 0) {
+        steps.push(["先填「我的等级」", "填了才算得出「哪些任务可接」——在「任务进度」分页的工具栏里"]);
+      }
+      if (lines.length) {
+        var gaps = [];
+        for (var gi2 = 0; gi2 < lines.length; gi2++) {
+          var gl = lines[gi2], glIds = [], glGot = 0;
+          for (var q2 in (graph && graph.tasks ? graph.tasks : {})) {
+            if ((graph.tasks[q2][N_FLAGS] || "").indexOf(gl.flag) >= 0) {
+              glIds.push(q2);
+              if (tree.done[q2]) glGot++;
+            }
+          }
+          if (glGot < glIds.length) gaps.push(gl.name + " 还差 " + (glIds.length - glGot) + " 条");
+        }
+        if (gaps.length) steps.push(["长线：" + gaps.join("、"), "在「任务进度」分页用 Kappa / Lightkeeper 预设可以直接筛出来"]);
+      }
+      if (hutList.length && hutBuilt < hutList.length) {
+        steps.push(["藏身处还有 " + (hutList.length - hutBuilt) + " 个模块未建造", "在「藏身处」分页选定当前等级后，会列出下一级要的材料"]);
+      }
+
+      if (!steps.length) {
+        steps.push(["暂时没有可执行的下一步", "先把「我的等级」与进行中任务填上，这里会给出建议"]);
+      }
+      for (var si = 0; si < steps.length; si++) {
+        var li2 = el("li");
+        li2.appendChild(el("b", null, steps[si][0]));
+        li2.appendChild(el("span", null, steps[si][1]));
+        nList.appendChild(li2);
+      }
+      nSec.appendChild(nList);
+
+      nSec.appendChild(el("p", "tk-board__note",
+        "任务数字含**由前置推断**的完成（推断 = 进行中任务的上游必然已完成）。"
+        + "**剧情章节没有做进度统计**：官方任务数据里没有「章节」字段，"
+        + "本站也没有章节→任务的映射，算不出来就标明不算 —— 章节顺序与前置见 "
+        + "[剧情章节与主线任务](../entries/story-chapters.md)。"));
+
+      host.appendChild(nSec);
+    });
   }
 
   /* --------------------------------------------------------------------------
@@ -1462,7 +1773,8 @@
       var h = mounts[i];
       var id = h.id;
       h.textContent = "";
-      if (id === "tk-progress-board") renderQuestBoard(h);
+      if (id === "tk-board-overview") renderOverview(h);
+      else if (id === "tk-progress-board") renderQuestBoard(h);
       else if (id === "tk-board-items") renderItemBoard(h);
       else if (id === "tk-board-hideout") renderHideoutBoard(h);
       else if (id === "tk-board-ops") renderOps(h);
@@ -1470,7 +1782,7 @@
   }
 
   function sync() {
-    var ids = ["tk-progress-board", "tk-board-items", "tk-board-hideout", "tk-board-ops"];
+    var ids = ["tk-board-overview", "tk-progress-board", "tk-board-items", "tk-board-hideout", "tk-board-ops"];
     for (var i = 0; i < ids.length; i++) {
       var h = document.getElementById(ids[i]);
       if (h && h.__tkSync) h.__tkSync();
