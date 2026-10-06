@@ -6,7 +6,7 @@ tags:
 
 <a id="top"></a>
 
-目前已收录 **86 个**条目，分十篇：**前八篇**按主题组织这 86 个条目，**第九篇**[**任务图鉴**](../quests/index.md) 把 **515 个任务**的要求、完成奖励、接取门槛与前置任务逐条列全（不含坐标与攻略），**第十篇**[**参考**](../docs/index.md) 收齐速查表、数值口径与站务页。也可用右上角搜索直接查词。
+目前已收录 **87 个**条目，分十篇：**前八篇**按主题组织这 87 个条目，**第九篇**[**任务图鉴**](../quests/index.md) 把 **515 个任务**的要求、完成奖励、接取门槛与前置任务逐条列全（不含坐标与攻略），**第十篇**[**参考**](../docs/index.md) 收齐速查表、数值口径与站务页。也可用右上角搜索直接查词。
 
 ## 📊 条目一览表
 
@@ -94,10 +94,11 @@ tags:
 | 80 | [联赛系统](leagues.md) | 赛季 | 每周 50 人的经验值天梯 |
 | 81 | [竞技场](arena.md) | 衍生 | 独立进度的纯对抗模式 |
 | 82 | [PvE 模式](pve.md) | 衍生 | 没有真人对手的持久档案 |
-| 83 | [天气与时间系统](weather.md) | 世界 | 七倍速的时钟与天气 |
-| 84 | [光照与夜战](lighting.md) | 世界 | 光源是双刃剑 |
-| 85 | [彩蛋与制作组的恶意](easter-eggs.md) | 世界 | 彩蛋点位与设计好的陷阱 |
-| 86 | [世界观与阵营背景](worldview.md) | 世界 | 诺文斯克封锁与两大 PMC 的由来 |
+| 83 | [EXFIL Brothers 计划](exfil-brothers.md) | 衍生 | 带新人的双向奖励计划 |
+| 84 | [天气与时间系统](weather.md) | 世界 | 七倍速的时钟与天气 |
+| 85 | [光照与夜战](lighting.md) | 世界 | 光源是双刃剑 |
+| 86 | [彩蛋与制作组的恶意](easter-eggs.md) | 世界 | 彩蛋点位与设计好的陷阱 |
+| 87 | [世界观与阵营背景](worldview.md) | 世界 | 诺文斯克封锁与两大 PMC 的由来 |
 
 ## 🗂️ 按标签浏览
 
@@ -110,7 +111,7 @@ tags:
 - **地形**（6 篇）：factory · interchange · labs · shoreline · streets · woods
 - **环境**（4 篇）：audio · lighting · night-vision · weather
 - **军事**（3 篇）：lighthouse · reserve · worldview
-- **赛季与衍生**（6 篇）：seasons · season-modifiers · leagues · arena · pve · version-history
+- **赛季与衍生**（7 篇）：seasons · season-modifiers · leagues · arena · pve · exfil-brothers · version-history
 
 更多标签见[标签分类页](../tags.md)。
 
