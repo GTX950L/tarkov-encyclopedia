@@ -424,13 +424,17 @@ def main() -> int:
                 warnings.append(f"标签未登记在 tags.md: {tag}")
 
     # 6. 中文正文直引号残留
-    #    判据是「**正文**里不许有直引号」，所以两类**语法引号**必须先剥掉：
+    #    判据是「**正文**里不许有直引号」，所以三类**语法引号**必须先剥掉：
     #    ① 行内代码 `` `"x"` `` —— 那是引号本身的写法，不是正文的标点；
     #    ② 原生 HTML 标签的属性引号 —— `<a href="#q01">` 里的引号属于标记语法。
     #    第 ② 类原先靠「行首是 `<` 就整行跳过」躲过去，但任务图鉴的索引表把
     #    `<a>` 写在**表格单元格里**（行首是 `|`），于是 515 行索引全被误报。
     #    按标签剥离（只去掉标签、保留标签内外的文字）既消掉误报，又不放过
     #    「段落里真的打了直引号」那种真问题 —— 例如 `<b>"引号"</b>` 仍会被抓到。
+    #    ③ pymdownx.tabbed 的分页标记 `=== "标题"` —— 这里的引号是**语法**：
+    #       扩展只认双引号（2026-10-06 实测：写成单引号整块不生效，分页标签
+    #       直接不渲染），所以不能靠「改用单引号」绕开，只能在这里豁免。
+    #       豁免的粒度是**整行**，与 ① ② 的剥离口径一致：只吃掉标记本身。
     for md in md_files:
         in_code = False
         for lineno, line in enumerate(md.read_text(encoding="utf-8").splitlines(), 1):
@@ -440,6 +444,8 @@ def main() -> int:
             if in_code or line.strip() == "---":
                 continue
             if re.match(r"\s*<[a-zA-Z/]", line):
+                continue
+            if re.match(r"\s*=== ", line):
                 continue
             prose = re.sub(r"`[^`]*`", "", line)
             prose = re.sub(r"<[^>]*>", "", prose)

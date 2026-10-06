@@ -43,10 +43,15 @@ import gen_quest_items as gi    # noqa: E402  复用 DEMAND / TRADER（物品口
 import gen_hideout as gh        # noqa: E402  复用藏身处数据文件 / 分层 / 别名
 
 OUT_FILE = g.ROOT / "content" / "javascripts" / "progress-manifest.js"
+GRAPH_FILE = g.ROOT / "content" / "javascripts" / "quests-graph.js"
 QUEST_INDEX = g.ROOT / "content" / "quests" / "index.md"
 HIDEOUT_PAGE = gh.PAGE
+GRAPH_SRC = g.ROOT / "scripts" / "data" / "quest-graph.json"
 
 QID_RE = re.compile(r'data-qid="([0-9a-f]{24})"')
+# 任务标题：`<h3 id="q07" data-qid="…">` —— 同时抓锚点与数据 id，
+# 用来给前置树里的每个节点生成「直达该任务明细」的链接。
+HEAD_RE = re.compile(r'<h3 id="(q\d+)" data-qid="([0-9a-f]{24})"')
 
 # 与「物品需求反查」表同一口径：被 ≥3 个任务需要的物品
 ITEM_THRESHOLD = 3
@@ -205,6 +210,98 @@ def build_hideout() -> tuple[dict, dict]:
 
 
 # ---------------------------------------------------------------------------
+# ④ 任务前置树（供「按前置反推已完成」用）
+#
+# 为什么不塞进 progress-manifest.js：
+#     那张清单在**全部 118 个页面**上都会被加载（extra_javascript 是全局的），
+#     而前置树只有「我的进度」页用得到。它约 45 KB，塞进去会让每页都多背一份。
+#     所以单独一个文件，由 progress.js 在需要时**动态注入 <script>**（懒加载）。
+# 为什么必须用 id 连边而不是名字：
+#     515 个任务里有 10 个名字重复（涉及 23 条记录），按名字连边会连错。
+# ---------------------------------------------------------------------------
+
+STATUS_FLAG = {"complete": "c", "active": "a", "failed": "f"}
+
+
+def build_graph(tasks: list[dict]) -> int:
+    if not GRAPH_SRC.exists():
+        print(f"[错误] 找不到 {GRAPH_SRC}，先跑一次 gen_quest_graph.py --fetch", file=sys.stderr)
+        return -1
+    raw = json.loads(GRAPH_SRC.read_text(encoding="utf-8"))
+    edges = raw.get("edges") or {}
+
+    # 任务 id → "商人slug#锚点"，供前端直接链到任务明细
+    anchor: dict[str, str] = {}
+    dup = []
+    for md in sorted(g.OUT_DIR.glob("*.md")):
+        slug = md.stem
+        for a, qid in HEAD_RE.findall(md.read_text(encoding="utf-8")):
+            if qid in anchor:
+                dup.append(qid)
+                continue
+            anchor[qid] = f"{slug}#{a}"
+
+    nodes = {}
+    for t in tasks:
+        tid = t.get("id")
+        if not tid:
+            continue
+        flags = ("k" if t.get("kappa") else "") + ("l" if t.get("lightkeeper") else "")
+        pre = []
+        for pid, sts in (edges.get(tid) or []):
+            flag = "".join(STATUS_FLAG.get(s, "") for s in sts)
+            pre.append([pid, flag])
+        # 紧凑数组而不是对象：515 条 × 6 个字段，对象写法会白白多背一半体积
+        nodes[tid] = [t.get("name") or "", t.get("trader") or "", t.get("level") or 0,
+                      pre, flags, anchor.get(tid, "")]
+
+    body = json.dumps({
+        "generated": date.today().isoformat(),
+        "source": raw.get("source"),
+        "baseline": raw.get("fetched"),
+        "statusVocab": raw.get("statusVocab"),
+        "total": len(nodes),
+        # 字段顺序写在这里，客户端按下标读 —— 紧凑格式的代价是这一句必须准确
+        "cols": ["name", "trader", "level", "prereqs", "flags", "link"],
+        "tasks": nodes,
+    }, ensure_ascii=False, separators=(",", ":"))
+
+    header = (
+        "/* 由 scripts/gen_progress_manifest.py 生成，请勿手工编辑。\n"
+        "   任务前置树：id → [中文名, 商人 slug, 等级, [[前置 id, 状态标记], …], 标记, 页内链接]。\n"
+        "   状态标记 c=complete a=active f=failed；只有 c 用于「可接」判定。\n"
+        "   本文件**不进 extra_javascript** —— 由 progress.js 在进度页动态注入。 */\n"
+    )
+    GRAPH_FILE.write_text(header + "window.TARKOV_QUEST_GRAPH = " + body + ";\n",
+                          encoding="utf-8", newline="\n")
+    kb = GRAPH_FILE.stat().st_size / 1024
+    print(f"已写 {GRAPH_FILE.relative_to(g.ROOT)}（{kb:.0f} KB）：{len(nodes)} 个节点、"
+          f"{sum(len(v[3]) for v in nodes.values())} 条前置边")
+
+    # 对账：节点 id 集合必须与渲染缓存一致；边两端都存在；每个任务都能定位到页内锚点
+    problems = []
+    ids = set(nodes.keys())
+    if len(ids) != len(tasks):
+        problems.append(f"图节点 {len(ids)} 个，任务缓存 {len(tasks)} 条（id 有重复？）")
+    dangling = sorted({p for v in nodes.values() for p, _f in v[3]} - ids)
+    if dangling:
+        problems.append(f"{len(dangling)} 条前置边的目标不在图里：{dangling[:3]}")
+    if dup:
+        problems.append(f"{len(dup)} 个任务在任务页里出现了两次（锚点不唯一）")
+    noanchor = [k for k, v in nodes.items() if not v[5]]
+    if noanchor:
+        problems.append(f"{len(noanchor)} 个任务在 content/quests/*.md 里找不到锚点：{noanchor[:3]}")
+    if len(anchor) != len(nodes):
+        problems.append(f"任务页里的锚点共 {len(anchor)} 个，图节点 {len(nodes)} 个")
+    if problems:
+        print("[错误] 前置树与任务页/缓存对不上：", file=sys.stderr)
+        for p in problems:
+            print(f"  · {p}", file=sys.stderr)
+        return -1
+    return len(ids)
+
+
+# ---------------------------------------------------------------------------
 
 def main() -> int:
     if not g.DATA_FILE.exists():
@@ -223,6 +320,9 @@ def main() -> int:
     quests = build_quests(tasks)
     items = build_items(tasks)
     hideout, hut_raw = build_hideout()
+    graph_n = build_graph(tasks)
+    if graph_n < 0:
+        return 1
 
     body = json.dumps({
         "generated": date.today().isoformat(),
@@ -298,7 +398,8 @@ def main() -> int:
         return 1
 
     print(f"对账通过：任务 data-qid {page_total} 处 / 唯一 {page_uniq} 个；"
-          f"物品表 {item_rows} 行；藏身处 §7 模块总表 {hut_pages} 行。")
+          f"物品表 {item_rows} 行；藏身处 §7 模块总表 {hut_pages} 行；"
+          f"前置树 {graph_n} 个节点。")
     return 0
 
 
