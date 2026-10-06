@@ -1853,11 +1853,24 @@ h3.tk-qdone { color: var(--tk-ink-2); }
 
 .tk-prep__li {
   display: flex;
+  /* 窄屏让整行换行：长物品名不该把数量与「缺 N」推出框外 */
+  flex-wrap: wrap;
   align-items: center;
-  gap: .4rem;
+  gap: .25rem .4rem;
   padding: .18rem .3rem .18rem .45rem;
   border-left: 2px solid transparent;
   font-size: .74rem;
+}
+
+.tk-prep__nm {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  /* min-width:0 只让 flex 子项「能」收缩，还要 overflow 才真的截断 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--tk-ink);
 }
 
 .tk-prep__li.is-met { opacity: .62; }
@@ -1868,7 +1881,6 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   background: var(--tk-panel-2);
 }
 
-.tk-prep__nm { flex: 1 1 auto; min-width: 0; color: var(--tk-ink); }
 
 .tk-prep__qty {
   flex: none;
@@ -1886,6 +1898,17 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   font-weight: 700;
   color: var(--tk-red);
   white-space: nowrap;
+}
+
+/* 窄屏：物品名独占一行，数量与「缺 N」落到第二行并左对齐 ——
+   否则它们会被推到行尾，看着像与右边框脱节。 */
+@media (max-width: 560px) {
+  .tk-prep__li { row-gap: .15rem; }
+  .tk-prep__nm { flex-basis: 100%; order: 1; }
+  .tk-cnt { order: 0; }
+  .tk-prep__qty { order: 2; }
+  .tk-prep__lack { order: 3; }
+  .tk-prep__qty, .tk-prep__lack { font-size: .66rem; }
 }
 
 /* 任务行：卡片化 + 左侧状态色条（2026-10-07 改）
@@ -2130,14 +2153,29 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 .tk-board__llrow { display: flex; flex-wrap: wrap; gap: .3rem .8rem; margin-bottom: .5rem; }
 
+/* 11 个商人的忠诚度下拉。
+   ⚠️ 截图实测：Peacekeeper 这类长名字 + 下拉框，宽度超过面板时**把右边框顶出可视区**
+   （读者报「边框右边看不见」）。llrow 有 flex-wrap，但那只是让**整项换行**，
+   项内文字 nowrap + 下拉固定 3.9rem，两者相加仍可能超宽。
+   修法：给名字加 min-width:0 + 省略号，并允许名字本身换行 —— 商人名可读性优先于排版整齐。 */
 .tk-board__ll {
   display: inline-flex;
   align-items: center;
   gap: .3rem;
   font-size: .68rem;
   color: var(--tk-ink-2);
+  max-width: 100%;
+  min-width: 0;
+}
+
+.tk-board__ll > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.tk-board__ll .tk-qstate--ll { flex: none; width: 3.9rem; }
 
 .tk-qstate--ll { width: 3.9rem; margin: 0; }
 
