@@ -351,13 +351,22 @@
      -------------------------------------------------------------------------- */
 
   function renderOverview(host) {
-    var mf = window.TARKOV_PROGRESS_MANIFEST || {};
+    var mf = window.TARKOV_PROGRESS_MANIFEST;
+
+    host.textContent = "";
+
+    /* 清单没载入（网络中断 / 脚本被拦）时给提示，而不是画一个「0 / 0 个任务」——
+       后者看起来像「你的进度清空了」，比空白更吓人。 */
+    if (!mf || !mf.total) {
+      host.appendChild(notReady("进度清单"));
+      return;
+    }
+
     var traders = mf.traders || [];
     var totalAll = mf.total || 0;
     var itemList = (mf.items && mf.items.list) || [];
     var hutList = (mf.hideout && mf.hideout.list) || [];
 
-    host.textContent = "";
     host.appendChild(el("p", "tk-ov__loading", "正在汇总进度…"));
 
     /* 图数据到齐再画：没有图就算不出「推断完成」与「可接」。
