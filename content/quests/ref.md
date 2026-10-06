@@ -59,7 +59,7 @@ tags:
 
 <h3 id="q01">专业热身 - 1（PVP）<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Professional Fitness Part 1 Pvp Zone**
 
 **接取条件**
 
@@ -74,7 +74,7 @@ tags:
 
 <h3 id="q02">专业热身 - 2（PVP）<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Professional Fitness Part 2 Pvp Zone**
 
 **接取条件**
 
@@ -89,7 +89,7 @@ tags:
 
 <h3 id="q03">两难抉择（PVP）<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Decisions Decisions Pvp Zone**
 
 **接取条件**
 
@@ -114,7 +114,7 @@ tags:
 
 <h3 id="q04">保持领先（PVP）<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Hold the Lead Pvp Zone**
 
 **接取条件**
 
@@ -128,7 +128,7 @@ tags:
 
 <h3 id="q05">再创新高！- 1（PVP）<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 1 Pvp Zone**
 
 **接取条件**
 
@@ -143,7 +143,7 @@ tags:
 
 <h3 id="q06">再创新高！- 2（PVP）<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 2 Pvp Zone**
 
 **接取条件**
 
@@ -158,7 +158,7 @@ tags:
 
 <h3 id="q07">再创新高！- 3（PVP）<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 3 Pvp Zone**
 
 **接取条件**
 
@@ -173,7 +173,7 @@ tags:
 
 <h3 id="q08">再创新高！- 4（PVP）<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 4 Pvp Zone**
 
 `失败可重接`
 
@@ -197,7 +197,7 @@ tags:
 
 <h3 id="q09">再创新高！- 5（PVP）<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 5 Pvp Zone**
 
 **接取条件**
 
@@ -212,7 +212,7 @@ tags:
 
 <h3 id="q10">再创新高！- 6（PVP）<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 6 Pvp Zone**
 
 **接取条件**
 
@@ -228,7 +228,7 @@ tags:
 
 <h3 id="q11">声东击西 - 1（PVP）<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Create a Distraction Part 1 Pvp Zone**
 
 `地图：中心区`
 
@@ -245,7 +245,7 @@ tags:
 
 <h3 id="q12">声东击西 - 2（PVP）<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Create a Distraction Part 2 Pvp Zone**
 
 `地图：塔科夫街区` ｜ `失败可重接`
 
@@ -267,7 +267,7 @@ tags:
 
 <h3 id="q13">平衡之力 - 1（PVP）<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Balancing Part 1 Pvp Zone**
 
 **接取条件**
 
@@ -283,7 +283,7 @@ tags:
 
 <h3 id="q14">平衡之力 - 2（PVP）<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Balancing Part 2 Pvp Zone**
 
 **接取条件**
 
@@ -299,7 +299,7 @@ tags:
 
 <h3 id="q15">惊喜（PVP）<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Surprise Pvp Zone**
 
 **接取条件**
 
@@ -314,7 +314,7 @@ tags:
 
 <h3 id="q16">收视灵药<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Provide Viewership**
 
 `地图：海关`
 
@@ -336,7 +336,7 @@ tags:
 
 <h3 id="q17">竞技场差事（PVP）<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Arena Business Pvp Zone**
 
 **接取条件**
 
@@ -352,7 +352,7 @@ tags:
 
 <h3 id="q18">良心作祟 - 2（PVP）<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Against the Conscience Part 2 Pvp Zone**
 
 **接取条件**
 
@@ -367,7 +367,7 @@ tags:
 
 <h3 id="q19">赚点快钱 - 2（PVP）<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Easy Money Part 2 Pvp Zone**
 
 **接取条件**
 
@@ -385,7 +385,7 @@ tags:
 
 <h3 id="q20">迟来的奖励（PVP）<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
-**Ref（竞技场裁判）** ｜ 需 **Lv35** ｜ 前置 **1** 个
+**Ref（竞技场裁判）** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Postponed Reward Pvp Zone**
 
 **接取条件**
 

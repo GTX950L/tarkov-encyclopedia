@@ -108,6 +108,21 @@ def one_line(s: str) -> str:
     return re.sub(r"\s+", " ", (s or "").strip())
 
 
+def en_name(slug: str) -> str:
+    """任务英文名：`first-in-line` → `First in Line`。
+
+    **必须去连字符**——站内搜索按词切分，留 slug 形式会让「First in Line」搜不到。
+    短词（of / in / the / a / and / to / for …）保持小写，除非它是首词。
+    """
+    s = (slug or "").replace("-", " ").strip()
+    if not s:
+        return ""
+    small = {"of", "in", "the", "a", "an", "and", "to", "for", "on", "at", "by", "with"}
+    words = s.split()
+    return " ".join(w if (i and w.lower() in small) else w.capitalize()
+                    for i, w in enumerate(words))
+
+
 def quote_cn(s: str) -> str:
     """把直引号成对换成「」，满足站内「中文正文不留直引号」的硬检查。
 
@@ -546,6 +561,9 @@ def fetch() -> dict:
         records.append({
             "id": tid,
             "name": nameof("task", tid),
+            # 英文名：数据端点给的是 slug（first-in-line）。**要转成空格分隔的自然写法**，
+            # 因为站内搜索按词切分、不做连字符展开——留 slug 等于搜不到。
+            "en": en_name(t.get("normalizedName")),
             "trader": trader_norm(t["trader"]),
             "level": num(t.get("minPlayerLevel")) or 0,
             "exp": num(t.get("experience")) or 0,
@@ -744,6 +762,8 @@ def render_task(rec: dict, i: int) -> list[str]:
     L: list[str] = [task_heading(i, rec["name"]), ""]
     meta = [f"**{TRADER_LABEL.get(rec['trader'], rec['trader'])}**", f"需 **Lv{rec['level']}**"]
     meta.append(f"前置 **{len(rec['prereqs'])}** 个" if rec["prereqs"] else "**无前置**")
+    if rec["en"]:
+        meta.append(f"英文名 **{rec['en']}**")
     flags = []
     if rec["kappa"]:
         flags.append("**Kappa 必需**")
@@ -904,8 +924,10 @@ def write_index(tasks: list[dict]) -> None:
         "找任务物品的 `possibleLocations`）**已在抓取阶段整体剔除**；"
         "② 本站自己编写的**走位路线与执行顺序**。本栏目只把官方任务定义里的**结构化字段**译成中文表格"
         "（含其自带的方位描述），不写攻略 |",
-        f"| **怎么用** | 查某个任务 → 用右上角搜索；看某个商人给什么 → 从下方按商人进页。"
-        f"另有 **{maps_n}** 个任务在定义里带地图归属，可用「地图」二字在站内检索 |",
+        f"| **怎么用** | ① **知道任务名** → 右上角搜索，**中文名与英文名都能搜**"
+        f"（英文名随每个任务列出，排在商人／等级之后）；② **看某个商人给什么** → 从下方按商人进页；"
+        f"③ **按地图或标记找** → 见下方「速查」一节；另有 **{maps_n}** 个任务在定义里带地图归属，"
+        f"可用「地图」二字在站内检索 |",
         "",
         "---", "",
         "## 💡 怎么读这些字段", "",

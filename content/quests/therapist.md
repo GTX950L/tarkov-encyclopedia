@@ -91,7 +91,7 @@ tags:
 
 <h3 id="q01">一般储备<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **General Wares**
 
 **接取条件**
 
@@ -108,7 +108,7 @@ tags:
 
 <h3 id="q02">供给计划<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Supply Plans**
 
 `地图：森林`
 
@@ -132,7 +132,7 @@ tags:
 
 <h3 id="q03">健全替代<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **A Healthy Alternative**
 
 **接取条件**
 
@@ -151,7 +151,7 @@ tags:
 
 <h3 id="q04">兽医也是医<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pets Wont Need It**
 
 `地图：塔科夫街区`
 
@@ -174,7 +174,7 @@ tags:
 
 <h3 id="q05">兽医也是医 - 2<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Pets Wont Need It Part 2**
 
 `地图：塔科夫街区`
 
@@ -194,7 +194,7 @@ tags:
 
 <h3 id="q06">医疗隐私 - 1<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Health Care Privacy Part 1**
 
 `地图：海岸线`
 
@@ -210,7 +210,7 @@ tags:
 
 <h3 id="q07">卫生标准<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Sanitary Standards**
 
 `地图：工厂`
 
@@ -229,7 +229,7 @@ tags:
 
 <h3 id="q08">城市的解药<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Urban Medicine**
 
 `地图：塔科夫街区`
 
@@ -249,7 +249,7 @@ tags:
 
 <h3 id="q09">塔科夫屠夫<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Tarkov Butcher**
 
 **接取条件**
 
@@ -265,7 +265,7 @@ tags:
 
 <h3 id="q10">塔科夫式手腕<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Tarkov Style Diplomacy**
 
 `地图：海岸线`
 
@@ -286,7 +286,7 @@ tags:
 
 <h3 id="q11">带血的水<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Blood in the Water**
 
 `地图：海关`
 
@@ -303,7 +303,7 @@ tags:
 
 <h3 id="q12">平易近人<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Closer to the People**
 
 `地图：海关`
 
@@ -321,7 +321,7 @@ tags:
 
 <h3 id="q13">急诊室的故事<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Paramedic**
 
 `地图：塔科夫街区`
 
@@ -340,7 +340,7 @@ tags:
 
 <h3 id="q14">战争从未改变<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **War Never Changes**
 
 `地图：破冰船`
 
@@ -353,7 +353,7 @@ tags:
 
 <h3 id="q15">无主货物<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Abandoned Cargo**
 
 `地图：海关`
 
@@ -378,7 +378,7 @@ tags:
 
 <h3 id="q16">水瓶座行动<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Operation Aquarius**
 
 `地图：海关`
 
@@ -397,7 +397,7 @@ tags:
 
 <h3 id="q17">汽车修理<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Car Repair**
 
 **接取条件**
 
@@ -416,7 +416,7 @@ tags:
 
 <h3 id="q18">海边假期<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Seaside Vacation**
 
 `地图：灯塔`
 
@@ -434,7 +434,7 @@ tags:
 
 <h3 id="q19">生化分析<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Biochemistry**
 
 `地图：破冰船`
 
@@ -451,7 +451,7 @@ tags:
 
 <h3 id="q20">病历<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Disease History**
 
 `地图：储备站`
 
@@ -472,7 +472,7 @@ tags:
 
 <h3 id="q21">短缺<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shortage**
 
 **接取条件**
 
@@ -489,7 +489,7 @@ tags:
 
 <h3 id="q22">秋季综合征<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fall Ailment**
 
 **接取条件**
 
@@ -505,7 +505,7 @@ tags:
 
 <h3 id="q23">缉毒行动<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Drug Trafficking**
 
 `地图：灯塔`
 
@@ -524,7 +524,7 @@ tags:
 
 <h3 id="q24">艰难抉择<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **A Difficult Choice**
 
 **接取条件**
 
@@ -549,7 +549,7 @@ tags:
 
 <h3 id="q25">药剂师<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pharmacist**
 
 `地图：海关`
 
@@ -570,7 +570,7 @@ tags:
 
 <h3 id="q26">货运追踪<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ **无前置**
+**Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shipment Tracking**
 
 `地图：海关`
 
@@ -589,7 +589,7 @@ tags:
 
 <h3 id="q27">邮递员派特 - 2<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Postman Pat Part 2**
 
 `**Kappa 必需**`
 
@@ -606,7 +606,7 @@ tags:
 
 <h3 id="q28">新手上路<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv1** ｜ **无前置**
+**Therapist** ｜ 需 **Lv1** ｜ **无前置** ｜ 英文名 **First in Line**
 
 `地图：中心区`
 
@@ -624,7 +624,7 @@ tags:
 
 <h3 id="q29">人口普查<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv5** ｜ **无前置**
+**Therapist** ｜ 需 **Lv5** ｜ **无前置** ｜ 英文名 **Population Census**
 
 `地图：塔科夫街区`
 
@@ -642,7 +642,7 @@ tags:
 
 <h3 id="q30">刨根问底<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv5** ｜ **无前置**
+**Therapist** ｜ 需 **Lv5** ｜ **无前置** ｜ 英文名 **All Is Revealed**
 
 `地图：工厂`
 
@@ -660,7 +660,7 @@ tags:
 
 <h3 id="q31">医疗隐私 - 2<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv5** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv5** ｜ 前置 **1** 个 ｜ 英文名 **Health Care Privacy Part 2**
 
 `地图：海岸线`
 
@@ -681,7 +681,7 @@ tags:
 
 <h3 id="q32">医疗隐私 - 3<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv5** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv5** ｜ 前置 **1** 个 ｜ 英文名 **Health Care Privacy Part 3**
 
 `地图：森林`
 
@@ -700,7 +700,7 @@ tags:
 
 <h3 id="q33">救助站点<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv5** ｜ **无前置**
+**Therapist** ｜ 需 **Lv5** ｜ **无前置** ｜ 英文名 **Aid Stations**
 
 **接取条件**
 
@@ -722,7 +722,7 @@ tags:
 
 <h3 id="q34">卫生标准 - 2<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv8** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv8** ｜ 前置 **1** 个 ｜ 英文名 **Sanitary Standards Part 2**
 
 **接取条件**
 
@@ -738,7 +738,7 @@ tags:
 
 <h3 id="q35">出于好奇<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Out of Curiosity**
 
 `地图：海关`
 
@@ -761,7 +761,7 @@ tags:
 
 <h3 id="q36">口干舌燥 - 往日回响<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Thirsty Echo**
 
 `地图：海岸线`
 
@@ -779,7 +779,7 @@ tags:
 
 <h3 id="q37">口干舌燥 - 秘密配方<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Thirsty Secrets**
 
 **接取条件**
 
@@ -797,7 +797,7 @@ tags:
 
 <h3 id="q38">质量标准<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv12** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Quality Standard**
 
 `地图：实验室`
 
@@ -815,7 +815,7 @@ tags:
 
 <h3 id="q39">危险之路<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv15** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv15** ｜ 前置 **1** 个 ｜ 英文名 **Dangerous Road**
 
 `地图：塔科夫街区`
 
@@ -832,7 +832,7 @@ tags:
 
 <h3 id="q40">一天一个苹果 - 医生远离我<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv18** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv18** ｜ 前置 **1** 个 ｜ 英文名 **An Apple a Day Keeps the Doctor Away**
 
 **接取条件**
 
@@ -847,7 +847,7 @@ tags:
 
 <h3 id="q41">医疗隐私 - 4<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv18** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv18** ｜ 前置 **1** 个 ｜ 英文名 **Health Care Privacy Part 4**
 
 **接取条件**
 
@@ -863,7 +863,7 @@ tags:
 
 <h3 id="q42">医疗隐私 - 5<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv18** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv18** ｜ 前置 **1** 个 ｜ 英文名 **Health Care Privacy Part 5**
 
 `地图：夜间工厂`
 
@@ -881,7 +881,7 @@ tags:
 
 <h3 id="q43">同事<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv18** ｜ **无前置**
+**Therapist** ｜ 需 **Lv18** ｜ **无前置** ｜ 英文名 **Colleagues**
 
 `地图：海岸线`
 
@@ -901,7 +901,7 @@ tags:
 
 <h3 id="q44">善良之针<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv18** ｜ **无前置**
+**Therapist** ｜ 需 **Lv18** ｜ **无前置** ｜ 英文名 **Charity**
 
 **接取条件**
 
@@ -917,7 +917,7 @@ tags:
 
 <h3 id="q45">消失的线人<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv18** ｜ **无前置**
+**Therapist** ｜ 需 **Lv18** ｜ **无前置** ｜ 英文名 **Lost Contact**
 
 `地图：灯塔`
 
@@ -937,7 +937,7 @@ tags:
 
 <h3 id="q46">这带子糟透了<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv26** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **This Tape Sucks**
 
 `地图：迷宫`
 
@@ -957,7 +957,7 @@ tags:
 
 <h3 id="q47">运动员<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv30** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv30** ｜ 前置 **1** 个 ｜ 英文名 **Athlete**
 
 **接取条件**
 
@@ -973,7 +973,7 @@ tags:
 
 <h3 id="q48">私人诊所<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv35** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Private Clinic**
 
 **接取条件**
 
@@ -991,7 +991,7 @@ tags:
 
 <h3 id="q49">医疗隐私 - 6<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv37** ｜ 前置 **1** 个
+**Therapist** ｜ 需 **Lv37** ｜ 前置 **1** 个 ｜ 英文名 **Health Care Privacy Part 6**
 
 `地图：工厂`
 
@@ -1012,7 +1012,7 @@ tags:
 
 <h3 id="q50">灭虫服务<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv37** ｜ **无前置**
+**Therapist** ｜ 需 **Lv37** ｜ **无前置** ｜ 英文名 **Decontamination Service**
 
 `地图：实验室`
 
@@ -1032,7 +1032,7 @@ tags:
 
 <h3 id="q51">街区之下<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv37** ｜ **无前置**
+**Therapist** ｜ 需 **Lv37** ｜ **无前置** ｜ 英文名 **Beneath the Streets**
 
 **接取条件**
 
@@ -1056,7 +1056,7 @@ tags:
 
 <h3 id="q52">急单<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
-**Therapist** ｜ 需 **Lv38** ｜ **无前置**
+**Therapist** ｜ 需 **Lv38** ｜ **无前置** ｜ 英文名 **Crisis**
 
 **接取条件**
 

@@ -103,7 +103,7 @@ tags:
 
 <h3 id="q01">事倍功半<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Work Smarter**
 
 `地图：海关`
 
@@ -121,7 +121,7 @@ tags:
 
 <h3 id="q02">卑鄙的外乡人<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Foresters Duty**
 
 **接取条件**
 
@@ -138,7 +138,7 @@ tags:
 
 <h3 id="q03">危机四伏塔科夫<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Rough Tarkov**
 
 **要求**
 
@@ -150,7 +150,7 @@ tags:
 
 <h3 id="q04">塔科夫神射手 - 1<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Tarkov Shooter Part 1**
 
 `**Kappa 必需**`
 
@@ -168,7 +168,7 @@ tags:
 
 <h3 id="q05">如楔在侧<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **A Wedge Between Us**
 
 `地图：破冰船`
 
@@ -182,7 +182,7 @@ tags:
 
 <h3 id="q06">害虫防治<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pest Control**
 
 `地图：储备站`
 
@@ -199,7 +199,7 @@ tags:
 
 <h3 id="q07">幽闭恐惧症<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Claustrophobia**
 
 `地图：工厂`
 
@@ -216,7 +216,7 @@ tags:
 
 <h3 id="q08">快枪手<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Swift**
 
 `地图：森林`
 
@@ -233,7 +233,7 @@ tags:
 
 <h3 id="q09">怀旧之情<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Nostalgia**
 
 `地图：海岸线`
 
@@ -252,7 +252,7 @@ tags:
 
 <h3 id="q10">急救措施<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **First Aid**
 
 **接取条件**
 
@@ -270,7 +270,7 @@ tags:
 
 <h3 id="q11">污秽遍地……<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **All This Filth**
 
 **要求**
 
@@ -281,7 +281,7 @@ tags:
 
 <h3 id="q12">熟人<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Acquaintance**
 
 **要求**
 
@@ -292,7 +292,7 @@ tags:
 
 <h3 id="q13">狩猎之旅<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Hunting Trip**
 
 `地图：森林`
 
@@ -312,7 +312,7 @@ tags:
 
 <h3 id="q14">猎人之路 - 周边安全<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Secured Perimeter**
 
 `地图：工厂`
 
@@ -329,7 +329,7 @@ tags:
 
 <h3 id="q15">猎人之路 - 坏警察<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Crooked Cop**
 
 `地图：塔科夫街区`
 
@@ -343,7 +343,7 @@ tags:
 
 <h3 id="q16">猎人之路 - 大动作<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Big Game**
 
 `地图：塔科夫街区`
 
@@ -356,7 +356,7 @@ tags:
 
 <h3 id="q17">猎人之路 - 工厂头目<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Factory Chief**
 
 `地图：工厂`
 
@@ -371,7 +371,7 @@ tags:
 
 <h3 id="q18">猎人之路 - 愤怒守望者<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Angry Watchman**
 
 `地图：海关`
 
@@ -388,7 +388,7 @@ tags:
 
 <h3 id="q19">猎人之路 - 战利品<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Trophy**
 
 `地图：海关`
 
@@ -406,7 +406,7 @@ tags:
 
 <h3 id="q20">猎人之路 - 杀戮森林<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Forest Cleaning**
 
 **接取条件**
 
@@ -421,7 +421,7 @@ tags:
 
 <h3 id="q21">猎人之路 - 森林管理员<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Woods Keeper**
 
 `地图：森林`
 
@@ -440,7 +440,7 @@ tags:
 
 <h3 id="q22">猎人之路 - 正义<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Justice**
 
 **接取条件**
 
@@ -456,7 +456,7 @@ tags:
 
 <h3 id="q23">猎人之路 - 流浪汉<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Outcasts**
 
 `地图：灯塔`
 
@@ -473,7 +473,7 @@ tags:
 
 <h3 id="q24">猎人之路 - 脱销<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Sellout**
 
 `地图：立交桥`
 
@@ -488,7 +488,7 @@ tags:
 
 <h3 id="q25">猎人之路 - 蒸发密令 - 1<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Eraser**
 
 `地图：储备站`
 
@@ -507,7 +507,7 @@ tags:
 
 <h3 id="q26">猎人之路 - 虐待狂<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Sadist**
 
 `地图：海岸线`
 
@@ -531,7 +531,7 @@ tags:
 
 <h3 id="q27">猎人之路 - 解放<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Liberation**
 
 **接取条件**
 
@@ -546,7 +546,7 @@ tags:
 
 <h3 id="q28">礼节性拜访<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Courtesy Visit**
 
 `地图：海岸线`
 
@@ -566,7 +566,7 @@ tags:
 
 <h3 id="q29">美味香肠<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Delicious Sausage**
 
 `地图：塔科夫街区`
 
@@ -587,7 +587,7 @@ tags:
 
 <h3 id="q30">试炼之路<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Rite of Passage**
 
 `地图：海关`
 
@@ -606,7 +606,7 @@ tags:
 
 <h3 id="q31">别开枪！<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv9** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Cease Fire**
 
 `地图：塔科夫街区`
 
@@ -624,7 +624,7 @@ tags:
 
 <h3 id="q32">口干舌燥 - 猎犬行动<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv9** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Thirsty Hounds**
 
 `地图：海岸线`
 
@@ -640,7 +640,7 @@ tags:
 
 <h3 id="q33">塔科夫神射手 - 2<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 2**
 
 `**Kappa 必需**`
 
@@ -659,7 +659,7 @@ tags:
 
 <h3 id="q34">塔科夫神射手 - 3<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 3**
 
 `**Kappa 必需**`
 
@@ -678,7 +678,7 @@ tags:
 
 <h3 id="q35">妥善保管<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv9** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Dragnet**
 
 `地图：工厂`
 
@@ -697,7 +697,7 @@ tags:
 
 <h3 id="q36">猎人必修课<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv9** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Every Hunter Knows This**
 
 **接取条件**
 
@@ -713,7 +713,7 @@ tags:
 
 <h3 id="q37">生存者之路 - Zhivchik<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Zhivchik**
 
 **接取条件**
 
@@ -729,7 +729,7 @@ tags:
 
 <h3 id="q38">生存者之路 - 危险零距离<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Unprotected But Dangerous**
 
 **接取条件**
 
@@ -744,7 +744,7 @@ tags:
 
 <h3 id="q39">生存者之路 - 受伤的野兽<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Wounded Beast**
 
 **接取条件**
 
@@ -760,7 +760,7 @@ tags:
 
 <h3 id="q40">生存者之路 - 省吃俭用<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv9** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **The Survivalist Path Thrifty**
 
 `地图：森林`
 
@@ -780,7 +780,7 @@ tags:
 
 <h3 id="q41">生存者之路 - 硬汉<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Tough Guy**
 
 `地图：森林` ｜ `失败可重接`
 
@@ -804,7 +804,7 @@ tags:
 
 <h3 id="q42">储备<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv17** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **Reserve**
 
 `地图：储备站`
 
@@ -822,7 +822,7 @@ tags:
 
 <h3 id="q43">塔科夫神射手 - 4<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 4**
 
 `**Kappa 必需**`
 
@@ -841,7 +841,7 @@ tags:
 
 <h3 id="q44">塔科夫神射手 - 5<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 5**
 
 `地图：海关`
 
@@ -859,7 +859,7 @@ tags:
 
 <h3 id="q45">塔科夫神射手 - 5<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 5 2**
 
 **接取条件**
 
@@ -874,7 +874,7 @@ tags:
 
 <h3 id="q46">猎人之路 - 支配者<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Huntsman Path Controller**
 
 **接取条件**
 
@@ -890,7 +890,7 @@ tags:
 
 <h3 id="q47">猎人之路 - 管理者<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv17** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **The Huntsman Path Administrator**
 
 `地图：储备站`
 
@@ -908,7 +908,7 @@ tags:
 
 <h3 id="q48">猎人之路 - 管理者<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv17** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **The Huntsman Path Administrator 2**
 
 `地图：灯塔`
 
@@ -926,7 +926,7 @@ tags:
 
 <h3 id="q49">生存者之路 - 雕鸮<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Eagle Owl**
 
 **接取条件**
 
@@ -941,7 +941,7 @@ tags:
 
 <h3 id="q50">生存者之路 - 冷血<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Cold Blooded**
 
 **接取条件**
 
@@ -956,7 +956,7 @@ tags:
 
 <h3 id="q51">生存者之路 - 战地军医<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Combat Medic**
 
 **接取条件**
 
@@ -972,7 +972,7 @@ tags:
 
 <h3 id="q52">直播 - 3<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **Broadcast Part 3**
 
 `地图：塔科夫街区`
 
@@ -991,7 +991,7 @@ tags:
 
 <h3 id="q53">直播 - 4<a class="headerlink" href="#q53" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **Broadcast Part 4**
 
 `地图：塔科夫街区`
 
@@ -1009,7 +1009,7 @@ tags:
 
 <h3 id="q54">直播 - 5<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **Broadcast Part 5**
 
 **接取条件**
 
@@ -1027,7 +1027,7 @@ tags:
 
 <h3 id="q55">隐士<a class="headerlink" href="#q55" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Hermit**
 
 `地图：灯塔`
 
@@ -1047,7 +1047,7 @@ tags:
 
 <h3 id="q56">鱼塘<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv17** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **Fishing Place**
 
 **接取条件**
 
@@ -1065,7 +1065,7 @@ tags:
 
 <h3 id="q57">黑幕交易<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv20** ｜ 前置 **2** 个
+**Jaeger** ｜ 需 **Lv20** ｜ 前置 **2** 个 ｜ 英文名 **Shady Business**
 
 **接取条件**
 
@@ -1083,7 +1083,7 @@ tags:
 
 <h3 id="q58">塔科夫神射手 - 6<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv33** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv33** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 6**
 
 **接取条件**
 
@@ -1099,7 +1099,7 @@ tags:
 
 <h3 id="q59">塔科夫神射手 - 7<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv33** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv33** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 7**
 
 `失败可重接`
 
@@ -1121,7 +1121,7 @@ tags:
 
 <h3 id="q60">屠宰场<a class="headerlink" href="#q60" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv33** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv33** ｜ **无前置** ｜ 英文名 **Slaughterhouse**
 
 **接取条件**
 
@@ -1144,7 +1144,7 @@ tags:
 
 <h3 id="q61">流浪狗<a class="headerlink" href="#q61" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv33** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv33** ｜ **无前置** ｜ 英文名 **Stray Dogs**
 
 **接取条件**
 
@@ -1162,7 +1162,7 @@ tags:
 
 <h3 id="q62">猎人之路 - 控制<a class="headerlink" href="#q62" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv33** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv33** ｜ **无前置** ｜ 英文名 **The Huntsman Path Control**
 
 `地图：实验室`
 
@@ -1181,7 +1181,7 @@ tags:
 
 <h3 id="q63">生存者之路 - 瘾君子<a class="headerlink" href="#q63" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv33** ｜ 前置 **1** 个
+**Jaeger** ｜ 需 **Lv33** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Junkie**
 
 `地图：森林`
 
@@ -1201,7 +1201,7 @@ tags:
 
 <h3 id="q64">猎人之路 - 无情杀手<a class="headerlink" href="#q64" title="Permanent link">&para;</a></h3>
 
-**Jaeger** ｜ 需 **Lv55** ｜ **无前置**
+**Jaeger** ｜ 需 **Lv55** ｜ **无前置** ｜ 英文名 **The Huntsman Path Relentless**
 
 `失败可重接`
 

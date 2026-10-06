@@ -105,7 +105,7 @@ tags:
 
 <h3 id="q01">一信之缘<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Youve Got Mail**
 
 `地图：塔科夫街区`
 
@@ -119,7 +119,7 @@ tags:
 
 <h3 id="q02">半满半空<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Half Empty**
 
 **接取条件**
 
@@ -135,7 +135,7 @@ tags:
 
 <h3 id="q03">占有者<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Possessor**
 
 `地图：工厂`
 
@@ -149,7 +149,7 @@ tags:
 
 <h3 id="q04">地区巡逻<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **District Patrol**
 
 `地图：塔科夫街区`
 
@@ -162,7 +162,7 @@ tags:
 
 <h3 id="q05">塔市进口货<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Tarkov Import**
 
 **接取条件**
 
@@ -179,7 +179,7 @@ tags:
 
 <h3 id="q06">多鱼之漏<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Documents**
 
 `地图：储备站`
 
@@ -201,7 +201,7 @@ tags:
 
 <h3 id="q07">奢靡人生<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Luxurious Life**
 
 `地图：中心区`
 
@@ -220,7 +220,7 @@ tags:
 
 <h3 id="q08">屋顶战神<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Kings of the Rooftops**
 
 `地图：塔科夫街区`
 
@@ -238,7 +238,7 @@ tags:
 
 <h3 id="q09">引路先驱<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Belka and Strelka**
 
 `地图：海关`
 
@@ -256,7 +256,7 @@ tags:
 
 <h3 id="q10">往事速递<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Delivery From the Past**
 
 **接取条件**
 
@@ -274,7 +274,7 @@ tags:
 
 <h3 id="q11">恐吓者<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Intimidator**
 
 **接取条件**
 
@@ -292,7 +292,7 @@ tags:
 
 <h3 id="q12">惩罚者 - 1<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Punisher Part 1**
 
 `地图：海关`
 
@@ -305,7 +305,7 @@ tags:
 
 <h3 id="q13">惩罚者 - 2<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **The Punisher Part 2**
 
 `地图：海岸线`
 
@@ -322,7 +322,7 @@ tags:
 
 <h3 id="q14">我们的土地，我们的血<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Our Own Land Bear**
 
 `地图：灯塔` ｜ `仅限 **BEAR**`
 
@@ -341,7 +341,7 @@ tags:
 
 <h3 id="q15">掠地攻城<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Capturing Outposts**
 
 **要求**
 
@@ -352,7 +352,7 @@ tags:
 
 <h3 id="q16">探囊取物<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shaking Up the Teller**
 
 `地图：海关`
 
@@ -374,7 +374,7 @@ tags:
 
 <h3 id="q17">搜索任务<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Search Mission**
 
 `地图：森林`
 
@@ -389,7 +389,7 @@ tags:
 
 <h3 id="q18">最好的差事<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Best Job in the World**
 
 **接取条件**
 
@@ -406,7 +406,7 @@ tags:
 
 <h3 id="q19">横插一杠<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Stick in the Wheel**
 
 **接取条件**
 
@@ -420,7 +420,7 @@ tags:
 
 <h3 id="q20">武力说服<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Power of Persuasion**
 
 **接取条件**
 
@@ -437,7 +437,7 @@ tags:
 
 <h3 id="q21">武装郊游<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Easy Breezy**
 
 **接取条件**
 
@@ -453,7 +453,7 @@ tags:
 
 <h3 id="q22">油料交换<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Oil Change**
 
 `地图：破冰船`
 
@@ -467,7 +467,7 @@ tags:
 
 <h3 id="q23">油料快车<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Oil Run**
 
 `地图：海关`
 
@@ -486,7 +486,7 @@ tags:
 
 <h3 id="q24">特别联络<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Special Comms**
 
 **接取条件**
 
@@ -504,7 +504,7 @@ tags:
 
 <h3 id="q25">特殊订单<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Special Order**
 
 **接取条件**
 
@@ -521,7 +521,7 @@ tags:
 
 <h3 id="q26">硝烟野餐<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shootout Picnic**
 
 `地图：森林`
 
@@ -538,7 +538,7 @@ tags:
 
 <h3 id="q27">绿色通道<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Green Corridor Bear**
 
 `地图：塔科夫街区` ｜ `仅限 **BEAR**`
 
@@ -553,7 +553,7 @@ tags:
 
 <h3 id="q28">缔结友谊<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ 前置 **2** 个
+**Prapor** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **Forge a Friendship**
 
 `地图：海岸线`
 
@@ -570,7 +570,7 @@ tags:
 
 <h3 id="q29">罪证<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Bad Rep Evidence**
 
 **接取条件**
 
@@ -591,7 +591,7 @@ tags:
 
 <h3 id="q30">背景调查<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Background Check**
 
 `地图：海关`
 
@@ -611,7 +611,7 @@ tags:
 
 <h3 id="q31">财不外露<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Properties All Around**
 
 `地图：塔科夫街区`
 
@@ -631,7 +631,7 @@ tags:
 
 <h3 id="q32">货运延误 - 1<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Shipping Delay Part 1**
 
 `地图：森林`
 
@@ -647,7 +647,7 @@ tags:
 
 <h3 id="q33">踩点行动<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Reconnaissance**
 
 `地图：灯塔`
 
@@ -666,7 +666,7 @@ tags:
 
 <h3 id="q34">邮递员派特 - 1<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Postman Pat Part 1**
 
 `**Kappa 必需**` ｜ `地图：工厂`
 
@@ -685,7 +685,7 @@ tags:
 
 <h3 id="q35">铁证如山<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Ironclad Proof**
 
 **接取条件**
 
@@ -703,7 +703,7 @@ tags:
 
 <h3 id="q36">首秀<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Debut**
 
 **要求**
 
@@ -714,7 +714,7 @@ tags:
 
 <h3 id="q37">麻醉<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv0** ｜ **无前置**
+**Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Anesthesia**
 
 `地图：海岸线`
 
@@ -733,7 +733,7 @@ tags:
 
 <h3 id="q38">打靶训练<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv1** ｜ **无前置**
+**Prapor** ｜ 需 **Lv1** ｜ **无前置** ｜ 英文名 **Shooting Cans**
 
 `地图：中心区`
 
@@ -748,7 +748,7 @@ tags:
 
 <h3 id="q39">掷弹兵<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv6** ｜ **无前置**
+**Prapor** ｜ 需 **Lv6** ｜ **无前置** ｜ 英文名 **Grenadier**
 
 **接取条件**
 
@@ -764,7 +764,7 @@ tags:
 
 <h3 id="q40">苏共之辉<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv6** ｜ **无前置**
+**Prapor** ｜ 需 **Lv6** ｜ **无前置** ｜ 英文名 **Glory to Cpsu**
 
 `地图：塔科夫街区`
 
@@ -784,7 +784,7 @@ tags:
 
 <h3 id="q41">蛋卷冰淇淋<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv6** ｜ **无前置**
+**Prapor** ｜ 需 **Lv6** ｜ **无前置** ｜ 英文名 **Ice Cream Cones**
 
 `地图：森林`
 
@@ -805,7 +805,7 @@ tags:
 
 <h3 id="q42">大客户<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Big Customer**
 
 `地图：海关`
 
@@ -830,7 +830,7 @@ tags:
 
 <h3 id="q43">人间地狱 - 1<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv12** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Hell on Earth Part 1**
 
 **接取条件**
 
@@ -844,7 +844,7 @@ tags:
 
 <h3 id="q44">往昔时光 - 1<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv12** ｜ **无前置**
+**Prapor** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **The Good Times Part 1**
 
 `地图：工厂`
 
@@ -861,7 +861,7 @@ tags:
 
 <h3 id="q45">往昔时光 - 2<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv12** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **The Good Times Part 2**
 
 **接取条件**
 
@@ -876,7 +876,7 @@ tags:
 
 <h3 id="q46">忠实观众<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv12** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Viewer**
 
 **接取条件**
 
@@ -892,7 +892,7 @@ tags:
 
 <h3 id="q47">苏共之辉 - 1<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv17** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **Glory to Cpsu Part 1**
 
 `地图：塔科夫街区`
 
@@ -912,7 +912,7 @@ tags:
 
 <h3 id="q48">人间地狱 - 2<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个 ｜ 英文名 **Hell on Earth Part 2**
 
 **接取条件**
 
@@ -928,7 +928,7 @@ tags:
 
 <h3 id="q49">叛无所依<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv21** ｜ **无前置**
+**Prapor** ｜ 需 **Lv21** ｜ **无前置** ｜ 英文名 **No Place for Renegades**
 
 `地图：储备站`
 
@@ -945,7 +945,7 @@ tags:
 
 <h3 id="q50">地堡<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv21** ｜ **无前置**
+**Prapor** ｜ 需 **Lv21** ｜ **无前置** ｜ 英文名 **The Bunker**
 
 `地图：储备站`
 
@@ -968,7 +968,7 @@ tags:
 
 <h3 id="q51">地堡 - 2<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个 ｜ 英文名 **The Bunker Part 2**
 
 `地图：储备站`
 
@@ -990,7 +990,7 @@ tags:
 
 <h3 id="q52">小菜一碟<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv21** ｜ **无前置**
+**Prapor** ｜ 需 **Lv21** ｜ **无前置** ｜ 英文名 **Easy Job**
 
 `地图：灯塔`
 
@@ -1009,7 +1009,7 @@ tags:
 
 <h3 id="q53">小菜一碟 - 2<a class="headerlink" href="#q53" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个 ｜ 英文名 **Easy Job Part 2**
 
 `地图：灯塔`
 
@@ -1028,7 +1028,7 @@ tags:
 
 <h3 id="q54">惩罚者 - 3<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个 ｜ 英文名 **The Punisher Part 3**
 
 `地图：储备站`
 
@@ -1049,7 +1049,7 @@ tags:
 
 <h3 id="q55">爱国者的使命<a class="headerlink" href="#q55" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv25** ｜ **无前置**
+**Prapor** ｜ 需 **Lv25** ｜ **无前置** ｜ 英文名 **Job for a Patriot**
 
 **接取条件**
 
@@ -1068,7 +1068,7 @@ tags:
 
 <h3 id="q56">体验独一份<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv35** ｜ **无前置**
+**Prapor** ｜ 需 **Lv35** ｜ **无前置** ｜ 英文名 **Unique Experience**
 
 **接取条件**
 
@@ -1088,7 +1088,7 @@ tags:
 
 <h3 id="q57">左右逢源<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv35** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Perfect Mediator**
 
 **接取条件**
 
@@ -1110,7 +1110,7 @@ tags:
 
 <h3 id="q58">出警 - 商场<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个 ｜ 英文名 **Gendarmerie Mall Cop**
 
 `地图：塔科夫街区`
 
@@ -1128,7 +1128,7 @@ tags:
 
 <h3 id="q59">出警 - 检票<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个 ｜ 英文名 **Gendarmerie Tickets Please**
 
 `地图：塔科夫街区`
 
@@ -1146,7 +1146,7 @@ tags:
 
 <h3 id="q60">惩罚者 - 4<a class="headerlink" href="#q60" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个 ｜ 英文名 **The Punisher Part 4**
 
 `地图：灯塔`
 
@@ -1167,7 +1167,7 @@ tags:
 
 <h3 id="q61">惩罚者 - 5<a class="headerlink" href="#q61" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个 ｜ 英文名 **The Punisher Part 5**
 
 **接取条件**
 
@@ -1189,7 +1189,7 @@ tags:
 
 <h3 id="q62">惩罚者 - 6<a class="headerlink" href="#q62" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个
+**Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个 ｜ 英文名 **The Punisher Part 6**
 
 `失败可重接`
 
@@ -1208,7 +1208,7 @@ tags:
 
 <h3 id="q63">管制材料<a class="headerlink" href="#q63" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv36** ｜ **无前置**
+**Prapor** ｜ 需 **Lv36** ｜ **无前置** ｜ 英文名 **Regulated Materials**
 
 **接取条件**
 
@@ -1228,7 +1228,7 @@ tags:
 
 <h3 id="q64">艺术就是爆炸<a class="headerlink" href="#q64" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv36** ｜ **无前置**
+**Prapor** ｜ 需 **Lv36** ｜ **无前置** ｜ 英文名 **The Art of Explosion**
 
 **接取条件**
 
@@ -1246,7 +1246,7 @@ tags:
 
 <h3 id="q65">透透气<a class="headerlink" href="#q65" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv36** ｜ **无前置**
+**Prapor** ｜ 需 **Lv36** ｜ **无前置** ｜ 英文名 **Getting Some Air**
 
 **接取条件**
 
@@ -1267,7 +1267,7 @@ tags:
 
 <h3 id="q66">护送<a class="headerlink" href="#q66" title="Permanent link">&para;</a></h3>
 
-**Prapor** ｜ 需 **Lv46** ｜ **无前置**
+**Prapor** ｜ 需 **Lv46** ｜ **无前置** ｜ 英文名 **Escort**
 
 `失败可重接`
 

@@ -6,6 +6,7 @@
   {
    "id": "6752f6d83038f7df520c83e8",
    "name": "一臂之力",
+   "en": "A Helping Hand",
    "trader": "mechanic",
    "level": 0,
    "exp": 10000,
@@ -73,6 +74,7 @@
   {
    "id": "5ac3475486f7741d6224abd3",
    "name": "不良嗜好",
+   "en": "Bad Habit",
    "trader": "mechanic",
    "level": 0,
    "exp": 3000,
@@ -143,6 +145,7 @@
   {
    "id": "5d2495a886f77425cd51e403",
    "name": "介绍",
+   "en": "Introduction",
    "trader": "mechanic",
    "level": 0,
    "exp": 4500,
@@ -213,6 +216,7 @@
   {
    "id": "5ac3477486f7741d651d6885",
    "name": "侦查",
+   "en": "Scout",
    "trader": "mechanic",
    "level": 0,
    "exp": 10000,
@@ -302,6 +306,7 @@
   {
    "id": "65733403eefc2c312a759ddb",
    "name": "公司福报",
+   "en": "Corporate Perks",
    "trader": "mechanic",
    "level": 0,
    "exp": 10000,
@@ -374,6 +379,7 @@
   {
    "id": "5f04886a3937dc337a6b8238",
    "name": "化学橱柜",
+   "en": "Chemistry Closet",
    "trader": "mechanic",
    "level": 0,
    "exp": 10000,
@@ -443,6 +449,7 @@
   {
    "id": "66aa74571e5e199ecd094f18",
    "name": "化工厂的秘密",
+   "en": "Secrets of Polikhim",
    "trader": "mechanic",
    "level": 0,
    "exp": 10000,
@@ -529,6 +536,7 @@
   {
    "id": "5ac3464c86f7741d651d6877",
    "name": "半导体危机",
+   "en": "Semiconductor Crisis",
    "trader": "mechanic",
    "level": 0,
    "exp": 28000,
@@ -616,6 +624,7 @@
   {
    "id": "625d7005a4eb80027c4f2e09",
    "name": "咚咚咚",
+   "en": "Knock Knock",
    "trader": "mechanic",
    "level": 0,
    "exp": 31300,
@@ -679,6 +688,7 @@
   {
    "id": "6179b3bdc7560e13d23eeb8d",
    "name": "商业机密",
+   "en": "Corporate Secrets",
    "trader": "mechanic",
    "level": 0,
    "exp": 28000,
@@ -761,6 +771,7 @@
   {
    "id": "67a0964e972c11a3f507731b",
    "name": "大海捞针",
+   "en": "Needle in a Haystack",
    "trader": "mechanic",
    "level": 0,
    "exp": 10000,
@@ -784,8 +795,8 @@
      "type": "visit",
      "text": "在中心区调查调查 TerraGroup 总部门前的公园",
      "maps": [
-      "中心区 21+",
-      "中心区"
+      "中心区",
+      "中心区 21+"
      ]
     },
     {
@@ -841,6 +852,7 @@
   {
    "id": "5c0bde0986f77479cf22c2f8",
    "name": "天神射手",
+   "en": "Shooter Born in Heaven",
    "trader": "mechanic",
    "level": 0,
    "exp": 55000,
@@ -1019,6 +1031,7 @@
   {
    "id": "675c1570526ff496850895d9",
    "name": "工欲善其事",
+   "en": "Passion for Ergonomics",
    "trader": "mechanic",
    "level": 0,
    "exp": 3000,
@@ -1082,6 +1095,7 @@
   {
    "id": "67a09636b8725511260bc421",
    "name": "影子雇员",
+   "en": "Shady Contractor",
    "trader": "mechanic",
    "level": 0,
    "exp": 10000,
@@ -1152,6 +1166,7 @@
   {
    "id": "60e71d6d7fcf9c556f325055",
    "name": "急先锋",
+   "en": "The Courier",
    "trader": "mechanic",
    "level": 0,
    "exp": 3000,
@@ -1221,6 +1236,7 @@
   {
    "id": "5ac3467986f7741d6224abc2",
    "name": "恶意环伺",
+   "en": "Ill Wisher",
    "trader": "mechanic",
    "level": 0,
    "exp": 10000,
@@ -1311,6 +1327,7 @@
   {
    "id": "5ac345dc86f774288030817f",
    "name": "投机第一步",
+   "en": "Playing the Market",
    "trader": "mechanic",
    "level": 0,
    "exp": 10000,
@@ -1386,6 +1403,7 @@
   {
    "id": "5ac3462b86f7741d6118b983",
    "name": "挖矿",
+   "en": "Farming",
    "trader": "mechanic",
    "level": 0,
    "exp": 3000,
@@ -1469,6 +1487,7 @@
   {
    "id": "639135e8c115f907b14700aa",
    "name": "探望",
+   "en": "Surveillance",
    "trader": "mechanic",
    "level": 0,
    "exp": 12000,
@@ -1537,6 +1556,7 @@
   {
    "id": "67a096577e86e067eb045733",
    "name": "暗藏玄机",
+   "en": "Hidden Layer",
    "trader": "mechanic",
    "level": 0,
    "exp": 10000,
@@ -1605,6 +1625,7 @@
   {
    "id": "5ae327c886f7745c7b3f2f3f",
    "name": "枪匠 - AK-105",
+   "en": "Gunsmith Ak 105",
    "trader": "mechanic",
    "level": 0,
    "exp": 28000,
@@ -1689,6 +1710,7 @@
   {
    "id": "5ae3277186f7745973054106",
    "name": "枪匠 - AKS-74N",
+   "en": "Gunsmith Aks 74n",
    "trader": "mechanic",
    "level": 0,
    "exp": 28000,
@@ -1775,6 +1797,7 @@
   {
    "id": "5ac2426c86f774138762edfe",
    "name": "枪匠 - AKS-74U",
+   "en": "Gunsmith Aks 74u",
    "trader": "mechanic",
    "level": 0,
    "exp": 3000,
@@ -1869,6 +1892,7 @@
   {
    "id": "5ac2428686f77412450b42bf",
    "name": "枪匠 - HK MP5",
+   "en": "Gunsmith Hk Mp5",
    "trader": "mechanic",
    "level": 0,
    "exp": 3000,
@@ -1959,6 +1983,7 @@
   {
    "id": "5ae3267986f7742a413592fe",
    "name": "枪匠 - M870",
+   "en": "Gunsmith Model 870",
    "trader": "mechanic",
    "level": 0,
    "exp": 10000,
@@ -2041,6 +2066,7 @@
   {
    "id": "5ac23c6186f7741247042bad",
    "name": "枪匠 - MP-133",
+   "en": "Gunsmith Mp 133",
    "trader": "mechanic",
    "level": 0,
    "exp": 3000,
@@ -2124,6 +2150,7 @@
   {
    "id": "5b47799d86f7746c5d6a5fd8",
    "name": "枪匠 - MPX",
+   "en": "Gunsmith Mpx",
    "trader": "mechanic",
    "level": 0,
    "exp": 28000,
@@ -2209,6 +2236,7 @@
   {
    "id": "639872f9decada40426d3447",
    "name": "枪匠 - OP-SKS",
+   "en": "Gunsmith Op Sks",
    "trader": "mechanic",
    "level": 0,
    "exp": 10000,
@@ -2292,6 +2320,7 @@
   {
    "id": "639872fa9b4fb827b200d8e5",
    "name": "枪匠 - P226R",
+   "en": "Gunsmith P226r",
    "trader": "mechanic",
    "level": 0,
    "exp": 28000,
@@ -2368,6 +2397,7 @@
   {
    "id": "639872fc93ae507d5858c3a6",
    "name": "枪匠 - Vector 9x19",
+   "en": "Gunsmith Vector 9x19",
    "trader": "mechanic",
    "level": 0,
    "exp": 28000,
@@ -2448,6 +2478,7 @@
   {
    "id": "625d70031ed3bb5bcc5bd9e5",
    "name": "灯塔之匙",
+   "en": "Key to the Tower",
    "trader": "mechanic",
    "level": 0,
    "exp": 30500,
@@ -2542,6 +2573,7 @@
   {
    "id": "68db9c7557bc51a8c804c14b",
    "name": "目标与手段",
+   "en": "Goals and Means",
    "trader": "mechanic",
    "level": 0,
    "exp": 65000,
@@ -2624,6 +2656,7 @@
   {
    "id": "6391d90f4ed9512be67647df",
    "name": "破镜重圆",
+   "en": "Make Amends",
    "trader": "mechanic",
    "level": 0,
    "exp": 0,
@@ -2710,6 +2743,7 @@
   {
    "id": "6391d912f8e5dd32bf4e3ab2",
    "name": "破镜重圆",
+   "en": "Make Amends 2",
    "trader": "mechanic",
    "level": 0,
    "exp": 0,
@@ -2785,6 +2819,7 @@
   {
    "id": "6391d9144b15ca31f76bc323",
    "name": "破镜重圆",
+   "en": "Make Amends 3",
    "trader": "mechanic",
    "level": 0,
    "exp": 0,
@@ -2860,6 +2895,7 @@
   {
    "id": "62614836f7308432be1d44cc",
    "name": "破镜重圆 - 大扫除",
+   "en": "Make Amends Sweep Up",
    "trader": "mechanic",
    "level": 0,
    "exp": 0,
@@ -2909,6 +2945,7 @@
   {
    "id": "626148334149f1149b5b12ca",
    "name": "破镜重圆 - 安保",
+   "en": "Make Amends Security",
    "trader": "mechanic",
    "level": 0,
    "exp": 0,
@@ -2997,6 +3034,7 @@
   {
    "id": "626148251ed3bb5bcc5bd9ed",
    "name": "破镜重圆 - 收买人心",
+   "en": "Make Amends Buyout",
    "trader": "mechanic",
    "level": 0,
    "exp": 0,
@@ -3049,6 +3087,7 @@
   {
    "id": "6261482fa4eb80027c4f2e11",
    "name": "破镜重圆 - 装备",
+   "en": "Make Amends Equipment",
    "trader": "mechanic",
    "level": 0,
    "exp": 0,
@@ -3095,6 +3134,7 @@
   {
    "id": "6261483ac48e6c62a440fab7",
    "name": "破镜重圆 - 软件",
+   "en": "Make Amends Software",
    "trader": "mechanic",
    "level": 0,
    "exp": 0,
@@ -3148,6 +3188,7 @@
   {
    "id": "6261483dc4874104f230c0cd",
    "name": "破镜重圆 - 隔离",
+   "en": "Make Amends Quarantine",
    "trader": "mechanic",
    "level": 0,
    "exp": 0,
@@ -3201,6 +3242,7 @@
   {
    "id": "64ee9df4496db64f9b7a4432",
    "name": "神秘的门",
+   "en": "The Door",
    "trader": "mechanic",
    "level": 0,
    "exp": 28000,
@@ -3283,6 +3325,7 @@
   {
    "id": "6578ec473dbd035d04531a8d",
    "name": "稳定信号",
+   "en": "Steady Signal",
    "trader": "mechanic",
    "level": 0,
    "exp": 3000,
@@ -3345,6 +3388,7 @@
   {
    "id": "625d6ff5ddc94657c21a1625",
    "name": "网络供应商 - 1",
+   "en": "Network Provider Part 1",
    "trader": "mechanic",
    "level": 0,
    "exp": 18600,
@@ -3412,6 +3456,7 @@
   {
    "id": "625d6ffaf7308432be1d44c5",
    "name": "网络供应商 - 2",
+   "en": "Network Provider Part 2",
    "trader": "mechanic",
    "level": 0,
    "exp": 19100,
@@ -3496,6 +3541,7 @@
   {
    "id": "5c1128e386f7746565181106",
    "name": "肥料",
+   "en": "Fertilizers",
    "trader": "mechanic",
    "level": 0,
    "exp": 28000,
@@ -3576,6 +3622,7 @@
   {
    "id": "6179b3a12153c15e937d52bc",
    "name": "能源危机",
+   "en": "Energy Crisis",
    "trader": "mechanic",
    "level": 0,
    "exp": 28000,
@@ -3664,6 +3711,7 @@
   {
    "id": "625d6ffcaa168e51321d69d7",
    "name": "试探 - 1",
+   "en": "Assessment Part 1",
    "trader": "mechanic",
    "level": 0,
    "exp": 23500,
@@ -3706,6 +3754,7 @@
   {
    "id": "625d6fff4149f1149b5b12c9",
    "name": "试探 - 2",
+   "en": "Assessment Part 2",
    "trader": "mechanic",
    "level": 0,
    "exp": 24200,
@@ -3780,6 +3829,7 @@
   {
    "id": "625d7001c4874104f230c0c5",
    "name": "试探 - 3",
+   "en": "Assessment Part 3",
    "trader": "mechanic",
    "level": 0,
    "exp": 24800,
@@ -3850,6 +3900,7 @@
   {
    "id": "5c139eb686f7747878361a6f",
    "name": "进口",
+   "en": "Import",
    "trader": "mechanic",
    "level": 0,
    "exp": 28000,
@@ -3937,6 +3988,7 @@
   {
    "id": "625d700cc48e6c62a440fab5",
    "name": "邂逅",
+   "en": "Getting Acquainted",
    "trader": "mechanic",
    "level": 0,
    "exp": 32000,
@@ -4013,6 +4065,7 @@
   {
    "id": "6573382e557ff128bf3da536",
    "name": "高效秘诀",
+   "en": "The Secret to Productivity",
    "trader": "mechanic",
    "level": 0,
    "exp": 10000,
@@ -4078,6 +4131,7 @@
   {
    "id": "657315e4a6af4ab4b50f3459",
    "name": "救援行动",
+   "en": "Saving the Mole",
    "trader": "mechanic",
    "level": 1,
    "exp": 3000,
@@ -4168,6 +4222,7 @@
   {
    "id": "639136fa9444fb141f4e6eee",
    "name": "你被盯上了",
+   "en": "Watching You",
    "trader": "mechanic",
    "level": 12,
    "exp": 10000,
@@ -4243,6 +4298,7 @@
   {
    "id": "5ac3479086f7742880308199",
    "name": "圈内人",
+   "en": "Insider",
    "trader": "mechanic",
    "level": 12,
    "exp": 6700,
@@ -4301,6 +4357,7 @@
   {
    "id": "5ac3460c86f7742880308185",
    "name": "挖矿 - 2",
+   "en": "Farming Part 2",
    "trader": "mechanic",
    "level": 12,
    "exp": 5500,
@@ -4406,6 +4463,7 @@
   {
    "id": "5ac346a886f7744e1b083d67",
    "name": "捕鼠计划",
+   "en": "Rat Hunting",
    "trader": "mechanic",
    "level": 12,
    "exp": 10000,
@@ -4504,6 +4562,7 @@
   {
    "id": "626bd75e47ea7f506e5493c5",
    "name": "直播 - 1",
+   "en": "Broadcast Part 1",
    "trader": "mechanic",
    "level": 12,
    "exp": 10000,
@@ -4574,6 +4633,7 @@
   {
    "id": "63913715f8e5dd32bf4e3aaa",
    "name": "直播 - 2",
+   "en": "Broadcast Part 2",
    "trader": "mechanic",
    "level": 12,
    "exp": 10000,
@@ -4642,6 +4702,7 @@
   {
    "id": "666314b8312343839d032d24",
    "name": "航空包裹",
+   "en": "Airmail",
    "trader": "mechanic",
    "level": 12,
    "exp": 10000,
@@ -4706,6 +4767,7 @@
   {
    "id": "666314c10aa5c7436c00908c",
    "name": "镜头就位，开拍！",
+   "en": "Camera Action",
    "trader": "mechanic",
    "level": 12,
    "exp": 28000,
@@ -4855,6 +4917,7 @@
   {
    "id": "669fa39b91b0a8c9680fc467",
    "name": "黑天鹅计划",
+   "en": "Black Swan",
    "trader": "mechanic",
    "level": 12,
    "exp": 10000,
@@ -4918,6 +4981,7 @@
   {
    "id": "5ac346cf86f7741d63233a02",
    "name": "信号 - 3",
+   "en": "Signal Part 3",
    "trader": "mechanic",
    "level": 15,
    "exp": 8500,
@@ -5012,6 +5076,7 @@
   {
    "id": "5ac346e886f7741d6118b99b",
    "name": "信号 - 4",
+   "en": "Signal Part 4",
    "trader": "mechanic",
    "level": 15,
    "exp": 8600,
@@ -5065,6 +5130,7 @@
   {
    "id": "6089736efa70fc097863b8f6",
    "name": "后门",
+   "en": "Back Door",
    "trader": "mechanic",
    "level": 26,
    "exp": 28000,
@@ -5135,6 +5201,7 @@
   {
    "id": "5ae3270f86f77445ba41d4dd",
    "name": "枪匠 - AKM",
+   "en": "Gunsmith Akm",
    "trader": "mechanic",
    "level": 26,
    "exp": 28000,
@@ -5207,6 +5274,7 @@
   {
    "id": "5ac244eb86f7741356335af1",
    "name": "枪匠 - M4A1",
+   "en": "Gunsmith M4a1",
    "trader": "mechanic",
    "level": 26,
    "exp": 28000,
@@ -5283,6 +5351,7 @@
   {
    "id": "67a0970f05d1611ed90be75d",
    "name": "检验假说",
+   "en": "Hypotheses Testing",
    "trader": "mechanic",
    "level": 26,
    "exp": 28000,
@@ -5343,6 +5412,7 @@
   {
    "id": "67a0970744893b9f3f0d9b68",
    "name": "武装侦察",
+   "en": "Offensive Reconnaissance",
    "trader": "mechanic",
    "level": 26,
    "exp": 28000,
@@ -5403,6 +5473,7 @@
   {
    "id": "6089732b59b92115597ad789",
    "name": "物尽其用",
+   "en": "Surplus Goods",
    "trader": "mechanic",
    "level": 26,
    "exp": 28000,
@@ -5471,6 +5542,7 @@
   {
    "id": "5ae3280386f7742a41359364",
    "name": "枪匠 - AS VAL",
+   "en": "Gunsmith As Val",
    "trader": "mechanic",
    "level": 29,
    "exp": 28000,
@@ -5552,6 +5624,7 @@
   {
    "id": "639872fe8871e1272b10ccf6",
    "name": "枪匠大师 - 1",
+   "en": "Gunsmith Master Part 1",
    "trader": "mechanic",
    "level": 40,
    "exp": 10000,
@@ -5638,6 +5711,7 @@
   {
    "id": "64f83bb69878a0569d6ecfbe",
    "name": "枪匠大师 - 10",
+   "en": "Gunsmith Master Part 10",
    "trader": "mechanic",
    "level": 40,
    "exp": 28000,
@@ -5708,6 +5782,7 @@
   {
    "id": "64f83bcdde58fc437700d8fa",
    "name": "枪匠大师 - 11",
+   "en": "Gunsmith Master Part 11",
    "trader": "mechanic",
    "level": 40,
    "exp": 28000,
@@ -5792,6 +5867,7 @@
   {
    "id": "676529af9c90953d090882e7",
    "name": "枪匠大师 - 12",
+   "en": "Gunsmith Master Part 12",
    "trader": "mechanic",
    "level": 40,
    "exp": 28000,
@@ -5921,6 +5997,7 @@
   {
    "id": "64f83bd983cfca080a362c82",
    "name": "枪匠大师 - 13",
+   "en": "Gunsmith Master Part 13",
    "trader": "mechanic",
    "level": 40,
    "exp": 28000,
@@ -5999,6 +6076,7 @@
   {
    "id": "5ac244c486f77413e12cf945",
    "name": "枪匠大师 - 2",
+   "en": "Gunsmith Master Part 2",
    "trader": "mechanic",
    "level": 40,
    "exp": 10000,
@@ -6072,6 +6150,7 @@
   {
    "id": "5ac242ab86f77412464f68b4",
    "name": "枪匠大师 - 3",
+   "en": "Gunsmith Master Part 3",
    "trader": "mechanic",
    "level": 40,
    "exp": 10000,
@@ -6145,6 +6224,7 @@
   {
    "id": "5b47749f86f7746c5d6a5fd4",
    "name": "枪匠大师 - 4",
+   "en": "Gunsmith Master Part 4",
    "trader": "mechanic",
    "level": 40,
    "exp": 10000,
@@ -6228,6 +6308,7 @@
   {
    "id": "5b477b6f86f7747290681823",
    "name": "枪匠大师 - 5",
+   "en": "Gunsmith Master Part 5",
    "trader": "mechanic",
    "level": 40,
    "exp": 28000,
@@ -6310,6 +6391,7 @@
   {
    "id": "639873003693c63d86328f25",
    "name": "枪匠大师 - 6",
+   "en": "Gunsmith Master Part 6",
    "trader": "mechanic",
    "level": 40,
    "exp": 28000,
@@ -6388,6 +6470,7 @@
   {
    "id": "5b477f7686f7744d1b23c4d2",
    "name": "枪匠大师 - 7",
+   "en": "Gunsmith Master Part 7",
    "trader": "mechanic",
    "level": 40,
    "exp": 28000,
@@ -6466,6 +6549,7 @@
   {
    "id": "63987301e11ec11ff5504036",
    "name": "枪匠大师 - 8",
+   "en": "Gunsmith Master Part 8",
    "trader": "mechanic",
    "level": 40,
    "exp": 28000,
@@ -6576,6 +6660,7 @@
   {
    "id": "5b47825886f77468074618d3",
    "name": "枪匠大师 - 9",
+   "en": "Gunsmith Master Part 9",
    "trader": "mechanic",
    "level": 40,
    "exp": 28000,
@@ -6650,6 +6735,7 @@
   {
    "id": "5c0be13186f7746f016734aa",
    "name": "狙击疯魔",
+   "en": "Psycho Sniper",
    "trader": "mechanic",
    "level": 40,
    "exp": 65000,
@@ -6744,6 +6830,7 @@
   {
    "id": "60e71d23c1bfa3050473b8e6",
    "name": "致命校准",
+   "en": "Calibration",
    "trader": "mechanic",
    "level": 40,
    "exp": 65000,
@@ -6822,6 +6909,7 @@
   {
    "id": "6942b44f891369fc790e385a",
    "name": "轻重缓急",
+   "en": "Setting Priorities",
    "trader": "mechanic",
    "level": 40,
    "exp": 65000,
@@ -7101,6 +7189,7 @@
   {
    "id": "684009026ceedc792c09b2a7",
    "name": "同好俱乐部",
+   "en": "Hobby Club",
    "trader": "mechanic",
    "level": 45,
    "exp": 65000,
@@ -7248,6 +7337,7 @@
   {
    "id": "6391359b9444fb141f4e6ee6",
    "name": "一信之缘",
+   "en": "Youve Got Mail",
    "trader": "prapor",
    "level": 0,
    "exp": 10000,
@@ -7304,6 +7394,7 @@
   {
    "id": "6740a2c17e3818d5bb0648b6",
    "name": "半满半空",
+   "en": "Half Empty",
    "trader": "prapor",
    "level": 0,
    "exp": 10000,
@@ -7390,6 +7481,7 @@
   {
    "id": "669fa399033a3ce9870338a8",
    "name": "占有者",
+   "en": "Possessor",
    "trader": "prapor",
    "level": 0,
    "exp": 10000,
@@ -7447,6 +7539,7 @@
   {
    "id": "64e7b9bffd30422ed03dad38",
    "name": "地区巡逻",
+   "en": "District Patrol",
    "trader": "prapor",
    "level": 0,
    "exp": 8300,
@@ -7560,6 +7653,7 @@
   {
    "id": "5c0bd94186f7747a727f09b2",
    "name": "塔市进口货",
+   "en": "The Tarkov Import",
    "trader": "prapor",
    "level": 0,
    "exp": 28000,
@@ -7638,6 +7732,7 @@
   {
    "id": "60896b7bfa70fc097863b8f5",
    "name": "多鱼之漏",
+   "en": "Documents",
    "trader": "prapor",
    "level": 0,
    "exp": 28000,
@@ -7739,6 +7834,7 @@
   {
    "id": "657315e1dccd301f1301416a",
    "name": "奢靡人生",
+   "en": "Luxurious Life",
    "trader": "prapor",
    "level": 0,
    "exp": 3000,
@@ -7811,6 +7907,7 @@
   {
    "id": "639136f086e646067c176a8b",
    "name": "屋顶战神",
+   "en": "Kings of the Rooftops",
    "trader": "prapor",
    "level": 0,
    "exp": 10000,
@@ -7879,6 +7976,7 @@
   {
    "id": "675c3507a06634b5110e3c18",
    "name": "引路先驱",
+   "en": "Belka and Strelka",
    "trader": "prapor",
    "level": 0,
    "exp": 3000,
@@ -7943,6 +8041,7 @@
   {
    "id": "59674eb386f774539f14813a",
    "name": "往事速递",
+   "en": "Delivery From the Past",
    "trader": "prapor",
    "level": 0,
    "exp": 10000,
@@ -8022,6 +8121,7 @@
   {
    "id": "60e71bb4e456d449cd47ca75",
    "name": "恐吓者",
+   "en": "Intimidator",
    "trader": "prapor",
    "level": 0,
    "exp": 65000,
@@ -8055,17 +8155,17 @@
       "头部"
      ],
      "maps": [
+      "工厂",
+      "森林",
       "海岸线",
       "灯塔",
-      "塔科夫街区",
-      "海关",
-      "破冰船",
-      "Ground Zero 教程",
-      "立交桥",
-      "储备站",
-      "工厂",
       "夜间工厂",
-      "森林"
+      "海关",
+      "Ground Zero 教程",
+      "储备站",
+      "塔科夫街区",
+      "破冰船",
+      "立交桥"
      ]
     }
    ],
@@ -8109,6 +8209,7 @@
   {
    "id": "59c512ad86f7741f0d09de9b",
    "name": "惩罚者 - 1",
+   "en": "The Punisher Part 1",
    "trader": "prapor",
    "level": 0,
    "exp": 10000,
@@ -8166,6 +8267,7 @@
   {
    "id": "59c50a9e86f7745fef66f4ff",
    "name": "惩罚者 - 2",
+   "en": "The Punisher Part 2",
    "trader": "prapor",
    "level": 0,
    "exp": 10000,
@@ -8233,6 +8335,7 @@
   {
    "id": "6179b5b06e9dd54ac275e409",
    "name": "我们的土地，我们的血",
+   "en": "Our Own Land Bear",
    "trader": "prapor",
    "level": 0,
    "exp": 28000,
@@ -8308,6 +8411,7 @@
   {
    "id": "60e71b9bbd90872cb85440f3",
    "name": "掠地攻城",
+   "en": "Capturing Outposts",
    "trader": "prapor",
    "level": 0,
    "exp": 10000,
@@ -8330,9 +8434,9 @@
       "任意PMC干员"
      ],
      "maps": [
+      "森林",
       "海岸线",
-      "海关",
-      "森林"
+      "海关"
      ]
     }
    ],
@@ -8359,6 +8463,7 @@
   {
    "id": "5967725e86f774601a446662",
    "name": "探囊取物",
+   "en": "Shaking Up the Teller",
    "trader": "prapor",
    "level": 0,
    "exp": 3000,
@@ -8453,6 +8558,7 @@
   {
    "id": "5fd9fad9c1ce6b1a3b486d00",
    "name": "搜索任务",
+   "en": "Search Mission",
    "trader": "prapor",
    "level": 0,
    "exp": 3000,
@@ -8511,6 +8617,7 @@
   {
    "id": "63a9ae24009ffc6a551631a5",
    "name": "最好的差事",
+   "en": "Best Job in the World",
    "trader": "prapor",
    "level": 0,
    "exp": 65000,
@@ -8596,6 +8703,7 @@
   {
    "id": "6740a3f4eca8acb2d2055159",
    "name": "横插一杠",
+   "en": "Stick in the Wheel",
    "trader": "prapor",
    "level": 0,
    "exp": 28000,
@@ -8650,6 +8758,7 @@
   {
    "id": "63a5cf262964a7488f5243ce",
    "name": "武力说服",
+   "en": "Power of Persuasion",
    "trader": "prapor",
    "level": 0,
    "exp": 3000,
@@ -8733,6 +8842,7 @@
   {
    "id": "669fa3a40c828825de06d6a1",
    "name": "武装郊游",
+   "en": "Easy Breezy",
    "trader": "prapor",
    "level": 0,
    "exp": 28000,
@@ -8803,6 +8913,7 @@
   {
    "id": "69ce1de03e15cd80bd06f6c9",
    "name": "油料交换",
+   "en": "Oil Change",
    "trader": "prapor",
    "level": 0,
    "exp": 32000,
@@ -8855,6 +8966,7 @@
   {
    "id": "59c124d686f774189b3c843f",
    "name": "油料快车",
+   "en": "Oil Run",
    "trader": "prapor",
    "level": 0,
    "exp": 3000,
@@ -8925,6 +9037,7 @@
   {
    "id": "66ab970848ddbe9d4a0c49a8",
    "name": "特别联络",
+   "en": "Special Comms",
    "trader": "prapor",
    "level": 0,
    "exp": 28000,
@@ -9013,6 +9126,7 @@
   {
    "id": "68ee1c18b4e5bc9a68018cd7",
    "name": "特殊订单",
+   "en": "Special Order",
    "trader": "prapor",
    "level": 0,
    "exp": 65000,
@@ -9084,6 +9198,7 @@
   {
    "id": "59674cd986f7744ab26e32f2",
    "name": "硝烟野餐",
+   "en": "Shootout Picnic",
    "trader": "prapor",
    "level": 0,
    "exp": 3000,
@@ -9145,6 +9260,7 @@
   {
    "id": "639136d68ba6894d155e77cf",
    "name": "绿色通道",
+   "en": "Green Corridor Bear",
    "trader": "prapor",
    "level": 0,
    "exp": 10000,
@@ -9208,6 +9324,7 @@
   {
    "id": "6740a15566e6a521aa051b15",
    "name": "缔结友谊",
+   "en": "Forge a Friendship",
    "trader": "prapor",
    "level": 0,
    "exp": 10000,
@@ -9281,6 +9398,7 @@
   {
    "id": "5967530a86f77462ba22226b",
    "name": "罪证",
+   "en": "Bad Rep Evidence",
    "trader": "prapor",
    "level": 0,
    "exp": 3000,
@@ -9387,6 +9505,7 @@
   {
    "id": "5936da9e86f7742d65037edf",
    "name": "背景调查",
+   "en": "Background Check",
    "trader": "prapor",
    "level": 0,
    "exp": 3000,
@@ -9464,6 +9583,7 @@
   {
    "id": "6573397ef3f8344c4575cd87",
    "name": "财不外露",
+   "en": "Properties All Around",
    "trader": "prapor",
    "level": 0,
    "exp": 6600,
@@ -9539,6 +9659,7 @@
   {
    "id": "673f348dd3346c21670217e7",
    "name": "货运延误 - 1",
+   "en": "Shipping Delay Part 1",
    "trader": "prapor",
    "level": 0,
    "exp": 10000,
@@ -9592,6 +9713,7 @@
   {
    "id": "626bd75c71bd851e971b82a5",
    "name": "踩点行动",
+   "en": "Reconnaissance",
    "trader": "prapor",
    "level": 0,
    "exp": 7500,
@@ -9662,6 +9784,7 @@
   {
    "id": "59675ea386f77414b32bded2",
    "name": "邮递员派特 - 1",
+   "en": "Postman Pat Part 1",
    "trader": "prapor",
    "level": 0,
    "exp": 10000,
@@ -9740,6 +9863,7 @@
   {
    "id": "59ca1a6286f774509a270942",
    "name": "铁证如山",
+   "en": "Ironclad Proof",
    "trader": "prapor",
    "level": 0,
    "exp": 28000,
@@ -9826,6 +9950,7 @@
   {
    "id": "5936d90786f7742b1420ba5b",
    "name": "首秀",
+   "en": "Debut",
    "trader": "prapor",
    "level": 0,
    "exp": 3000,
@@ -9880,6 +10005,7 @@
   {
    "id": "5eda19f0edce541157209cee",
    "name": "麻醉",
+   "en": "Anesthesia",
    "trader": "prapor",
    "level": 0,
    "exp": 10000,
@@ -9957,6 +10083,7 @@
   {
    "id": "657315df034d76585f032e01",
    "name": "打靶训练",
+   "en": "Shooting Cans",
    "trader": "prapor",
    "level": 1,
    "exp": 3000,
@@ -10023,6 +10150,7 @@
   {
    "id": "5c0d190cd09282029f5390d8",
    "name": "掷弹兵",
+   "en": "Grenadier",
    "trader": "prapor",
    "level": 6,
    "exp": 10000,
@@ -10106,6 +10234,7 @@
   {
    "id": "64f5aac4b63b74469b6c14c2",
    "name": "苏共之辉",
+   "en": "Glory to Cpsu",
    "trader": "prapor",
    "level": 6,
    "exp": 10000,
@@ -10184,6 +10313,7 @@
   {
    "id": "59675d6c86f7740a842fc482",
    "name": "蛋卷冰淇淋",
+   "en": "Ice Cream Cones",
    "trader": "prapor",
    "level": 6,
    "exp": 10000,
@@ -10267,6 +10397,7 @@
   {
    "id": "597a171586f77405ba6887d3",
    "name": "大客户",
+   "en": "Big Customer",
    "trader": "prapor",
    "level": 9,
    "exp": 10000,
@@ -10355,6 +10486,7 @@
   {
    "id": "666314b0acf8442f8b0531a1",
    "name": "人间地狱 - 1",
+   "en": "Hell on Earth Part 1",
    "trader": "prapor",
    "level": 12,
    "exp": 2300,
@@ -10408,6 +10540,7 @@
   {
    "id": "666314b4d7f171c4c20226c3",
    "name": "往昔时光 - 1",
+   "en": "The Good Times Part 1",
    "trader": "prapor",
    "level": 12,
    "exp": 28000,
@@ -10510,6 +10643,7 @@
   {
    "id": "666314bafd5ca9577902e03a",
    "name": "往昔时光 - 2",
+   "en": "The Good Times Part 2",
    "trader": "prapor",
    "level": 12,
    "exp": 28000,
@@ -10570,6 +10704,7 @@
   {
    "id": "666314bd920800278d0f6748",
    "name": "忠实观众",
+   "en": "Viewer",
    "trader": "prapor",
    "level": 12,
    "exp": 65000,
@@ -10648,6 +10783,7 @@
   {
    "id": "639135b04ed9512be67647d7",
    "name": "苏共之辉 - 1",
+   "en": "Glory to Cpsu Part 1",
    "trader": "prapor",
    "level": 17,
    "exp": 7300,
@@ -10714,6 +10850,7 @@
   {
    "id": "666314b2a9290f9e0806cca3",
    "name": "人间地狱 - 2",
+   "en": "Hell on Earth Part 2",
    "trader": "prapor",
    "level": 21,
    "exp": 16000,
@@ -10754,11 +10891,11 @@
       "MP-43 12铅径截短双管霰弹枪"
      ],
      "maps": [
+      "森林",
       "海岸线",
-      "海关",
-      "中心区 21+",
       "夜间工厂",
-      "森林"
+      "海关",
+      "中心区 21+"
      ]
     }
    ],
@@ -10798,6 +10935,7 @@
   {
    "id": "60896bca6ee58f38c417d4f2",
    "name": "叛无所依",
+   "en": "No Place for Renegades",
    "trader": "prapor",
    "level": 21,
    "exp": 28000,
@@ -10854,6 +10992,7 @@
   {
    "id": "5ede55112c95834b583f052a",
    "name": "地堡",
+   "en": "The Bunker",
    "trader": "prapor",
    "level": 21,
    "exp": 28000,
@@ -10947,6 +11086,7 @@
   {
    "id": "5ede567cfa6dc072ce15d6e3",
    "name": "地堡 - 2",
+   "en": "The Bunker Part 2",
    "trader": "prapor",
    "level": 21,
    "exp": 9200,
@@ -11054,6 +11194,7 @@
   {
    "id": "6179ac7511973d018217d0b9",
    "name": "小菜一碟",
+   "en": "Easy Job",
    "trader": "prapor",
    "level": 21,
    "exp": 28000,
@@ -11128,6 +11269,7 @@
   {
    "id": "6179acbdc760af5ad2053585",
    "name": "小菜一碟 - 2",
+   "en": "Easy Job Part 2",
    "trader": "prapor",
    "level": 21,
    "exp": 18000,
@@ -11189,6 +11331,7 @@
   {
    "id": "59c50c8886f7745fed3193bf",
    "name": "惩罚者 - 3",
+   "en": "The Punisher Part 3",
    "trader": "prapor",
    "level": 21,
    "exp": 28000,
@@ -11286,6 +11429,7 @@
   {
    "id": "64f5deac39e45b527a7c4232",
    "name": "爱国者的使命",
+   "en": "Job for a Patriot",
    "trader": "prapor",
    "level": 25,
    "exp": 18000,
@@ -11368,6 +11512,7 @@
   {
    "id": "675c1ff1a757ddd00404f0aa",
    "name": "体验独一份",
+   "en": "Unique Experience",
    "trader": "prapor",
    "level": 35,
    "exp": 32000,
@@ -11465,6 +11610,7 @@
   {
    "id": "5c12452c86f7744b83469073",
    "name": "左右逢源",
+   "en": "Perfect Mediator",
    "trader": "prapor",
    "level": 35,
    "exp": 12000,
@@ -11557,6 +11703,7 @@
   {
    "id": "64e7b99017ab941a6f7bf9d7",
    "name": "出警 - 商场",
+   "en": "Gendarmerie Mall Cop",
    "trader": "prapor",
    "level": 36,
    "exp": 7100,
@@ -11658,6 +11805,7 @@
   {
    "id": "64e7b9a4aac4cd0a726562cb",
    "name": "出警 - 检票",
+   "en": "Gendarmerie Tickets Please",
    "trader": "prapor",
    "level": 36,
    "exp": 7500,
@@ -11752,6 +11900,7 @@
   {
    "id": "59ca264786f77445a80ed044",
    "name": "惩罚者 - 4",
+   "en": "The Punisher Part 4",
    "trader": "prapor",
    "level": 36,
    "exp": 28000,
@@ -11858,6 +12007,7 @@
   {
    "id": "59ca29fb86f77445ab465c87",
    "name": "惩罚者 - 5",
+   "en": "The Punisher Part 5",
    "trader": "prapor",
    "level": 36,
    "exp": 28000,
@@ -11980,17 +12130,17 @@
       "RPDN 7.62x39 轻机枪"
      ],
      "maps": [
+      "工厂",
+      "森林",
       "海岸线",
       "灯塔",
-      "塔科夫街区",
-      "海关",
-      "破冰船",
-      "Ground Zero 教程",
-      "立交桥",
-      "储备站",
-      "工厂",
       "夜间工厂",
-      "森林"
+      "海关",
+      "Ground Zero 教程",
+      "储备站",
+      "塔科夫街区",
+      "破冰船",
+      "立交桥"
      ]
     }
    ],
@@ -12023,6 +12173,7 @@
   {
    "id": "59ca2eb686f77445a80ed049",
    "name": "惩罚者 - 6",
+   "en": "The Punisher Part 6",
    "trader": "prapor",
    "level": 36,
    "exp": 28000,
@@ -12121,8 +12272,8 @@
       "破冰船",
       "灯塔",
       "立交桥",
-      "海岸线",
       "森林",
+      "海岸线",
       "工厂",
       "夜间工厂",
       "实验室 (Dark)"
@@ -12209,6 +12360,7 @@
   {
    "id": "5d4bec3486f7743cac246665",
    "name": "管制材料",
+   "en": "Regulated Materials",
    "trader": "prapor",
    "level": 36,
    "exp": 65000,
@@ -12298,6 +12450,7 @@
   {
    "id": "67b45467814ab0ffa000c7e7",
    "name": "艺术就是爆炸",
+   "en": "The Art of Explosion",
    "trader": "prapor",
    "level": 36,
    "exp": 65000,
@@ -12389,6 +12542,7 @@
   {
    "id": "6574e0dedc0d635f633a5805",
    "name": "透透气",
+   "en": "Getting Some Air",
    "trader": "prapor",
    "level": 36,
    "exp": 65000,
@@ -12485,6 +12639,7 @@
   {
    "id": "60e71b62a0beca400d69efc4",
    "name": "护送",
+   "en": "Escort",
    "trader": "prapor",
    "level": 46,
    "exp": 155000,
@@ -12669,6 +12824,7 @@
   {
    "id": "5979f8bb86f7743ec214c7a6",
    "name": "Polikhim流浪汉",
+   "en": "Polikhim Hobo",
    "trader": "skier",
    "level": 0,
    "exp": 3000,
@@ -12729,6 +12885,7 @@
   {
    "id": "5979ed3886f77431307dc512",
    "name": "U盘里有什么？",
+   "en": "Whats on the Flash Drive",
    "trader": "skier",
    "level": 0,
    "exp": 3000,
@@ -12795,6 +12952,7 @@
   {
    "id": "6745fae369a58fceba10343d",
    "name": "人往高处走",
+   "en": "The Higher They Fly",
    "trader": "skier",
    "level": 0,
    "exp": 10000,
@@ -12865,6 +13023,7 @@
   {
    "id": "596b36c586f77450d6045ad2",
    "name": "供应商",
+   "en": "Supplier",
    "trader": "skier",
    "level": 0,
    "exp": 3000,
@@ -12925,6 +13084,7 @@
   {
    "id": "5b478ff486f7744d184ecbbf",
    "name": "供货",
+   "en": "Supplements",
    "trader": "skier",
    "level": 0,
    "exp": 10000,
@@ -13024,6 +13184,7 @@
   {
    "id": "5c1234c286f77406fa13baeb",
    "name": "借刀杀人",
+   "en": "Setup",
    "trader": "skier",
    "level": 0,
    "exp": 10000,
@@ -13119,6 +13280,7 @@
   {
    "id": "674600a366e6a521aa05eb66",
    "name": "偏离路线",
+   "en": "Route Deviation",
    "trader": "skier",
    "level": 0,
    "exp": 10000,
@@ -13258,6 +13420,7 @@
   {
    "id": "6746053b5b555b53460d9896",
    "name": "关键伙伴",
+   "en": "Key Partner",
    "trader": "skier",
    "level": 0,
    "exp": 28000,
@@ -16636,6 +16799,7 @@
   {
    "id": "5979f9ba86f7740f6c3fe9f2",
    "name": "化学品 - 1",
+   "en": "Chemical Part 1",
    "trader": "skier",
    "level": 0,
    "exp": 3000,
@@ -16733,6 +16897,7 @@
   {
    "id": "597a0b2986f77426d66c0633",
    "name": "化学品 - 2",
+   "en": "Chemical Part 2",
    "trader": "skier",
    "level": 0,
    "exp": 3000,
@@ -16837,6 +17002,7 @@
   {
    "id": "6764174c86addd02bc033d68",
    "name": "北国新秀",
+   "en": "Connections Up North",
    "trader": "skier",
    "level": 0,
    "exp": 65000,
@@ -16939,6 +17105,7 @@
   {
    "id": "6572e876dc0d635f633a5714",
    "name": "发财计划",
+   "en": "Pyramid Scheme",
    "trader": "skier",
    "level": 0,
    "exp": 12400,
@@ -17089,6 +17256,7 @@
   {
    "id": "674602307e3818d5bb069489",
    "name": "后知后觉",
+   "en": "Hindsight 2020",
    "trader": "skier",
    "level": 0,
    "exp": 28000,
@@ -17271,6 +17439,7 @@
   {
    "id": "60e71c11d54b755a3b53eb65",
    "name": "夜间扫荡",
+   "en": "Night Sweep",
    "trader": "skier",
    "level": 0,
    "exp": 65000,
@@ -17317,11 +17486,11 @@
       "邪教徒战士"
      ],
      "maps": [
+      "森林",
       "海岸线",
-      "海关",
-      "中心区 21+",
       "夜间工厂",
-      "森林"
+      "海关",
+      "中心区 21+"
      ]
     }
    ],
@@ -17370,6 +17539,7 @@
   {
    "id": "626bd75d5bef5d7d590bd415",
    "name": "头号机密",
+   "en": "Top Secret",
    "trader": "skier",
    "level": 0,
    "exp": 28000,
@@ -17464,6 +17634,7 @@
   {
    "id": "6089743983426423753cd58a",
    "name": "安全通道",
+   "en": "Safe Corridor",
    "trader": "skier",
    "level": 0,
    "exp": 28000,
@@ -17532,6 +17703,7 @@
   {
    "id": "67af4c1d8c9482eca103e477",
    "name": "安慰奖",
+   "en": "Consolation Prize",
    "trader": "skier",
    "level": 0,
    "exp": 0,
@@ -17645,6 +17817,7 @@
   {
    "id": "5b47926a86f7747ccc057c15",
    "name": "情报就是力量",
+   "en": "Informed Means Armed",
    "trader": "skier",
    "level": 0,
    "exp": 3000,
@@ -17715,6 +17888,7 @@
   {
    "id": "596b43fb86f77457ca186186",
    "name": "敲诈者",
+   "en": "The Extortionist",
    "trader": "skier",
    "level": 0,
    "exp": 3000,
@@ -17799,6 +17973,7 @@
   {
    "id": "596a101f86f7741ddb481582",
    "name": "暗中破坏",
+   "en": "Kind of Sabotage",
    "trader": "skier",
    "level": 0,
    "exp": 4500,
@@ -17859,6 +18034,7 @@
   {
    "id": "658027799634223183395339",
    "name": "禁止打劫",
+   "en": "No Swiping",
    "trader": "skier",
    "level": 0,
    "exp": 12000,
@@ -17920,6 +18096,7 @@
   {
    "id": "675c3582f6ddc329a90f9c6d",
    "name": "私人俱乐部",
+   "en": "Private Club",
    "trader": "skier",
    "level": 0,
    "exp": 11000,
@@ -17983,6 +18160,7 @@
   {
    "id": "64f6aafd67e11a7c6206e0d0",
    "name": "秘制食谱",
+   "en": "The Secret Recipe",
    "trader": "skier",
    "level": 0,
    "exp": 10000,
@@ -18051,6 +18229,7 @@
   {
    "id": "5b478eca86f7744642012254",
    "name": "维他命",
+   "en": "Vitamins",
    "trader": "skier",
    "level": 0,
    "exp": 10000,
@@ -18157,6 +18336,7 @@
   {
    "id": "639dbaf17c898a131e1cffff",
    "name": "老赖",
+   "en": "Debtor",
    "trader": "skier",
    "level": 0,
    "exp": 13200,
@@ -18230,6 +18410,7 @@
   {
    "id": "5edabd13218d181e29451442",
    "name": "肮脏游戏",
+   "en": "Rigged Game",
    "trader": "skier",
    "level": 0,
    "exp": 28000,
@@ -18314,6 +18495,7 @@
   {
    "id": "674605df60a98cad1b0ec799",
    "name": "致命论据",
+   "en": "Killer Argument",
    "trader": "skier",
    "level": 0,
    "exp": 28000,
@@ -18399,6 +18581,7 @@
   {
    "id": "5a27c99a86f7747d2c6bdd8e",
    "name": "西方来客",
+   "en": "Friend From the West",
    "trader": "skier",
    "level": 0,
    "exp": 10000,
@@ -18452,6 +18635,7 @@
   {
    "id": "67460662d0fbbc74ca0f7229",
    "name": "识时务者为俊杰",
+   "en": "Choose Your Friends Wisely",
    "trader": "skier",
    "level": 0,
    "exp": 65000,
@@ -18579,6 +18763,7 @@
   {
    "id": "5c0d0f1886f77457b8210226",
    "name": "转口贸易",
+   "en": "From Hand to Hand",
    "trader": "skier",
    "level": 0,
    "exp": 28000,
@@ -18660,6 +18845,7 @@
   {
    "id": "639135c3744e452011470807",
    "name": "软禁",
+   "en": "House Arrest",
    "trader": "skier",
    "level": 0,
    "exp": 10000,
@@ -18738,6 +18924,7 @@
   {
    "id": "5979eee086f774311955e614",
    "name": "金色失物",
+   "en": "Golden Swag",
    "trader": "skier",
    "level": 0,
    "exp": 3000,
@@ -18825,6 +19012,7 @@
   {
    "id": "6193850f60b34236ee0483de",
    "name": "长路漫漫",
+   "en": "Long Road",
    "trader": "skier",
    "level": 0,
    "exp": 28000,
@@ -18885,6 +19073,7 @@
   {
    "id": "669fa39c64ea11e84c0642a6",
    "name": "隔墙有“眼”",
+   "en": "The Walls Have Eyes",
    "trader": "skier",
    "level": 0,
    "exp": 10000,
@@ -18979,6 +19168,7 @@
   {
    "id": "596b455186f77457cb50eccb",
    "name": "风波",
+   "en": "Stirrup",
    "trader": "skier",
    "level": 0,
    "exp": 10000,
@@ -19067,6 +19257,7 @@
   {
    "id": "657315e270bb0b8dba00cc48",
    "name": "快车初体验",
+   "en": "Burning Rubber",
    "trader": "skier",
    "level": 1,
    "exp": 3000,
@@ -19132,6 +19323,7 @@
   {
    "id": "669fa395c4c5c04798002497",
    "name": "出口在此",
+   "en": "Exit Here",
    "trader": "skier",
    "level": 7,
    "exp": 10000,
@@ -19188,6 +19380,7 @@
   {
    "id": "64f5e20652fc01298e2c61e3",
    "name": "好吃到上瘾",
+   "en": "Beyond the Red Meat",
    "trader": "skier",
    "level": 7,
    "exp": 10000,
@@ -19256,6 +19449,7 @@
   {
    "id": "5b4795fb86f7745876267770",
    "name": "愿者上钩",
+   "en": "Chumming",
    "trader": "skier",
    "level": 7,
    "exp": 10000,
@@ -19329,6 +19523,7 @@
   {
    "id": "597a0e5786f77426d66c0636",
    "name": "化学品 - 3",
+   "en": "Chemical Part 3",
    "trader": "skier",
    "level": 9,
    "exp": 10000,
@@ -19404,6 +19599,7 @@
   {
    "id": "597a0f5686f774273b74f676",
    "name": "化学品 - 4",
+   "en": "Chemical Part 4",
    "trader": "skier",
    "level": 9,
    "exp": 10000,
@@ -19491,6 +19687,7 @@
   {
    "id": "665eec1f5e47a79f8605565a",
    "name": "口干舌燥 - 养家糊口",
+   "en": "Thirsty Breadwinner",
    "trader": "skier",
    "level": 9,
    "exp": 10000,
@@ -19550,6 +19747,7 @@
   {
    "id": "665eec4a4dfc83b0ed0a9dca",
    "name": "口干舌燥 - 送货服务",
+   "en": "Thirsty Delivery",
    "trader": "skier",
    "level": 9,
    "exp": 10000,
@@ -19630,6 +19828,7 @@
   {
    "id": "59c93e8e86f7742a406989c4",
    "name": "收买人心",
+   "en": "Loyalty Buyout",
    "trader": "skier",
    "level": 9,
    "exp": 0,
@@ -19675,6 +19874,7 @@
   {
    "id": "5a27d2af86f7744e1115b323",
    "name": "西方来客 - 2",
+   "en": "Friend From the West Part 2",
    "trader": "skier",
    "level": 9,
    "exp": 10000,
@@ -19723,6 +19923,7 @@
   {
    "id": "66058cb22cee99303f1ba067",
    "name": "赚点快钱 - 1（PVP）",
+   "en": "Easy Money Part 1 Pvp Zone",
    "trader": "skier",
    "level": 10,
    "exp": 3000,
@@ -19782,6 +19983,7 @@
   {
    "id": "666314c3acf8442f8b0531a3",
    "name": "一报还一报",
+   "en": "Proper Comeback",
    "trader": "skier",
    "level": 12,
    "exp": 65000,
@@ -19860,6 +20062,7 @@
   {
    "id": "666314bf1cd52e3d040a2e78",
    "name": "严词指控",
+   "en": "Serious Allegations",
    "trader": "skier",
    "level": 12,
    "exp": 28000,
@@ -19928,6 +20131,7 @@
   {
    "id": "666314bc1d3ec95634095e77",
    "name": "高光时刻",
+   "en": "Minute of Fame",
    "trader": "skier",
    "level": 12,
    "exp": 28000,
@@ -19999,6 +20203,7 @@
   {
    "id": "6179b4f16e9dd54ac275e407",
    "name": "失踪货物",
+   "en": "Missing Cargo",
    "trader": "skier",
    "level": 22,
    "exp": 28000,
@@ -20069,6 +20274,7 @@
   {
    "id": "60896888e4a85c72ef3fa300",
    "name": "绝密技术",
+   "en": "Classified Technologies",
    "trader": "skier",
    "level": 22,
    "exp": 28000,
@@ -20132,6 +20338,7 @@
   {
    "id": "671a49f77d49aea42c029b5f",
    "name": "诱人新货",
+   "en": "Irresistible",
    "trader": "skier",
    "level": 22,
    "exp": 28000,
@@ -20205,6 +20412,7 @@
   {
    "id": "67a097379f2068e74603c6ac",
    "name": "绝对威信",
+   "en": "Indisputable Authority",
    "trader": "skier",
    "level": 26,
    "exp": 28000,
@@ -20283,6 +20491,7 @@
   {
    "id": "639135cd8ba6894d155e77cb",
    "name": "软禁 - 2",
+   "en": "House Arrest Part 2",
    "trader": "skier",
    "level": 33,
    "exp": 29200,
@@ -20361,6 +20570,7 @@
   {
    "id": "5c0bdb5286f774166e38eed4",
    "name": "坚如燧石",
+   "en": "Flint",
    "trader": "skier",
    "level": 35,
    "exp": 25100,
@@ -20421,6 +20631,7 @@
   {
    "id": "5c0bbaa886f7746941031d82",
    "name": "一派胡言",
+   "en": "Bullshit",
    "trader": "skier",
    "level": 38,
    "exp": 65000,
@@ -20559,6 +20770,7 @@
   {
    "id": "5c0bc91486f7746ab41857a2",
    "name": "大音希声",
+   "en": "Silent Caliber",
    "trader": "skier",
    "level": 38,
    "exp": 65000,
@@ -20656,6 +20868,7 @@
   {
    "id": "671a59e43d73dac1360765cc",
    "name": "致命道具",
+   "en": "Dangerous Props",
    "trader": "skier",
    "level": 38,
    "exp": 65000,
@@ -20731,6 +20944,7 @@
   {
    "id": "68400926706e0a55e90b0007",
    "name": "公道价 - 1",
+   "en": "Fair Price Part 1",
    "trader": "skier",
    "level": 45,
    "exp": 10000,
@@ -20769,6 +20983,7 @@
   {
    "id": "68400953506db3b4db0700e7",
    "name": "公道价 - 2",
+   "en": "Fair Price Part 2",
    "trader": "skier",
    "level": 45,
    "exp": 28000,
@@ -20827,6 +21042,7 @@
   {
    "id": "67af4c1cc0e59d55e2010b97",
    "name": "人生之课",
+   "en": "A Life Lesson",
    "trader": "skier",
    "level": 50,
    "exp": 0,
@@ -20920,6 +21136,7 @@
   {
    "id": "67af4c1a6c3ebfd8e6034916",
    "name": "利润保留",
+   "en": "Profit Retention",
    "trader": "skier",
    "level": 50,
    "exp": 0,
@@ -21009,6 +21226,7 @@
   {
    "id": "67af4c17f4f1fb58a907f8f6",
    "name": "学无止境",
+   "en": "Never Too Late to Learn",
    "trader": "skier",
    "level": 50,
    "exp": 0,
@@ -21102,6 +21320,7 @@
   {
    "id": "67af4c169d95ad16e004fd86",
    "name": "安全保障",
+   "en": "Safety Guarantee",
    "trader": "skier",
    "level": 50,
    "exp": 0,
@@ -21196,6 +21415,7 @@
   {
    "id": "67af4c1405c58dc6f7056667",
    "name": "有利可图的生意",
+   "en": "Profitable Venture",
    "trader": "skier",
    "level": 50,
    "exp": 0,
@@ -21274,6 +21494,7 @@
   {
    "id": "67af4c1991ee75c6d7060a16",
    "name": "站稳脚跟",
+   "en": "Get a Foothold",
    "trader": "skier",
    "level": 50,
    "exp": 0,
@@ -21411,6 +21632,7 @@
   {
    "id": "675c1cf4a757ddd00404f0a3",
    "name": "事倍功半",
+   "en": "Work Smarter",
    "trader": "jaeger",
    "level": 0,
    "exp": 3000,
@@ -21476,6 +21698,7 @@
   {
    "id": "66ab9da7eb102b9bcd08591c",
    "name": "卑鄙的外乡人",
+   "en": "Foresters Duty",
    "trader": "jaeger",
    "level": 0,
    "exp": 28000,
@@ -21561,6 +21784,7 @@
   {
    "id": "66b38c7bf85b8bf7250f9cb6",
    "name": "危机四伏塔科夫",
+   "en": "Rough Tarkov",
    "trader": "jaeger",
    "level": 0,
    "exp": 3000,
@@ -21585,8 +21809,8 @@
      "type": "visit",
      "text": "在中心区找到阔剑地雷",
      "maps": [
-      "中心区 21+",
-      "中心区"
+      "中心区",
+      "中心区 21+"
      ]
     }
    ],
@@ -21613,6 +21837,7 @@
   {
    "id": "5bc4776586f774512d07cf05",
    "name": "塔科夫神射手 - 1",
+   "en": "The Tarkov Shooter Part 1",
    "trader": "jaeger",
    "level": 0,
    "exp": 3000,
@@ -21661,16 +21886,16 @@
      ],
      "maps": [
       "塔科夫街区",
+      "工厂",
+      "森林",
       "海岸线",
       "灯塔",
-      "海关",
-      "破冰船",
-      "Ground Zero 教程",
-      "立交桥",
-      "储备站",
-      "工厂",
       "夜间工厂",
-      "森林"
+      "海关",
+      "Ground Zero 教程",
+      "储备站",
+      "破冰船",
+      "立交桥"
      ]
     }
    ],
@@ -21714,6 +21939,7 @@
   {
    "id": "69ce1cfb298a6529b30d712b",
    "name": "如楔在侧",
+   "en": "A Wedge Between Us",
    "trader": "jaeger",
    "level": 0,
    "exp": 52000,
@@ -21787,6 +22013,7 @@
   {
    "id": "608a768d82e40b3c727fd17d",
    "name": "害虫防治",
+   "en": "Pest Control",
    "trader": "jaeger",
    "level": 0,
    "exp": 28000,
@@ -21844,6 +22071,7 @@
   {
    "id": "669fa3979b0ce3feae01a130",
    "name": "幽闭恐惧症",
+   "en": "Claustrophobia",
    "trader": "jaeger",
    "level": 0,
    "exp": 10000,
@@ -21905,6 +22133,7 @@
   {
    "id": "60e729cf5698ee7b05057439",
    "name": "快枪手",
+   "en": "Swift",
    "trader": "jaeger",
    "level": 0,
    "exp": 3000,
@@ -22125,6 +22354,7 @@
   {
    "id": "5d25e4ad86f77443e625e387",
    "name": "怀旧之情",
+   "en": "Nostalgia",
    "trader": "jaeger",
    "level": 0,
    "exp": 10000,
@@ -22199,6 +22429,7 @@
   {
    "id": "5d25e46e86f77409453bce7c",
    "name": "急救措施",
+   "en": "First Aid",
    "trader": "jaeger",
    "level": 0,
    "exp": 3000,
@@ -22307,6 +22538,7 @@
   {
    "id": "600302d73b897b11364cd161",
    "name": "污秽遍地……",
+   "en": "All This Filth",
    "trader": "jaeger",
    "level": 0,
    "exp": 3000,
@@ -22362,6 +22594,7 @@
   {
    "id": "5d24b81486f77439c92d6ba8",
    "name": "熟人",
+   "en": "Acquaintance",
    "trader": "jaeger",
    "level": 0,
    "exp": 3000,
@@ -22430,6 +22663,7 @@
   {
    "id": "5d25e4ca86f77409dd5cdf2c",
    "name": "狩猎之旅",
+   "en": "Hunting Trip",
    "trader": "jaeger",
    "level": 0,
    "exp": 65000,
@@ -22544,6 +22778,7 @@
   {
    "id": "5d25e2b486f77409de05bba0",
    "name": "猎人之路 - 周边安全",
+   "en": "The Huntsman Path Secured Perimeter",
    "trader": "jaeger",
    "level": 0,
    "exp": 28000,
@@ -22601,6 +22836,7 @@
   {
    "id": "6578eb36e5020875d64645cd",
    "name": "猎人之路 - 坏警察",
+   "en": "The Huntsman Path Crooked Cop",
    "trader": "jaeger",
    "level": 0,
    "exp": 10000,
@@ -22659,6 +22895,7 @@
   {
    "id": "64e7b971f9d6fa49d6769b44",
    "name": "猎人之路 - 大动作",
+   "en": "The Huntsman Path Big Game",
    "trader": "jaeger",
    "level": 0,
    "exp": 10000,
@@ -22708,6 +22945,7 @@
   {
    "id": "60c0c018f7afb4354815096a",
    "name": "猎人之路 - 工厂头目",
+   "en": "The Huntsman Path Factory Chief",
    "trader": "jaeger",
    "level": 0,
    "exp": 10000,
@@ -22777,6 +23015,7 @@
   {
    "id": "5d25e44386f77409453bce7b",
    "name": "猎人之路 - 愤怒守望者",
+   "en": "The Huntsman Path Angry Watchman",
    "trader": "jaeger",
    "level": 0,
    "exp": 3000,
@@ -22837,6 +23076,7 @@
   {
    "id": "5d25e2c386f77443e7549029",
    "name": "猎人之路 - 战利品",
+   "en": "The Huntsman Path Trophy",
    "trader": "jaeger",
    "level": 0,
    "exp": 3000,
@@ -22906,6 +23146,7 @@
   {
    "id": "5d25e2cc86f77443e47ae019",
    "name": "猎人之路 - 杀戮森林",
+   "en": "The Huntsman Path Forest Cleaning",
    "trader": "jaeger",
    "level": 0,
    "exp": 28000,
@@ -22970,6 +23211,7 @@
   {
    "id": "5d25e2ee86f77443e35162ea",
    "name": "猎人之路 - 森林管理员",
+   "en": "The Huntsman Path Woods Keeper",
    "trader": "jaeger",
    "level": 0,
    "exp": 3000,
@@ -23044,6 +23286,7 @@
   {
    "id": "5d25e43786f7740a212217fa",
    "name": "猎人之路 - 正义",
+   "en": "The Huntsman Path Justice",
    "trader": "jaeger",
    "level": 0,
    "exp": 3000,
@@ -23119,6 +23362,7 @@
   {
    "id": "6179ad0a6e9dd54ac275e3f2",
    "name": "猎人之路 - 流浪汉",
+   "en": "The Huntsman Path Outcasts",
    "trader": "jaeger",
    "level": 0,
    "exp": 28000,
@@ -23179,6 +23423,7 @@
   {
    "id": "5d25e2e286f77444001e2e48",
    "name": "猎人之路 - 脱销",
+   "en": "The Huntsman Path Sellout",
    "trader": "jaeger",
    "level": 0,
    "exp": 10000,
@@ -23248,6 +23493,7 @@
   {
    "id": "5d25e44f86f77443e625e385",
    "name": "猎人之路 - 蒸发密令 - 1",
+   "en": "The Huntsman Path Eraser",
    "trader": "jaeger",
    "level": 0,
    "exp": 28000,
@@ -23351,6 +23597,7 @@
   {
    "id": "5edab4b1218d181e29451435",
    "name": "猎人之路 - 虐待狂",
+   "en": "The Huntsman Path Sadist",
    "trader": "jaeger",
    "level": 0,
    "exp": 65000,
@@ -23439,6 +23686,7 @@
   {
    "id": "5d25e45e86f77408251c4bfa",
    "name": "猎人之路 - 解放",
+   "en": "The Huntsman Path Liberation",
    "trader": "jaeger",
    "level": 0,
    "exp": 28000,
@@ -23468,8 +23716,8 @@
       "掠夺者"
      ],
      "maps": [
-      "实验室",
       "实验室 (Dark)",
+      "实验室",
       "储备站"
      ]
     }
@@ -23501,6 +23749,7 @@
   {
    "id": "5d25e48186f77443e625e386",
    "name": "礼节性拜访",
+   "en": "Courtesy Visit",
    "trader": "jaeger",
    "level": 0,
    "exp": 10000,
@@ -23578,6 +23827,7 @@
   {
    "id": "63a88045abf76d719f42d715",
    "name": "美味香肠",
+   "en": "The Delicious Sausage",
    "trader": "jaeger",
    "level": 0,
    "exp": 10000,
@@ -23659,6 +23909,7 @@
   {
    "id": "675c1ec7a46173572a0bf20a",
    "name": "试炼之路",
+   "en": "Rite of Passage",
    "trader": "jaeger",
    "level": 0,
    "exp": 43000,
@@ -23747,6 +23998,7 @@
   {
    "id": "639136e84ed9512be67647db",
    "name": "别开枪！",
+   "en": "Cease Fire",
    "trader": "jaeger",
    "level": 9,
    "exp": 10000,
@@ -23810,6 +24062,7 @@
   {
    "id": "665eeacf5d86b6c8aa03c79b",
    "name": "口干舌燥 - 猎犬行动",
+   "en": "Thirsty Hounds",
    "trader": "jaeger",
    "level": 9,
    "exp": 10000,
@@ -23885,6 +24138,7 @@
   {
    "id": "5bc479e586f7747f376c7da3",
    "name": "塔科夫神射手 - 2",
+   "en": "The Tarkov Shooter Part 2",
    "trader": "jaeger",
    "level": 9,
    "exp": 10000,
@@ -24000,6 +24254,7 @@
   {
    "id": "5bc47dbf86f7741ee74e93b9",
    "name": "塔科夫神射手 - 3",
+   "en": "The Tarkov Shooter Part 3",
    "trader": "jaeger",
    "level": 9,
    "exp": 10000,
@@ -24076,6 +24331,7 @@
   {
    "id": "669fa3a08b4a64b332041ff7",
    "name": "妥善保管",
+   "en": "Dragnet",
    "trader": "jaeger",
    "level": 9,
    "exp": 10000,
@@ -24145,6 +24401,7 @@
   {
    "id": "66b38e144f2ab7cc530c3fe7",
    "name": "猎人必修课",
+   "en": "Every Hunter Knows This",
    "trader": "jaeger",
    "level": 9,
    "exp": 10000,
@@ -24204,6 +24461,7 @@
   {
    "id": "5d25bfd086f77442734d3007",
    "name": "生存者之路 - Zhivchik",
+   "en": "The Survivalist Path Zhivchik",
    "trader": "jaeger",
    "level": 9,
    "exp": 10000,
@@ -24288,6 +24546,7 @@
   {
    "id": "5d25aed386f77442734d25d2",
    "name": "生存者之路 - 危险零距离",
+   "en": "The Survivalist Path Unprotected But Dangerous",
    "trader": "jaeger",
    "level": 9,
    "exp": 10000,
@@ -24434,6 +24693,7 @@
   {
    "id": "5d25c81b86f77443e625dd71",
    "name": "生存者之路 - 受伤的野兽",
+   "en": "The Survivalist Path Wounded Beast",
    "trader": "jaeger",
    "level": 9,
    "exp": 10000,
@@ -24463,17 +24723,17 @@
       "狙击手"
      ],
      "maps": [
+      "工厂",
+      "森林",
       "海岸线",
       "灯塔",
-      "塔科夫街区",
-      "海关",
-      "破冰船",
-      "Ground Zero 教程",
-      "立交桥",
-      "储备站",
-      "工厂",
       "夜间工厂",
-      "森林"
+      "海关",
+      "Ground Zero 教程",
+      "储备站",
+      "塔科夫街区",
+      "破冰船",
+      "立交桥"
      ]
     }
    ],
@@ -24504,6 +24764,7 @@
   {
    "id": "5d25b6be86f77444001e1b89",
    "name": "生存者之路 - 省吃俭用",
+   "en": "The Survivalist Path Thrifty",
    "trader": "jaeger",
    "level": 9,
    "exp": 10000,
@@ -24593,6 +24854,7 @@
   {
    "id": "5d25cf2686f77443e75488d4",
    "name": "生存者之路 - 硬汉",
+   "en": "The Survivalist Path Tough Guy",
    "trader": "jaeger",
    "level": 9,
    "exp": 28000,
@@ -24703,6 +24965,7 @@
   {
    "id": "5d25e4d586f77443e625e388",
    "name": "储备",
+   "en": "Reserve",
    "trader": "jaeger",
    "level": 17,
    "exp": 28000,
@@ -24766,6 +25029,7 @@
   {
    "id": "5bc480a686f7741af0342e29",
    "name": "塔科夫神射手 - 4",
+   "en": "The Tarkov Shooter Part 4",
    "trader": "jaeger",
    "level": 17,
    "exp": 28000,
@@ -24842,6 +25106,7 @@
   {
    "id": "5bc4826c86f774106d22d88b",
    "name": "塔科夫神射手 - 5",
+   "en": "The Tarkov Shooter Part 5",
    "trader": "jaeger",
    "level": 17,
    "exp": 13000,
@@ -24925,6 +25190,7 @@
   {
    "id": "5bc4836986f7740c0152911c",
    "name": "塔科夫神射手 - 5",
+   "en": "The Tarkov Shooter Part 5 2",
    "trader": "jaeger",
    "level": 17,
    "exp": 28000,
@@ -24994,6 +25260,7 @@
   {
    "id": "5d25e2d886f77442734d335e",
    "name": "猎人之路 - 支配者",
+   "en": "The Huntsman Path Controller",
    "trader": "jaeger",
    "level": 17,
    "exp": 28000,
@@ -25068,6 +25335,7 @@
   {
    "id": "639136df4b15ca31f76bc31f",
    "name": "猎人之路 - 管理者",
+   "en": "The Huntsman Path Administrator",
    "trader": "jaeger",
    "level": 17,
    "exp": 28000,
@@ -25136,6 +25404,7 @@
   {
    "id": "6a45208043b8d7604d00b8d5",
    "name": "猎人之路 - 管理者",
+   "en": "The Huntsman Path Administrator 2",
    "trader": "jaeger",
    "level": 17,
    "exp": 28000,
@@ -25204,6 +25473,7 @@
   {
    "id": "5d25e29d86f7740a22516326",
    "name": "生存者之路 -  雕鸮",
+   "en": "The Survivalist Path Eagle Owl",
    "trader": "jaeger",
    "level": 17,
    "exp": 28000,
@@ -25297,6 +25567,7 @@
   {
    "id": "5d25d2c186f77443e35162e5",
    "name": "生存者之路 - 冷血",
+   "en": "The Survivalist Path Cold Blooded",
    "trader": "jaeger",
    "level": 17,
    "exp": 28000,
@@ -25353,6 +25624,7 @@
   {
    "id": "5d25e2a986f77409dd5cdf2a",
    "name": "生存者之路 - 战地军医",
+   "en": "The Survivalist Path Combat Medic",
    "trader": "jaeger",
    "level": 17,
    "exp": 5900,
@@ -25408,6 +25680,7 @@
   {
    "id": "63a511ea30d85e10e375b045",
    "name": "直播 - 3",
+   "en": "Broadcast Part 3",
    "trader": "jaeger",
    "level": 17,
    "exp": 28000,
@@ -25482,6 +25755,7 @@
   {
    "id": "6391372c8ba6894d155e77d7",
    "name": "直播 - 4",
+   "en": "Broadcast Part 4",
    "trader": "jaeger",
    "level": 17,
    "exp": 28000,
@@ -25547,6 +25821,7 @@
   {
    "id": "64ee99639878a0569d6ec8c9",
    "name": "直播 - 5",
+   "en": "Broadcast Part 5",
    "trader": "jaeger",
    "level": 17,
    "exp": 28000,
@@ -25575,11 +25850,11 @@
       "邪教徒祭司"
      ],
      "maps": [
+      "森林",
       "海岸线",
-      "海关",
-      "中心区 21+",
       "夜间工厂",
-      "森林"
+      "海关",
+      "中心区 21+"
      ]
     },
     {
@@ -25629,6 +25904,7 @@
   {
    "id": "61904daa7d0d857927447b9c",
    "name": "隐士",
+   "en": "The Hermit",
    "trader": "jaeger",
    "level": 17,
    "exp": 28000,
@@ -25705,6 +25981,7 @@
   {
    "id": "5d25e4b786f77408251c4bfc",
    "name": "鱼塘",
+   "en": "Fishing Place",
    "trader": "jaeger",
    "level": 17,
    "exp": 28000,
@@ -25767,6 +26044,7 @@
   {
    "id": "5d25e48d86f77408251c4bfb",
    "name": "黑幕交易",
+   "en": "Shady Business",
    "trader": "jaeger",
    "level": 20,
    "exp": 11400,
@@ -25837,6 +26115,7 @@
   {
    "id": "5bc4856986f77454c317bea7",
    "name": "塔科夫神射手 - 6",
+   "en": "The Tarkov Shooter Part 6",
    "trader": "jaeger",
    "level": 33,
    "exp": 65000,
@@ -25946,6 +26225,7 @@
   {
    "id": "5bc4893c86f774626f5ebf3e",
    "name": "塔科夫神射手 - 7",
+   "en": "The Tarkov Shooter Part 7",
    "trader": "jaeger",
    "level": 33,
    "exp": 65000,
@@ -26027,6 +26307,7 @@
   {
    "id": "63a9b36cc31b00242d28a99f",
    "name": "屠宰场",
+   "en": "Slaughterhouse",
    "trader": "jaeger",
    "level": 33,
    "exp": 65000,
@@ -26313,6 +26594,7 @@
   {
    "id": "626bdcc3a371ee3a7a3514c5",
    "name": "流浪狗",
+   "en": "Stray Dogs",
    "trader": "jaeger",
    "level": 33,
    "exp": 65000,
@@ -26342,11 +26624,11 @@
       "Knight"
      ],
      "maps": [
+      "森林",
       "海岸线",
       "灯塔",
       "海关",
-      "破冰船",
-      "森林"
+      "破冰船"
      ]
     },
     {
@@ -26358,10 +26640,10 @@
       "Big Pipe"
      ],
      "maps": [
+      "森林",
       "海岸线",
       "灯塔",
-      "海关",
-      "森林"
+      "海关"
      ]
     },
     {
@@ -26373,10 +26655,10 @@
       "Birdeye"
      ],
      "maps": [
+      "森林",
       "海岸线",
       "灯塔",
-      "海关",
-      "森林"
+      "海关"
      ]
     }
    ],
@@ -26413,6 +26695,7 @@
   {
    "id": "6a4532e48e82d8ffea0c3eae",
    "name": "猎人之路 - 控制",
+   "en": "The Huntsman Path Control",
    "trader": "jaeger",
    "level": 33,
    "exp": 65000,
@@ -26478,6 +26761,7 @@
   {
    "id": "5eaaaa7c93afa0558f3b5a1c",
    "name": "生存者之路 - 瘾君子",
+   "en": "The Survivalist Path Junkie",
    "trader": "jaeger",
    "level": 33,
    "exp": 65000,
@@ -26553,6 +26837,7 @@
   {
    "id": "60e71e8ed54b755a3b53eb67",
    "name": "猎人之路 - 无情杀手",
+   "en": "The Huntsman Path Relentless",
    "trader": "jaeger",
    "level": 55,
    "exp": 65000,
@@ -26583,9 +26868,9 @@
       "感染者"
      ],
      "maps": [
-      "立交桥",
       "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "立交桥"
      ]
     },
     {
@@ -26707,6 +26992,7 @@
   {
    "id": "5ae448bf86f7744d733e55ee",
    "name": "Make ULTRA Great Again",
+   "en": "Make Ultra Great Again",
    "trader": "ragman",
    "level": 0,
    "exp": 3000,
@@ -26763,6 +27049,7 @@
   {
    "id": "5ae4495086f77443c122bc40",
    "name": "临行密密缝 - 1",
+   "en": "Sew It Good Part 1",
    "trader": "ragman",
    "level": 0,
    "exp": 10000,
@@ -26845,6 +27132,7 @@
   {
    "id": "5ae4497b86f7744cf402ed00",
    "name": "临行密密缝 - 2",
+   "en": "Sew It Good Part 2",
    "trader": "ragman",
    "level": 0,
    "exp": 10000,
@@ -26925,6 +27213,7 @@
   {
    "id": "5ae4495c86f7744e87761355",
    "name": "临行密密缝 - 3",
+   "en": "Sew It Good Part 3",
    "trader": "ragman",
    "level": 0,
    "exp": 10000,
@@ -27001,6 +27290,7 @@
   {
    "id": "5ae4496986f774459e77beb6",
    "name": "临行密密缝 - 4",
+   "en": "Sew It Good Part 4",
    "trader": "ragman",
    "level": 0,
    "exp": 10000,
@@ -27081,6 +27371,7 @@
   {
    "id": "608974af4b05530f55550c21",
    "name": "储备专家",
+   "en": "Reserve Expert",
    "trader": "ragman",
    "level": 0,
    "exp": 28000,
@@ -27200,6 +27491,7 @@
   {
    "id": "6740b60c60a98cad1b0e0aa0",
    "name": "再次延误",
+   "en": "Another Shipping Delay",
    "trader": "ragman",
    "level": 0,
    "exp": 10000,
@@ -27266,6 +27558,7 @@
   {
    "id": "5c112d7e86f7740d6f647486",
    "name": "垃圾佬",
+   "en": "Scavenger",
    "trader": "ragman",
    "level": 0,
    "exp": 10000,
@@ -27645,6 +27938,7 @@
   {
    "id": "5ae448e586f7744dcf0c2a67",
    "name": "大甩卖",
+   "en": "Big Sale",
    "trader": "ragman",
    "level": 0,
    "exp": 10000,
@@ -27724,6 +28018,7 @@
   {
    "id": "5b47891f86f7744d1b23c571",
    "name": "奢侈无罪",
+   "en": "Living High Is Not a Crime",
    "trader": "ragman",
    "level": 0,
    "exp": 28000,
@@ -27822,6 +28117,7 @@
   {
    "id": "5c10f94386f774227172c572",
    "name": "小事大帮忙",
+   "en": "Small Things Big Help",
    "trader": "ragman",
    "level": 0,
    "exp": 3000,
@@ -27910,6 +28206,7 @@
   {
    "id": "5ae4493486f7744efa289417",
    "name": "库存清单",
+   "en": "Inventory Files",
    "trader": "ragman",
    "level": 0,
    "exp": 3000,
@@ -28011,6 +28308,7 @@
   {
    "id": "5b478d0f86f7744d190d91b5",
    "name": "微型客车",
+   "en": "Minibus",
    "trader": "ragman",
    "level": 0,
    "exp": 10000,
@@ -28100,6 +28398,7 @@
   {
    "id": "67a0967c003a9986cb0f5ac1",
    "name": "感官分析 - 1",
+   "en": "Sensory Analysis Part 1",
    "trader": "ragman",
    "level": 0,
    "exp": 28000,
@@ -28176,6 +28475,7 @@
   {
    "id": "5ae449b386f77446d8741719",
    "name": "感恩的心",
+   "en": "Gratitude",
    "trader": "ragman",
    "level": 0,
    "exp": 3000,
@@ -28257,6 +28557,7 @@
   {
    "id": "5ae4498786f7744bde357695",
    "name": "成功的关键",
+   "en": "The Key to Success",
    "trader": "ragman",
    "level": 0,
    "exp": 10000,
@@ -28351,6 +28652,7 @@
   {
    "id": "5ae4493d86f7744b8e15aa8f",
    "name": "损失惨重",
+   "en": "A Big Loss",
    "trader": "ragman",
    "level": 0,
    "exp": 3000,
@@ -28419,6 +28721,7 @@
   {
    "id": "5ae449c386f7744bde357697",
    "name": "探路者",
+   "en": "Pathfinder",
    "trader": "ragman",
    "level": 0,
    "exp": 3000,
@@ -28484,6 +28787,7 @@
   {
    "id": "69ce21e990144e437802b1e0",
    "name": "新鲜到货",
+   "en": "Fresh Stock",
    "trader": "ragman",
    "level": 0,
    "exp": 25000,
@@ -28542,6 +28846,7 @@
   {
    "id": "5ae449a586f7744bde357696",
    "name": "暗度陈仓",
+   "en": "No Fuss Needed",
    "trader": "ragman",
    "level": 0,
    "exp": 15800,
@@ -28595,6 +28900,7 @@
   {
    "id": "5b478b1886f7744d1b23c57d",
    "name": "火线速递",
+   "en": "Hot Delivery",
    "trader": "ragman",
    "level": 0,
    "exp": 10000,
@@ -28672,6 +28978,7 @@
   {
    "id": "5ae448f286f77448d73c0131",
    "name": "燃油危机",
+   "en": "Fuel Crisis",
    "trader": "ragman",
    "level": 0,
    "exp": 3000,
@@ -28745,6 +29052,7 @@
   {
    "id": "5ae4490786f7744ca822adcc",
    "name": "盛装杀戮",
+   "en": "Dressed to Kill",
    "trader": "ragman",
    "level": 0,
    "exp": 3000,
@@ -28829,6 +29137,7 @@
   {
    "id": "6744a4717e3818d5bb0680bb",
    "name": "稳定业务",
+   "en": "Stabilize Business",
    "trader": "ragman",
    "level": 0,
    "exp": 24100,
@@ -28903,6 +29212,7 @@
   {
    "id": "639135a7e705511c8a4a1b78",
    "name": "芭蕾舞者",
+   "en": "Ballet Lover",
    "trader": "ragman",
    "level": 0,
    "exp": 10000,
@@ -28971,6 +29281,7 @@
   {
    "id": "5ae449d986f774453a54a7e1",
    "name": "财务总监",
+   "en": "Supervisor",
    "trader": "ragman",
    "level": 0,
    "exp": 10000,
@@ -29087,6 +29398,7 @@
   {
    "id": "60e71dc0a94be721b065bbfc",
    "name": "长期合作",
+   "en": "Long Line",
    "trader": "ragman",
    "level": 0,
    "exp": 3000,
@@ -29147,6 +29459,7 @@
   {
    "id": "5ae4499a86f77449783815db",
    "name": "风流倜傥",
+   "en": "Charisma Brings Success",
    "trader": "ragman",
    "level": 0,
    "exp": 15600,
@@ -29208,6 +29521,7 @@
   {
    "id": "666314c5a9290f9e0806cca5",
    "name": "城市之匙",
+   "en": "Key to the City",
    "trader": "ragman",
    "level": 12,
    "exp": 28000,
@@ -29272,6 +29586,7 @@
   {
    "id": "638fcd23dc65553116701d33",
    "name": "审计",
+   "en": "Audit",
    "trader": "ragman",
    "level": 12,
    "exp": 10000,
@@ -29335,6 +29650,7 @@
   {
    "id": "675c085d59b0575973005f52",
    "name": "浑水摸鱼",
+   "en": "Break the Deal",
    "trader": "ragman",
    "level": 12,
    "exp": 10000,
@@ -29446,6 +29762,7 @@
   {
    "id": "65802b627b44fa5e14638899",
    "name": "绝不上当",
+   "en": "Nothing Fishy About This",
    "trader": "ragman",
    "level": 12,
    "exp": 10000,
@@ -29509,6 +29826,7 @@
   {
    "id": "65734c186dc1e402c80dc19e",
    "name": "花花公子",
+   "en": "Dandies",
    "trader": "ragman",
    "level": 12,
    "exp": 11000,
@@ -29595,6 +29913,7 @@
   {
    "id": "5ae448a386f7744d3730fff0",
    "name": "生意至上",
+   "en": "Only Business",
    "trader": "ragman",
    "level": 15,
    "exp": 6700,
@@ -29642,6 +29961,7 @@
   {
    "id": "5b47876e86f7744d1c353205",
    "name": "战争之血 - 2",
+   "en": "The Blood of War Part 2",
    "trader": "ragman",
    "level": 23,
    "exp": 14600,
@@ -29719,6 +30039,7 @@
   {
    "id": "6761f28a022f60bb320f3e95",
    "name": "新起点",
+   "en": "New Beginning",
    "trader": "ragman",
    "level": 25,
    "exp": 10000,
@@ -29742,17 +30063,17 @@
       "狙击手"
      ],
      "maps": [
+      "工厂",
+      "森林",
       "海岸线",
       "灯塔",
-      "塔科夫街区",
-      "海关",
-      "破冰船",
-      "Ground Zero 教程",
-      "立交桥",
-      "储备站",
-      "工厂",
       "夜间工厂",
-      "森林"
+      "海关",
+      "Ground Zero 教程",
+      "储备站",
+      "塔科夫街区",
+      "破冰船",
+      "立交桥"
      ]
     },
     {
@@ -29843,6 +30164,7 @@
   {
    "id": "67d03be712fb5f8fd2096332",
    "name": "清空外围",
+   "en": "Vacate the Premises",
    "trader": "ragman",
    "level": 26,
    "exp": 28000,
@@ -29903,6 +30225,7 @@
   {
    "id": "6613f3007f6666d56807c929",
    "name": "人靠衣装 - 1",
+   "en": "Drip Out Part 1 Bear",
    "trader": "ragman",
    "level": 27,
    "exp": 28000,
@@ -29932,8 +30255,8 @@
       "掠夺者"
      ],
      "maps": [
-      "实验室",
       "实验室 (Dark)",
+      "实验室",
       "储备站"
      ]
     },
@@ -29973,6 +30296,7 @@
   {
    "id": "66151401efb0539ae10875ae",
    "name": "人靠衣装 - 1",
+   "en": "Drip Out Part 1 Usec",
    "trader": "ragman",
    "level": 27,
    "exp": 28000,
@@ -30002,8 +30326,8 @@
       "掠夺者"
      ],
      "maps": [
-      "实验室",
       "实验室 (Dark)",
+      "实验室",
       "储备站"
      ]
     },
@@ -30043,6 +30367,7 @@
   {
    "id": "66aa61663aa37705c5024277",
    "name": "此路是我开！",
+   "en": "Know Your Place",
    "trader": "ragman",
    "level": 27,
    "exp": 28000,
@@ -30123,6 +30448,7 @@
   {
    "id": "60e71dc67fcf9c556f325056",
    "name": "酒瘾",
+   "en": "Booze",
    "trader": "ragman",
    "level": 27,
    "exp": 28000,
@@ -30239,6 +30565,7 @@
   {
    "id": "608974d01a66564e74191fc0",
    "name": "雪中送炭",
+   "en": "A Fuel Matter",
    "trader": "ragman",
    "level": 27,
    "exp": 28000,
@@ -30305,6 +30632,7 @@
   {
    "id": "639135bbc115f907b14700a6",
    "name": "高保真",
+   "en": "Audiophile",
    "trader": "ragman",
    "level": 27,
    "exp": 28000,
@@ -30386,6 +30714,7 @@
   {
    "id": "6761ff17cdc36bd66102e9d0",
    "name": "新起点",
+   "en": "New Beginning 2",
    "trader": "ragman",
    "level": 30,
    "exp": 11000,
@@ -30504,6 +30833,7 @@
   {
    "id": "6848100b00afffa81f09e365",
    "name": "新起点",
+   "en": "New Beginning 3",
    "trader": "ragman",
    "level": 35,
    "exp": 11000,
@@ -30641,6 +30971,7 @@
   {
    "id": "68481881f43abfdda2058369",
    "name": "新起点",
+   "en": "New Beginning 4",
    "trader": "ragman",
    "level": 40,
    "exp": 11000,
@@ -30787,6 +31118,7 @@
   {
    "id": "6613f307fca4f2f386029409",
    "name": "人靠衣装 - 2",
+   "en": "Drip Out Part 2 Bear",
    "trader": "ragman",
    "level": 42,
    "exp": 65000,
@@ -30860,6 +31192,7 @@
   {
    "id": "6615141bfda04449120269a7",
    "name": "人靠衣装 - 2",
+   "en": "Drip Out Part 2 Usec",
    "trader": "ragman",
    "level": 42,
    "exp": 65000,
@@ -30933,6 +31266,7 @@
   {
    "id": "5c1141f386f77430ff393792",
    "name": "古董爱好者",
+   "en": "Antique Enthusiast",
    "trader": "ragman",
    "level": 42,
    "exp": 65000,
@@ -31035,6 +31369,7 @@
   {
    "id": "666314a31cd52e3d040a2e76",
    "name": "实战考验",
+   "en": "Combat Proven",
    "trader": "ragman",
    "level": 42,
    "exp": 92000,
@@ -31122,6 +31457,7 @@
   {
    "id": "666314a50aa5c7436c00908a",
    "name": "旧情难却",
+   "en": "Old Patterns",
    "trader": "ragman",
    "level": 42,
    "exp": 0,
@@ -31160,6 +31496,7 @@
   {
    "id": "666314a1920800278d0f6746",
    "name": "特殊提议",
+   "en": "Special Offer",
    "trader": "ragman",
    "level": 42,
    "exp": 85500,
@@ -31295,6 +31632,7 @@
   {
    "id": "6663149cfd5ca9577902e037",
    "name": "看不见的大手",
+   "en": "The Invisible Hand",
    "trader": "ragman",
    "level": 42,
    "exp": 12800,
@@ -31346,6 +31684,7 @@
   {
    "id": "5e381b0286f77420e3417a74",
    "name": "纺织业 - 1",
+   "en": "Textile Part 1 Bear",
    "trader": "ragman",
    "level": 42,
    "exp": 65000,
@@ -31446,6 +31785,7 @@
   {
    "id": "5e383a6386f77465910ce1f3",
    "name": "纺织业 - 1",
+   "en": "Textile Part 1 Usec",
    "trader": "ragman",
    "level": 42,
    "exp": 65000,
@@ -31546,6 +31886,7 @@
   {
    "id": "5e4d4ac186f774264f758336",
    "name": "纺织业 - 2",
+   "en": "Textile Part 2 Bear",
    "trader": "ragman",
    "level": 42,
    "exp": 65000,
@@ -31644,6 +31985,7 @@
   {
    "id": "5e4d515e86f77438b2195244",
    "name": "纺织业 - 2",
+   "en": "Textile Part 2 Usec",
    "trader": "ragman",
    "level": 42,
    "exp": 65000,
@@ -31742,6 +32084,7 @@
   {
    "id": "6663149f1d3ec95634095e75",
    "name": "经济流动",
+   "en": "Circulate",
    "trader": "ragman",
    "level": 42,
    "exp": 32000,
@@ -31895,6 +32238,7 @@
   {
    "id": "596a1e6c86f7741ddc2d3206",
    "name": "一般储备",
+   "en": "General Wares",
    "trader": "therapist",
    "level": 0,
    "exp": 10000,
@@ -31961,6 +32305,7 @@
   {
    "id": "596a0e1686f7741ddf17dbee",
    "name": "供给计划",
+   "en": "Supply Plans",
    "trader": "therapist",
    "level": 0,
    "exp": 3000,
@@ -32045,6 +32390,7 @@
   {
    "id": "669fa3910c828825de06d69f",
    "name": "健全替代",
+   "en": "A Healthy Alternative",
    "trader": "therapist",
    "level": 0,
    "exp": 3000,
@@ -32099,6 +32445,7 @@
   {
    "id": "64f731ab83cfca080a361e42",
    "name": "兽医也是医",
+   "en": "Pets Wont Need It",
    "trader": "therapist",
    "level": 0,
    "exp": 10000,
@@ -32251,6 +32598,7 @@
   {
    "id": "6573387d0b26ed4fde798de3",
    "name": "兽医也是医 - 2",
+   "en": "Pets Wont Need It Part 2",
    "trader": "therapist",
    "level": 0,
    "exp": 9000,
@@ -32340,6 +32688,7 @@
   {
    "id": "5a68661a86f774500f48afb0",
    "name": "医疗隐私 - 1",
+   "en": "Health Care Privacy Part 1",
    "trader": "therapist",
    "level": 0,
    "exp": 3000,
@@ -32423,6 +32772,7 @@
   {
    "id": "59689ee586f7740d1570bbd5",
    "name": "卫生标准",
+   "en": "Sanitary Standards",
    "trader": "therapist",
    "level": 0,
    "exp": 10000,
@@ -32495,6 +32845,7 @@
   {
    "id": "639135e0fa894f0a866afde6",
    "name": "城市的解药",
+   "en": "Urban Medicine",
    "trader": "therapist",
    "level": 0,
    "exp": 10000,
@@ -32578,6 +32929,7 @@
   {
    "id": "67a09673972c11a3f507731d",
    "name": "塔科夫屠夫",
+   "en": "The Tarkov Butcher",
    "trader": "therapist",
    "level": 0,
    "exp": 10000,
@@ -32649,6 +33001,7 @@
   {
    "id": "5edaba7c0c502106f869bc02",
    "name": "塔科夫式手腕",
+   "en": "Tarkov Style Diplomacy",
    "trader": "therapist",
    "level": 0,
    "exp": 28000,
@@ -32736,6 +33089,7 @@
   {
    "id": "5968eb3186f7741dde183a4d",
    "name": "带血的水",
+   "en": "Blood in the Water",
    "trader": "therapist",
    "level": 0,
    "exp": 3000,
@@ -32793,6 +33147,7 @@
   {
    "id": "675c04f4db8807b75d0f38e8",
    "name": "平易近人",
+   "en": "Closer to the People",
    "trader": "therapist",
    "level": 0,
    "exp": 10300,
@@ -32859,6 +33214,7 @@
   {
    "id": "64f3176921045e77405d63b5",
    "name": "急诊室的故事",
+   "en": "Paramedic",
    "trader": "therapist",
    "level": 0,
    "exp": 10000,
@@ -32935,6 +33291,7 @@
   {
    "id": "69ce204c8702b378f9091e4b",
    "name": "战争从未改变",
+   "en": "War Never Changes",
    "trader": "therapist",
    "level": 0,
    "exp": 27000,
@@ -32992,6 +33349,7 @@
   {
    "id": "675c03d1f7da9792a405549a",
    "name": "无主货物",
+   "en": "Abandoned Cargo",
    "trader": "therapist",
    "level": 0,
    "exp": 3000,
@@ -33110,6 +33468,7 @@
   {
    "id": "59689fbd86f7740d137ebfc4",
    "name": "水瓶座行动",
+   "en": "Operation Aquarius",
    "trader": "therapist",
    "level": 0,
    "exp": 3000,
@@ -33179,6 +33538,7 @@
   {
    "id": "596a218586f77420d232807c",
    "name": "汽车修理",
+   "en": "Car Repair",
    "trader": "therapist",
    "level": 0,
    "exp": 28000,
@@ -33263,6 +33623,7 @@
   {
    "id": "6179ad56c760af5ad2053587",
    "name": "海边假期",
+   "en": "Seaside Vacation",
    "trader": "therapist",
    "level": 0,
    "exp": 28000,
@@ -33326,6 +33687,7 @@
   {
    "id": "69ce213a298a6529b30d7134",
    "name": "生化分析",
+   "en": "Biochemistry",
    "trader": "therapist",
    "level": 0,
    "exp": 32000,
@@ -33375,6 +33737,7 @@
   {
    "id": "60896e28e4a85c72ef3fa301",
    "name": "病历",
+   "en": "Disease History",
    "trader": "therapist",
    "level": 0,
    "exp": 28000,
@@ -33470,6 +33833,7 @@
   {
    "id": "5967733e86f774602332fc84",
    "name": "短缺",
+   "en": "Shortage",
    "trader": "therapist",
    "level": 0,
    "exp": 3000,
@@ -33536,6 +33900,7 @@
   {
    "id": "6a5424ae135497b9df0c68be",
    "name": "秋季综合征",
+   "en": "Fall Ailment",
    "trader": "therapist",
    "level": 0,
    "exp": 3000,
@@ -33602,6 +33967,7 @@
   {
    "id": "626bd75b05f287031503c7f6",
    "name": "缉毒行动",
+   "en": "Drug Trafficking",
    "trader": "therapist",
    "level": 0,
    "exp": 28000,
@@ -33675,6 +34041,7 @@
   {
    "id": "5edac34d0bb72a50635c2bfa",
    "name": "艰难抉择",
+   "en": "A Difficult Choice",
    "trader": "therapist",
    "level": 0,
    "exp": 27500,
@@ -33787,6 +34154,7 @@
   {
    "id": "5969f9e986f7741dde183a50",
    "name": "药剂师",
+   "en": "Pharmacist",
    "trader": "therapist",
    "level": 0,
    "exp": 3000,
@@ -33871,6 +34239,7 @@
   {
    "id": "675c047fa46173572a0bd878",
    "name": "货运追踪",
+   "en": "Shipment Tracking",
    "trader": "therapist",
    "level": 0,
    "exp": 3000,
@@ -33943,6 +34312,7 @@
   {
    "id": "596760e186f7741e11214d58",
    "name": "邮递员派特 - 2",
+   "en": "Postman Pat Part 2",
    "trader": "therapist",
    "level": 0,
    "exp": 3000,
@@ -33991,6 +34361,7 @@
   {
    "id": "657315ddab5a49b71f098853",
    "name": "新手上路",
+   "en": "First in Line",
    "trader": "therapist",
    "level": 1,
    "exp": 3000,
@@ -34103,6 +34474,7 @@
   {
    "id": "639135d89444fb141f4e6eea",
    "name": "人口普查",
+   "en": "Population Census",
    "trader": "therapist",
    "level": 5,
    "exp": 10000,
@@ -34166,6 +34538,7 @@
   {
    "id": "669fa39ee749756c920d02c8",
    "name": "刨根问底",
+   "en": "All Is Revealed",
    "trader": "therapist",
    "level": 5,
    "exp": 10000,
@@ -34230,6 +34603,7 @@
   {
    "id": "5a68663e86f774501078f78a",
    "name": "医疗隐私 - 2",
+   "en": "Health Care Privacy Part 2",
    "trader": "therapist",
    "level": 5,
    "exp": 10000,
@@ -34317,6 +34691,7 @@
   {
    "id": "5a68665c86f774255929b4c7",
    "name": "医疗隐私 - 3",
+   "en": "Health Care Privacy Part 3",
    "trader": "therapist",
    "level": 5,
    "exp": 10000,
@@ -34387,6 +34762,7 @@
   {
    "id": "59c9392986f7742f6923add2",
    "name": "救助站点",
+   "en": "Aid Stations",
    "trader": "therapist",
    "level": 5,
    "exp": 10000,
@@ -34495,6 +34871,7 @@
   {
    "id": "596a204686f774576d4c95de",
    "name": "卫生标准 - 2",
+   "en": "Sanitary Standards Part 2",
    "trader": "therapist",
    "level": 8,
    "exp": 4500,
@@ -34560,6 +34937,7 @@
   {
    "id": "597a160786f77477531d39d2",
    "name": "出于好奇",
+   "en": "Out of Curiosity",
    "trader": "therapist",
    "level": 9,
    "exp": 10000,
@@ -34648,6 +35026,7 @@
   {
    "id": "665eeca45d86b6c8aa03c79d",
    "name": "口干舌燥 - 往日回响",
+   "en": "Thirsty Echo",
    "trader": "therapist",
    "level": 9,
    "exp": 10000,
@@ -34719,6 +35098,7 @@
   {
    "id": "665eeca92f7aedcc900b0437",
    "name": "口干舌燥 - 秘密配方",
+   "en": "Thirsty Secrets",
    "trader": "therapist",
    "level": 9,
    "exp": 10000,
@@ -34787,6 +35167,7 @@
   {
    "id": "666314b696a9349baa021bac",
    "name": "质量标准",
+   "en": "Quality Standard",
    "trader": "therapist",
    "level": 12,
    "exp": 28000,
@@ -34859,6 +35240,7 @@
   {
    "id": "63ab180c87413d64ae0ac20a",
    "name": "危险之路",
+   "en": "Dangerous Road",
    "trader": "therapist",
    "level": 15,
    "exp": 7800,
@@ -34922,6 +35304,7 @@
   {
    "id": "5d6fb2c086f77449da599c24",
    "name": "一天一个苹果 - 医生远离我",
+   "en": "An Apple a Day Keeps the Doctor Away",
    "trader": "therapist",
    "level": 18,
    "exp": 0,
@@ -34967,6 +35350,7 @@
   {
    "id": "5a68667486f7742607157d28",
    "name": "医疗隐私 - 4",
+   "en": "Health Care Privacy Part 4",
    "trader": "therapist",
    "level": 18,
    "exp": 28000,
@@ -35035,6 +35419,7 @@
   {
    "id": "5a68669a86f774255929b4d4",
    "name": "医疗隐私 - 5",
+   "en": "Health Care Privacy Part 5",
    "trader": "therapist",
    "level": 18,
    "exp": 28000,
@@ -35101,6 +35486,7 @@
   {
    "id": "5edab736cc183c769d778bc2",
    "name": "同事",
+   "en": "Colleagues",
    "trader": "therapist",
    "level": 18,
    "exp": 28000,
@@ -35179,6 +35565,7 @@
   {
    "id": "5969f90786f77420d2328015",
    "name": "善良之针",
+   "en": "Charity",
    "trader": "therapist",
    "level": 18,
    "exp": 28000,
@@ -35241,6 +35628,7 @@
   {
    "id": "6179afd0bca27a099552e040",
    "name": "消失的线人",
+   "en": "Lost Contact",
    "trader": "therapist",
    "level": 18,
    "exp": 28000,
@@ -35305,6 +35693,7 @@
   {
    "id": "67a0972e77dd677f600804bd",
    "name": "这带子糟透了",
+   "en": "This Tape Sucks",
    "trader": "therapist",
    "level": 26,
    "exp": 28000,
@@ -35384,6 +35773,7 @@
   {
    "id": "5c0d0d5086f774363760aef2",
    "name": "运动员",
+   "en": "Athlete",
    "trader": "therapist",
    "level": 30,
    "exp": 3500,
@@ -35448,6 +35838,7 @@
   {
    "id": "5c0be5fc86f774467a116593",
    "name": "私人诊所",
+   "en": "Private Clinic",
    "trader": "therapist",
    "level": 35,
    "exp": 30600,
@@ -35535,6 +35926,7 @@
   {
    "id": "669fa3a3ad7f1eac2607ed48",
    "name": "医疗隐私 - 6",
+   "en": "Health Care Privacy Part 6",
    "trader": "therapist",
    "level": 37,
    "exp": 65000,
@@ -35632,6 +36024,7 @@
   {
    "id": "5c0d1c4cd0928202a02a6f5c",
    "name": "灭虫服务",
+   "en": "Decontamination Service",
    "trader": "therapist",
    "level": 37,
    "exp": 12500,
@@ -35712,6 +36105,7 @@
   {
    "id": "66aba85403e0ee3101042877",
    "name": "街区之下",
+   "en": "Beneath the Streets",
    "trader": "therapist",
    "level": 37,
    "exp": 24000,
@@ -35821,6 +36215,7 @@
   {
    "id": "60e71c48c1bfa3050473b8e5",
    "name": "急单",
+   "en": "Crisis",
    "trader": "therapist",
    "level": 38,
    "exp": 34000,
@@ -35968,6 +36363,7 @@
   {
    "id": "5edac63b930f5454f51e128b",
    "name": "TerraGroup 雇员",
+   "en": "Terragroup Employee",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 65000,
@@ -36074,6 +36470,7 @@
   {
    "id": "5a0449d586f77474e66227b7",
    "name": "主钥匙",
+   "en": "Master Key",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 3000,
@@ -36144,6 +36541,7 @@
   {
    "id": "6179aff8f57fb279792c60a1",
    "name": "人口过剩",
+   "en": "Overpopulation",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 28000,
@@ -36211,6 +36609,7 @@
   {
    "id": "5a27b87686f77460de0252a8",
    "name": "人道主义援助",
+   "en": "Humanitarian Supplies",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 10000,
@@ -36317,6 +36716,7 @@
   {
    "id": "5a03296886f774569778596a",
    "name": "你渴望电力吗",
+   "en": "I Need More Power",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 10000,
@@ -36398,6 +36798,7 @@
   {
    "id": "639135534b15ca31f76bc317",
    "name": "你的车该洗了",
+   "en": "Your Car Needs a Service",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 10000,
@@ -36482,6 +36883,7 @@
   {
    "id": "675c1d6d59b0575973008fc7",
    "name": "先声夺人",
+   "en": "Seizing the Initiative",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 3000,
@@ -36543,6 +36945,7 @@
   {
    "id": "5a27bafb86f7741c73584017",
    "name": "化学实验",
+   "en": "Chemical Experiments",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 3000,
@@ -36591,6 +36994,7 @@
   {
    "id": "6179b5eabca27a099552e052",
    "name": "反抗",
+   "en": "Counteraction Usec",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 65000,
@@ -36705,6 +37109,7 @@
   {
    "id": "69ce1f84ebbdbf36a200627c",
    "name": "和平原子",
+   "en": "Peaceful Atom",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 24000,
@@ -36773,6 +37178,7 @@
   {
    "id": "5c0bd01e86f7747cdd799e56",
    "name": "彻夜难眠",
+   "en": "Insomnia",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 65000,
@@ -36870,6 +37276,7 @@
   {
    "id": "6a5c1578f2689567c30eb0f3",
    "name": "徒步旅行",
+   "en": "Hiking",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 3000,
@@ -36934,6 +37341,7 @@
   {
    "id": "669fa38fad7f1eac2607ed46",
    "name": "悬结已解",
+   "en": "One Less Loose End",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 3000,
@@ -37017,6 +37425,7 @@
   {
    "id": "60e71ccb5688f6424c7bfec4",
    "name": "战利品",
+   "en": "Trophies",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 65000,
@@ -37104,6 +37513,7 @@
   {
    "id": "66aa58245ab22944110db6e9",
    "name": "新路线，新机遇",
+   "en": "New Paths",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 3000,
@@ -37140,16 +37550,16 @@
      "type": "visit",
      "text": "在同场战局中侦察中心区 Mira 大道和高架路的交汇路口",
      "maps": [
-      "中心区 21+",
-      "中心区"
+      "中心区",
+      "中心区 21+"
      ]
     },
     {
      "type": "visit",
      "text": "在同场战局中找到中心区通往塔科夫街区的道路",
      "maps": [
-      "中心区 21+",
-      "中心区"
+      "中心区",
+      "中心区 21+"
      ]
     }
    ],
@@ -37176,6 +37586,7 @@
   {
    "id": "639135f286e646067c176a87",
    "name": "无中生有 - 塔科夫街区",
+   "en": "Revision Streets of Tarkov",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 10000,
@@ -37253,6 +37664,7 @@
   {
    "id": "61958c366726521dd96828ec",
    "name": "来自塔科夫的礼物",
+   "en": "Gifts From Tarkov",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 28000,
@@ -37337,6 +37749,7 @@
   {
    "id": "639282134ed9512be67647ed",
    "name": "此路不通",
+   "en": "Road Closed Usec",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 10000,
@@ -37407,6 +37820,7 @@
   {
    "id": "5a27ba1c86f77461ea5a3c56",
    "name": "武器流通",
+   "en": "Weapons Circulation",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 10000,
@@ -37491,6 +37905,7 @@
   {
    "id": "60e71c9ad54b755a3b53eb66",
    "name": "清洁工",
+   "en": "The Cleaner",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 28000,
@@ -37558,6 +37973,7 @@
   {
    "id": "5a0327ba86f77456b9154236",
    "name": "燃料短缺",
+   "en": "Fuel Shortage",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 3000,
@@ -37646,6 +38062,7 @@
   {
    "id": "60e71ce009d7c801eb0c0ec6",
    "name": "特殊装备",
+   "en": "Special Equipment",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 65000,
@@ -37796,6 +38213,7 @@
   {
    "id": "5a27b7a786f774579c3eb376",
    "name": "猎虎行动",
+   "en": "Tigr Safari",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 3000,
@@ -37851,6 +38269,7 @@
   {
    "id": "5a27b7d686f77460d847e6a6",
    "name": "破铜烂铁",
+   "en": "Scrap Metal",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 10000,
@@ -37928,6 +38347,7 @@
   {
    "id": "5a27bb1e86f7741f27621b7e",
    "name": "神秘货物",
+   "en": "Cargo X",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 28000,
@@ -37997,6 +38417,7 @@
   {
    "id": "6a5ccda873f06065630d61b0",
    "name": "秘密消息",
+   "en": "Secret Message",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 10000,
@@ -38072,6 +38493,7 @@
   {
    "id": "69e5583240c3e6c8ba0edbd5",
    "name": "窃听风暴",
+   "en": "Wiring the Vessel",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 30000,
@@ -38163,6 +38585,7 @@
   {
    "id": "5c0d4c12d09282029f539173",
    "name": "维和任务",
+   "en": "Peacekeeping Mission",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 65000,
@@ -38377,6 +38800,7 @@
   {
    "id": "5b4794cb86f774598100d5d4",
    "name": "铁鸟坠落",
+   "en": "Metal Birds",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 3000,
@@ -38459,6 +38883,7 @@
   {
    "id": "5a27b80086f774429a5d7e20",
    "name": "鹰眼",
+   "en": "Eagle Eye",
    "trader": "peacekeeper",
    "level": 0,
    "exp": 10000,
@@ -38555,6 +38980,7 @@
   {
    "id": "5a03153686f77442d90e2171",
    "name": "单程票",
+   "en": "One Way Ticket",
    "trader": "peacekeeper",
    "level": 8,
    "exp": 10000,
@@ -38620,6 +39046,7 @@
   {
    "id": "5a27b75b86f7742e97191958",
    "name": "渔具",
+   "en": "Fishing Gear",
    "trader": "peacekeeper",
    "level": 8,
    "exp": 10000,
@@ -38707,6 +39134,7 @@
   {
    "id": "5a27bb8386f7741c770d2d0a",
    "name": "湿活 - 1",
+   "en": "Wet Job Part 1",
    "trader": "peacekeeper",
    "level": 8,
    "exp": 10000,
@@ -38777,6 +39205,7 @@
   {
    "id": "5a27bbf886f774333a418eeb",
    "name": "湿活 - 2",
+   "en": "Wet Job Part 2",
    "trader": "peacekeeper",
    "level": 8,
    "exp": 10000,
@@ -38847,6 +39276,7 @@
   {
    "id": "5a27b9de86f77464e5044585",
    "name": "邪教",
+   "en": "The Cult",
    "trader": "peacekeeper",
    "level": 8,
    "exp": 10000,
@@ -38911,6 +39341,7 @@
   {
    "id": "5a03173786f77451cb427172",
    "name": "疗养之旅 - 2",
+   "en": "Spa Tour Part 2",
    "trader": "peacekeeper",
    "level": 12,
    "exp": 6300,
@@ -38983,6 +39414,7 @@
   {
    "id": "5a27ba9586f7741b543d8e85",
    "name": "疗养之旅 - 6",
+   "en": "Spa Tour Part 6",
    "trader": "peacekeeper",
    "level": 12,
    "exp": 9500,
@@ -39028,6 +39460,7 @@
   {
    "id": "5a27bb3d86f77411ea361a21",
    "name": "定向追踪",
+   "en": "Tracker",
    "trader": "peacekeeper",
    "level": 19,
    "exp": 28000,
@@ -39105,6 +39538,7 @@
   {
    "id": "6086c852c945025d41566124",
    "name": "无中生有 - 储备站",
+   "en": "Revision Reserve",
    "trader": "peacekeeper",
    "level": 19,
    "exp": 28000,
@@ -39229,6 +39663,7 @@
   {
    "id": "6179b4d1bca27a099552e04e",
    "name": "无中生有 - 灯塔",
+   "en": "Revision Lighthouse",
    "trader": "peacekeeper",
    "level": 19,
    "exp": 28000,
@@ -39317,6 +39752,7 @@
   {
    "id": "5a27bc1586f7741f6d40fa2f",
    "name": "湿活 - 3",
+   "en": "Wet Job Part 3",
    "trader": "peacekeeper",
    "level": 19,
    "exp": 28000,
@@ -39397,6 +39833,7 @@
   {
    "id": "5a27bc3686f7741c73584026",
    "name": "湿活 - 4",
+   "en": "Wet Job Part 4",
    "trader": "peacekeeper",
    "level": 19,
    "exp": 28000,
@@ -39464,6 +39901,7 @@
   {
    "id": "6a5cd2178fd7c2b201032f3f",
    "name": "演示原型",
+   "en": "Demonstration Model",
    "trader": "peacekeeper",
    "level": 19,
    "exp": 28000,
@@ -39537,6 +39975,7 @@
   {
    "id": "5a27bb5986f7741dfb660900",
    "name": "神秘货物 - 3",
+   "en": "Cargo X Part 3",
    "trader": "peacekeeper",
    "level": 19,
    "exp": 8400,
@@ -39604,6 +40043,7 @@
   {
    "id": "67a09724972c11a3f5077324",
    "name": "机密情报",
+   "en": "Confidential Info",
    "trader": "peacekeeper",
    "level": 26,
    "exp": 28000,
@@ -39687,6 +40127,7 @@
   {
    "id": "5c0d4e61d09282029f53920e",
    "name": "向导",
+   "en": "The Guide",
    "trader": "peacekeeper",
    "level": 32,
    "exp": 65000,
@@ -39854,6 +40295,7 @@
   {
    "id": "5d6fbc2886f77449d825f9d3",
    "name": "导师",
+   "en": "Mentor",
    "trader": "peacekeeper",
    "level": 37,
    "exp": 0,
@@ -39899,6 +40341,7 @@
   {
    "id": "63a9b229813bba58a50c9ee5",
    "name": "最烂的差事",
+   "en": "Worst Job in the World",
    "trader": "peacekeeper",
    "level": 37,
    "exp": 65000,
@@ -39993,6 +40436,7 @@
   {
    "id": "5edac020218d181e29451446",
    "name": "样品",
+   "en": "Samples",
    "trader": "peacekeeper",
    "level": 37,
    "exp": 65000,
@@ -40175,6 +40619,7 @@
   {
    "id": "5a27bc6986f7741c7358402b",
    "name": "湿活 - 5",
+   "en": "Wet Job Part 5",
    "trader": "peacekeeper",
    "level": 37,
    "exp": 28000,
@@ -40250,6 +40695,7 @@
   {
    "id": "5a27bc8586f7741b543d8ea4",
    "name": "湿活 - 6",
+   "en": "Wet Job Part 6",
    "trader": "peacekeeper",
    "level": 37,
    "exp": 28000,
@@ -40330,6 +40776,7 @@
   {
    "id": "61e6e60c5ca3b3783662be27",
    "name": "亡羊补牢 - Wergild",
+   "en": "Compensation for Damage Wergild",
    "trader": "fence",
    "level": 0,
    "exp": 0,
@@ -40376,6 +40823,7 @@
   {
    "id": "61e6e5e0f5b9633f6719ed95",
    "name": "亡羊补牢 - 信任",
+   "en": "Compensation for Damage Trust",
    "trader": "fence",
    "level": 0,
    "exp": 0,
@@ -40432,6 +40880,7 @@
   {
    "id": "61e6e621bfeab00251576265",
    "name": "亡羊补牢 - 收藏",
+   "en": "Compensation for Damage Collection",
    "trader": "fence",
    "level": 0,
    "exp": 0,
@@ -40479,6 +40928,7 @@
   {
    "id": "61e6e60223374d168a4576a6",
    "name": "亡羊补牢 - 赌注",
+   "en": "Compensation for Damage Wager",
    "trader": "fence",
    "level": 0,
    "exp": 0,
@@ -40545,6 +40995,7 @@
   {
    "id": "61e6e615eea2935bc018a2c5",
    "name": "亡羊补牢 - 酒保",
+   "en": "Compensation for Damage Barkeep",
    "trader": "fence",
    "level": 0,
    "exp": 0,
@@ -40601,6 +41052,7 @@
   {
    "id": "6663148ca9290f9e0806cca1",
    "name": "免疫力",
+   "en": "Immunity",
    "trader": "fence",
    "level": 0,
    "exp": 28000,
@@ -40665,6 +41117,7 @@
   {
    "id": "6663148ed7f171c4c20226c1",
    "name": "小本生意 - 1",
+   "en": "Small Business Part 1",
    "trader": "fence",
    "level": 0,
    "exp": 22800,
@@ -40874,6 +41327,7 @@
   {
    "id": "6663149196a9349baa021baa",
    "name": "小本生意 - 2",
+   "en": "Small Business Part 2",
    "trader": "fence",
    "level": 0,
    "exp": 36800,
@@ -40948,9 +41402,9 @@
       "海关",
       "灯塔",
       "立交桥",
+      "森林",
       "海岸线",
       "破冰船",
-      "森林",
       "工厂",
       "夜间工厂"
      ]
@@ -40982,6 +41436,7 @@
   {
    "id": "66631493312343839d032d22",
    "name": "小本生意 - 3",
+   "en": "Small Business Part 3",
    "trader": "fence",
    "level": 0,
    "exp": 30000,
@@ -41073,6 +41528,7 @@
   {
    "id": "6672d9def1c88688a707d042",
    "name": "建立联系",
+   "en": "Establish Contact",
    "trader": "fence",
    "level": 0,
    "exp": 8800,
@@ -41124,6 +41580,7 @@
   {
    "id": "66631489acf8442f8b05319f",
    "name": "陌路相交",
+   "en": "Friend Among Strangers",
    "trader": "fence",
    "level": 0,
    "exp": 25600,
@@ -41191,17 +41648,17 @@
       "狙击手"
      ],
      "maps": [
+      "工厂",
+      "森林",
       "海岸线",
       "灯塔",
-      "塔科夫街区",
-      "海关",
-      "破冰船",
-      "Ground Zero 教程",
-      "立交桥",
-      "储备站",
-      "工厂",
       "夜间工厂",
-      "森林"
+      "海关",
+      "Ground Zero 教程",
+      "储备站",
+      "塔科夫街区",
+      "破冰船",
+      "立交桥"
      ]
     }
    ],
@@ -41231,6 +41688,7 @@
   {
    "id": "66058ccf06ef1d50a60c1f48",
    "name": "两害相权（PVP）",
+   "en": "Between Two Fires Pvp Zone",
    "trader": "fence",
    "level": 10,
    "exp": 18500,
@@ -41324,6 +41782,7 @@
   {
    "id": "66058ccbc7f3584787181478",
    "name": "良心作祟 - 1（PVP）",
+   "en": "Against the Conscience Part 1 Pvp Zone",
    "trader": "fence",
    "level": 10,
    "exp": 11700,
@@ -41430,6 +41889,7 @@
   {
    "id": "66d9cbb67b491f9d5304f6e6",
    "name": "这是什么梗？",
+   "en": "Is This a Reference",
    "trader": "fence",
    "level": 25,
    "exp": 30000,
@@ -41502,8 +41962,8 @@
       "WIFI摄像头"
      ],
      "maps": [
-      "中心区 21+",
-      "中心区"
+      "中心区",
+      "中心区 21+"
      ]
     },
     {
@@ -41514,8 +41974,8 @@
       "WIFI摄像头"
      ],
      "maps": [
-      "中心区 21+",
-      "中心区"
+      "中心区",
+      "中心区 21+"
      ]
     },
     {
@@ -41526,8 +41986,8 @@
       "WIFI摄像头"
      ],
      "maps": [
-      "中心区 21+",
-      "中心区"
+      "中心区",
+      "中心区 21+"
      ]
     },
     {
@@ -41784,6 +42244,7 @@
   {
    "id": "5c51aac186f77432ea65c552",
    "name": "收藏家",
+   "en": "Collector",
    "trader": "fence",
    "level": 42,
    "exp": 0,
@@ -42290,6 +42751,7 @@
   {
    "id": "60effd818b669d08a35bfad5",
    "name": "抉择",
+   "en": "The Choice",
    "trader": "fence",
    "level": 50,
    "exp": 433333,
@@ -42347,6 +42809,7 @@
   {
    "id": "69788c2bac719606e40b4e77",
    "name": "专业热身 - 1（PVP）",
+   "en": "Professional Fitness Part 1 Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 1800,
@@ -42394,6 +42857,7 @@
   {
    "id": "69788db3878a4385d10c0718",
    "name": "专业热身 - 2（PVP）",
+   "en": "Professional Fitness Part 2 Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 2400,
@@ -42450,6 +42914,7 @@
   {
    "id": "66058cd19f59e625462acc90",
    "name": "两难抉择（PVP）",
+   "en": "Decisions Decisions Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 18500,
@@ -42546,6 +43011,7 @@
   {
    "id": "697895b6c639962b2e0cf268",
    "name": "保持领先（PVP）",
+   "en": "Hold the Lead Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 9100,
@@ -42592,6 +43058,7 @@
   {
    "id": "66058cc1da30b620a34e6e86",
    "name": "再创新高！- 1（PVP）",
+   "en": "To Great Heights Part 1 Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 2800,
@@ -42639,6 +43106,7 @@
   {
    "id": "66058cc208308761cf390993",
    "name": "再创新高！- 2（PVP）",
+   "en": "To Great Heights Part 2 Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 3500,
@@ -42690,6 +43158,7 @@
   {
    "id": "66058cc5bb83da7ba474aba9",
    "name": "再创新高！- 3（PVP）",
+   "en": "To Great Heights Part 3 Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 4500,
@@ -42741,6 +43210,7 @@
   {
    "id": "66058cc72cee99303f1ba069",
    "name": "再创新高！- 4（PVP）",
+   "en": "To Great Heights Part 4 Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 5600,
@@ -42814,6 +43284,7 @@
   {
    "id": "66058cc9ae4719735349b9ea",
    "name": "再创新高！- 5（PVP）",
+   "en": "To Great Heights Part 5 Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 6900,
@@ -42861,6 +43332,7 @@
   {
    "id": "69789418b2187365e70bb947",
    "name": "再创新高！- 6（PVP）",
+   "en": "To Great Heights Part 6 Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 7700,
@@ -42911,6 +43383,7 @@
   {
    "id": "66058cbd9f59e625462acc8e",
    "name": "声东击西 - 1（PVP）",
+   "en": "Create a Distraction Part 1 Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 5000,
@@ -42978,6 +43451,7 @@
   {
    "id": "66058cbf2f19c31a5a1337ec",
    "name": "声东击西 - 2（PVP）",
+   "en": "Create a Distraction Part 2 Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 10000,
@@ -43064,6 +43538,7 @@
   {
    "id": "66058cb7c7f3584787181476",
    "name": "平衡之力 - 1（PVP）",
+   "en": "Balancing Part 1 Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 5100,
@@ -43098,17 +43573,17 @@
       "Steyr AUG A3 5.56x45 突击步枪（黑色）"
      ],
      "maps": [
+      "工厂",
+      "森林",
       "海岸线",
       "灯塔",
-      "塔科夫街区",
-      "海关",
-      "破冰船",
-      "Ground Zero 教程",
-      "立交桥",
-      "储备站",
-      "工厂",
       "夜间工厂",
-      "森林"
+      "海关",
+      "Ground Zero 教程",
+      "储备站",
+      "塔科夫街区",
+      "破冰船",
+      "立交桥"
      ]
     }
    ],
@@ -43166,6 +43641,7 @@
   {
    "id": "66058cb9e8e4f17985230805",
    "name": "平衡之力 - 2（PVP）",
+   "en": "Balancing Part 2 Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 7000,
@@ -43234,6 +43710,7 @@
   {
    "id": "66058cbb06ef1d50a60c1f46",
    "name": "惊喜（PVP）",
+   "en": "Surprise Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 3600,
@@ -43321,6 +43798,7 @@
   {
    "id": "675c15fbf7da9792a4059871",
    "name": "收视灵药",
+   "en": "Provide Viewership",
    "trader": "ref",
    "level": 10,
    "exp": 32000,
@@ -43439,6 +43917,7 @@
   {
    "id": "697877e0c639962b2e0cf24f",
    "name": "竞技场差事（PVP）",
+   "en": "Arena Business Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 19500,
@@ -43516,6 +43995,7 @@
   {
    "id": "66058ccde8e4f17985230807",
    "name": "良心作祟 - 2（PVP）",
+   "en": "Against the Conscience Part 2 Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 23000,
@@ -43568,6 +44048,7 @@
   {
    "id": "66058cb5ae4719735349b9e8",
    "name": "赚点快钱 - 2（PVP）",
+   "en": "Easy Money Part 2 Pvp Zone",
    "trader": "ref",
    "level": 10,
    "exp": 2900,
@@ -43668,6 +44149,7 @@
   {
    "id": "67e993f5ed537409f009da75",
    "name": "迟来的奖励（PVP）",
+   "en": "Postponed Reward Pvp Zone",
    "trader": "ref",
    "level": 35,
    "exp": 0,
@@ -43719,6 +44201,7 @@
   {
    "id": "6744aca8d3346c216702c583",
    "name": "反将一军",
+   "en": "Discombobulate",
    "trader": "btr-driver",
    "level": 0,
    "exp": 23400,
@@ -43799,6 +44282,7 @@
   {
    "id": "69c26c07683c9831020018c7",
    "name": "坚持到底",
+   "en": "Stick to It",
    "trader": "btr-driver",
    "level": 0,
    "exp": 25000,
@@ -43824,10 +44308,10 @@
       "Knight"
      ],
      "maps": [
+      "森林",
       "海岸线",
       "灯塔",
       "海关",
-      "森林",
       "破冰船"
      ]
     }
@@ -43853,6 +44337,7 @@
   {
    "id": "673f629c5b555b53460cf827",
    "name": "奠定基石",
+   "en": "Building Foundations",
    "trader": "btr-driver",
    "level": 0,
    "exp": 14500,
@@ -54129,6 +54614,7 @@
   {
    "id": "69c2a2d004de49c8f0055a3d",
    "name": "宿醉",
+   "en": "Hangover",
    "trader": "btr-driver",
    "level": 0,
    "exp": 60000,
@@ -54167,6 +54653,7 @@
   {
    "id": "6744ab1def61d56e020b5c56",
    "name": "对空遮断",
+   "en": "Protect the Sky",
    "trader": "btr-driver",
    "level": 0,
    "exp": 25400,
@@ -54236,6 +54723,7 @@
   {
    "id": "673f6027352b4da8e00322d2",
    "name": "必然回应",
+   "en": "Inevitable Response",
    "trader": "btr-driver",
    "level": 0,
    "exp": 15500,
@@ -54316,6 +54804,7 @@
   {
    "id": "67a096ed77dd677f600804ba",
    "name": "感官分析 - 2",
+   "en": "Sensory Analysis Part 2",
    "trader": "btr-driver",
    "level": 0,
    "exp": 0,
@@ -54362,6 +54851,7 @@
   {
    "id": "674492b6909d2013670a347a",
    "name": "投石问路",
+   "en": "Ask for Directions",
    "trader": "btr-driver",
    "level": 0,
    "exp": 13200,
@@ -54453,6 +54943,7 @@
   {
    "id": "69c27158e350f01390049e77",
    "name": "拯救大兵罗曼",
+   "en": "Saving Private Roman",
    "trader": "btr-driver",
    "level": 0,
    "exp": 42000,
@@ -54517,6 +55008,7 @@
   {
    "id": "6744af0969a58fceba101fed",
    "name": "独立的代价",
+   "en": "The Price of Independence",
    "trader": "btr-driver",
    "level": 0,
    "exp": 85400,
@@ -54642,17 +55134,17 @@
       "狙击手"
      ],
      "maps": [
+      "工厂",
+      "森林",
       "海岸线",
       "灯塔",
-      "塔科夫街区",
-      "海关",
-      "破冰船",
-      "Ground Zero 教程",
-      "立交桥",
-      "储备站",
-      "工厂",
       "夜间工厂",
-      "森林"
+      "海关",
+      "Ground Zero 教程",
+      "储备站",
+      "塔科夫街区",
+      "破冰船",
+      "立交桥"
      ]
     },
     {
@@ -54708,6 +55200,7 @@
   {
    "id": "6745cbee909d2013670a4a55",
    "name": "独立的代价",
+   "en": "The Price of Independence 2",
    "trader": "btr-driver",
    "level": 0,
    "exp": 85400,
@@ -54833,17 +55326,17 @@
       "狙击手"
      ],
      "maps": [
+      "工厂",
+      "森林",
       "海岸线",
       "灯塔",
-      "塔科夫街区",
-      "海关",
-      "破冰船",
-      "Ground Zero 教程",
-      "立交桥",
-      "储备站",
-      "工厂",
       "夜间工厂",
-      "森林"
+      "海关",
+      "Ground Zero 教程",
+      "储备站",
+      "塔科夫街区",
+      "破冰船",
+      "立交桥"
      ]
     },
     {
@@ -54899,6 +55392,7 @@
   {
    "id": "6745fcded0fbbc74ca0f721d",
    "name": "现世报",
+   "en": "Swift Retribution",
    "trader": "btr-driver",
    "level": 0,
    "exp": 16000,
@@ -54972,6 +55466,7 @@
   {
    "id": "6744a728352b4da8e003eda9",
    "name": "电池换新",
+   "en": "Battery Change",
    "trader": "btr-driver",
    "level": 0,
    "exp": 58700,
@@ -55044,6 +55539,7 @@
   {
    "id": "6744a9dfef61d56e020b5c4a",
    "name": "电池换新",
+   "en": "Battery Change 2",
    "trader": "btr-driver",
    "level": 0,
    "exp": 58700,
@@ -55107,6 +55603,7 @@
   {
    "id": "6740a02a69a58fceba0ff399",
    "name": "自然交换",
+   "en": "Natural Exchange",
    "trader": "btr-driver",
    "level": 0,
    "exp": 26800,
@@ -55176,6 +55673,7 @@
   {
    "id": "69c277f3ea6da9c23e07f8d2",
    "name": "苦涩的胜利",
+   "en": "A Bitter Victory",
    "trader": "btr-driver",
    "level": 0,
    "exp": 30000,
@@ -55292,6 +55790,7 @@
   {
    "id": "673f2cd5d3346c2167020484",
    "name": "货运延误 - 2",
+   "en": "Shipping Delay Part 2",
    "trader": "btr-driver",
    "level": 0,
    "exp": 11500,
@@ -55366,6 +55865,7 @@
   {
    "id": "673f4e956f1b89c7bc0f56ef",
    "name": "风火轮",
+   "en": "Hot Wheels",
    "trader": "btr-driver",
    "level": 0,
    "exp": 24300,
@@ -55448,6 +55948,7 @@
   {
    "id": "673f5a4976553f78350bdac1",
    "name": "风火轮 - 再次出发",
+   "en": "Hot Wheels Lets Try Again",
    "trader": "btr-driver",
    "level": 0,
    "exp": 13500,
@@ -55506,6 +56007,7 @@
   {
    "id": "63966fd9ea19ac7ed845db30",
    "name": "以牙还牙",
+   "en": "Payback",
    "trader": "lightkeeper",
    "level": 0,
    "exp": 0,
@@ -55607,6 +56109,7 @@
   {
    "id": "673f61a066e6a521aa04b62b",
    "name": "外部订单",
+   "en": "Order From Outside",
    "trader": "lightkeeper",
    "level": 0,
    "exp": 46700,
@@ -55693,6 +56196,7 @@
   {
    "id": "6396701b9113f06a7c3b2379",
    "name": "大显身手",
+   "en": "Make an Impression",
    "trader": "lightkeeper",
    "level": 0,
    "exp": 0,
@@ -55758,6 +56262,7 @@
   {
    "id": "63967028c4a91c5cb76abd81",
    "name": "大都会之谜",
+   "en": "Trouble in the Big City",
    "trader": "lightkeeper",
    "level": 0,
    "exp": 0,
@@ -55861,6 +56366,7 @@
   {
    "id": "63966fbeea19ac7ed845db2e",
    "name": "失踪的线人",
+   "en": "Missing Informant",
    "trader": "lightkeeper",
    "level": 0,
    "exp": 0,
@@ -55944,6 +56450,7 @@
   {
    "id": "63966fe7ea74a47c2d3fc0e6",
    "name": "归还人情",
+   "en": "Return the Favor",
    "trader": "lightkeeper",
    "level": 0,
    "exp": 0,
@@ -56021,6 +56528,7 @@
   {
    "id": "63966faeea19ac7ed845db2c",
    "name": "情报之源",
+   "en": "Information Source",
    "trader": "lightkeeper",
    "level": 0,
    "exp": 0,
@@ -56146,6 +56654,7 @@
   {
    "id": "63966fccac6f8f3c677b9d89",
    "name": "抢夺先机",
+   "en": "Snatch",
    "trader": "lightkeeper",
    "level": 0,
    "exp": 0,
@@ -56260,6 +56769,7 @@
   {
    "id": "639670029113f06a7c3b2377",
    "name": "按图索骥",
+   "en": "Following the Bread Crumbs",
    "trader": "lightkeeper",
    "level": 0,
    "exp": 0,
@@ -56288,8 +56798,8 @@
       "掠夺者"
      ],
      "maps": [
-      "实验室",
       "实验室 (Dark)",
+      "实验室",
       "储备站"
      ]
     },
@@ -56366,6 +56876,7 @@
   {
    "id": "63966ff54c3ef01b6f3ffad8",
    "name": "挑衅",
+   "en": "Provocation",
    "trader": "lightkeeper",
    "level": 0,
    "exp": 0,
@@ -56487,6 +56998,7 @@
   {
    "id": "6745fdddd3346c216702e0bf",
    "name": "简单副业",
+   "en": "Simple Side Job",
    "trader": "lightkeeper",
    "level": 0,
    "exp": 56700,
@@ -56573,6 +57085,7 @@
   {
    "id": "6396700fea19ac7ed845db32",
    "name": "观察员",
+   "en": "Spotter",
    "trader": "lightkeeper",
    "level": 0,
    "exp": 0,
@@ -56675,6 +57188,7 @@
   {
    "id": "67a09761e720611a6a01f288",
    "name": "守望者箴言",
+   "en": "Keepers Word",
    "trader": "lightkeeper",
    "level": 26,
    "exp": 56800,
@@ -56793,6 +57307,7 @@
   {
    "id": "67e993b1ac26bf29380a320b",
    "name": "天降大礼 [PVP ZONE]",
+   "en": "Surprise Gift Pvp Zone",
    "trader": "lightkeeper",
    "level": 35,
    "exp": 25500,

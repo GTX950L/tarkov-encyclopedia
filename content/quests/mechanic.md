@@ -128,7 +128,7 @@ tags:
 
 <h3 id="q01">一臂之力<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **A Helping Hand**
 
 `地图：森林`
 
@@ -142,7 +142,7 @@ tags:
 
 <h3 id="q02">不良嗜好<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Bad Habit**
 
 **接取条件**
 
@@ -159,7 +159,7 @@ tags:
 
 <h3 id="q03">介绍<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Introduction**
 
 `地图：森林`
 
@@ -179,7 +179,7 @@ tags:
 
 <h3 id="q04">侦查<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Scout**
 
 `地图：工厂`
 
@@ -200,7 +200,7 @@ tags:
 
 <h3 id="q05">公司福报<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Corporate Perks**
 
 `地图：塔科夫街区`
 
@@ -220,7 +220,7 @@ tags:
 
 <h3 id="q06">化学橱柜<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Chemistry Closet**
 
 `地图：海岸线`
 
@@ -239,7 +239,7 @@ tags:
 
 <h3 id="q07">化工厂的秘密<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Secrets of Polikhim**
 
 **接取条件**
 
@@ -257,7 +257,7 @@ tags:
 
 <h3 id="q08">半导体危机<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Semiconductor Crisis**
 
 **接取条件**
 
@@ -276,7 +276,7 @@ tags:
 
 <h3 id="q09">咚咚咚<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Knock Knock**
 
 `**Lightkeeper 必需**` ｜ `地图：灯塔`
 
@@ -295,7 +295,7 @@ tags:
 
 <h3 id="q10">商业机密<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Corporate Secrets**
 
 `地图：灯塔`
 
@@ -315,7 +315,7 @@ tags:
 
 <h3 id="q11">大海捞针<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Needle in a Haystack**
 
 **接取条件**
 
@@ -334,7 +334,7 @@ tags:
 
 <h3 id="q12">天神射手<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shooter Born in Heaven**
 
 `**Kappa 必需**`
 
@@ -357,7 +357,7 @@ tags:
 
 <h3 id="q13">工欲善其事<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Passion for Ergonomics**
 
 `地图：海关`
 
@@ -375,7 +375,7 @@ tags:
 
 <h3 id="q14">影子雇员<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shady Contractor**
 
 `地图：中心区`
 
@@ -393,7 +393,7 @@ tags:
 
 <h3 id="q15">急先锋<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Courier**
 
 `地图：海关`
 
@@ -412,7 +412,7 @@ tags:
 
 <h3 id="q16">恶意环伺<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Ill Wisher**
 
 `地图：海岸线`
 
@@ -433,7 +433,7 @@ tags:
 
 <h3 id="q17">投机第一步<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Playing the Market**
 
 `地图：工厂`
 
@@ -452,7 +452,7 @@ tags:
 
 <h3 id="q18">挖矿<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Farming**
 
 `地图：海关`
 
@@ -473,7 +473,7 @@ tags:
 
 <h3 id="q19">探望<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Surveillance**
 
 `地图：塔科夫街区`
 
@@ -492,7 +492,7 @@ tags:
 
 <h3 id="q20">暗藏玄机<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Hidden Layer**
 
 **接取条件**
 
@@ -508,7 +508,7 @@ tags:
 
 <h3 id="q21">枪匠 - AK-105<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Ak 105**
 
 **接取条件**
 
@@ -523,7 +523,7 @@ tags:
 
 <h3 id="q22">枪匠 - AKS-74N<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Aks 74n**
 
 **接取条件**
 
@@ -538,7 +538,7 @@ tags:
 
 <h3 id="q23">枪匠 - AKS-74U<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Aks 74u**
 
 **接取条件**
 
@@ -554,7 +554,7 @@ tags:
 
 <h3 id="q24">枪匠 - HK MP5<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Hk Mp5**
 
 **接取条件**
 
@@ -571,7 +571,7 @@ tags:
 
 <h3 id="q25">枪匠 - M870<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Model 870**
 
 **接取条件**
 
@@ -588,7 +588,7 @@ tags:
 
 <h3 id="q26">枪匠 - MP-133<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Mp 133**
 
 **接取条件**
 
@@ -604,7 +604,7 @@ tags:
 
 <h3 id="q27">枪匠 - MPX<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Mpx**
 
 **接取条件**
 
@@ -620,7 +620,7 @@ tags:
 
 <h3 id="q28">枪匠 - OP-SKS<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Op Sks**
 
 **接取条件**
 
@@ -636,7 +636,7 @@ tags:
 
 <h3 id="q29">枪匠 - P226R<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith P226r**
 
 **接取条件**
 
@@ -651,7 +651,7 @@ tags:
 
 <h3 id="q30">枪匠 - Vector 9x19<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Vector 9x19**
 
 **接取条件**
 
@@ -666,7 +666,7 @@ tags:
 
 <h3 id="q31">灯塔之匙<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Key to the Tower**
 
 `**Lightkeeper 必需**` ｜ `地图：灯塔` ｜ `接取延迟 1440 分钟`
 
@@ -688,7 +688,7 @@ tags:
 
 <h3 id="q32">目标与手段<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Goals and Means**
 
 **接取条件**
 
@@ -706,7 +706,7 @@ tags:
 
 <h3 id="q33">破镜重圆<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends**
 
 `地图：灯塔`
 
@@ -732,7 +732,7 @@ tags:
 
 <h3 id="q34">破镜重圆<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends 2**
 
 **接取条件**
 
@@ -751,7 +751,7 @@ tags:
 
 <h3 id="q35">破镜重圆<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends 3**
 
 **接取条件**
 
@@ -770,7 +770,7 @@ tags:
 
 <h3 id="q36">破镜重圆 - 大扫除<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends Sweep Up**
 
 `地图：储备站`
 
@@ -787,7 +787,7 @@ tags:
 
 <h3 id="q37">破镜重圆 - 安保<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends Security**
 
 `地图：灯塔`
 
@@ -808,7 +808,7 @@ tags:
 
 <h3 id="q38">破镜重圆 - 收买人心<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends Buyout**
 
 **接取条件**
 
@@ -824,7 +824,7 @@ tags:
 
 <h3 id="q39">破镜重圆 - 装备<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends Equipment**
 
 **接取条件**
 
@@ -839,7 +839,7 @@ tags:
 
 <h3 id="q40">破镜重圆 - 软件<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends Software**
 
 **接取条件**
 
@@ -855,7 +855,7 @@ tags:
 
 <h3 id="q41">破镜重圆 - 隔离<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends Quarantine**
 
 `地图：实验室`
 
@@ -873,7 +873,7 @@ tags:
 
 <h3 id="q42">神秘的门<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Door**
 
 `地图：塔科夫街区`
 
@@ -894,7 +894,7 @@ tags:
 
 <h3 id="q43">稳定信号<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Steady Signal**
 
 `地图：森林`
 
@@ -912,7 +912,7 @@ tags:
 
 <h3 id="q44">网络供应商 - 1<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Network Provider Part 1**
 
 `**Lightkeeper 必需**`
 
@@ -931,7 +931,7 @@ tags:
 
 <h3 id="q45">网络供应商 - 2<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Network Provider Part 2**
 
 `**Lightkeeper 必需**` ｜ `地图：灯塔` ｜ `接取延迟 540 分钟`
 
@@ -951,7 +951,7 @@ tags:
 
 <h3 id="q46">肥料<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fertilizers**
 
 **接取条件**
 
@@ -969,7 +969,7 @@ tags:
 
 <h3 id="q47">能源危机<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Energy Crisis**
 
 `地图：灯塔`
 
@@ -989,7 +989,7 @@ tags:
 
 <h3 id="q48">试探 - 1<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Assessment Part 1**
 
 `**Lightkeeper 必需**` ｜ `地图：灯塔`
 
@@ -1005,7 +1005,7 @@ tags:
 
 <h3 id="q49">试探 - 2<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Assessment Part 2**
 
 `**Lightkeeper 必需**` ｜ `地图：森林`
 
@@ -1024,7 +1024,7 @@ tags:
 
 <h3 id="q50">试探 - 3<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Assessment Part 3**
 
 `**Lightkeeper 必需**` ｜ `地图：实验室`
 
@@ -1043,7 +1043,7 @@ tags:
 
 <h3 id="q51">进口<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Import**
 
 **接取条件**
 
@@ -1062,7 +1062,7 @@ tags:
 
 <h3 id="q52">邂逅<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Getting Acquainted**
 
 `地图：灯塔`
 
@@ -1087,7 +1087,7 @@ tags:
 
 <h3 id="q53">高效秘诀<a class="headerlink" href="#q53" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv0** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Secret to Productivity**
 
 `地图：塔科夫街区`
 
@@ -1106,7 +1106,7 @@ tags:
 
 <h3 id="q54">救援行动<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv1** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv1** ｜ **无前置** ｜ 英文名 **Saving the Mole**
 
 `地图：中心区`
 
@@ -1129,7 +1129,7 @@ tags:
 
 <h3 id="q55">你被盯上了<a class="headerlink" href="#q55" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv12** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Watching You**
 
 `地图：塔科夫街区`
 
@@ -1149,7 +1149,7 @@ tags:
 
 <h3 id="q56">圈内人<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv12** ｜ 前置 **2** 个
+**Mechanic** ｜ 需 **Lv12** ｜ 前置 **2** 个 ｜ 英文名 **Insider**
 
 **接取条件**
 
@@ -1164,7 +1164,7 @@ tags:
 
 <h3 id="q57">挖矿 - 2<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Farming Part 2**
 
 **接取条件**
 
@@ -1184,7 +1184,7 @@ tags:
 
 <h3 id="q58">捕鼠计划<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv12** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Rat Hunting**
 
 **接取条件**
 
@@ -1204,7 +1204,7 @@ tags:
 
 <h3 id="q59">直播 - 1<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv12** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Broadcast Part 1**
 
 `地图：灯塔`
 
@@ -1222,7 +1222,7 @@ tags:
 
 <h3 id="q60">直播 - 2<a class="headerlink" href="#q60" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Broadcast Part 2**
 
 `地图：塔科夫街区`
 
@@ -1239,7 +1239,7 @@ tags:
 
 <h3 id="q61">航空包裹<a class="headerlink" href="#q61" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Airmail**
 
 `地图：森林`
 
@@ -1256,7 +1256,7 @@ tags:
 
 <h3 id="q62">镜头就位，开拍！<a class="headerlink" href="#q62" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Camera Action**
 
 **接取条件**
 
@@ -1281,7 +1281,7 @@ tags:
 
 <h3 id="q63">黑天鹅计划<a class="headerlink" href="#q63" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv12** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Black Swan**
 
 `地图：工厂`
 
@@ -1299,7 +1299,7 @@ tags:
 
 <h3 id="q64">信号 - 3<a class="headerlink" href="#q64" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv15** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv15** ｜ 前置 **1** 个 ｜ 英文名 **Signal Part 3**
 
 `地图：海岸线`
 
@@ -1319,7 +1319,7 @@ tags:
 
 <h3 id="q65">信号 - 4<a class="headerlink" href="#q65" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv15** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv15** ｜ 前置 **1** 个 ｜ 英文名 **Signal Part 4**
 
 **接取条件**
 
@@ -1336,7 +1336,7 @@ tags:
 
 <h3 id="q66">后门<a class="headerlink" href="#q66" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv26** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv26** ｜ **无前置** ｜ 英文名 **Back Door**
 
 `地图：储备站`
 
@@ -1355,7 +1355,7 @@ tags:
 
 <h3 id="q67">枪匠 - AKM<a class="headerlink" href="#q67" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv26** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv26** ｜ **无前置** ｜ 英文名 **Gunsmith Akm**
 
 **接取条件**
 
@@ -1370,7 +1370,7 @@ tags:
 
 <h3 id="q68">枪匠 - M4A1<a class="headerlink" href="#q68" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv26** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv26** ｜ **无前置** ｜ 英文名 **Gunsmith M4a1**
 
 **接取条件**
 
@@ -1385,7 +1385,7 @@ tags:
 
 <h3 id="q69">检验假说<a class="headerlink" href="#q69" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv26** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **Hypotheses Testing**
 
 `地图：迷宫`
 
@@ -1403,7 +1403,7 @@ tags:
 
 <h3 id="q70">武装侦察<a class="headerlink" href="#q70" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv26** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **Offensive Reconnaissance**
 
 **接取条件**
 
@@ -1419,7 +1419,7 @@ tags:
 
 <h3 id="q71">物尽其用<a class="headerlink" href="#q71" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv26** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv26** ｜ **无前置** ｜ 英文名 **Surplus Goods**
 
 `地图：储备站`
 
@@ -1438,7 +1438,7 @@ tags:
 
 <h3 id="q72">枪匠 - AS VAL<a class="headerlink" href="#q72" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv29** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv29** ｜ **无前置** ｜ 英文名 **Gunsmith As Val**
 
 **接取条件**
 
@@ -1456,7 +1456,7 @@ tags:
 
 <h3 id="q73">枪匠大师 - 1<a class="headerlink" href="#q73" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv40** ｜ **无前置** ｜ 英文名 **Gunsmith Master Part 1**
 
 **接取条件**
 
@@ -1471,7 +1471,7 @@ tags:
 
 <h3 id="q74">枪匠大师 - 10<a class="headerlink" href="#q74" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 10**
 
 **接取条件**
 
@@ -1485,7 +1485,7 @@ tags:
 
 <h3 id="q75">枪匠大师 - 11<a class="headerlink" href="#q75" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 11**
 
 **接取条件**
 
@@ -1501,7 +1501,7 @@ tags:
 
 <h3 id="q76">枪匠大师 - 12<a class="headerlink" href="#q76" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 12**
 
 **接取条件**
 
@@ -1518,7 +1518,7 @@ tags:
 
 <h3 id="q77">枪匠大师 - 13<a class="headerlink" href="#q77" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 13**
 
 **接取条件**
 
@@ -1534,7 +1534,7 @@ tags:
 
 <h3 id="q78">枪匠大师 - 2<a class="headerlink" href="#q78" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 2**
 
 **接取条件**
 
@@ -1548,7 +1548,7 @@ tags:
 
 <h3 id="q79">枪匠大师 - 3<a class="headerlink" href="#q79" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 3**
 
 **接取条件**
 
@@ -1563,7 +1563,7 @@ tags:
 
 <h3 id="q80">枪匠大师 - 4<a class="headerlink" href="#q80" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 4**
 
 **接取条件**
 
@@ -1578,7 +1578,7 @@ tags:
 
 <h3 id="q81">枪匠大师 - 5<a class="headerlink" href="#q81" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 5**
 
 **接取条件**
 
@@ -1592,7 +1592,7 @@ tags:
 
 <h3 id="q82">枪匠大师 - 6<a class="headerlink" href="#q82" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 6**
 
 **接取条件**
 
@@ -1607,7 +1607,7 @@ tags:
 
 <h3 id="q83">枪匠大师 - 7<a class="headerlink" href="#q83" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 7**
 
 **接取条件**
 
@@ -1622,7 +1622,7 @@ tags:
 
 <h3 id="q84">枪匠大师 - 8<a class="headerlink" href="#q84" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 8**
 
 **接取条件**
 
@@ -1637,7 +1637,7 @@ tags:
 
 <h3 id="q85">枪匠大师 - 9<a class="headerlink" href="#q85" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个
+**Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 9**
 
 **接取条件**
 
@@ -1651,7 +1651,7 @@ tags:
 
 <h3 id="q86">狙击疯魔<a class="headerlink" href="#q86" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv40** ｜ **无前置** ｜ 英文名 **Psycho Sniper**
 
 `失败可重接`
 
@@ -1676,7 +1676,7 @@ tags:
 
 <h3 id="q87">致命校准<a class="headerlink" href="#q87" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv40** ｜ **无前置** ｜ 英文名 **Calibration**
 
 **接取条件**
 
@@ -1694,7 +1694,7 @@ tags:
 
 <h3 id="q88">轻重缓急<a class="headerlink" href="#q88" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv40** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv40** ｜ **无前置** ｜ 英文名 **Setting Priorities**
 
 **接取条件**
 
@@ -1712,7 +1712,7 @@ tags:
 
 <h3 id="q89">同好俱乐部<a class="headerlink" href="#q89" title="Permanent link">&para;</a></h3>
 
-**Mechanic** ｜ 需 **Lv45** ｜ **无前置**
+**Mechanic** ｜ 需 **Lv45** ｜ **无前置** ｜ 英文名 **Hobby Club**
 
 **接取条件**
 

@@ -97,7 +97,7 @@ tags:
 
 <h3 id="q01">Make ULTRA Great Again<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Make Ultra Great Again**
 
 `地图：立交桥`
 
@@ -114,7 +114,7 @@ tags:
 
 <h3 id="q02">临行密密缝 - 1<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Sew It Good Part 1**
 
 `**Kappa 必需**`
 
@@ -134,7 +134,7 @@ tags:
 
 <h3 id="q03">临行密密缝 - 2<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sew It Good Part 2**
 
 `**Kappa 必需**`
 
@@ -154,7 +154,7 @@ tags:
 
 <h3 id="q04">临行密密缝 - 3<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sew It Good Part 3**
 
 **接取条件**
 
@@ -172,7 +172,7 @@ tags:
 
 <h3 id="q05">临行密密缝 - 4<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sew It Good Part 4**
 
 **接取条件**
 
@@ -188,7 +188,7 @@ tags:
 
 <h3 id="q06">储备专家<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Reserve Expert**
 
 `地图：储备站`
 
@@ -212,7 +212,7 @@ tags:
 
 <h3 id="q07">再次延误<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ 前置 **2** 个
+**Ragman** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **Another Shipping Delay**
 
 `地图：森林`
 
@@ -229,7 +229,7 @@ tags:
 
 <h3 id="q08">垃圾佬<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Scavenger**
 
 **接取条件**
 
@@ -248,7 +248,7 @@ tags:
 
 <h3 id="q09">大甩卖<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Big Sale**
 
 `地图：立交桥`
 
@@ -269,7 +269,7 @@ tags:
 
 <h3 id="q10">奢侈无罪<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Living High Is Not a Crime**
 
 **接取条件**
 
@@ -289,7 +289,7 @@ tags:
 
 <h3 id="q11">小事大帮忙<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Small Things Big Help**
 
 `地图：森林`
 
@@ -309,7 +309,7 @@ tags:
 
 <h3 id="q12">库存清单<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Inventory Files**
 
 `地图：立交桥`
 
@@ -331,7 +331,7 @@ tags:
 
 <h3 id="q13">微型客车<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Minibus**
 
 `地图：立交桥`
 
@@ -350,7 +350,7 @@ tags:
 
 <h3 id="q14">感官分析 - 1<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sensory Analysis Part 1**
 
 `接取延迟 35 分钟`
 
@@ -369,7 +369,7 @@ tags:
 
 <h3 id="q15">感恩的心<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gratitude**
 
 `地图：森林`
 
@@ -388,7 +388,7 @@ tags:
 
 <h3 id="q16">成功的关键<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Key to Success**
 
 `地图：立交桥`
 
@@ -408,7 +408,7 @@ tags:
 
 <h3 id="q17">损失惨重<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **A Big Loss**
 
 `地图：立交桥`
 
@@ -427,7 +427,7 @@ tags:
 
 <h3 id="q18">探路者<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pathfinder**
 
 `地图：立交桥`
 
@@ -446,7 +446,7 @@ tags:
 
 <h3 id="q19">新鲜到货<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fresh Stock**
 
 `地图：破冰船`
 
@@ -460,7 +460,7 @@ tags:
 
 <h3 id="q20">暗度陈仓<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **No Fuss Needed**
 
 **接取条件**
 
@@ -475,7 +475,7 @@ tags:
 
 <h3 id="q21">火线速递<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Hot Delivery**
 
 `地图：立交桥`
 
@@ -494,7 +494,7 @@ tags:
 
 <h3 id="q22">燃油危机<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fuel Crisis**
 
 `地图：立交桥`
 
@@ -513,7 +513,7 @@ tags:
 
 <h3 id="q23">盛装杀戮<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Dressed to Kill**
 
 **接取条件**
 
@@ -531,7 +531,7 @@ tags:
 
 <h3 id="q24">稳定业务<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Stabilize Business**
 
 `地图：中心区`
 
@@ -549,7 +549,7 @@ tags:
 
 <h3 id="q25">芭蕾舞者<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Ballet Lover**
 
 `地图：塔科夫街区`
 
@@ -568,7 +568,7 @@ tags:
 
 <h3 id="q26">财务总监<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Supervisor**
 
 **接取条件**
 
@@ -588,7 +588,7 @@ tags:
 
 <h3 id="q27">长期合作<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ **无前置**
+**Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Long Line**
 
 `地图：立交桥`
 
@@ -605,7 +605,7 @@ tags:
 
 <h3 id="q28">风流倜傥<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv0** ｜ 前置 **2** 个
+**Ragman** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **Charisma Brings Success**
 
 **接取条件**
 
@@ -623,7 +623,7 @@ tags:
 
 <h3 id="q29">城市之匙<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv12** ｜ 前置 **1** 个
+**Ragman** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Key to the City**
 
 `地图：塔科夫街区`
 
@@ -640,7 +640,7 @@ tags:
 
 <h3 id="q30">审计<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv12** ｜ **无前置**
+**Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Audit**
 
 `地图：塔科夫街区`
 
@@ -658,7 +658,7 @@ tags:
 
 <h3 id="q31">浑水摸鱼<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv12** ｜ **无前置**
+**Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Break the Deal**
 
 `地图：海关`
 
@@ -679,7 +679,7 @@ tags:
 
 <h3 id="q32">绝不上当<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv12** ｜ **无前置**
+**Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Nothing Fishy About This**
 
 `地图：海岸线`
 
@@ -697,7 +697,7 @@ tags:
 
 <h3 id="q33">花花公子<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv12** ｜ **无前置**
+**Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Dandies**
 
 `地图：塔科夫街区`
 
@@ -717,7 +717,7 @@ tags:
 
 <h3 id="q34">生意至上<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv15** ｜ **无前置**
+**Ragman** ｜ 需 **Lv15** ｜ **无前置** ｜ 英文名 **Only Business**
 
 **要求**
 
@@ -730,7 +730,7 @@ tags:
 
 <h3 id="q35">战争之血 - 2<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv23** ｜ 前置 **2** 个
+**Ragman** ｜ 需 **Lv23** ｜ 前置 **2** 个 ｜ 英文名 **The Blood of War Part 2**
 
 **接取条件**
 
@@ -747,7 +747,7 @@ tags:
 
 <h3 id="q36">新起点<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv25** ｜ **无前置**
+**Ragman** ｜ 需 **Lv25** ｜ **无前置** ｜ 英文名 **New Beginning**
 
 **要求**
 
@@ -762,7 +762,7 @@ tags:
 
 <h3 id="q37">清空外围<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv26** ｜ 前置 **1** 个
+**Ragman** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **Vacate the Premises**
 
 `地图：迷宫`
 
@@ -779,7 +779,7 @@ tags:
 
 <h3 id="q38">人靠衣装 - 1<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv27** ｜ **无前置**
+**Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Drip Out Part 1 Bear**
 
 `仅限 **BEAR**` ｜ `失败可重接`
 
@@ -797,7 +797,7 @@ tags:
 
 <h3 id="q39">人靠衣装 - 1<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv27** ｜ **无前置**
+**Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Drip Out Part 1 Usec**
 
 `仅限 **USEC**` ｜ `失败可重接`
 
@@ -815,7 +815,7 @@ tags:
 
 <h3 id="q40">此路是我开！<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv27** ｜ **无前置**
+**Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Know Your Place**
 
 **接取条件**
 
@@ -832,7 +832,7 @@ tags:
 
 <h3 id="q41">酒瘾<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv27** ｜ **无前置**
+**Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Booze**
 
 **接取条件**
 
@@ -854,7 +854,7 @@ tags:
 
 <h3 id="q42">雪中送炭<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv27** ｜ **无前置**
+**Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **A Fuel Matter**
 
 `地图：储备站`
 
@@ -872,7 +872,7 @@ tags:
 
 <h3 id="q43">高保真<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv27** ｜ **无前置**
+**Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Audiophile**
 
 `地图：塔科夫街区`
 
@@ -895,7 +895,7 @@ tags:
 
 <h3 id="q44">新起点<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv30** ｜ **无前置**
+**Ragman** ｜ 需 **Lv30** ｜ **无前置** ｜ 英文名 **New Beginning 2**
 
 `地图：实验室` ｜ `需**威望 P1**`
 
@@ -913,7 +913,7 @@ tags:
 
 <h3 id="q45">新起点<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv35** ｜ **无前置**
+**Ragman** ｜ 需 **Lv35** ｜ **无前置** ｜ 英文名 **New Beginning 3**
 
 `需**威望 P2**`
 
@@ -935,7 +935,7 @@ tags:
 
 <h3 id="q46">新起点<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv40** ｜ **无前置**
+**Ragman** ｜ 需 **Lv40** ｜ **无前置** ｜ 英文名 **New Beginning 4**
 
 `需**威望 P3**`
 
@@ -956,7 +956,7 @@ tags:
 
 <h3 id="q47">人靠衣装 - 2<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv42** ｜ **无前置**
+**Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Drip Out Part 2 Bear**
 
 `仅限 **BEAR**` ｜ `失败可重接`
 
@@ -974,7 +974,7 @@ tags:
 
 <h3 id="q48">人靠衣装 - 2<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv42** ｜ **无前置**
+**Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Drip Out Part 2 Usec**
 
 `仅限 **USEC**` ｜ `失败可重接`
 
@@ -992,7 +992,7 @@ tags:
 
 <h3 id="q49">古董爱好者<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv42** ｜ **无前置**
+**Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Antique Enthusiast**
 
 **接取条件**
 
@@ -1014,7 +1014,7 @@ tags:
 
 <h3 id="q50">实战考验<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个
+**Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Combat Proven**
 
 **接取条件**
 
@@ -1030,7 +1030,7 @@ tags:
 
 <h3 id="q51">旧情难却<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个
+**Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Old Patterns**
 
 **接取条件**
 
@@ -1044,7 +1044,7 @@ tags:
 
 <h3 id="q52">特殊提议<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个
+**Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Special Offer**
 
 **接取条件**
 
@@ -1067,7 +1067,7 @@ tags:
 
 <h3 id="q53">看不见的大手<a class="headerlink" href="#q53" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv42** ｜ **无前置**
+**Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **The Invisible Hand**
 
 **接取条件**
 
@@ -1081,7 +1081,7 @@ tags:
 
 <h3 id="q54">纺织业 - 1<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv42** ｜ **无前置**
+**Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Textile Part 1 Bear**
 
 `仅限 **BEAR**`
 
@@ -1103,7 +1103,7 @@ tags:
 
 <h3 id="q55">纺织业 - 1<a class="headerlink" href="#q55" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv42** ｜ **无前置**
+**Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Textile Part 1 Usec**
 
 `仅限 **USEC**`
 
@@ -1125,7 +1125,7 @@ tags:
 
 <h3 id="q56">纺织业 - 2<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个
+**Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Textile Part 2 Bear**
 
 `仅限 **BEAR**`
 
@@ -1147,7 +1147,7 @@ tags:
 
 <h3 id="q57">纺织业 - 2<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个
+**Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Textile Part 2 Usec**
 
 `仅限 **USEC**`
 
@@ -1169,7 +1169,7 @@ tags:
 
 <h3 id="q58">经济流动<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
 
-**Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个
+**Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Circulate**
 
 **接取条件**
 

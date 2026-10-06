@@ -58,7 +58,7 @@ tags:
 
 <h3 id="q01">反将一军<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Discombobulate**
 
 `地图：森林`
 
@@ -77,7 +77,7 @@ tags:
 
 <h3 id="q02">坚持到底<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ **无前置**
+**BTR 司机** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Stick to It**
 
 **要求**
 
@@ -87,7 +87,7 @@ tags:
 
 <h3 id="q03">奠定基石<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Building Foundations**
 
 **接取条件**
 
@@ -104,7 +104,7 @@ tags:
 
 <h3 id="q04">宿醉<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Hangover**
 
 **接取条件**
 
@@ -118,7 +118,7 @@ tags:
 
 <h3 id="q05">对空遮断<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Protect the Sky**
 
 `地图：森林`
 
@@ -137,7 +137,7 @@ tags:
 
 <h3 id="q06">必然回应<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Inevitable Response**
 
 **接取条件**
 
@@ -154,7 +154,7 @@ tags:
 
 <h3 id="q07">感官分析 - 2<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sensory Analysis Part 2**
 
 **接取条件**
 
@@ -169,7 +169,7 @@ tags:
 
 <h3 id="q08">投石问路<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Ask for Directions**
 
 `地图：灯塔`
 
@@ -189,7 +189,7 @@ tags:
 
 <h3 id="q09">拯救大兵罗曼<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Saving Private Roman**
 
 **接取条件**
 
@@ -205,7 +205,7 @@ tags:
 
 <h3 id="q10">独立的代价<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **2** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **The Price of Independence**
 
 **接取条件**
 
@@ -236,7 +236,7 @@ tags:
 
 <h3 id="q11">独立的代价<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **2** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **The Price of Independence 2**
 
 **接取条件**
 
@@ -267,7 +267,7 @@ tags:
 
 <h3 id="q12">现世报<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Swift Retribution**
 
 `地图：森林`
 
@@ -289,7 +289,7 @@ tags:
 
 <h3 id="q13">电池换新<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Battery Change**
 
 **接取条件**
 
@@ -310,7 +310,7 @@ tags:
 
 <h3 id="q14">电池换新<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Battery Change 2**
 
 **接取条件**
 
@@ -326,7 +326,7 @@ tags:
 
 <h3 id="q15">自然交换<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Natural Exchange**
 
 `地图：海岸线`
 
@@ -344,7 +344,7 @@ tags:
 
 <h3 id="q16">苦涩的胜利<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **A Bitter Victory**
 
 **接取条件**
 
@@ -367,7 +367,7 @@ tags:
 
 <h3 id="q17">货运延误 - 2<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Shipping Delay Part 2**
 
 `地图：森林`
 
@@ -386,7 +386,7 @@ tags:
 
 <h3 id="q18">风火轮<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Hot Wheels**
 
 **接取条件**
 
@@ -407,7 +407,7 @@ tags:
 
 <h3 id="q19">风火轮 - 再次出发<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
-**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Hot Wheels Lets Try Again**
 
 `地图：储备站`
 

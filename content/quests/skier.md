@@ -105,7 +105,7 @@ tags:
 
 <h3 id="q01">Polikhim流浪汉<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Polikhim Hobo**
 
 **接取条件**
 
@@ -120,7 +120,7 @@ tags:
 
 <h3 id="q02">U盘里有什么？<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Whats on the Flash Drive**
 
 **接取条件**
 
@@ -136,7 +136,7 @@ tags:
 
 <h3 id="q03">人往高处走<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **The Higher They Fly**
 
 `地图：森林`
 
@@ -157,7 +157,7 @@ tags:
 
 <h3 id="q04">供应商<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Supplier**
 
 **接取条件**
 
@@ -173,7 +173,7 @@ tags:
 
 <h3 id="q05">供货<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Supplements**
 
 **接取条件**
 
@@ -193,7 +193,7 @@ tags:
 
 <h3 id="q06">借刀杀人<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Setup**
 
 `地图：海关`
 
@@ -210,7 +210,7 @@ tags:
 
 <h3 id="q07">偏离路线<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Route Deviation**
 
 `地图：塔科夫街区`
 
@@ -237,7 +237,7 @@ tags:
 
 <h3 id="q08">关键伙伴<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Key Partner**
 
 **接取条件**
 
@@ -256,7 +256,7 @@ tags:
 
 <h3 id="q09">化学品 - 1<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Chemical Part 1**
 
 `**Kappa 必需**` ｜ `地图：海关`
 
@@ -278,7 +278,7 @@ tags:
 
 <h3 id="q10">化学品 - 2<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Chemical Part 2**
 
 `**Kappa 必需**` ｜ `地图：海关`
 
@@ -301,7 +301,7 @@ tags:
 
 <h3 id="q11">北国新秀<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Connections Up North**
 
 **接取条件**
 
@@ -319,7 +319,7 @@ tags:
 
 <h3 id="q12">发财计划<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pyramid Scheme**
 
 `地图：塔科夫街区`
 
@@ -347,7 +347,7 @@ tags:
 
 <h3 id="q13">后知后觉<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Hindsight 2020**
 
 `地图：森林`
 
@@ -371,7 +371,7 @@ tags:
 
 <h3 id="q14">夜间扫荡<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Night Sweep**
 
 **接取条件**
 
@@ -391,7 +391,7 @@ tags:
 
 <h3 id="q15">头号机密<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Top Secret**
 
 `地图：灯塔`
 
@@ -412,7 +412,7 @@ tags:
 
 <h3 id="q16">安全通道<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Safe Corridor**
 
 `地图：储备站`
 
@@ -430,7 +430,7 @@ tags:
 
 <h3 id="q17">安慰奖<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Consolation Prize**
 
 `地图：实验室`
 
@@ -458,7 +458,7 @@ tags:
 
 <h3 id="q18">情报就是力量<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Informed Means Armed**
 
 **接取条件**
 
@@ -475,7 +475,7 @@ tags:
 
 <h3 id="q19">敲诈者<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Extortionist**
 
 `地图：海关`
 
@@ -496,7 +496,7 @@ tags:
 
 <h3 id="q20">暗中破坏<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Kind of Sabotage**
 
 **接取条件**
 
@@ -516,7 +516,7 @@ tags:
 
 <h3 id="q21">禁止打劫<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **No Swiping**
 
 `地图：海岸线`
 
@@ -533,7 +533,7 @@ tags:
 
 <h3 id="q22">私人俱乐部<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Private Club**
 
 `地图：海关`
 
@@ -551,7 +551,7 @@ tags:
 
 <h3 id="q23">秘制食谱<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Secret Recipe**
 
 `地图：塔科夫街区`
 
@@ -570,7 +570,7 @@ tags:
 
 <h3 id="q24">维他命<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Vitamins**
 
 **接取条件**
 
@@ -591,7 +591,7 @@ tags:
 
 <h3 id="q25">老赖<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Debtor**
 
 `地图：塔科夫街区`
 
@@ -611,7 +611,7 @@ tags:
 
 <h3 id="q26">肮脏游戏<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Rigged Game**
 
 `地图：海岸线`
 
@@ -631,7 +631,7 @@ tags:
 
 <h3 id="q27">致命论据<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Killer Argument**
 
 `地图：森林`
 
@@ -653,7 +653,7 @@ tags:
 
 <h3 id="q28">西方来客<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Friend From the West**
 
 **接取条件**
 
@@ -668,7 +668,7 @@ tags:
 
 <h3 id="q29">识时务者为俊杰<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ 前置 **2** 个
+**Skier** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **Choose Your Friends Wisely**
 
 **接取条件**
 
@@ -693,7 +693,7 @@ tags:
 
 <h3 id="q30">转口贸易<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **From Hand to Hand**
 
 `地图：灯塔`
 
@@ -712,7 +712,7 @@ tags:
 
 <h3 id="q31">软禁<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **House Arrest**
 
 `地图：塔科夫街区`
 
@@ -733,7 +733,7 @@ tags:
 
 <h3 id="q32">金色失物<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Golden Swag**
 
 `地图：海关`
 
@@ -753,7 +753,7 @@ tags:
 
 <h3 id="q33">长路漫漫<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Long Road**
 
 **接取条件**
 
@@ -769,7 +769,7 @@ tags:
 
 <h3 id="q34">隔墙有“眼”<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Walls Have Eyes**
 
 `地图：工厂`
 
@@ -790,7 +790,7 @@ tags:
 
 <h3 id="q35">风波<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv0** ｜ **无前置**
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Stirrup**
 
 `地图：工厂`
 
@@ -807,7 +807,7 @@ tags:
 
 <h3 id="q36">快车初体验<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv1** ｜ **无前置**
+**Skier** ｜ 需 **Lv1** ｜ **无前置** ｜ 英文名 **Burning Rubber**
 
 `地图：中心区`
 
@@ -825,7 +825,7 @@ tags:
 
 <h3 id="q37">出口在此<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv7** ｜ **无前置**
+**Skier** ｜ 需 **Lv7** ｜ **无前置** ｜ 英文名 **Exit Here**
 
 `地图：工厂`
 
@@ -842,7 +842,7 @@ tags:
 
 <h3 id="q38">好吃到上瘾<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv7** ｜ **无前置**
+**Skier** ｜ 需 **Lv7** ｜ **无前置** ｜ 英文名 **Beyond the Red Meat**
 
 `地图：塔科夫街区`
 
@@ -861,7 +861,7 @@ tags:
 
 <h3 id="q39">愿者上钩<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv7** ｜ **无前置**
+**Skier** ｜ 需 **Lv7** ｜ **无前置** ｜ 英文名 **Chumming**
 
 **接取条件**
 
@@ -878,7 +878,7 @@ tags:
 
 <h3 id="q40">化学品 - 3<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Chemical Part 3**
 
 `**Kappa 必需**` ｜ `地图：工厂`
 
@@ -897,7 +897,7 @@ tags:
 
 <h3 id="q41">化学品 - 4<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Chemical Part 4**
 
 `地图：海关`
 
@@ -921,7 +921,7 @@ tags:
 
 <h3 id="q42">口干舌燥 - 养家糊口<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Thirsty Breadwinner**
 
 **接取条件**
 
@@ -936,7 +936,7 @@ tags:
 
 <h3 id="q43">口干舌燥 - 送货服务<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Thirsty Delivery**
 
 **接取条件**
 
@@ -954,7 +954,7 @@ tags:
 
 <h3 id="q44">收买人心<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Loyalty Buyout**
 
 **接取条件**
 
@@ -969,7 +969,7 @@ tags:
 
 <h3 id="q45">西方来客 - 2<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Friend From the West Part 2**
 
 **接取条件**
 
@@ -987,7 +987,7 @@ tags:
 
 <h3 id="q46">赚点快钱 - 1（PVP）<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv10** ｜ **无前置**
+**Skier** ｜ 需 **Lv10** ｜ **无前置** ｜ 英文名 **Easy Money Part 1 Pvp Zone**
 
 `地图：海关`
 
@@ -1005,7 +1005,7 @@ tags:
 
 <h3 id="q47">一报还一报<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv12** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Proper Comeback**
 
 **接取条件**
 
@@ -1021,7 +1021,7 @@ tags:
 
 <h3 id="q48">严词指控<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv12** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Serious Allegations**
 
 `地图：海岸线`
 
@@ -1038,7 +1038,7 @@ tags:
 
 <h3 id="q49">高光时刻<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv12** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Minute of Fame**
 
 `地图：立交桥`
 
@@ -1058,7 +1058,7 @@ tags:
 
 <h3 id="q50">失踪货物<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv22** ｜ **无前置**
+**Skier** ｜ 需 **Lv22** ｜ **无前置** ｜ 英文名 **Missing Cargo**
 
 `地图：灯塔`
 
@@ -1077,7 +1077,7 @@ tags:
 
 <h3 id="q51">绝密技术<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv22** ｜ **无前置**
+**Skier** ｜ 需 **Lv22** ｜ **无前置** ｜ 英文名 **Classified Technologies**
 
 `地图：储备站`
 
@@ -1095,7 +1095,7 @@ tags:
 
 <h3 id="q52">诱人新货<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv22** ｜ **无前置**
+**Skier** ｜ 需 **Lv22** ｜ **无前置** ｜ 英文名 **Irresistible**
 
 `地图：立交桥`
 
@@ -1114,7 +1114,7 @@ tags:
 
 <h3 id="q53">绝对威信<a class="headerlink" href="#q53" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv26** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **Indisputable Authority**
 
 `地图：迷宫`
 
@@ -1134,7 +1134,7 @@ tags:
 
 <h3 id="q54">软禁 - 2<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv33** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv33** ｜ 前置 **1** 个 ｜ 英文名 **House Arrest Part 2**
 
 `地图：塔科夫街区`
 
@@ -1154,7 +1154,7 @@ tags:
 
 <h3 id="q55">坚如燧石<a class="headerlink" href="#q55" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv35** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Flint**
 
 **接取条件**
 
@@ -1170,7 +1170,7 @@ tags:
 
 <h3 id="q56">一派胡言<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv38** ｜ **无前置**
+**Skier** ｜ 需 **Lv38** ｜ **无前置** ｜ 英文名 **Bullshit**
 
 `地图：灯塔` ｜ `失败可重接`
 
@@ -1200,7 +1200,7 @@ tags:
 
 <h3 id="q57">大音希声<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv38** ｜ **无前置**
+**Skier** ｜ 需 **Lv38** ｜ **无前置** ｜ 英文名 **Silent Caliber**
 
 **接取条件**
 
@@ -1218,7 +1218,7 @@ tags:
 
 <h3 id="q58">致命道具<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv38** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv38** ｜ 前置 **1** 个 ｜ 英文名 **Dangerous Props**
 
 **接取条件**
 
@@ -1237,7 +1237,7 @@ tags:
 
 <h3 id="q59">公道价 - 1<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv45** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv45** ｜ 前置 **1** 个 ｜ 英文名 **Fair Price Part 1**
 
 **接取条件**
 
@@ -1251,7 +1251,7 @@ tags:
 
 <h3 id="q60">公道价 - 2<a class="headerlink" href="#q60" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv45** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv45** ｜ 前置 **1** 个 ｜ 英文名 **Fair Price Part 2**
 
 `地图：森林`
 
@@ -1271,7 +1271,7 @@ tags:
 
 <h3 id="q61">人生之课<a class="headerlink" href="#q61" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **A Life Lesson**
 
 **接取条件**
 
@@ -1296,7 +1296,7 @@ tags:
 
 <h3 id="q62">利润保留<a class="headerlink" href="#q62" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **Profit Retention**
 
 **接取条件**
 
@@ -1321,7 +1321,7 @@ tags:
 
 <h3 id="q63">学无止境<a class="headerlink" href="#q63" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **Never Too Late to Learn**
 
 **接取条件**
 
@@ -1346,7 +1346,7 @@ tags:
 
 <h3 id="q64">安全保障<a class="headerlink" href="#q64" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv50** ｜ **无前置**
+**Skier** ｜ 需 **Lv50** ｜ **无前置** ｜ 英文名 **Safety Guarantee**
 
 **接取条件**
 
@@ -1371,7 +1371,7 @@ tags:
 
 <h3 id="q65">有利可图的生意<a class="headerlink" href="#q65" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv50** ｜ **无前置**
+**Skier** ｜ 需 **Lv50** ｜ **无前置** ｜ 英文名 **Profitable Venture**
 
 **接取条件**
 
@@ -1394,7 +1394,7 @@ tags:
 
 <h3 id="q66">站稳脚跟<a class="headerlink" href="#q66" title="Permanent link">&para;</a></h3>
 
-**Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个
+**Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **Get a Foothold**
 
 **接取条件**
 

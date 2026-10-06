@@ -55,7 +55,7 @@ tags:
 
 <h3 id="q01">亡羊补牢 - Wergild<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv0** ｜ **无前置**
+**Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Wergild**
 
 **接取条件**
 
@@ -70,7 +70,7 @@ tags:
 
 <h3 id="q02">亡羊补牢 - 信任<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv0** ｜ **无前置**
+**Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Trust**
 
 **接取条件**
 
@@ -86,7 +86,7 @@ tags:
 
 <h3 id="q03">亡羊补牢 - 收藏<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv0** ｜ **无前置**
+**Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Collection**
 
 **接取条件**
 
@@ -101,7 +101,7 @@ tags:
 
 <h3 id="q04">亡羊补牢 - 赌注<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv0** ｜ **无前置**
+**Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Wager**
 
 **接取条件**
 
@@ -116,7 +116,7 @@ tags:
 
 <h3 id="q05">亡羊补牢 - 酒保<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv0** ｜ **无前置**
+**Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Barkeep**
 
 **接取条件**
 
@@ -132,7 +132,7 @@ tags:
 
 <h3 id="q06">免疫力<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Immunity**
 
 **接取条件**
 
@@ -147,7 +147,7 @@ tags:
 
 <h3 id="q07">小本生意 - 1<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Small Business Part 1**
 
 **接取条件**
 
@@ -179,7 +179,7 @@ tags:
 
 <h3 id="q08">小本生意 - 2<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Small Business Part 2**
 
 `失败可重接`
 
@@ -201,7 +201,7 @@ tags:
 
 <h3 id="q09">小本生意 - 3<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Small Business Part 3**
 
 **接取条件**
 
@@ -219,7 +219,7 @@ tags:
 
 <h3 id="q10">建立联系<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv0** ｜ **无前置**
+**Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Establish Contact**
 
 **接取条件**
 
@@ -234,7 +234,7 @@ tags:
 
 <h3 id="q11">陌路相交<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Friend Among Strangers**
 
 `失败可重接`
 
@@ -258,7 +258,7 @@ tags:
 
 <h3 id="q12">两害相权（PVP）<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv10** ｜ 前置 **1** 个
+**Fence** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Between Two Fires Pvp Zone**
 
 `地图：海关`
 
@@ -284,7 +284,7 @@ tags:
 
 <h3 id="q13">良心作祟 - 1（PVP）<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv10** ｜ 前置 **2** 个
+**Fence** ｜ 需 **Lv10** ｜ 前置 **2** 个 ｜ 英文名 **Against the Conscience Part 1 Pvp Zone**
 
 `地图：海关`
 
@@ -306,7 +306,7 @@ tags:
 
 <h3 id="q14">这是什么梗？<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv25** ｜ **无前置**
+**Fence** ｜ 需 **Lv25** ｜ **无前置** ｜ 英文名 **Is This a Reference**
 
 **接取条件**
 
@@ -349,7 +349,7 @@ tags:
 
 <h3 id="q15">收藏家<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv42** ｜ 前置 **5** 个
+**Fence** ｜ 需 **Lv42** ｜ 前置 **5** 个 ｜ 英文名 **Collector**
 
 `**Kappa 必需**`
 
@@ -411,7 +411,7 @@ tags:
 
 <h3 id="q16">抉择<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
-**Fence** ｜ 需 **Lv50** ｜ 前置 **1** 个
+**Fence** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **The Choice**
 
 **接取条件**
 

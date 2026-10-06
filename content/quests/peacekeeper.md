@@ -90,7 +90,7 @@ tags:
 
 <h3 id="q01">TerraGroup 雇员<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Terragroup Employee**
 
 `地图：实验室`
 
@@ -113,7 +113,7 @@ tags:
 
 <h3 id="q02">主钥匙<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Master Key**
 
 `地图：海岸线`
 
@@ -132,7 +132,7 @@ tags:
 
 <h3 id="q03">人口过剩<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Overpopulation**
 
 `地图：灯塔`
 
@@ -150,7 +150,7 @@ tags:
 
 <h3 id="q04">人道主义援助<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Humanitarian Supplies**
 
 `地图：海岸线`
 
@@ -173,7 +173,7 @@ tags:
 
 <h3 id="q05">你渴望电力吗<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **I Need More Power**
 
 `地图：海岸线`
 
@@ -194,7 +194,7 @@ tags:
 
 <h3 id="q06">你的车该洗了<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Your Car Needs a Service**
 
 `地图：塔科夫街区`
 
@@ -215,7 +215,7 @@ tags:
 
 <h3 id="q07">先声夺人<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Seizing the Initiative**
 
 **要求**
 
@@ -227,7 +227,7 @@ tags:
 
 <h3 id="q08">化学实验<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Chemical Experiments**
 
 `地图：海关`
 
@@ -240,7 +240,7 @@ tags:
 
 <h3 id="q09">反抗<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Counteraction Usec**
 
 `地图：灯塔` ｜ `仅限 **USEC**`
 
@@ -261,7 +261,7 @@ tags:
 
 <h3 id="q10">和平原子<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Peacekeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Peaceful Atom**
 
 `地图：破冰船`
 
@@ -278,7 +278,7 @@ tags:
 
 <h3 id="q11">彻夜难眠<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Insomnia**
 
 **接取条件**
 
@@ -296,7 +296,7 @@ tags:
 
 <h3 id="q12">徒步旅行<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Hiking**
 
 `地图：森林`
 
@@ -314,7 +314,7 @@ tags:
 
 <h3 id="q13">悬结已解<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **One Less Loose End**
 
 **接取条件**
 
@@ -336,7 +336,7 @@ tags:
 
 <h3 id="q14">战利品<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Trophies**
 
 **接取条件**
 
@@ -355,7 +355,7 @@ tags:
 
 <h3 id="q15">新路线，新机遇<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **New Paths**
 
 **接取条件**
 
@@ -372,7 +372,7 @@ tags:
 
 <h3 id="q16">无中生有 - 塔科夫街区<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Revision Streets of Tarkov**
 
 `地图：塔科夫街区`
 
@@ -391,7 +391,7 @@ tags:
 
 <h3 id="q17">来自塔科夫的礼物<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gifts From Tarkov**
 
 `地图：灯塔`
 
@@ -411,7 +411,7 @@ tags:
 
 <h3 id="q18">此路不通<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Road Closed Usec**
 
 `地图：塔科夫街区` ｜ `仅限 **USEC**`
 
@@ -430,7 +430,7 @@ tags:
 
 <h3 id="q19">武器流通<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Weapons Circulation**
 
 **接取条件**
 
@@ -448,7 +448,7 @@ tags:
 
 <h3 id="q20">清洁工<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Cleaner**
 
 `地图：储备站`
 
@@ -466,7 +466,7 @@ tags:
 
 <h3 id="q21">燃料短缺<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fuel Shortage**
 
 **要求**
 
@@ -478,7 +478,7 @@ tags:
 
 <h3 id="q22">特殊装备<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Special Equipment**
 
 **接取条件**
 
@@ -506,7 +506,7 @@ tags:
 
 <h3 id="q23">猎虎行动<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Tigr Safari**
 
 `地图：海关`
 
@@ -523,7 +523,7 @@ tags:
 
 <h3 id="q24">破铜烂铁<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Scrap Metal**
 
 `地图：海岸线`
 
@@ -542,7 +542,7 @@ tags:
 
 <h3 id="q25">神秘货物<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Cargo X**
 
 `地图：海岸线`
 
@@ -561,7 +561,7 @@ tags:
 
 <h3 id="q26">秘密消息<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Secret Message**
 
 `地图：塔科夫街区`
 
@@ -578,7 +578,7 @@ tags:
 
 <h3 id="q27">窃听风暴<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Peacekeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Wiring the Vessel**
 
 `地图：破冰船`
 
@@ -599,7 +599,7 @@ tags:
 
 <h3 id="q28">维和任务<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Peacekeeping Mission**
 
 **接取条件**
 
@@ -620,7 +620,7 @@ tags:
 
 <h3 id="q29">铁鸟坠落<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Metal Birds**
 
 `地图：森林`
 
@@ -640,7 +640,7 @@ tags:
 
 <h3 id="q30">鹰眼<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Eagle Eye**
 
 `地图：海岸线`
 
@@ -662,7 +662,7 @@ tags:
 
 <h3 id="q31">单程票<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv8** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv8** ｜ **无前置** ｜ 英文名 **One Way Ticket**
 
 `地图：工厂`
 
@@ -679,7 +679,7 @@ tags:
 
 <h3 id="q32">渔具<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv8** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv8** ｜ **无前置** ｜ 英文名 **Fishing Gear**
 
 `地图：海岸线`
 
@@ -700,7 +700,7 @@ tags:
 
 <h3 id="q33">湿活 - 1<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv8** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv8** ｜ **无前置** ｜ 英文名 **Wet Job Part 1**
 
 `地图：海岸线`
 
@@ -717,7 +717,7 @@ tags:
 
 <h3 id="q34">湿活 - 2<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv8** ｜ 前置 **1** 个
+**Peacekeeper** ｜ 需 **Lv8** ｜ 前置 **1** 个 ｜ 英文名 **Wet Job Part 2**
 
 `地图：海岸线`
 
@@ -735,7 +735,7 @@ tags:
 
 <h3 id="q35">邪教<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv8** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv8** ｜ **无前置** ｜ 英文名 **The Cult**
 
 `地图：海岸线`
 
@@ -755,7 +755,7 @@ tags:
 
 <h3 id="q36">疗养之旅 - 2<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv12** ｜ 前置 **1** 个
+**Peacekeeper** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Spa Tour Part 2**
 
 `地图：海岸线`
 
@@ -774,7 +774,7 @@ tags:
 
 <h3 id="q37">疗养之旅 - 6<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv12** ｜ 前置 **1** 个
+**Peacekeeper** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Spa Tour Part 6**
 
 **接取条件**
 
@@ -789,7 +789,7 @@ tags:
 
 <h3 id="q38">定向追踪<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv19** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv19** ｜ **无前置** ｜ 英文名 **Tracker**
 
 `地图：海岸线`
 
@@ -809,7 +809,7 @@ tags:
 
 <h3 id="q39">无中生有 - 储备站<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv19** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv19** ｜ **无前置** ｜ 英文名 **Revision Reserve**
 
 `地图：储备站`
 
@@ -834,7 +834,7 @@ tags:
 
 <h3 id="q40">无中生有 - 灯塔<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv19** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv19** ｜ **无前置** ｜ 英文名 **Revision Lighthouse**
 
 `地图：灯塔`
 
@@ -854,7 +854,7 @@ tags:
 
 <h3 id="q41">湿活 - 3<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv19** ｜ 前置 **1** 个
+**Peacekeeper** ｜ 需 **Lv19** ｜ 前置 **1** 个 ｜ 英文名 **Wet Job Part 3**
 
 `地图：海岸线`
 
@@ -874,7 +874,7 @@ tags:
 
 <h3 id="q42">湿活 - 4<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv19** ｜ 前置 **1** 个
+**Peacekeeper** ｜ 需 **Lv19** ｜ 前置 **1** 个 ｜ 英文名 **Wet Job Part 4**
 
 `地图：海岸线`
 
@@ -892,7 +892,7 @@ tags:
 
 <h3 id="q43">演示原型<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv19** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv19** ｜ **无前置** ｜ 英文名 **Demonstration Model**
 
 `地图：储备站`
 
@@ -909,7 +909,7 @@ tags:
 
 <h3 id="q44">神秘货物 - 3<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv19** ｜ 前置 **1** 个
+**Peacekeeper** ｜ 需 **Lv19** ｜ 前置 **1** 个 ｜ 英文名 **Cargo X Part 3**
 
 `地图：海岸线`
 
@@ -929,7 +929,7 @@ tags:
 
 <h3 id="q45">机密情报<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv26** ｜ 前置 **1** 个
+**Peacekeeper** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **Confidential Info**
 
 `地图：迷宫`
 
@@ -950,7 +950,7 @@ tags:
 
 <h3 id="q46">向导<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv32** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv32** ｜ **无前置** ｜ 英文名 **The Guide**
 
 `失败可重接`
 
@@ -981,7 +981,7 @@ tags:
 
 <h3 id="q47">导师<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv37** ｜ 前置 **1** 个
+**Peacekeeper** ｜ 需 **Lv37** ｜ 前置 **1** 个 ｜ 英文名 **Mentor**
 
 **接取条件**
 
@@ -996,7 +996,7 @@ tags:
 
 <h3 id="q48">最烂的差事<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv37** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv37** ｜ **无前置** ｜ 英文名 **Worst Job in the World**
 
 **接取条件**
 
@@ -1015,7 +1015,7 @@ tags:
 
 <h3 id="q49">样品<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv37** ｜ **无前置**
+**Peacekeeper** ｜ 需 **Lv37** ｜ **无前置** ｜ 英文名 **Samples**
 
 **接取条件**
 
@@ -1044,7 +1044,7 @@ tags:
 
 <h3 id="q50">湿活 - 5<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv37** ｜ 前置 **1** 个
+**Peacekeeper** ｜ 需 **Lv37** ｜ 前置 **1** 个 ｜ 英文名 **Wet Job Part 5**
 
 `地图：海岸线`
 
@@ -1064,7 +1064,7 @@ tags:
 
 <h3 id="q51">湿活 - 6<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
-**Peacekeeper** ｜ 需 **Lv37** ｜ 前置 **1** 个
+**Peacekeeper** ｜ 需 **Lv37** ｜ 前置 **1** 个 ｜ 英文名 **Wet Job Part 6**
 
 **接取条件**
 

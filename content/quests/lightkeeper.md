@@ -53,7 +53,7 @@ tags:
 
 <h3 id="q01">以牙还牙<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
-**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Payback**
 
 `地图：储备站` ｜ `接取延迟 600 分钟`
 
@@ -74,7 +74,7 @@ tags:
 
 <h3 id="q02">外部订单<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
-**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Order From Outside**
 
 **接取条件**
 
@@ -95,7 +95,7 @@ tags:
 
 <h3 id="q03">大显身手<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
-**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make an Impression**
 
 `接取延迟 600 分钟`
 
@@ -113,7 +113,7 @@ tags:
 
 <h3 id="q04">大都会之谜<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
-**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Trouble in the Big City**
 
 `地图：塔科夫街区` ｜ `接取延迟 600 分钟`
 
@@ -135,7 +135,7 @@ tags:
 
 <h3 id="q05">失踪的线人<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
-**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Missing Informant**
 
 `地图：塔科夫街区` ｜ `接取延迟 600 分钟`
 
@@ -156,7 +156,7 @@ tags:
 
 <h3 id="q06">归还人情<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
-**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Return the Favor**
 
 `地图：森林` ｜ `接取延迟 600 分钟`
 
@@ -175,7 +175,7 @@ tags:
 
 <h3 id="q07">情报之源<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
-**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Information Source**
 
 `接取延迟 0 分钟`
 
@@ -198,7 +198,7 @@ tags:
 
 <h3 id="q08">抢夺先机<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
-**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Snatch**
 
 `接取延迟 600 分钟`
 
@@ -222,7 +222,7 @@ tags:
 
 <h3 id="q09">按图索骥<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
-**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Following the Bread Crumbs**
 
 `接取延迟 600 分钟`
 
@@ -245,7 +245,7 @@ tags:
 
 <h3 id="q10">挑衅<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
-**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Provocation**
 
 `地图：立交桥` ｜ `接取延迟 600 分钟`
 
@@ -268,7 +268,7 @@ tags:
 
 <h3 id="q11">简单副业<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
-**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Simple Side Job**
 
 **接取条件**
 
@@ -289,7 +289,7 @@ tags:
 
 <h3 id="q12">观察员<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
-**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个
+**Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Spotter**
 
 `地图：塔科夫街区` ｜ `接取延迟 600 分钟`
 
@@ -314,7 +314,7 @@ tags:
 
 <h3 id="q13">守望者箴言<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
-**Lightkeeper** ｜ 需 **Lv26** ｜ 前置 **6** 个
+**Lightkeeper** ｜ 需 **Lv26** ｜ 前置 **6** 个 ｜ 英文名 **Keepers Word**
 
 `地图：迷宫`
 
@@ -336,7 +336,7 @@ tags:
 
 <h3 id="q14">天降大礼 [PVP ZONE]<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
-**Lightkeeper** ｜ 需 **Lv35** ｜ 前置 **1** 个
+**Lightkeeper** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Surprise Gift Pvp Zone**
 
 **接取条件**
 
