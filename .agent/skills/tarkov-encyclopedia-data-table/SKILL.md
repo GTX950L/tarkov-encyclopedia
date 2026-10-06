@@ -87,6 +87,7 @@ python scripts/skills_consistency.py
 | **5. 端点的容器类型会变** | `maps["maps"]` 在 list 与 dict 之间变过；只写 `for x in maps["maps"]` 会遍历到字符串键 → `TypeError: string indices must be integers` | 遍历前判类型：`if isinstance(x, dict): x = list(x.values())` |
 | **6. 合并 / 归一化要放在渲染前** | 把「同图同 Boss 合并」写进 `fetch()` → **用缓存重生成时不生效**，重复行照旧 | 后处理放 `main()` 里、渲染之前；这样两条路径都吃到 |
 | **7. 整栏重建会吞掉别人的标记区** | `gen_quests.py` 覆盖整个 `content/quests/index.md`，而该页里有一块是 `gen_quest_items.py` 写的 → **重跑一次就无声抹掉**，不报错 | **凡「整栏重建」的生成器，只要碰过一块别的脚本也在写的页面，就必须先读旧文件、把标记区原样搬过来**（见 `carry_over_extras()`） |
+| **8. 判「重复条目」时签名要够严** | 只比「等级 / 经验 / 目标数 / 前置数 / 钥匙」→ 把「多一条失败条件」的**相近条目**误判成重复（实测：`破镜重圆` 3 条里只有 2 条真重复，`电池换新` 两条根本不是） | **签名必须含 `failConditions` 与奖励**；判据是「**读者点进去会不会看到一模一样的内容**」，不是「像不像」 |
 
 ## Step 5 — 什么该做、什么不该做
 
