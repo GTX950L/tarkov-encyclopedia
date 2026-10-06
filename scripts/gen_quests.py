@@ -780,7 +780,7 @@ def render_task(rec: dict, i: int) -> list[str]:
     if rec["prereqs"]:
         segs = []
         for p in rec["prereqs"]:
-            s = f"**{p['name']}**（{p['trader']}）"
+            s = f"**{one_line(p['name'])}**（{p['trader']}）"
             if p["status"]:
                 s += p["status"]
             segs.append(s)
@@ -1063,8 +1063,21 @@ def render_index(rows: list[dict]) -> list[str]:
     """
     L = ["| # | 任务 | 门槛 | 地图 | 标记 |",
          "|---|------|------|------|------|"]
+    # 「端点重复条目」：数据源里有不同 id、但**内容完全相同**的条目。
+    # 签名必须**把失败条件与奖励也算进去** —— 只比「等级/经验/目标数/前置数/钥匙」会把
+    # 「几乎相同、但多一条失败条件」的条目误判成重复（实测：破镜重圆、电池换新就栽在这）。
+    # **不删**——数据源既然分了两条 id，游戏内可能真有两个实例；只做**标注**。
+    def _sig(r: dict) -> tuple:
+        return (r["name"], r["level"], r["exp"], len(r["objectives"]), len(r["prereqs"]),
+                tuple(r["keys"]), len(r["failConditions"]),
+                len((r.get("rewards") or {}).get("items") or []),
+                len((r.get("rewards") or {}).get("standing") or []))
+
+    sig = Counter(_sig(r) for r in rows)
     for i, rec in enumerate(rows, 1):
         flags = []
+        if sig[_sig(rec)] > 1:
+            flags.append("**端点重复条目**")
         if any(o.get("fir") for o in rec["objectives"]):
             flags.append("**必须战局内找到**")
         if rec["keys"]:
@@ -1119,7 +1132,8 @@ def write_trader_page(key: str, rows: list[dict]) -> None:
         "`必须战局内找到`（跳蚤市场买的不算数）、`需钥匙`、"
         "`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、"
         "`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、"
-        "`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）。",
+        "`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、"
+        "`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。",
         "",
         *render_index(rows),
         "",
