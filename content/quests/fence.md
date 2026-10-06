@@ -53,7 +53,7 @@ tags:
 
 ## Lv0–9 ｜ 11 个任务
 
-<h3 id="q01">亡羊补牢 - Wergild<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
+<h3 id="q01" data-qid="61e6e60c5ca3b3783662be27">亡羊补牢 - Wergild<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Wergild**
 
@@ -68,7 +68,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Fence** +1
 
-<h3 id="q02">亡羊补牢 - 信任<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
+<h3 id="q02" data-qid="61e6e5e0f5b9633f6719ed95">亡羊补牢 - 信任<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Trust**
 
@@ -84,7 +84,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Fence** +1
 
-<h3 id="q03">亡羊补牢 - 收藏<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
+<h3 id="q03" data-qid="61e6e621bfeab00251576265">亡羊补牢 - 收藏<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Collection**
 
@@ -99,7 +99,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Fence** +1
 
-<h3 id="q04">亡羊补牢 - 赌注<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
+<h3 id="q04" data-qid="61e6e60223374d168a4576a6">亡羊补牢 - 赌注<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Wager**
 
@@ -114,7 +114,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Fence** +1
 
-<h3 id="q05">亡羊补牢 - 酒保<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
+<h3 id="q05" data-qid="61e6e615eea2935bc018a2c5">亡羊补牢 - 酒保<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Barkeep**
 
@@ -130,7 +130,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 声望：**Fence** +1
 
-<h3 id="q06">免疫力<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
+<h3 id="q06" data-qid="6663148ca9290f9e0806cca1">免疫力<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Immunity**
 
@@ -145,7 +145,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **欧元** ×1,150 ｜ **xTG-12 解毒剂注射器** ×5
   - 声望：**Fence** +0.02
 
-<h3 id="q07">小本生意 - 1<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
+<h3 id="q07" data-qid="6663148ed7f171c4c20226c1">小本生意 - 1<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Small Business Part 1**
 
@@ -177,7 +177,7 @@ tags:
 - **完成奖励**：经验 **22,800** ｜ **欧元** ×1,800 ｜ **Virtex可编程处理器** ×3
   - 声望：**Fence** +0.02
 
-<h3 id="q08">小本生意 - 2<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
+<h3 id="q08" data-qid="6663149196a9349baa021baa">小本生意 - 2<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Small Business Part 2**
 
@@ -199,7 +199,7 @@ tags:
 - **失败条件**：
   - **击杀／射击** **击杀** ｜ 目标：Kaban／Reshala／Glukhar／Killa／Knight／Shturman／Kollontay／Sanitar／Tagilla／Zryachiy／Big Pipe／Birdeye／Partisan
 
-<h3 id="q09">小本生意 - 3<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
+<h3 id="q09" data-qid="66631493312343839d032d22">小本生意 - 3<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Small Business Part 3**
 
@@ -217,7 +217,7 @@ tags:
 - **完成奖励**：经验 **30,000** ｜ **欧元** ×2,000 ｜ **无名者之声** ×1
   - 声望：**Fence** +0.03
 
-<h3 id="q10">建立联系<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
+<h3 id="q10" data-qid="6672d9def1c88688a707d042">建立联系<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Establish Contact**
 
@@ -232,7 +232,7 @@ tags:
 - **完成奖励**：经验 **8,800** ｜ **欧元** ×600
   - 声望：**Fence** +0.02
 
-<h3 id="q11">陌路相交<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
+<h3 id="q11" data-qid="66631489acf8442f8b05319f">陌路相交<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Friend Among Strangers**
 
@@ -256,7 +256,7 @@ tags:
 
 ## Lv10–19 ｜ 2 个任务
 
-<h3 id="q12">两害相权（PVP）<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
+<h3 id="q12" data-qid="66058ccf06ef1d50a60c1f48">两害相权（PVP）<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Between Two Fires Pvp Zone**
 
@@ -282,7 +282,7 @@ tags:
   - **任务状态** **两难抉择（PVP）** ｜ 状态：完成 —— 该任务线与“两难抉择”冲突
   - **任务状态** **天降大礼 [PVP ZONE]** ｜ 状态：完成 —— 该任务线与“天降大礼”冲突
 
-<h3 id="q13">良心作祟 - 1（PVP）<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
+<h3 id="q13" data-qid="66058ccbc7f3584787181478">良心作祟 - 1（PVP）<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv10** ｜ 前置 **2** 个 ｜ 英文名 **Against the Conscience Part 1 Pvp Zone**
 
@@ -304,7 +304,7 @@ tags:
 
 ## Lv20–29 ｜ 1 个任务
 
-<h3 id="q14">这是什么梗？<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
+<h3 id="q14" data-qid="66d9cbb67b491f9d5304f6e6">这是什么梗？<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv25** ｜ **无前置** ｜ 英文名 **Is This a Reference**
 
@@ -347,7 +347,7 @@ tags:
 
 ## Lv40–49 ｜ 1 个任务
 
-<h3 id="q15">收藏家<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
+<h3 id="q15" data-qid="5c51aac186f77432ea65c552">收藏家<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv42** ｜ 前置 **5** 个 ｜ 英文名 **Collector**
 
@@ -409,7 +409,7 @@ tags:
 
 ## Lv50–59 ｜ 1 个任务
 
-<h3 id="q16">抉择<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
+<h3 id="q16" data-qid="60effd818b669d08a35bfad5">抉择<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **The Choice**
 

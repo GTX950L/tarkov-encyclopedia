@@ -103,7 +103,7 @@ tags:
 
 ## Lv0–9 ｜ 42 个任务
 
-<h3 id="q01">一信之缘<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
+<h3 id="q01" data-qid="6391359b9444fb141f4e6ee6">一信之缘<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Youve Got Mail**
 
@@ -117,7 +117,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-<h3 id="q02">半满半空<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
+<h3 id="q02" data-qid="6740a2c17e3818d5bb0648b6">半满半空<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Half Empty**
 
@@ -133,7 +133,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **Altyn 防弹头盔（橄榄绿）** ×2 ｜ **Altyn面罩** ×2
 - **接取即得**：**RSP-30 反应式信号弹（特种黄）** ×1
 
-<h3 id="q03">占有者<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
+<h3 id="q03" data-qid="669fa399033a3ce9870338a8">占有者<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Possessor**
 
@@ -147,7 +147,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-<h3 id="q04">地区巡逻<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
+<h3 id="q04" data-qid="64e7b9bffd30422ed03dad38">地区巡逻<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **District Patrol**
 
@@ -160,7 +160,7 @@ tags:
 - **完成奖励**：经验 **8,300** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-<h3 id="q05">塔市进口货<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
+<h3 id="q05" data-qid="5c0bd94186f7747a727f09b2">塔市进口货<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Tarkov Import**
 
@@ -177,7 +177,7 @@ tags:
   - 解锁制作：**9x39毫米 PAB-9 ×100（工作站 Lv2）**
 - **接取即得**：**奈特军械公司 (KAC) SR-25 7.62x51 精确射手步枪 PM II 1-8x24** ×1
 
-<h3 id="q06">多鱼之漏<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
+<h3 id="q06" data-qid="60896b7bfa70fc097863b8f5">多鱼之漏<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Documents**
 
@@ -199,7 +199,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Prapor** +0.75
 
-<h3 id="q07">奢靡人生<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
+<h3 id="q07" data-qid="657315e1dccd301f1301416a">奢靡人生<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Luxurious Life**
 
@@ -218,7 +218,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Prapor** +0.1
 
-<h3 id="q08">屋顶战神<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
+<h3 id="q08" data-qid="639136f086e646067c176a8b">屋顶战神<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Kings of the Rooftops**
 
@@ -236,7 +236,7 @@ tags:
   - 声望：**Prapor** +0.25
   - 解锁购买：**SV-98 7.62x54 狙击步枪 默认（Prapor LL2）**
 
-<h3 id="q09">引路先驱<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
+<h3 id="q09" data-qid="675c3507a06634b5110e3c18">引路先驱<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Belka and Strelka**
 
@@ -254,7 +254,7 @@ tags:
   - 声望：**Prapor** +0.1
 - **接取即得**：**RSP-30 反应式信号弹（绿色）** ×1
 
-<h3 id="q10">往事速递<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
+<h3 id="q10" data-qid="59674eb386f774539f14813a">往事速递<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Delivery From the Past**
 
@@ -272,7 +272,7 @@ tags:
   - 声望：**Prapor** +0.25
   - 外观解锁：**英式人字纹**
 
-<h3 id="q11">恐吓者<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
+<h3 id="q11" data-qid="60e71bb4e456d449cd47ca75">恐吓者<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Intimidator**
 
@@ -290,7 +290,7 @@ tags:
   - 技能：**冲锋枪** +4 级
   - 解锁制作：**7.62x39毫米 BP ×60（工作站 Lv3）**
 
-<h3 id="q12">惩罚者 - 1<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
+<h3 id="q12" data-qid="59c512ad86f7741f0d09de9b">惩罚者 - 1<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Punisher Part 1**
 
@@ -303,7 +303,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **DVL-10 7.62x51 栓动式狙击步枪 Urbana** ×1
   - 解锁制作：**5.45x39毫米 PP ×120（工作站 Lv2）**
 
-<h3 id="q13">惩罚者 - 2<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
+<h3 id="q13" data-qid="59c50a9e86f7745fef66f4ff">惩罚者 - 2<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **The Punisher Part 2**
 
@@ -320,7 +320,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **RPK-16 5.45x39 轻机枪 6L26** ×1 ｜ **6L31 5.45x39 AK-74 60发弹匣** ×1
   - 解锁购买：**7.62x39毫米 PS（Prapor LL3）**／**SV-98 7.62x54 狙击步枪 默认（Prapor LL2）**
 
-<h3 id="q14">我们的土地，我们的血<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
+<h3 id="q14" data-qid="6179b5b06e9dd54ac275e409">我们的土地，我们的血<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Our Own Land Bear**
 
@@ -339,7 +339,7 @@ tags:
   - 解锁购买：**刚玉-VM 防弹插板（前部）（Prapor LL3）**／**23x75毫米“红星”闪光弹（Prapor LL3）**
 - **接取即得**：解锁 **GP-25“篝火”40 毫米下挂式榴弹发射器（Prapor LL3）** ｜ 解锁 **40毫米VOG-25榴弹（Prapor LL3）**
 
-<h3 id="q15">掠地攻城<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
+<h3 id="q15" data-qid="60e71b9bbd90872cb85440f3">掠地攻城<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Capturing Outposts**
 
@@ -350,7 +350,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-<h3 id="q16">探囊取物<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
+<h3 id="q16" data-qid="5967725e86f774601a446662">探囊取物<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shaking Up the Teller**
 
@@ -372,7 +372,7 @@ tags:
   - 解锁购买：**9x21毫米 SP13（Prapor LL3）**
 - **接取即得**：**宿舍203房间钥匙** ×1
 
-<h3 id="q17">搜索任务<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
+<h3 id="q17" data-qid="5fd9fad9c1ce6b1a3b486d00">搜索任务<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Search Mission**
 
@@ -387,7 +387,7 @@ tags:
   - 声望：**Prapor** +0.1
 - **接取即得**：**EYE MK.2 手持指南针专业版** ×1
 
-<h3 id="q18">最好的差事<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
+<h3 id="q18" data-qid="63a9ae24009ffc6a551631a5">最好的差事<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Best Job in the World**
 
@@ -404,7 +404,7 @@ tags:
   - 技能：**弹匣训练** +4 级
   - 解锁购买：**ASh-12 12.7x55 突击步枪 默认（Prapor LL4）**
 
-<h3 id="q19">横插一杠<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
+<h3 id="q19" data-qid="6740a3f4eca8acb2d2055159">横插一杠<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Stick in the Wheel**
 
@@ -418,7 +418,7 @@ tags:
 
 - **完成奖励**：经验 **28,000** ｜ **AS VAL“巨浪” 9x39 特种突击步枪 默认** ×1 ｜ **VSS/VAL 9x39 6L25 20发弹匣（黑红色）** ×3 ｜ **9x39mm PAB-9 弹药包（20发装）** ×4
 
-<h3 id="q20">武力说服<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
+<h3 id="q20" data-qid="63a5cf262964a7488f5243ce">武力说服<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Power of Persuasion**
 
@@ -435,7 +435,7 @@ tags:
   - 外观解锁：**鸭子靶纸**
 - **接取即得**：**HK MP5 9x19 冲锋枪（海军三发点射） PRO** ×1 ｜ 解锁 **HK MP5 9x19 冲锋枪（海军三发点射） PRO（Mechanic LL1）**
 
-<h3 id="q21">武装郊游<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
+<h3 id="q21" data-qid="669fa3a40c828825de06d6a1">武装郊游<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Easy Breezy**
 
@@ -451,7 +451,7 @@ tags:
   - 声望：**Prapor** +0.75
 - **接取即得**：**SR-2M 石楠 9x21 冲锋枪 SV-1381** ×1
 
-<h3 id="q22">油料交换<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
+<h3 id="q22" data-qid="69ce1de03e15cd80bd06f6c9">油料交换<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Oil Change**
 
@@ -465,7 +465,7 @@ tags:
 - **完成奖励**：经验 **32,000** ｜ **卢布** ×330,000
   - 解锁购买：**AK-308 7.62x51 突击步枪 Vudu 1-6（Prapor LL1）**
 
-<h3 id="q23">油料快车<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
+<h3 id="q23" data-qid="59c124d686f774189b3c843f">油料快车<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Oil Run**
 
@@ -484,7 +484,7 @@ tags:
   - 解锁购买：**9x21毫米 SP13（Prapor LL3）**
 - **接取即得**：**MS2000指示器** ×1
 
-<h3 id="q24">特别联络<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
+<h3 id="q24" data-qid="66ab970848ddbe9d4a0c49a8">特别联络<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Special Comms**
 
@@ -502,7 +502,7 @@ tags:
   - 声望：**Prapor** +0.75
 - **接取即得**：**Bulbex剪线器** ×1 ｜ **军用电缆** ×1
 
-<h3 id="q25">特殊订单<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
+<h3 id="q25" data-qid="68ee1c18b4e5bc9a68018cd7">特殊订单<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Special Order**
 
@@ -519,7 +519,7 @@ tags:
   - 技能：**魅力** +2 级
   - 解锁购买：**TKPD 9.3x64 突击卡宾枪 XPS3-2（Prapor LL4）**／**9.3x64毫米 FMJ（Prapor LL4）**
 
-<h3 id="q26">硝烟野餐<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
+<h3 id="q26" data-qid="59674cd986f7744ab26e32f2">硝烟野餐<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shootout Picnic**
 
@@ -536,7 +536,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Prapor** +0.1
 
-<h3 id="q27">绿色通道<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
+<h3 id="q27" data-qid="639136d68ba6894d155e77cf">绿色通道<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Green Corridor Bear**
 
@@ -551,7 +551,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-<h3 id="q28">缔结友谊<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
+<h3 id="q28" data-qid="6740a15566e6a521aa051b15">缔结友谊<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **Forge a Friendship**
 
@@ -568,7 +568,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **AK-12 5.45x39 突击步枪 默认** ×1 ｜ **6L26 5.45x39 AK-74 45发弹匣** ×3 ｜ **5.45x39mm BP弹药包（120发装）** ×2
 
-<h3 id="q29">罪证<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
+<h3 id="q29" data-qid="5967530a86f77462ba22226b">罪证<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Bad Rep Evidence**
 
@@ -589,7 +589,7 @@ tags:
   - 声望：**Prapor** +0.1
 - **接取即得**：**简易工棚钥匙** ×1
 
-<h3 id="q30">背景调查<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
+<h3 id="q30" data-qid="5936da9e86f7742d65037edf">背景调查<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Background Check**
 
@@ -609,7 +609,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Prapor** +0.1
 
-<h3 id="q31">财不外露<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
+<h3 id="q31" data-qid="6573397ef3f8344c4575cd87">财不外露<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Properties All Around**
 
@@ -629,7 +629,7 @@ tags:
 - **完成奖励**：经验 **6,600** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-<h3 id="q32">货运延误 - 1<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
+<h3 id="q32" data-qid="673f348dd3346c21670217e7">货运延误 - 1<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Shipping Delay Part 1**
 
@@ -645,7 +645,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **7.62x54mm R 7N1 弹药包（20发装）** ×3 ｜ **5.45x39mm 7N40盒装弹药（30发装）** ×3
 
-<h3 id="q33">踩点行动<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
+<h3 id="q33" data-qid="626bd75c71bd851e971b82a5">踩点行动<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Reconnaissance**
 
@@ -664,7 +664,7 @@ tags:
   - 声望：**Prapor** +0.75
   - 解锁购买：**Tokarev AVT-40 7.62x54R自动步枪 默认（Prapor LL3）**
 
-<h3 id="q34">邮递员派特 - 1<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
+<h3 id="q34" data-qid="59675ea386f77414b32bded2">邮递员派特 - 1<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Postman Pat Part 1**
 
@@ -683,7 +683,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-<h3 id="q35">铁证如山<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
+<h3 id="q35" data-qid="59ca1a6286f774509a270942">铁证如山<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Ironclad Proof**
 
@@ -701,7 +701,7 @@ tags:
   - 解锁购买：**刚玉-VM 防弹插板（前部）（Prapor LL3）**／**23x75毫米“红星”闪光弹（Prapor LL3）**
 - **接取即得**：解锁 **GP-25“篝火”40 毫米下挂式榴弹发射器（Prapor LL3）** ｜ 解锁 **40毫米VOG-25榴弹（Prapor LL3）**
 
-<h3 id="q36">首秀<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
+<h3 id="q36" data-qid="5936d90786f7742b1420ba5b">首秀<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Debut**
 
@@ -712,7 +712,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Prapor** +0.1
 
-<h3 id="q37">麻醉<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
+<h3 id="q37" data-qid="5eda19f0edce541157209cee">麻醉<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Anesthesia**
 
@@ -731,7 +731,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-<h3 id="q38">打靶训练<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
+<h3 id="q38" data-qid="657315df034d76585f032e01">打靶训练<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv1** ｜ **无前置** ｜ 英文名 **Shooting Cans**
 
@@ -746,7 +746,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Prapor** +0.1
 
-<h3 id="q39">掷弹兵<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
+<h3 id="q39" data-qid="5c0d190cd09282029f5390d8">掷弹兵<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv6** ｜ **无前置** ｜ 英文名 **Grenadier**
 
@@ -762,7 +762,7 @@ tags:
   - 声望：**Prapor** +0.25
 - **接取即得**：**VOG-25 Khattabka 简易手榴弹** ×3 ｜ **VOG-17 Khattabka 简易手榴弹** ×3 ｜ **RGN手榴弹** ×3
 
-<h3 id="q40">苏共之辉<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
+<h3 id="q40" data-qid="64f5aac4b63b74469b6c14c2">苏共之辉<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv6** ｜ **无前置** ｜ 英文名 **Glory to Cpsu**
 
@@ -782,7 +782,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Prapor** +0.25
 
-<h3 id="q41">蛋卷冰淇淋<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
+<h3 id="q41" data-qid="59675d6c86f7740a842fc482">蛋卷冰淇淋<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv6** ｜ **无前置** ｜ 英文名 **Ice Cream Cones**
 
@@ -803,7 +803,7 @@ tags:
   - 声望：**Prapor** +0.25
 - **接取即得**：解锁 **6L31 5.45x39 AK-74 60发弹匣（工作站 Lv1）**
 
-<h3 id="q42">大客户<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
+<h3 id="q42" data-qid="597a171586f77405ba6887d3">大客户<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Big Customer**
 
@@ -828,7 +828,7 @@ tags:
 
 ## Lv10–19 ｜ 5 个任务
 
-<h3 id="q43">人间地狱 - 1<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
+<h3 id="q43" data-qid="666314b0acf8442f8b0531a1">人间地狱 - 1<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Hell on Earth Part 1**
 
@@ -842,7 +842,7 @@ tags:
 
 - **完成奖励**：经验 **2,300** ｜ **卢布** ×80,000
 
-<h3 id="q44">往昔时光 - 1<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
+<h3 id="q44" data-qid="666314b4d7f171c4c20226c3">往昔时光 - 1<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **The Good Times Part 1**
 
@@ -859,7 +859,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **春田 M1A 7.62x51 步枪 2k18 NY** ×1 ｜ **M1A 7.62x51 20发弹匣** ×2 ｜ **7.62x51mm M62 曳光弹 弹药包（20发装）** ×3
 - **接取即得**：**6B43 屏障-Sh 防弹衣（数码丛林迷彩） 默认** ×1 ｜ **FORT Kiver-M 防弹头盔** ×1
 
-<h3 id="q45">往昔时光 - 2<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
+<h3 id="q45" data-qid="666314bafd5ca9577902e03a">往昔时光 - 2<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **The Good Times Part 2**
 
@@ -874,7 +874,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **弹药箱** ×2
 - **接取即得**：**托卡列夫 TT-33 7.62x25 黄金手枪 默认** ×1
 
-<h3 id="q46">忠实观众<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
+<h3 id="q46" data-qid="666314bd920800278d0f6748">忠实观众<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Viewer**
 
@@ -890,7 +890,7 @@ tags:
 
 - **完成奖励**：经验 **65,000** ｜ **卢布** ×400,000 ｜ **瓶装 Pevko 淡啤酒** ×5 ｜ **Tarkovskaya瓶装伏特加** ×5
 
-<h3 id="q47">苏共之辉 - 1<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
+<h3 id="q47" data-qid="639135b04ed9512be67647d7">苏共之辉 - 1<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **Glory to Cpsu Part 1**
 
@@ -910,7 +910,7 @@ tags:
 
 ## Lv20–29 ｜ 8 个任务
 
-<h3 id="q48">人间地狱 - 2<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
+<h3 id="q48" data-qid="666314b2a9290f9e0806cca3">人间地狱 - 2<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个 ｜ 英文名 **Hell on Earth Part 2**
 
@@ -926,7 +926,7 @@ tags:
 - **完成奖励**：经验 **16,000** ｜ **卢布** ×275,000 ｜ **VOG-25 Khattabka 简易手榴弹** ×3 ｜ **RGN手榴弹** ×3 ｜ **RGO手榴弹** ×3
 - **接取即得**：**MP-43-1C 12 铅径双管霰弹枪 Short** ×1
 
-<h3 id="q49">叛无所依<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
+<h3 id="q49" data-qid="60896bca6ee58f38c417d4f2">叛无所依<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv21** ｜ **无前置** ｜ 英文名 **No Place for Renegades**
 
@@ -943,7 +943,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Prapor** +0.75
 
-<h3 id="q50">地堡<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
+<h3 id="q50" data-qid="5ede55112c95834b583f052a">地堡<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv21** ｜ **无前置** ｜ 英文名 **The Bunker**
 
@@ -966,7 +966,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Prapor** +0.75
 
-<h3 id="q51">地堡 - 2<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
+<h3 id="q51" data-qid="5ede567cfa6dc072ce15d6e3">地堡 - 2<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个 ｜ 英文名 **The Bunker Part 2**
 
@@ -988,7 +988,7 @@ tags:
 - **完成奖励**：经验 **9,200** ｜ **卢布** ×25,000 ｜ **AKS-74UB 5.45x39 短突击步枪 默认** ×1 ｜ **5.45x39mm BS弹药包（120发装）** ×1 ｜ **CAA RS47 AK 护木** ×1 ｜ **CAA AKTS AK74M 缓冲管** ×1
   - 声望：**Prapor** +0.03
 
-<h3 id="q52">小菜一碟<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
+<h3 id="q52" data-qid="6179ac7511973d018217d0b9">小菜一碟<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv21** ｜ **无前置** ｜ 英文名 **Easy Job**
 
@@ -1007,7 +1007,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Prapor** +0.75
 
-<h3 id="q53">小菜一碟 - 2<a class="headerlink" href="#q53" title="Permanent link">&para;</a></h3>
+<h3 id="q53" data-qid="6179acbdc760af5ad2053585">小菜一碟 - 2<a class="headerlink" href="#q53" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个 ｜ 英文名 **Easy Job Part 2**
 
@@ -1026,7 +1026,7 @@ tags:
   - 解锁购买：**Molot Arms 7.62x39 AK 75发弹鼓（Prapor LL3）**
   - 外观解锁：**脏天花板**
 
-<h3 id="q54">惩罚者 - 3<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
+<h3 id="q54" data-qid="59c50c8886f7745fed3193bf">惩罚者 - 3<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个 ｜ 英文名 **The Punisher Part 3**
 
@@ -1047,7 +1047,7 @@ tags:
   - 解锁购买：**7.62x39毫米 PS（Prapor LL3）**
 - **接取即得**：**KBP VSK-94 9x39步枪 默认** ×1
 
-<h3 id="q55">爱国者的使命<a class="headerlink" href="#q55" title="Permanent link">&para;</a></h3>
+<h3 id="q55" data-qid="64f5deac39e45b527a7c4232">爱国者的使命<a class="headerlink" href="#q55" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv25** ｜ **无前置** ｜ 英文名 **Job for a Patriot**
 
@@ -1066,7 +1066,7 @@ tags:
 
 ## Lv30–39 ｜ 10 个任务
 
-<h3 id="q56">体验独一份<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
+<h3 id="q56" data-qid="675c1ff1a757ddd00404f0aa">体验独一份<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv35** ｜ **无前置** ｜ 英文名 **Unique Experience**
 
@@ -1086,7 +1086,7 @@ tags:
   - 解锁制作：**5.45x39毫米 BP ×60（工作站 Lv3）**
 - **接取即得**：**Aklys Defense 迅猛龙 .300 Blackout 突击步枪 默认** ×1 ｜ 解锁 **.300 Blackout CBJ弹药包（50发装）（Mechanic LL3）**
 
-<h3 id="q57">左右逢源<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
+<h3 id="q57" data-qid="5c12452c86f7744b83469073">左右逢源<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Perfect Mediator**
 
@@ -1108,7 +1108,7 @@ tags:
   - 声望：**Prapor** +0.02
   - 解锁购买：**SR-3M 9x39紧凑型突击步枪 默认（Prapor LL4）**
 
-<h3 id="q58">出警 - 商场<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
+<h3 id="q58" data-qid="64e7b99017ab941a6f7bf9d7">出警 - 商场<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个 ｜ 英文名 **Gendarmerie Mall Cop**
 
@@ -1126,7 +1126,7 @@ tags:
   - 声望：**Prapor** +0.02
   - 解锁购买：**谢尔久科夫 SR1MP 9x21 “斑蝰蛇” 半自动手枪 Tactical 2（Prapor LL4）**
 
-<h3 id="q59">出警 - 检票<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
+<h3 id="q59" data-qid="64e7b9a4aac4cd0a726562cb">出警 - 检票<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个 ｜ 英文名 **Gendarmerie Tickets Please**
 
@@ -1144,7 +1144,7 @@ tags:
   - 声望：**Prapor** +0.03
   - 解锁购买：**SR-2M 石楠 9x21 冲锋枪 FSB（Prapor LL4）**
 
-<h3 id="q60">惩罚者 - 4<a class="headerlink" href="#q60" title="Permanent link">&para;</a></h3>
+<h3 id="q60" data-qid="59ca264786f77445a80ed044">惩罚者 - 4<a class="headerlink" href="#q60" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个 ｜ 英文名 **The Punisher Part 4**
 
@@ -1165,7 +1165,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **7.62x54mm R 7N1 弹药包（20发装）** ×3 ｜ **9x39mm SP-6 弹药包（20发装）** ×3
   - 解锁购买：**7.62x54R 7N1狙击弹（Prapor LL4）**／**9x39毫米 SP-6（Prapor LL4）**
 
-<h3 id="q61">惩罚者 - 5<a class="headerlink" href="#q61" title="Permanent link">&para;</a></h3>
+<h3 id="q61" data-qid="59ca29fb86f77445ab465c87">惩罚者 - 5<a class="headerlink" href="#q61" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个 ｜ 英文名 **The Punisher Part 5**
 
@@ -1187,7 +1187,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **AK-308 7.62x51 突击步枪 默认** ×1 ｜ **AK-308 7.62x51 快拆式消音器** ×1 ｜ **文件包** ×1
   - 解锁购买：**AK-308 7.62x51 突击步枪 默认（Prapor LL4）**／**AK-308 7.62x51 快拆式消音器（Prapor LL4）**
 
-<h3 id="q62">惩罚者 - 6<a class="headerlink" href="#q62" title="Permanent link">&para;</a></h3>
+<h3 id="q62" data-qid="59ca2eb686f77445a80ed049">惩罚者 - 6<a class="headerlink" href="#q62" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个 ｜ 英文名 **The Punisher Part 6**
 
@@ -1206,7 +1206,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **9x39mm SP-6 弹药包（20发装）** ×5 ｜ **SR-3M 9x39紧凑型突击步枪 默认** ×1 ｜ **Epsilon 安全箱** ×1
   - 解锁购买：**SR-3M 9x39紧凑型突击步枪 默认（Prapor LL4）**
 
-<h3 id="q63">管制材料<a class="headerlink" href="#q63" title="Permanent link">&para;</a></h3>
+<h3 id="q63" data-qid="5d4bec3486f7743cac246665">管制材料<a class="headerlink" href="#q63" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ **无前置** ｜ 英文名 **Regulated Materials**
 
@@ -1226,7 +1226,7 @@ tags:
   - 技能：**魅力** +2 级
   - 解锁制作：**6-STEN-140-M军用电池（工作站 Lv1）**
 
-<h3 id="q64">艺术就是爆炸<a class="headerlink" href="#q64" title="Permanent link">&para;</a></h3>
+<h3 id="q64" data-qid="67b45467814ab0ffa000c7e7">艺术就是爆炸<a class="headerlink" href="#q64" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ **无前置** ｜ 英文名 **The Art of Explosion**
 
@@ -1244,7 +1244,7 @@ tags:
   - 技能：**下挂发射器** +4 级
   - 解锁购买：**RShG-2 72.5 毫米火箭发射器 默认（Prapor LL4）**／**Granit 4防弹插板（前部）（Prapor LL4）**
 
-<h3 id="q65">透透气<a class="headerlink" href="#q65" title="Permanent link">&para;</a></h3>
+<h3 id="q65" data-qid="6574e0dedc0d635f633a5805">透透气<a class="headerlink" href="#q65" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv36** ｜ **无前置** ｜ 英文名 **Getting Some Air**
 
@@ -1265,7 +1265,7 @@ tags:
 
 ## Lv40–49 ｜ 1 个任务
 
-<h3 id="q66">护送<a class="headerlink" href="#q66" title="Permanent link">&para;</a></h3>
+<h3 id="q66" data-qid="60e71b62a0beca400d69efc4">护送<a class="headerlink" href="#q66" title="Permanent link">&para;</a></h3>
 
 **Prapor** ｜ 需 **Lv46** ｜ **无前置** ｜ 英文名 **Escort**
 

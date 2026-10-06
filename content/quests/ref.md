@@ -57,7 +57,7 @@ tags:
 
 ## Lv10–19 ｜ 19 个任务
 
-<h3 id="q01">专业热身 - 1（PVP）<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
+<h3 id="q01" data-qid="69788c2bac719606e40b4e77">专业热身 - 1（PVP）<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Professional Fitness Part 1 Pvp Zone**
 
@@ -72,7 +72,7 @@ tags:
 - **完成奖励**：经验 **1,800** ｜ **GP币** ×10
   - 声望：**Ref（竞技场裁判）** +0.01
 
-<h3 id="q02">专业热身 - 2（PVP）<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
+<h3 id="q02" data-qid="69788db3878a4385d10c0718">专业热身 - 2（PVP）<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Professional Fitness Part 2 Pvp Zone**
 
@@ -87,7 +87,7 @@ tags:
 - **完成奖励**：经验 **2,400** ｜ **GP币** ×15 ｜ **传奇奖章** ×1
   - 声望：**Ref（竞技场裁判）** +0.01
 
-<h3 id="q03">两难抉择（PVP）<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
+<h3 id="q03" data-qid="66058cd19f59e625462acc90">两难抉择（PVP）<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Decisions Decisions Pvp Zone**
 
@@ -112,7 +112,7 @@ tags:
   - **任务状态** **两害相权（PVP）** ｜ 状态：完成 —— 该任务线与“两害相权”冲突
   - **任务状态** **天降大礼 [PVP ZONE]** ｜ 状态：完成 —— 该任务线与“天降大礼”冲突
 
-<h3 id="q04">保持领先（PVP）<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
+<h3 id="q04" data-qid="697895b6c639962b2e0cf268">保持领先（PVP）<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Hold the Lead Pvp Zone**
 
@@ -126,7 +126,7 @@ tags:
 
 - **完成奖励**：经验 **9,100** ｜ **GP币** ×75
 
-<h3 id="q05">再创新高！- 1（PVP）<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
+<h3 id="q05" data-qid="66058cc1da30b620a34e6e86">再创新高！- 1（PVP）<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 1 Pvp Zone**
 
@@ -141,7 +141,7 @@ tags:
 - **完成奖励**：经验 **2,800** ｜ **GP币** ×55
   - 声望：**Ref（竞技场裁判）** +0.02
 
-<h3 id="q06">再创新高！- 2（PVP）<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
+<h3 id="q06" data-qid="66058cc208308761cf390993">再创新高！- 2（PVP）<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 2 Pvp Zone**
 
@@ -156,7 +156,7 @@ tags:
 - **完成奖励**：经验 **3,500** ｜ **GP币** ×32 ｜ **上锁的武器箱（稀有）** ×1
   - 声望：**Ref（竞技场裁判）** +0.02
 
-<h3 id="q07">再创新高！- 3（PVP）<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
+<h3 id="q07" data-qid="66058cc5bb83da7ba474aba9">再创新高！- 3（PVP）<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 3 Pvp Zone**
 
@@ -171,7 +171,7 @@ tags:
 - **完成奖励**：经验 **4,500** ｜ **GP币** ×28 ｜ **上锁的贵重物品箱（稀有）** ×1
   - 声望：**Ref（竞技场裁判）** +0.03
 
-<h3 id="q08">再创新高！- 4（PVP）<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
+<h3 id="q08" data-qid="66058cc72cee99303f1ba069">再创新高！- 4（PVP）<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 4 Pvp Zone**
 
@@ -195,7 +195,7 @@ tags:
 - **失败条件**：
   - **到访** —— 失败条件：在 5 场比赛中落败
 
-<h3 id="q09">再创新高！- 5（PVP）<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
+<h3 id="q09" data-qid="66058cc9ae4719735349b9ea">再创新高！- 5（PVP）<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 5 Pvp Zone**
 
@@ -210,7 +210,7 @@ tags:
 - **完成奖励**：经验 **6,900** ｜ **GP币** ×40
   - 声望：**Ref（竞技场裁判）** +0.04
 
-<h3 id="q10">再创新高！- 6（PVP）<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
+<h3 id="q10" data-qid="69789418b2187365e70bb947">再创新高！- 6（PVP）<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 6 Pvp Zone**
 
@@ -226,7 +226,7 @@ tags:
   - 声望：**Ref（竞技场裁判）** +0.04
   - 解锁购买：**APOK ”荒原之地“ 战术短剑（Ref（竞技场裁判） LL2）**
 
-<h3 id="q11">声东击西 - 1（PVP）<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
+<h3 id="q11" data-qid="66058cbd9f59e625462acc8e">声东击西 - 1（PVP）<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Create a Distraction Part 1 Pvp Zone**
 
@@ -243,7 +243,7 @@ tags:
 - **完成奖励**：经验 **5,000** ｜ **GP币** ×28 ｜ **沙漠科技 MDR 5.56x45 突击步枪 EXPS3-0** ×1 ｜ **Magpul PMAG 20 GEN M3 5.56x45 STANAG 20发弹匣** ×3 ｜ **5.56x45mm M856 弹药包（100发装）** ×1
   - 声望：**Ref（竞技场裁判）** +0.05
 
-<h3 id="q12">声东击西 - 2（PVP）<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
+<h3 id="q12" data-qid="66058cbf2f19c31a5a1337ec">声东击西 - 2（PVP）<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Create a Distraction Part 2 Pvp Zone**
 
@@ -265,7 +265,7 @@ tags:
 - **失败条件**：
   - **击杀／射击** **命中** ｜ 目标：Kaban／Kollontay —— 任务进行期间不得杀死Kaban或Kollontay
 
-<h3 id="q13">平衡之力 - 1（PVP）<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
+<h3 id="q13" data-qid="66058cb7c7f3584787181476">平衡之力 - 1（PVP）<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Balancing Part 1 Pvp Zone**
 
@@ -281,7 +281,7 @@ tags:
   - 声望：**Ref（竞技场裁判）** +0.03
 - **接取即得**：**Steyr AUG A1 5.56x45突击步枪 默认** ×2 ｜ **Steyr AUG 5.56x45 30发容量弹匣** ×4 ｜ **5.56x45mm M856 弹药包（100发装）** ×2
 
-<h3 id="q14">平衡之力 - 2（PVP）<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
+<h3 id="q14" data-qid="66058cb9e8e4f17985230805">平衡之力 - 2（PVP）<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Balancing Part 2 Pvp Zone**
 
@@ -297,7 +297,7 @@ tags:
   - 声望：**Ref（竞技场裁判）** +0.03
 - **接取即得**：**PACA 软质防弹背心** ×2
 
-<h3 id="q15">惊喜（PVP）<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
+<h3 id="q15" data-qid="66058cbb06ef1d50a60c1f46">惊喜（PVP）<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Surprise Pvp Zone**
 
@@ -312,7 +312,7 @@ tags:
 - **完成奖励**：经验 **3,600** ｜ **GP币** ×55 ｜ **Maska-1SCh 防弹头盔（Killa 版） 默认** ×1
   - 声望：**Ref（竞技场裁判）** +0.04
 
-<h3 id="q16">收视灵药<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
+<h3 id="q16" data-qid="675c15fbf7da9792a4059871">收视灵药<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Provide Viewership**
 
@@ -334,7 +334,7 @@ tags:
   - 声望：**Ref（竞技场裁判）** +0.02
 - **接取即得**：**WIFI摄像头** ×4
 
-<h3 id="q17">竞技场差事（PVP）<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
+<h3 id="q17" data-qid="697877e0c639962b2e0cf24f">竞技场差事（PVP）<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Arena Business Pvp Zone**
 
@@ -350,7 +350,7 @@ tags:
 
 - **完成奖励**：经验 **19,500** ｜ **GP币** ×102 ｜ **传奇奖章** ×1 ｜ **上锁的武器箱（稀有）** ×1 ｜ **上锁的物资箱（稀有）** ×1 ｜ **上锁的贵重物品箱（稀有）** ×2
 
-<h3 id="q18">良心作祟 - 2（PVP）<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
+<h3 id="q18" data-qid="66058ccde8e4f17985230807">良心作祟 - 2（PVP）<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Against the Conscience Part 2 Pvp Zone**
 
@@ -365,7 +365,7 @@ tags:
 - **完成奖励**：经验 **23,000** ｜ **GP币** ×100
   - 声望：**Ref（竞技场裁判）** +0.04
 
-<h3 id="q19">赚点快钱 - 2（PVP）<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
+<h3 id="q19" data-qid="66058cb5ae4719735349b9e8">赚点快钱 - 2（PVP）<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Easy Money Part 2 Pvp Zone**
 
@@ -383,7 +383,7 @@ tags:
 
 ## Lv30–39 ｜ 1 个任务
 
-<h3 id="q20">迟来的奖励（PVP）<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
+<h3 id="q20" data-qid="67e993f5ed537409f009da75">迟来的奖励（PVP）<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Postponed Reward Pvp Zone**
 

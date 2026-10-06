@@ -88,7 +88,7 @@ tags:
 
 ## Lv0–9 ｜ 35 个任务
 
-<h3 id="q01">TerraGroup 雇员<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
+<h3 id="q01" data-qid="5edac63b930f5454f51e128b">TerraGroup 雇员<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Terragroup Employee**
 
@@ -111,7 +111,7 @@ tags:
   - 技能：**抗压** +2 级
   - 解锁购买：**Mesa Tactical Crosshair Hydraulic 缓冲管（Peacekeeper LL4）**／**Magpul ACS AR-15 卡宾枪托 (FDE)（Peacekeeper LL4）**／**Magpul ACS AR-15 卡宾枪托 (黑色)（Peacekeeper LL4）**
 
-<h3 id="q02">主钥匙<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
+<h3 id="q02" data-qid="5a0449d586f77474e66227b7">主钥匙<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Master Key**
 
@@ -130,7 +130,7 @@ tags:
   - 声望：**Peacekeeper** +0.1
   - 解锁购买：**HK MP5 9x19 冲锋枪（海军三发点射） SD（Peacekeeper LL2）**
 
-<h3 id="q03">人口过剩<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
+<h3 id="q03" data-qid="6179aff8f57fb279792c60a1">人口过剩<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Overpopulation**
 
@@ -148,7 +148,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **美元** ×1,900
   - 声望：**Peacekeeper** +0.75
 
-<h3 id="q04">人道主义援助<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
+<h3 id="q04" data-qid="5a27b87686f77460de0252a8">人道主义援助<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Humanitarian Supplies**
 
@@ -171,7 +171,7 @@ tags:
   - 声望：**Peacekeeper** +0.25
   - 解锁购买：**5.56x45毫米 Warmageddon（Peacekeeper LL2）**／**Hexagon AK-74 5.45x39消音器（Skier LL1）**
 
-<h3 id="q05">你渴望电力吗<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
+<h3 id="q05" data-qid="5a03296886f774569778596a">你渴望电力吗<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **I Need More Power**
 
@@ -192,7 +192,7 @@ tags:
   - 声望：**Peacekeeper** +0.25
   - 解锁购买：**Magpul PRS GEN3 AR-15 枪托（黑色）（Peacekeeper LL3）**
 
-<h3 id="q06">你的车该洗了<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
+<h3 id="q06" data-qid="639135534b15ca31f76bc317">你的车该洗了<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Your Car Needs a Service**
 
@@ -213,7 +213,7 @@ tags:
   - 解锁购买：**M67手榴弹（Peacekeeper LL3）**
 - **接取即得**：**车行负责人办公室钥匙** ×1
 
-<h3 id="q07">先声夺人<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
+<h3 id="q07" data-qid="675c1d6d59b0575973008fc7">先声夺人<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Seizing the Initiative**
 
@@ -225,7 +225,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **美元** ×550
   - 声望：**Peacekeeper** +0.1
 
-<h3 id="q08">化学实验<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
+<h3 id="q08" data-qid="5a27bafb86f7741c73584017">化学实验<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Chemical Experiments**
 
@@ -238,7 +238,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **美元** ×550
   - 声望：**Peacekeeper** +0.1
 
-<h3 id="q09">反抗<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
+<h3 id="q09" data-qid="6179b5eabca27a099552e052">反抗<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Counteraction Usec**
 
@@ -259,7 +259,7 @@ tags:
   - 技能：**冲锋枪** +4 级
   - 解锁购买：**AFAK单兵急救包（Peacekeeper LL4）**／**SAPI III+ 级防弹插板（Peacekeeper LL4）**／**CENS ProFlex DX5 战术耳塞（Peacekeeper LL4）**
 
-<h3 id="q10">和平原子<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
+<h3 id="q10" data-qid="69ce1f84ebbdbf36a200627c">和平原子<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Peaceful Atom**
 
@@ -276,7 +276,7 @@ tags:
 
 - **完成奖励**：经验 **24,000** ｜ **HK G28 7.62x51 精确射手步枪 默认** ×1 ｜ **7.62x51mm M80A1 弹药包（20发装）** ×5 ｜ **HK417/G28 7.62x51 20发弹匣** ×3 ｜ **美元** ×3,600
 
-<h3 id="q11">彻夜难眠<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
+<h3 id="q11" data-qid="5c0bd01e86f7747cdd799e56">彻夜难眠<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Insomnia**
 
@@ -294,7 +294,7 @@ tags:
   - 技能：**冲锋枪** +4 级
   - 解锁购买：**AFAK单兵急救包（Peacekeeper LL4）**／**SAPI III+ 级防弹插板（Peacekeeper LL4）**／**CENS ProFlex DX5 战术耳塞（Peacekeeper LL4）**
 
-<h3 id="q12">徒步旅行<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
+<h3 id="q12" data-qid="6a5c1578f2689567c30eb0f3">徒步旅行<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Hiking**
 
@@ -312,7 +312,7 @@ tags:
   - 声望：**Peacekeeper** +0.1
   - 解锁购买：**Galvion 凯门鳄 复合防弹头盔（灰色）（Peacekeeper LL2）**
 
-<h3 id="q13">悬结已解<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
+<h3 id="q13" data-qid="669fa38fad7f1eac2607ed46">悬结已解<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **One Less Loose End**
 
@@ -334,7 +334,7 @@ tags:
 - **失败条件**：
   - **任务状态** **健全替代** ｜ 状态：完成
 
-<h3 id="q14">战利品<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
+<h3 id="q14" data-qid="60e71ccb5688f6424c7bfec4">战利品<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Trophies**
 
@@ -353,7 +353,7 @@ tags:
   - 技能：**左轮手枪** +4 级
   - 解锁购买：**Crye Precision AirFrame 头盔（黄褐色）（Peacekeeper LL4）**
 
-<h3 id="q15">新路线，新机遇<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
+<h3 id="q15" data-qid="66aa58245ab22944110db6e9">新路线，新机遇<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **New Paths**
 
@@ -370,7 +370,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **美元** ×550
   - 声望：**Peacekeeper** +0.1
 
-<h3 id="q16">无中生有 - 塔科夫街区<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
+<h3 id="q16" data-qid="639135f286e646067c176a87">无中生有 - 塔科夫街区<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Revision Streets of Tarkov**
 
@@ -389,7 +389,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **美元** ×1,100
   - 声望：**Peacekeeper** +0.25
 
-<h3 id="q17">来自塔科夫的礼物<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
+<h3 id="q17" data-qid="61958c366726521dd96828ec">来自塔科夫的礼物<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gifts From Tarkov**
 
@@ -409,7 +409,7 @@ tags:
   - 解锁购买：**M203 40毫米下挂式榴弹发射器（Peacekeeper LL3）**／**40x46毫米 M386(HE)（Peacekeeper LL3）**
 - **接取即得**：解锁 **M203 40毫米下挂式榴弹发射器（Peacekeeper LL3）** ｜ 解锁 **40x46毫米 M386(HE)（Peacekeeper LL3）**
 
-<h3 id="q18">此路不通<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
+<h3 id="q18" data-qid="639282134ed9512be67647ed">此路不通<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Road Closed Usec**
 
@@ -428,7 +428,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **美元** ×1,100
   - 声望：**Peacekeeper** +0.25
 
-<h3 id="q19">武器流通<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
+<h3 id="q19" data-qid="5a27ba1c86f77461ea5a3c56">武器流通<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Weapons Circulation**
 
@@ -446,7 +446,7 @@ tags:
   - 声望：**Peacekeeper** +0.25
   - 解锁购买：**HK 416A5 5.56x45 突击步枪 默认（Peacekeeper LL3）**
 
-<h3 id="q20">清洁工<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
+<h3 id="q20" data-qid="60e71c9ad54b755a3b53eb66">清洁工<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Cleaner**
 
@@ -464,7 +464,7 @@ tags:
   - 声望：**Peacekeeper** +0.75
   - 解锁购买：**7.62x51毫米 M80（Peacekeeper LL4）**
 
-<h3 id="q21">燃料短缺<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
+<h3 id="q21" data-qid="5a0327ba86f77456b9154236">燃料短缺<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fuel Shortage**
 
@@ -476,7 +476,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **美元** ×550
   - 声望：**Peacekeeper** +0.1
 
-<h3 id="q22">特殊装备<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
+<h3 id="q22" data-qid="60e71ce009d7c801eb0c0ec6">特殊装备<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Special Equipment**
 
@@ -504,7 +504,7 @@ tags:
   - 解锁购买：**THICC 物品箱（Peacekeeper LL4）**
   - 解锁制作：**5.56x45毫米 M855A1 ×90（工作站 Lv3）**
 
-<h3 id="q23">猎虎行动<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
+<h3 id="q23" data-qid="5a27b7a786f774579c3eb376">猎虎行动<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Tigr Safari**
 
@@ -521,7 +521,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **美元** ×550
   - 声望：**Peacekeeper** +0.1
 
-<h3 id="q24">破铜烂铁<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
+<h3 id="q24" data-qid="5a27b7d686f77460d847e6a6">破铜烂铁<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Scrap Metal**
 
@@ -540,7 +540,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **美元** ×1,100
   - 声望：**Peacekeeper** +0.25
 
-<h3 id="q25">神秘货物<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
+<h3 id="q25" data-qid="5a27bb1e86f7741f27621b7e">神秘货物<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Cargo X**
 
@@ -559,7 +559,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **美元** ×1,900
   - 声望：**Peacekeeper** +0.75
 
-<h3 id="q26">秘密消息<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
+<h3 id="q26" data-qid="6a5ccda873f06065630d61b0">秘密消息<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Secret Message**
 
@@ -576,7 +576,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **美元** ×1,100
   - 声望：**Peacekeeper** +0.25
 
-<h3 id="q27">窃听风暴<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
+<h3 id="q27" data-qid="69e5583240c3e6c8ba0edbd5">窃听风暴<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Wiring the Vessel**
 
@@ -597,7 +597,7 @@ tags:
   - 解锁购买：**SICC 收纳包（Peacekeeper LL1）**
 - **接取即得**：**本地网络黑客入侵装置** ×1
 
-<h3 id="q28">维和任务<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
+<h3 id="q28" data-qid="5c0d4c12d09282029f539173">维和任务<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Peacekeeping Mission**
 
@@ -618,7 +618,7 @@ tags:
   - 解锁购买：**沙漠科技 MDR 7.62x51 突击步枪 默认（Peacekeeper LL4）**／**Cult Locust防弹插板（Skier LL4）**
 - **接取即得**：**UNTAR头盔** ×1 ｜ **MF-UNTAR防弹背心** ×1 ｜ **柯尔特 M4A1 5.56x45 卡宾枪 KAC RIS** ×1 ｜ **Magpul PMAG 30 GEN M3 5.56x45 STANAG 30发弹匣** ×3
 
-<h3 id="q29">铁鸟坠落<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
+<h3 id="q29" data-qid="5b4794cb86f774598100d5d4">铁鸟坠落<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Metal Birds**
 
@@ -638,7 +638,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **美元** ×550
   - 声望：**Peacekeeper** +0.1
 
-<h3 id="q30">鹰眼<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
+<h3 id="q30" data-qid="5a27b80086f774429a5d7e20">鹰眼<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Eagle Eye**
 
@@ -660,7 +660,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **美元** ×1,100
   - 声望：**Peacekeeper** +0.25
 
-<h3 id="q31">单程票<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
+<h3 id="q31" data-qid="5a03153686f77442d90e2171">单程票<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv8** ｜ **无前置** ｜ 英文名 **One Way Ticket**
 
@@ -677,7 +677,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **美元** ×1,100
   - 声望：**Peacekeeper** +0.25
 
-<h3 id="q32">渔具<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
+<h3 id="q32" data-qid="5a27b75b86f7742e97191958">渔具<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv8** ｜ **无前置** ｜ 英文名 **Fishing Gear**
 
@@ -698,7 +698,7 @@ tags:
   - 解锁购买：**柯尔特 M16A1 5.56x45 突击步枪（Peacekeeper LL2）**
 - **接取即得**：**Leatherman多功能工具钳** ×1 ｜ **MF-UNTAR防弹背心** ×1
 
-<h3 id="q33">湿活 - 1<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
+<h3 id="q33" data-qid="5a27bb8386f7741c770d2d0a">湿活 - 1<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv8** ｜ **无前置** ｜ 英文名 **Wet Job Part 1**
 
@@ -715,7 +715,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **美元** ×1,100 ｜ **FN Five-seveN MK2 5.7x28 手枪 (FDE) 默认** ×1 ｜ **5.7x28mm L191 弹药包（50发装）** ×1
   - 解锁购买：**FN Five-seveN MK2 5.7x28 手枪 (FDE) 默认（Peacekeeper LL2）**
 
-<h3 id="q34">湿活 - 2<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
+<h3 id="q34" data-qid="5a27bbf886f774333a418eeb">湿活 - 2<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv8** ｜ 前置 **1** 个 ｜ 英文名 **Wet Job Part 2**
 
@@ -733,7 +733,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **美元** ×1,100 ｜ **FN SCAR-L 5.56x45突击步枪 （FDE） CQC** ×1 ｜ **Eberlestock F5 弹簧刀 背包（干土色）** ×1 ｜ **5.56x45mm M855 弹药包（100发装）** ×1
   - 解锁购买：**FN SCAR-L 5.56x45突击步枪 （FDE） CQC（Peacekeeper LL2）**
 
-<h3 id="q35">邪教<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
+<h3 id="q35" data-qid="5a27b9de86f77464e5044585">邪教<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv8** ｜ **无前置** ｜ 英文名 **The Cult**
 
@@ -753,7 +753,7 @@ tags:
 
 ## Lv10–19 ｜ 9 个任务
 
-<h3 id="q36">疗养之旅 - 2<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
+<h3 id="q36" data-qid="5a03173786f77451cb427172">疗养之旅 - 2<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Spa Tour Part 2**
 
@@ -772,7 +772,7 @@ tags:
   - 声望：**Peacekeeper** +0.02
   - 解锁购买：**M67手榴弹（Peacekeeper LL3）**
 
-<h3 id="q37">疗养之旅 - 6<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
+<h3 id="q37" data-qid="5a27ba9586f7741b543d8e85">疗养之旅 - 6<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Spa Tour Part 6**
 
@@ -787,7 +787,7 @@ tags:
 - **完成奖励**：经验 **9,500**
   - 声望：**Peacekeeper** +0.04
 
-<h3 id="q38">定向追踪<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
+<h3 id="q38" data-qid="5a27bb3d86f77411ea361a21">定向追踪<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv19** ｜ **无前置** ｜ 英文名 **Tracker**
 
@@ -807,7 +807,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **美元** ×1,900
   - 声望：**Peacekeeper** +0.75
 
-<h3 id="q39">无中生有 - 储备站<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
+<h3 id="q39" data-qid="6086c852c945025d41566124">无中生有 - 储备站<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv19** ｜ **无前置** ｜ 英文名 **Revision Reserve**
 
@@ -832,7 +832,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **美元** ×1,900
   - 声望：**Peacekeeper** +0.75
 
-<h3 id="q40">无中生有 - 灯塔<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
+<h3 id="q40" data-qid="6179b4d1bca27a099552e04e">无中生有 - 灯塔<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv19** ｜ **无前置** ｜ 英文名 **Revision Lighthouse**
 
@@ -852,7 +852,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **美元** ×1,900
   - 声望：**Peacekeeper** +0.75
 
-<h3 id="q41">湿活 - 3<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
+<h3 id="q41" data-qid="5a27bc1586f7741f6d40fa2f">湿活 - 3<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv19** ｜ 前置 **1** 个 ｜ 英文名 **Wet Job Part 3**
 
@@ -872,7 +872,7 @@ tags:
   - 解锁制作：**.300 Blackout M62 曳光弹 ×100（工作站 Lv2）**
 - **接取即得**：**MS2000指示器** ×1
 
-<h3 id="q42">湿活 - 4<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
+<h3 id="q42" data-qid="5a27bc3686f7741c73584026">湿活 - 4<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv19** ｜ 前置 **1** 个 ｜ 英文名 **Wet Job Part 4**
 
@@ -890,7 +890,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **美元** ×1,900 ｜ **7.62x51mm M80A1 弹药包（20发装）** ×5 ｜ **M67手榴弹** ×5
   - 解锁制作：**7.62x51毫米 M80A1 ×40（工作站 Lv3）**
 
-<h3 id="q43">演示原型<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
+<h3 id="q43" data-qid="6a5cd2178fd7c2b201032f3f">演示原型<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv19** ｜ **无前置** ｜ 英文名 **Demonstration Model**
 
@@ -907,7 +907,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **美元** ×1,900
   - 声望：**Peacekeeper** +0.75
 
-<h3 id="q44">神秘货物 - 3<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
+<h3 id="q44" data-qid="5a27bb5986f7741dfb660900">神秘货物 - 3<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv19** ｜ 前置 **1** 个 ｜ 英文名 **Cargo X Part 3**
 
@@ -927,7 +927,7 @@ tags:
 
 ## Lv20–29 ｜ 1 个任务
 
-<h3 id="q45">机密情报<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
+<h3 id="q45" data-qid="67a09724972c11a3f5077324">机密情报<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **Confidential Info**
 
@@ -948,7 +948,7 @@ tags:
 
 ## Lv30–39 ｜ 6 个任务
 
-<h3 id="q46">向导<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
+<h3 id="q46" data-qid="5c0d4e61d09282029f53920e">向导<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv32** ｜ **无前置** ｜ 英文名 **The Guide**
 
@@ -979,7 +979,7 @@ tags:
 - **失败条件**：
   - **撤离** 撤离点状态：行动中阵亡(KIA)／离开行动／行动中失踪 (MIA) —— 任务进行过程中不得死亡，或以其它状态离开战局（阵亡、擅离、失踪、匆匆逃离均会导致失败）
 
-<h3 id="q47">导师<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
+<h3 id="q47" data-qid="5d6fbc2886f77449d825f9d3">导师<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv37** ｜ 前置 **1** 个 ｜ 英文名 **Mentor**
 
@@ -994,7 +994,7 @@ tags:
 - **完成奖励**：—（无物品或经验奖励）
   - 技能：**栓动式步枪** +3 级
 
-<h3 id="q48">最烂的差事<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
+<h3 id="q48" data-qid="63a9b229813bba58a50c9ee5">最烂的差事<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv37** ｜ **无前置** ｜ 英文名 **Worst Job in the World**
 
@@ -1013,7 +1013,7 @@ tags:
   - 解锁购买：**M203 40毫米下挂式榴弹发射器（Peacekeeper LL3）**／**40x46毫米 M386(HE)（Peacekeeper LL3）**／**Team Wendy EXFIL 防弹头盔（黑色）（Peacekeeper LL4）**
   - 解锁制作：**.300 Blackout AP ×50（工作站 Lv3）**
 
-<h3 id="q49">样品<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
+<h3 id="q49" data-qid="5edac020218d181e29451446">样品<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv37** ｜ **无前置** ｜ 英文名 **Samples**
 
@@ -1042,7 +1042,7 @@ tags:
   - 声望：**Peacekeeper** +1.5
   - 解锁购买：**Ops-Core FAST MT 超级高切 头盔（城市褐）（Peacekeeper LL4）**／**Ops-Core FAST头盔多重打击防弹面罩（Peacekeeper LL4）**
 
-<h3 id="q50">湿活 - 5<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
+<h3 id="q50" data-qid="5a27bc6986f7741c7358402b">湿活 - 5<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv37** ｜ 前置 **1** 个 ｜ 英文名 **Wet Job Part 5**
 
@@ -1062,7 +1062,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **HighCom Trooper TFO 防弹背心（复合迷彩） 默认** ×1 ｜ **雷明顿 R11 RSASS 7.62x51 精确射手步枪 默认** ×1
   - 解锁购买：**雷明顿 R11 RSASS 7.62x51 精确射手步枪 默认（Peacekeeper LL4）**
 
-<h3 id="q51">湿活 - 6<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
+<h3 id="q51" data-qid="5a27bc8586f7741b543d8ea4">湿活 - 6<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv37** ｜ 前置 **1** 个 ｜ 英文名 **Wet Job Part 6**
 

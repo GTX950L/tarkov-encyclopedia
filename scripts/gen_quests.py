@@ -759,7 +759,7 @@ def render_task(rec: dict, i: int) -> list[str]:
     的编号与这里的标题一一对应 —— 编号错位比没有编号更糟。标题本身由
     `task_heading` 输出成原生 HTML，原因见该函数的说明。
     """
-    L: list[str] = [task_heading(i, rec["name"]), ""]
+    L: list[str] = [task_heading(i, rec["name"], rec.get("id", "")), ""]
     meta = [f"**{TRADER_LABEL.get(rec['trader'], rec['trader'])}**", f"需 **Lv{rec['level']}**"]
     meta.append(f"前置 **{len(rec['prereqs'])}** 个" if rec["prereqs"] else "**无前置**")
     if rec["en"]:
@@ -1051,7 +1051,7 @@ def html_escape(s: str) -> str:
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def task_heading(i: int, name: str) -> str:
+def task_heading(i: int, name: str, qid: str = "") -> str:
     """任务标题用**原生 HTML** 而不是 markdown `###` —— 这是一处必须写下来的取舍：
 
     1. **右侧目录从 91 项降到十来个。** `toc` 扩展只收集 Markdown 解析出来的
@@ -1062,10 +1062,17 @@ def task_heading(i: int, name: str) -> str:
     2. **锚点由生成器自己给**（`q01`），而不是主题按中文标题生成的 `_2`/`_3`。
     3. 手动补回主题的 `¶` 永久链接 —— 否则读者会失去「复制某任务的直达链接」
        这个原有能力，属于纯粹的功能退化。
+
+    另有一个 `data-qid`：任务的**数据端点稳定 id**（tarkov.dev 的 24 位十六进制）。
+    它存在的唯一目的是给「任务进度追踪」（`javascripts/progress.js`）当存储键 ——
+    页面上的 `q01` 是**本页序号**，同一个锚点在 11 个商人页里各出现一次，
+    拿它当键会让「Prapor 的 q01」和「Skier 的 q01」互相覆盖。
+    数据 id 不随排序、增删、改版漂移，是唯一安全的选择。
     """
     safe = html_escape(quote_cn(one_line(name)))
     a = anchor_of(i)
-    return (f'<h3 id="{a}">{safe}'
+    qid_attr = f' data-qid="{html_escape(qid)}"' if qid else ""
+    return (f'<h3 id="{a}"{qid_attr}>{safe}'
             f'<a class="headerlink" href="#{a}" title="Permanent link">&para;</a></h3>')
 
 

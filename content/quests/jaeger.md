@@ -101,7 +101,7 @@ tags:
 
 ## Lv0–9 ｜ 41 个任务
 
-<h3 id="q01">事倍功半<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
+<h3 id="q01" data-qid="675c1cf4a757ddd00404f0a3">事倍功半<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Work Smarter**
 
@@ -119,7 +119,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000 ｜ **波纹软管** ×2
   - 声望：**Jaeger** +0.1
 
-<h3 id="q02">卑鄙的外乡人<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
+<h3 id="q02" data-qid="66ab9da7eb102b9bcd08591c">卑鄙的外乡人<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Foresters Duty**
 
@@ -136,7 +136,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **Shustrilo发泡密封胶** ×2
   - 声望：**Jaeger** +0.75
 
-<h3 id="q03">危机四伏塔科夫<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
+<h3 id="q03" data-qid="66b38c7bf85b8bf7250f9cb6">危机四伏塔科夫<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Rough Tarkov**
 
@@ -148,7 +148,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Jaeger** +0.1
 
-<h3 id="q04">塔科夫神射手 - 1<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
+<h3 id="q04" data-qid="5bc4776586f774512d07cf05">塔科夫神射手 - 1<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Tarkov Shooter Part 1**
 
@@ -166,7 +166,7 @@ tags:
   - 解锁购买：**Aim Sports莫辛步枪MNG导轨（Jaeger LL1）**／**Aim Sports莫辛步枪后座力缓冲垫（Jaeger LL1）**
 - **接取即得**：**莫辛-纳甘 7.62x54R 栓动式步枪（狙击型） 默认** ×2 ｜ **MP-18 7.62x54R单发步枪 默认** ×2
 
-<h3 id="q05">如楔在侧<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
+<h3 id="q05" data-qid="69ce1cfb298a6529b30d712b">如楔在侧<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **A Wedge Between Us**
 
@@ -180,7 +180,7 @@ tags:
 
 - **完成奖励**：经验 **52,000** ｜ **卢布** ×450,000 ｜ **Accuracy International AXMC .338 LM 栓动式狙击步枪 默认** ×1 ｜ **.338 Lapua Magnum FMJ弹药包（20发装）** ×3 ｜ **AI AXMC .338 LM 10发容量弹匣** ×3
 
-<h3 id="q06">害虫防治<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
+<h3 id="q06" data-qid="608a768d82e40b3c727fd17d">害虫防治<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pest Control**
 
@@ -197,7 +197,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Jaeger** +0.75
 
-<h3 id="q07">幽闭恐惧症<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
+<h3 id="q07" data-qid="669fa3979b0ce3feae01a130">幽闭恐惧症<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Claustrophobia**
 
@@ -214,7 +214,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **KEKTAPE管道胶带** ×3
   - 声望：**Jaeger** +0.25
 
-<h3 id="q08">快枪手<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
+<h3 id="q08" data-qid="60e729cf5698ee7b05057439">快枪手<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Swift**
 
@@ -231,7 +231,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Jaeger** +0.1
 
-<h3 id="q09">怀旧之情<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
+<h3 id="q09" data-qid="5d25e4ad86f77443e625e387">怀旧之情<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Nostalgia**
 
@@ -250,7 +250,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **KEKTAPE管道胶带** ×3
   - 声望：**Jaeger** +0.25
 
-<h3 id="q10">急救措施<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
+<h3 id="q10" data-qid="5d25e46e86f77409453bce7c">急救措施<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **First Aid**
 
@@ -268,7 +268,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Jaeger** +0.1
 
-<h3 id="q11">污秽遍地……<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
+<h3 id="q11" data-qid="600302d73b897b11364cd161">污秽遍地……<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **All This Filth**
 
@@ -279,7 +279,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Jaeger** +0.1
 
-<h3 id="q12">熟人<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
+<h3 id="q12" data-qid="5d24b81486f77439c92d6ba8">熟人<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Acquaintance**
 
@@ -290,7 +290,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Jaeger** +0.1
 
-<h3 id="q13">狩猎之旅<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
+<h3 id="q13" data-qid="5d25e4ca86f77409dd5cdf2c">狩猎之旅<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Hunting Trip**
 
@@ -310,7 +310,7 @@ tags:
   - 解锁购买：**Accuracy International AXMC .338 LM 栓动式狙击步枪 默认（Jaeger LL4）**
 - **接取即得**：**Accuracy International AXMC .338 LM 栓动式狙击步枪 PM II 5-25x56** ×1 ｜ **Sako TRG M10 .338 LM 栓动狙击步枪 Mark 5HD 5-25x56** ×1 ｜ **.338 Lapua Magnum FMJ** ×30
 
-<h3 id="q14">猎人之路 - 周边安全<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
+<h3 id="q14" data-qid="5d25e2b486f77409de05bba0">猎人之路 - 周边安全<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Secured Perimeter**
 
@@ -327,7 +327,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Jaeger** +0.75
 
-<h3 id="q15">猎人之路 - 坏警察<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
+<h3 id="q15" data-qid="6578eb36e5020875d64645cd">猎人之路 - 坏警察<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Crooked Cop**
 
@@ -341,7 +341,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Jaeger** +0.25
 
-<h3 id="q16">猎人之路 - 大动作<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
+<h3 id="q16" data-qid="64e7b971f9d6fa49d6769b44">猎人之路 - 大动作<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Big Game**
 
@@ -354,7 +354,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Jaeger** +0.25
 
-<h3 id="q17">猎人之路 - 工厂头目<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
+<h3 id="q17" data-qid="60c0c018f7afb4354815096a">猎人之路 - 工厂头目<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Factory Chief**
 
@@ -369,7 +369,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Jaeger** +0.25
 
-<h3 id="q18">猎人之路 - 愤怒守望者<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
+<h3 id="q18" data-qid="5d25e44386f77409453bce7b">猎人之路 - 愤怒守望者<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Angry Watchman**
 
@@ -386,7 +386,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000 ｜ **波纹软管** ×2
   - 声望：**Jaeger** +0.1
 
-<h3 id="q19">猎人之路 - 战利品<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
+<h3 id="q19" data-qid="5d25e2c386f77443e7549029">猎人之路 - 战利品<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Trophy**
 
@@ -404,7 +404,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000 ｜ **波纹软管** ×2
   - 声望：**Jaeger** +0.1
 
-<h3 id="q20">猎人之路 - 杀戮森林<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
+<h3 id="q20" data-qid="5d25e2cc86f77443e47ae019">猎人之路 - 杀戮森林<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Forest Cleaning**
 
@@ -419,7 +419,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **Shustrilo发泡密封胶** ×2
   - 声望：**Jaeger** +0.75
 
-<h3 id="q21">猎人之路 - 森林管理员<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
+<h3 id="q21" data-qid="5d25e2ee86f77443e35162ea">猎人之路 - 森林管理员<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Woods Keeper**
 
@@ -438,7 +438,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Jaeger** +0.1
 
-<h3 id="q22">猎人之路 - 正义<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
+<h3 id="q22" data-qid="5d25e43786f7740a212217fa">猎人之路 - 正义<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Justice**
 
@@ -454,7 +454,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000 ｜ **波纹软管** ×2
   - 声望：**Jaeger** +0.1
 
-<h3 id="q23">猎人之路 - 流浪汉<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
+<h3 id="q23" data-qid="6179ad0a6e9dd54ac275e3f2">猎人之路 - 流浪汉<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Outcasts**
 
@@ -471,7 +471,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **Shustrilo发泡密封胶** ×2
   - 声望：**Jaeger** +0.75
 
-<h3 id="q24">猎人之路 - 脱销<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
+<h3 id="q24" data-qid="5d25e2e286f77444001e2e48">猎人之路 - 脱销<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Sellout**
 
@@ -486,7 +486,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Jaeger** +0.25
 
-<h3 id="q25">猎人之路 - 蒸发密令 - 1<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
+<h3 id="q25" data-qid="5d25e44f86f77443e625e385">猎人之路 - 蒸发密令 - 1<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Eraser**
 
@@ -505,7 +505,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Jaeger** +0.75
 
-<h3 id="q26">猎人之路 - 虐待狂<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
+<h3 id="q26" data-qid="5edab4b1218d181e29451435">猎人之路 - 虐待狂<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Sadist**
 
@@ -529,7 +529,7 @@ tags:
 - **失败条件**：
   - **任务状态** **艰难抉择** ｜ 状态：完成
 
-<h3 id="q27">猎人之路 - 解放<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
+<h3 id="q27" data-qid="5d25e45e86f77408251c4bfa">猎人之路 - 解放<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Liberation**
 
@@ -544,7 +544,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **Shustrilo发泡密封胶** ×2
   - 声望：**Jaeger** +0.75
 
-<h3 id="q28">礼节性拜访<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
+<h3 id="q28" data-qid="5d25e48186f77443e625e386">礼节性拜访<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Courtesy Visit**
 
@@ -564,7 +564,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Jaeger** +0.25
 
-<h3 id="q29">美味香肠<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
+<h3 id="q29" data-qid="63a88045abf76d719f42d715">美味香肠<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Delicious Sausage**
 
@@ -585,7 +585,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Jaeger** +0.25
 
-<h3 id="q30">试炼之路<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
+<h3 id="q30" data-qid="675c1ec7a46173572a0bf20a">试炼之路<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Rite of Passage**
 
@@ -604,7 +604,7 @@ tags:
 - **完成奖励**：经验 **43,000** ｜ **卢布** ×202,000 ｜ **雷明顿Model 700 7.62x51 狙击步枪 MRS** ×1 ｜ **M700 7.62x51 Wyatt's Outdoor 10发容量弹匣** ×3 ｜ **7.62x51mm M80 弹药包（20发装）** ×2
   - 声望：**Jaeger** +0.03
 
-<h3 id="q31">别开枪！<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
+<h3 id="q31" data-qid="639136e84ed9512be67647db">别开枪！<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Cease Fire**
 
@@ -622,7 +622,7 @@ tags:
   - 声望：**Jaeger** +0.25
 - **接取即得**：**RSP-30 反应式信号弹（绿色）** ×2
 
-<h3 id="q32">口干舌燥 - 猎犬行动<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
+<h3 id="q32" data-qid="665eeacf5d86b6c8aa03c79b">口干舌燥 - 猎犬行动<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Thirsty Hounds**
 
@@ -638,7 +638,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **12/70 RIP弹药包（5发装）** ×6 ｜ **SAI-02 12/70 SOK-12 10发弹匣** ×2 ｜ **Saiga-12K 12 铅径自动霰弹枪 默认** ×1
 
-<h3 id="q33">塔科夫神射手 - 2<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
+<h3 id="q33" data-qid="5bc479e586f7747f376c7da3">塔科夫神射手 - 2<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 2**
 
@@ -657,7 +657,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **莫辛步枪Tacfire坦克手型7.62x54R膛口制退器** ×2 ｜ **Aim Sports “三轨” 莫辛步枪导轨** ×2
   - 解锁购买：**Aim Sports “三轨” 莫辛步枪导轨（Jaeger LL2）**／**莫辛步枪Tacfire坦克手型7.62x54R膛口制退器（Jaeger LL2）**
 
-<h3 id="q34">塔科夫神射手 - 3<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
+<h3 id="q34" data-qid="5bc47dbf86f7741ee74e93b9">塔科夫神射手 - 3<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 3**
 
@@ -676,7 +676,7 @@ tags:
   - 解锁制作：**.366 AP ×60（工作站 Lv1）**
   - 外观解锁：**彩色靶纸**
 
-<h3 id="q35">妥善保管<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
+<h3 id="q35" data-qid="669fa3a08b4a64b332041ff7">妥善保管<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Dragnet**
 
@@ -695,7 +695,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Jaeger** +0.25
 
-<h3 id="q36">猎人必修课<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
+<h3 id="q36" data-qid="66b38e144f2ab7cc530c3fe7">猎人必修课<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Every Hunter Knows This**
 
@@ -711,7 +711,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Jaeger** +0.25
 
-<h3 id="q37">生存者之路 - Zhivchik<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
+<h3 id="q37" data-qid="5d25bfd086f77442734d3007">生存者之路 - Zhivchik<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Zhivchik**
 
@@ -727,7 +727,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **Aquamari带滤嘴水瓶** ×3 ｜ **滤水器** ×1
   - 解锁购买：**SOG Voodoo Hawk战术斧（Jaeger LL2）**
 
-<h3 id="q38">生存者之路 - 危险零距离<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
+<h3 id="q38" data-qid="5d25aed386f77442734d25d2">生存者之路 - 危险零距离<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Unprotected But Dangerous**
 
@@ -742,7 +742,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **7.62x39mm FMJ弹药包（20发装）** ×10 ｜ **AKMSN 7.62x39 突击步枪 默认** ×1 ｜ **「特训」 臂带** ×1
   - 解锁购买：**Surv12野战手术包（Jaeger LL2）**
 
-<h3 id="q39">生存者之路 - 受伤的野兽<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
+<h3 id="q39" data-qid="5d25c81b86f77443e625dd71">生存者之路 - 受伤的野兽<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Wounded Beast**
 
@@ -758,7 +758,7 @@ tags:
   - 解锁购买：**Benelli M3 Super 90 12铅径双模式霰弹枪 默认（Jaeger LL2）**
   - 外观解锁：**熊靶纸**
 
-<h3 id="q40">生存者之路 - 省吃俭用<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
+<h3 id="q40" data-qid="5d25b6be86f77444001e1b89">生存者之路 - 省吃俭用<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **The Survivalist Path Thrifty**
 
@@ -778,7 +778,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **Iskra（“火花”）单兵口粮** ×3 ｜ **金属燃料桶** ×1
   - 解锁购买：**Iskra（“火花”）单兵口粮（Jaeger LL2）**
 
-<h3 id="q41">生存者之路 - 硬汉<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
+<h3 id="q41" data-qid="5d25cf2686f77443e75488d4">生存者之路 - 硬汉<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Tough Guy**
 
@@ -802,7 +802,7 @@ tags:
 
 ## Lv10–19 ｜ 15 个任务
 
-<h3 id="q42">储备<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
+<h3 id="q42" data-qid="5d25e4d586f77443e625e388">储备<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **Reserve**
 
@@ -820,7 +820,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Jaeger** +0.75
 
-<h3 id="q43">塔科夫神射手 - 4<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
+<h3 id="q43" data-qid="5bc480a686f7741af0342e29">塔科夫神射手 - 4<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 4**
 
@@ -839,7 +839,7 @@ tags:
   - 解锁购买：**ATI Monte Carlo莫辛步枪枪托（Jaeger LL3）**
   - 解锁制作：**7.62x54R 7BT1 ×30（工作站 Lv3）**
 
-<h3 id="q44">塔科夫神射手 - 5<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
+<h3 id="q44" data-qid="5bc4826c86f774106d22d88b">塔科夫神射手 - 5<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 5**
 
@@ -857,7 +857,7 @@ tags:
   - 声望：**Jaeger** +0.02
   - 解锁购买：**莫辛步枪Texas Precision Products 7.62x54R制退器（Jaeger LL3）**
 
-<h3 id="q45">塔科夫神射手 - 5<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
+<h3 id="q45" data-qid="5bc4836986f7740c0152911c">塔科夫神射手 - 5<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 5 2**
 
@@ -872,7 +872,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **ProMag Archangel OPFOR PRS 莫辛步枪枪身** ×2
   - 解锁购买：**ProMag Archangel OPFOR PRS 莫辛步枪枪身（Jaeger LL3）**
 
-<h3 id="q46">猎人之路 - 支配者<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
+<h3 id="q46" data-qid="5d25e2d886f77442734d335e">猎人之路 - 支配者<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Huntsman Path Controller**
 
@@ -888,7 +888,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **NcSTAR ADO P4 Sniper 3-9x42步枪瞄准镜** ×1 ｜ **7.62x51mm M80 弹药包（20发装）** ×2
   - 解锁购买：**雷明顿Model 700 7.62x51 狙击步枪 AICS（Jaeger LL3）**
 
-<h3 id="q47">猎人之路 - 管理者<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
+<h3 id="q47" data-qid="639136df4b15ca31f76bc31f">猎人之路 - 管理者<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **The Huntsman Path Administrator**
 
@@ -906,7 +906,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Jaeger** +0.75
 
-<h3 id="q48">猎人之路 - 管理者<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
+<h3 id="q48" data-qid="6a45208043b8d7604d00b8d5">猎人之路 - 管理者<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **The Huntsman Path Administrator 2**
 
@@ -924,7 +924,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Jaeger** +0.75
 
-<h3 id="q49">生存者之路 - 雕鸮<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
+<h3 id="q49" data-qid="5d25e29d86f7740a22516326">生存者之路 - 雕鸮<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Eagle Owl**
 
@@ -939,7 +939,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **Armasight Vulcan MG 3.5x Bravo夜视瞄准镜** ×3 ｜ **VSS “绞丝机” 特种狙击步枪  VSS** ×1 ｜ **9x39mm SPP 弹药包（20发装）** ×4
   - 解锁购买：**VSS/VAL TOZ 6P29M 基座（Jaeger LL3）**
 
-<h3 id="q50">生存者之路 - 冷血<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
+<h3 id="q50" data-qid="5d25d2c186f77443e35162e5">生存者之路 - 冷血<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Cold Blooded**
 
@@ -954,7 +954,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **12/70 AP-20弹药包（25发装）** ×2 ｜ **Saiga-12K 12 铅径自动霰弹枪 默认** ×1
   - 解锁制作：**12/70 AP-20 穿甲独头弹 ×50（工作站 Lv3）**
 
-<h3 id="q51">生存者之路 - 战地军医<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
+<h3 id="q51" data-qid="5d25e2a986f77409dd5cdf2a">生存者之路 - 战地军医<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Combat Medic**
 
@@ -970,7 +970,7 @@ tags:
   - 声望：**Jaeger** +0.02
   - 技能：**手术** +2 级
 
-<h3 id="q52">直播 - 3<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
+<h3 id="q52" data-qid="63a511ea30d85e10e375b045">直播 - 3<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **Broadcast Part 3**
 
@@ -989,7 +989,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **MP-155 12铅径半自动霰弹枪 Ultima** ×1 ｜ **12/70 箭形弹 弹药包（25发装）** ×1
   - 解锁购买：**MP-155 「Ultima」热成像摄像头（Jaeger LL3）**
 
-<h3 id="q53">直播 - 4<a class="headerlink" href="#q53" title="Permanent link">&para;</a></h3>
+<h3 id="q53" data-qid="6391372c8ba6894d155e77d7">直播 - 4<a class="headerlink" href="#q53" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **Broadcast Part 4**
 
@@ -1007,7 +1007,7 @@ tags:
 
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **野营燃料桶** ×2
 
-<h3 id="q54">直播 - 5<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
+<h3 id="q54" data-qid="64ee99639878a0569d6ec8c9">直播 - 5<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **Broadcast Part 5**
 
@@ -1025,7 +1025,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **Armasight Zeus-Pro 640 2-8x50 30Hz热成像瞄准镜** ×1
   - 解锁购买：**Armasight Zeus-Pro 640 2-8x50 30Hz热成像瞄准镜（Jaeger LL3）**
 
-<h3 id="q55">隐士<a class="headerlink" href="#q55" title="Permanent link">&para;</a></h3>
+<h3 id="q55" data-qid="61904daa7d0d857927447b9c">隐士<a class="headerlink" href="#q55" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Hermit**
 
@@ -1045,7 +1045,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Jaeger** +0.75
 
-<h3 id="q56">鱼塘<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
+<h3 id="q56" data-qid="5d25e4b786f77408251c4bfc">鱼塘<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **Fishing Place**
 
@@ -1063,7 +1063,7 @@ tags:
 
 ## Lv20–29 ｜ 1 个任务
 
-<h3 id="q57">黑幕交易<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
+<h3 id="q57" data-qid="5d25e48d86f77408251c4bfb">黑幕交易<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv20** ｜ 前置 **2** 个 ｜ 英文名 **Shady Business**
 
@@ -1081,7 +1081,7 @@ tags:
 
 ## Lv30–39 ｜ 6 个任务
 
-<h3 id="q58">塔科夫神射手 - 6<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
+<h3 id="q58" data-qid="5bc4856986f77454c317bea7">塔科夫神射手 - 6<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv33** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 6**
 
@@ -1097,7 +1097,7 @@ tags:
 - **完成奖励**：经验 **65,000** ｜ **卢布** ×400,000 ｜ **Vortex Razor HD Gen.2 1-6x24 30 毫米步枪瞄准镜** ×1 ｜ **雷明顿Model 700 7.62x51 狙击步枪 PRO** ×1
   - 解锁购买：**雷明顿Model 700 7.62x51 狙击步枪 PRO（Jaeger LL4）**／**Vortex Razor HD Gen.2 1-6x24 30 毫米步枪瞄准镜（Jaeger LL4）**
 
-<h3 id="q59">塔科夫神射手 - 7<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
+<h3 id="q59" data-qid="5bc4893c86f774626f5ebf3e">塔科夫神射手 - 7<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv33** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 7**
 
@@ -1119,7 +1119,7 @@ tags:
 - **失败条件**：
   - **撤离** 撤离点状态：行动中阵亡(KIA)／行动中失踪 (MIA)／离开行动 —— 在完成任务之前，你不能阵亡或是离开战局（状态：阵亡、匆匆逃离、失踪）
 
-<h3 id="q60">屠宰场<a class="headerlink" href="#q60" title="Permanent link">&para;</a></h3>
+<h3 id="q60" data-qid="63a9b36cc31b00242d28a99f">屠宰场<a class="headerlink" href="#q60" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv33** ｜ **无前置** ｜ 英文名 **Slaughterhouse**
 
@@ -1142,7 +1142,7 @@ tags:
   - 技能：**近战** +4 级
   - 解锁购买：**HK G28 7.62x51 精确射手步枪 默认（Jaeger LL4）**
 
-<h3 id="q61">流浪狗<a class="headerlink" href="#q61" title="Permanent link">&para;</a></h3>
+<h3 id="q61" data-qid="626bdcc3a371ee3a7a3514c5">流浪狗<a class="headerlink" href="#q61" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv33** ｜ **无前置** ｜ 英文名 **Stray Dogs**
 
@@ -1160,7 +1160,7 @@ tags:
   - 声望：**Jaeger** +1.5
   - 技能：**隐蔽行动** +4 级
 
-<h3 id="q62">猎人之路 - 控制<a class="headerlink" href="#q62" title="Permanent link">&para;</a></h3>
+<h3 id="q62" data-qid="6a4532e48e82d8ffea0c3eae">猎人之路 - 控制<a class="headerlink" href="#q62" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv33** ｜ **无前置** ｜ 英文名 **The Huntsman Path Control**
 
@@ -1179,7 +1179,7 @@ tags:
   - 技能：**投掷物** +4 级
   - 解锁购买：**雷明顿Model 700 7.62x51 狙击步枪 MRS（Jaeger LL4）**
 
-<h3 id="q63">生存者之路 - 瘾君子<a class="headerlink" href="#q63" title="Permanent link">&para;</a></h3>
+<h3 id="q63" data-qid="5eaaaa7c93afa0558f3b5a1c">生存者之路 - 瘾君子<a class="headerlink" href="#q63" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv33** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Junkie**
 
@@ -1199,7 +1199,7 @@ tags:
 
 ## Lv50–59 ｜ 1 个任务
 
-<h3 id="q64">猎人之路 - 无情杀手<a class="headerlink" href="#q64" title="Permanent link">&para;</a></h3>
+<h3 id="q64" data-qid="60e71e8ed54b755a3b53eb67">猎人之路 - 无情杀手<a class="headerlink" href="#q64" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv55** ｜ **无前置** ｜ 英文名 **The Huntsman Path Relentless**
 

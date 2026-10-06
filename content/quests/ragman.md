@@ -95,7 +95,7 @@ tags:
 
 ## Lv0–9 ｜ 28 个任务
 
-<h3 id="q01">Make ULTRA Great Again<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
+<h3 id="q01" data-qid="5ae448bf86f7744d733e55ee">Make ULTRA Great Again<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Make Ultra Great Again**
 
@@ -112,7 +112,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Ragman** +0.1
 
-<h3 id="q02">临行密密缝 - 1<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
+<h3 id="q02" data-qid="5ae4495086f77443c122bc40">临行密密缝 - 1<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Sew It Good Part 1**
 
@@ -132,7 +132,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **Hazard 4 Takedown 单肩背包（复合迷彩）** ×1
   - 解锁购买：**Hazard 4 Takedown 单肩背包（复合迷彩）（Ragman LL2）**／**6B13 突击甲（丛林迷彩） 默认（Ragman LL2）**
 
-<h3 id="q03">临行密密缝 - 2<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
+<h3 id="q03" data-qid="5ae4497b86f7744cf402ed00">临行密密缝 - 2<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sew It Good Part 2**
 
@@ -152,7 +152,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **6B5-15 Zh-86 Uley 防弹胸挂（丛林迷彩）** ×1
   - 解锁制作：**6B23-2 防弹衣（山地丛林迷彩）（工作站 Lv1）**
 
-<h3 id="q04">临行密密缝 - 3<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
+<h3 id="q04" data-qid="5ae4495c86f7744e87761355">临行密密缝 - 3<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sew It Good Part 3**
 
@@ -170,7 +170,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **Oakley Mechanism 重型背包（黑色）** ×1
   - 解锁制作：**Ars Arma A18 Skanda 插板胸挂（复合迷彩）（工作站 Lv2）**
 
-<h3 id="q05">临行密密缝 - 4<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
+<h3 id="q05" data-qid="5ae4496986f774459e77beb6">临行密密缝 - 4<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sew It Good Part 4**
 
@@ -186,7 +186,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 解锁制作：**5.11 Tactical TacTec 插板胸挂（丛林绿）（工作站 Lv3）**
 
-<h3 id="q06">储备专家<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
+<h3 id="q06" data-qid="608974af4b05530f55550c21">储备专家<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Reserve Expert**
 
@@ -210,7 +210,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Ragman** +0.75
 
-<h3 id="q07">再次延误<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
+<h3 id="q07" data-qid="6740b60c60a98cad1b0e0aa0">再次延误<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **Another Shipping Delay**
 
@@ -227,7 +227,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **Peltor ComTac V 耳机（橄榄绿）** ×2
 
-<h3 id="q08">垃圾佬<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
+<h3 id="q08" data-qid="5c112d7e86f7740d6f647486">垃圾佬<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Scavenger**
 
@@ -246,7 +246,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×275,000
   - 声望：**Ragman** +0.75
 
-<h3 id="q09">大甩卖<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
+<h3 id="q09" data-qid="5ae448e586f7744dcf0c2a67">大甩卖<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Big Sale**
 
@@ -267,7 +267,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Ragman** +0.25
 
-<h3 id="q10">奢侈无罪<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
+<h3 id="q10" data-qid="5b47891f86f7744d1b23c571">奢侈无罪<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Living High Is Not a Crime**
 
@@ -287,7 +287,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Ragman** +0.75
 
-<h3 id="q11">小事大帮忙<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
+<h3 id="q11" data-qid="5c10f94386f774227172c572">小事大帮忙<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Small Things Big Help**
 
@@ -307,7 +307,7 @@ tags:
   - 声望：**Ragman** +0.1
 - **接取即得**：**MS2000指示器** ×3
 
-<h3 id="q12">库存清单<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
+<h3 id="q12" data-qid="5ae4493486f7744efa289417">库存清单<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Inventory Files**
 
@@ -329,7 +329,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Ragman** +0.1
 
-<h3 id="q13">微型客车<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
+<h3 id="q13" data-qid="5b478d0f86f7744d190d91b5">微型客车<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Minibus**
 
@@ -348,7 +348,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **相位控制继电器** ×2 ｜ **MSA Sordin Supreme PRO-X/L有源耳机** ×1 ｜ **Walker's XCEL 500BT 数字耳机** ×1
   - 声望：**Ragman** +0.25
 
-<h3 id="q14">感官分析 - 1<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
+<h3 id="q14" data-qid="67a0967c003a9986cb0f5ac1">感官分析 - 1<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sensory Analysis Part 1**
 
@@ -367,7 +367,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **Safariland Liberator HP 2.0听力保护耳机（泥土色）** ×2 ｜ **ECLiPSE RBAV-AF 插板胸挂（丛林绿） 默认** ×2
 - **接取即得**：**“凶狠跑刀崽”私酒** ×1
 
-<h3 id="q15">感恩的心<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
+<h3 id="q15" data-qid="5ae449b386f77446d8741719">感恩的心<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gratitude**
 
@@ -386,7 +386,7 @@ tags:
   - 声望：**Ragman** +0.1
 - **接取即得**：**提花头巾（绿色）** ×1 ｜ **雷硼嬉皮太阳镜** ×1
 
-<h3 id="q16">成功的关键<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
+<h3 id="q16" data-qid="5ae4498786f7744bde357695">成功的关键<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Key to Success**
 
@@ -406,7 +406,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **相位控制继电器** ×2 ｜ **MSA Sordin Supreme PRO-X/L有源耳机** ×1 ｜ **Walker's XCEL 500BT 数字耳机** ×1
   - 声望：**Ragman** +0.25
 
-<h3 id="q17">损失惨重<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
+<h3 id="q17" data-qid="5ae4493d86f7744b8e15aa8f">损失惨重<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **A Big Loss**
 
@@ -425,7 +425,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Ragman** +0.1
 
-<h3 id="q18">探路者<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
+<h3 id="q18" data-qid="5ae449c386f7744bde357697">探路者<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pathfinder**
 
@@ -444,7 +444,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Ragman** +0.1
 
-<h3 id="q19">新鲜到货<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
+<h3 id="q19" data-qid="69ce21e990144e437802b1e0">新鲜到货<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fresh Stock**
 
@@ -458,7 +458,7 @@ tags:
 - **完成奖励**：经验 **25,000** ｜ **卢布** ×300,000
   - 解锁购买：**Rys-T 防弹头盔（黑色）（Ragman LL1）**
 
-<h3 id="q20">暗度陈仓<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
+<h3 id="q20" data-qid="5ae449a586f7744bde357696">暗度陈仓<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **No Fuss Needed**
 
@@ -473,7 +473,7 @@ tags:
 - **完成奖励**：经验 **15,800** ｜ **卢布** ×32,000 ｜ **Altyn 防弹头盔（橄榄绿）** ×1
   - 声望：**Ragman** +0.03
 
-<h3 id="q21">火线速递<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
+<h3 id="q21" data-qid="5b478b1886f7744d1b23c57d">火线速递<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Hot Delivery**
 
@@ -492,7 +492,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Ragman** +0.25
 
-<h3 id="q22">燃油危机<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
+<h3 id="q22" data-qid="5ae448f286f77448d73c0131">燃油危机<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fuel Crisis**
 
@@ -511,7 +511,7 @@ tags:
   - 声望：**Ragman** +0.1
 - **接取即得**：**MS2000指示器** ×2
 
-<h3 id="q23">盛装杀戮<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
+<h3 id="q23" data-qid="5ae4490786f7744ca822adcc">盛装杀戮<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Dressed to Kill**
 
@@ -529,7 +529,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000
   - 声望：**Ragman** +0.1
 
-<h3 id="q24">稳定业务<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
+<h3 id="q24" data-qid="6744a4717e3818d5bb0680bb">稳定业务<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Stabilize Business**
 
@@ -547,7 +547,7 @@ tags:
 - **完成奖励**：经验 **24,100** ｜ **卢布** ×124,000 ｜ **IOTV Gen4 防弹衣（突击型，复合迷彩） 默认** ×1
   - 声望：**Ragman** +0.03
 
-<h3 id="q25">芭蕾舞者<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
+<h3 id="q25" data-qid="639135a7e705511c8a4a1b78">芭蕾舞者<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Ballet Lover**
 
@@ -566,7 +566,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Ragman** +0.25
 
-<h3 id="q26">财务总监<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
+<h3 id="q26" data-qid="5ae449d986f774453a54a7e1">财务总监<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Supervisor**
 
@@ -586,7 +586,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000 ｜ **相位控制继电器** ×2 ｜ **MSA Sordin Supreme PRO-X/L有源耳机** ×1 ｜ **Walker's XCEL 500BT 数字耳机** ×1
   - 声望：**Ragman** +0.25
 
-<h3 id="q27">长期合作<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
+<h3 id="q27" data-qid="60e71dc0a94be721b065bbfc">长期合作<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Long Line**
 
@@ -603,7 +603,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **卢布** ×80,000 ｜ **节能灯泡** ×3
   - 声望：**Ragman** +0.1
 
-<h3 id="q28">风流倜傥<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
+<h3 id="q28" data-qid="5ae4499a86f77449783815db">风流倜傥<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **Charisma Brings Success**
 
@@ -621,7 +621,7 @@ tags:
 
 ## Lv10–19 ｜ 6 个任务
 
-<h3 id="q29">城市之匙<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
+<h3 id="q29" data-qid="666314c5a9290f9e0806cca5">城市之匙<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Key to the City**
 
@@ -638,7 +638,7 @@ tags:
 
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **“凶狠跑刀崽”私酒** ×3 ｜ **物品箱** ×1
 
-<h3 id="q30">审计<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
+<h3 id="q30" data-qid="638fcd23dc65553116701d33">审计<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Audit**
 
@@ -656,7 +656,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Ragman** +0.25
 
-<h3 id="q31">浑水摸鱼<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
+<h3 id="q31" data-qid="675c085d59b0575973005f52">浑水摸鱼<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Break the Deal**
 
@@ -677,7 +677,7 @@ tags:
   - 声望：**Ragman** +0.25
 - **接取即得**：**DVL-10 7.62x51 栓动式狙击步枪 Urbana** ×1 ｜ **7.62x51mm BPZ FMJ 弹药包（20发装）** ×1 ｜ **ELCAN SpecterDR 1x/4x瞄准镜** ×1
 
-<h3 id="q32">绝不上当<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
+<h3 id="q32" data-qid="65802b627b44fa5e14638899">绝不上当<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Nothing Fishy About This**
 
@@ -695,7 +695,7 @@ tags:
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×165,000
   - 声望：**Ragman** +0.25
 
-<h3 id="q33">花花公子<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
+<h3 id="q33" data-qid="65734c186dc1e402c80dc19e">花花公子<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Dandies**
 
@@ -715,7 +715,7 @@ tags:
   - 声望：**Ragman** +0.25
 - **接取即得**：解锁 **Bomber 无檐小便帽（Ragman LL2）**
 
-<h3 id="q34">生意至上<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
+<h3 id="q34" data-qid="5ae448a386f7744d3730fff0">生意至上<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv15** ｜ **无前置** ｜ 英文名 **Only Business**
 
@@ -728,7 +728,7 @@ tags:
 
 ## Lv20–29 ｜ 9 个任务
 
-<h3 id="q35">战争之血 - 2<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
+<h3 id="q35" data-qid="5b47876e86f7744d1c353205">战争之血 - 2<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv23** ｜ 前置 **2** 个 ｜ 英文名 **The Blood of War Part 2**
 
@@ -745,7 +745,7 @@ tags:
   - 声望：**Ragman** +0.03
   - 解锁制作：**Ars Arma A18 Skanda 插板胸挂（复合迷彩）（工作站 Lv2）**
 
-<h3 id="q36">新起点<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
+<h3 id="q36" data-qid="6761f28a022f60bb320f3e95">新起点<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv25** ｜ **无前置** ｜ 英文名 **New Beginning**
 
@@ -760,7 +760,7 @@ tags:
 
 - **完成奖励**：经验 **10,000** ｜ **卢布** ×100,000
 
-<h3 id="q37">清空外围<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
+<h3 id="q37" data-qid="67d03be712fb5f8fd2096332">清空外围<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **Vacate the Premises**
 
@@ -777,7 +777,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **Atomic Defense CQCM 防弹面具（黑色）** ×3 ｜ **“最后一息”海报** ×1
   - 解锁购买：**Altyn 防弹头盔（橄榄绿）（Ragman LL4）**
 
-<h3 id="q38">人靠衣装 - 1<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
+<h3 id="q38" data-qid="6613f3007f6666d56807c929">人靠衣装 - 1<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Drip Out Part 1 Bear**
 
@@ -795,7 +795,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 解锁制作：**FirstSpear Strandhogg 插板胸挂（丛林绿）（工作站 Lv2）**
 
-<h3 id="q39">人靠衣装 - 1<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
+<h3 id="q39" data-qid="66151401efb0539ae10875ae">人靠衣装 - 1<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Drip Out Part 1 Usec**
 
@@ -813,7 +813,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 解锁制作：**FirstSpear Strandhogg 插板胸挂（丛林绿）（工作站 Lv2）**
 
-<h3 id="q40">此路是我开！<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
+<h3 id="q40" data-qid="66aa61663aa37705c5024277">此路是我开！<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Know Your Place**
 
@@ -830,7 +830,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Ragman** +0.75
 
-<h3 id="q41">酒瘾<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
+<h3 id="q41" data-qid="60e71dc67fcf9c556f325056">酒瘾<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Booze**
 
@@ -852,7 +852,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Ragman** +0.75
 
-<h3 id="q42">雪中送炭<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
+<h3 id="q42" data-qid="608974d01a66564e74191fc0">雪中送炭<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **A Fuel Matter**
 
@@ -870,7 +870,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Ragman** +0.75
 
-<h3 id="q43">高保真<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
+<h3 id="q43" data-qid="639135bbc115f907b14700a6">高保真<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Audiophile**
 
@@ -893,7 +893,7 @@ tags:
 
 ## Lv30–39 ｜ 2 个任务
 
-<h3 id="q44">新起点<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
+<h3 id="q44" data-qid="6761ff17cdc36bd66102e9d0">新起点<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv30** ｜ **无前置** ｜ 英文名 **New Beginning 2**
 
@@ -911,7 +911,7 @@ tags:
 - **完成奖励**：经验 **11,000** ｜ **卢布** ×200,000
   - 声望：**Ragman** +0.01
 
-<h3 id="q45">新起点<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
+<h3 id="q45" data-qid="6848100b00afffa81f09e365">新起点<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv35** ｜ **无前置** ｜ 英文名 **New Beginning 3**
 
@@ -933,7 +933,7 @@ tags:
 
 ## Lv40–49 ｜ 13 个任务
 
-<h3 id="q46">新起点<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
+<h3 id="q46" data-qid="68481881f43abfdda2058369">新起点<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv40** ｜ **无前置** ｜ 英文名 **New Beginning 4**
 
@@ -954,7 +954,7 @@ tags:
 - **完成奖励**：经验 **11,000** ｜ **卢布** ×3,000,000 ｜ **实体比特币** ×3
   - 声望：**Ragman** +0.01
 
-<h3 id="q47">人靠衣装 - 2<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
+<h3 id="q47" data-qid="6613f307fca4f2f386029409">人靠衣装 - 2<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Drip Out Part 2 Bear**
 
@@ -972,7 +972,7 @@ tags:
 - **完成奖励**：经验 **65,000** ｜ **LBT 6094A Slick 插板背心（橄榄绿） 默认** ×1
   - 解锁购买：**FORT Redut-M（堡垒-M）防弹衣 默认（Ragman LL4）**
 
-<h3 id="q48">人靠衣装 - 2<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
+<h3 id="q48" data-qid="6615141bfda04449120269a7">人靠衣装 - 2<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Drip Out Part 2 Usec**
 
@@ -990,7 +990,7 @@ tags:
 - **完成奖励**：经验 **65,000** ｜ **LBT 6094A Slick 插板背心（黄褐色） 默认** ×1
   - 解锁购买：**IOTV Gen4 防弹衣（高机动型，复合迷彩） 默认（Ref（竞技场裁判） LL4）**
 
-<h3 id="q49">古董爱好者<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
+<h3 id="q49" data-qid="5c1141f386f77430ff393792">古董爱好者<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Antique Enthusiast**
 
@@ -1012,7 +1012,7 @@ tags:
   - 解锁购买：**Granit Br4防弹插板（Ragman LL4）**
   - 外观解锁：**砖墙**／**白色天花板**
 
-<h3 id="q50">实战考验<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
+<h3 id="q50" data-qid="666314a31cd52e3d040a2e76">实战考验<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Combat Proven**
 
@@ -1028,7 +1028,7 @@ tags:
   - 外观解锁：**层压地板**
 - **接取即得**：**LBT-1961A 承重胸挂（Goons特别版）** ×1
 
-<h3 id="q51">旧情难却<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
+<h3 id="q51" data-qid="666314a50aa5c7436c00908a">旧情难却<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Old Patterns**
 
@@ -1042,7 +1042,7 @@ tags:
 
 - **完成奖励**：无（数据端点未登记）
 
-<h3 id="q52">特殊提议<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
+<h3 id="q52" data-qid="666314a1920800278d0f6746">特殊提议<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Special Offer**
 
@@ -1065,7 +1065,7 @@ tags:
 
 - **完成奖励**：经验 **85,500** ｜ **卢布** ×328,000 ｜ **Walker's XCEL 500BT 数字耳机** ×2 ｜ **Diamond Age Bastion 头盔（黑色）** ×2
 
-<h3 id="q53">看不见的大手<a class="headerlink" href="#q53" title="Permanent link">&para;</a></h3>
+<h3 id="q53" data-qid="6663149cfd5ca9577902e037">看不见的大手<a class="headerlink" href="#q53" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **The Invisible Hand**
 
@@ -1079,7 +1079,7 @@ tags:
 
 - **完成奖励**：经验 **12,800** ｜ **卢布** ×86,000 ｜ **黄金骷髅指环** ×1
 
-<h3 id="q54">纺织业 - 1<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
+<h3 id="q54" data-qid="5e381b0286f77420e3417a74">纺织业 - 1<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Textile Part 1 Bear**
 
@@ -1101,7 +1101,7 @@ tags:
 - **完成奖励**：经验 **65,000** ｜ **Mystery Ranch Blackjack 50 背包（复合迷彩）** ×1 ｜ **Peltor ComTac IV Hybrid 耳机（狼棕色）** ×1
   - 解锁购买：**IOTV Gen4 防弹衣（高机动型，复合迷彩） 默认（Ragman LL4）**／**Mystery Ranch Blackjack 50 背包（复合迷彩）（Ragman LL4）**
 
-<h3 id="q55">纺织业 - 1<a class="headerlink" href="#q55" title="Permanent link">&para;</a></h3>
+<h3 id="q55" data-qid="5e383a6386f77465910ce1f3">纺织业 - 1<a class="headerlink" href="#q55" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Textile Part 1 Usec**
 
@@ -1123,7 +1123,7 @@ tags:
 - **完成奖励**：经验 **65,000** ｜ **Mystery Ranch Blackjack 50 背包（复合迷彩）** ×1 ｜ **Peltor ComTac IV Hybrid 耳机（狼棕色）** ×1
   - 解锁购买：**IOTV Gen4 防弹衣（突击型，复合迷彩） 默认（Ragman LL4）**／**Mystery Ranch Blackjack 50 背包（复合迷彩）（Ragman LL4）**
 
-<h3 id="q56">纺织业 - 2<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
+<h3 id="q56" data-qid="5e4d4ac186f774264f758336">纺织业 - 2<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Textile Part 2 Bear**
 
@@ -1145,7 +1145,7 @@ tags:
 - **完成奖励**：经验 **65,000** ｜ **6Sh118 突击背包（数码丛林迷彩）** ×1 ｜ **Safariland Liberator HP 2.0听力保护耳机（泥土色）** ×1
   - 解锁购买：**6Sh118 突击背包（数码丛林迷彩）（Prapor LL4）**
 
-<h3 id="q57">纺织业 - 2<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
+<h3 id="q57" data-qid="5e4d515e86f77438b2195244">纺织业 - 2<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Textile Part 2 Usec**
 
@@ -1167,7 +1167,7 @@ tags:
 - **完成奖励**：经验 **65,000** ｜ **6Sh118 突击背包（数码丛林迷彩）** ×1 ｜ **Safariland Liberator HP 2.0听力保护耳机（泥土色）** ×1
   - 解锁购买：**6Sh118 突击背包（数码丛林迷彩）（Prapor LL4）**
 
-<h3 id="q58">经济流动<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
+<h3 id="q58" data-qid="6663149f1d3ec95634095e75">经济流动<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Circulate**
 

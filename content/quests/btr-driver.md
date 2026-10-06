@@ -56,7 +56,7 @@ tags:
 
 ## Lv0–9 ｜ 19 个任务
 
-<h3 id="q01">反将一军<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
+<h3 id="q01" data-qid="6744aca8d3346c216702c583">反将一军<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Discombobulate**
 
@@ -75,7 +75,7 @@ tags:
 - **完成奖励**：经验 **23,400** ｜ **卢布** ×175,000 ｜ **军用闪存装置** ×3
   - 声望：**BTR 司机** +0.03
 
-<h3 id="q02">坚持到底<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
+<h3 id="q02" data-qid="69c26c07683c9831020018c7">坚持到底<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Stick to It**
 
@@ -85,7 +85,7 @@ tags:
 
 - **完成奖励**：经验 **25,000** ｜ **卢布** ×100,000 ｜ **滤水器** ×3
 
-<h3 id="q03">奠定基石<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
+<h3 id="q03" data-qid="673f629c5b555b53460cf827">奠定基石<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Building Foundations**
 
@@ -102,7 +102,7 @@ tags:
 - **完成奖励**：经验 **14,500** ｜ **卢布** ×126,000 ｜ **“凶狠跑刀崽”私酒** ×1
   - 声望：**BTR 司机** +0.01
 
-<h3 id="q04">宿醉<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
+<h3 id="q04" data-qid="69c2a2d004de49c8f0055a3d">宿醉<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Hangover**
 
@@ -116,7 +116,7 @@ tags:
 
 - **完成奖励**：经验 **60,000**
 
-<h3 id="q05">对空遮断<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
+<h3 id="q05" data-qid="6744ab1def61d56e020b5c56">对空遮断<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Protect the Sky**
 
@@ -135,7 +135,7 @@ tags:
   - 声望：**BTR 司机** +0.02
   - 解锁购买：**Aklys Defense 迅猛龙 .300 Blackout 突击步枪 默认（Mechanic LL4）**
 
-<h3 id="q06">必然回应<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
+<h3 id="q06" data-qid="673f6027352b4da8e00322d2">必然回应<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Inevitable Response**
 
@@ -152,7 +152,7 @@ tags:
 - **完成奖励**：经验 **15,500** ｜ **卢布** ×82,000
   - 声望：**BTR 司机** +0.02
 
-<h3 id="q07">感官分析 - 2<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
+<h3 id="q07" data-qid="67a096ed77dd677f600804ba">感官分析 - 2<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sensory Analysis Part 2**
 
@@ -167,7 +167,7 @@ tags:
 
 - **完成奖励**：无（数据端点未登记）
 
-<h3 id="q08">投石问路<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
+<h3 id="q08" data-qid="674492b6909d2013670a347a">投石问路<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Ask for Directions**
 
@@ -187,7 +187,7 @@ tags:
 - **完成奖励**：经验 **13,200** ｜ **卢布** ×85,000 ｜ **GreenBat锂电池** ×2
   - 声望：**BTR 司机** +0.02
 
-<h3 id="q09">拯救大兵罗曼<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
+<h3 id="q09" data-qid="69c27158e350f01390049e77">拯救大兵罗曼<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Saving Private Roman**
 
@@ -203,7 +203,7 @@ tags:
 
 - **完成奖励**：经验 **42,000**
 
-<h3 id="q10">独立的代价<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
+<h3 id="q10" data-qid="6744af0969a58fceba101fed">独立的代价<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **The Price of Independence**
 
@@ -234,7 +234,7 @@ tags:
 - **失败条件**：
   - **任务状态** **识时务者为俊杰** ｜ 状态：完成
 
-<h3 id="q11">独立的代价<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
+<h3 id="q11" data-qid="6745cbee909d2013670a4a55">独立的代价<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **The Price of Independence 2**
 
@@ -265,7 +265,7 @@ tags:
 - **失败条件**：
   - **任务状态** **识时务者为俊杰** ｜ 状态：完成
 
-<h3 id="q12">现世报<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
+<h3 id="q12" data-qid="6745fcded0fbbc74ca0f721d">现世报<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Swift Retribution**
 
@@ -287,7 +287,7 @@ tags:
 - **失败条件**：
   - **任务状态** **必然回应** ｜ 状态：完成
 
-<h3 id="q13">电池换新<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
+<h3 id="q13" data-qid="6744a728352b4da8e003eda9">电池换新<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Battery Change**
 
@@ -308,7 +308,7 @@ tags:
 - **失败条件**：
   - **任务状态** **电池换新** ｜ 状态：完成
 
-<h3 id="q14">电池换新<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
+<h3 id="q14" data-qid="6744a9dfef61d56e020b5c4a">电池换新<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Battery Change 2**
 
@@ -324,7 +324,7 @@ tags:
 - **完成奖励**：经验 **58,700** ｜ **卢布** ×284,000 ｜ **防弹衣维修套件** ×1
   - 声望：**BTR 司机** +0.03
 
-<h3 id="q15">自然交换<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
+<h3 id="q15" data-qid="6740a02a69a58fceba0ff399">自然交换<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Natural Exchange**
 
@@ -342,7 +342,7 @@ tags:
 - **完成奖励**：经验 **26,800** ｜ **卢布** ×96,000 ｜ **显示卡** ×1
   - 声望：**BTR 司机** +0.03
 
-<h3 id="q16">苦涩的胜利<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
+<h3 id="q16" data-qid="69c277f3ea6da9c23e07f8d2">苦涩的胜利<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **A Bitter Victory**
 
@@ -365,7 +365,7 @@ tags:
 
 - **完成奖励**：经验 **30,000**
 
-<h3 id="q17">货运延误 - 2<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
+<h3 id="q17" data-qid="673f2cd5d3346c2167020484">货运延误 - 2<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Shipping Delay Part 2**
 
@@ -384,7 +384,7 @@ tags:
 
 - **完成奖励**：经验 **11,500** ｜ **卢布** ×84,000 ｜ **RSP-30 反应式信号弹（蓝色）** ×1 ｜ **Tetriz便携式游戏机** ×1
 
-<h3 id="q18">风火轮<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
+<h3 id="q18" data-qid="673f4e956f1b89c7bc0f56ef">风火轮<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Hot Wheels**
 
@@ -405,7 +405,7 @@ tags:
 - **失败条件**：
   - **放置物品** **MS2000指示器**
 
-<h3 id="q19">风火轮 - 再次出发<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
+<h3 id="q19" data-qid="673f5a4976553f78350bdac1">风火轮 - 再次出发<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Hot Wheels Lets Try Again**
 

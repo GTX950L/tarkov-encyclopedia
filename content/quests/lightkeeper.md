@@ -51,7 +51,7 @@ tags:
 
 ## Lv0–9 ｜ 12 个任务
 
-<h3 id="q01">以牙还牙<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
+<h3 id="q01" data-qid="63966fd9ea19ac7ed845db30">以牙还牙<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Payback**
 
@@ -72,7 +72,7 @@ tags:
   - 声望：**Lightkeeper** +0.03
   - 解锁购买：**DevTac 浪人面罩（Ragman LL4）**
 
-<h3 id="q02">外部订单<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
+<h3 id="q02" data-qid="673f61a066e6a521aa04b62b">外部订单<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Order From Outside**
 
@@ -93,7 +93,7 @@ tags:
 - **失败条件**：
   - **任务状态** **电池换新** ｜ 状态：完成
 
-<h3 id="q03">大显身手<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
+<h3 id="q03" data-qid="6396701b9113f06a7c3b2379">大显身手<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make an Impression**
 
@@ -111,7 +111,7 @@ tags:
 - **完成奖励**：**相控阵单元** ×2
   - 声望：**Lightkeeper** +0.04
 
-<h3 id="q04">大都会之谜<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
+<h3 id="q04" data-qid="63967028c4a91c5cb76abd81">大都会之谜<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Trouble in the Big City**
 
@@ -133,7 +133,7 @@ tags:
   - 声望：**Lightkeeper** +0.05
   - 解锁购买：**SIG MCX SPEAR 6.8x51突击步枪 默认（Peacekeeper LL4）**／**Lancer L7AWM 7.62x51 AR-10 25发弹匣（Peacekeeper LL4）**／**6.8x51毫米 SIG Hybrid（Peacekeeper LL4）**／**直流变压器（Mechanic LL4）**
 
-<h3 id="q05">失踪的线人<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
+<h3 id="q05" data-qid="63966fbeea19ac7ed845db2e">失踪的线人<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Missing Informant**
 
@@ -154,7 +154,7 @@ tags:
   - 声望：**Lightkeeper** +0.01
   - 解锁购买：**微控制器电路板（Mechanic LL4）**
 
-<h3 id="q06">归还人情<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
+<h3 id="q06" data-qid="63966fe7ea74a47c2d3fc0e6">归还人情<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Return the Favor**
 
@@ -173,7 +173,7 @@ tags:
 - **完成奖励**：**硅基光电集成电路教材** ×1
   - 声望：**Lightkeeper** +0.03
 
-<h3 id="q07">情报之源<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
+<h3 id="q07" data-qid="63966faeea19ac7ed845db2c">情报之源<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Information Source**
 
@@ -196,7 +196,7 @@ tags:
 - **完成奖励**：**先进电子材料教材** ×1
   - 声望：**Lightkeeper** +0.01
 
-<h3 id="q08">抢夺先机<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
+<h3 id="q08" data-qid="63966fccac6f8f3c677b9d89">抢夺先机<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Snatch**
 
@@ -220,7 +220,7 @@ tags:
   - 解锁购买：**Atomic Defense CQCM 防弹面具（黑色）（Ragman LL4）**
   - 解锁制作：**UHF RFID固定式读取器（工作站 Lv2）**
 
-<h3 id="q09">按图索骥<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
+<h3 id="q09" data-qid="639670029113f06a7c3b2377">按图索骥<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Following the Bread Crumbs**
 
@@ -243,7 +243,7 @@ tags:
   - 声望：**Lightkeeper** +0.04
   - 解锁购买：**GPS信号放大单元（Mechanic LL4）**
 
-<h3 id="q10">挑衅<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
+<h3 id="q10" data-qid="63966ff54c3ef01b6f3ffad8">挑衅<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Provocation**
 
@@ -266,7 +266,7 @@ tags:
   - 声望：**Lightkeeper** +0.03
   - 解锁制作：**FLIR RS-32 2.25-9x 35毫米 60Hz热成像步枪瞄准镜（工作站 Lv3）**
 
-<h3 id="q11">简单副业<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
+<h3 id="q11" data-qid="6745fdddd3346c216702e0bf">简单副业<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Simple Side Job**
 
@@ -287,7 +287,7 @@ tags:
 - **失败条件**：
   - **任务状态** **对空遮断** ｜ 状态：完成
 
-<h3 id="q12">观察员<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
+<h3 id="q12" data-qid="6396700fea19ac7ed845db32">观察员<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Spotter**
 
@@ -312,7 +312,7 @@ tags:
 
 ## Lv20–29 ｜ 1 个任务
 
-<h3 id="q13">守望者箴言<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
+<h3 id="q13" data-qid="67a09761e720611a6a01f288">守望者箴言<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv26** ｜ 前置 **6** 个 ｜ 英文名 **Keepers Word**
 
@@ -334,7 +334,7 @@ tags:
 
 ## Lv30–39 ｜ 1 个任务
 
-<h3 id="q14">天降大礼 [PVP ZONE]<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
+<h3 id="q14" data-qid="67e993b1ac26bf29380a320b">天降大礼 [PVP ZONE]<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Surprise Gift Pvp Zone**
 
