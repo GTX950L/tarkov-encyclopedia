@@ -43,6 +43,7 @@
 - [新手成长路线](https://gtx950l.github.io/tarkov-encyclopedia/docs/progression/)：按阶段该做什么
 - [新手开局检查清单](https://gtx950l.github.io/tarkov-encyclopedia/docs/starter-checklist/)：可打印的每局勾选表（进图前 / 撤离前照着勾）
 - [地图对照速查](https://gtx950l.github.io/tarkov-encyclopedia/docs/map-guide/)：逐图的交战风格、资源类型、风险与适合阶段（不列坐标）
+- [配方速查表（制作与交换）](https://gtx950l.github.io/tarkov-encyclopedia/docs/recipes/)：藏身处制作 214 条 + 商人交换 855 条；可按设施 / 商人 / 材料反查，**不含价格与利润**（实时数据）
 - [购买指南（地区与版本）](https://gtx950l.github.io/tarkov-encyclopedia/docs/buying-guide/)
 - [配置与性能](https://gtx950l.github.io/tarkov-encyclopedia/docs/performance/)
 - [操作与设置](https://gtx950l.github.io/tarkov-encyclopedia/docs/game-settings/)
