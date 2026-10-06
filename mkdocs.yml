@@ -86,6 +86,8 @@ extra_javascript:
   - javascripts/glossary-tooltip.js
   - javascripts/search-ready.js
   - javascripts/breadcrumb.js
+  - javascripts/progress-manifest.js
+  - javascripts/progress.js
 
 nav:
   - 首页: README.md
@@ -192,6 +194,7 @@ nav:
   - 查阅栏目:
       - 第九篇 · 任务图鉴:
           - 总览: quests/index.md
+          - 我的进度: quests/progress.md
           - Mechanic: quests/mechanic.md
           - Prapor: quests/prapor.md
           - Skier: quests/skier.md

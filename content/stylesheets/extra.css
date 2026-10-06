@@ -858,3 +858,431 @@ body[data-md-color-scheme="slate"] {
     border-bottom: 2px solid #1C1A17;
   }
 }
+
+/* ==========================================================================
+   51. 任务进度追踪（javascripts/progress.js 的样式）
+   --------------------------------------------------------------------------
+   设计沿用本站「军用档案纸」四条改造规则：方角（圆角 0）、等宽字承担结构、
+   色面用官方 Fiord、纸底不纯白。所有取值一律走 --tk-* 变量，于是暗色方案
+   （body[data-md-color-scheme="slate"] 里那套）**不需要另写覆盖**——
+   这也是本节不出现任何硬编码颜色的原因。
+
+   对比度（浅色纸底 #FAF9F6）：
+     · 未勾选框描边 --tk-line-3 #8F8368 …… 3.55:1（图形边界，≥ WCAG 1.4.11 的 3:1）
+     · 已勾选底 --tk-grn #4A5D2A 上的勾 --tk-grn-bg #EEF2E2 …… 约 6.9:1
+     · 模式选中：白字压 --tk-fiord #4A596C …… 约 7.6:1
+   ========================================================================== */
+
+/* —— 51.1 进度模式切换条 —— */
+
+.tk-pgbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .45rem .85rem;
+  margin: 0 0 1.4rem;
+  padding: .55rem .8rem;
+  background: var(--tk-panel);
+  border: 1px solid var(--tk-line-2);
+  border-left: 4px solid var(--tk-fiord);
+  font-size: .72rem;
+}
+
+.tk-pgbar__lbl {
+  font-family: var(--tk-mono);
+  letter-spacing: .08em;
+  color: var(--tk-ink-2);
+}
+
+.tk-pgbar__modes {
+  display: flex;
+}
+
+.tk-pgbar__mode {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: .22rem .78rem;
+  background: transparent;
+  color: var(--tk-ink-2);
+  border: 1px solid var(--tk-line-3);
+  border-right-width: 0;
+  font: inherit;
+  font-size: .72rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.tk-pgbar__mode:last-child { border-right-width: 1px; }
+
+.tk-pgbar__mode:hover {
+  background: var(--tk-panel-2);
+  color: var(--tk-ink);
+}
+
+.tk-pgbar__mode.is-on {
+  background: var(--tk-fiord);
+  border-color: var(--tk-fiord);
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.tk-pgbar__stat {
+  font-family: var(--tk-mono);
+  color: var(--tk-ink);
+}
+
+.tk-pgbar__link {
+  color: var(--tk-brand);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.tk-pgbar__hint {
+  margin-left: auto;
+  color: var(--tk-ink-2);
+  font-size: .68rem;
+}
+
+/* —— 51.2 任务标题左侧的勾选框 —— */
+
+.tk-qbox {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-block;
+  position: relative;
+  width: .86rem;
+  height: .86rem;
+  margin: 0 .5rem 0 0;
+  padding: 0;
+  vertical-align: .02rem;
+  background: transparent;
+  border: 1px solid var(--tk-line-3);
+  cursor: pointer;
+}
+
+.tk-qbox:hover { border-color: var(--tk-fiord); }
+
+.tk-qbox__mark::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: .2rem;
+  height: .4rem;
+  border: solid var(--tk-grn-bg);
+  border-width: 0 .15rem .15rem 0;
+  transform: translate(-50%, -60%) rotate(45deg);
+  opacity: 0;
+}
+
+.tk-qbox[aria-pressed="true"] {
+  background: var(--tk-grn);
+  border-color: var(--tk-grn);
+}
+
+.tk-qbox[aria-pressed="true"] .tk-qbox__mark::after { opacity: 1; }
+
+/* 已完成的标题：降到次要墨色。**不用删除线** —— 中文删除线会与笔画重叠，
+   在 66 行的长表里反而更难扫；降色 + 勾选框的实心绿块已经足够区分。 */
+h3.tk-qdone { color: var(--tk-ink-2); }
+
+/* —— 51.3 页首索引表：已完成行整行点亮 ——
+   选择器写到 :nth-child(even) 是为了压过第 275 行的斑马行规则
+   （同特异性时后写的胜，但这一个直接多一层，改写顺序也不会失效）。 */
+
+.md-typeset table:not([class]) tbody tr.tk-qdone,
+.md-typeset table:not([class]) tbody tr.tk-qdone:nth-child(even) {
+  background: var(--tk-grn-bg);
+}
+
+.md-typeset table:not([class]) tbody tr.tk-qdone > td { color: var(--tk-ink-2); }
+
+/* 已完成行再加一道左侧色脊。底色 --tk-grn-bg 与纸底 --tk-paper 都是近白，
+   单靠底色在 66 行的长表里不够醒目；色脊用 box-shadow 内嵌绘制，
+   不占布局宽度 —— 用 border-left 会把整行内容右推 3px，与未完成行错开。 */
+.md-typeset table:not([class]) tbody tr.tk-qdone > td:first-child {
+  box-shadow: inset 3px 0 0 var(--tk-grn);
+}
+
+/* —— 51.4 进度总览看板 —— */
+
+.tk-board { margin: 1.1rem 0 .4rem; }
+
+.tk-board__sum {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1.1rem;
+}
+
+.tk-board__sumitem {
+  flex: 1 1 7rem;
+  padding: .55rem .8rem .6rem;
+  background: var(--tk-panel);
+  border: 1px solid var(--tk-line-2);
+  border-top: 3px solid var(--tk-fiord);
+}
+
+.tk-board__sumitem em {
+  display: block;
+  font-style: normal;
+  font-family: var(--tk-mono);
+  font-size: .66rem;
+  letter-spacing: .08em;
+  color: var(--tk-ink-2);
+}
+
+.tk-board__sumitem b {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--tk-ink);
+}
+
+.tk-board__tbl {
+  width: 100%;
+  /* 窄屏给一个最小宽度：中文可逐字断行，表格的 min-content 极小，
+     不给下限就只会被压窄、不会触发横向滚动（与第 3 节宽表同一条理由）。
+     滚动容器是它外面的 .md-typeset__table，不要在这里另加 overflow。 */
+  min-width: 24rem;
+  border-collapse: collapse;
+  font-size: .78rem;
+}
+
+.tk-board__tbl th {
+  background: var(--tk-panel-2);
+  color: var(--tk-brand);
+  font-weight: 600;
+  text-align: left;
+  padding: .4rem .6rem;
+  border: 1px solid var(--tk-line-3);
+  white-space: nowrap;
+}
+
+.tk-board__tbl td {
+  padding: .35rem .6rem;
+  border: 1px solid var(--tk-line);
+  vertical-align: middle;
+}
+
+.tk-board__num { font-family: var(--tk-mono); }
+
+.tk-board__bar { min-width: 10rem; }
+
+.tk-board__bar em {
+  font-style: normal;
+  font-family: var(--tk-mono);
+  font-size: .72rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-board__track {
+  display: inline-block;
+  vertical-align: middle;
+  width: 5.5rem;
+  height: .5rem;
+  margin-right: .5rem;
+  background: var(--tk-panel-2);
+  border: 1px solid var(--tk-line);
+}
+
+.tk-board__fill {
+  display: block;
+  height: 100%;
+  background: var(--tk-grn);
+}
+
+.tk-board__foot td {
+  background: var(--tk-panel);
+  font-weight: 600;
+  color: var(--tk-ink);
+}
+
+.tk-board__ops {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .9rem;
+}
+
+.tk-board__btn {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: .35rem .9rem;
+  background: transparent;
+  color: var(--tk-brand);
+  border: 1px solid var(--tk-line-3);
+  font: inherit;
+  font-size: .75rem;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.tk-board__btn:hover {
+  background: var(--tk-panel);
+  border-color: var(--tk-fiord);
+}
+
+.tk-board__btn--warn {
+  color: var(--tk-red);
+  border-color: var(--tk-red);
+}
+
+.tk-board__toast {
+  margin-top: .7rem;
+  font-size: .75rem;
+  color: var(--tk-grn);
+}
+
+.tk-board__toast.is-bad { color: var(--tk-red); }
+
+/* 窄屏：模式条与看板不溢出 */
+@media screen and (max-width: 44.9375em) {
+  .tk-pgbar { gap: .35rem .6rem; }
+  .tk-pgbar__hint { margin-left: 0; }
+  .tk-board__tbl { font-size: .72rem; }
+  .tk-board__tbl th,
+  .tk-board__tbl td { padding: .3rem .4rem; }
+  .tk-board__track { width: 3.5rem; }
+}
+
+/* —— 51.5 物品收集看板 —— */
+
+.tk-board__filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem .9rem;
+  margin: .2rem 0 .7rem;
+}
+
+.tk-board__search {
+  flex: 1 1 12rem;
+  min-width: 0;
+  padding: .3rem .6rem;
+  background: transparent;
+  color: var(--tk-ink);
+  border: 1px solid var(--tk-line-3);
+  font: inherit;
+  font-size: .75rem;
+  line-height: 1.6;
+}
+
+.tk-board__search:focus {
+  outline: none;
+  border-color: var(--tk-fiord);
+}
+
+.tk-board__check {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .75rem;
+  color: var(--tk-ink-2);
+  cursor: pointer;
+}
+
+.tk-board__check input { accent-color: var(--tk-fiord); }
+
+.tk-board__filtercount {
+  margin-left: auto;
+  font-family: var(--tk-mono);
+  font-size: .7rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-board__pick { width: 2.2rem; text-align: center; }
+
+.tk-board__who { font-size: .72rem; color: var(--tk-ink-2); }
+
+/* 筛选靠 tr[hidden] 实现。**必须显式写 display:none** —— 表格行的
+   display 默认是 table-row，[hidden] 的浏览器默认样式未必压得住。 */
+.tk-board__tbl tr[hidden] { display: none; }
+
+.tk-board__note {
+  margin: .8rem 0 0;
+  font-size: .72rem;
+  line-height: 1.8;
+  color: var(--tk-ink-2);
+}
+
+.tk-board__note strong { color: var(--tk-ink); }
+
+/* 物品表里的勾选框沿用任务标题同款，但表内不需要右外边距 */
+.tk-board__tbl .tk-qbox { margin: 0; vertical-align: middle; }
+
+/* —— 51.6 藏身处看板 —— */
+
+.tk-hut { margin: .9rem 0 0; }
+
+.tk-hut__head {
+  display: flex;
+  align-items: baseline;
+  gap: .6rem;
+  padding: .25rem 0 .4rem;
+  border-bottom: 1px solid var(--tk-line-2);
+}
+
+.tk-hut__head b { font-size: .8rem; color: var(--tk-brand); }
+
+.tk-hut__head em {
+  font-style: normal;
+  font-family: var(--tk-mono);
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-hut__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: .5rem;
+  margin-top: .6rem;
+}
+
+.tk-hut__cell {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  padding: .5rem .6rem;
+  background: var(--tk-panel);
+  border: 1px solid var(--tk-line-2);
+  border-left: 3px solid var(--tk-line-3);
+}
+
+/* 已建造：左侧色脊转军绿 + 换底色。与任务表的「已完成行」用同一套语义。 */
+.tk-hut__cell.is-built {
+  background: var(--tk-grn-bg);
+  border-left-color: var(--tk-grn);
+}
+
+.tk-hut__name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .35rem;
+  font-size: .78rem;
+  color: var(--tk-ink);
+}
+
+.tk-hut__cap {
+  padding: 0 .25rem;
+  border: 1px solid var(--tk-line);
+  font-family: var(--tk-mono);
+  font-size: .62rem;
+  letter-spacing: .03em;
+  color: var(--tk-khaki);
+}
+
+.tk-hut__cap--unknown {
+  border-style: dashed;
+  color: var(--tk-ink-2);
+}
+
+.tk-hut__sel {
+  padding: .15rem .3rem;
+  background: transparent;
+  color: var(--tk-ink);
+  border: 1px solid var(--tk-line-3);
+  font: inherit;
+  font-size: .72rem;
+}

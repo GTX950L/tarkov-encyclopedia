@@ -64,7 +64,7 @@ tags:
 | 标签 | 篇数 | 覆盖条目 |
 |------|------|----------|
 | 版本 | 7 | [achievements](entries/achievements.md) · [leagues](entries/leagues.md) · [pve](entries/pve.md) · [season-modifiers](entries/season-modifiers.md) · [seasons](entries/seasons.md) · [value-changes](docs/value-changes.md) · [version-history](docs/version-history.md) |
-| 索引 | 7 | [glossary](docs/glossary.md) · [index](entries/index.md) · [roadmap](docs/roadmap.md) · [tags](tags.md) · [template](template.md) · [value-changes](docs/value-changes.md) · [version-history](docs/version-history.md) |
+| 索引 | 8 | [glossary](docs/glossary.md) · [index](entries/index.md) · [progress](quests/progress.md) · [roadmap](docs/roadmap.md) · [tags](tags.md) · [template](template.md) · [value-changes](docs/value-changes.md) · [version-history](docs/version-history.md) |
 | 速查 | 8 | [buying-guide](docs/buying-guide.md) · [game-settings](docs/game-settings.md) · [glossary](docs/glossary.md) · [map-guide](docs/map-guide.md) · [mechanics](docs/mechanics.md) · [performance](docs/performance.md) · [progression](docs/progression.md) · [starter-checklist](docs/starter-checklist.md) |
 
 > 标签体系供站内检索与分类导航使用。**标签只写在 frontmatter 里**——新增条目时请沿用本页既有标签，不要新造同义标签（例如用「装备」而不是「器械」），否则检索会把同类条目切散。

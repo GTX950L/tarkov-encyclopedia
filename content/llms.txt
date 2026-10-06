@@ -32,6 +32,7 @@
 > 口径：官方任务数据端点（二级来源），2026-09-30 抓取。
 
 - [任务图鉴总览](https://gtx950l.github.io/tarkov-encyclopedia/quests/)：数据口径、十条字段判读、按商人／等级／关键标记的分布统计
+- [任务进度追踪](https://gtx950l.github.io/tarkov-encyclopedia/quests/progress/)：515 个任务的本地打勾表（PVP / PVE / 赛季 三套独立记录），按商人汇总完成度；进度只存在读者本机浏览器，可导出／导入，无账号无服务端
 - 按商人分页（每页按等级门槛升序）：[Mechanic](https://gtx950l.github.io/tarkov-encyclopedia/quests/mechanic/) · [Prapor](https://gtx950l.github.io/tarkov-encyclopedia/quests/prapor/) · [Skier](https://gtx950l.github.io/tarkov-encyclopedia/quests/skier/) · [Jaeger](https://gtx950l.github.io/tarkov-encyclopedia/quests/jaeger/) · [Ragman](https://gtx950l.github.io/tarkov-encyclopedia/quests/ragman/) · [Therapist](https://gtx950l.github.io/tarkov-encyclopedia/quests/therapist/) · [Peacekeeper](https://gtx950l.github.io/tarkov-encyclopedia/quests/peacekeeper/) · [Fence](https://gtx950l.github.io/tarkov-encyclopedia/quests/fence/) · [Ref（竞技场裁判）](https://gtx950l.github.io/tarkov-encyclopedia/quests/ref/) · [BTR 司机](https://gtx950l.github.io/tarkov-encyclopedia/quests/btr-driver/) · [Lightkeeper](https://gtx950l.github.io/tarkov-encyclopedia/quests/lightkeeper/)
 
 ## 参考区（第十篇）
