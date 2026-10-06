@@ -74,6 +74,24 @@ zensical serve                       # ② 打开 http://localhost:8000
 
 只跑 `zensical build`（不 serve）也可以，用于确认构建无误。
 
+## 🏷️ 发版与版本号
+
+站点页头那枚版本徽标由主题**在浏览器里向 GitHub API 取**，取的是**最新 Release** —— **不是最新 tag**。所以两件事要一起做，只做一半徽标就不动：
+
+```bash
+# ① 在 CHANGELOG.md 顶部加条目，版本号写在条目标题里：## 2026-10（v1.72.0）
+# ② 提交并推送
+git push origin main
+# ③ 打 tag **并建 Release**（Release 才是徽标的数据源）
+git tag -a v1.72.0 -m "v1.72.0 —— 一句话主题"
+git push origin v1.72.0
+gh release create v1.72.0 --title "v1.72.0 —— 一句话主题" --notes-file notes.md
+```
+
+**踩过的坑（2026-10-06 实测）**：只推 tag、不建 Release，徽标会**一直停在上一版**。本站在 v1.49–v1.70 期间只改 CHANGELOG 没建 Release，页头因此长期停在 **v1.48.0**，与 CHANGELOG 差了 **23 个版本**。
+
+> **判据**：页头徽标里的版本号必须等于 `CHANGELOG.md` 最新条目括号里的版本号。不相等 → 先查最新版有没有建 Release。
+
 ## 🐛 报告问题
 
 - 数值过期 → Issue 标注版本号；
