@@ -72,6 +72,7 @@
     return {
       quests: {}, inhand: {}, items: {}, hideout: {}, objectives: {},
       ll: {},                 // 商人忠诚度：{ <商人slug>: "1".."4" }
+      fence: null,             // Fence 声望：**负值刻度**（如亡羊补牢要求 ≤ −3），与上面的 ll 不是一把尺。null = 未填
       level: 0,               // 我的等级
       faction: "",            // "BEAR" / "USEC" / ""
       prestige: 0,            // 转生次数
@@ -131,6 +132,7 @@
            用下标当键会让「勾过的目标」跑到别的目标上。 */
         objectives: cleanMap(src.objectives),
         ll: cleanMap(src.ll),
+        fence: null,
         level: 0,
         faction: "",
         prestige: 0,
@@ -140,6 +142,13 @@
       var lv = parseInt(src.level, 10);
       mode.level = (isFinite(lv) && lv > 0 && lv < 100) ? lv : 0;
       mode.faction = (src.faction === "BEAR" || src.faction === "USEC") ? src.faction : "";
+      /* Fence 声望：独立字段、**允许负数**。它与商人忠诚度不是一套刻度
+         ——Fence 用负值（亡羊补牢要求 ≤ −3、≤ −1），LL 只有 1–4 的正值。
+         合法区间取 −10 – 10，两端各留一点余量。**null 表示未填**，与「填了 0」
+         必须区分：0 是真实值（破镜重圆三条要求 Lightkeeper ≤ 0），判定的方向
+         恰好相反，混成一个值会让两批任务同时算错。 */
+      var fr = parseInt(src.fence, 10);
+      mode.fence = (isFinite(fr) && fr >= -10 && fr <= 10) ? fr : null;
       var pr = parseInt(src.prestige, 10);
       mode.prestige = (isFinite(pr) && pr > 0 && pr < 20) ? pr : 0;
       /* 商人忠诚度：只留 1–4 的整数。 */
@@ -379,7 +388,28 @@
     gates: function (m) {
       var d = load();
       var md = d.modes[m || d.mode];
-      return { ll: md.ll, faction: md.faction, prestige: md.prestige, level: md.level };
+      return { ll: md.ll, fence: md.fence, faction: md.faction, prestige: md.prestige, level: md.level };
+    },
+
+    /* Fence 声望：0 表示「没填」而不是「声望为 0」——后者是一个真实存在且
+       会被用到的值（破镜重圆三条要求 Lightkeeper ≤ 0）。所以未填时存 null，
+       判定时按「未知」处理成 soft 提示，不阻断也不放行。 */
+    setFence: function (n) {
+      var d = load();
+      if (n === "" || n === null || n === undefined) delete d.modes[d.mode].fence;
+      else {
+        var v = parseInt(n, 10);
+        if (!isFinite(v) || v < -10 || v > 10) delete d.modes[d.mode].fence;
+        else d.modes[d.mode].fence = v;
+      }
+      save(d);
+      emit();
+    },
+
+    getFence: function () {
+      var d = load();
+      var v = d.modes[d.mode].fence;
+      return (v === undefined || v === null) ? null : v;
     },
 
     setLL: function (trader, n) {

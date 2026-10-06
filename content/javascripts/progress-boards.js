@@ -253,9 +253,17 @@
        · **进行中任务的前置一律视为已完成**（能被接到，前置必然满足），沿链传递
        · 只沿 c（complete）边传播；a/f 两类本站没有对应状态，只作提示
        · 可接 = 未完成 + 未进行中 + 前置满足 + 等级够 + **门槛满足**
-     门槛三类能吃到的都吃：商人忠诚度（level）、阵营、转生。
-     吃不到的（声望、跨任务计数器、对话）**不参与判定，但标出来** ——
+     门槛四类能吃到的都吃：商人忠诚度（level）、**商人声望（reputation）**、阵营、转生。
+     吃不到的（跨任务计数器、对话）**不参与判定，但标出来** ——
      算不出来的东西宁可让读者多看一眼，也不给一个靠猜的答案。
+
+     ⚠️ 声望为什么单独处理（2026-10-07 修，见 docs/roadmap 的审查批次）：
+     此前 `kind !== "level"` 一律降级成一句没有数值、没有方向的「声望条件」，
+     **12 个任务的声望门槛完全不参与判定**——其中包括 Kappa 线终点「收藏家」
+     （Fence ≥ 3）。后果是总览的「下一步」把它算进「现在可接」。
+     现在 reputation 会真判定，但**只对站内有刻度的 Fence 生效**：
+     Fence 用**负值**刻度（亡羊补牢要求 ≤ −3 / ≤ −1），与 LL 的 1–4 不是一把尺，
+     所以单独读 `gates.fence`；**未填时按未知处理成 soft**，不给靠猜的答案。
      -------------------------------------------------------------------------- */
 
   function gateCheck(node, gates) {
@@ -273,6 +281,19 @@
     var tr = g.t || [];
     for (i = 0; i < tr.length; i++) {
       var trader = tr[i][0], kind = tr[i][1], cmp = tr[i][2], val = tr[i][3];
+      if (kind === "reputation") {
+        /* 声望门槛：参与判定，但只对**站内采集了刻度**的商人生效。
+           Fence 用负值刻度（亡羊补牢要求 ≤ −3），与 LL 的 1–4 不是一把尺，
+           所以单独读 gates.fence；未填时（null）按未知处理成 soft —— 宁可让
+           读者多看一眼，也不给一个靠猜的「可接」。 */
+        var label = trader === "Fence" ? "Fence 声望" : trader + " 声望";
+        var cond = label + (cmp === ">=" ? " ≥ " : cmp === "<=" ? " ≤ " : " < ") + val;
+        var haveRep = trader === "Fence" ? gates.fence : null;
+        if (haveRep === null || haveRep === undefined) { out.soft.push("需 " + cond); continue; }
+        var passRep = cmp === ">=" ? haveRep >= val : cmp === "<=" ? haveRep <= val : haveRep < val;
+        if (!passRep) { out.ok = false; out.why.push("需 " + cond); }
+        continue;
+      }
       if (kind !== "level") { out.soft.push("声望条件"); continue; }
       var have = parseInt((gates.ll || {})[trader], 10) || 0;
       var pass = cmp === "<=" ? have <= val : have >= val;
@@ -735,9 +756,25 @@
     prIn.addEventListener("change", function () { TP.setPrestige(prIn.value); });
     prWrap.appendChild(prIn);
     gatePanel.appendChild(prWrap);
+    /* Fence 声望：单独一个数字输入，**允许负数**。它和上面 11 个 LL 不是一把尺
+       ——Fence 的任务要求「声望为负」（亡羊补牢 ≤ −3），而 LL 只有 1–4 的正值。
+       塞进 LL 那个下拉框会同时算错两批任务，所以这里独立输入。
+       留空 = 未填，判定时按未知处理（只提示、不放行）。 */
+    var feWrap = el("label", "tk-board__lv");
+    feWrap.appendChild(el("span", null, "Fence 声望"));
+    var feIn = document.createElement("input");
+    feIn.type = "number"; feIn.min = "-10"; feIn.max = "10"; feIn.step = "1";
+    feIn.placeholder = "可负";
+    feIn.className = "tk-cnt__in";
+    feIn.setAttribute("data-focus-key", "fence");
+    feIn.setAttribute("aria-label", "Fence 声望（可填负数）");
+    feIn.addEventListener("change", function () { TP.setFence(feIn.value); });
+    feWrap.appendChild(feIn);
+    gatePanel.appendChild(feWrap);
     gatePanel.appendChild(el("p", "tk-board__note",
       "填了才能判准「可接」。**填「?」的商人不会被用作筛选**，"
-      + "只在任务行上提示「需 XX LL2」—— 宁可不筛，也不猜。"));
+      + "只在任务行上提示「需 XX LL2」—— 宁可不筛，也不猜。"
+      + "**Fence 声望可填负数**（如亡羊补牢要求 ≤ −3）；留空则相关任务只提示、不计入可接。"));
     host.appendChild(gatePanel);
 
     /* 地图 + 预设 */
@@ -804,7 +841,9 @@
 
       var meta = tname[node[N_TRADER]] || node[N_TRADER] || "—";
       main.appendChild(el("em", "tk-qrow__meta", meta));
-      main.appendChild(el("em", "tk-qrow__lv", "Lv" + node[N_LEVEL]));
+      /* 等级为 0 ＝ 数据源没给解锁等级，不是「有个 0 级任务」。
+         所以不写 "Lv0"（那会被读成真实等级），留空不加标。 */
+      if (node[N_LEVEL]) main.appendChild(el("em", "tk-qrow__lv", "Lv" + node[N_LEVEL]));
       if (extra) main.appendChild(el("em", "tk-qrow__extra", extra));
       if (node[N_FLAGS].indexOf("k") >= 0) main.appendChild(el("em", "tk-qrow__flag", "Kappa"));
       if (node[N_FLAGS].indexOf("l") >= 0) main.appendChild(el("em", "tk-qrow__flag", "LK"));
@@ -1017,6 +1056,11 @@
       /* 工具条状态回填（只在没有焦点时写，免得打断输入） */
       if (document.activeElement !== lvIn) lvIn.value = gates.level > 0 ? String(gates.level) : "";
       if (document.activeElement !== prIn) prIn.value = gates.prestige > 0 ? String(gates.prestige) : "";
+      /* Fence 声望回填：0 是真实值，必须与「未填」区分开 —— 所以判的是
+         null/undefined，不是真值。否则填了 0 的人会被清空。 */
+      if (document.activeElement !== feIn) {
+        feIn.value = (gates.fence === null || gates.fence === undefined) ? "" : String(gates.fence);
+      }
       var segs = facWrap.querySelectorAll(".tk-board__segbtn");
       for (var s = 0; s < segs.length; s++) {
         segs[s].classList.toggle("is-on", segs[s].textContent === gates.faction);

@@ -159,6 +159,16 @@ ASSERTIONS: dict[str, list[tuple[str, str, bool, str]]] = {
         ("entries/story-chapters.md", r"社区实录与媒体报道", True,
          "来源须标为社区实录与媒体报道，不得写成官方设定"),
     ],
+    "B11": [
+        # 进度页必须写明「Fence 声望可填负数」与「留空只提示不计入」——
+        # 这两条是本项存在的理由：Fence 用负值刻度，且「未填」不能被当成「满足」。
+        ("quests/progress.md", r"Fence 声望", True,
+         "进度页须出现 Fence 声望输入项"),
+        ("quests/progress.md", r"负数", True,
+         "须写明 Fence 声望可填负数——它与商人忠诚度不是一把尺"),
+        ("quests/progress.md", r"留空", True,
+         "须写明留空时只提示、不计入可接（不得让「未填」被读成「满足」）"),
+    ],
 }
 
 

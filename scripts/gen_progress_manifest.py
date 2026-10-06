@@ -348,7 +348,11 @@ def build_graph(tasks: list[dict]) -> int:
         "generated": date.today().isoformat(),
         "source": raw.get("source"),
         "baseline": raw.get("fetched"),
-        "statusVocab": raw.get("statusVocab"),
+        # ⚠️ 这是**上游数据源自带的状态词频**（该任务在数据端点里被标成
+        # complete/active/failed 的条数），**与本站的 flags 字段毫无关系**——
+        # flags 是站内加的 Kappa(k) / Lightkeeper(l) 标记。两个字段都叫「状态」，
+        # 读代码时极易误认为对应，故在此显式留名。
+        "srcStatusVocab": raw.get("statusVocab"),
         "total": len(nodes),
         # 字段顺序写在这里，客户端按下标读 —— 紧凑格式的代价是这一句必须准确
         "cols": ["name", "trader", "level", "prereqs", "flags", "link", "gates", "map"],
@@ -360,6 +364,12 @@ def build_graph(tasks: list[dict]) -> int:
         "   任务树（核心）：id → [中文名, 商人, 等级, [[前置id,标记],…], 标记, 页内链接, 门槛, 地图]。\n"
         "   前置标记 c=complete a=active f=failed；只有 c 用于「可接」判定。\n"
         "   门槛 gates = { t:[[商人,kind,cmp,value],…], f:阵营, p:转生, o:[其他条件文本] }。\n"
+        "     其中 kind=level 是商人忠诚度（1–4），kind=reputation 是商人声望。\n"
+        "     **Fence 用负值声望**，与 LL 不是一把尺 —— 客户端只在 gates.fence 填了值时\n"
+        "     才参与 reputation 判定，未填按「未知」处理成提示，不阻断也不放行。\n"
+        "   标记 flags 是**站内**加的 Kappa(k) / Lightkeeper(l)，与 srcStatusVocab 无关。\n"
+        "   srcStatusVocab 是**上游数据源自带的状态词频**，不是站内状态，别与 flags 混读。\n"
+        "   等级为 0 表示数据源没给解锁等级，不是「有个 0 级任务」。\n"
         "   目标明细与出发前准备在 quests-detail.js —— 那份**只在展开任务/打开准备清单时**才载。\n"
         "   本文件**不进 extra_javascript** —— 由 progress.js 在进度页动态注入。 */\n"
     )
