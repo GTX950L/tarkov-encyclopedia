@@ -86,7 +86,7 @@ python scripts/skills_consistency.py
 | **4. 站内有「禁词」断言** | 耳机表注初稿写「官方未公布听音**曲线**」→ `check_promises` 报 **B4**（站内明令不再引用任何放大曲线数值） | **下笔前先跑一遍 `check_promises`**，或换措辞（改成「听感相关的参数」） |
 | **5. 端点的容器类型会变** | `maps["maps"]` 在 list 与 dict 之间变过；只写 `for x in maps["maps"]` 会遍历到字符串键 → `TypeError: string indices must be integers` | 遍历前判类型：`if isinstance(x, dict): x = list(x.values())` |
 | **6. 合并 / 归一化要放在渲染前** | 把「同图同 Boss 合并」写进 `fetch()` → **用缓存重生成时不生效**，重复行照旧 | 后处理放 `main()` 里、渲染之前；这样两条路径都吃到 |
-| **7. 整栏重建会吞掉别人的标记区** | `gen_quests.py` 覆盖整个 `index.md`，而该页里有一块是 `gen_quest_items.py` 写的 → **重跑一次就无声抹掉**，不报错 | **凡「整栏重建」的生成器，只要碰过一块别的脚本也在写的页面，就必须先读旧文件、把标记区原样搬过来**（见 `carry_over_extras()`） |
+| **7. 整栏重建会吞掉别人的标记区** | `gen_quests.py` 覆盖整个 `content/quests/index.md`，而该页里有一块是 `gen_quest_items.py` 写的 → **重跑一次就无声抹掉**，不报错 | **凡「整栏重建」的生成器，只要碰过一块别的脚本也在写的页面，就必须先读旧文件、把标记区原样搬过来**（见 `carry_over_extras()`） |
 
 ## Step 5 — 什么该做、什么不该做
 
