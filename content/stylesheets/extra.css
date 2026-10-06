@@ -2553,6 +2553,20 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   background: var(--tk-fiord-lt);
 }
 
+/* 降级态：任务图没载入时，这几块的数字算不出来。
+   画成一条灰色斜纹带 —— 与「0%」的实心条在视觉上明确不同，
+   避免读者把「算不出来」读成「一条都没做」。 */
+.tk-ov__trbar.is-unknown {
+  background:
+    repeating-linear-gradient(135deg,
+      var(--tk-panel-2) 0 6px,
+      var(--tk-line) 6px 12px);
+}
+
+.tk-ov__trbar.is-unknown .tk-ov__trfill {
+  display: none;
+}
+
 /* —— 长线目标 / 其它两轨 —— */
 
 .tk-ov__lines,
@@ -2639,6 +2653,13 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 [data-md-color-scheme="slate"] .tk-ov__tr:hover { background: #2A2825; }
 
 [data-md-color-scheme="slate"] .tk-ov__trbar { background: #1F1E1B; border-color: #4A473F; }
+
+[data-md-color-scheme="slate"] .tk-ov__trbar.is-unknown {
+  background:
+    repeating-linear-gradient(135deg,
+      #1F1E1B 0 6px,
+      #4A473F 6px 12px);
+}
 
 [data-md-color-scheme="slate"] .tk-ov__next {
   background: #2E2718;

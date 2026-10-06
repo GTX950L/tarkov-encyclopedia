@@ -401,7 +401,17 @@
       var explicit = modeData.quests || {};
       var inhand = modeData.inhand || {};
       var gates = TP.gates();
-      var tree = graph ? computeTree(graph, explicit, inhand, gates) : { done: {}, inferred: {}, avail: [] };
+      /* 图加载失败时的降级（2026-10-07 修）：
+         原先降级成 `{done:{}, inferred:{}, avail:[]}` —— 把**用户已有的手动进度
+         一起丢掉了**。于是大数字显示「0 / 515」，而下面的按商人矩阵、长线目标、
+         「下一步」全部按 0 算：**五个块同时失真，且看起来不像故障、像「进度被清空」**。
+         现在改为：done 保留显式记录（拿得到就算数），inferred 置 0，
+         并用 hasGraph 把「依赖任务图的三块」标成不可用 —— 不拿残缺的数据冒充全量口径。 */
+      var hasGraph = !!graph;
+      var tree = hasGraph
+        ? computeTree(graph, explicit, inhand, gates)
+        : { done: Object.keys(explicit).reduce(function (a, k) { a[k] = true; return a; }, {}),
+            inferred: {}, inferredBlocked: true, avail: [], locked: [] };
 
       var doneAll = Object.keys(tree.done).length;
       var inferredN = Object.keys(tree.inferred).length;
@@ -421,7 +431,8 @@
 
       var pctEl = el("div", "tk-ov__pct");
       pctEl.appendChild(el("b", null, pct + "%"));
-      pctEl.appendChild(el("span", null, "完成度（含推断）"));
+      /* 降级时不能说「含推断」——推断数被强制为 0，说含推断就是骗读者 */
+      pctEl.appendChild(el("span", null, hasGraph ? "完成度（含推断）" : "完成度（仅手动）"));
       top.appendChild(pctEl);
 
       var legend = el("div", "tk-ov__legend");
@@ -455,6 +466,14 @@
       });
       head.appendChild(bar);
 
+      /* 降级时的大数字说明：把「为什么按商人矩阵是 0」当场讲清，
+         否则读者会以为自己的记录又丢了。 */
+      if (!hasGraph) {
+        head.appendChild(el("p", "tk-board__note",
+          "任务图没能载入，所以**「前置推断」与「按商人 / 长线 / 可接」这三块暂不可用**——"
+          + "下面显示的完成数只包含你**手动标记过**的那些。刷新一次通常即可恢复。"));
+      }
+
       host.appendChild(head);
 
       /* —— 二、按商人：11 格矩阵 ——
@@ -470,13 +489,15 @@
       var tSec = el("div", "tk-ov__sec");
       var tHead = el("div", "tk-ov__sechead");
       tHead.appendChild(el("b", null, "按商人"));
-      tHead.appendChild(el("em", null, "已完成 / 该商人任务总数（含前置推断）"));
+      tHead.appendChild(el("em", null, hasGraph
+        ? "已完成 / 该商人任务总数（含前置推断）"
+        : "任务图未载入，暂不可用（刷新一次通常即可恢复）"));
       tSec.appendChild(tHead);
 
       var tGrid = el("div", "tk-ov__traders");
       for (var t = 0; t < traders.length; t++) {
         var tr = traders[t];
-        var got = doneByTrader[tr.slug] || 0;
+        var got = hasGraph ? (doneByTrader[tr.slug] || 0) : 0;
         var tot = tr.count || 0;
         var p = tot ? Math.round(got / tot * 100) : 0;
 
@@ -486,10 +507,12 @@
 
         var line = el("div", "tk-ov__trhead");
         line.appendChild(el("span", "tk-ov__trname", tr.name));
-        line.appendChild(el("span", "tk-ov__trnum", got + "/" + tot));
+        /* 降级时不写「0/89」——那会被读成「一个都没做」。写「—」表示「算不出来」。 */
+        line.appendChild(el("span", "tk-ov__trnum", hasGraph ? (got + "/" + tot) : "—"));
         cell.appendChild(line);
 
         var tb = el("div", "tk-ov__trbar");
+        if (!hasGraph) tb.className += " is-unknown";
         var tf = el("i", "tk-ov__trfill");
         tf.style.width = p + "%";
         tb.appendChild(tf);
@@ -506,14 +529,20 @@
          硬凑出来的百分比是编数据。改用**有标记支撑的两条长线**（任务节点上的
          kappa / lightkeeper 标记），并给出剧情页入口。 */
 
+      /* 分母**从任务图实算**，不写死数字（2026-10-07 改）。
+         原先 hint 里硬编码「13 条 / 7 条」——那是当前数据恰好对上的结果，
+         数据一变（任务增删）文案就会撒谎，而且没有任何东西会报错。
+         这里的 ids 长度就是真数：k = 13、l = 7，与旧文案一致。 */
       var lines = [
-        { flag: "k", name: "Kappa 线", hint: "收藏家前置的 13 条必需任务" },
-        { flag: "l", name: "Lightkeeper 链", hint: "解锁灯塔主人所需的 7 条" }
+        { flag: "k", name: "Kappa 线", hint: "收藏家前置的必需任务共" },
+        { flag: "l", name: "Lightkeeper 链", hint: "解锁灯塔主人所需的共" }
       ];
       var lSec = el("div", "tk-ov__sec");
       var lHead = el("div", "tk-ov__sechead");
       lHead.appendChild(el("b", null, "长线目标"));
-      lHead.appendChild(el("em", null, "带标记的终局线 · 不含剧情章节（说明见下）"));
+      lHead.appendChild(el("em", null, hasGraph
+        ? "带标记的终局线 · 不含剧情章节（说明见下）"
+        : "任务图未载入，暂不可用（刷新一次通常即可恢复）"));
       lSec.appendChild(lHead);
 
       var lGrid = el("div", "tk-ov__lines");
@@ -529,14 +558,18 @@
         var lCell = el("div", "tk-ov__line");
         var lTop = el("div", "tk-ov__trhead");
         lTop.appendChild(el("span", "tk-ov__trname", L.name));
-        lTop.appendChild(el("span", "tk-ov__trnum", gotL + "/" + ids.length));
+        /* 同上：算不出来时写「—」，不写「0/0」——后者会被读成「一条都没做」 */
+        lTop.appendChild(el("span", "tk-ov__trnum", hasGraph ? (gotL + "/" + ids.length) : "—"));
         lCell.appendChild(lTop);
         var lb = el("div", "tk-ov__trbar");
+        if (!hasGraph) lb.className += " is-unknown";
         var lf = el("i", "tk-ov__trfill");
-        lf.style.width = (ids.length ? Math.round(gotL / ids.length * 100) : 0) + "%";
+        lf.style.width = (hasGraph && ids.length ? Math.round(gotL / ids.length * 100) : 0) + "%";
         lb.appendChild(lf);
         lCell.appendChild(lb);
-        lCell.appendChild(el("em", "tk-ov__linehint", L.hint));
+        /* hint 里的条数用实算值补上，别再写死 */
+        lCell.appendChild(el("em", "tk-ov__linehint",
+          hasGraph ? (L.hint + " " + ids.length + " 条") : L.hint));
         lGrid.appendChild(lCell);
       }
       lSec.appendChild(lGrid);
@@ -570,7 +603,11 @@
       var oGrid = el("div", "tk-ov__others");
       [
         { name: "藏身处", got: hutBuilt, tot: hutList.length, extra: "已建满 " + hutMaxed + " 个 · 总等级 " + hutLevels + "/" + hutLevelMax, unit: "个模块" },
-        { name: "物品收集", got: itemMet, tot: itemList.length, extra: "已囤 " + itemKinds + " 种", unit: "种达标" }
+        /* 「达标」与「已囤」是两个数，读者容易问「囤了 10 种怎么只显示达标 3 种」——
+           这里把定义写进副标题，不让读者自己猜（定义与「物品收集」分页一致）。 */
+        { name: "物品收集", got: itemMet, tot: itemList.length,
+          extra: "已囤 " + itemKinds + " 种 · 达标 = 已囤件数 ≥ 该物品被任务要求的总件数",
+          unit: "种达标" }
       ].forEach(function (o) {
         var oCell = el("div", "tk-ov__other");
         var oTop = el("div", "tk-ov__trhead");
@@ -606,10 +643,16 @@
           "它们在「任务进度」分页的顶部，标成已完成就从列表里移走"]);
       }
       if (tree.avail && tree.avail.length) {
+        /* 「最低门槛」只在**真有等级门槛**时才有意义（2026-10-07 修）。
+           实测：296 个可接任务里 **199 个（67%）的 level 是 0**——0 不是「门槛低」，
+           是「数据源没给解锁等级」。原先直接取最小值，于是这一栏长期显示
+           「最低门槛 0 级：一臂之力」，把「未知」说成了「门槛很低」。
+           现在只统计 level > 0 的任务；一个都没有就不提这茬。 */
         var lowest = null;
         for (var ai = 0; ai < tree.avail.length; ai++) {
           var an = graph && graph.tasks[tree.avail[ai]];
           if (!an) continue;
+          if (!an[N_LEVEL]) continue;          /* 0 = 未给等级，不参与「最低门槛」评选 */
           if (!lowest || an[N_LEVEL] < lowest[N_LEVEL]) lowest = an;
         }
         steps.push([tree.avail.length + " 个任务可接" + (lowest ? "（最低门槛 " + lowest[N_LEVEL] + " 级：" + lowest[N_NAME] + "）" : ""),
@@ -618,7 +661,7 @@
       } else if (gates.level <= 0) {
         steps.push(["先填「我的等级」", "填了才算得出「哪些任务可接」——在「任务进度」分页的工具栏里"]);
       }
-      if (lines.length) {
+      if (lines.length && hasGraph) {
         var gaps = [];
         for (var gi2 = 0; gi2 < lines.length; gi2++) {
           var gl = lines[gi2], glIds = [], glGot = 0;
@@ -648,7 +691,8 @@
       nSec.appendChild(nList);
 
       nSec.appendChild(el("p", "tk-board__note",
-        "任务数字含**由前置推断**的完成（推断 = 进行中任务的上游必然已完成）。"
+        (hasGraph ? "任务数字含**由前置推断**的完成（推断 = 进行中任务的上游必然已完成）。"
+                  : "⚠️ **任务图未载入**，所以「可接」与「长线还差几条」算不出来，上面只给了不依赖任务图的建议。")
         + "**剧情章节没有做进度统计**：官方任务数据里没有「章节」字段，"
         + "本站也没有章节→任务的映射，算不出来就标明不算 —— 章节顺序与前置见 "
         + "[剧情章节与主线任务](../entries/story-chapters.md)。"));
