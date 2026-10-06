@@ -199,7 +199,7 @@
   /* 明细块的加载**不能复用 loadScript 的「全局已存在」短路**：
      11 个分块写的是同一个全局（TARKOV_QUEST_DETAIL），第一块载完之后，
      其余的会被当成「已经载过」而永远不请求 —— 实测踩到：
-     在手任务属于 mechanic，但只有 ragman 的块在，准备清单因此空着。
+     进行中任务属于 mechanic，但只有 ragman 的块在，准备清单因此空着。
      所以这里按**分块名**记状态，自己注入 script。 */
   function ensureDetail(slug, cb) {
     if (!slug) { cb(false); return; }
@@ -238,9 +238,9 @@
      按前置树反推 + 门槛判定
 
      规则：
-       · **在手任务的前置一律视为已完成**（能被接到，前置必然满足），沿链传递
+       · **进行中任务的前置一律视为已完成**（能被接到，前置必然满足），沿链传递
        · 只沿 c（complete）边传播；a/f 两类本站没有对应状态，只作提示
-       · 可接 = 未完成 + 未在手 + 前置满足 + 等级够 + **门槛满足**
+       · 可接 = 未完成 + 未进行中 + 前置满足 + 等级够 + **门槛满足**
      门槛三类能吃到的都吃：商人忠诚度（level）、阵营、转生。
      吃不到的（声望、跨任务计数器、对话）**不参与判定，但标出来** ——
      算不出来的东西宁可让读者多看一眼，也不给一个靠猜的答案。
@@ -331,7 +331,7 @@
 
     host.textContent = "";
 
-    var cards = sumCards([["在手"], ["已完成"], ["其中由前置推断"], ["可接（条件满足）"]]);
+    var cards = sumCards([["进行中"], ["已完成"], ["其中由前置推断"], ["可接（条件满足）"]]);
     host.appendChild(cards.el);
 
     /* 工具条 */
@@ -588,7 +588,7 @@
       }
     }
 
-    /* 目标变化后回写任务状态：全勾=已完成；部分勾=在手；由已完成退回时降为在手 */
+    /* 目标变化后回写任务状态：全勾=已完成；部分勾=进行中；由已完成退回时降为进行中 */
     function syncObjectives(qid) {
       var det = detailOf(qid);
       if (!det || !det.o || !det.o.length) return;
@@ -604,7 +604,7 @@
       }
     }
 
-    /* —— 出发前准备（从在手任务聚合） —— */
+    /* —— 出发前准备（从进行中任务聚合） —— */
     function renderPrep(graph, inIds) {
       /* ⚠️ 这里**不能**先清空：下面的 draw() 有缓存戳，戳命中时会直接返回，
          于是「先清空、再被戳挡住」= 面板永远空着。清空必须挪到缓存判断之后。
@@ -615,7 +615,7 @@
         return;
       }
       if (!inIds.length) {
-        prepBox.appendChild(el("p", "tk-board__note", "「出发前准备」来自**在手任务**。先标记几个在手任务。"));
+        prepBox.appendChild(el("p", "tk-board__note", "「出发前准备」来自**进行中任务**。先标记几个进行中任务。"));
         return;
       }
       var slugs = {};
@@ -653,7 +653,7 @@
         list.sort(function (a, b) { return (a[2] === b[2]) ? b[1] - a[1] : (a[2] ? -1 : 1); });
         var head = el("div", "tk-qsec__head");
         head.appendChild(el("b", null, "出发前准备"));
-        head.appendChild(el("em", null, inIds.length + " 个在手任务 · " + list.length + " 项"));
+        head.appendChild(el("em", null, inIds.length + " 个进行中任务 · " + list.length + " 项"));
         prepBox.appendChild(head);
         if (failed) {
           prepBox.appendChild(el("p", "tk-board__note",
@@ -756,7 +756,7 @@
         return true;
       }
 
-      cards.refs["在手"].textContent = String(inIds.length);
+      cards.refs["进行中"].textContent = String(inIds.length);
       cards.refs["已完成"].textContent = String(doneIds.length);
       cards.refs["其中由前置推断"].textContent = String(Object.keys(tree.inferred).length);
       cards.refs["可接（条件满足）"].textContent = String(tree.avail.length);
@@ -804,10 +804,10 @@
         var fAv = filtered(tree.avail).sort(byLevel);
         var fDn = filtered(doneIds).sort(byLevel);
 
-        var s1 = section("在手", fIn.length + " 个" + (mapPick || Object.keys(presets).some(function (k) { return presets[k]; }) ? "（已筛）" : ""), "tk-qsec--inhand");
+        var s1 = section("进行中", fIn.length + " 个" + (mapPick || Object.keys(presets).some(function (k) { return presets[k]; }) ? "（已筛）" : ""), "tk-qsec--inhand");
         if (!fIn.length) {
           s1.box.appendChild(el("p", "tk-board__empty",
-            inIds.length ? "当前筛选下没有在手任务。" : "还没标记任何任务。在下面「可接」里把状态改成「在手」，或用搜索框找任务。"));
+            inIds.length ? "当前筛选下没有进行中任务。" : "还没标记任何任务。在下面「可接」里把状态改成「进行中」，或用搜索框找任务。"));
         } else {
           for (var a1 = 0; a1 < fIn.length && a1 < QROW_CAP; a1++) {
             s1.box.appendChild(questRow(fIn[a1], graph.tasks[fIn[a1]], null, tree));
@@ -843,7 +843,7 @@
         body.appendChild(s3.sec);
 
         cnt.textContent = "共 " + totalAll + " 个任务";
-        cnt2.textContent = (mapPick ? "地图 " + mapPick + " · " : "") + "在手 " + fIn.length + " / 可接 " + fAv.length;
+        cnt2.textContent = (mapPick ? "地图 " + mapPick + " · " : "") + "进行中 " + fIn.length + " / 可接 " + fAv.length;
       });
 
       renderPrep(graph, inIds);
