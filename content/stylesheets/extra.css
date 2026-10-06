@@ -1581,7 +1581,13 @@ h3.tk-qdone { color: var(--tk-ink-2); }
 
 .tk-qstate:hover { border-color: var(--tk-fiord); }
 
-.tk-qstate--row { width: 5.6rem; margin-right: 0; flex: none; }
+/* ⚠️ 这里**不能**再给 .tk-qstate--row 设固定宽度。
+   5.6rem 是当初为**单个 <select>** 定的（它只显示当前一项文字）。
+   2026-10-07 换成三态分段按钮后，这条宽度没跟着改 —— 结果三个按钮被塞进
+   5.6rem，每个只剩约 1.9rem，而「未标记」三字需要约 2.0rem，
+   **读者报「选项框里的字有一部分超出框看不见」**。
+   现在宽度由内容决定（.tk-qstate--seg 去掉 width），按钮字号与内边距也调窄了一档。 */
+.tk-qstate--row { margin-right: 0; flex: none; }
 
 /* —— 状态分段控件（2026-10-07 替换原生 select）——
    三个状态并排常驻显示，当前项高亮。读者反馈「复杂且不直观」的根因是：
@@ -1593,7 +1599,7 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   margin: 0 .55rem 0 0;
   border: 1px solid var(--tk-line-3);
   border-radius: 3px;
-  overflow: hidden;
+  overflow: visible;          /* 不要 hidden：裁切会切掉文字与焦点框 */
   background: var(--tk-line-3);
   vertical-align: middle;
   flex: none;
@@ -1602,15 +1608,17 @@ h3.tk-qdone { color: var(--tk-ink-2); }
 .tk-qseg {
   appearance: none;
   margin: 0;
-  padding: .15rem .5rem;
+  padding: .15rem .42rem;
   border: 0;
   background: var(--tk-panel);
   color: var(--tk-ink-2);
   font: inherit;
-  font-size: .66rem;
+  font-size: .64rem;
   line-height: 1.65;
   cursor: pointer;
   white-space: nowrap;
+  /* 按钮默认不收缩：宽度由内容决定，否则「未标记」会被挤到只剩一个字 */
+  flex: none;
   transition: background-color .12s, color .12s;
 }
 
@@ -1648,9 +1656,15 @@ h3.tk-qdone { color: var(--tk-ink-2); }
 h3 .tk-qstate--seg { margin-right: .4rem; }
 h3 .tk-qseg { font-size: .64rem; padding: .1rem .42rem; }
 
-/* 窄屏：控件独占一行，避免和任务名挤在一起 */
+/* 窄屏：控件独占一整行，不和标题挤在一起。
+   注意这里管的是**任务页标题（h3）上**那个状态控件 —— 它不在 .tk-qrow__main 里，
+   所以下面 44.9375em 那条（任务列表行内的）管不到它，两条各管一处、不重复。 */
 @media (max-width: 640px) {
-  .tk-qstate--seg { margin: 0 0 .3rem; }
+  .tk-qstate--seg {
+    flex-basis: 100%;
+    margin: 0 0 .35rem;
+    justify-content: flex-start;
+  }
 }
 
 /* 标题上的状态：按状态给色脊，扫一眼就知道做过没有 */
@@ -1898,7 +1912,13 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 @media screen and (max-width: 44.9375em) {
   .tk-qrow__main { flex-wrap: wrap; }
   .tk-qrow__name { flex-basis: 100%; order: 2; }
-  .tk-qstate--row { order: 1; }
+  /* 分段按钮要**整行独占**：三个按钮约需 10.4rem，这里正文可用约 19rem，
+     不让它换行就会把任务名挤到只剩十来个字。
+     （原先只有 order:1 而没有 flex-basis，控件仍与任务名同排。） */
+  .tk-qstate--row {
+    order: 1;
+    flex-basis: 100%;
+  }
   .tk-qrow__meta, .tk-qrow__lv, .tk-qrow__extra { order: 3; }
 }
 
