@@ -5,6 +5,23 @@
 > “这是一个没有 HUD、没有教学、没有第二次机会的世界。”
 > —— 塔科夫，诺文斯克地区的封锁区
 
+<div class="tk-launch">
+<a class="tk-launch__card tk-launch--read" href="entries/spawn-and-opening.md">
+<span class="tk-launch__title">📖 读 · 从零上手</span>
+<span class="tk-launch__desc">86 个条目分十篇主线：从撤离、保险与健康起步，一路读到地图、装备、经济与终局场景。</span>
+<span class="tk-launch__cta">从第一篇开始阅读</span>
+</a>
+<div class="tk-launch__card tk-launch--tools">
+<span class="tk-launch__head"><span class="tk-launch__title">🧰 用 · 工具箱</span><span class="tk-launch__badge">离线可用 · 无需登录</span></span>
+<ul class="tk-launch__list">
+<li><a href="quests/progress.md"><b>我的进度</b><i data-tk-toolstat>任务 · 物品 · 藏身处</i></a></li>
+<li><a href="quests/index.md"><b>任务图鉴</b><i>515 个任务逐条</i></a></li>
+<li><a href="docs/mechanics.md"><b>速查表</b><i>机制 · 地图 · 术语</i></a></li>
+</ul>
+<a class="tk-launch__cta tk-launch__cta--primary" href="quests/progress.md">打开我的进度</a>
+</div>
+</div>
+
 《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **86 个**条目，分十篇组织：**前八篇**是“从零上手”的主线，**第九篇 · [任务图鉴](quests/index.md)** 把 **515 个任务**的要求、奖励与接取门槛逐条列全，**第十篇 · [参考](docs/index.md)** 收齐速查表与站务工具页。
 
 > 💡 本站**全文不使用配图**，弱网环境可流畅阅读。所有数值描述以“机制原理”为主，具体数值随版本变动，请以游戏内为准。
@@ -34,7 +51,7 @@
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s9" href="quests/index.md"><b>第九篇</b><em>任务图鉴</em><i>13 篇</i></a>
 <span class="tk-arrow">→</span>
-<a class="tk-step tk-s10" href="docs/index.md"><b>第十篇</b><em>参考</em><i>17 篇</i></a>
+<a class="tk-step tk-s10" href="docs/index.md"><b>第十篇</b><em>参考</em><i>18 篇</i></a>
 </div>
 
 <div class="tk-reason">

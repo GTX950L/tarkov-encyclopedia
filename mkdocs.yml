@@ -88,6 +88,7 @@ extra_javascript:
   - javascripts/breadcrumb.js
   - javascripts/progress-manifest.js
   - javascripts/progress.js
+  - javascripts/toolbox.js
 
 nav:
   - 首页: README.md
@@ -213,6 +214,7 @@ nav:
           - 新手开局检查清单: docs/starter-checklist.md
           - 机制速查表: docs/mechanics.md
           - 地图对照速查: docs/map-guide.md
+          - 配方速查表（制作与交换）: docs/recipes.md
           - 术语与黑话速查: docs/glossary.md
           - 购买指南（地区与版本）: docs/buying-guide.md
           - 配置与性能: docs/performance.md

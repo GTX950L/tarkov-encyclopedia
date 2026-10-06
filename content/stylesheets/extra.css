@@ -1829,3 +1829,544 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 .tk-board__share b { color: var(--tk-ink); }
 
 .tk-board__prep { margin-top: 1.2rem; }
+
+/* --------------------------------------------------------------------------
+   52. 界面与结构升级（第一批）：入口体系
+   --------------------------------------------------------------------------
+   背景：站点的互动能力（「我的进度」：515 任务 / 79 物品 / 26 藏身处模块）
+   已经很完整，但这些工具此前**只在自己那一页出现** —— 首页没有任何提及，
+   其余一百多页也没有入口，读者要靠侧栏展开「查阅栏目 → 第九篇」才找得到。
+   也就是说：工具是有的，但事实上被埋住了。
+
+   本节给「用工具」补上三个入口的样式（结构见各自注释）：
+     52.1 首页「读 / 用」双轨入口区（content/README.md 里手写 HTML）
+     52.2 全站页头入口（javascripts/toolbox.js 注入）
+     52.3 任务图鉴工具条（javascripts/toolbox.js 注入）
+   配色全部走 --tk-* 变量，暗色方案自动跟随（覆盖见本节末尾）。
+   -------------------------------------------------------------------------- */
+
+/* —— 52.1 首页双轨入口区 ——
+   左卡 = 从哪读（纸面 + 橄榄褐顶线，与引言同一套语言）；
+   右卡 = 用什么（Fiord 浅色面 —— 让「用」与「读」一眼分开）。 */
+
+.tk-launch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .7rem;
+  margin: 1em 0;
+}
+
+.tk-launch__card {
+  display: flex;
+  flex-direction: column;
+  padding: .75em .9em;
+  border: 1px solid var(--tk-line-2);
+  border-top-width: 3px;
+  border-radius: 2px;                 /* 方角化（同全站规则 ①） */
+  background: var(--tk-panel);
+  color: inherit;
+  text-decoration: none;
+}
+
+.tk-launch--read { border-top-color: var(--tk-olive); }
+
+.tk-launch--tools {
+  border-color: var(--tk-fiord-lt);
+  border-top-color: var(--tk-fiord);
+  background: var(--tk-brand-soft);
+}
+
+.tk-launch__head {
+  display: flex;
+  align-items: baseline;
+  gap: .5em;
+}
+
+.tk-launch__title { font-size: .84rem; font-weight: 700; color: var(--tk-ink); }
+.tk-launch__badge { margin-left: auto; font-size: .62rem; color: var(--tk-brand); }
+
+.tk-launch__desc {
+  margin: .45em 0 .9em;
+  font-size: .72rem;
+  line-height: 1.7;
+  color: var(--tk-ink-2);
+}
+
+.tk-launch__list { list-style: none; margin: 0 0 .9em; padding: 0; }
+.tk-launch__list li { border-top: 1px solid var(--tk-line); }
+
+.tk-launch__list a {
+  display: flex;
+  align-items: baseline;
+  gap: .6em;
+  padding: .34em .05em;
+  font-size: .7rem;
+  color: var(--tk-ink-2);
+  text-decoration: none;
+}
+
+.tk-launch__list a:hover b { text-decoration: underline; }
+.tk-launch__list b { color: var(--tk-brand-dark); }
+
+.tk-launch__list i {
+  margin-left: auto;
+  font-style: normal;
+  font-size: .64rem;
+  color: var(--tk-brand);
+  text-align: right;
+}
+
+/* 按钮恒在卡片底部（margin-top:auto），两卡高度不等时也不会悬空 */
+.tk-launch__cta {
+  display: block;
+  margin-top: auto;
+  padding: .42em 0;
+  border: 1px solid var(--tk-line-3);
+  border-radius: 2px;
+  text-align: center;
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--tk-brand);
+  text-decoration: none;
+}
+
+.tk-launch__card:hover .tk-launch__cta { background: var(--tk-paper); }
+
+.tk-launch__cta--primary {
+  border-color: var(--tk-fiord);
+  background: var(--tk-fiord);
+  color: #F2F4F7;
+}
+
+.tk-launch__card:hover .tk-launch__cta--primary { background: var(--tk-brand-dark); }
+
+@media screen and (max-width: 44.9375em) {
+  .tk-launch { grid-template-columns: 1fr; }
+}
+
+/* —— 52.2 全站页头入口 ——
+   页头是 Fiord 承色块（见 §1），所以用同样的浅色描边语言；
+   窄屏只留图标，给标题与搜索让位。 */
+
+.tk-headtool {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  gap: .32em;
+  height: 1.62rem;
+  padding: 0 .6em;
+  margin-right: .45rem;
+  border: 1px solid rgba(245, 244, 240, .4);
+  border-radius: 2px;
+  color: #F5F4F0;
+  font-size: .66rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.tk-headtool:hover {
+  background: rgba(245, 244, 240, .14);
+  color: #fff;
+}
+
+.tk-headtool__ic { font-size: .8rem; line-height: 1; }
+
+@media screen and (max-width: 44.9375em) {
+  .tk-headtool { padding: 0 .42em; margin-right: .3rem; }
+  .tk-headtool__tx { display: none; }
+}
+
+/* —— 52.3 任务图鉴工具条（#tk-toolstrip 挂载点，由 toolbox.js 渲染）—— */
+
+.tk-toolstrip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3em .7em;
+  margin: .9em 0 1.2em;
+  padding: .6em .85em;
+  border: 1px solid var(--tk-fiord-lt);
+  border-left: 4px solid var(--tk-fiord);
+  border-radius: 2px;
+  background: var(--tk-brand-soft);
+  font-size: .74rem;
+  line-height: 1.6;
+}
+
+.tk-toolstrip__ic { font-size: .95rem; line-height: 1; }
+.tk-toolstrip__tx { flex: 1 1 12em; color: var(--tk-ink-2); }
+.tk-toolstrip__tx b { color: var(--tk-brand-dark); }
+.tk-toolstrip__stat { font-size: .68rem; color: var(--tk-brand); }
+
+.tk-toolstrip__cta {
+  padding: .25em .7em;
+  border: 1px solid var(--tk-fiord);
+  border-radius: 2px;
+  background: var(--tk-fiord);
+  color: #F2F4F7;
+  font-size: .7rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.tk-toolstrip__cta:hover { background: var(--tk-brand-dark); }
+
+/* —— 52.4 入口体系的暗色覆盖 —— */
+
+[data-md-color-scheme="slate"] .tk-launch__card {
+  background: #232220;
+  border-color: #4A473F;
+}
+
+[data-md-color-scheme="slate"] .tk-launch--read { border-top-color: #6C6250; }
+
+[data-md-color-scheme="slate"] .tk-launch--tools {
+  background: #262C34;
+  border-color: #3E4A58;
+  border-top-color: var(--tk-fiord-lt);
+}
+
+[data-md-color-scheme="slate"] .tk-launch__title { color: #E6E4DF; }
+[data-md-color-scheme="slate"] .tk-launch__desc,
+[data-md-color-scheme="slate"] .tk-launch__list a { color: #A9A49A; }
+[data-md-color-scheme="slate"] .tk-launch__list li { border-top-color: #4A473F; }
+[data-md-color-scheme="slate"] .tk-launch__list b { color: #9FB0C4; }
+[data-md-color-scheme="slate"] .tk-launch__badge,
+[data-md-color-scheme="slate"] .tk-launch__list i { color: #8FA3BA; }
+[data-md-color-scheme="slate"] .tk-launch__cta { border-color: #4A473F; color: #9FB0C4; }
+[data-md-color-scheme="slate"] .tk-launch__card:hover .tk-launch__cta { background: #2A2825; }
+
+[data-md-color-scheme="slate"] .tk-launch__cta--primary {
+  background: var(--tk-fiord);
+  border-color: var(--tk-fiord);
+  color: #E6E4DF;
+}
+
+[data-md-color-scheme="slate"] .tk-toolstrip {
+  background: #262C34;
+  border-color: #3E4A58;
+  border-left-color: var(--tk-fiord-lt);
+}
+
+[data-md-color-scheme="slate"] .tk-toolstrip__tx { color: #A9A49A; }
+[data-md-color-scheme="slate"] .tk-toolstrip__tx b { color: #C3CFDD; }
+[data-md-color-scheme="slate"] .tk-toolstrip__stat { color: #8FA3BA; }
+
+/* --------------------------------------------------------------------------
+   53. 赛季特质模拟器（javascripts/season-planner.js 的样式）
+   --------------------------------------------------------------------------
+   只在赛季修改器页出现（由 toolbox.js 按需注入）。
+   两块卡区：负面（获得点数，琥珀描边）与正面（消耗点数，Fiord 描边）；
+   选中态实色、锁定态减淡。全部走 --tk-* 变量，暗色方案自动跟随
+   （覆盖见本节末尾）。---------------------------------------------------------------- */
+
+.tk-planner {
+  margin: 1.2em 0;
+  padding: .8em .95em;
+  border: 1px solid var(--tk-line-2);
+  border-top: 3px solid var(--tk-fiord);
+  border-radius: 2px;
+  background: var(--tk-panel);
+}
+
+.tk-planner__loading,
+.tk-planner__notready {
+  margin: 0;
+  font-size: .76rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-planner__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5em .9em;
+  padding-bottom: .6em;
+  margin-bottom: .7em;
+  border-bottom: 1px solid var(--tk-line);
+  font-size: .78rem;
+}
+
+.tk-planner__bal {
+  font-family: var(--tk-mono);
+  font-weight: 700;
+  color: var(--tk-brand-dark);
+}
+
+.tk-planner__bal.is-neg { color: var(--tk-red); }
+
+.tk-planner__cnt {
+  font-size: .72rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-planner__state {
+  margin-left: auto;
+  font-size: .7rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-planner__state.is-ok { color: var(--tk-grn); }
+
+.tk-planner__reset {
+  padding: .2em .7em;
+  border: 1px solid var(--tk-line-3);
+  border-radius: 2px;
+  background: var(--tk-paper);
+  color: var(--tk-ink-2);
+  font: inherit;
+  font-size: .7rem;
+  cursor: pointer;
+}
+
+.tk-planner__reset:hover { background: #fff; color: var(--tk-ink); }
+
+.tk-planner__zone { margin: .6em 0; }
+
+.tk-planner__zonehead {
+  margin-bottom: .4em;
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--tk-brand-dark);
+}
+
+.tk-planner__zonehead span {
+  font-weight: 400;
+  color: var(--tk-ink-2);
+}
+
+.tk-planner__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+}
+
+.tk-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .35em;
+  padding: .22em .55em;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--tk-ink);
+  font: inherit;
+  font-size: .72rem;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background .12s ease, border-color .12s ease;
+}
+
+.tk-chip:hover { border-color: var(--tk-line-3); }
+
+.tk-chip__p {
+  font-family: var(--tk-mono);
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-chip--neg .tk-chip__p { color: var(--tk-amber); }
+.tk-chip--pos .tk-chip__p { color: var(--tk-brand); }
+
+.tk-chip.is-on {
+  background: var(--tk-fiord);
+  border-color: var(--tk-fiord);
+  color: #F2F4F7;
+}
+
+.tk-chip.is-on .tk-chip__p { color: #D6C49F; }
+
+.tk-chip.is-locked {
+  opacity: .45;
+  background: var(--tk-panel-2);
+  cursor: not-allowed;
+}
+
+.tk-planner__note {
+  margin: .7em 0 0;
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+}
+
+/* —— 53.1 模拟器的暗色覆盖 —— */
+
+[data-md-color-scheme="slate"] .tk-planner {
+  background: #232220;
+  border-color: #4A473F;
+  border-top-color: var(--tk-fiord-lt);
+}
+
+[data-md-color-scheme="slate"] .tk-chip {
+  background: #2A2926;
+  border-color: #4A473F;
+  color: #E6E4DF;
+}
+
+[data-md-color-scheme="slate"] .tk-chip.is-on {
+  background: var(--tk-fiord);
+  border-color: var(--tk-fiord);
+  color: #E6E4DF;
+}
+
+[data-md-color-scheme="slate"] .tk-chip.is-locked { background: #1F1E1B; }
+
+[data-md-color-scheme="slate"] .tk-planner__reset {
+  background: #2A2926;
+  border-color: #4A473F;
+}
+
+[data-md-color-scheme="slate"] .tk-planner__reset:hover { background: #34322E; }
+
+/* --------------------------------------------------------------------------
+   54. 配方速查表（javascripts/recipe-browser.js 的样式）
+   --------------------------------------------------------------------------
+   只出现在 docs/recipes 页（由 toolbox.js 按需注入）。
+   ⚠️ 数据表格**刻意不加 class** —— 这样才能命中站内 §3 的
+   `.md-typeset table:not([class])` 样式（表头承色块 / 斑马行 / 边框 / 滚动容器），
+   本节只写「页签、筛选条、材料标记」这些站内样式管不到的部分。
+   -------------------------------------------------------------------------- */
+
+.tk-rec { margin: 1.2em 0; }
+
+.tk-rec__loading,
+.tk-rec__notready {
+  margin: 0;
+  font-size: .76rem;
+  color: var(--tk-ink-2);
+}
+
+/* —— 页签 —— */
+
+.tk-rec__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-bottom: .7em;
+}
+
+.tk-rec__tab {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .4em;
+  padding: .38em .85em;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  background: var(--tk-panel);
+  color: var(--tk-ink-2);
+  font: inherit;
+  font-size: .76rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tk-rec__tab:hover { border-color: var(--tk-line-3); color: var(--tk-ink); }
+
+.tk-rec__tab.is-on {
+  background: var(--tk-fiord);
+  border-color: var(--tk-fiord);
+  color: #F5F4F0;
+}
+
+.tk-rec__tabn {
+  font-family: var(--tk-mono);
+  font-size: .68rem;
+  font-weight: 400;
+  opacity: .85;
+}
+
+/* —— 筛选条 —— */
+
+.tk-rec__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .45rem .6rem;
+  margin-bottom: .7em;
+}
+
+.tk-rec__sel,
+.tk-rec__lv {
+  padding: .3em .5em;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--tk-ink);
+  font: inherit;
+  font-size: .74rem;
+}
+
+.tk-rec__q {
+  flex: 1 1 12em;
+  min-width: 8em;
+  padding: .32em .6em;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--tk-ink);
+  font: inherit;
+  font-size: .74rem;
+}
+
+.tk-rec__q::placeholder { color: var(--tk-ink-2); opacity: .75; }
+
+.tk-rec__stat {
+  font-size: .7rem;
+  color: var(--tk-ink-2);
+  font-family: var(--tk-mono);
+}
+
+/* —— 材料列与标记（表格本体走站内样式） —— */
+
+.tk-rec__mats { font-size: .72rem; }
+
+.tk-rec__tool,
+.tk-rec__quest {
+  font-style: normal;
+  font-size: .92em;
+}
+
+.tk-rec__tool { color: var(--tk-brand); }
+.tk-rec__quest { color: var(--tk-amber); }
+
+.tk-rec__tag {
+  font-style: normal;
+  font-size: .88em;
+  color: var(--tk-amber);
+  white-space: nowrap;
+}
+
+.tk-rec__empty {
+  margin: .6em 0 0;
+  font-size: .75rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-rec__note {
+  margin: .7em 0 0;
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+}
+
+/* —— 54.1 暗色覆盖 —— */
+
+[data-md-color-scheme="slate"] .tk-rec__tab {
+  background: #232220;
+  border-color: #4A473F;
+  color: #A9A49A;
+}
+
+[data-md-color-scheme="slate"] .tk-rec__tab.is-on {
+  background: var(--tk-fiord);
+  border-color: var(--tk-fiord);
+  color: #E6E4DF;
+}
+
+[data-md-color-scheme="slate"] .tk-rec__sel,
+[data-md-color-scheme="slate"] .tk-rec__lv,
+[data-md-color-scheme="slate"] .tk-rec__q {
+  background: #2A2926;
+  border-color: #4A473F;
+  color: #E6E4DF;
+}
