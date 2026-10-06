@@ -790,6 +790,10 @@
       })(traders[gt].slug, traders[gt].name);
     }
     gatePanel.appendChild(llRow);
+    /* 这两项放进同一个 flex 行容器：原先它们是 inline-flex，**不会换行** ——
+       窄屏下两项合计约 12.72rem 而面板可用约 12.60rem，内容把右边框顶出可视区
+       （读者报「边框右边看不见」）。容器允许换行就不会溢出。 */
+    var lvRow = el("div", "tk-board__lvrow");
     var prWrap = el("label", "tk-board__lv");
     prWrap.appendChild(el("span", null, "转生次数"));
     var prIn = document.createElement("input");
@@ -799,7 +803,7 @@
     prIn.setAttribute("aria-label", "转生次数");
     prIn.addEventListener("change", function () { TP.setPrestige(prIn.value); });
     prWrap.appendChild(prIn);
-    gatePanel.appendChild(prWrap);
+    lvRow.appendChild(prWrap);
     /* Fence 声望：单独一个数字输入，**允许负数**。它和上面 11 个 LL 不是一把尺
        ——Fence 的任务要求「声望为负」（亡羊补牢 ≤ −3），而 LL 只有 1–4 的正值。
        塞进 LL 那个下拉框会同时算错两批任务，所以这里独立输入。
@@ -814,7 +818,8 @@
     feIn.setAttribute("aria-label", "Fence 声望（可填负数）");
     feIn.addEventListener("change", function () { TP.setFence(feIn.value); });
     feWrap.appendChild(feIn);
-    gatePanel.appendChild(feWrap);
+    lvRow.appendChild(feWrap);
+    gatePanel.appendChild(lvRow);
     gatePanel.appendChild(el("p", "tk-board__note",
       "填了才能判准「可接」。**填「?」的商人不会被用作筛选**，"
       + "只在任务行上提示「需 XX LL2」—— 宁可不筛，也不猜。"

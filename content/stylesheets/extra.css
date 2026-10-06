@@ -1595,12 +1595,15 @@ h3.tk-qdone { color: var(--tk-ink-2); }
    配色参照 tarkovkappa 的任务卡规范：颜色是第一层信息，不是最后一层。 */
 .tk-qstate--seg {
   display: inline-flex;
-  gap: 1px;
+  /* 分隔用**边框**而不是 gap+底色：按钮现在自带底色与下边框，
+     用 gap 画线会与按钮自己的下边框叠成两条参差的线（这正是「参差不齐」的来源）。
+     border-left 依次加在除第一个之外的按钮上，分隔线与下边框连成一条。 */
+  gap: 0;
   margin: 0 .55rem 0 0;
   border: 1px solid var(--tk-line-3);
   border-radius: 3px;
   overflow: visible;          /* 不要 hidden：裁切会切掉文字与焦点框 */
-  background: var(--tk-line-3);
+  background: var(--tk-panel-2);
   vertical-align: middle;
   flex: none;
 }
@@ -1609,8 +1612,13 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   appearance: none;
   margin: 0;
   padding: .15rem .42rem;
+  /* 分隔用**边框**而不是 gap + 容器底色：按钮自带下边框，用 gap 画线会与它
+     叠成两条参差的线（这正是「参差不齐」的来源）。border-left 加在除首段外的
+     按钮上，分隔线与下边框连成一条完整横线。 */
   border: 0;
-  background: var(--tk-panel);
+  border-left: 1px solid var(--tk-line-3);
+  border-bottom: 2px solid var(--tk-line-3);
+  background: var(--tk-panel-2);
   color: var(--tk-ink-2);
   font: inherit;
   font-size: .64rem;
@@ -1622,28 +1630,52 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   transition: background-color .12s, color .12s;
 }
 
-/* 未选中：hover 时显出可点感 */
-.tk-qseg:hover { background: var(--tk-panel-2); color: var(--tk-ink); }
+/* 首段不要左边框（容器已有）；两端处理圆角 */
+.tk-qseg:first-child {
+  border-left: 0;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
 
-/* 当前态：底色 + 字重，扫一眼就知道这个任务处在哪一步 */
+.tk-qseg:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+/* 未选中：hover 时显出可点感（底槽底色相同，所以靠文字加深 + 下边框变深来区分） */
+.tk-qseg:hover {
+  color: var(--tk-ink);
+  border-bottom-color: var(--tk-line-2);
+  border-left-color: var(--tk-line-2);
+}
+
+/* 三态按钮要「齐」，靠的是**所有分段底槽一致、只有当前项填充**。
+   2026-10-07 修：原先选中态用 `box-shadow: inset 0 -2px 0`（内阴影），
+   而未选中态**底色与文字都不变** —— 三段各有一套尺寸来源，
+   视觉上就「参差不齐」。现在：
+     · 底槽：统一底色 + 统一的下边框线（三段完全等高、等宽）
+     · 选中：换成实底色 + 加粗文字（不再用内阴影，避免与底槽边框打架） */
 .tk-qseg[aria-pressed="true"] { font-weight: 700; }
 
+/* 未选中时压低存在感，但**底槽依然占位**（保证三段等高） */
+.tk-qseg[aria-pressed="false"] { color: var(--tk-ink-2); }
+
 .tk-qseg--none[aria-pressed="true"] {
-  background: var(--tk-panel-2);
-  color: var(--tk-ink-2);
-  box-shadow: inset 0 -2px 0 var(--tk-line-3);
+  background: var(--tk-panel);
+  color: var(--tk-ink);
+  border-bottom-color: var(--tk-line-3);
 }
 
 .tk-qseg--inhand[aria-pressed="true"] {
   background: var(--tk-amber-bg);
   color: var(--tk-amber);
-  box-shadow: inset 0 -2px 0 var(--tk-amber);
+  border-bottom-color: var(--tk-amber);
 }
 
 .tk-qseg--done[aria-pressed="true"] {
   background: var(--tk-grn-bg);
   color: var(--tk-grn);
-  box-shadow: inset 0 -2px 0 var(--tk-grn);
+  border-bottom-color: var(--tk-grn);
 }
 
 /* 键盘焦点要有明确落点 */
@@ -1701,6 +1733,17 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   color: var(--tk-ink-2);
 }
 
+/* 门槛面板里的「转生次数」「Fence 声望」两行。
+   ⚠️ 这两项是 inline-flex，**不会自动换行** —— 窄屏下实测两项合计约 12.72rem，
+   而面板可用宽度只有约 12.60rem，于是内容把**右边框顶出可视区**（读者报「边框右边看不见」）。
+   改成 flex 容器 + 允许换行；再给 number 输入框去掉步进箭头（它额外占约 0.6rem，
+   且对「可填负数的声望」这个用法也不必要），并缩窄一点。 */
+.tk-board__lvrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem .8rem;
+}
+
 .tk-board__lv {
   display: inline-flex;
   align-items: center;
@@ -1708,9 +1751,27 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   font-size: .75rem;
   color: var(--tk-ink-2);
   white-space: nowrap;
+  flex: 0 1 auto;
+  min-width: 0;
 }
 
-.tk-board__lv input { width: 4rem; text-align: center; }
+/* number 输入框：去掉步进箭头（省宽度），并允许弹性收缩 */
+.tk-board__lv input {
+  width: 3.2rem;
+  min-width: 0;
+  text-align: center;
+}
+
+.tk-board__lv input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.tk-board__lv input[type="number"]::-webkit-outer-spin-button,
+.tk-board__lv input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 .tk-qsec {
   margin-top: 1.1rem;
