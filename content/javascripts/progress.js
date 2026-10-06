@@ -178,6 +178,16 @@
   }
 
   function emit() {
+    /* 常驻状态条要跟着每一次记录变化重画（v1.79.0 新增）。
+       挂在 emit 上而不是各 setter 里 —— emit 是所有写操作的唯一出口，
+       挂在这里就绝不会漏掉某条路径。 */
+    var sb = document.getElementById("tk-statusbar");
+    if (sb && typeof buildStatusStrip === "function") {
+      try {
+        var bar = document.querySelector(".tk-pgbar");
+        if (bar) buildStatusStrip(bar);
+      } catch (e) { /* 状态条失败不该影响记录本身 */ }
+    }
     try { document.dispatchEvent(new Event(EVT)); } catch (e) { /* 忽略 */ }
   }
 
@@ -675,36 +685,68 @@
 
   var STATE_OPTS = [["", "未标记"], ["inhand", "进行中"], ["done", "已完成"]];
 
+  /* 状态控件：三个并排的小按钮（分段控件），不是下拉。
+     2026-10-07 改。原先用原生 <select>，读者反馈「复杂且不直观」——实际问题是：
+       · 要**点开**才知道有哪些选项，三个状态里只有一个当前值可见；
+       · 改一次状态要点两次（下拉 → 选项），而这是本页最高频的动作；
+       · 状态是**整个列表里最重要的信号**，却做成了列表里最不起眼的一个控件。
+     分段控件把三个状态**同时显示出来**，当前项高亮 —— 一次点击即可切换，
+     且「有哪些状态可选」不需要额外操作就能看到。
+     做法参考 tarkovkappa 的任务卡配色规范（颜色是第一层信息，不是最后一层）。 */
   function makeStateSelect(qid, trader, cls) {
-    var sel = document.createElement("select");
-    sel.className = cls || "tk-qstate";
-    sel.setAttribute("data-focus-key", "q:" + qid);
-    sel.setAttribute("aria-label", "该任务在「我的进度」里的状态");
+    var box = document.createElement("div");
+    box.className = (cls || "tk-qstate") + " tk-qstate--seg";
+    box.setAttribute("role", "group");
+    box.setAttribute("data-focus-key", "q:" + qid);
+    box.setAttribute("aria-label", "该任务在「我的进度」里的状态");
+
+    var cur = api.taskState(qid);
     for (var i = 0; i < STATE_OPTS.length; i++) {
-      var o = document.createElement("option");
-      o.value = STATE_OPTS[i][0];
-      o.textContent = STATE_OPTS[i][1];
-      sel.appendChild(o);
+      (function (val, label) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "tk-qseg" + (val ? " tk-qseg--" + val : " tk-qseg--none");
+        b.textContent = label;
+        b.title = val ? ("标为「" + label + "」") : ("不标记这个任务（当前：" + label + "）");
+        b.setAttribute("aria-pressed", val === cur ? "true" : "false");
+        b.addEventListener("click", function () {
+          if (api.taskState(qid) === val) return;      /* 已是当前态，不重绘 */
+          /* 先派发再改状态：调用方（如看板）要拿新值去对齐目标明细，
+             那必须在 setTaskState 触发整块重建之前跑完。 */
+          try {
+            box.dispatchEvent(new CustomEvent("tk:state", { bubbles: true, detail: val }));
+          } catch (e) {
+            box.dispatchEvent(new Event("tk:state"));
+          }
+          api.setTaskState(qid, val, trader);
+        });
+        box.appendChild(b);
+      })(STATE_OPTS[i][0], STATE_OPTS[i][1]);
     }
-    /* ⚠️ 回填必须在这里做，不能只靠调用方。
-       「我的进度」看板的列表每次状态变更都**整块重建**；新建的 select 若停在
-       第一个选项，读者会看到「进行中 / 已完成」区里的任务、行首却写着「未标记」
-       —— 而他明明标过。任务页那边由 syncHead() 回填，看板当初漏了这一步，
-       于是同一份数据在两处的显示不一致。把回填放进工厂里，两个调用点就都不会漏。
-       （v1.75.1 修复：读者报「选的进行中，但前面还是写着未标记」。） */
-    sel.value = api.taskState(qid);
-    sel.addEventListener("change", function () {
-      api.setTaskState(qid, sel.value, trader);
-    });
-    return sel;
+    /* 回填仍放在工厂里（v1.75.1 的教训）：看板每次变更都整块重建，
+       控件若不自己认当前状态，两个调用点就会显示不一致。 */
+    box.setAttribute("data-state", cur);
+    return box;
+  }
+
+  /* 分段控件的值同步：整块重建后由调用方对齐高亮。
+     （原 select 是靠 .value 赋值，这里是 aria-pressed + data-state。） */
+  function syncStateSeg(box, st) {
+    if (!box || box.className.indexOf("tk-qstate--seg") < 0) return;
+    box.setAttribute("data-state", st || "");
+    var bs = box.querySelectorAll(".tk-qseg");
+    for (var i = 0; i < bs.length; i++) {
+      var v = bs[i].className.indexOf("tk-qseg--inhand") >= 0 ? "inhand"
+            : bs[i].className.indexOf("tk-qseg--done") >= 0 ? "done" : "";
+      bs[i].setAttribute("aria-pressed", v === (st || "") ? "true" : "false");
+    }
   }
 
   function syncHead(h, qid) {
     var st = api.taskState(qid);
     h.classList.toggle("tk-qdone", st === "done");
     h.classList.toggle("tk-qinhand", st === "inhand");
-    var sel = h.querySelector(".tk-qstate");
-    if (sel && sel.value !== st) sel.value = st;
+    syncStateSeg(h.querySelector(".tk-qstate"), st);
   }
 
   function decorate() {
@@ -838,7 +880,87 @@
     bar.appendChild(hint);
 
     syncBar(bar);
+    buildStatusStrip(bar);
     return bar;
+  }
+
+  /* 常驻状态条（2026-10-07 新增）
+     读者反馈「任务状态总览也不是在最醒目的地方」。原先总览是**第一个分页**，
+     要先点进去才看得到；而分页切换后它就消失了 —— 改任务状态时**看不到全局**，
+     只能来回切页。做法（参考 tarkovkappa 的 header progress）：
+     把「完成 / 进行中 / 未标记」三个数 + 一条分段条**常驻在控制条里**，
+     任何分页都在、任何时候都能扫一眼。
+     数据来源与总览完全同源（TP.data()），不引入第二套口径。 */
+  function buildStatusStrip(bar) {
+    var host = document.getElementById("tk-statusbar");
+    if (!host) return;
+    var md = api.data();
+    var md2 = md.modes[md.mode] || {};
+    var explicit = md2.quests || {};
+    var inhand = md2.inhand || {};
+    var total = (window.TARKOV_PROGRESS_MANIFEST || {}).total || 0;
+
+    var ids = Object.keys(explicit);
+    var inhandIds = Object.keys(inhand);
+    /* 手动 + 进行中 = 已触碰的量。这里**不把「进行中」算进完成** ——
+       那是总览「手动 / 推断」那套更细的口径，本条只要一个扫读用的粗数。 */
+    var touched = {};
+    for (var i = 0; i < ids.length; i++) touched[ids[i]] = 1;
+    for (var j = 0; j < inhandIds.length; j++) touched[inhandIds[j]] = 1;
+    var doneN = 0;
+    for (var dId in explicit) {
+      if (api.taskState(dId) === "done") doneN++;
+    }
+
+    host.textContent = "";
+    var strip = document.createElement("div");
+    strip.className = "tk-strip";
+
+    var lead = document.createElement("div");
+    lead.className = "tk-strip__lead";
+    var big = document.createElement("b");
+    big.textContent = doneN;
+    lead.appendChild(big);
+    var cap = document.createElement("span");
+    cap.textContent = " / " + total + " 已完成";
+    lead.appendChild(cap);
+    strip.appendChild(lead);
+
+    var bar2 = document.createElement("div");
+    bar2.className = "tk-strip__bar";
+    bar2.setAttribute("role", "img");
+    bar2.setAttribute("aria-label", "已完成 " + doneN + " / " + total + "，进行中 " + inhandIds.length
+      + "，未标记 " + Math.max(0, total - Object.keys(touched).length));
+    [
+      ["done", doneN], ["inhand", inhandIds.length],
+      ["rest", Math.max(0, total - Object.keys(touched).length)]
+    ].forEach(function (pair) {
+      var seg = document.createElement("i");
+      seg.className = "tk-strip__seg tk-strip__seg--" + pair[0];
+      seg.style.width = (total ? (pair[1] / total * 100) : 0) + "%";
+      if (!pair[1]) seg.style.display = "none";
+      bar2.appendChild(seg);
+    });
+    strip.appendChild(bar2);
+
+    var lg = document.createElement("div");
+    lg.className = "tk-strip__lg";
+    [
+      ["done", "已完成 " + doneN],
+      ["inhand", "进行中 " + inhandIds.length],
+      ["rest", "未标记 " + Math.max(0, total - Object.keys(touched).length)]
+    ].forEach(function (pair) {
+      var sp = document.createElement("span");
+      sp.className = "tk-strip__lgi";
+      var dot = document.createElement("i");
+      dot.className = "tk-strip__dot tk-strip__dot--" + pair[0];
+      sp.appendChild(dot);
+      sp.appendChild(document.createTextNode(pair[1]));
+      lg.appendChild(sp);
+    });
+    strip.appendChild(lg);
+
+    host.appendChild(strip);
   }
 
   function mountBar() {

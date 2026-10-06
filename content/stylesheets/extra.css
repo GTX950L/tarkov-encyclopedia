@@ -894,6 +894,90 @@ body[data-md-color-scheme="slate"] {
   color: var(--tk-ink-2);
 }
 
+/* —— 常驻进度状态条（2026-10-07）——
+   读者反馈「任务状态总览也不是在最醒目的地方」。总览此前是**第一个分页**，
+   不点进去看不到；切到别的分页后又完全消失 —— 改状态时看不到全局。
+   这条常驻在正文最上方，任何分页都在，扫一眼就知道「我还剩多少」。
+   设计参考 tarkovkappa 的 header progress：数字 + 分段条 + 图例三件套。 */
+.tk-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem .9rem;
+  margin: 0 0 1.2rem;
+  padding: .6rem .85rem;
+  background: var(--tk-panel);
+  border: 1px solid var(--tk-line-2);
+  border-left: 4px solid var(--tk-grn);
+}
+
+.tk-strip__lead {
+  display: flex;
+  align-items: baseline;
+  gap: .3rem;
+  flex: none;
+}
+
+.tk-strip__lead b {
+  font-size: 1.5rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--tk-ink);
+}
+
+.tk-strip__lead span {
+  font-size: .74rem;
+  color: var(--tk-ink-2);
+}
+
+/* 分段条：已完成 / 进行中 / 未标记 三段同屏 */
+.tk-strip__bar {
+  flex: 1 1 12rem;
+  min-width: 8rem;
+  height: .5rem;
+  display: flex;
+  background: var(--tk-panel-2);
+  border: 1px solid var(--tk-line-2);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.tk-strip__seg { display: block; height: 100%; }
+.tk-strip__seg--done { background: var(--tk-grn); }
+.tk-strip__seg--inhand { background: var(--tk-amber); }
+.tk-strip__seg--rest { background: var(--tk-line-2); }
+
+.tk-strip__lg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .1rem .7rem;
+  flex: none;
+}
+
+.tk-strip__lgi {
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  font-size: .7rem;
+  color: var(--tk-ink-2);
+  white-space: nowrap;
+}
+
+.tk-strip__dot {
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.tk-strip__dot--done { background: var(--tk-grn); }
+.tk-strip__dot--inhand { background: var(--tk-amber); }
+.tk-strip__dot--rest { background: var(--tk-line-3); }
+
+@media (max-width: 560px) {
+  .tk-strip__bar { order: 3; flex-basis: 100%; }
+}
+
 .tk-pgbar__modes {
   display: flex;
 }
@@ -1499,6 +1583,76 @@ h3.tk-qdone { color: var(--tk-ink-2); }
 
 .tk-qstate--row { width: 5.6rem; margin-right: 0; flex: none; }
 
+/* —— 状态分段控件（2026-10-07 替换原生 select）——
+   三个状态并排常驻显示，当前项高亮。读者反馈「复杂且不直观」的根因是：
+   下拉把「有哪些状态可选」藏起来了，而这是全站最高频的一个动作。
+   配色参照 tarkovkappa 的任务卡规范：颜色是第一层信息，不是最后一层。 */
+.tk-qstate--seg {
+  display: inline-flex;
+  gap: 1px;
+  margin: 0 .55rem 0 0;
+  border: 1px solid var(--tk-line-3);
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--tk-line-3);
+  vertical-align: middle;
+  flex: none;
+}
+
+.tk-qseg {
+  appearance: none;
+  margin: 0;
+  padding: .15rem .5rem;
+  border: 0;
+  background: var(--tk-panel);
+  color: var(--tk-ink-2);
+  font: inherit;
+  font-size: .66rem;
+  line-height: 1.65;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color .12s, color .12s;
+}
+
+/* 未选中：hover 时显出可点感 */
+.tk-qseg:hover { background: var(--tk-panel-2); color: var(--tk-ink); }
+
+/* 当前态：底色 + 字重，扫一眼就知道这个任务处在哪一步 */
+.tk-qseg[aria-pressed="true"] { font-weight: 700; }
+
+.tk-qseg--none[aria-pressed="true"] {
+  background: var(--tk-panel-2);
+  color: var(--tk-ink-2);
+  box-shadow: inset 0 -2px 0 var(--tk-line-3);
+}
+
+.tk-qseg--inhand[aria-pressed="true"] {
+  background: var(--tk-amber-bg);
+  color: var(--tk-amber);
+  box-shadow: inset 0 -2px 0 var(--tk-amber);
+}
+
+.tk-qseg--done[aria-pressed="true"] {
+  background: var(--tk-grn-bg);
+  color: var(--tk-grn);
+  box-shadow: inset 0 -2px 0 var(--tk-grn);
+}
+
+/* 键盘焦点要有明确落点 */
+.tk-qseg:focus-visible {
+  outline: 2px solid var(--tk-fiord);
+  outline-offset: -2px;
+}
+
+/* 标题上的分段控件更紧凑（任务页 h3 里那个） */
+h3 .tk-qstate--seg { margin-right: .4rem; }
+h3 .tk-qseg { font-size: .64rem; padding: .1rem .42rem; }
+
+/* 窄屏：控件独占一行，避免和任务名挤在一起 */
+@media (max-width: 640px) {
+  .tk-qstate--seg { margin: 0 0 .3rem; }
+}
+
 /* 标题上的状态：按状态给色脊，扫一眼就知道做过没有 */
 h3.tk-qinhand .tk-qstate { color: var(--tk-amber); border-color: var(--tk-amber); }
 h3.tk-qdone .tk-qstate { color: var(--tk-grn); border-color: var(--tk-grn); }
@@ -1575,14 +1729,126 @@ h3.tk-qdone { color: var(--tk-ink-2); }
 
 .tk-qsec__body { padding: .3rem .5rem .45rem; }
 
-.tk-qrow {
-  /* 弹性布局在 .tk-qrow__main 上 —— 本容器现在还要装可展开的目标明细 */
-  border-bottom: 1px dashed var(--tk-line);
+/* —— 出发前准备（2026-10-07 重做）——
+   读者反馈：「根据地图和任务推荐带的物品的提示也做得不好」。
+   原形态是一张四列表格（已囤/需 · 物品 · 来源 · 已囤），三个问题：
+     ① **不分地图**——出门前心里想的是「今晚去哪张图」，清单却不按图分组；
+     ② **缺口不醒目**——「还差 12 个」和「已齐」平铺在一起；
+     ③ **FIR 与可采购混排**——读者会以为都能跳蚤市场买。
+   新形态：按地图分块 → 块内先列缺口、FIR 单独成区。 */
+.tk-prep { display: grid; gap: .7rem; }
+
+.tk-prep__map {
+  border: 1px solid var(--tk-line-2);
+  border-left: 3px solid var(--tk-fiord);
+  background: var(--tk-panel);
+  padding: .45rem .6rem .55rem;
 }
 
-.tk-qrow:last-child { border-bottom: none; }
+.tk-prep__head {
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+  padding-bottom: .3rem;
+  margin-bottom: .4rem;
+  border-bottom: 1px solid var(--tk-line-2);
+}
 
-.tk-qrow:hover { background: var(--tk-panel-2); }
+.tk-prep__head b { font-size: .82rem; color: var(--tk-brand); }
+
+.tk-prep__head em {
+  font-style: normal;
+  font-family: var(--tk-mono);
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-prep__grp { margin-top: .45rem; }
+.tk-prep__grp:first-of-type { margin-top: 0; }
+
+.tk-prep__grph {
+  margin: 0 0 .25rem;
+  font-size: .68rem;
+  font-weight: 600;
+  color: var(--tk-ink-2);
+  letter-spacing: .02em;
+}
+
+.tk-prep__ul { margin: 0; padding: 0; list-style: none; }
+
+.tk-prep__li {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .18rem .3rem .18rem .45rem;
+  border-left: 2px solid transparent;
+  font-size: .74rem;
+}
+
+.tk-prep__li.is-met { opacity: .62; }
+
+/* 缺口项：左侧红条 + 红字「缺 N」，扫一眼就知道要带什么 */
+.tk-prep__li:not(.is-met) {
+  border-left-color: var(--tk-red);
+  background: var(--tk-panel-2);
+}
+
+.tk-prep__nm { flex: 1 1 auto; min-width: 0; color: var(--tk-ink); }
+
+.tk-prep__qty {
+  flex: none;
+  font-family: var(--tk-mono);
+  font-size: .7rem;
+  color: var(--tk-ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.tk-prep__lack {
+  flex: none;
+  font-style: normal;
+  font-family: var(--tk-mono);
+  font-size: .68rem;
+  font-weight: 700;
+  color: var(--tk-red);
+  white-space: nowrap;
+}
+
+/* 任务行：卡片化 + 左侧状态色条（2026-10-07 改）
+   读者反馈「任务列表的每个任务之间没有分隔」。原来只有 1px 虚线，
+   在 515 条的长列表里扫不出来 —— 密集的同类行会糊成一片。
+   改法（三处，缺一不可）：
+     ① 换成**实线**边框 + 行间留白，虚线在浅色底上几乎看不见；
+     ② 左侧加 3px **状态色条**（tarkovkappa 的做法）—— 不用读文字就知道状态；
+     ③ 行内元素**居中对齐**，同一基线，扫读时不会高低不齐。 */
+.tk-qrow {
+  position: relative;
+  margin: 0 0 2px;
+  padding: .3rem .5rem .3rem .7rem;
+  background: var(--tk-panel);
+  border: 1px solid var(--tk-line-2);
+  border-left: 3px solid var(--tk-line-2);
+  border-radius: 2px;
+  align-items: center;
+}
+
+.tk-qrow:last-child { border-bottom: 1px solid var(--tk-line-2); }
+
+.tk-qrow:hover {
+  background: var(--tk-panel-2);
+  border-color: var(--tk-line-3);
+}
+
+/* 状态色条：一眼扫出哪些在做、哪些做完了 */
+.tk-qrow.st-inhand {
+  border-left-color: var(--tk-amber);
+  background: var(--tk-amber-bg);
+}
+
+.tk-qrow.st-done { border-left-color: var(--tk-grn); }
+
+/* 已完成：整行轻微退到背景，但不隐藏——还要能回看、能改回来 */
+.tk-qrow.st-done { opacity: .8; }
+.tk-qrow.st-done:hover { opacity: 1; }
 
 .tk-qrow__name {
   flex: 1 1 auto;
@@ -1607,9 +1873,6 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 .tk-qrow__lv { font-family: var(--tk-mono); }
 .tk-qrow__extra { color: var(--tk-khaki); }
-
-.tk-qrow.st-inhand { background: var(--tk-amber-bg); }
-.tk-qrow.st-done .tk-qrow__name { color: var(--tk-ink-2); }
 
 /* 按商人汇总：一行 chip，替代原来那张占满屏幕的表 */
 .tk-board__chiprow {

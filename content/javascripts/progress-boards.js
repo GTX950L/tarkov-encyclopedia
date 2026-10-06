@@ -870,10 +870,13 @@
       wrap.appendChild(main);
 
       var sel0 = makeStateSelect(qid, node[N_TRADER], "tk-qstate tk-qstate--row");
-      sel0.addEventListener("change", function () {
+      /* 状态改动时把该任务的目标按新状态对齐（全勾=已完成、部分勾=进行中）。
+         分段控件没有原生 change 事件，改成监听容器上的自定义事件
+         `tk:state`（由 makeStateSelect 在调用 setTaskState 前派发）。 */
+      sel0.addEventListener("tk:state", function (ev) {
         var d0 = detailOf(qid);
         if (d0 && d0.o && d0.o.length) {
-          TP.alignObjectives(qid, d0.o.map(function (x) { return x[0]; }), sel0.value);
+          TP.alignObjectives(qid, d0.o.map(function (x) { return x[0]; }), ev.detail);
         }
       });
       main.appendChild(sel0);
@@ -1041,47 +1044,112 @@
         if (prepBox.__stamp === inIds.join(",") + "|" + failed) return;
         prepBox.__stamp = inIds.join(",") + "|" + failed;
         prepBox.textContent = "";   // ← 清空在缓存判断之后
-        var agg = {};
+        /* 先算一遍「有没有任何准备项」，用于空态提示；
+           真正的渲染在下面按地图分组时再做一次（同源，不引入第二套口径）。 */
+        var any = 0;
         for (var j = 0; j < inIds.length; j++) {
           var det = detailOf(inIds[j]);
-          if (!det || !det.p) continue;
-          for (var k = 0; k < det.p.length; k++) {
-            var it = det.p[k];
-            var cur = agg[it[0]];
-            if (cur) { cur[1] += it[1]; cur[2] = cur[2] || !!it[2]; }
-            else agg[it[0]] = [it[0], it[1], !!it[2]];
-          }
+          if (det && det.p && det.p.length) any += det.p.length;
         }
-        var list = Object.keys(agg).map(function (k2) { return agg[k2]; });
-        list.sort(function (a, b) { return (a[2] === b[2]) ? b[1] - a[1] : (a[2] ? -1 : 1); });
         var head = el("div", "tk-qsec__head");
         head.appendChild(el("b", null, "出发前准备"));
-        head.appendChild(el("em", null, inIds.length + " 个进行中任务 · " + list.length + " 项"));
+        head.appendChild(el("em", null, inIds.length + " 个进行中任务 · " + any + " 项"));
         prepBox.appendChild(head);
         if (failed) {
           prepBox.appendChild(el("p", "tk-board__note",
             "有 " + failed + " 个商人的任务明细没载入，下面的清单不完整。"));
         }
-        if (!list.length) {
+        if (!any) {
           prepBox.appendChild(el("p", "tk-board__empty", "这几个任务的数据里没有「要带 / 要找」的条目。"));
           return;
         }
-        var tbl = el("tbody");
-        for (var m = 0; m < list.length; m++) {
-          var it2 = list[m];
-          var tr = el("tr");
-          var td0 = el("td", "tk-board__pick");
-          td0.appendChild(countCtl(it2[0], it2[1]).el);
-          tr.appendChild(td0);
-          tr.appendChild(el("td", null, it2[0]));
-          tr.appendChild(el("td", null, it2[2] ? "必须战局中带出" : "可采购"));
-          var have = TP.itemCount(it2[0]);
-          tr.appendChild(el("td", "tk-board__num", fmtNum(have)));
-          if (have >= it2[1]) tr.className = "tk-met";
-          tbl.appendChild(tr);
+
+        /* 2026-10-07 重做（读者反馈「根据地图和任务推荐带的物品的提示也做得不好」）。
+           原先是一张四列表格，把「必须战局中带出」和「可采购」混在一起平铺，
+           读者的问题答不上来：**这一趟去哪个图、还缺什么**。
+           改成三块，原因与做法都对着这个问题：
+             ① **先按地图分**——准备清单的用途是「出门前照着看」，而出门前
+                心里已有的是「今晚去哪张图」。分不清地图的清单等于没有顺序。
+                地图取自任务图的 map 字段（缺失的归「多图 / 未标注」）。
+             ② **缺口置顶**——已够的沉到底部。现在表格按数量排序，
+                「还差 12 个螺丝」和「已齐」混在一起，缺口不醒目。
+             ③ **FIR / 可采购分区**——「必须战局中带出」是买不到的，
+                混排时读者会以为都能跳蚤市场买。 */
+        var byMap = {}, mapOrder = [];
+        for (var q2 = 0; q2 < inIds.length; q2++) {
+          var node2 = graph.tasks[inIds[q2]] || [];
+          var mp = node2[N_MAP] || "";
+          if (!byMap[mp]) { byMap[mp] = []; mapOrder.push(mp); }
+          var det2 = detailOf(inIds[q2]);
+          if (!det2 || !det2.p) continue;
+          for (var p2 = 0; p2 < det2.p.length; p2++) {
+            var it3 = det2.p[p2];
+            byMap[mp].push([it3[0], it3[1], !!it3[2]]);
+          }
         }
-        var wrap3 = wrapTable(["已囤 / 需", "物品", "来源", "已囤"], tbl);
-        prepBox.appendChild(wrap3.firstChild);
+
+        var wrapAll = el("div", "tk-prep");
+        mapOrder.forEach(function (mp) {
+          var items0 = byMap[mp];
+          if (!items0.length) return;
+          /* 同一张图内合并同名项，再按「是否达标」排 */
+          var merged = {};
+          for (var z = 0; z < items0.length; z++) {
+            var cur0 = merged[items0[z][0]];
+            if (cur0) { cur0[1] += items0[z][1]; cur0[2] = cur0[2] || items0[z][2]; }
+            else merged[items0[z][0]] = [items0[z][0], items0[z][1], items0[z][2]];
+          }
+          var rows = Object.keys(merged).map(function (k3) { return merged[k3]; });
+          var lack = [];
+          for (var r1 = 0; r1 < rows.length; r1++) {
+            if ((TP.itemCount(rows[r1][0]) || 0) < rows[r1][1]) lack.push(rows[r1]);
+          }
+          rows.sort(function (a, b) {
+            var am = (TP.itemCount(a[0]) || 0) >= a[1] ? 1 : 0;
+            var bm = (TP.itemCount(b[0]) || 0) >= b[1] ? 1 : 0;
+            if (am !== bm) return am - bm;            /* 缺的在前 */
+            return (a[2] === b[2]) ? a[1] - b[1] : (a[2] ? -1 : 1);
+          });
+
+          var g3 = el("section", "tk-prep__map");
+          var h3 = el("div", "tk-prep__head");
+          h3.appendChild(el("b", null, mp || "多图 / 未标注"));
+          h3.appendChild(el("em", null, lack.length
+            ? ("还缺 " + lack.length + " 项")
+            : ("已齐 " + rows.length + " 项")));
+          g3.appendChild(h3);
+
+          var fir = [], buy = [];
+          for (var r2 = 0; r2 < rows.length; r2++) (rows[r2][2] ? fir : buy).push(rows[r2]);
+          [
+            ["必须战局中带出 · 跳蚤市场买不到", fir, "fir"],
+            ["可采购 · 跳蚤市场或藏身处", buy, "buy"]
+          ].forEach(function (grp) {
+            if (!grp[1].length) return;
+            var sec = el("div", "tk-prep__grp");
+            sec.appendChild(el("h4", "tk-prep__grph", grp[0] + "（" + grp[1].length + "）"));
+            var ul = el("ul", "tk-prep__ul");
+            grp[1].forEach(function (it4) {
+              var have0 = TP.itemCount(it4[0]) || 0;
+              var ok0 = have0 >= it4[1];
+              var li0 = el("li", "tk-prep__li" + (ok0 ? " is-met" : ""));
+              var ctl0 = countCtl(it4[0], it4[1]);
+              li0.appendChild(ctl0.el);
+              var nm2 = el("span", "tk-prep__nm", it4[0]);
+              li0.appendChild(nm2);
+              li0.appendChild(el("span", "tk-prep__qty",
+                fmtNum(have0) + " / " + fmtNum(it4[1])));
+              if (!ok0) {
+                li0.appendChild(el("em", "tk-prep__lack", "缺 " + fmtNum(it4[1] - have0)));
+              }
+              ul.appendChild(li0);
+            });
+            sec.appendChild(ul);
+            g3.appendChild(sec);
+          });
+          wrapAll.appendChild(g3);
+        });
+        prepBox.appendChild(wrapAll);
       }
     }
 
