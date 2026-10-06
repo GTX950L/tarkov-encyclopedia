@@ -39,6 +39,10 @@ API = "https://json.tarkov.dev/regular/"
 FETCH_DATE = "2026-09-30"
 BASELINE = ("2026 年 9 月", "1.1.5.1（第一赛季 KORD BREACH）")
 
+# index.md 里由 **另一个脚本**（gen_quest_items.py）生成的速查区。本栏「整栏重建」时必须搬过来。
+EXTRAS_START = "<!-- AUTO-GEN:QUEST-EXTRAS:START -->"
+EXTRAS_END = "<!-- AUTO-GEN:QUEST-EXTRAS:END -->"
+
 # 栏目内的页面顺序 —— 与 entries/trader-questlines.md §2.1 的商人排列一致
 TRADER_ORDER = [
     "mechanic", "prapor", "skier", "jaeger", "ragman", "therapist",
@@ -853,6 +857,22 @@ def band_label(lo: int) -> str:
     return f"Lv{lo}–{lo + BAND - 1}"
 
 
+def carry_over_extras() -> list[str]:
+    """把旧 index.md 里 AUTO-GEN 区的内容**原样搬过来**。
+
+    本栏目是「**整栏重建**」（`write_index` 直接覆盖 index.md），但页面里有一块是
+    **另一个脚本**（`scripts/gen_quest_items.py`）生成的速查区。重建时不搬它，
+    那块内容会**静默消失**——重跑一次就没了，而且没有任何报错。
+    """
+    p = OUT_DIR / "index.md"
+    if p.exists():
+        text = p.read_text(encoding="utf-8")
+        if EXTRAS_START in text and EXTRAS_END in text:
+            body = text.split(EXTRAS_START, 1)[1].split(EXTRAS_END, 1)[0]
+            return [EXTRAS_START, *body.splitlines(), EXTRAS_END]
+    return [EXTRAS_START, "", EXTRAS_END]
+
+
 def write_index(tasks: list[dict]) -> None:
     n = len(tasks)
     levels = [t["level"] for t in tasks]
@@ -964,6 +984,9 @@ def write_index(tasks: list[dict]) -> None:
         f"| 有失败条件 | {fail_n} |",
         "",
         "---", "",
+        *carry_over_extras(),
+        "",
+        "---", "",
         "## 🧭 相关页面", "",
         "- [商人任务线图鉴](../entries/trader-questlines.md) —— **按商人看分布、等级跨度、"
         "长链与忠诚度门槛**，并给出 Kappa 的完整前置树；本栏目是它的**逐任务明细层**",
@@ -1058,6 +1081,10 @@ def render_index(rows: list[dict]) -> list[str]:
             flags.append(f"前置 ×{len(rec['prereqs'])}")
         if rec["restartable"]:
             flags.append("可重接")
+        if rec["delay"]:
+            flags.append(f"**接取延迟** {rec['delay'] // 60} 分")
+        if rec["failConditions"]:
+            flags.append("有失败条件")
         L.append(
             f"| {i} | {link_cell(i, rec['name'])} | Lv{rec['level']} | "
             f"{cell(rec['map']) if rec['map'] else '—'} | "
@@ -1091,7 +1118,8 @@ def write_trader_page(key: str, rows: list[dict]) -> None:
         "点任务名跳到下方明细。**标记列只列影响出发前准备的项**——"
         "`必须战局内找到`（跳蚤市场买的不算数）、`需钥匙`、"
         "`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、"
-        "`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`。",
+        "`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、"
+        "`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）。",
         "",
         *render_index(rows),
         "",
