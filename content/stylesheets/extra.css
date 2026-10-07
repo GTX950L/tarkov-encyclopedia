@@ -177,7 +177,59 @@ body[data-md-color-scheme="default"] {
   pointer-events: none;
 }
 
-/* 深色页头上的搜索框：改为半透明浅色描边，保证与页头对比足够 */
+/* 深色页头上的搜索框：改为半透明浅色描边，保证与页头对比足够
+   ------------------------------------------------------------------
+   ⚠️ **收起态的按钮是被漏掉的那一个**（2026-10-07 实测修正）。
+   本段原来只写了 `__form` / `__input` / `__icon` / `__output` ——
+   那些是**展开之后**才存在的节点。而读者第一眼看到的那个「查找」
+   是 **`.md-search__button`（收起态）**，主题给它的是
+       color: var(--md-default-fg-color);       → 本站解析成 #1C1A17
+       background: var(--md-default-bg-color);  → 纸底
+   两个变量都是**为浅底设计的**，被放到 Fiord 深蓝页头上之后：
+   **近黑的字压深蓝底 = 实测 2.43:1**（WCAG AA 正文要 4.5:1，不达标）。
+   实测证据：`getComputedStyle(button).color === 'rgb(28, 26, 23)'`，
+   那个值就是 --tk-ink。
+
+   为什么此前一直没被发现：按钮只在**宽屏且页头有空间**时才显示成带文字的
+   样子，窄屏收成一枚纯图标，浅色下也不刺眼——**「偶尔看得清」不等于「达标」。**
+
+   改法与本段其它几条同源：字用 #F5F4F0，底用低透明度浅色。
+   实算（页头 #4A596C）：底 #F5F4F0@.16 叠出 #657281，其上放同色字 = **4.46:1（AA）**。
+
+   ⚠️ **hover 不能再往浅里加**（第一版写 @.26，实测**降到 3.60:1** ——更差一点）。
+   文字是浅色的，底越亮、对比越低，**与「亮起来表示可点」的直觉正好相反**。
+   所以 hover 走的是**压深**（下层 rgba(0,0,0,.18) 叠出 #3d4959 → **5.93:1**），
+   配合文字转纯白，既变亮又更清楚。
+
+   另需同条写 hover / focus：主题那条
+       .md-search__button:hover, :focus { color: var(--md-default-fg-color); }
+   会把字重新刷回近黑——**只改静态态的话，鼠标一放上去字就又黑了**。 */
+.md-search__button {
+  color: #F5F4F0;
+  background-color: rgba(245, 244, 240, .16);
+  border-radius: 2px;
+}
+
+.md-search__button:hover,
+.md-search__button:focus {
+  color: #FFF;
+  background-color: rgba(28, 26, 23, .18);
+}
+
+/* 收起态的**两个伪元素**同样要跟着改，否则字变了、图标没变
+   ——实测 `.md-search__button` 上还挂着两个：
+     ::before 放大镜= background: var(--md-default-fg-color) → 解析成 #1C1A17（近黑）
+     ::after  Ctrl+K 角标 = rgba(250, 249, 246, .72)← 纸色，压在浅色底上几乎看不见
+   这两处都是**伪元素**，前面的 `.md-search__icon` 那条完全管不到它们
+   （`.md-search__icon` 是展开态的另一个节点）。 */
+.md-search__button::before {
+  background-color: #F5F4F0;
+}
+
+.md-search__button::after {
+  color: rgba(245, 244, 240, .78);
+}
+
 .md-search__form {
   background-color: rgba(245, 244, 240, .16);
   border-radius: 2px;
