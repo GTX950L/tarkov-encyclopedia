@@ -1,0 +1,12788 @@
+{
+ "fetched": "2026-09-30",
+ "coverage": {
+  "names": 1157,
+  "matched": 238
+ },
+ "note": "barter 字段只对「出现在 recipes.json 的 names 里」的物品有值；未命中不等于买不到，只表示不在本站收录的配方里",
+ "items": {
+  "Prapor 的包裹": {
+   "keep": [
+    "一臂之力",
+    "货运延误 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Mechanic",
+    "Prapor"
+   ],
+   "questOnly": [
+    "一臂之力",
+    "货运延误 - 1"
+   ],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "云尔斯顿香烟": {
+   "keep": [
+    "不良嗜好"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "马宝路香烟": {
+   "keep": [
+    "不良嗜好"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "无彩香烟": {
+   "keep": [
+    "不良嗜好"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "秘密信息包裹": {
+   "keep": [
+    "介绍"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [
+    "介绍"
+   ],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "精密工具盒": {
+   "keep": [
+    "化工厂的秘密"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [
+    "化工厂的秘密"
+   ],
+   "maps": [
+    "夜间工厂",
+    "工厂",
+    "海关"
+   ],
+   "barter": []
+  },
+  "显示卡": {
+   "keep": [
+    "利润保留",
+    "半导体危机",
+    "半满半空"
+   ],
+   "n": 3,
+   "traders": [
+    "Mechanic",
+    "Prapor",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    },
+    {
+     "trader": "Mechanic",
+     "level": 3,
+     "task": true
+    },
+    {
+     "trader": "Mechanic",
+     "level": 3,
+     "task": true
+    }
+   ]
+  },
+  "CPU风扇": {
+   "keep": [
+    "半导体危机",
+    "半满半空"
+   ],
+   "n": 2,
+   "traders": [
+    "Mechanic",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "水泵运行数据": {
+   "keep": [
+    "商业机密"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [
+    "商业机密"
+   ],
+   "maps": [
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "泵站运行报告": {
+   "keep": [
+    "商业机密"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [
+    "商业机密"
+   ],
+   "maps": [
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "升级工具箱": {
+   "keep": [
+    "工欲善其事"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [
+    "工欲善其事"
+   ],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "Knossos 高级经理日志": {
+   "keep": [
+    "影子雇员"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [
+    "影子雇员"
+   ],
+   "maps": [
+    "中心区",
+    "中心区 21+"
+   ],
+   "barter": []
+  },
+  "Trijicon REAP-IR热成像步枪瞄准镜": {
+   "keep": [
+    "急先锋",
+    "有利可图的生意",
+    "观察员"
+   ],
+   "n": 3,
+   "traders": [
+    "Lightkeeper",
+    "Mechanic",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "塔科夫街区",
+    "海关"
+   ],
+   "barter": [
+    {
+     "trader": "Skier",
+     "level": 4,
+     "task": false
+    },
+    {
+     "trader": "Mechanic",
+     "level": 4,
+     "task": true
+    }
+   ]
+  },
+  "信号干扰器": {
+   "keep": [
+    "直播 - 1"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海岸线",
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "一套工具": {
+   "keep": [
+    "投机第一步",
+    "窃听风暴"
+   ],
+   "n": 2,
+   "traders": [
+    "Mechanic",
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [
+    "夜间工厂",
+    "工厂",
+    "破冰船"
+   ],
+   "barter": [
+    {
+     "trader": "Mechanic",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "显卡包裹": {
+   "keep": [
+    "挖矿"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [
+    "挖矿"
+   ],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "完好的硬盘驱动器": {
+   "keep": [
+    "头号机密",
+    "探望",
+    "湿活 - 5"
+   ],
+   "n": 3,
+   "traders": [
+    "Mechanic",
+    "Peacekeeper",
+    "Skier"
+   ],
+   "questOnly": [
+    "头号机密",
+    "探望",
+    "湿活 - 5"
+   ],
+   "maps": [
+    "塔科夫街区",
+    "海岸线",
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "有机玻璃片": {
+   "keep": [
+    "灯塔之匙"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "绝缘胶带": {
+   "keep": [
+    "灯塔之匙"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "军用电路板": {
+   "keep": [
+    "半满半空",
+    "灯塔之匙"
+   ],
+   "n": 2,
+   "traders": [
+    "Mechanic",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "军用COFDM无线信号发射器": {
+   "keep": [
+    "半满半空",
+    "灯塔之匙",
+    "特殊装备",
+    "网络供应商 - 1",
+    "转口贸易"
+   ],
+   "n": 5,
+   "traders": [
+    "Mechanic",
+    "Peacekeeper",
+    "Prapor",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "完好的液晶显示屏": {
+   "keep": [
+    "灯塔之匙",
+    "镜头就位，开拍！"
+   ],
+   "n": 2,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Mechanic",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "信号发射器主机": {
+   "keep": [
+    "灯塔之匙"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [
+    "灯塔之匙"
+   ],
+   "maps": [
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "V3加密U盘": {
+   "keep": [
+    "破镜重圆",
+    "邂逅"
+   ],
+   "n": 2,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [
+    "破镜重圆",
+    "邂逅"
+   ],
+   "maps": [
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "WIFI摄像头": {
+   "keep": [
+    "忠实观众",
+    "情报就是力量",
+    "收视灵药",
+    "破镜重圆 - 安保",
+    "破镜重圆 - 隔离",
+    "神秘的门",
+    "缉毒行动",
+    "这是什么梗？",
+    "隔墙有“眼”"
+   ],
+   "n": 9,
+   "traders": [
+    "Fence",
+    "Mechanic",
+    "Prapor",
+    "Ref",
+    "Skier",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [
+    "中心区",
+    "中心区 21+",
+    "储备站",
+    "塔科夫街区",
+    "夜间工厂",
+    "实验室",
+    "工厂",
+    "森林",
+    "海关",
+    "海岸线",
+    "灯塔",
+    "立交桥"
+   ],
+   "barter": [
+    {
+     "trader": "Mechanic",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "卢布": {
+   "keep": [
+    "一天一个苹果 - 医生远离我",
+    "亡羊补牢 - Wergild",
+    "再创新高！- 4（PVP）",
+    "收买人心",
+    "破镜重圆 - 收买人心"
+   ],
+   "n": 5,
+   "traders": [
+    "Fence",
+    "Mechanic",
+    "Ref",
+    "Skier",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "德拉贡诺夫 SVDS 7.62x54 半自动狙击步枪": {
+   "keep": [
+    "破镜重圆 - 装备"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "加密U盘": {
+   "keep": [
+    "U盘里有什么？",
+    "你的车该洗了",
+    "破镜重圆 - 软件",
+    "黑幕交易"
+   ],
+   "n": 4,
+   "traders": [
+    "Jaeger",
+    "Mechanic",
+    "Peacekeeper",
+    "Skier"
+   ],
+   "questOnly": [
+    "你的车该洗了"
+   ],
+   "maps": [
+    "塔科夫街区"
+   ],
+   "barter": []
+  },
+  "MS2000指示器": {
+   "keep": [
+    "肮脏游戏",
+    "风火轮",
+    "风火轮 - 再次出发"
+   ],
+   "n": 3,
+   "traders": [
+    "BTR 司机",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "储备站",
+    "塔科夫街区",
+    "夜间工厂",
+    "工厂",
+    "森林",
+    "海关",
+    "海岸线",
+    "灯塔",
+    "立交桥"
+   ],
+   "barter": []
+  },
+  "电子元件": {
+   "keep": [
+    "半满半空",
+    "网络供应商 - 1",
+    "镜头就位，开拍！"
+   ],
+   "n": 3,
+   "traders": [
+    "Mechanic",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "气体分析仪": {
+   "keep": [
+    "卫生标准",
+    "卫生标准 - 2",
+    "网络供应商 - 1"
+   ],
+   "n": 3,
+   "traders": [
+    "Mechanic",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [
+    "工厂"
+   ],
+   "barter": [
+    {
+     "trader": "Mechanic",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "损坏的GPhone": {
+   "keep": [
+    "网络供应商 - 1"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "无线电中继器": {
+   "keep": [],
+   "n": 0,
+   "traders": [],
+   "questOnly": [],
+   "maps": [
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "电线": {
+   "keep": [
+    "半满半空",
+    "肥料",
+    "镜头就位，开拍！"
+   ],
+   "n": 3,
+   "traders": [
+    "Mechanic",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "电容": {
+   "keep": [
+    "肥料",
+    "镜头就位，开拍！"
+   ],
+   "n": 2,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "SJ1 TGLabs 战斗兴奋剂注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路",
+    "试探 - 3"
+   ],
+   "n": 3,
+   "traders": [
+    "Mechanic",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "SJ6 TGLabs 战斗兴奋剂注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路",
+    "站稳脚跟",
+    "试探 - 3"
+   ],
+   "n": 4,
+   "traders": [
+    "Mechanic",
+    "Skier",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "SJ9 TGLabs 战斗兴奋剂注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路",
+    "站稳脚跟",
+    "试探 - 3"
+   ],
+   "n": 4,
+   "traders": [
+    "Mechanic",
+    "Skier",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "UHF RFID固定式读取器": {
+   "keep": [
+    "特殊装备",
+    "进口"
+   ],
+   "n": 2,
+   "traders": [
+    "Mechanic",
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "VPX闪存模块": {
+   "keep": [
+    "特殊装备",
+    "进口"
+   ],
+   "n": 2,
+   "traders": [
+    "Mechanic",
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "TerraGroup科学家的硬盘": {
+   "keep": [
+    "救援行动"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [
+    "救援行动"
+   ],
+   "maps": [
+    "中心区",
+    "中心区 21+"
+   ],
+   "barter": []
+  },
+  "装有记录的U盘": {
+   "keep": [
+    "你被盯上了"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [
+    "你被盯上了"
+   ],
+   "maps": [
+    "塔科夫街区"
+   ],
+   "barter": []
+  },
+  "电源线": {
+   "keep": [
+    "半满半空",
+    "挖矿 - 2"
+   ],
+   "n": 2,
+   "traders": [
+    "Mechanic",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "T形插座": {
+   "keep": [
+    "挖矿 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "印制电路板": {
+   "keep": [
+    "半满半空",
+    "挖矿 - 2",
+    "捕鼠计划"
+   ],
+   "n": 3,
+   "traders": [
+    "Mechanic",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "电脑CPU": {
+   "keep": [
+    "半满半空",
+    "捕鼠计划",
+    "镜头就位，开拍！"
+   ],
+   "n": 3,
+   "traders": [
+    "Mechanic",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "可充电电池": {
+   "keep": [
+    "捕鼠计划",
+    "镜头就位，开拍！"
+   ],
+   "n": 2,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "RSP-30 反应式信号弹（红色）": {
+   "keep": [],
+   "n": 0,
+   "traders": [],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "26x75 毫米照明信号弹（红色）": {
+   "keep": [],
+   "n": 0,
+   "traders": [],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "固态硬盘": {
+   "keep": [
+    "镜头就位，开拍！"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "USB适配器": {
+   "keep": [
+    "镜头就位，开拍！"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "充电宝": {
+   "keep": [
+    "镜头就位，开拍！"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "NIXXOR镜头": {
+   "keep": [
+    "镜头就位，开拍！"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "内存条": {
+   "keep": [
+    "半满半空",
+    "镜头就位，开拍！"
+   ],
+   "n": 2,
+   "traders": [
+    "Mechanic",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "电灯泡": {
+   "keep": [
+    "镜头就位，开拍！"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Labrys 研发记录": {
+   "keep": [
+    "检验假说"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "MBT导航模块": {
+   "keep": [
+    "物尽其用"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [
+    "物尽其用"
+   ],
+   "maps": [
+    "储备站"
+   ],
+   "barter": []
+  },
+  "AK-50 枪管": {
+   "keep": [
+    "同好俱乐部"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [
+    "同好俱乐部"
+   ],
+   "maps": [
+    "储备站",
+    "海关"
+   ],
+   "barter": []
+  },
+  "AK-50 防尘盖": {
+   "keep": [
+    "同好俱乐部"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [
+    "同好俱乐部"
+   ],
+   "maps": [
+    "海关"
+   ],
+   "barter": [
+    {
+     "trader": "Mechanic",
+     "level": 4,
+     "task": true
+    }
+   ]
+  },
+  "TheAKGuy AK-50 .50 BMG 反器材步枪": {
+   "keep": [
+    "同好俱乐部"
+   ],
+   "n": 1,
+   "traders": [
+    "Mechanic"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "AK-50 护木与导气管组合": {
+   "keep": [
+    "公道价 - 2",
+    "同好俱乐部"
+   ],
+   "n": 2,
+   "traders": [
+    "Mechanic",
+    "Skier"
+   ],
+   "questOnly": [
+    "公道价 - 2"
+   ],
+   "maps": [
+    "森林",
+    "海关"
+   ],
+   "barter": []
+  },
+  "挂号信": {
+   "keep": [
+    "一信之缘"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [
+    "一信之缘"
+   ],
+   "maps": [
+    "塔科夫街区"
+   ],
+   "barter": []
+  },
+  "军用电源滤波器": {
+   "keep": [
+    "半满半空"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "军用转速计": {
+   "keep": [
+    "半满半空"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Iridium军用热成像模块": {
+   "keep": [
+    "半满半空"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "军用电缆": {
+   "keep": [
+    "半满半空",
+    "特别联络"
+   ],
+   "n": 2,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "Virtex可编程处理器": {
+   "keep": [
+    "半满半空",
+    "特殊装备",
+    "转口贸易"
+   ],
+   "n": 3,
+   "traders": [
+    "Peacekeeper",
+    "Prapor",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "DVD光驱": {
+   "keep": [
+    "半满半空"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "供电单元": {
+   "keep": [
+    "半满半空"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "损坏的硬盘": {
+   "keep": [
+    "半满半空"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "飞行日志本": {
+   "keep": [
+    "占有者"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [
+    "占有者"
+   ],
+   "maps": [
+    "夜间工厂",
+    "工厂"
+   ],
+   "barter": []
+  },
+  "军事机密#1": {
+   "keep": [
+    "多鱼之漏"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [
+    "多鱼之漏"
+   ],
+   "maps": [
+    "储备站"
+   ],
+   "barter": []
+  },
+  "军事机密#2": {
+   "keep": [
+    "多鱼之漏"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [
+    "多鱼之漏"
+   ],
+   "maps": [
+    "储备站"
+   ],
+   "barter": []
+  },
+  "军事机密#3": {
+   "keep": [
+    "多鱼之漏"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [
+    "多鱼之漏"
+   ],
+   "maps": [
+    "储备站"
+   ],
+   "barter": []
+  },
+  "瓶装Le Jean酒": {
+   "keep": [
+    "奢靡人生"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [
+    "奢靡人生"
+   ],
+   "maps": [
+    "中心区",
+    "中心区 21+"
+   ],
+   "barter": []
+  },
+  "0022号保险文件夹": {
+   "keep": [
+    "往事速递"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [
+    "往事速递"
+   ],
+   "maps": [
+    "夜间工厂",
+    "工厂",
+    "海关"
+   ],
+   "barter": []
+  },
+  "银行手提箱": {
+   "keep": [
+    "探囊取物"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [
+    "探囊取物"
+   ],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "AMG-10 液压油": {
+   "keep": [
+    "油料交换",
+    "燃料短缺"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Bulbex剪线器": {
+   "keep": [
+    "特别联络"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [
+    "储备站"
+   ],
+   "barter": []
+  },
+  "Red Rebel冰镐": {
+   "keep": [
+    "特殊订单"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Jaeger",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Prapor 的货物": {
+   "keep": [
+    "缔结友谊"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [
+    "缔结友谊"
+   ],
+   "maps": [
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "0031号保险文件夹": {
+   "keep": [
+    "罪证"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [
+    "罪证"
+   ],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "带链青铜怀表": {
+   "keep": [
+    "背景调查"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [
+    "背景调查"
+   ],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "土地登记记录": {
+   "keep": [
+    "财不外露"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [
+    "财不外露"
+   ],
+   "maps": [
+    "塔科夫街区"
+   ],
+   "barter": []
+  },
+  "封口信件": {
+   "keep": [
+    "邮递员派特 - 1",
+    "邮递员派特 - 2"
+   ],
+   "n": 2,
+   "traders": [
+    "Prapor",
+    "Therapist"
+   ],
+   "questOnly": [
+    "邮递员派特 - 1",
+    "邮递员派特 - 2"
+   ],
+   "maps": [
+    "夜间工厂",
+    "工厂"
+   ],
+   "barter": []
+  },
+  "RGD-5手榴弹": {
+   "keep": [
+    "机密情报",
+    "铁证如山"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [
+    "迷宫"
+   ],
+   "barter": [
+    {
+     "trader": "Prapor",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "VOG-17 Khattabka 简易手榴弹": {
+   "keep": [
+    "机密情报",
+    "铁证如山"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [
+    "迷宫"
+   ],
+   "barter": [
+    {
+     "trader": "Mechanic",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "VOG-25 Khattabka 简易手榴弹": {
+   "keep": [
+    "反将一军",
+    "机密情报",
+    "铁证如山"
+   ],
+   "n": 3,
+   "traders": [
+    "BTR 司机",
+    "Peacekeeper",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林",
+    "迷宫"
+   ],
+   "barter": []
+  },
+  "F-1手榴弹": {
+   "keep": [
+    "机密情报",
+    "铁证如山"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [
+    "迷宫"
+   ],
+   "barter": [
+    {
+     "trader": "Prapor",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "F-1手榴弹（短引信）": {
+   "keep": [
+    "铁证如山"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "RGN手榴弹": {
+   "keep": [
+    "铁证如山"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "RGO手榴弹": {
+   "keep": [
+    "铁证如山"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Zarya震撼手榴弹": {
+   "keep": [
+    "铁证如山"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "40毫米VOG-25榴弹": {
+   "keep": [
+    "铁证如山"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "日记本": {
+   "keep": [
+    "苏共之辉"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [
+    "苏共之辉"
+   ],
+   "maps": [
+    "塔科夫街区"
+   ],
+   "barter": []
+  },
+  "6L31 5.45x39 AK-74 60发弹匣": {
+   "keep": [
+    "蛋卷冰淇淋"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    },
+    {
+     "trader": "Prapor",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "遮脸半面巾": {
+   "keep": [
+    "垃圾佬",
+    "惩罚者 - 3"
+   ],
+   "n": 2,
+   "traders": [
+    "Prapor",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "A-2607 95Kh18 匕首": {
+   "keep": [
+    "惩罚者 - 4"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "AK-74N 5.45x39 突击步枪": {
+   "keep": [
+    "惩罚者 - 5"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "AK-74 5.45x39 突击步枪": {
+   "keep": [
+    "惩罚者 - 5"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "AK-74M 5.45x39 突击步枪": {
+   "keep": [
+    "惩罚者 - 5"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "AKS-74N 5.45x39 突击步枪": {
+   "keep": [
+    "惩罚者 - 5"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "AKS-74 5.45x39 突击步枪": {
+   "keep": [
+    "惩罚者 - 5"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "柯尔特 M4A1 5.56x45 卡宾枪": {
+   "keep": [
+    "亡羊补牢 - 收藏",
+    "惩罚者 - 5"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "马卡洛夫9x18PM 手枪": {
+   "keep": [
+    "惩罚者 - 5"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "马卡洛夫 PM(t) 9x18PM 手枪": {
+   "keep": [
+    "惩罚者 - 5"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "BEAR 狗牌": {
+   "keep": [
+    "亡羊补牢 - 信任",
+    "反抗",
+    "惩罚者 - 6",
+    "战利品"
+   ],
+   "n": 4,
+   "traders": [
+    "Fence",
+    "Peacekeeper",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "BEAR狗牌": {
+   "keep": [
+    "反抗",
+    "惩罚者 - 6"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "USEC 狗牌": {
+   "keep": [
+    "亡羊补牢 - 信任",
+    "惩罚者 - 6",
+    "战利品"
+   ],
+   "n": 3,
+   "traders": [
+    "Fence",
+    "Peacekeeper",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "USEC 两片式狗牌": {
+   "keep": [
+    "惩罚者 - 6"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "BEAR 两片式狗牌": {
+   "keep": [
+    "反抗",
+    "惩罚者 - 6"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "带有标记的 USEC 狗牌": {
+   "keep": [
+    "惩罚者 - 6"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "带有标记的 BEAR 狗牌": {
+   "keep": [
+    "反抗",
+    "惩罚者 - 6"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "6-STEN-140-M军用电池": {
+   "keep": [
+    "电池换新",
+    "管制材料"
+   ],
+   "n": 2,
+   "traders": [
+    "BTR 司机",
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "OFZ 30x165毫米炮弹": {
+   "keep": [
+    "管制材料"
+   ],
+   "n": 1,
+   "traders": [
+    "Prapor"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "BNTI Module-3M 防弹背心": {
+   "keep": [
+    "供应商",
+    "垃圾佬"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "TOZ-106 20铅径栓动式霰弹枪": {
+   "keep": [
+    "供应商"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "呼吸面罩": {
+   "keep": [
+    "供货",
+    "垃圾佬",
+    "维他命"
+   ],
+   "n": 3,
+   "traders": [
+    "Ragman",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "医用输血工具": {
+   "keep": [
+    "供货",
+    "兽医也是医",
+    "新手上路",
+    "维他命"
+   ],
+   "n": 4,
+   "traders": [
+    "Skier",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "化学品容器2": {
+   "keep": [
+    "供货"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [
+    "供货"
+   ],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "0013号保险文件夹": {
+   "keep": [
+    "化学品 - 1",
+    "定向追踪"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Skier"
+   ],
+   "questOnly": [
+    "化学品 - 1",
+    "定向追踪"
+   ],
+   "maps": [
+    "海关",
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "宿舍220房间钥匙": {
+   "keep": [
+    "化学品 - 1"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Sliderkey加密U盘": {
+   "keep": [
+    "化学品 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [
+    "化学品 - 2"
+   ],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "带有 Terra Group 标志的封口信件": {
+   "keep": [
+    "化学品 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [
+    "化学品 - 2"
+   ],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "12.7x55mm PS12B（10发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "5.45x39mm 7N39“针刺”弹药包（120发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "5.45x39mm 7N39“针刺”弹药包（30发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "5.45x39mm 7N40 弹药包（120发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "5.45x39mm 7N40盒装弹药（30发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "5.45x39mm PP弹药包（30发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "5.45x39mm PP弹药包（120发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "5.45x39mm BS弹药包（30发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "5.45x39mm BS弹药包（120发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "5.45x39mm BP弹药包（30发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "5.45x39mm BP弹药包（120发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "7.62x39mm BP 弹药包（20发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "7.62x39mm PP 弹药包（20发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "7.62x54mm R 7BT1 弹药包（20发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "9x19mm PBP (7N31) 弹药包（50 发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "9x21mm 7N42 弹药包（30发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "9x21mm 7U4 弹药包（30发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "9x21mm SP13 弹药包（30发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "9x39mm 7N12 BP 弹药包（20发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "9x39mm 7N12 BP 弹药包（8发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "9x39mm PAB-9 弹药包（20发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "5.45x39mm BT弹药包（120发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "5.45x39mm BT弹药包（30发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": [
+    {
+     "trader": "Prapor",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "7.62x54mm R 7N37 弹药包（20发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "9x39mm SP-6 弹药包（20发装）": {
+   "keep": [
+    "后知后觉"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "邪教徒之刃": {
+   "keep": [
+    "夜间扫荡",
+    "守望者箴言",
+    "小本生意 - 3",
+    "直播 - 5"
+   ],
+   "n": 4,
+   "traders": [
+    "Fence",
+    "Jaeger",
+    "Lightkeeper",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "塔科夫街区",
+    "森林",
+    "海岸线",
+    "迷宫"
+   ],
+   "barter": []
+  },
+  "RB-PSP1钥匙": {
+   "keep": [
+    "安全通道"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "RB-PSP2钥匙": {
+   "keep": [
+    "安全通道"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Jaeger",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "RB-PSV1钥匙": {
+   "keep": [
+    "安全通道"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "RB-PSV2钥匙": {
+   "keep": [
+    "安全通道"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "0048号保险文件夹": {
+   "keep": [
+    "敲诈者"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [
+    "敲诈者"
+   ],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "0052号保险文件夹": {
+   "keep": [
+    "供给计划",
+    "暗中破坏"
+   ],
+   "n": 2,
+   "traders": [
+    "Skier",
+    "Therapist"
+   ],
+   "questOnly": [
+    "供给计划",
+    "暗中破坏"
+   ],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "Skier的钱包": {
+   "keep": [
+    "私人俱乐部"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [
+    "私人俱乐部"
+   ],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "神秘物质": {
+   "keep": [
+    "秘制食谱"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [
+    "秘制食谱"
+   ],
+   "maps": [
+    "塔科夫街区"
+   ],
+   "barter": []
+  },
+  "化学品容器1": {
+   "keep": [
+    "维他命"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [
+    "维他命"
+   ],
+   "maps": [
+    "夜间工厂",
+    "工厂",
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "铁门钥匙": {
+   "keep": [
+    "老赖"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Lightkeeper 的箱子": {
+   "keep": [
+    "简单副业",
+    "致命论据"
+   ],
+   "n": 2,
+   "traders": [
+    "Lightkeeper",
+    "Skier"
+   ],
+   "questOnly": [
+    "简单副业",
+    "致命论据"
+   ],
+   "maps": [
+    "储备站",
+    "森林"
+   ],
+   "barter": []
+  },
+  "Chekannaya 15号公寓钥匙": {
+   "keep": [
+    "软禁"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "金质 Zibbo 打火机": {
+   "keep": [
+    "金色失物"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [
+    "金色失物"
+   ],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "Zibbo打火机": {
+   "keep": [
+    "燃料短缺",
+    "金色失物"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "主厨的日记本": {
+   "keep": [
+    "好吃到上瘾"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [
+    "好吃到上瘾"
+   ],
+   "maps": [
+    "塔科夫街区"
+   ],
+   "barter": []
+  },
+  "金项链": {
+   "keep": [
+    "愿者上钩"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林",
+    "海关"
+   ],
+   "barter": []
+  },
+  "化学品注射器": {
+   "keep": [
+    "化学品 - 3"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [
+    "化学品 - 3"
+   ],
+   "maps": [
+    "夜间工厂",
+    "工厂"
+   ],
+   "barter": []
+  },
+  "5升丙烷罐": {
+   "keep": [
+    "口干舌燥 - 养家糊口",
+    "口干舌燥 - 送货服务",
+    "燃料短缺"
+   ],
+   "n": 3,
+   "traders": [
+    "Peacekeeper",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林",
+    "海关"
+   ],
+   "barter": []
+  },
+  "美元": {
+   "keep": [
+    "疗养之旅 - 6",
+    "西方来客 - 2"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "竞技场广告海报": {
+   "keep": [
+    "赚点快钱 - 1（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "金公鸡塑像": {
+   "keep": [
+    "一报还一报",
+    "奢侈无罪"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "工厂",
+    "森林",
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "机械硬盘": {
+   "keep": [
+    "严词指控"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [
+    "严词指控"
+   ],
+   "maps": [
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "游戏杂志": {
+   "keep": [
+    "高光时刻"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [
+    "高光时刻"
+   ],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": []
+  },
+  "失窃的军事档案": {
+   "keep": [
+    "失踪货物"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [
+    "失踪货物"
+   ],
+   "maps": [
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "T-90M 车长操控面板": {
+   "keep": [
+    "绝密技术"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [
+    "绝密技术"
+   ],
+   "maps": [
+    "储备站"
+   ],
+   "barter": []
+  },
+  "失窃的武器箱": {
+   "keep": [
+    "诱人新货"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [
+    "诱人新货"
+   ],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": []
+  },
+  "Accuracy International AXMC .338 LM 栓动式狙击步枪": {
+   "keep": [
+    "一派胡言"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "劳力土潜水金腕表": {
+   "keep": [
+    "一派胡言",
+    "奢侈无罪"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "军用闪存装置": {
+   "keep": [
+    "一派胡言",
+    "特殊装备"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "欧元": {
+   "keep": [
+    "公道价 - 1",
+    "导师"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Tarkovskaya瓶装伏特加": {
+   "keep": [
+    "人生之课",
+    "苦涩的胜利",
+    "赚点快钱 - 2（PVP）",
+    "酒瘾"
+   ],
+   "n": 4,
+   "traders": [
+    "BTR 司机",
+    "Ragman",
+    "Ref",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Dan Jackiel瓶装威士忌": {
+   "keep": [
+    "亡羊补牢 - 酒保",
+    "人生之课",
+    "赚点快钱 - 2（PVP）",
+    "酒瘾"
+   ],
+   "n": 4,
+   "traders": [
+    "Fence",
+    "Ragman",
+    "Ref",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "“凶狠跑刀崽”私酒": {
+   "keep": [
+    "人生之课",
+    "感官分析 - 2",
+    "挑衅",
+    "苦涩的胜利",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 5,
+   "traders": [
+    "BTR 司机",
+    "Lightkeeper",
+    "Ref",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": []
+  },
+  "实体比特币": {
+   "keep": [
+    "利润保留",
+    "旧情难却"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Mechanic",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "HK 416A5 5.56x45 突击步枪": {
+   "keep": [
+    "学无止境"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "5.56x45毫米 Mk 318 Mod 0 (SOST)": {
+   "keep": [
+    "学无止境"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "UVSR“针叶林-1”求生砍刀": {
+   "keep": [
+    "学无止境"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "BNTI Zhuk（甲虫）防弹衣（数码丛林迷彩）": {
+   "keep": [
+    "垃圾佬",
+    "安全保障",
+    "猎人之路 - 正义"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Ragman",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Vulkan-5 (火神) LShZ-5 重型防弹头盔 (黑色)": {
+   "keep": [
+    "垃圾佬",
+    "安全保障",
+    "猎人之路 - 蒸发密令 - 1"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Ragman",
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Maska-1SCh 防弹面罩（Killa 版）": {
+   "keep": [
+    "安全保障"
+   ],
+   "n": 1,
+   "traders": [
+    "Skier"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Obdolbos 2 鸡尾酒兴奋剂注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路",
+    "站稳脚跟"
+   ],
+   "n": 3,
+   "traders": [
+    "Skier",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Propital 再生兴奋剂注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路",
+    "站稳脚跟"
+   ],
+   "n": 3,
+   "traders": [
+    "Skier",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 2,
+     "task": true
+    },
+    {
+     "trader": "Therapist",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "M.U.L.E. 兴奋剂注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路",
+    "样品",
+    "站稳脚跟"
+   ],
+   "n": 4,
+   "traders": [
+    "Peacekeeper",
+    "Skier",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "eTG-change 再生兴奋剂注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路",
+    "站稳脚跟"
+   ],
+   "n": 3,
+   "traders": [
+    "Skier",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "SJ12 TGLabs 战斗兴奋剂注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路",
+    "站稳脚跟"
+   ],
+   "n": 3,
+   "traders": [
+    "Skier",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "米屈肼注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路",
+    "样品",
+    "站稳脚跟"
+   ],
+   "n": 4,
+   "traders": [
+    "Peacekeeper",
+    "Skier",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Spiritus Systems LV-119 插板胸挂 (黑系复合迷彩)": {
+   "keep": [
+    "如楔在侧"
+   ],
+   "n": 1,
+   "traders": [
+    "Jaeger"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "相册": {
+   "keep": [
+    "怀旧之情"
+   ],
+   "n": 1,
+   "traders": [
+    "Jaeger"
+   ],
+   "questOnly": [
+    "怀旧之情"
+   ],
+   "maps": [
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "车载急救包": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "AI-2急救组合": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Salewa急救包": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "新手上路",
+    "短缺"
+   ],
+   "n": 4,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 1,
+     "task": false
+    },
+    {
+     "trader": "Therapist",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "IFAK单兵急救包": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Grizzly急救包": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Jaeger",
+     "level": 2,
+     "task": false
+    },
+    {
+     "trader": "Therapist",
+     "level": 2,
+     "task": true
+    }
+   ]
+  },
+  "AFAK单兵急救包": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "无菌绷带": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "军用绷带": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "CMS手术包": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Jaeger",
+     "level": 1,
+     "task": false
+    },
+    {
+     "trader": "Therapist",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "CAT止血带": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Esmarch止血带": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "固定夹板": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "CALOK-B止血剂": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "铝固定夹板": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Tigzresq 夹板": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "收藏家"
+   ],
+   "n": 3,
+   "traders": [
+    "Fence",
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Surv12野战手术包": {
+   "keep": [
+    "兽医也是医",
+    "急救措施",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Jaeger",
+     "level": 2,
+     "task": true
+    }
+   ]
+  },
+  "Iskra（“火花”）单兵口粮": {
+   "keep": [
+    "熟人",
+    "生存者之路 - 省吃俭用",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "军用饼干": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Alyonka 巧克力": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "炖美味牛肉罐头（大）": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "黑麦面包块": {
+   "keep": [
+    "熟人",
+    "苦涩的胜利",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 3,
+   "traders": [
+    "BTR 司机",
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "炖牛肉罐头": {
+   "keep": [
+    "一般储备",
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Ref",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "炼乳罐头": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Emelya黑麦面包块": {
+   "keep": [
+    "熟人",
+    "苦涩的胜利",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 3,
+   "traders": [
+    "BTR 司机",
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "鲱鱼罐头": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Humpback鲑鱼罐头": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "太平洋秋刀鱼罐头": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "MRE个人即食口粮": {
+   "keep": [
+    "人道主义援助",
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Peacekeeper",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "鸭肝酱罐头": {
+   "keep": [
+    "熟人"
+   ],
+   "n": 1,
+   "traders": [
+    "Jaeger"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "方便面": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "盒装奥利维耶沙拉": {
+   "keep": [
+    "熟人"
+   ],
+   "n": 1,
+   "traders": [
+    "Jaeger"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "塔克肉干": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "西鲱鱼罐头": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "一包糖": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Jaeger",
+     "level": 2,
+     "task": false
+    },
+    {
+     "trader": "Therapist",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "盒装燕麦片": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "豌豆罐头": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "士腻架能量棒": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "罐装蔬菜泥": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "DevilDog蛋黄酱": {
+   "keep": [
+    "熟人",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "咸狗牛肉肠": {
+   "keep": [
+    "挑衅",
+    "熟人",
+    "美味香肠",
+    "苦涩的胜利",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 5,
+   "traders": [
+    "BTR 司机",
+    "Jaeger",
+    "Lightkeeper",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": []
+  },
+  "PR-Taran警棍": {
+   "keep": [
+    "猎人之路 - 坏警察"
+   ],
+   "n": 1,
+   "traders": [
+    "Jaeger"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "BOSS鸭舌帽": {
+   "keep": [
+    "猎人之路 - 工厂头目"
+   ],
+   "n": 1,
+   "traders": [
+    "Jaeger"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "鹿角帽": {
+   "keep": [
+    "猎人之路 - 工厂头目"
+   ],
+   "n": 1,
+   "traders": [
+    "Jaeger"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "托卡列夫 TT-33 7.62x25 黄金手枪": {
+   "keep": [
+    "猎人之路 - 战利品"
+   ],
+   "n": 1,
+   "traders": [
+    "Jaeger"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Shturman 的储物箱钥匙": {
+   "keep": [
+    "猎人之路 - 森林管理员"
+   ],
+   "n": 1,
+   "traders": [
+    "Jaeger"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "FORT Redut-M（堡垒-M）防弹衣": {
+   "keep": [
+    "储备专家",
+    "垃圾佬",
+    "猎人之路 - 正义"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "FORT Defender-2 防弹衣": {
+   "keep": [
+    "储备专家",
+    "垃圾佬",
+    "猎人之路 - 正义"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "6B43 屏障-Sh 防弹衣（数码丛林迷彩）": {
+   "keep": [
+    "临行密密缝 - 4",
+    "储备专家",
+    "垃圾佬",
+    "猎人之路 - 正义"
+   ],
+   "n": 4,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Prapor",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "BNTI Kirasa-N（胸甲-N）防弹衣": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 正义"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "BNTI Gzhel-K（彩瓷-K）防弹衣": {
+   "keep": [
+    "临行密密缝 - 3",
+    "垃圾佬",
+    "火线速递",
+    "猎人之路 - 正义"
+   ],
+   "n": 4,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "NPP KlASS Korund-VM（刚玉-VM）防弹衣（黑色）": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 正义"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Maska-1SCh 防弹头盔（Killa 版）": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 脱销"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Maska-1SCh 防弹头盔（圣诞特装版）": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 脱销"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Altyn 防弹头盔（橄榄绿）": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 蒸发密令 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 4,
+     "task": true
+    }
+   ]
+  },
+  "HighCom Striker ULACH IIIA 头盔（沙漠黄）": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 蒸发密令 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "HighCom Striker ULACH IIIA 头盔（黑色）": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 蒸发密令 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "MSA Gallet TC 800 High Cut 作战头盔": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 蒸发密令 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    },
+    {
+     "trader": "Peacekeeper",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Ops-Core FAST MT 超级高切头盔（黑色）": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 蒸发密令 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "BNTI LShZ-2DTM 头盔（黑色）": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 蒸发密令 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Maska-1SCh 防弹头盔（橄榄绿）": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 蒸发密令 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "MSA ACH TC-2002 MICH系列头盔": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 蒸发密令 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "SSh-68钢盔（橄榄绿）": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 蒸发密令 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "6B47 Ratnik-BSh 头盔（数码迷彩盔罩）": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 蒸发密令 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "NPP KlASS Tor-2 头盔（橄榄绿）": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 蒸发密令 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "NFM 「HJELM」 头盔": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 蒸发密令 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "ZSh-1-2M 头盔（黑色盔罩）": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 蒸发密令 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "ZSh-1-2M 头盔（橄榄绿）": {
+   "keep": [
+    "垃圾佬",
+    "猎人之路 - 蒸发密令 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Sanitar 包": {
+   "keep": [
+    "特殊提议",
+    "猎人之路 - 虐待狂"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "金属燃料桶": {
+   "keep": [
+    "你渴望电力吗",
+    "燃料短缺",
+    "自然交换",
+    "试炼之路"
+   ],
+   "n": 4,
+   "traders": [
+    "BTR 司机",
+    "Jaeger",
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海岸线"
+   ],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    },
+    {
+     "trader": "Skier",
+     "level": 3,
+     "task": false
+    },
+    {
+     "trader": "Jaeger",
+     "level": 1,
+     "task": false
+    },
+    {
+     "trader": "Prapor",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "化学药剂容器": {
+   "keep": [
+    "妥善保管"
+   ],
+   "n": 1,
+   "traders": [
+    "Jaeger"
+   ],
+   "questOnly": [
+    "妥善保管"
+   ],
+   "maps": [
+    "夜间工厂",
+    "工厂"
+   ],
+   "barter": []
+  },
+  "0.6升瓶装水": {
+   "keep": [
+    "水瓶座行动",
+    "生存者之路 - 省吃俭用",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 3,
+   "traders": [
+    "Jaeger",
+    "Ref",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "RSP-30 反应式信号弹（黄色）": {
+   "keep": [],
+   "n": 0,
+   "traders": [],
+   "questOnly": [],
+   "maps": [
+    "储备站",
+    "塔科夫街区",
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "26x75燃烧照明信号弹（黄色）": {
+   "keep": [],
+   "n": 0,
+   "traders": [],
+   "questOnly": [],
+   "maps": [
+    "储备站",
+    "塔科夫街区",
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "密封的信件": {
+   "keep": [
+    "隐士"
+   ],
+   "n": 1,
+   "traders": [
+    "Jaeger"
+   ],
+   "questOnly": [
+    "隐士"
+   ],
+   "maps": [
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "TerraGroup实验室访问钥匙卡": {
+   "keep": [
+    "艰难抉择",
+    "鱼塘"
+   ],
+   "n": 2,
+   "traders": [
+    "Jaeger",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Mechanic",
+     "level": 3,
+     "task": false
+    },
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "带眼洞滑雪头套": {
+   "keep": [
+    "临行密密缝 - 1"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Pilgrim旅行包": {
+   "keep": [
+    "临行密密缝 - 1"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "WARTECH TV-109 + TV-106 胸挂（A-TACS 橄榄绿迷彩）": {
+   "keep": [
+    "临行密密缝 - 2",
+    "人靠衣装 - 1"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "BlackRock胸挂": {
+   "keep": [
+    "临行密密缝 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "HighCom Trooper TFO 防弹背心（复合迷彩）": {
+   "keep": [
+    "临行密密缝 - 3",
+    "垃圾佬"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "GAC 4sss2防弹插板": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "ESBI IV 级防弹插板（侧边）": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "GAC 3s15m防弹插板": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "SSAPI III+ 级防弹插板（侧边）": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "NESCO 4400-SA-MC防弹插板": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Cult Termite防弹插板": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "ESAPI IV 级防弹插板": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Cult Locust防弹插板": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Skier",
+     "level": 4,
+     "task": true
+    }
+   ]
+  },
+  "Granit 4RS防弹插板（背部）": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Granit 4RS防弹插板（前部）": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Granit 防弹插板（侧边）": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "刚玉-VM 防弹插板（前部）": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Prapor",
+     "level": 3,
+     "task": true
+    }
+   ]
+  },
+  "Granit 4防弹插板（背部）": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "刚玉-VM 防弹插板（侧边）": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Granit 4防弹插板（前部）": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "KITECO SC-IV SA防弹插板": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Kiba Arms Steel防弹插板": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "TallCom Guardian防弹插板": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Granit Br4防弹插板": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 4,
+     "task": true
+    }
+   ]
+  },
+  "Granit Br5防弹插板": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "刚玉-VM 防弹插板（背部）": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "刚玉-VM-K 防弹插板（背部）": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "刚玉-VM-K 防弹插板（前部）": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "SAPI III+ 级防弹插板": {
+   "keep": [
+    "临行密密缝 - 4",
+    "惊喜（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    },
+    {
+     "trader": "Peacekeeper",
+     "level": 4,
+     "task": true
+    }
+   ]
+  },
+  "巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Cold Fear 隔热巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "幽灵头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Zryachiy巴拉克拉瓦": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "复仇Zryachiy巴拉克拉瓦": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "红鼻子巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "天狗恶魔巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "骷髅巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "“恐惧”巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "黄色恶鬼巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "赤鬼巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "白色恶鬼巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "诡笑巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "绿色巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "疤脸巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "抓痕巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "“为死而生”巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "“惹不起”巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "黄色巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "奢华巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Nut Sack 巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬",
+    "收藏家"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "独角兽巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "白色巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "“Zaebtsa”巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Cold Fear 隔热巴拉克拉瓦头套（外星人）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Cold Fear 隔热巴拉克拉瓦头套（绿色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Cold Fear 隔热巴拉克拉瓦头套（SBEU）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Cold Fear 隔热巴拉克拉瓦头套（橡木纹）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Cold Fear 隔热巴拉克拉瓦头套（生存迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Cold Fear 隔热巴拉克拉瓦头套（DPM 沙漠迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Cold Fear 隔热巴拉克拉瓦头套（热带复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Cold Fear 隔热巴拉克拉瓦头套（虎纹迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Cold Fear 隔热巴拉克拉瓦头套（蓝色苔纹）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Cold Fear 隔热巴拉克拉瓦头套（沙漠防夜视迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    },
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Cold Fear 隔热巴拉克拉瓦头套（Kukla 迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Cold Fear 隔热巴拉克拉瓦头套 (M90)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Cold Fear 隔热巴拉克拉瓦头套（高原复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Cold Fear 隔热巴拉克拉瓦头套（台风）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Twitch Rivals 2021 巴拉克拉瓦": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Momex巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "半面巾（绿色头套图样）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "半面巾（红色头套图样）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "半面巾（白色头套图样）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Smoke巴拉克拉瓦头套": {
+   "keep": [
+    "垃圾佬",
+    "收藏家"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "竞技场杯系列巴拉克拉瓦": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "杰森面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Misha Mayorov的面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "瘦长鬼面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Atomic Defense CQCM 防弹面具（黑色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Atomic Defense CQCM 防弹面具（微笑）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Atomic Defense CQCM 防弹面具 (Stop Me)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Atomic Defense CQCM 防弹面具（战疤）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Atomic Defense CQCM 防弹面具（标靶）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Atomic Defense CQCM 防弹面具（骷髅）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Atomic Defense CQCM 防弹面具（恶魔）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Atomic Defense CQCM 防弹面具（亡灵节）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Atomic Defense CQCM 防弹面具（未读消息）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Atomic Defense CQCM防弹面罩（冰爆）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Atomic Defense CQCM 防弹面具（路易伪登）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "极寒天气面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Glorious E 面具": {
+   "keep": [
+    "垃圾佬",
+    "收藏家"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "无头鬼面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "恐怖头颅面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "食尸鬼面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Death Knight面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Pestily 瘟疫面具": {
+   "keep": [
+    "垃圾佬",
+    "收藏家"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "氯丁橡胶面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "氯丁橡胶面具（M90 沙漠迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "氯丁橡胶面具（路易伪登）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "氯丁橡胶面具（自由摔跤）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "氯丁橡胶面具（僵尸）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "氯丁橡胶面具（非礼勿言）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "氯丁橡胶面具（鬼）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Twitch Rivals 2020 面罩": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "破碎面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Shroud 半面巾": {
+   "keep": [
+    "垃圾佬",
+    "收藏家"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "幽灵半面巾": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "半面巾（复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "半面巾（僵尸）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "半面巾（苔藓迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "半面巾（亡灵节）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "半面巾（鬼魂）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "半面巾（圣诞骷髅）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "恐怖骷髅面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Death Shadow（死亡阴影）面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Atomic Defense CQCM 防弹面具（恶魔獠牙）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Death Shadow (死亡阴影) 轻量化防弹面具 (金色)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Death Shadow（死亡阴影）面具（灰色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Atomic Defense CQCM 防弹面具（碰撞测试）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Atomic Defense CQCM 防弹面具（生化警告）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Death Shadow (死亡阴影) 轻量化防弹面具 (白色)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Work Peak 运动面罩": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Work Peak 运动面罩 (健身房打卡)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Work Peak 运动面罩 (灰色)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Work Peak 运动面罩 (鲨鱼嘴)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Work Peak 运动面罩 (黄色)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Twitch Rivals 2020 半面巾": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Tagilla的「Gorilla」电焊面罩": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Tagilla的「UBEY」电焊面罩": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Tagilla 的“ZABEY”电焊面罩": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "鸡哥面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "洋葱头面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Aybolit 医生面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "狐狸面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "绿毛怪 Grinch 面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "野兔面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "天文学家面具": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Kolpak -1S防暴头盔": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "DevTac 浪人面罩": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "6B47 Ratnik-BSh 头盔（橄榄绿）": {
+   "keep": [
+    "垃圾佬",
+    "火线速递"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": []
+  },
+  "FORT Kiver-M 防弹头盔": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "LZSh 轻型头盔（橄榄绿）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "MSA ACH TC-2001 MICH系列头盔": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "TSH-4M-L软质坦克乘员头盔": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "SSSh-94 SFERA-S 头盔": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "UNTAR头盔": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "MTEK FLUX 防弹头盔（橄榄绿）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "SHPM消防盔": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Ops-Core FAST MT 超级高切 头盔（城市褐）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Diamond Age NeoSteel 高切头盔 (黑色)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "DevTac Ronin helmet": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "MTEK FLUX 防弹头盔（高原复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Vulkan-5 (火神) LShZ-5 重型防弹头盔 (丛林迷彩)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "冠军头盔": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "HighCom Striker ULACH IIIA 头盔（沙色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Galvion 凯门鳄 复合防弹头盔（灰色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Highcom Striker ACHHC IIIA 头盔（狼棕色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "HighCom Striker ACHHC IIIA 头盔（橄榄绿）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Diamond Age NeoSteel 高切头盔 (王牌)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Crye Precision AirFrame 头盔（黄褐色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Rys-T 防弹头盔（黑色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 1,
+     "task": true
+    }
+   ]
+  },
+  "PSH-97 「Jeta」头盔": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "HighCom Striker ACHHC IIIA 头盔（黑色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Diamond Age Bastion 头盔（黑色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "MTEK STRIKE 防弹头盔（灰褐/荒漠复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Team Wendy EXFIL 防弹头盔（黑色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Vulkan-5 (火神) LShZ-5 重型防弹头盔 (8 号球)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Team Wendy EXFIL 防弹头盔（狼棕色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "HighCom Striker ULACH IIIA 头盔（绿色条纹）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "HighCom Striker ULACH IIIA 头盔（狼棕条纹）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Tac-Kek Fast MT 头盔（不防弹的仿制品）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Maska-1SCh 防弹头盔（Vida 版）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Galvion 凯门鳄 复合防弹头盔（共生者）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "HighCom Striker ULACH IIIA 头盔（网格喷漆）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Vulkan-5 (火神) LShZ-5 重型防弹头盔 (烈焰)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "DevTac 浪人面罩（野兽）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "DevTac 浪人面罩（永恒之绿）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "HighCom Striker ULACH IIIA 头盔（冬季网格喷漆）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "MTEK STRIKE 防弹头盔（灰褐色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Diamond Age NeoSteel 高切头盔 (橙斑)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Crye Precision AirFrame 头盔（橄榄绿）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Crye Precision AirFrame 头盔（鲨鱼嘴）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Crye Precision AirFrame 头盔（老派风格）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "6B47 Ratnik-BSh 头盔（极地数码迷彩盔罩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Ballistic Armor Co. Bastion头盔（复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Crye Precision AirFrame M-LOK 头盔（黑色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Ballistic Armor Co. Bastion头盔（黑色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Atlant Armour Titan（泰坦）芳纶头盔（复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Atlant Armour Titan（泰坦）芳纶头盔（橄榄绿）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Crye Precision AirFrame M-LOK 头盔（公牛）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Ballistic Armor Co. Bastion头盔（橄榄绿）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Team Wendy EXFIL 防弹头盔（复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Atlant Armour Titan（泰坦）芳纶头盔 (Rudiarius)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Galvion 凯门鳄 复合防弹头盔（高原复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Galvion 凯门鳄 复合防弹头盔（复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Walker's Razor 数字耳机（ΜΟΛΩΝ ΛΑΒΕ）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Walker's XCEL 500BT 数字耳机": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Peltor ComTac 2 耳机（橄榄绿）": {
+   "keep": [
+    "垃圾佬",
+    "火线速递"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "MSA Sordin Supreme PRO-X/L有源耳机": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Ops-Core FAST RAC 耳机": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "TW EXFIL Peltor ComTac V 耳机（橄榄绿）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "TW EXFIL Peltor ComTac VI 耳机（狼棕色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Peltor ComTac VI 耳机（黑色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "TW EXFIL Peltor ComTac VI 耳机（黑色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Peltor ComTac VI 耳机（丛林绿）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "TW EXFIL Peltor ComTac VI 耳机（丛林绿）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Peltor ComTac IV Hybrid 耳机（狼棕色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Peltor ComTac V 耳机（橄榄绿）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Peltor ComTac VI 耳机（狼棕色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "GSSh-01有源耳机": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Safariland Liberator HP 2.0听力保护耳机（泥土色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Safariland Liberator HP 2.0听力保护耳机（黑色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Safariland Liberator HP 2.0听力保护耳机（黑系复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Safariland Liberator HP 2.0听力保护耳机（复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Opsmen Earmor M32 耳机": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Opsmen Earmor M32 耳机（白色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Peltor 战术运动型耳机": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Walker's Razor 数字耳机": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "6B34防破片护目镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "百叶窗太阳镜 (黑色)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "百叶窗太阳镜 (蓝色)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "百叶窗太阳镜 (绿色)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "百叶窗太阳镜 (红色)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "百叶窗太阳镜 (白色)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "大佬墨镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Pyramex Proximity防护眼镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "反光太阳镜 (蓝色)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "反光太阳镜 (绿色)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "反光太阳镜 (白色)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Revision ShadowStrike 战术眼镜（灰色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Revision ShadowStrike 战术眼镜（黄褐色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "圆框太阳镜（绿色镜片）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Dundukk 运动太阳镜（橙色镜片）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Wiley X SPEAR 防护眼镜（黑色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Wiley X SPEAR 防护眼镜（黄褐色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "气焊护目镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "防破片护目镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "战术目镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Oakley SI Batwolf 墨镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "圆框太阳镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Dundukk运动太阳镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "雷硼嬉皮太阳镜": {
+   "keep": [
+    "垃圾佬",
+    "感恩的心",
+    "花花公子"
+   ],
+   "n": 3,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "塔科夫街区",
+    "森林"
+   ],
+   "barter": []
+  },
+  "雷硼飞行员墨镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "雷硼飞行员墨镜（绿色镜片）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Crossbow战术目镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Oakley SI Gascan 墨镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Twitch Rivals 2020 眼镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Gatorz Specter 军规防弹眼镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Peacekeeper",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "JohnB 「Liquid DNB」墨镜": {
+   "keep": [
+    "垃圾佬",
+    "收藏家"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Oakley SI M Frame 护目镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Oakley SI M Frame 护目镜（橙色镜片）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "NPP KIASS Condor 护目镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Prapor",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "斐格力太阳镜": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "斐格力太阳镜 (绿色)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "斐格力太阳镜 (红色)": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Ops-Core FAST护目罩": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Galvion 凯门鳄 面罩固定臂": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Kolpak-1S 防暴面罩": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "PACA 软质防弹背心": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "LBT 6094A Slick 插板背心（黄褐色）": {
+   "keep": [
+    "人靠衣装 - 2",
+    "垃圾佬"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "IOTV Gen4 防弹衣（高机动型，复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Hexatac HPC 插板背心（黑系复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "IOTV Gen4 防弹衣（突击型，复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "IOTV Gen4 防弹衣（全面防护型，复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "DRD防弹衣": {
+   "keep": [
+    "垃圾佬",
+    "收藏家"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "6B2 防弹衣（丛林迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Interceptor OTV防弹衣（通用迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "BNTI Zhuk（甲虫）防弹衣（战地记者版）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "LBT-6094A Slick 插板背心（黑色）": {
+   "keep": [
+    "人靠衣装 - 2",
+    "垃圾佬"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "6B13 M 突击甲（Killa 版）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "6B13 突击甲（丛林迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "MF-UNTAR防弹背心": {
+   "keep": [
+    "垃圾佬",
+    "渔具"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海岸线"
+   ],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "FORT Redut-T5（堡垒-T5）防弹衣（烟雾迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "6B45 防弹衣": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "NFM THOR 一体式防弹护甲": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Peacekeeper",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "6B23-2 防弹衣（山地丛林迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "5.11 Hexgrid 插板背心": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "NFM THOR 隐蔽型强化防弹背心": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "BNTI Kirasa-N（胸甲-N）防弹衣（绿色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "6B23-1 防弹衣（数码丛林迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "FORT Redut-M（堡垒-M）防弹衣（竞技场之囚）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "FORT Gladiator-S（格斗-S）插板胸挂（灰色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "6B13 突击甲（数码丛林迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "6B13 M 突击甲（圣诞特装版）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "NFM THOR 隐蔽型强化防弹背心（头眼）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "FORT Defender-2 防弹衣（德国斑点迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Hexatac HPC 插板背心（复合迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "NPP KlASS Kora-Kulon防弹衣": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 1,
+     "task": false
+    },
+    {
+     "trader": "Ragman",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "NPP KlASS Kora-Kulon防弹衣（数码迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "NPP KlASS Korund-VM（刚玉-VM）防弹衣（虎纹迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Interceptor OTV 防弹衣（林地迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "PACA 软质防弹背心（Rivals 版本）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "FORT Redut-M（堡垒-M）防弹衣（韩国林地迷彩）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "FORT Redut-M（堡垒-M）防弹衣（黑色）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "LBT 6094A Slick 插板背心（橄榄绿）": {
+   "keep": [
+    "人靠衣装 - 2",
+    "垃圾佬"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "HighCom Trooper TFO 防弹背心（郊狼棕）": {
+   "keep": [
+    "垃圾佬"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "青铜狮雕": {
+   "keep": [
+    "奢侈无罪"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "马雕像": {
+   "keep": [
+    "奢侈无罪"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "猫雕像": {
+   "keep": [
+    "奢侈无罪"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "金蛋": {
+   "keep": [
+    "奢侈无罪",
+    "收藏家"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Goshan货物清单": {
+   "keep": [
+    "库存清单"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [
+    "库存清单"
+   ],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": []
+  },
+  "OLI货物清单": {
+   "keep": [
+    "库存清单"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [
+    "库存清单"
+   ],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": []
+  },
+  "IDEA货物清单": {
+   "keep": [
+    "库存清单"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [
+    "库存清单"
+   ],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": []
+  },
+  "提花头巾（绿色）": {
+   "keep": [
+    "感恩的心"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "服装设计手册（一）": {
+   "keep": [
+    "成功的关键"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [
+    "成功的关键"
+   ],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": []
+  },
+  "服装设计手册（二）": {
+   "keep": [
+    "成功的关键"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [
+    "成功的关键"
+   ],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": []
+  },
+  "OLI货运路线文件": {
+   "keep": [
+    "损失惨重"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [
+    "损失惨重"
+   ],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": []
+  },
+  "First Spear Siege-R Optimized M.A.S.S. 插板胸挂 (黑色军团)": {
+   "keep": [
+    "新鲜到货"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Peacekeeper",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Spiritus Systems LV-119 插板胸挂 (黑色军团 V2)": {
+   "keep": [
+    "新鲜到货"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Peacekeeper",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Ferro Concepts FCPC V5 插板胸挂 (黑色军团)": {
+   "keep": [
+    "新鲜到货"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "Spiritus Systems LV-119 插板胸挂 (黑色军团 V1)": {
+   "keep": [
+    "新鲜到货"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Peacekeeper",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "Kinda牛仔帽": {
+   "keep": [
+    "盛装杀戮"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "带耳罩的苏联毛帽": {
+   "keep": [
+    "盛装杀戮"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 1,
+     "task": false
+    },
+    {
+     "trader": "Ragman",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "Domontovich 毛帽": {
+   "keep": [
+    "收藏家",
+    "盛装杀戮"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "新年苏联毛帽": {
+   "keep": [
+    "盛装杀戮"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Goshan收银机钥匙": {
+   "keep": [
+    "财务总监"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": [
+    {
+     "trader": "Jaeger",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "IDEA收银机钥匙": {
+   "keep": [
+    "财务总监"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": []
+  },
+  "OLI收银机钥匙": {
+   "keep": [
+    "财务总监"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": []
+  },
+  "塔科夫纪念品钥匙": {
+   "keep": [
+    "城市之匙"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [
+    "城市之匙"
+   ],
+   "maps": [
+    "塔科夫街区"
+   ],
+   "barter": []
+  },
+  "会计的笔记本": {
+   "keep": [
+    "审计"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [
+    "审计"
+   ],
+   "maps": [
+    "塔科夫街区"
+   ],
+   "barter": []
+  },
+  "DVL-10 7.62x51 栓动式狙击步枪": {
+   "keep": [
+    "浑水摸鱼"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "DVL-10 7.62x51 10发弹匣": {
+   "keep": [
+    "浑水摸鱼"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "ELCAN SpecterDR 1x/4x瞄准镜": {
+   "keep": [
+    "浑水摸鱼"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "ELCAN SpecterDR 1x/4x瞄准镜 FDE": {
+   "keep": [
+    "浑水摸鱼"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": [
+    {
+     "trader": "Peacekeeper",
+     "level": 2,
+     "task": false
+    },
+    {
+     "trader": "Mechanic",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "7.62x51mm TCW SP 弹药包（20发装）": {
+   "keep": [
+    "浑水摸鱼"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "7.62x51mm BPZ FMJ 弹药包（20发装）": {
+   "keep": [
+    "浑水摸鱼"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "7.62x51mm Ultra Nosler 弹药包（20发装）": {
+   "keep": [
+    "浑水摸鱼"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "7.62x51mm M80 弹药包（20发装）": {
+   "keep": [
+    "浑水摸鱼"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "7.62x51mm M62 曳光弹 弹药包（20发装）": {
+   "keep": [
+    "浑水摸鱼"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "7.62x51mm M61 弹药包（20发装）": {
+   "keep": [
+    "浑水摸鱼"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "7.62x51mm M993弹药包（20发装）": {
+   "keep": [
+    "浑水摸鱼"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "7.62x51mm M80A1 弹药包（20发装）": {
+   "keep": [
+    "浑水摸鱼"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "Bomber 无檐小便帽": {
+   "keep": [
+    "花花公子"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [
+    "塔科夫街区"
+   ],
+   "barter": []
+  },
+  "燃油添加剂": {
+   "keep": [
+    "战争之血 - 2",
+    "燃料短缺"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "BEAR 干员玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "PMC 起源玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "硬汉 PMC 玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "“逃离”玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "无赖战士玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "USEC 干员玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Den 玩偶": {
+   "keep": [
+    "小本生意 - 1",
+    "新起点"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "鸭子玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Mutkevich 政客玩偶": {
+   "keep": [
+    "小本生意 - 1",
+    "新起点"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Scav 玩偶": {
+   "keep": [
+    "小本生意 - 1",
+    "新起点"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Elvisvista 玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "藏身处之猫玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Mastichin 玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Ryzhy 玩偶": {
+   "keep": [
+    "小本生意 - 1",
+    "新起点"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Killa 玩偶": {
+   "keep": [
+    "小本生意 - 1",
+    "新起点"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "圣诞老人玩偶": {
+   "keep": [
+    "小本生意 - 1",
+    "新起点"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "邪教徒玩偶": {
+   "keep": [
+    "小本生意 - 1",
+    "新起点"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Reshala 玩偶": {
+   "keep": [
+    "小本生意 - 1",
+    "新起点"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Tagilla 玩偶": {
+   "keep": [
+    "小本生意 - 1",
+    "新起点"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "BTR 模型": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Fence 玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Jaeger 玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Lightkeeper 玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Mechanic 玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Peacekeeper 玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Prapor 玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Ragman 玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "竞技场裁判玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Skier 玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Therapist 玩偶": {
+   "keep": [
+    "新起点"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "WARTECH TV-115 插板胸挂（橄榄绿）": {
+   "keep": [
+    "人靠衣装 - 1"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "WARTECH 金雕 BB-102 背包 (A-TACS FG 迷彩)": {
+   "keep": [
+    "人靠衣装 - 1"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "WARTECH TV-110 插板胸挂（灰褐色）": {
+   "keep": [
+    "人靠衣装 - 1"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "WARTECH MK3 TV-104 胸挂 (复合迷彩)": {
+   "keep": [
+    "人靠衣装 - 1"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "WARTECH TV-115 插板胸挂（黑色）": {
+   "keep": [
+    "人靠衣装 - 1"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "WARTECH MK3 TV-104 胸挂 (苔藓迷彩)": {
+   "keep": [
+    "人靠衣装 - 1"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "纯净水": {
+   "keep": [
+    "水瓶座行动",
+    "赚点快钱 - 2（PVP）",
+    "酒瘾"
+   ],
+   "n": 3,
+   "traders": [
+    "Ragman",
+    "Ref",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "瓶装 Pevko 淡啤酒": {
+   "keep": [
+    "赚点快钱 - 2（PVP）",
+    "酒瘾"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "AG吉他拨片": {
+   "keep": [
+    "高保真"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [
+    "高保真"
+   ],
+   "maps": [
+    "塔科夫街区"
+   ],
+   "barter": []
+  },
+  "LBT-1961A 承重胸挂（Goons特别版）": {
+   "keep": [
+    "人靠衣装 - 2",
+    "特殊提议"
+   ],
+   "n": 2,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "LBT-1476A 3 日行军背包（林地迷彩）": {
+   "keep": [
+    "人靠衣装 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "LBT-8005A Day Pack 背包（黑系复合迷彩）": {
+   "keep": [
+    "人靠衣装 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Peacekeeper",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "LBT-1961A 承重胸挂（MAS 灰色）": {
+   "keep": [
+    "人靠衣装 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "LBT-2670 小型野战医物包": {
+   "keep": [
+    "人靠衣装 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "LBT-1476A 3 日行军背包 (高原复合迷彩)": {
+   "keep": [
+    "人靠衣装 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "LBT-1961A 承重胸挂（AOR1）": {
+   "keep": [
+    "人靠衣装 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "LBT-1961A 承重胸挂（沙漠防夜视迷彩）": {
+   "keep": [
+    "人靠衣装 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "LBT-1961A 承重胸挂（复合迷彩）": {
+   "keep": [
+    "人靠衣装 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "古董茶壶": {
+   "keep": [
+    "古董爱好者"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "黄金骷髅指环": {
+   "keep": [
+    "古董爱好者"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "古董花瓶": {
+   "keep": [
+    "古董爱好者"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Axel鹦鹉雕像": {
+   "keep": [
+    "古董爱好者",
+    "收藏家"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "乌鸦雕像": {
+   "keep": [
+    "古董爱好者",
+    "收藏家"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Crye Precision AVS 插板胸挂（Tagilla 版）": {
+   "keep": [
+    "特殊提议"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Mystery Ranch NICE COMM 3 BVS 稳固系统（黄褐色）": {
+   "keep": [
+    "特殊提议"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Crye Precision CPC 插板胸挂（Goons 特别版）": {
+   "keep": [
+    "特殊提议"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "芳纶纤维布料": {
+   "keep": [
+    "纺织业 - 1"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "防撕布料": {
+   "keep": [
+    "纺织业 - 1"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "尼龙绳索": {
+   "keep": [
+    "纺织业 - 1"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "绒布布料": {
+   "keep": [
+    "纺织业 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Cordura聚酰胺面料": {
+   "keep": [
+    "纺织业 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "KEKTAPE管道胶带": {
+   "keep": [
+    "纺织业 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Ragman"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "实验室日志": {
+   "keep": [
+    "健全替代",
+    "悬结已解"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Therapist"
+   ],
+   "questOnly": [
+    "健全替代",
+    "悬结已解"
+   ],
+   "maps": [
+    "夜间工厂",
+    "工厂",
+    "森林"
+   ],
+   "barter": []
+  },
+  "吗啡注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "安乃近止痛药": {
+   "keep": [
+    "兽医也是医",
+    "新手上路"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "力百汀抗生素药片": {
+   "keep": [
+    "兽医也是医",
+    "新手上路"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "金星软膏": {
+   "keep": [
+    "兽医也是医",
+    "新手上路"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "布洛芬止痛药": {
+   "keep": [
+    "兽医也是医",
+    "新手上路"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 4,
+     "task": false
+    }
+   ]
+  },
+  "凡士林": {
+   "keep": [
+    "兽医也是医",
+    "新手上路"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "2A2-(b-TG) 兴奋剂注射器": {
+   "keep": [
+    "兽医也是医"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Obdolbos 鸡尾酒兴奋剂注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路",
+    "样品"
+   ],
+   "n": 3,
+   "traders": [
+    "Peacekeeper",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "3-(b-TG) 兴奋剂注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路",
+    "样品",
+    "艰难抉择"
+   ],
+   "n": 4,
+   "traders": [
+    "Peacekeeper",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "AHF1-M 兴奋剂注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路",
+    "样品",
+    "艰难抉择"
+   ],
+   "n": 4,
+   "traders": [
+    "Peacekeeper",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "肾上腺素注射器": {
+   "keep": [
+    "兽医也是医",
+    "口干舌燥 - 秘密配方",
+    "善良之针",
+    "新手上路"
+   ],
+   "n": 4,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "L1（去甲肾上腺素）注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路",
+    "样品"
+   ],
+   "n": 3,
+   "traders": [
+    "Peacekeeper",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "P22 (22 号化合物) 兴奋剂注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路",
+    "样品"
+   ],
+   "n": 3,
+   "traders": [
+    "Peacekeeper",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "PNB (16 号化合物) 兴奋剂注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "人造血（蓝血）注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "曲马多注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Zagustin 止血剂注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "xTG-12 解毒剂注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Aquapeps饮用水净化片": {
+   "keep": [
+    "兽医也是医",
+    "新手上路"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "过氧化氢溶液（双氧水）": {
+   "keep": [
+    "兽医也是医",
+    "新手上路"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "盐水溶液": {
+   "keep": [
+    "兽医也是医",
+    "口干舌燥 - 秘密配方",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "一堆药": {
+   "keep": [
+    "兽医也是医",
+    "急单",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "一次性注射器": {
+   "keep": [
+    "兽医也是医",
+    "新手上路",
+    "秋季综合征"
+   ],
+   "n": 3,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "OLOLO瓶装复合维生素": {
+   "keep": [
+    "兽医也是医",
+    "口干舌燥 - 秘密配方",
+    "急单",
+    "新手上路"
+   ],
+   "n": 4,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Jaeger",
+     "level": 2,
+     "task": false
+    },
+    {
+     "trader": "Therapist",
+     "level": 1,
+     "task": true
+    }
+   ]
+  },
+  "医疗工具": {
+   "keep": [
+    "兽医也是医",
+    "新手上路"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "便携式除颤器": {
+   "keep": [
+    "兽医也是医",
+    "急单",
+    "新手上路"
+   ],
+   "n": 3,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "LEDX皮肤透照仪": {
+   "keep": [
+    "兽医也是医",
+    "医疗隐私 - 6",
+    "急单",
+    "新手上路",
+    "私人诊所"
+   ],
+   "n": 5,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "检眼镜": {
+   "keep": [
+    "兽医也是医",
+    "急单",
+    "新手上路",
+    "私人诊所"
+   ],
+   "n": 4,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Aceso Xpress 半自动生化分析仪": {
+   "keep": [
+    "兽医也是医",
+    "生化分析"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Nooby Shield 碘化钾片": {
+   "keep": [
+    "兽医也是医",
+    "战争从未改变"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "装有样本的化学品容器": {
+   "keep": [
+    "城市的解药"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "城市的解药"
+   ],
+   "maps": [
+    "塔科夫街区"
+   ],
+   "barter": []
+  },
+  "装有可疑物质的容器": {
+   "keep": [
+    "塔科夫屠夫"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "塔科夫屠夫"
+   ],
+   "maps": [
+    "中心区",
+    "中心区 21+",
+    "塔科夫街区"
+   ],
+   "barter": []
+  },
+  "标有蓝色记号的手术套装": {
+   "keep": [
+    "塔科夫式手腕"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "塔科夫式手腕"
+   ],
+   "maps": [
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "有记号的检眼镜": {
+   "keep": [
+    "塔科夫式手腕"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "塔科夫式手腕"
+   ],
+   "maps": [
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "货运班组报告": {
+   "keep": [
+    "平易近人"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "平易近人"
+   ],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "急救员的GPhone X": {
+   "keep": [
+    "急诊室的故事"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "急诊室的故事"
+   ],
+   "maps": [
+    "塔科夫街区"
+   ],
+   "barter": []
+  },
+  "Aquamari带滤嘴水瓶": {
+   "keep": [
+    "水瓶座行动",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ref",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "油墨香车瓶装水": {
+   "keep": [
+    "收藏家",
+    "水瓶座行动"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "应急用水": {
+   "keep": [
+    "水瓶座行动",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Ref",
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "汽车蓄电池": {
+   "keep": [
+    "汽车修理"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "火花塞": {
+   "keep": [
+    "汽车修理"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "加固笔记本": {
+   "keep": [
+    "海边假期"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "海边假期"
+   ],
+   "maps": [
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "医学报告#1": {
+   "keep": [
+    "病历"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "病历"
+   ],
+   "maps": [
+    "储备站"
+   ],
+   "barter": []
+  },
+  "医学报告#2": {
+   "keep": [
+    "病历"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "病历"
+   ],
+   "maps": [
+    "储备站"
+   ],
+   "barter": []
+  },
+  "碳纤维保险箱": {
+   "keep": [
+    "药剂师"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "药剂师"
+   ],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "TerraGroup货运报告": {
+   "keep": [
+    "货运追踪"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "货运追踪"
+   ],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "房管局办公室日志": {
+   "keep": [
+    "人口普查"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "人口普查"
+   ],
+   "maps": [
+    "塔科夫街区"
+   ],
+   "barter": []
+  },
+  "化学药剂样品": {
+   "keep": [
+    "刨根问底"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "刨根问底"
+   ],
+   "maps": [
+    "夜间工厂",
+    "工厂"
+   ],
+   "barter": []
+  },
+  "0060号保险文件夹": {
+   "keep": [
+    "医疗隐私 - 2"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "医疗隐私 - 2"
+   ],
+   "maps": [
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "血液样本": {
+   "keep": [
+    "医疗隐私 - 3",
+    "医疗隐私 - 6"
+   ],
+   "n": 2,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "医疗隐私 - 3",
+    "医疗隐私 - 6"
+   ],
+   "maps": [
+    "夜间工厂",
+    "实验室",
+    "工厂",
+    "森林"
+   ],
+   "barter": []
+  },
+  "宿舍303房间钥匙": {
+   "keep": [
+    "救助站点"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 1,
+     "task": false
+    },
+    {
+     "trader": "Prapor",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "ZB-014钥匙": {
+   "keep": [
+    "救助站点"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "军事基地检查站钥匙": {
+   "keep": [
+    "救助站点"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Jaeger",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "加油站储藏室钥匙": {
+   "keep": [
+    "救助站点"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "破损的日记本": {
+   "keep": [
+    "口干舌燥 - 往日回响"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "口干舌燥 - 往日回响"
+   ],
+   "maps": [
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "LEDX皮肤透照仪（美国版）": {
+   "keep": [
+    "质量标准"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "质量标准"
+   ],
+   "maps": [
+    "实验室",
+    "实验室 (Dark)"
+   ],
+   "barter": []
+  },
+  "“Kite”火药": {
+   "keep": [
+    "医疗隐私 - 5"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [
+    "夜间工厂",
+    "工厂"
+   ],
+   "barter": []
+  },
+  "“Hawk”火药": {
+   "keep": [
+    "医疗隐私 - 5"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [
+    "夜间工厂",
+    "工厂"
+   ],
+   "barter": []
+  },
+  "“Eagle”火药": {
+   "keep": [
+    "医疗隐私 - 5"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [],
+   "maps": [
+    "夜间工厂",
+    "工厂"
+   ],
+   "barter": []
+  },
+  "“屠杀”录像带": {
+   "keep": [
+    "这带子糟透了"
+   ],
+   "n": 1,
+   "traders": [
+    "Therapist"
+   ],
+   "questOnly": [
+    "这带子糟透了"
+   ],
+   "maps": [
+    "迷宫"
+   ],
+   "barter": []
+  },
+  "带有胶带记号的U盘": {
+   "keep": [
+    "TerraGroup 雇员"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [
+    "TerraGroup 雇员"
+   ],
+   "maps": [
+    "实验室",
+    "实验室 (Dark)"
+   ],
+   "barter": []
+  },
+  "疗养院封闭房间的钥匙": {
+   "keep": [
+    "主钥匙"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [
+    "主钥匙"
+   ],
+   "maps": [
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "地形调查地图": {
+   "keep": [
+    "人口过剩"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "情报文件夹": {
+   "keep": [
+    "人口过剩"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Peacekeeper",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "TerraGroup 「蓝色文件夹」 材料": {
+   "keep": [
+    "人口过剩",
+    "归还人情"
+   ],
+   "n": 2,
+   "traders": [
+    "Lightkeeper",
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "野营燃料桶": {
+   "keep": [
+    "你渴望电力吗",
+    "燃料短缺"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    },
+    {
+     "trader": "Therapist",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "波纹软管": {
+   "keep": [
+    "化学实验"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海关"
+   ],
+   "barter": []
+  },
+  "核反应单元控制日志": {
+   "keep": [
+    "和平原子"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [
+    "和平原子"
+   ],
+   "maps": [
+    "破冰船"
+   ],
+   "barter": []
+  },
+  "打印纸": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "碱性换热器表面洗涤剂": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Paid杀蟑剂": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Ox漂白剂": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "一包氯石灰": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Smoked Chimney下水道清洁剂": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Repellent杀虫剂": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "罐装白盐": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Schaman洗发水": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "肥皂": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ragman",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "碳酸氢钠": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "卫生纸": {
+   "keep": [
+    "挑衅",
+    "燃料短缺"
+   ],
+   "n": 2,
+   "traders": [
+    "Lightkeeper",
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [
+    "立交桥"
+   ],
+   "barter": []
+  },
+  "Ortodontox牙膏": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "SHYSHKA 圣诞树续命药水": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Clin 玻璃清洁剂": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "LVNDMARK的老鼠药": {
+   "keep": [
+    "收藏家",
+    "燃料短缺"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Deadlyslob的胡须油": {
+   "keep": [
+    "收藏家",
+    "燃料短缺"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "牙膏": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "TP-200 砖型TNT": {
+   "keep": [
+    "声东击西 - 1（PVP）",
+    "燃料短缺"
+   ],
+   "n": 2,
+   "traders": [
+    "Peacekeeper",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [
+    "中心区",
+    "中心区 21+"
+   ],
+   "barter": []
+  },
+  "Crickent打火机": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "40 度特殊燃料": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Hunter火柴": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "SurvL幸存者打火机": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "罐装铝热剂": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "100毫升WD-40": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "400毫升WD-40": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "经典火柴": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "固体燃料": {
+   "keep": [
+    "燃料短缺"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "#FireKlean牌枪润滑油": {
+   "keep": [
+    "收藏家",
+    "燃料短缺"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Toughbook加固型笔记本电脑": {
+   "keep": [
+    "神秘货物"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [
+    "神秘货物"
+   ],
+   "maps": [
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "本地网络黑客入侵装置": {
+   "keep": [
+    "窃听风暴"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [
+    "破冰船"
+   ],
+   "barter": [
+    {
+     "trader": "Mechanic",
+     "level": 1,
+     "task": false
+    }
+   ]
+  },
+  "电机控制器1": {
+   "keep": [
+    "铁鸟坠落"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [
+    "铁鸟坠落"
+   ],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "单轴光纤陀螺仪1": {
+   "keep": [
+    "铁鸟坠落"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [
+    "铁鸟坠落"
+   ],
+   "maps": [
+    "森林"
+   ],
+   "barter": []
+  },
+  "无人机串口硬盘2": {
+   "keep": [
+    "鹰眼"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [
+    "鹰眼"
+   ],
+   "maps": [
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "无人机串口硬盘1": {
+   "keep": [
+    "鹰眼"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [
+    "鹰眼"
+   ],
+   "maps": [
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "Leatherman多功能工具钳": {
+   "keep": [
+    "渔具"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "Sliderkey U盘": {
+   "keep": [
+    "湿活 - 4"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [
+    "湿活 - 4"
+   ],
+   "maps": [
+    "海岸线"
+   ],
+   "barter": []
+  },
+  "标有 #3 组的 VPX 闪存模块": {
+   "keep": [
+    "机密情报"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [
+    "机密情报"
+   ],
+   "maps": [
+    "迷宫"
+   ],
+   "barter": []
+  },
+  "V40 微型手榴弹": {
+   "keep": [
+    "机密情报"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [
+    "迷宫"
+   ],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "M67手榴弹": {
+   "keep": [
+    "机密情报"
+   ],
+   "n": 1,
+   "traders": [
+    "Peacekeeper"
+   ],
+   "questOnly": [],
+   "maps": [
+    "迷宫"
+   ],
+   "barter": [
+    {
+     "trader": "Peacekeeper",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "罐装塔可乐汽水": {
+   "keep": [
+    "亡羊补牢 - 酒保",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "裁判的黑料": {
+   "keep": [
+    "两害相权（PVP）",
+    "两难抉择（PVP）",
+    "天降大礼 [PVP ZONE]"
+   ],
+   "n": 3,
+   "traders": [
+    "Fence",
+    "Lightkeeper",
+    "Ref"
+   ],
+   "questOnly": [
+    "两害相权（PVP）",
+    "两难抉择（PVP）",
+    "天降大礼 [PVP ZONE]"
+   ],
+   "maps": [
+    "海关",
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "古董斧头": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "破旧的古董书": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "银徽章": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "金色1GPhone": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "假胡子": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "罐装 Dr. Lupo 咖啡豆": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "42 Signature Blend英式茶": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Therapist",
+     "level": 2,
+     "task": false
+    }
+   ]
+  },
+  "Veritas吉他拨片": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Dunduk 软盘": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "罐装六可乐": {
+   "keep": [
+    "收藏家",
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 2,
+   "traders": [
+    "Fence",
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Desmondpilak CD 专辑": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Mazoni 金色哑铃": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "SheefGG 存钱罐": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Loot Lord毛绒玩具": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "GigaBeef 咸牛肉罐头": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "LM KC-130 飞机模型": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "法国面包房特产法棍": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "WZ钱包": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Missam叉车钥匙": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "《天雷地火》录像带": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "BakeEzy烹饪书": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Baddie的红胡子": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Gingy钥匙串": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "记者证（为NoiceGuy签发）": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "BEAR Buddy毛绒玩具": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Inseq燃气管扳手": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Viibiin运动鞋": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Tamatthi 苦无飞刀（仿制品）": {
+   "keep": [
+    "收藏家"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Epsilon 安全箱": {
+   "keep": [
+    "抉择"
+   ],
+   "n": 1,
+   "traders": [
+    "Fence"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Monoclete三级PE防弹插板": {
+   "keep": [
+    "惊喜（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Ref（竞技场裁判）",
+     "level": 3,
+     "task": false
+    },
+    {
+     "trader": "Peacekeeper",
+     "level": 3,
+     "task": false
+    }
+   ]
+  },
+  "SPRTN Elaphros防弹插板": {
+   "keep": [
+    "惊喜（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Kiba Arms Titan防弹插板": {
+   "keep": [
+    "惊喜（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": [
+    {
+     "trader": "Skier",
+     "level": 3,
+     "task": true
+    }
+   ]
+  },
+  "NewSphereTech三级防弹插板": {
+   "keep": [
+    "惊喜（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "SPRTN Omega防弹插板": {
+   "keep": [
+    "惊喜（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Global Armor’s Steel防弹插板": {
+   "keep": [
+    "惊喜（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "6B33防弹插板（前部）": {
+   "keep": [
+    "惊喜（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "6B23-2防弹插板（黑色）": {
+   "keep": [
+    "惊喜（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "罐装冰绿茶": {
+   "keep": [
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "苹果汁": {
+   "keep": [
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "西柚汁": {
+   "keep": [
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "Vita果汁": {
+   "keep": [
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "罐装 Max Energy 能量饮料": {
+   "keep": [
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "一盒牛奶": {
+   "keep": [
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "罐装热棒能量饮料": {
+   "keep": [
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "“诺文斯基核动力”金牌格瓦斯600毫升装": {
+   "keep": [
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "“俄罗斯军队”盒装菠萝汁": {
+   "keep": [
+    "赚点快钱 - 2（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "传奇奖章": {
+   "keep": [
+    "迟来的奖励（PVP）"
+   ],
+   "n": 1,
+   "traders": [
+    "Ref"
+   ],
+   "questOnly": [],
+   "maps": [],
+   "barter": []
+  },
+  "KOSA 无人机电子干扰设备": {
+   "keep": [
+    "外部订单",
+    "对空遮断"
+   ],
+   "n": 2,
+   "traders": [
+    "BTR 司机",
+    "Lightkeeper"
+   ],
+   "questOnly": [
+    "外部订单",
+    "对空遮断"
+   ],
+   "maps": [
+    "储备站",
+    "森林"
+   ],
+   "barter": []
+  },
+  "控告信": {
+   "keep": [
+    "独立的代价"
+   ],
+   "n": 1,
+   "traders": [
+    "BTR 司机"
+   ],
+   "questOnly": [
+    "独立的代价"
+   ],
+   "maps": [
+    "储备站",
+    "海关"
+   ],
+   "barter": []
+  },
+  "线人的记录": {
+   "keep": [
+    "失踪的线人"
+   ],
+   "n": 1,
+   "traders": [
+    "Lightkeeper"
+   ],
+   "questOnly": [
+    "失踪的线人"
+   ],
+   "maps": [
+    "塔科夫街区",
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "伪造的Lightkeeper情报": {
+   "keep": [
+    "抢夺先机"
+   ],
+   "n": 1,
+   "traders": [
+    "Lightkeeper"
+   ],
+   "questOnly": [
+    "抢夺先机"
+   ],
+   "maps": [
+    "储备站",
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "Lightkeeper的情报": {
+   "keep": [
+    "抢夺先机"
+   ],
+   "n": 1,
+   "traders": [
+    "Lightkeeper"
+   ],
+   "questOnly": [
+    "抢夺先机"
+   ],
+   "maps": [
+    "储备站",
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "加密磁带": {
+   "keep": [
+    "按图索骥"
+   ],
+   "n": 1,
+   "traders": [
+    "Lightkeeper"
+   ],
+   "questOnly": [
+    "按图索骥"
+   ],
+   "maps": [
+    "实验室",
+    "实验室 (Dark)",
+    "灯塔"
+   ],
+   "barter": []
+  },
+  "AI .338 LM战术声音抑制器": {
+   "keep": [
+    "观察员"
+   ],
+   "n": 1,
+   "traders": [
+    "Lightkeeper"
+   ],
+   "questOnly": [],
+   "maps": [
+    "塔科夫街区"
+   ],
+   "barter": []
+  }
+ }
+}

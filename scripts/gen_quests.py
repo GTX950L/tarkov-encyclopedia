@@ -33,7 +33,19 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT / "scripts" / "data" / "quests.json"
+CARRIER_FILE = ROOT / "scripts" / "data" / "quests_carrier.json"
 OUT_DIR = ROOT / "content" / "quests"
+
+# 任务 id → 携带清单。由 gen_quest_carrier.py 生成，**缺失时整块功能降级**：
+# 没有这个文件就当「所有任务都不需要自备物品」，页面照常生成，
+# 只是不出现「出发前必带」那一栏 —— **绝不能因为辅助数据缺失就让整页生成失败**。
+CARRIER_IDX: dict[str, dict] = {}
+if CARRIER_FILE.exists():
+    _cp = json.loads(CARRIER_FILE.read_text(encoding="utf-8"))
+    CARRIER_IDX = {c["id"]: c for c in _cp.get("carriers", [])}
+else:
+    print("[提示] 找不到 quests_carrier.json —— 「出发前必带」一栏将不生成"
+          "（先跑 python scripts/gen_quest_carrier.py）")
 
 API = "https://json.tarkov.dev/regular/"
 FETCH_DATE = "2026-09-30"
@@ -788,6 +800,45 @@ def render_task(rec: dict, i: int) -> list[str]:
         L += ["", "`" + "` ｜ `".join(flags) + "`"]
     L.append("")
 
+    # ── 「出发前必带」：把「要自己带东西进图」这件事从「要求」里提出来 ────────
+    # 为什么必须提前、单独成块（2026-10-07 读者反馈）：
+    #   「不知道这个任务是不是需要额外带钥匙或其他物品进图放置，总是到了
+    #   任务地点才发现东西没带」——
+    #   根因是「放置／标记／使用」这四类目标**混在**找物品、击杀、撤离之间，
+    #   而且**没有任何标记说它要求你从图外带东西进来**。
+    #   读者必须逐条读、并在脑子里做一次「类型 → 要不要自带」的映射；
+    #   等映射做完，人已经在图里了。
+    # 所以这里把 CARRIER_IDX 里的结论**原样提到任务最上方**，
+    # 让「带什么」成为读这条任务时看到的第一个答案，而不是第五段。
+    car = CARRIER_IDX.get(rec.get("id", ""))
+    if car:
+        pack, keys = car.get("pack", []), car.get("keys", [])
+        if pack or keys:
+            L += ["**出发前必带**", ""]
+            if pack:
+                names = "／".join(f"**{b['item']}**" for b in pack)
+                mp = sorted({m for b in pack for m in b["maps"]})
+                where = f"（地图：{'、'.join(mp)}）" if mp else ""
+                L.append(f"- **物品**：{names}{where}")
+            if keys:
+                L.append("- **钥匙**：" + "／".join(f"**{k}**" for k in keys))
+            # 局内获取的那些要显式说清：它们**也要带着**，只是不用从仓库备。
+            raid = [b for b in car.get("bring", []) if b["givenInRaid"]]
+            if raid:
+                seen, nm = set(), []
+                for b in raid:
+                    if b["item"] not in seen:
+                        seen.add(b["item"])
+                        nm.append(f"**{b['item']}**")
+                L.append("- **局内获取**（本任务里先找到、再用同一个）：" + "／".join(nm))
+            L.append("")
+            L.append(f"> 📐 **这一栏是「带什么」，[下面的「要求」是「做什么」** ——"
+                     "两栏分开是因为它们回答的是不同的问题。"
+                     f"判定口径：目标类型为 `放置 / 标记 / 使用` 的才进这一栏，"
+                     f"来源 `scripts/data/quests_carrier.json`"
+                     f"（由 `scripts/gen_quest_carrier.py` 生成）。")
+            L.append("")
+
     # ── 「接取条件」与「要求」分开 ──────────────────────────────────────────
     # 前者回答「**接不接得到**」，后者回答「**要做什么**」。混在一起时，
     # 「前置任务」这类条件会掉到完成奖励后面 —— 那是读的人在盘条件时最先要找的东西。
@@ -934,6 +985,16 @@ def write_index(tasks: list[dict]) -> None:
         f"前置任务、钥匙与失败条件；共 **{obj_n}** 条任务目标 |",
         f"| **数据来源** | `json.tarkov.dev/regular`（**二级来源**），抓取时间 **{FETCH_DATE}** |",
         "| **模式口径** | 全站默认 **持久 PvP**；赛季与 PvE 的差异**未**在本栏目逐条标注 |",
+        # ⚠️ 这一行与下面「怎么用」的 ⑤⑥ 都是**生成器里的常量**，不是手工维护的。
+        # 2026-10-07 教训：上一批把它们直接写进 content/quests/index.md，
+        # 而**整页由本脚本生成** —— 一跑生成器就整行消失（check_promises 的
+        # B12 断言当场报警，是它先发现的）。**凡是生成器负责的页面，
+        # 手改正文等于给自己埋一颗定时炸弹。**
+        "| **不在本栏目内** | ① **限时与活动任务**——随版本挂载、版本结束即消失的那类"
+        "（如 1.1.5.0 灯塔重做附带的 10 条活动任务链）。`regular` 端点**按定义不收录它们**，"
+        f"所以它们不在这 {n} 条里，**这是口径不是漏抓**，见[补遗页](event-quests.md)；"
+        "② **物品侧的「要不要留」**——本栏目是任务视角，"
+        "手上拿着一个物品想反查它被哪些任务要，走[物品反查](item-lookup.md) |",
         "| **不收录什么** | ① **坐标与点位数值**——数据里含真实 x/y/z 的字段（目标的 `zones`、"
         "找任务物品的 `possibleLocations`）**已在抓取阶段整体剔除**；"
         "② 本站自己编写的**走位路线与执行顺序**。本栏目只把官方任务定义里的**结构化字段**译成中文表格"
@@ -942,7 +1003,10 @@ def write_index(tasks: list[dict]) -> None:
         f"可按商人 / 地图 / 等级 / 条件筛，也能按**解锁收益**排序；"
         f"② **知道任务名** → 右上角搜索，**中文名与英文名都能搜**"
         f"（英文名随每个任务列出，排在商人／等级之后）；③ **看某个商人给什么** → 从下方按商人进页；"
-        f"④ **按地图或标记找** → 见下方「速查」一节；另有 **{maps_n}** 个任务在定义里带地图归属，"
+        f"④ **按地图或标记找** → 见下方「速查」一节；"
+        f"⑤ **找限时／活动任务** → 走[补遗页](event-quests.md)；"
+        f"⑥ **手上有个物品想知道要不要留** → 走[物品反查](item-lookup.md)；"
+        f"另有 **{maps_n}** 个任务在定义里带地图归属，"
         f"可用「地图」二字在站内检索 |",
         "",
         "---", "",
@@ -1039,6 +1103,10 @@ def write_index(tasks: list[dict]) -> None:
         "## 🧭 相关页面", "",
         "- [商人任务线图鉴](../entries/trader-questlines.md) —— **按商人看分布、等级跨度、"
         "长链与忠诚度门槛**，并给出 Kappa 的完整前置树；本栏目是它的**逐任务明细层**",
+        "- [物品反查](item-lookup.md) —— **反向**的一条路：手上有个物品，想知道"
+        "**要不要留**、被哪些任务要、能不能从商人换到",
+        "- [限时与活动任务补遗](event-quests.md) —— **515 条之外的**那类：随版本挂载、"
+        "到点即消失（如 1.1.5.0 灯塔重做附带的 10 条活动链）",
         "- [任务系统](../entries/quests.md) —— 任务的**机制**（奖励怎么发、FiR 怎么算、"
         "失败与放弃的区别）",
         "- [剧情章节与主线任务](../entries/story-chapters.md) —— 主线章节与四个结局",
@@ -1114,6 +1182,7 @@ def render_index(rows: list[dict]) -> list[str]:
     """一屏扫完的任务索引。
 
     标记列只放**影响出发前准备**的项 —— 「必须战局内找到」漏一个是白跑一趟，
+    「需自备物品」漏一个同样是白跑一趟（前者要在图里捡，后者要从仓库带），
     「Kappa / Lightkeeper」漏一个是不算两条主线。能从下方明细一眼看出来的
     （地图、门槛）另设列，不挤进标记。
     """
@@ -1140,6 +1209,16 @@ def render_index(rows: list[dict]) -> list[str]:
             flags.append("**端点重复条目**")
         if any(o.get("fir") for o in rec["objectives"]):
             flags.append("**必须战局内找到**")
+        # 「需自备物品」：与 `fir` 是**两件不同的事**，不能互相替代——
+        #   fir = 东西得在图里捡（跳蚤买的无效）；自备 = 东西得**从仓库带进去**。
+        # 一条任务可以只有其一（「破镜重圆 - 隔离」要自备摄像头，
+        # 而「半导体危机」是 fir 找显卡），也可以两者都有。
+        # 漏掉这个标记的代价与漏掉 `fir` 一样：**到了地点才发现东西没带**。
+        # ⚠️ `keys` 只在这一处判—— 下面不再重复判，
+        # 否则同一行会出现两个「需钥匙」（第一版真这么写出来了）。
+        _car = CARRIER_IDX.get(rec.get("id", ""))
+        if _car and _car.get("pack"):
+            flags.append("**需自备物品**")
         if rec["keys"]:
             flags.append("需钥匙")
         if rec["kappa"]:
@@ -1189,7 +1268,7 @@ def write_trader_page(key: str, rows: list[dict]) -> None:
         f"## 🔎 任务索引 ｜ {len(rows)} 项",
         "",
         "点任务名跳到下方明细。**标记列只列影响出发前准备的项**——"
-        "`必须战局内找到`（跳蚤市场买的不算数）、`需钥匙`、"
+        "`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、"
         "`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、"
         "`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、"
         "`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、"

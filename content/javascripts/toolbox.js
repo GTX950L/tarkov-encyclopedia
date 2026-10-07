@@ -310,6 +310,7 @@
   var plannerInjected = false;
   var recipesInjected = false;
   var filterInjected = false;
+  var itemsInjected = false;
 
   function loadPageTools() {
     if (!plannerInjected && document.getElementById("tk-season-planner")) {
@@ -323,6 +324,14 @@
     if (!filterInjected && document.getElementById("tk-quest-filter")) {
       filterInjected = true;
       injectScript("quests-filter.js");
+    }
+    /* 物品反查页：数据文件 124 KB，**只能按需注入**——
+       全站 100+ 页每页背 124 KB 是纯浪费，而这一页只用到它一次。
+       挂载点有两个（查询区 + 下方需求量表），任一存在就注入。 */
+    if (!itemsInjected && (document.getElementById("tk-item-lookup")
+                           || document.getElementById("tk-item-table"))) {
+      itemsInjected = true;
+      injectScript("quest-items.js");
     }
   }
 

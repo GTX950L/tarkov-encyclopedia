@@ -1,0 +1,4050 @@
+{
+ "fetched": "2026-09-30",
+ "baseline": "持久 PvP",
+ "bringTypes": {
+  "plantItem": "放置",
+  "plantQuestItem": "放置任务物品",
+  "mark": "放置（标记）",
+  "useItem": "使用"
+ },
+ "stats": {
+  "tasksTotal": 515,
+  "tasksWithCarrier": 140,
+  "withPack": 87,
+  "withKeys": 57
+ },
+ "carriers": [
+  {
+   "id": "65733403eefc2c312a759ddb",
+   "name": "公司福报",
+   "trader": "Mechanic",
+   "keys": [
+    "「调解室」钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5f04886a3937dc337a6b8238",
+   "name": "化学橱柜",
+   "trader": "Mechanic",
+   "keys": [
+    "粘有胶带的疗养院办公室钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "66aa74571e5e199ecd094f18",
+   "name": "化工厂的秘密",
+   "trader": "Mechanic",
+   "keys": [],
+   "bring": [
+    {
+     "item": "精密工具盒",
+     "act": "放置任务物品",
+     "givenInRaid": true,
+     "maps": [
+      "工厂",
+      "夜间工厂"
+     ]
+    }
+   ],
+   "pack": []
+  },
+  {
+   "id": "60e71d6d7fcf9c556f325055",
+   "name": "急先锋",
+   "trader": "Mechanic",
+   "keys": [],
+   "bring": [
+    {
+     "item": "Trijicon REAP-IR热成像步枪瞄准镜",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "Trijicon REAP-IR热成像步枪瞄准镜",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5ac3467986f7741d6224abc2",
+   "name": "恶意环伺",
+   "trader": "Mechanic",
+   "keys": [],
+   "bring": [
+    {
+     "item": "信号干扰器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "信号干扰器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5ac345dc86f774288030817f",
+   "name": "投机第一步",
+   "trader": "Mechanic",
+   "keys": [],
+   "bring": [
+    {
+     "item": "一套工具",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "工厂",
+      "夜间工厂"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "一套工具",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "工厂",
+      "夜间工厂"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5ac3462b86f7741d6118b983",
+   "name": "挖矿",
+   "trader": "Mechanic",
+   "keys": [
+    "海关 Tarcone 主管办公室钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "639135e8c115f907b14700aa",
+   "name": "探望",
+   "trader": "Mechanic",
+   "keys": [
+    "Concordia 安保处钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "626148334149f1149b5b12ca",
+   "name": "破镜重圆 - 安保",
+   "trader": "Mechanic",
+   "keys": [],
+   "bring": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6261483dc4874104f230c0cd",
+   "name": "破镜重圆 - 隔离",
+   "trader": "Mechanic",
+   "keys": [
+    "实验室钥匙卡·黑"
+   ],
+   "bring": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "实验室"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "实验室"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "64ee9df4496db64f9b7a4432",
+   "name": "神秘的门",
+   "trader": "Mechanic",
+   "keys": [
+    "生锈的带血钥匙"
+   ],
+   "bring": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6578ec473dbd035d04531a8d",
+   "name": "稳定信号",
+   "trader": "Mechanic",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "625d6ffaf7308432be1d44c5",
+   "name": "网络供应商 - 2",
+   "trader": "Mechanic",
+   "keys": [],
+   "bring": [
+    {
+     "item": "无线电中继器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "无线电中继器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6179b3a12153c15e937d52bc",
+   "name": "能源危机",
+   "trader": "Mechanic",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "625d6fff4149f1149b5b12c9",
+   "name": "试探 - 2",
+   "trader": "Mechanic",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6573382e557ff128bf3da536",
+   "name": "高效秘诀",
+   "trader": "Mechanic",
+   "keys": [
+    "休息室钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "639136fa9444fb141f4e6eee",
+   "name": "你被盯上了",
+   "trader": "Mechanic",
+   "keys": [
+    "酒店215房间钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "626bd75e47ea7f506e5493c5",
+   "name": "直播 - 1",
+   "trader": "Mechanic",
+   "keys": [
+    "手术室钥匙"
+   ],
+   "bring": [
+    {
+     "item": "信号干扰器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "信号干扰器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "666314b8312343839d032d24",
+   "name": "航空包裹",
+   "trader": "Mechanic",
+   "keys": [],
+   "bring": [
+    {
+     "item": "RSP-30 反应式信号弹（红色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "26x75 毫米照明信号弹（红色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "RSP-30 反应式信号弹（红色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "26x75 毫米照明信号弹（红色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "669fa39b91b0a8c9680fc467",
+   "name": "黑天鹅计划",
+   "trader": "Mechanic",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "工厂",
+      "夜间工厂"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "工厂",
+      "夜间工厂"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5ac346cf86f7741d63233a02",
+   "name": "信号 - 3",
+   "trader": "Mechanic",
+   "keys": [],
+   "bring": [
+    {
+     "item": "信号干扰器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "信号干扰器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6089732b59b92115597ad789",
+   "name": "物尽其用",
+   "trader": "Mechanic",
+   "keys": [
+    "RB-ST钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "684009026ceedc792c09b2a7",
+   "name": "同好俱乐部",
+   "trader": "Mechanic",
+   "keys": [],
+   "bring": [
+    {
+     "item": "TheAKGuy AK-50 .50 BMG 反器材步枪",
+     "act": "放置",
+     "givenInRaid": true,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "AK-50 护木与导气管组合",
+     "act": "放置任务物品",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "AK-50 枪管",
+     "act": "放置任务物品",
+     "givenInRaid": true,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "AK-50 防尘盖",
+     "act": "放置任务物品",
+     "givenInRaid": true,
+     "maps": [
+      "海关"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "AK-50 护木与导气管组合",
+     "act": "放置任务物品",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "59674eb386f774539f14813a",
+   "name": "往事速递",
+   "trader": "Prapor",
+   "keys": [
+    "海关 Tarcone 主管办公室钥匙"
+   ],
+   "bring": [
+    {
+     "item": "0022号保险文件夹",
+     "act": "放置任务物品",
+     "givenInRaid": true,
+     "maps": [
+      "工厂",
+      "夜间工厂"
+     ]
+    }
+   ],
+   "pack": []
+  },
+  {
+   "id": "5967725e86f774601a446662",
+   "name": "探囊取物",
+   "trader": "Prapor",
+   "keys": [
+    "宿舍203房间钥匙",
+    "宿舍214房间钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "59c124d686f774189b3c843f",
+   "name": "油料快车",
+   "trader": "Prapor",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海关",
+      "储备站"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海关",
+      "储备站"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "66ab970848ddbe9d4a0c49a8",
+   "name": "特别联络",
+   "trader": "Prapor",
+   "keys": [],
+   "bring": [
+    {
+     "item": "军用电缆",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "Bulbex剪线器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "军用电缆",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "Bulbex剪线器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5967530a86f77462ba22226b",
+   "name": "罪证",
+   "trader": "Prapor",
+   "keys": [
+    "简易工棚钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5936da9e86f7742d65037edf",
+   "name": "背景调查",
+   "trader": "Prapor",
+   "keys": [
+    "机械钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "6573397ef3f8344c4575cd87",
+   "name": "财不外露",
+   "trader": "Prapor",
+   "keys": [
+    "不动产管理处办公室钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5eda19f0edce541157209cee",
+   "name": "麻醉",
+   "trader": "Prapor",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "597a171586f77405ba6887d3",
+   "name": "大客户",
+   "trader": "Prapor",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "666314bd920800278d0f6748",
+   "name": "忠实观众",
+   "trader": "Prapor",
+   "keys": [],
+   "bring": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "工厂",
+      "森林",
+      "海岸线"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "工厂",
+      "森林",
+      "海岸线"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6179ac7511973d018217d0b9",
+   "name": "小菜一碟",
+   "trader": "Prapor",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "674600a366e6a521aa05eb66",
+   "name": "偏离路线",
+   "trader": "Skier",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5979f9ba86f7740f6c3fe9f2",
+   "name": "化学品 - 1",
+   "trader": "Skier",
+   "keys": [
+    "宿舍220房间钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "597a0b2986f77426d66c0633",
+   "name": "化学品 - 2",
+   "trader": "Skier",
+   "keys": [
+    "宿舍220房间钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "6572e876dc0d635f633a5714",
+   "name": "发财计划",
+   "trader": "Skier",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "674602307e3818d5bb069489",
+   "name": "后知后觉",
+   "trader": "Skier",
+   "keys": [],
+   "bring": [
+    {
+     "item": "12.7x55mm PS12B（10发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm 7N39“针刺”弹药包（120发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm 7N39“针刺”弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm 7N40 弹药包（120发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm 7N40盒装弹药（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm PP弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm PP弹药包（120发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm BS弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm BS弹药包（120发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm BP弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm BP弹药包（120发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "7.62x39mm BP 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "7.62x39mm PP 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "7.62x54mm R 7BT1 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x19mm PBP (7N31) 弹药包（50 发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x21mm 7N42 弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x21mm 7U4 弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x21mm SP13 弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x39mm 7N12 BP 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x39mm 7N12 BP 弹药包（8发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x39mm PAB-9 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm BT弹药包（120发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm BT弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "7.62x54mm R 7N37 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x39mm SP-6 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "12.7x55mm PS12B（10发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm 7N39“针刺”弹药包（120发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm 7N39“针刺”弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm 7N40 弹药包（120发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm 7N40盒装弹药（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm PP弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm PP弹药包（120发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm BS弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm BS弹药包（120发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm BP弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm BP弹药包（120发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "7.62x39mm BP 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "7.62x39mm PP 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "7.62x54mm R 7BT1 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x19mm PBP (7N31) 弹药包（50 发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x21mm 7N42 弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x21mm 7U4 弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x21mm SP13 弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x39mm 7N12 BP 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x39mm 7N12 BP 弹药包（8发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x39mm PAB-9 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm BT弹药包（120发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "5.45x39mm BT弹药包（30发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "7.62x54mm R 7N37 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "9x39mm SP-6 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "626bd75d5bef5d7d590bd415",
+   "name": "头号机密",
+   "trader": "Skier",
+   "keys": [
+    "雷达站指挥室钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5b47926a86f7747ccc057c15",
+   "name": "情报就是力量",
+   "trader": "Skier",
+   "keys": [],
+   "bring": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林",
+      "立交桥"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林",
+      "立交桥"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "596b43fb86f77457ca186186",
+   "name": "敲诈者",
+   "trader": "Skier",
+   "keys": [
+    "未知钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "64f6aafd67e11a7c6206e0d0",
+   "name": "秘制食谱",
+   "trader": "Skier",
+   "keys": [
+    "TerraGroup会议室钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5b478eca86f7744642012254",
+   "name": "维他命",
+   "trader": "Skier",
+   "keys": [
+    "疗养院西楼 112 办公室钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5edabd13218d181e29451442",
+   "name": "肮脏游戏",
+   "trader": "Skier",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5c0d0f1886f77457b8210226",
+   "name": "转口贸易",
+   "trader": "Skier",
+   "keys": [],
+   "bring": [
+    {
+     "item": "Virtex可编程处理器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "item": "军用COFDM无线信号发射器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "Virtex可编程处理器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "item": "军用COFDM无线信号发射器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "639135c3744e452011470807",
+   "name": "软禁",
+   "trader": "Skier",
+   "keys": [
+    "铁门钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5979eee086f774311955e614",
+   "name": "金色失物",
+   "trader": "Skier",
+   "keys": [
+    "宿舍303房间钥匙",
+    "拖车停车场工棚钥匙"
+   ],
+   "bring": [
+    {
+     "item": "Zibbo打火机",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "Zibbo打火机",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "669fa39c64ea11e84c0642a6",
+   "name": "隔墙有“眼”",
+   "trader": "Skier",
+   "keys": [],
+   "bring": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "工厂",
+      "夜间工厂"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "工厂",
+      "夜间工厂"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "64f5e20652fc01298e2c61e3",
+   "name": "好吃到上瘾",
+   "trader": "Skier",
+   "keys": [
+    "“白鲸”餐厅经理办公室钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5b4795fb86f7745876267770",
+   "name": "愿者上钩",
+   "trader": "Skier",
+   "keys": [],
+   "bring": [
+    {
+     "item": "金项链",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关",
+      "森林"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "金项链",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关",
+      "森林"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "597a0f5686f774273b74f676",
+   "name": "化学品 - 4",
+   "trader": "Skier",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "665eec4a4dfc83b0ed0a9dca",
+   "name": "口干舌燥 - 送货服务",
+   "trader": "Skier",
+   "keys": [],
+   "bring": [
+    {
+     "item": "5升丙烷罐",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林",
+      "海关"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "5升丙烷罐",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林",
+      "海关"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "66058cb22cee99303f1ba067",
+   "name": "赚点快钱 - 1（PVP）",
+   "trader": "Skier",
+   "keys": [],
+   "bring": [
+    {
+     "item": "竞技场广告海报",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "竞技场广告海报",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "666314c3acf8442f8b0531a3",
+   "name": "一报还一报",
+   "trader": "Skier",
+   "keys": [],
+   "bring": [
+    {
+     "item": "金公鸡塑像",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林",
+      "海岸线",
+      "工厂"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "金公鸡塑像",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林",
+      "海岸线",
+      "工厂"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "671a49f77d49aea42c029b5f",
+   "name": "诱人新货",
+   "trader": "Skier",
+   "keys": [
+    "Object #21WS 钥匙卡"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "639135cd8ba6894d155e77cb",
+   "name": "软禁 - 2",
+   "trader": "Skier",
+   "keys": [
+    "Chekannaya 15号公寓钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5c0bbaa886f7746941031d82",
+   "name": "一派胡言",
+   "trader": "Skier",
+   "keys": [],
+   "bring": [
+    {
+     "item": "Accuracy International AXMC .338 LM 栓动式狙击步枪",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "item": "劳力土潜水金腕表",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "item": "军用闪存装置",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "Accuracy International AXMC .338 LM 栓动式狙击步枪",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "item": "劳力土潜水金腕表",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "item": "军用闪存装置",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "669fa3a08b4a64b332041ff7",
+   "name": "妥善保管",
+   "trader": "Jaeger",
+   "keys": [
+    "TerraGroup 仓库钥匙卡"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5d25b6be86f77444001e1b89",
+   "name": "生存者之路 - 省吃俭用",
+   "trader": "Jaeger",
+   "keys": [],
+   "bring": [
+    {
+     "item": "Iskra（“火花”）单兵口粮",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "0.6升瓶装水",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "Iskra（“火花”）单兵口粮",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "0.6升瓶装水",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "639136df4b15ca31f76bc31f",
+   "name": "猎人之路 - 管理者",
+   "trader": "Jaeger",
+   "keys": [],
+   "bring": [
+    {
+     "item": "RSP-30 反应式信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    },
+    {
+     "item": "26x75燃烧照明信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "RSP-30 反应式信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    },
+    {
+     "item": "26x75燃烧照明信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6a45208043b8d7604d00b8d5",
+   "name": "猎人之路 - 管理者",
+   "trader": "Jaeger",
+   "keys": [],
+   "bring": [
+    {
+     "item": "RSP-30 反应式信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "item": "26x75燃烧照明信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "RSP-30 反应式信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "item": "26x75燃烧照明信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6391372c8ba6894d155e77d7",
+   "name": "直播 - 4",
+   "trader": "Jaeger",
+   "keys": [
+    "废弃工厂符号钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "64ee99639878a0569d6ec8c9",
+   "name": "直播 - 5",
+   "trader": "Jaeger",
+   "keys": [
+    "神秘房间符号钥匙"
+   ],
+   "bring": [
+    {
+     "item": "邪教徒之刃",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "邪教徒之刃",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "608974af4b05530f55550c21",
+   "name": "储备专家",
+   "trader": "Ragman",
+   "keys": [
+    "RB-OB钥匙",
+    "RB-ORB1钥匙",
+    "RB-ORB2钥匙",
+    "RB-ORB3钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5c10f94386f774227172c572",
+   "name": "小事大帮忙",
+   "trader": "Ragman",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5b478d0f86f7744d190d91b5",
+   "name": "微型客车",
+   "trader": "Ragman",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5ae449b386f77446d8741719",
+   "name": "感恩的心",
+   "trader": "Ragman",
+   "keys": [],
+   "bring": [
+    {
+     "item": "提花头巾（绿色）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "雷硼嬉皮太阳镜",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "提花头巾（绿色）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "item": "雷硼嬉皮太阳镜",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5ae4493d86f7744b8e15aa8f",
+   "name": "损失惨重",
+   "trader": "Ragman",
+   "keys": [
+    "OLI物流部钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5b478b1886f7744d1b23c57d",
+   "name": "火线速递",
+   "trader": "Ragman",
+   "keys": [],
+   "bring": [
+    {
+     "item": "Peltor ComTac 2 耳机（橄榄绿）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    },
+    {
+     "item": "6B47 Ratnik-BSh 头盔（橄榄绿）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    },
+    {
+     "item": "BNTI Gzhel-K（彩瓷-K）防弹衣",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "Peltor ComTac 2 耳机（橄榄绿）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    },
+    {
+     "item": "6B47 Ratnik-BSh 头盔（橄榄绿）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    },
+    {
+     "item": "BNTI Gzhel-K（彩瓷-K）防弹衣",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5ae448f286f77448d73c0131",
+   "name": "燃油危机",
+   "trader": "Ragman",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "639135a7e705511c8a4a1b78",
+   "name": "芭蕾舞者",
+   "trader": "Ragman",
+   "keys": [
+    "Primorsky 46-48号天桥钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5ae449d986f774453a54a7e1",
+   "name": "财务总监",
+   "trader": "Ragman",
+   "keys": [],
+   "bring": [
+    {
+     "item": "Goshan收银机钥匙",
+     "act": "放置",
+     "givenInRaid": true,
+     "maps": [
+      "立交桥"
+     ]
+    },
+    {
+     "item": "IDEA收银机钥匙",
+     "act": "放置",
+     "givenInRaid": true,
+     "maps": [
+      "立交桥"
+     ]
+    },
+    {
+     "item": "OLI收银机钥匙",
+     "act": "放置",
+     "givenInRaid": true,
+     "maps": [
+      "立交桥"
+     ]
+    }
+   ],
+   "pack": []
+  },
+  {
+   "id": "675c085d59b0575973005f52",
+   "name": "浑水摸鱼",
+   "trader": "Ragman",
+   "keys": [],
+   "bring": [
+    {
+     "item": "DVL-10 7.62x51 栓动式狙击步枪",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "DVL-10 7.62x51 10发弹匣",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "ELCAN SpecterDR 1x/4x瞄准镜",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "ELCAN SpecterDR 1x/4x瞄准镜 FDE",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm TCW SP 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm BPZ FMJ 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm Ultra Nosler 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm M80 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm M62 曳光弹 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm M61 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm M993弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm M80A1 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "DVL-10 7.62x51 栓动式狙击步枪",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "DVL-10 7.62x51 10发弹匣",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "ELCAN SpecterDR 1x/4x瞄准镜",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "ELCAN SpecterDR 1x/4x瞄准镜 FDE",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm TCW SP 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm BPZ FMJ 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm Ultra Nosler 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm M80 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm M62 曳光弹 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm M61 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm M993弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    },
+    {
+     "item": "7.62x51mm M80A1 弹药包（20发装）",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "65734c186dc1e402c80dc19e",
+   "name": "花花公子",
+   "trader": "Ragman",
+   "keys": [],
+   "bring": [
+    {
+     "item": "Bomber 无檐小便帽",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    },
+    {
+     "item": "雷硼嬉皮太阳镜",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "Bomber 无檐小便帽",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    },
+    {
+     "item": "雷硼嬉皮太阳镜",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "608974d01a66564e74191fc0",
+   "name": "雪中送炭",
+   "trader": "Ragman",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "639135bbc115f907b14700a6",
+   "name": "高保真",
+   "trader": "Ragman",
+   "keys": [
+    "Primorsky 46-48号天桥钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "64f731ab83cfca080a361e42",
+   "name": "兽医也是医",
+   "trader": "Therapist",
+   "keys": [
+    "X光检查室钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5a68661a86f774500f48afb0",
+   "name": "医疗隐私 - 1",
+   "trader": "Therapist",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "59689ee586f7740d1570bbd5",
+   "name": "卫生标准",
+   "trader": "Therapist",
+   "keys": [],
+   "bring": [
+    {
+     "item": "气体分析仪",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "工厂"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "气体分析仪",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "工厂"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "67a09673972c11a3f507731d",
+   "name": "塔科夫屠夫",
+   "trader": "Therapist",
+   "keys": [],
+   "bring": [
+    {
+     "item": "装有可疑物质的容器",
+     "act": "放置任务物品",
+     "givenInRaid": true,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ],
+   "pack": []
+  },
+  {
+   "id": "5edaba7c0c502106f869bc02",
+   "name": "塔科夫式手腕",
+   "trader": "Therapist",
+   "keys": [
+    "别墅后门钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "675c03d1f7da9792a405549a",
+   "name": "无主货物",
+   "trader": "Therapist",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "59689fbd86f7740d137ebfc4",
+   "name": "水瓶座行动",
+   "trader": "Therapist",
+   "keys": [
+    "宿舍206房间钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "60896e28e4a85c72ef3fa301",
+   "name": "病历",
+   "trader": "Therapist",
+   "keys": [
+    "RB-KSM钥匙",
+    "RB-SMP钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "626bd75b05f287031503c7f6",
+   "name": "缉毒行动",
+   "trader": "Therapist",
+   "keys": [],
+   "bring": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5969f9e986f7741dde183a50",
+   "name": "药剂师",
+   "trader": "Therapist",
+   "keys": [
+    "宿舍114房间钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "675c047fa46173572a0bd878",
+   "name": "货运追踪",
+   "trader": "Therapist",
+   "keys": [
+    "公司主管办公室钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5a68663e86f774501078f78a",
+   "name": "医疗隐私 - 2",
+   "trader": "Therapist",
+   "keys": [
+    "疗养院西楼 306 房间钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "597a160786f77477531d39d2",
+   "name": "出于好奇",
+   "trader": "Therapist",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5a68669a86f774255929b4d4",
+   "name": "医疗隐私 - 5",
+   "trader": "Therapist",
+   "keys": [],
+   "bring": [
+    {
+     "item": "“Kite”火药",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "夜间工厂",
+      "工厂"
+     ]
+    },
+    {
+     "item": "“Hawk”火药",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "夜间工厂",
+      "工厂"
+     ]
+    },
+    {
+     "item": "“Eagle”火药",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "夜间工厂",
+      "工厂"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "“Kite”火药",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "夜间工厂",
+      "工厂"
+     ]
+    },
+    {
+     "item": "“Hawk”火药",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "夜间工厂",
+      "工厂"
+     ]
+    },
+    {
+     "item": "“Eagle”火药",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "夜间工厂",
+      "工厂"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "669fa3a3ad7f1eac2607ed48",
+   "name": "医疗隐私 - 6",
+   "trader": "Therapist",
+   "keys": [
+    "工厂紧急出口钥匙"
+   ],
+   "bring": [
+    {
+     "item": "血液样本",
+     "act": "放置任务物品",
+     "givenInRaid": true,
+     "maps": [
+      "实验室"
+     ]
+    }
+   ],
+   "pack": []
+  },
+  {
+   "id": "5edac63b930f5454f51e128b",
+   "name": "TerraGroup 雇员",
+   "trader": "Peacekeeper",
+   "keys": [
+    "蓝色记号钥匙卡"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5a27b87686f77460de0252a8",
+   "name": "人道主义援助",
+   "trader": "Peacekeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5a03296886f774569778596a",
+   "name": "你渴望电力吗",
+   "trader": "Peacekeeper",
+   "keys": [
+    "疗养院西楼 219 房间钥匙",
+    "疗养院西楼 220 房间钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "639135534b15ca31f76bc317",
+   "name": "你的车该洗了",
+   "trader": "Peacekeeper",
+   "keys": [
+    "车行封闭区域钥匙",
+    "车行负责人办公室钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "5a27bafb86f7741c73584017",
+   "name": "化学实验",
+   "trader": "Peacekeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "波纹软管",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "波纹软管",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "669fa38fad7f1eac2607ed46",
+   "name": "悬结已解",
+   "trader": "Peacekeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "实验室日志",
+     "act": "放置任务物品",
+     "givenInRaid": true,
+     "maps": [
+      "森林"
+     ]
+    }
+   ],
+   "pack": []
+  },
+  {
+   "id": "639135f286e646067c176a87",
+   "name": "无中生有 - 塔科夫街区",
+   "trader": "Peacekeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "61958c366726521dd96828ec",
+   "name": "来自塔科夫的礼物",
+   "trader": "Peacekeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5a27ba1c86f77461ea5a3c56",
+   "name": "武器流通",
+   "trader": "Peacekeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "森林",
+      "海岸线"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "森林",
+      "海岸线"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5a27b7a786f774579c3eb376",
+   "name": "猎虎行动",
+   "trader": "Peacekeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5a27b7d686f77460d847e6a6",
+   "name": "破铜烂铁",
+   "trader": "Peacekeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5a27bb1e86f7741f27621b7e",
+   "name": "神秘货物",
+   "trader": "Peacekeeper",
+   "keys": [
+    "疗养院东楼 306 房间钥匙",
+    "疗养院东楼 308 房间钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "69e5583240c3e6c8ba0edbd5",
+   "name": "窃听风暴",
+   "trader": "Peacekeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "一套工具",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "破冰船"
+     ]
+    },
+    {
+     "item": "本地网络黑客入侵装置",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "破冰船"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "一套工具",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "破冰船"
+     ]
+    },
+    {
+     "item": "本地网络黑客入侵装置",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "破冰船"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5a27b75b86f7742e97191958",
+   "name": "渔具",
+   "trader": "Peacekeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MF-UNTAR防弹背心",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    },
+    {
+     "item": "Leatherman多功能工具钳",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MF-UNTAR防弹背心",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    },
+    {
+     "item": "Leatherman多功能工具钳",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5a27bbf886f774333a418eeb",
+   "name": "湿活 - 2",
+   "trader": "Peacekeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5a03173786f77451cb427172",
+   "name": "疗养之旅 - 2",
+   "trader": "Peacekeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6086c852c945025d41566124",
+   "name": "无中生有 - 储备站",
+   "trader": "Peacekeeper",
+   "keys": [
+    "RB-ST钥匙"
+   ],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6179b4d1bca27a099552e04e",
+   "name": "无中生有 - 灯塔",
+   "trader": "Peacekeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5a27bc1586f7741f6d40fa2f",
+   "name": "湿活 - 3",
+   "trader": "Peacekeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "67a09724972c11a3f5077324",
+   "name": "机密情报",
+   "trader": "Peacekeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "V40 微型手榴弹",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "迷宫"
+     ]
+    },
+    {
+     "item": "VOG-25 Khattabka 简易手榴弹",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "迷宫"
+     ]
+    },
+    {
+     "item": "VOG-17 Khattabka 简易手榴弹",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "迷宫"
+     ]
+    },
+    {
+     "item": "M67手榴弹",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "迷宫"
+     ]
+    },
+    {
+     "item": "F-1手榴弹",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "迷宫"
+     ]
+    },
+    {
+     "item": "RGD-5手榴弹",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "迷宫"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "V40 微型手榴弹",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "迷宫"
+     ]
+    },
+    {
+     "item": "VOG-25 Khattabka 简易手榴弹",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "迷宫"
+     ]
+    },
+    {
+     "item": "VOG-17 Khattabka 简易手榴弹",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "迷宫"
+     ]
+    },
+    {
+     "item": "M67手榴弹",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "迷宫"
+     ]
+    },
+    {
+     "item": "F-1手榴弹",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "迷宫"
+     ]
+    },
+    {
+     "item": "RGD-5手榴弹",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "迷宫"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5a27bc6986f7741c7358402b",
+   "name": "湿活 - 5",
+   "trader": "Peacekeeper",
+   "keys": [
+    "疗养院东楼 328 房间钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "66631493312343839d032d22",
+   "name": "小本生意 - 3",
+   "trader": "Fence",
+   "keys": [],
+   "bring": [
+    {
+     "item": "邪教徒之刃",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线",
+      "森林"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "邪教徒之刃",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线",
+      "森林"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "66058ccbc7f3584787181478",
+   "name": "良心作祟 - 1（PVP）",
+   "trader": "Fence",
+   "keys": [
+    "公寓管理员钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "66d9cbb67b491f9d5304f6e6",
+   "name": "这是什么梗？",
+   "trader": "Fence",
+   "keys": [
+    "工厂紧急出口钥匙"
+   ],
+   "bring": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区",
+      "中心区",
+      "中心区 21+",
+      "灯塔",
+      "储备站",
+      "海关",
+      "工厂",
+      "夜间工厂",
+      "森林",
+      "海岸线"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区",
+      "中心区",
+      "中心区 21+",
+      "灯塔",
+      "储备站",
+      "海关",
+      "工厂",
+      "夜间工厂",
+      "森林",
+      "海岸线"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "66058cd19f59e625462acc90",
+   "name": "两难抉择（PVP）",
+   "trader": "Ref",
+   "keys": [
+    "公寓管理员钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "66058cbd9f59e625462acc8e",
+   "name": "声东击西 - 1（PVP）",
+   "trader": "Ref",
+   "keys": [],
+   "bring": [
+    {
+     "item": "TP-200 砖型TNT",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "中心区",
+      "中心区 21+"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "TP-200 砖型TNT",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "中心区",
+      "中心区 21+"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "675c15fbf7da9792a4059871",
+   "name": "收视灵药",
+   "trader": "Ref",
+   "keys": [],
+   "bring": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "WIFI摄像头",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海关"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6744aca8d3346c216702c583",
+   "name": "反将一军",
+   "trader": "BTR 司机",
+   "keys": [],
+   "bring": [
+    {
+     "item": "VOG-25 Khattabka 简易手榴弹",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "VOG-25 Khattabka 简易手榴弹",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "674492b6909d2013670a347a",
+   "name": "投石问路",
+   "trader": "BTR 司机",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "69c27158e350f01390049e77",
+   "name": "拯救大兵罗曼",
+   "trader": "BTR 司机",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "森林",
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "森林",
+      "灯塔"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6744af0969a58fceba101fed",
+   "name": "独立的代价",
+   "trader": "BTR 司机",
+   "keys": [],
+   "bring": [
+    {
+     "item": "控告信",
+     "act": "放置任务物品",
+     "givenInRaid": true,
+     "maps": [
+      "储备站"
+     ]
+    },
+    {
+     "item": "RSP-30 反应式信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "item": "26x75燃烧照明信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "RSP-30 反应式信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "item": "26x75燃烧照明信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6745cbee909d2013670a4a55",
+   "name": "独立的代价",
+   "trader": "BTR 司机",
+   "keys": [],
+   "bring": [
+    {
+     "item": "控告信",
+     "act": "放置任务物品",
+     "givenInRaid": true,
+     "maps": [
+      "储备站"
+     ]
+    },
+    {
+     "item": "RSP-30 反应式信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "item": "26x75燃烧照明信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "RSP-30 反应式信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "item": "26x75燃烧照明信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6740a02a69a58fceba0ff399",
+   "name": "自然交换",
+   "trader": "BTR 司机",
+   "keys": [],
+   "bring": [
+    {
+     "item": "金属燃料桶",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "金属燃料桶",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "海岸线"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "673f4e956f1b89c7bc0f56ef",
+   "name": "风火轮",
+   "trader": "BTR 司机",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "储备站",
+      "海关"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "储备站",
+      "海关"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "673f5a4976553f78350bdac1",
+   "name": "风火轮 - 再次出发",
+   "trader": "BTR 司机",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "63966fd9ea19ac7ed845db30",
+   "name": "以牙还牙",
+   "trader": "Lightkeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "RSP-30 反应式信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    },
+    {
+     "item": "26x75燃烧照明信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "RSP-30 反应式信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    },
+    {
+     "item": "26x75燃烧照明信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "储备站"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "673f61a066e6a521aa04b62b",
+   "name": "外部订单",
+   "trader": "Lightkeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "KOSA 无人机电子干扰设备",
+     "act": "放置任务物品",
+     "givenInRaid": true,
+     "maps": [
+      "森林"
+     ]
+    }
+   ],
+   "pack": []
+  },
+  {
+   "id": "63967028c4a91c5cb76abd81",
+   "name": "大都会之谜",
+   "trader": "Lightkeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    },
+    {
+     "item": "RSP-30 反应式信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    },
+    {
+     "item": "26x75燃烧照明信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    },
+    {
+     "item": "RSP-30 反应式信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    },
+    {
+     "item": "26x75燃烧照明信号弹（黄色）",
+     "act": "使用",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "63966fbeea19ac7ed845db2e",
+   "name": "失踪的线人",
+   "trader": "Lightkeeper",
+   "keys": [
+    "备用藏身处钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "63966fe7ea74a47c2d3fc0e6",
+   "name": "归还人情",
+   "trader": "Lightkeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "TerraGroup 「蓝色文件夹」 材料",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "TerraGroup 「蓝色文件夹」 材料",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "森林"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "63966faeea19ac7ed845db2c",
+   "name": "情报之源",
+   "trader": "Lightkeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "MS2000指示器",
+     "act": "放置（标记）",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "63966fccac6f8f3c677b9d89",
+   "name": "抢夺先机",
+   "trader": "Lightkeeper",
+   "keys": [
+    "RB-ST钥匙"
+   ],
+   "bring": [
+    {
+     "item": "伪造的Lightkeeper情报",
+     "act": "放置任务物品",
+     "givenInRaid": true,
+     "maps": [
+      "储备站"
+     ]
+    }
+   ],
+   "pack": []
+  },
+  {
+   "id": "639670029113f06a7c3b2377",
+   "name": "按图索骥",
+   "trader": "Lightkeeper",
+   "keys": [
+    "TerraGroup 实验室武器测试区域钥匙",
+    "实验室钥匙卡·黑"
+   ],
+   "bring": [],
+   "pack": []
+  },
+  {
+   "id": "63966ff54c3ef01b6f3ffad8",
+   "name": "挑衅",
+   "trader": "Lightkeeper",
+   "keys": [
+    "Kiba 商店内侧格栅门钥匙",
+    "Kiba 商店外门钥匙",
+    "Object #11SR 钥匙卡",
+    "Object #21WS 钥匙卡"
+   ],
+   "bring": [
+    {
+     "item": "咸狗牛肉肠",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    },
+    {
+     "item": "“凶狠跑刀崽”私酒",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    },
+    {
+     "item": "卫生纸",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "咸狗牛肉肠",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    },
+    {
+     "item": "“凶狠跑刀崽”私酒",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    },
+    {
+     "item": "卫生纸",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "立交桥"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6745fdddd3346c216702e0bf",
+   "name": "简单副业",
+   "trader": "Lightkeeper",
+   "keys": [],
+   "bring": [
+    {
+     "item": "Lightkeeper 的箱子",
+     "act": "放置任务物品",
+     "givenInRaid": true,
+     "maps": [
+      "森林"
+     ]
+    }
+   ],
+   "pack": []
+  },
+  {
+   "id": "6396700fea19ac7ed845db32",
+   "name": "观察员",
+   "trader": "Lightkeeper",
+   "keys": [
+    "Primorsky 46-48号天桥钥匙"
+   ],
+   "bring": [
+    {
+     "item": "AI .338 LM战术声音抑制器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    },
+    {
+     "item": "Trijicon REAP-IR热成像步枪瞄准镜",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "AI .338 LM战术声音抑制器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    },
+    {
+     "item": "Trijicon REAP-IR热成像步枪瞄准镜",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "塔科夫街区"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "67a09761e720611a6a01f288",
+   "name": "守望者箴言",
+   "trader": "Lightkeeper",
+   "keys": [
+    "停尸房钥匙"
+   ],
+   "bring": [
+    {
+     "item": "邪教徒之刃",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "迷宫"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "邪教徒之刃",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "迷宫"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "67e993b1ac26bf29380a320b",
+   "name": "天降大礼 [PVP ZONE]",
+   "trader": "Lightkeeper",
+   "keys": [
+    "公寓管理员钥匙"
+   ],
+   "bring": [],
+   "pack": []
+  }
+ ]
+}

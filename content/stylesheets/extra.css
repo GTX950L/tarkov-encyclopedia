@@ -4025,3 +4025,156 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 }
 
 /* 暗色：线色随分隔线变量走，无需单列覆盖（--tk-line-2 在 slate 下已重定义） */
+
+/* —— 55. 物品反查页（quests/item-lookup.md，由 quest-items.js 渲染）——
+   两块：上方查询框 + 结果卡，下方「需求量最高的一批」行式表。
+
+   配色沿用既有语义（不新造一套）：
+     · 要留 → --tk-grn（军绿）／不留 → --tk-ink-2（次要墨）
+     · 「查不到兑换途径」用 --tk-amber 提示，而不是红 ——它是**信息缺失**，
+       不是**错误**（站内已有一条判据：「不得让『未填』被读成『满足』」，
+       这里同理：不得让「没查到」被读成「买不到」）。
+
+   面板底色用纸面而不是 Fiord：这一块是「要读的清单」，
+   与 §52.2 工具箱面板同一判断。 */
+
+.tk-il { margin: 0 0 1.2em; }
+
+.tk-il__bar { display: flex; }
+
+.tk-il__input {
+  flex: 1;
+  min-width: 0;
+  height: 2.5rem;
+  padding: 0 .7em;
+  border: 1px solid var(--tk-line-3);
+  border-radius: 2px;
+  background: var(--tk-paper);
+  color: var(--tk-ink);
+  font-family: inherit;
+  font-size: .84rem;
+}
+
+.tk-il__input:focus {
+  outline: 2px solid var(--tk-fiord);
+  outline-offset: -2px;
+}
+
+.tk-il__input::placeholder { color: var(--tk-ink-2); }
+
+.tk-il__hint {
+  margin: .5em 0 0;
+  font-size: .68rem;
+  line-height: 1.6;
+  color: var(--tk-ink-2);
+}
+
+.tk-il__out { margin-top: .7em; }
+
+.tk-il__miss {
+  padding: .6em .8em;
+  border-left: 3px solid var(--tk-amber);
+  background: var(--tk-amber-bg);
+  font-size: .74rem;
+  line-height: 1.6;
+  color: var(--tk-ink);
+}
+
+.tk-il__card {
+  padding: .55em .75em .6em;
+  margin-bottom: .5em;
+  border: 1px solid var(--tk-line-2);
+  border-left: 3px solid var(--tk-line-3);
+  border-radius: 2px;
+  background: var(--tk-panel);
+}
+
+.tk-il__cardhead {
+  display: flex;
+  align-items: baseline;
+  gap: .6em;
+  margin-bottom: .2em;
+}
+
+.tk-il__name {
+  font-size: .88rem;
+  font-weight: 700;
+  color: var(--tk-ink);
+}
+
+.tk-il__verdict {
+  margin-left: auto;
+  padding: .05em .45em;
+  border: 1px solid;
+  border-radius: 2px;
+  font-family: var(--tk-mono);
+  font-size: .62rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tk-il__verdict--keep { color: var(--tk-grn); border-color: var(--tk-grn); }
+.tk-il__verdict--unknown { color: var(--tk-ink-2); border-color: var(--tk-line-3); }
+
+.tk-il__why { margin: .1em 0; font-size: .74rem; line-height: 1.6; color: var(--tk-ink); }
+.tk-il__why--muted { color: var(--tk-ink-2); }
+
+.tk-il__row {
+  display: flex;
+  gap: .5em;
+  margin: .12em 0 0;
+  font-size: .68rem;
+  line-height: 1.55;
+}
+
+.tk-il__k {
+  flex: 0 0 4.6em;
+  color: var(--tk-ink-2);
+  font-family: var(--tk-mono);
+  font-size: .62rem;
+}
+
+.tk-il__v { color: var(--tk-ink); }
+
+.tk-il__nobarter {
+  margin: .2em 0 0;
+  font-size: .62rem;
+  line-height: 1.55;
+  color: var(--tk-amber);
+}
+
+/* 下方需求量表 */
+.tk-ilt__scroll { overflow-x: auto; }
+
+.tk-ilt__tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .7rem;
+}
+
+.tk-ilt__tbl th,
+.tk-ilt__tbl td {
+  padding: .34em .6em;
+  text-align: left;
+  border-bottom: 1px solid var(--tk-line);
+}
+
+.tk-ilt__tbl th {
+  background: var(--tk-fiord);
+  color: #F5F4F0;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tk-ilt__tbl tbody tr:nth-child(even) { background: var(--tk-zebra); }
+.tk-ilt__name { font-weight: 600; }
+.tk-ilt__n { font-family: var(--tk-mono); text-align: right; }
+.tk-ilt__cap { margin: .45em 0 0; font-size: .66rem; color: var(--tk-ink-2); }
+
+[data-md-color-scheme="slate"] .tk-il__card { background: #2A2825; border-color: #4A473F; }
+[data-md-color-scheme="slate"] .tk-il__input { background: #22211E; border-color: #5A564C; color: #DCD8D0; }
+[data-md-color-scheme="slate"] .tk-il__name,
+[data-md-color-scheme="slate"] .tk-il__v,
+[data-md-color-scheme="slate"] .tk-il__why { color: #DCD8D0; }
+[data-md-color-scheme="slate"] .tk-il__verdict--keep { color: #A8C07A; border-color: #A8C07A; }
+[data-md-color-scheme="slate"] .tk-il__nobarter { color: #D9B061; }
