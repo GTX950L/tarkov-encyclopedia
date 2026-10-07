@@ -78,6 +78,9 @@ STEPS: list[tuple[str, list[str], str]] = [
     ("③ 图标语义表", [PY, "scripts/check_icons.py"], "表外 emoji 与 template.md 的统计数字"),
     ("④ 引用承诺", [PY, "scripts/check_promises.py"], "《引用说明》第三节的每条承诺"),
     ("⑤ 手册一致性", [PY, "scripts/skills_consistency.py"], ".agent/skills/ 的路径与门禁声明"),
+    ("⑤b 物品数值一致性", [PY, "scripts/check_catalog_consistency.py"],
+     "既有图鉴条目（食物/载具/护甲/医疗）与物品图鉴的数值漂移 —— "
+     "两者都是「同一件物品的两个数」，读者只会看到两个数字、不知道该信哪个"),
 ]
 
 

@@ -107,7 +107,7 @@ tags:
 | Splav Tarzan M22 | 14 | 1.45 kg | 1.167 |
 | Haley Strategic D3CRX | 16 | 0.9 kg | **1.778** |
 | Direct Action Thunderbolt | 16 | **0.62 kg** | **1.778** |
-| Gear Craft GC-BSS-MK1 | 16 | **0.62 kg** | **1.778** |
+| Gear Craft GC-BSS-MK1 | 16 | 1 kg | 1.600 |
 | Dynaforce Triton M43-A | 16 | 1.3 kg | 1.334 |
 | Blackhawk! Commando | 16 | 1.35 kg | 1.334 |
 | LBT-1961A | 18 | 1.36 kg | **2.000** |

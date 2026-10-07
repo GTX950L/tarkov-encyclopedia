@@ -70,6 +70,14 @@ HEADERS = {
     "Referer": "https://tarkov.dev/",
 }
 FETCH_DATE = "2026-10-08"
+# 页眉的「基线快照时间」与「全站基线版本」必须与 citation.md 第二节一致。
+# ⚠️ 第一版这里写的是「1.1.5.1 / 2026-10-08」，被 check_catalog_consistency.py 查出：
+#    citation.md 的全站基线是 **1.2.0.0（2026-10-06 发布）**，而任务页写 1.1.5.1 是
+#    **对的** —— 它的数据是 2026-09-30 抓的，那时基线确实是 1.1.5.1。
+#    换句话说：**基线跟着抓取日走，不跟着「站点当前最新版」走**。本栏目抓取日是
+#    2026-10-08，晚于 1.2.0.0 的发布日，所以写 1.2.0.0。
+BASE_MONTH = "2026 年 10 月"
+BASE_VER = "1.2.0.0"
 ROOT_CAT = "54009119af1c881c07000029"  # item —— itemCategories 的根
 
 # 页面切分：显式声明「slug → 叶子分类路径的三段前缀」。
@@ -668,7 +676,7 @@ def page_markdown(page, leaves, buckets, total_items) -> str:
     out.append("")
     out.append(f"# {page['title']}（Item Catalog）")
     out.append("")
-    out.append(f"> 版本基线：{FETCH_DATE} ｜ 1.1.5.1（第一赛季 KORD BREACH）｜ 数据来源：tarkov.dev（二级）")
+    out.append(f"> 版本基线：{BASE_MONTH} ｜ {BASE_VER}（第一赛季 KORD BREACH）｜ 数据来源：tarkov.dev（二级）")
     out.append("> 本页为**生成页**，数值随版本调整，引用时请附「以游戏内为准」。")
     out.append("")
     out.append('<a id="top"></a>')
@@ -755,7 +763,7 @@ def index_markdown(plan, total_items, leaves_zh) -> str:
     out.append("")
     out.append("# 物品图鉴（Item Catalog）")
     out.append("")
-    out.append(f"> 版本基线：{FETCH_DATE} ｜ 1.1.5.1（第一赛季 KORD BREACH）｜ 数据来源：tarkov.dev（二级）")
+    out.append(f"> 版本基线：{BASE_MONTH} ｜ {BASE_VER}（第一赛季 KORD BREACH）｜ 数据来源：tarkov.dev（二级）")
     out.append("> 全站物品的分类检索入口。数值随版本调整，引用时请附「以游戏内为准」。")
     out.append("")
     out.append('<a id="top"></a>')

@@ -35,6 +35,10 @@ jobs:
 
       - name: Check agent manual consistency
         run: python scripts/skills_consistency.py
+      - name: Check agent manual consistency
+        run: python scripts/skills_consistency.py
+      - name: Check item value consistency
+        run: python scripts/check_catalog_consistency.py --fetch
 
   deploy:
     needs: validate

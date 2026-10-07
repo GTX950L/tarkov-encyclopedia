@@ -89,7 +89,7 @@
   - `tarkov-encyclopedia-rename`：改名与术语统一（**「覆盖面」任务而非「查找替换」**；判据是「历史记录里的旧名不改写、正文里的旧名必须改」）
   - `tarkov-encyclopedia-audit`：只读巡检（跑确定性脚本 → 按「读者会不会因此做错决定」排优先级）
 - **内容约定**：`content/template.md`（骨架与页眉写法）、`content/CONTRIBUTING.md`（体例仲裁规则）、`content/docs/citation.md`（三档口径、条目页眉模板与已知未决项）
-- **校验脚本**：`scripts/check_entries.py`（一致性 + **覆盖率**，CI 门禁）、`scripts/skills_consistency.py`（手册与实现是否脱节，CI 门禁）、`scripts/check-freshness.py`（内容新鲜度，信息性）
+- **校验脚本**：`scripts/check_entries.py`（一致性 + **覆盖率** + 图鉴页页眉基线，CI 门禁）、`scripts/skills_consistency.py`（手册与实现是否脱节，CI 门禁）、`scripts/check_catalog_consistency.py`（**既有图鉴条目 ↔ 物品图鉴的同一件物品数值是否一致**，CI 门禁）、`scripts/check-freshness.py`（内容新鲜度，信息性）
 - **生成器**：`scripts/gen_quests.py`（任务图鉴）—— 分「抓取」与「生成」两步，页面生成**不依赖网络**，改动后重跑 `python scripts/gen_quests.py --fetch` 即可整栏重建
 - **生成器**：`scripts/gen_items_catalog.py`（物品图鉴）—— 同两步；**七道对账不过就不写盘**（叶子分类集合闭合 / 前缀全部命中 / 引用有效 / 件数之和相等 / 无未归类物品 / 每页件数一致 / slug 唯一），另有锚点自检。新增叶子分类时须在 `PAGES` 里补一条，漏了会被对账报出来而不是静默丢失
 - **改动纪律**：同一个实体在站内出现多处时，改一处必须 grep 全站 —— 否则别处会静默变错

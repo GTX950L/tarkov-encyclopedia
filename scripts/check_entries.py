@@ -618,6 +618,32 @@ def main() -> int:
     if bad_pending:
         errors.append("页眉未决项编号与 citation.md 第三节不一致: " + "；".join(bad_pending))
 
+    # 9b. 物品图鉴栏目页（content/catalog/）的页眉也必须与基线对齐
+    #
+    # ⚠️ 为什么要单独一段而不是并进上面的 entries 循环：**判定标准不同**。
+    # 条目页是手写的，基线由人维护；图鉴页由 gen_items_catalog.py 生成，
+    # 但生成器里的基线是**当时的快照** —— 版本一升就会与 citation.md 脱钩。
+    # 而这种脱钩不会让构建失败、不会让页面报错，只会让读者对着一个
+    # 旧版本号读新数据（实测踩过：图鉴页写 1.1.5.1、实际基线已是 1.2.0.0）。
+    #
+    # ⚠️ **任务图鉴页（content/quests/）不在这里查** —— 它的页眉写 1.1.5.1
+    # 是**正确的**：那份数据 2026-09-30 抓取，那时基线确实是 1.1.5.1。
+    # 换句话说基线**跟着抓取日走**，不跟着站点当前最新版走 ——
+    # 所以这里只查「抓取日 = 生成器 FETCH_DATE」的图鉴页。
+    for cat_page in sorted((CONTENT / "catalog").glob("*.md")):
+        if cat_page.name == "index.md":
+            continue
+        text = cat_page.read_text(encoding="utf-8")
+        m = HEADER_LINE1_RE.search(text)
+        if not m:
+            errors.append(f"图鉴页页眉缺失（规范见 citation.md「条目页眉模板」）: {cat_page.name}")
+        elif (f"{int(m.group(1))} 年 {int(m.group(2))} 月" != base_month
+              or base_ver not in m.group(3)):
+            errors.append(
+                f"图鉴页页眉与基线不一致（应写「{base_month} ｜ {base_ver}」"
+                f"，生成器里改 BASE_MONTH / BASE_VER）: {cat_page.name}"
+            )
+
     # 10. 参考区「总结型页面」必须能到达图鉴层
     #     速查表与成长路线是总结型页面，新条目落地后它们不会自动更新 ——
     #     这是站内已知盲区，此前靠人工记得去补，现在改成机器记得。

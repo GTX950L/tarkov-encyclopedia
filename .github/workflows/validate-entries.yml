@@ -23,3 +23,10 @@ jobs:
 
       - name: Check agent manual consistency
         run: python scripts/skills_consistency.py
+
+      # 物品数值一致性：既有图鉴条目与物品图鉴的同一件物品，数值是否还对得上。
+      # ⚠️ 它需要 items_full.json 缓存（不入仓），所以这一条自己抓一次数据源。
+      #    数据源结构变了、或某篇条目写错了数，这里就会红。
+      - name: Check item value consistency
+        run: |
+          python scripts/check_catalog_consistency.py --fetch
