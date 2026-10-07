@@ -42,6 +42,10 @@ BASELINE = ("2026 年 9 月", "1.1.5.1（第一赛季 KORD BREACH）")
 # index.md 里由 **另一个脚本**（gen_quest_items.py）生成的速查区。本栏「整栏重建」时必须搬过来。
 EXTRAS_START = "<!-- AUTO-GEN:QUEST-EXTRAS:START -->"
 EXTRAS_END = "<!-- AUTO-GEN:QUEST-EXTRAS:END -->"
+# 第二个由**别的脚本**生成的区块（scripts/gen_quest_insights.py 的优先级速查）。
+# 加进 carry_over 名单里 —— 漏一个，那一块会在整栏重建时**静默消失**。
+INSIGHTS_START = "<!-- AUTO-GEN:QUEST-INSIGHTS:START -->"
+INSIGHTS_END = "<!-- AUTO-GEN:QUEST-INSIGHTS:END -->"
 
 # 栏目内的页面顺序 —— 与 entries/trader-questlines.md §2.1 的商人排列一致
 TRADER_ORDER = [
@@ -880,17 +884,27 @@ def band_label(lo: int) -> str:
 def carry_over_extras() -> list[str]:
     """把旧 index.md 里 AUTO-GEN 区的内容**原样搬过来**。
 
-    本栏目是「**整栏重建**」（`write_index` 直接覆盖 index.md），但页面里有一块是
-    **另一个脚本**（`scripts/gen_quest_items.py`）生成的速查区。重建时不搬它，
-    那块内容会**静默消失**——重跑一次就没了，而且没有任何报错。
+    本栏目是「**整栏重建**」（`write_index` 直接覆盖 index.md），但页面里有几块是
+    **别的脚本**生成的（`gen_quest_items.py` 的速查区、`gen_quest_insights.py` 的
+    优先级速查）。重建时不搬它们，那些内容会**静默消失**——重跑一次就没了，
+    而且没有任何报错。
+
+    ⚠️ **凡新增一个由别的脚本写入本页的 AUTO-GEN 区块，都要加进这个名单。**
     """
     p = OUT_DIR / "index.md"
-    if p.exists():
-        text = p.read_text(encoding="utf-8")
-        if EXTRAS_START in text and EXTRAS_END in text:
-            body = text.split(EXTRAS_START, 1)[1].split(EXTRAS_END, 1)[0]
-            return [EXTRAS_START, *body.splitlines(), EXTRAS_END]
-    return [EXTRAS_START, "", EXTRAS_END]
+    text = p.read_text(encoding="utf-8") if p.exists() else ""
+
+    def grab(start: str, end: str) -> list[str]:
+        if start in text and end in text:
+            body = text.split(start, 1)[1].split(end, 1)[0]
+            return [start, *body.splitlines(), end]
+        return [start, "", end]
+
+    blocks: list[str] = []
+    blocks += grab(EXTRAS_START, EXTRAS_END)
+    blocks += ["", "---", ""]
+    blocks += grab(INSIGHTS_START, INSIGHTS_END)
+    return blocks
 
 
 def write_index(tasks: list[dict]) -> None:
@@ -924,10 +938,23 @@ def write_index(tasks: list[dict]) -> None:
         "找任务物品的 `possibleLocations`）**已在抓取阶段整体剔除**；"
         "② 本站自己编写的**走位路线与执行顺序**。本栏目只把官方任务定义里的**结构化字段**译成中文表格"
         "（含其自带的方位描述），不写攻略 |",
-        f"| **怎么用** | ① **知道任务名** → 右上角搜索，**中文名与英文名都能搜**"
-        f"（英文名随每个任务列出，排在商人／等级之后）；② **看某个商人给什么** → 从下方按商人进页；"
-        f"③ **按地图或标记找** → 见下方「速查」一节；另有 **{maps_n}** 个任务在定义里带地图归属，"
+        f"| **怎么用** | ① **按条件筛** → 见下方「按条件筛任务」，"
+        f"可按商人 / 地图 / 等级 / 条件筛，也能按**解锁收益**排序；"
+        f"② **知道任务名** → 右上角搜索，**中文名与英文名都能搜**"
+        f"（英文名随每个任务列出，排在商人／等级之后）；③ **看某个商人给什么** → 从下方按商人进页；"
+        f"④ **按地图或标记找** → 见下方「速查」一节；另有 **{maps_n}** 个任务在定义里带地图归属，"
         f"可用「地图」二字在站内检索 |",
+        "",
+        "---", "",
+        "## 🧰 按条件筛任务",
+        "",
+        "515 个任务按**商人 / 地图 / 等级门槛 / 条件**（需钥匙、有失败条件、Kappa 线……）筛，"
+        "并按**解锁收益**排序 —— 「做完它一次放开多少后续任务」是本栏目自己算的，"
+        f"口径见下方「优先级速查」。**「解锁」不等于「可接」**：本表回答「有哪些任务」，"
+        "「我能不能接」见[我的进度](progress.md)。",
+        "",
+        '<div id="tk-quest-filter">任务筛选器需要 JavaScript —— 本页其余内容'
+        "（分段统计、速查、优先级速查）与各商人页不受影响，纯文本也能读完。</div>",
         "",
         "---", "",
         "## 💡 怎么读这些字段", "",
@@ -1095,12 +1122,16 @@ def render_index(rows: list[dict]) -> list[str]:
     # 「端点重复条目」：数据源里有不同 id、但**内容完全相同**的条目。
     # 签名必须**把失败条件与奖励也算进去** —— 只比「等级/经验/目标数/前置数/钥匙」会把
     # 「几乎相同、但多一条失败条件」的条目误判成重复（实测：破镜重圆、电池换新就栽在这）。
+    # 签名还必须**带上阵营** —— 否则 BEAR / USEC 的两条平行任务会被误判成重复，
+    # 于是同一行上同时写着「仅 BEAR」和「端点重复条目」，**页面自相矛盾**。
+    # （实测：人靠衣装 - 1 / -2、纺织业 - 1 / -2 四组八条就是这么被误标的。）
     # **不删**——数据源既然分了两条 id，游戏内可能真有两个实例；只做**标注**。
     def _sig(r: dict) -> tuple:
         return (r["name"], r["level"], r["exp"], len(r["objectives"]), len(r["prereqs"]),
                 tuple(r["keys"]), len(r["failConditions"]),
                 len((r.get("rewards") or {}).get("items") or []),
-                len((r.get("rewards") or {}).get("standing") or []))
+                len((r.get("rewards") or {}).get("standing") or []),
+                r.get("faction") or "")
 
     sig = Counter(_sig(r) for r in rows)
     for i, rec in enumerate(rows, 1):

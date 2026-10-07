@@ -149,8 +149,12 @@
         本文件是全站加载的入口脚本，所以这里只做「发现挂载点 → 注入本体」：
           · 赛季特质模拟器（season-modifiers 页）
           · 配方速查表（docs/recipes 页）
+          · 任务筛选器（quests/index 页）
         instant 换页回到这些页面时，本体脚本已在内，它们自己的 document$
         订阅会负责重新挂载。
+
+         ⚠️ **每个工具一个独立的注入标记**。用同一个标记管两个工具，第二个
+         就永远不会被注入（一个全局变量只能表示「已注入过一次」）。
      -------------------------------------------------------------------------- */
 
   function injectScript(file) {
@@ -163,6 +167,7 @@
 
   var plannerInjected = false;
   var recipesInjected = false;
+  var filterInjected = false;
 
   function loadPageTools() {
     if (!plannerInjected && document.getElementById("tk-season-planner")) {
@@ -172,6 +177,10 @@
     if (!recipesInjected && document.getElementById("tk-recipe-browser")) {
       recipesInjected = true;
       injectScript("recipe-browser.js");
+    }
+    if (!filterInjected && document.getElementById("tk-quest-filter")) {
+      filterInjected = true;
+      injectScript("quests-filter.js");
     }
   }
 

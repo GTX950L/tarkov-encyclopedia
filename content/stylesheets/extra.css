@@ -3055,3 +3055,184 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   .tk-ov__legend { margin-left: 0; }
   .tk-ov__big b { font-size: 1.4rem; }
 }
+
+/* ==========================================================================
+   56. 任务筛选器（javascripts/quests-filter.js 的样式）
+   --------------------------------------------------------------------------
+   只出现在 quests/index 页（由 toolbox.js 按需注入）。
+   ⚠️ 数据表格**刻意不加 class** —— 这样才能命中站内 §3 的
+   `.md-typeset table:not([class])`（表头承色块 / 斑马行 / 边框 / 滚动容器）；
+   本节只写「筛选条、条件开关、标记、解锁列」这些站内样式管不到的部分。
+   ⚠️ 窄屏适配一律用 flex-basis 而不是固定宽度 —— 本站 `html` 字号 125%
+   （1rem = 20px），写死的 rem 宽度在 390px 视口会把整页撑宽。
+   -------------------------------------------------------------------------- */
+
+.tk-qs { margin: 1.2em 0; }
+
+.tk-qs__intro,
+.tk-qs__loading,
+.tk-qs__notready {
+  margin: 0 0 .8em;
+  font-size: .78rem;
+  color: var(--tk-ink-2);
+}
+
+/* —— 筛选条 —— */
+
+.tk-qs__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .45rem .6rem;
+  margin-bottom: .55em;
+}
+
+.tk-qs__q {
+  flex: 1 1 12em;
+  min-width: 8em;
+  padding: .32em .6em;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--tk-ink);
+  font: inherit;
+  font-size: .74rem;
+}
+
+.tk-qs__q::placeholder { color: var(--tk-ink-2); opacity: .75; }
+
+.tk-qs__sel {
+  padding: .3em .5em;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--tk-ink);
+  font: inherit;
+  font-size: .74rem;
+}
+
+.tk-qs__reset {
+  padding: .32em .7em;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  background: var(--tk-panel);
+  color: var(--tk-ink-2);
+  font: inherit;
+  font-size: .74rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tk-qs__reset:hover { border-color: var(--tk-line-3); color: var(--tk-ink); }
+
+/* —— 条件开关 —— */
+
+.tk-qs__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-bottom: .5em;
+}
+
+.tk-qs__chip {
+  padding: .26em .7em;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  background: var(--tk-panel);
+  color: var(--tk-ink-2);
+  font: inherit;
+  font-size: .72rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tk-qs__chip:hover { border-color: var(--tk-line-3); color: var(--tk-ink); }
+
+.tk-qs__chip[aria-pressed="true"] {
+  background: var(--tk-fiord);
+  border-color: var(--tk-fiord);
+  color: #F5F4F0;
+}
+
+.tk-qs__stat {
+  margin: 0 0 .5em;
+  font-size: .7rem;
+  color: var(--tk-ink-2);
+  font-family: var(--tk-mono);
+}
+
+/* —— 表内元素（表格本体走站内样式） —— */
+
+.tk-qs__en {
+  display: block;
+  font-size: .66rem;
+  line-height: 1.3;
+  color: var(--tk-ink-2);
+  font-family: var(--tk-mono);
+}
+
+.tk-qs__lv {
+  margin-left: .4em;
+  padding: 0 .3em;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  font-size: .64rem;
+  font-family: var(--tk-mono);
+  color: var(--tk-ink-2);
+  white-space: nowrap;
+}
+
+.tk-qs__marks { font-size: .68rem; }
+
+.tk-qs__tag {
+  display: inline-block;
+  margin: 0 .25em .2em 0;
+  padding: .1em .45em;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  font-style: normal;
+  font-size: .92em;
+  color: var(--tk-ink-2);
+  white-space: nowrap;
+}
+
+.tk-qs__tag--key { color: var(--tk-amber); border-color: var(--tk-amber); }
+.tk-qs__tag--k { color: var(--tk-brand); border-color: var(--tk-brand); }
+.tk-qs__tag--l { color: var(--tk-olive); border-color: var(--tk-olive); }
+
+.tk-qs__zero { color: var(--tk-ink-2); }
+
+.tk-qs__empty {
+  margin: .6em 0 0;
+  font-size: .75rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-qs__note {
+  margin: .7em 0 0;
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+}
+
+/* —— 56.1 暗色覆盖 —— */
+
+[data-md-color-scheme="slate"] .tk-qs__q,
+[data-md-color-scheme="slate"] .tk-qs__sel {
+  background: #232220;
+  border-color: #4A473F;
+}
+
+[data-md-color-scheme="slate"] .tk-qs__reset,
+[data-md-color-scheme="slate"] .tk-qs__chip {
+  background: #2A2825;
+  border-color: #4A473F;
+}
+
+[data-md-color-scheme="slate"] .tk-qs__tag { border-color: #4A473F; }
+
+/* —— 56.2 窄屏：搜索框独占一行，别和四个下拉挤在一起 —— */
+
+@media screen and (max-width: 44.9375em) {
+  .tk-qs__q { flex-basis: 100%; }
+  .tk-qs__sel { flex: 1 1 7em; }
+}

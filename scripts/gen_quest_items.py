@@ -72,7 +72,12 @@ def main() -> None:
     fails = [q["name"] for q in tasks if q.get("failConditions")]
     kappa = sorted({q["name"] for q in tasks if q.get("kappa")})
     lk = sorted({q["name"] for q in tasks if q.get("lightkeeper")})
-    top_exp = sorted(((q.get("exp") or 0, q["name"], TRADER.get(q.get("trader"), "—")) for q in tasks), reverse=True)[:10]
+    top_exp = sorted(((q.get("exp") or 0, q["name"], TRADER.get(q.get("trader"), "—"),
+                       q.get("en") or "") for q in tasks), reverse=True)[:10]
+    # 全站有 10 个中文名对应不止一个任务 —— 榜单里同名并列时必须消歧，
+    # 否则读者会把两行当成同一行的重复输出（原先「独立的代价」就是这样并列两行）。
+    # 消歧用具名英文名：它是数据源里唯一的无歧义标识。
+    name_count = Counter(q["name"] for q in tasks)
 
     out = [
         "## 📊 速查：不按商人分的任务线 ｜ 物品需求反查 ｜ 任务速查",
@@ -150,8 +155,12 @@ def main() -> None:
         "| 经验 | 任务 |",
         "|------|------|",
     ]
-    for exp, name, tr in top_exp:
-        out.append(f"| {exp} | {name}（{tr}） |")
+    for exp, name, tr, en in top_exp:
+        shown = f"{name}（{tr}，{en}）" if name_count[name] > 1 else f"{name}（{tr}）"
+        out.append(f"| {exp} | {shown} |")
+    out.append("")
+    out.append("> 榜单里若出现同名两条，**不是重复输出** —— 数据源里它们本就是两条不同的记录"
+               "（成因见下方「一条读表前提：中文名会撞」）。")
 
     if delay_tasks:
         out += ["", "**有接取延迟的任务**（延迟值以分钟计，端点原值）：", "",
