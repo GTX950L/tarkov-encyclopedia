@@ -76,33 +76,43 @@ zensical serve                       # ② 打开 http://localhost:8000
 
 ## 🏷️ 发版与版本号
 
-站点页头那枚版本徽标由主题**在浏览器里向 GitHub API 取**，取的是**最新 Release** —— **不是最新 tag**。所以两件事要一起做，只做一半徽标就不动：
-
 ```bash
 # ① 在 CHANGELOG.md 顶部加条目，版本号写在条目标题里：## 2026-10（v1.72.0）
 # ② 提交并推送
 git push origin main
-# ③ 打 tag **并建 Release**（Release 才是徽标的数据源）
+# ③ 一条命令搞定 tag + Release（推荐，幂等：已发过就跳过）
+python scripts/release.py
+#    或手工：
 git tag -a v1.72.0 -m "v1.72.0 —— 一句话主题"
 git push origin v1.72.0
 gh release create v1.72.0 --title "v1.72.0 —— 一句话主题" --notes-file notes.md
 ```
 
-**踩过的坑（2026-10-06 实测）**：只推 tag、不建 Release，徽标会**一直停在上一版**。本站在 v1.49–v1.70 期间只改 CHANGELOG 没建 Release，页头因此长期停在 **v1.48.0**，与 CHANGELOG 差了 **23 个版本**。
+> ⚠️ **【2026-10-07 更正】这一节原先开头写的是「站点页头那枚版本徽标由主题在浏览器里向
+> GitHub API 取 `/releases/latest`」—— 那是错的，现在页头根本没有版本显示。**
+> 实测（v1.87.0 发版后核验）：本项目当前用的 **Material 7（经 Zensical 构建）不再渲染任何版本元素**
+> —— 产物页头的 class 只有 `md-header__title` / `__topic` / `__option`（主题切换）/
+> `__source`（仓库图标）/ 搜索框；**没有 `.md-version`**，而 `extra.version` 配上去也**不会**渲染
+> （试过，构建产物里仍搜不到该元素）。早年那个「版本 / 星标 / 分叉」的仓库 facts 组件
+> 在这个主题版本里已经没有了 —— 主题的 JS 里那段 `/releases/latest` 代码还在，但**没有组件消费它**。
+>
+> **所以下面两条历史经验要这样读**：
+> - 「v1.49–v1.70 期间页头停在 v1.48.0，差了 23 个版本」「v1.77.0–v1.80.4 又漏了 8 个，停在 v1.76.1」
+>   —— 描述的是**当年那个 facts 组件还在时**的现象，事情本身（Release 漏建）是真的，
+>   但**今天已经无法用「看页头」来验证**了；
+> - **Release 仍然必须建**，理由换成两条站得住的：它是这个项目在 GitHub 上**对外唯一的版本历史**
+>   （读者与 AI 引用时能锚定到具体版本），也是 `scripts/release.py` 幂等判定的对象。
 
-**第二次踩（2026-10-07 实测）**：v1.77.0–v1.80.4 又漏了 **8 个**，徽标停在 **v1.76.1**。已用
-`scripts/backfill_releases.py` 补齐（它直接读 CHANGELOG 段落当 body，并给 v1.80.1~80.3 各挑出自己那一行）。
-
-> **补建时的坑**：**不能给 `gh release create` 传 `--target <短SHA>`** —— 实测 422
-> 「`tag_name is not a valid tag` / `Release.target_commitish is invalid`」。
-> 正确次序是**先把 tag 打在目标 commit 上并推送**，再建 Release（不带 `--target`）：
+> **判据（可执行，不依赖页头）**：
 > ```bash
-> git tag -f v1.80.0 <sha> && git push -f origin v1.80.0
-> gh release create v1.80.0 --title "…" --notes-file notes.md
+> python scripts/release.py --dry-run     # 输出的版本号 == CHANGELOG 最新条目括号里的版本号
+> gh release list --limit 1              # 最新 Release 的 tag == CHANGELOG 最新版本号
+> gh release list --limit 40 --json tagName --jq '.[].tagName' | sort -V   # 一眼看出序列断在哪
 > ```
 
-> **判据**：页头徽标里的版本号必须等于 `CHANGELOG.md` 最新条目括号里的版本号。不相等 → 先查最新版有没有建 Release。
-> **自检命令**（一眼看出版本序列断在哪）：`gh release list --limit 40 --json tagName --jq '.[].tagName' | sort -V`
+> **若将来要把版本号重新显示到页头**：主题不再提供该组件，需要自建 —— 从 CHANGELOG 解析出版本、
+> 注入 `.md-header__inner`、并在 `extra.css` 里补样式（主题也没带 `.md-version` 的样式）。
+> **务必让显示值由 CHANGELOG 生成、并加一条 CI 断言**，否则就是一个会静默漂移的第二处数字源。
 
 ## 🐛 报告问题
 

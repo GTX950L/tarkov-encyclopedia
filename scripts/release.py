@@ -3,14 +3,20 @@
 
 为什么需要它
 ------------
-站点页头的版本徽标，由主题在浏览器里向 GitHub API 取「**最新 Release**」——
-**不是最新 tag**。所以「CHANGELOG 写了版本」不等于「徽标会更新」，
-还差 tag + Release 两步；少任一步，徽标就停在旧版本上，而**页面上看起来
-一切正常**（徽标里一直有个版本号）。
+**Release 必须与 CHANGELOG 一起发**，否则版本序列会断 —— 本项目已经因此补建过
+两轮：v1.49–v1.70 期间只写 CHANGELOG 没建 Release（一次要补 23 个版本的量级），
+v1.77.0–v1.80.4 又漏了 8 个（用 `scripts/backfill_releases.py` 补的）。
 
-本项目已经因此吃过一次亏：v1.49–v1.70 期间只写 CHANGELOG、没建 Release，
-徽标长期停在 v1.48.0，与 CHANGELOG 差了 23 个版本；后来用一个 chore 提交
-**一次性补建了 8 个 Release**。这个脚本就是为了不再出现这种补救提交。
+⚠️ **不要拿「页头徽标会更新」当理由 —— 那已经不成立了（2026-10-07 实测）。**
+   本项目当前用的 Material 7（经 Zensical 构建）**不再渲染任何版本元素**：
+   产物页头只有站名 / 主题切换 / 搜索 / 仓库图标，**没有 `.md-version`**；
+   `extra.version` 配上去也**不会**渲染（实测配过，产物里仍搜不到该元素）。
+   早年那个「版本 / 星标 / 分叉」的仓库 facts 组件，在这个主题版本里已经没有了 ——
+   主题的 JS 里那段 `/releases/latest` 代码还在，但**没有组件消费它**。
+   详见 content/CONTRIBUTING.md「发版与版本号」一节的更正说明。
+
+   仍然要建 Release，站得住的理由是两条：**它是本项目在 GitHub 上对外唯一的版本历史**
+   （读者与 AI 引用时靠它锚定版本），以及**它是本脚本幂等判定的对象**。
 
 它做三件事，且**每一步都先判「做过没有」，可重复执行**：
   1. 从 `content/CHANGELOG.md` 解析最新版本号与标题；
@@ -129,7 +135,8 @@ def main() -> int:
     print(f"\n现状：tag {'已存在' if have_tag else '不存在'} ｜ Release {'已存在' if have_rel else '未检查/不存在'}")
 
     if have_tag and have_rel and not args.dry_run:
-        print("\n✓ 已经发过版，无需操作。页头徽标应当已是该版本。")
+        print("\n✓ 已经发过版，无需操作（幂等：不会重复建 Release）。")
+        print(f"  核验：gh release list --limit 1  → 最新 Release 应为 {ver}")
         return 0
 
     if args.dry_run:
@@ -204,8 +211,10 @@ def main() -> int:
 
     print(f"\n{'=' * 62}")
     print(f"✓ 发版完成：{ver}")
-    print("  验收判据：页头徽标里的版本号 == CHANGELOG 最新条目括号里的版本号。")
-    print("  刚发完可能要等 1–2 分钟（GitHub API 与 CDN 缓存），刷新页面再看。")
+    print("  验收判据（不依赖页头 —— 主题已不再渲染版本元素）：")
+    print(f"    gh release list --limit 1   → 最新 Release 的 tag 应为 {ver}")
+    print("    python scripts/release.py --dry-run   → 应报「已经发过，无需操作」")
+    print("  读者侧：仓库 Releases 页与 CHANGELOG 顶部条目一致即算对齐。")
     return 0
 
 
