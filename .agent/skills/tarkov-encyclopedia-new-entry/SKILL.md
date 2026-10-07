@@ -62,6 +62,29 @@ python scripts/skills_consistency.py  # ⑥ 只在改了 .agent/skills/ 时补�
 
 **六个都过才算完成**。校验查不到 nav 缩进错误、查不到表格列数串列、也查不到整张表不渲染 —— 那些只有真实构建与产物检查能发现。
 
+> **想省事就跑 `python scripts/build_all.py`** —— 它按正确顺序串起 ①–⑤ 加上真实构建，
+> **任一步失败就停并打印原始输出**。手动分步跑的问题不是麻烦，而是**漏跑**：
+> 只跑 ②③ 就提交，④⑤ 的漂移会一路带到线上。
+>
+> ⚠️ **不要用管道调用校验脚本**（`python scripts/check_entries.py | tail -4`）——
+> 管道的退出码是最后一个命令（`tail`）的，**校验失败也会被当成成功**。要截断就用
+> `build_all.py`（它内部取的是真实退出码）。
+
+## 第六步：发版（写了 CHANGELOG 就必须做）
+
+```bash
+python scripts/release.py --dry-run   # 先看它打算做什么
+python scripts/release.py             # 建 tag + Release
+```
+
+**为什么这一步不能省**：站点页头那个版本徽标，是主题在浏览器里向 GitHub API 取
+「**最新 Release**」的 —— **不是最新 tag，也不是 CHANGELOG 里的版本号**。只写
+CHANGELOG 不建 Release，徽标就停在旧版本，而**页面上看起来完全正常**（徽标里一直
+有个版本号）。本项目为此吃过一次亏：v1.49–v1.70 期间只写 CHANGELOG，徽标长期停在
+v1.48.0，差了 23 个版本，最后用一个 chore 提交一次性补建了 8 个 Release。
+
+> **验收判据**：页头徽标里的版本号 == `content/CHANGELOG.md` 最新条目括号里的版本号。
+
 > ③ 的常见触发：正文里随手打了个 `✓`、`🎨` 之类不在 `content/template.md`「图标语义表」里的符号。**要么换成表内图标，要么同一批回来更新那张表**（表里第 3 档是「不新增」的冻结清单，只收已存在的长尾图标）。
 
 > ④ 的常见触发：**改了 `content/docs/citation.md` 第三节**（新增 / 删除某条未决项），或改了它所指的页面里的限定语。**新增未决项时必须同一批在 `scripts/check_promises.py` 的 `ASSERTIONS` 里补一条断言**（去哪一页、找什么），否则这项检查会直接报「没有断言登记」——**这是故意的**，没有断言就等于没有护栏。

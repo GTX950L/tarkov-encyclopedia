@@ -7,25 +7,35 @@ description: 只读巡检《逃离塔科夫百科全书》的内容新鲜度与�
 
 **这份 skill 只读，不改任何文件。** 它产出一份可执行的清单，改不改由人决定 —— 与仓库「审查 ≠ 修复」的工作方式一致。
 
-## Step 1 — 跑五个确定性脚本（不要凭印象）
+## Step 1 — 跑六个确定性脚本（不要凭印象）
 
 ```bash
-python scripts/check-freshness.py    # ① 新鲜度（只读，信息性）
-python scripts/check_entries.py      # ② 内容一致性（硬错误，CI 门禁）
-python scripts/check_icons.py        # ③ 图标语义表对账（硬错误，CI 门禁）
-python scripts/check_promises.py     # ④ 未决项承诺对账（硬错误，CI 门禁）
-python scripts/skills_consistency.py # ⑤ 手册一致性（硬错误，CI 门禁）
+python scripts/check-freshness.py    # ① 新鲜度（只读，信息性，定时巡检调用）
+python scripts/check_drift.py        # ② 数据端点漂移（只读，信息性，需联网，定时巡检调用）
+python scripts/check_entries.py      # ③ 内容一致性（硬错误，CI 门禁）
+python scripts/check_icons.py        # ④ 图标语义表对账（硬错误，CI 门禁）
+python scripts/check_promises.py     # ⑤ 未决项承诺对账（硬错误，CI 门禁）
+python scripts/skills_consistency.py # ⑥ 手册一致性（硬错误，CI 门禁）
 ```
+
+> 迭代时想一次跑完，用 `python scripts/build_all.py`（校验 + 真实构建，任一步失败就停）。
+> **不要用 `| tail` 管道跑校验** —— 管道的退出码是最后一个命令的，校验失败会被当成成功。
 
 | 脚本 | 回答什么 | 是否阻断部署 |
 |------|----------|-------------|
-| `scripts/check-freshness.py` | **哪些内容该回头核了** —— 版本敏感但页脚早于基线、久未更新、页脚缺失 | 否（信息性，恒返回 0） |
+| `scripts/check-freshness.py` | **哪些内容该回头核了** —— 版本敏感但页脚早于基线、久未更新、页脚缺失 | 巡检（定时 job 调用，不阻断部署） |
+| `scripts/check_drift.py` | **站内缓存的数据跟上游还一样吗** —— items / tasks / crafts / barters 的计数差异（需联网，只报告） | 巡检（定时 job 调用，不阻断部署） |
 | `scripts/check_entries.py` | **有没有硬错误** —— 断链、计数漂移、骨架缺失、直引号残留、表格吞块 | 是（CI 部署前置） |
 | `scripts/check_icons.py` | **图标有没有各写各的** —— 内容里用了表外的 emoji、表里有悬空项、template.md 的统计数字过期 | 是（CI 部署前置） |
 | `scripts/check_promises.py` | **《引用说明》第三节的承诺还算不算数** —— 每条未决项的「现行处理方式」在正文里是否真的落实（含「不得出现某数字」的阴性断言） | 是（CI 部署前置） |
 | `scripts/skills_consistency.py` | **这套手册自己有没有过期** —— 引用的路径是否还在、声称的 CI 门禁是否属实 | 是（CI 部署前置） |
 
-> 后三个之所以必须存在：手册、图标语义表、未决项声明**写错都不会报错**，只会让智能体安静地跳过、或让照着引用的读者被误导。**巡检工具本身也在巡检范围内。**
+> 后四个之所以必须存在：手册、图标语义表、未决项声明**写错都不会报错**，只会让智能体安静地跳过、或让照着引用的读者被误导。**巡检工具本身也在巡检范围内。**
+
+> **「巡检」是第三类，不是「不做门禁」的委婉说法。** 它指**必须联网或只报告、因此
+> 不能放进部署前置**的脚本（把联网检查放进部署前置，会让 GitHub 的抖动变成一次失败的
+> 部署）。这类脚本的判据是：**必须真的出现在一个带 `schedule:` 触发器的 workflow 里** ——
+> 不进定时任务，它就永远不会跑，等于没写。`scripts/skills_consistency.py` 会核对这一条。
 
 ## Step 2 — 解读，并给出优先级
 

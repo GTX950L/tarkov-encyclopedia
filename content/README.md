@@ -8,15 +8,24 @@
 <div class="tk-launch">
 <a class="tk-launch__card tk-launch--read" href="entries/spawn-and-opening.md">
 <span class="tk-launch__title">📖 读 · 从零上手</span>
-<span class="tk-launch__desc">87 个条目分十篇主线：从撤离、保险与健康起步，一路读到地图、装备、经济与终局场景。</span>
+<span class="tk-launch__desc">87 个条目分十篇：先懂规则，再看地图，最后吃透装备与经济。</span>
+<ul class="tk-launch__list">
+<li><span class="tk-launch__row"><b>① 先活下来</b><i>撤离 · 保险 · 健康</i></span></li>
+<li><span class="tk-launch__row"><b>② 再认识地图</b><i>十四张图逐张讲</i></span></li>
+<li><span class="tk-launch__row"><b>③ 然后懂数值</b><i>弹药 · 护甲 · 枪械</i></span></li>
+<li><span class="tk-launch__row"><b>④ 最后是战场</b><i>经济 · 交火 · 设定</i></span></li>
+</ul>
 <span class="tk-launch__cta">从第一篇开始阅读</span>
 </a>
 <div class="tk-launch__card tk-launch--tools">
 <span class="tk-launch__head"><span class="tk-launch__title">🧰 用 · 工具箱</span><span class="tk-launch__badge">离线可用 · 无需登录</span></span>
 <ul class="tk-launch__list">
 <li><a href="quests/progress.md"><b>我的进度</b><i data-tk-toolstat>任务 · 物品 · 藏身处</i></a></li>
-<li><a href="quests/index.md"><b>任务图鉴</b><i>515 个任务逐条</i></a></li>
-<li><a href="docs/mechanics.md"><b>速查表</b><i>机制 · 地图 · 术语</i></a></li>
+<li><a href="quests/index.md"><b>任务图鉴</b><i>逐条要求与奖励 · 可筛选</i></a></li>
+<li><a href="entries/season-modifiers.md"><b>赛季特质模拟器</b><i>点选构筑 · 互斥校验</i></a></li>
+<li><a href="docs/recipes.md"><b>配方速查</b><i>制作与交换配方</i></a></li>
+<li><a href="docs/glossary.md"><b>术语与黑话</b><i>全称 / 缩写双向查</i></a></li>
+<li><a href="docs/mechanics.md"><b>机制速查表</b><i>一页看完核心规则</i></a></li>
 </ul>
 <a class="tk-launch__cta tk-launch__cta--primary" href="quests/progress.md">打开我的进度</a>
 </div>
@@ -242,7 +251,7 @@
 | 80 | [联赛系统](entries/leagues.md) | 每周 50 人的经验值天梯 |
 | 81 | [竞技场](entries/arena.md) | 独立进度的纯对抗模式 |
 | 82 | [PvE 模式](entries/pve.md) | 没有真人对手、永不 wipe 的持久档案 |
-| 84 | [EXFIL Brothers 计划](entries/exfil-brothers.md) | 老带新的双向奖励计划（1.2.0.0 新增） |
+| 83 | [EXFIL Brothers 计划](entries/exfil-brothers.md) | 老带新的双向奖励计划（1.2.0.0 新增） |
 
 ### 第八篇：世界与背景（环境、元内容与设定三条线索）
 

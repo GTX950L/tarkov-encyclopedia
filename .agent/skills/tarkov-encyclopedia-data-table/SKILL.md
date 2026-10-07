@@ -32,6 +32,17 @@ https://json.tarkov.dev/regular/tasks       # 任务（任务图鉴用，见 gen
 | `scripts/gen_quest_items.py` | 79 种物品的**任务需求反查** ＋ **奖励反查** ＋ 任务速查 | `content/quests/index.md` |
 | `scripts/gen_gear_values.py` | 耳机 28 / 夜视 6 / 手雷 13 / 近战 25 | 四个条目页各一处 |
 | `scripts/gen_boss_values.py` | Boss 各部位血量（17 个）＋ 各图刷新率 | `content/entries/bosses.md` |
+| `scripts/gen_achievements.py` | 127 个成就（含 25 个隐藏）全表 | `content/entries/achievements.md` |
+| `scripts/gen_home_stats.py` | 首页「本站速览」的 8 个数字（**由数据文件算出来，不许手写**） | `content/README.md` 的 `AUTO-GEN:HOME-STATS` 区块 |
+| `scripts/audit_ammo_tier.py` | 只读审计：弹药对 1–6 级护甲的判定有没有缺格 | 不改文件，只报告 |
+| `scripts/backfill_releases.py` | 一次性补救：为历史版本批量补建 Release | 不改内容，只调 GitHub API |
+
+> **`gen_home_stats.py` 是「一份实现、两处消费」的样板**：`check_entries.py` **直接 import 它的 `render()`**
+> 复算首页那 8 个数字。改首页数字只能改数据源，手改首页会当场被 CI 拦下。
+>
+> **新增脚本要同一批登记进本表** —— `scripts/skills_consistency.py` 会断言「手册里提到的路径真实存在」，
+> 但**它管不了「新脚本没被登记」**（没有断言的地方就是漂移的温床）。判据：**凡"写下来给人/AI 用"的产物，
+> 落地时必须回答「谁会读到它、从哪读到」。**
 
 ## Step 2 — 怎么挑条目：按 `propertiesType` 分桶
 

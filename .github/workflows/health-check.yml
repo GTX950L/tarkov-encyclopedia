@@ -1,0 +1,127 @@
+name: 定期巡检
+
+# 为什么需要它
+# ------------
+# 站点的内容与代码，由 push 时的四道门禁守着（见 deploy-pages.yml 的 validate job）。
+# 但有两件事**不发生在 push 时**，门禁永远看不到：
+#
+#   ① **上游数据端点静默变了** —— 站内所有数值表都是 json.tarkov.dev 的快照，
+#      BSG 发了补丁、端点增删了条目，站内缓存不会自己知道（站规：不许自动重抓，
+#      差异要人判断，见 content/docs/roadmap.md）。
+#   ② **线上站点坏了** —— Pages 故障、某个页面 404、search.json 或静态资源被删。
+#      这类问题本地构建全绿，只有真的 curl 线上才发现。
+#
+# 这个 workflow 每周把「时间维度」的问题捞出来，**用 Issue 提醒，不阻断任何流程**。
+# 它的脚本都是信息性的（check_drift / check-freshness），退出码恒为 0 ——
+# 把联网检查放进部署前置，会让 GitHub 的抖动变成一次失败的部署。
+
+on:
+  schedule:
+    - cron: "0 1 * * 1"        # 每周一 09:00（UTC+8）
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      # ---- ① 数据端点漂移（只报告，不改文件） ----
+      - name: 数据端点漂移检测
+        id: drift
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python scripts/check_drift.py --json > drift.json
+          cat drift.json >> "$GITHUB_STEP_SUMMARY"
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          d = json.load(open("drift.json", encoding="utf-8"))
+          # ⚠️ --json 保证这里只拿到 JSON；若脚本被改成会打印前缀，
+          #    这一行会在 CI 里当场炸掉（这是有意的：宁可报错，不要静默不报）
+          checked = d.get("checked", 0)
+          print("drift=" + ("true" if d.get("drift") else "false"))
+          # 「一个端点都没取到」也算待处理 —— 没查 ≠ 查过没问题
+          print("blank=" + ("true" if checked == 0 else "false"))
+          rows = [r for r in d.get("rows", []) if r.get("差异") not in (0, None, "-")]
+          print("lines=" + "；".join(
+              f"{r.get('端点')} 站内 {r.get('站内')} → 上游 {r.get('上游')}" for r in rows)[:1500])
+          PY
+
+      # ---- ② 内容新鲜度（哪些页面该回头核了） ----
+      - name: 内容新鲜度
+        continue-on-error: true
+        run: |
+          echo "### 内容新鲜度" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          python scripts/check-freshness.py >> "$GITHUB_STEP_SUMMARY" || true
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      # ---- ③ 线上可用性（本地构建全绿也可能线上是坏的） ----
+      - name: 线上页面存活
+        id: live
+        continue-on-error: true
+        run: |
+          BASE="https://gtx950l.github.io/tarkov-encyclopedia"
+          bad=""
+          for p in "/" "/quests/" "/quests/progress/" "/entries/ammo-table/" \
+                   "/docs/citation/" "/llms.txt" "/robots.txt" "/search.json"; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 25 "$BASE$p" || echo "000")
+            echo "$code  $p"
+            [ "$code" = "200" ] || bad="$bad\n- \`$p\` → HTTP $code"
+          done
+          {
+            echo "### 线上页面存活"
+            if [ -z "$bad" ]; then echo "全部 200 ✓"; else printf "%b\n" "$bad"; fi
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ -n "$bad" ]; then echo "bad=1" >> "$GITHUB_OUTPUT"; fi
+
+      # ---- ④ 有问题才开 Issue（幂等：已有同名开着的不重复开） ----
+      - name: 有问题则开 Issue
+        if: steps.drift.outputs.drift == 'true' || steps.drift.outputs.blank == 'true' || steps.live.outputs.bad == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TITLE="定期巡检发现待处理项（$(date -u +%Y-%m-%d)）"
+          if gh issue list --state open --search "\"定期巡检发现待处理项\" in:title" --json number --jq '.[0].number' | grep -q .; then
+            echo "已有未关闭的巡检 Issue，本次只更新到 Step Summary，不重复开。"
+            exit 0
+          fi
+          {
+            echo "本 Issue 由 \`.github/workflows/health-check.yml\` 自动创建（每周一）。"
+            echo
+            echo "**巡检只报告，不改任何文件** —— 站规：数据端点差异与版本敏感内容都需人工判断。"
+            echo
+            echo "### 数据端点"
+            echo
+            if [ "${{ steps.drift.outputs.blank }}" = "true" ]; then
+              echo "- ⚠️ **本次一个端点都没取到**（网络 / 限流）—— 这次巡检什么都没验证，不要读成「没问题」"
+            elif [ "${{ steps.drift.outputs.drift }}" = "true" ]; then
+              echo "- ⚠️ 检测到漂移：${{ steps.drift.outputs.lines }}"
+              echo "- 处理流程见 \`content/docs/roadmap.md\`（**不许自动重抓**；重抓前先读 \`content/docs/citation.md\`）"
+            else
+              echo "- ✓ 未检测到漂移"
+            fi
+            echo
+            echo "### 线上可用性"
+            echo
+            if [ "${{ steps.live.outputs.bad }}" = "1" ]; then
+              echo "- ⚠️ 有页面非 200，明细见该次 run 的 Step Summary"
+            else
+              echo "- ✓ 关键页面全部 200"
+            fi
+            echo
+            echo "### 内容新鲜度"
+            echo
+            echo "- 明细见该次 run 的 Step Summary（\`scripts/check-freshness.py\` 的输出）"
+          } > body.md
+          gh issue create --title "$TITLE" --body-file body.md

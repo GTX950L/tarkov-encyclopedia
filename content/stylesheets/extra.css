@@ -707,7 +707,7 @@ body[data-md-color-scheme="slate"] {
 }
 
 /* --------------------------------------------------------------------------
-   10. 搜索索引未就绪时的提示条
+   11. 搜索索引未就绪时的提示条
    --------------------------------------------------------------------------
    由 content/javascripts/search-ready.js 注入。Zensical 的全文搜索 UI 建在
    Shadow DOM 里，索引（本站约 2 MB）解析完之前**输入框根本不存在**——
@@ -818,7 +818,7 @@ body[data-md-color-scheme="slate"] {
 }
 
 /* --------------------------------------------------------------------------
-   11. 打印友好：截图 / 打印贴墙时去掉导航，表格与段落不跨页断开
+   12. 打印友好：截图 / 打印贴墙时去掉导航，表格与段落不跨页断开
    -------------------------------------------------------------------------- */
 
 @media print {
@@ -2307,6 +2307,9 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
      52.1 首页「读 / 用」双轨入口区（content/README.md 里手写 HTML）
      52.2 全站页头入口（javascripts/toolbox.js 注入）
      52.3 任务图鉴工具条（javascripts/toolbox.js 注入）
+     52.4 入口体系的暗色覆盖
+     52.5 工具菜单（页头下拉，javascripts/toolbox.js 注入；2026-10 加入）
+     52.6 首页「工具箱」区块（content/README.md 手写 HTML；2026-10 加入）
    配色全部走 --tk-* 变量，暗色方案自动跟随（覆盖见本节末尾）。
    -------------------------------------------------------------------------- */
 
@@ -2360,6 +2363,29 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 .tk-launch__list { list-style: none; margin: 0 0 .9em; padding: 0; }
 .tk-launch__list li { border-top: 1px solid var(--tk-line); }
 
+/* ⚠️ **必须再写一遍，且把 `[dir="ltr"]` 一起带上。**
+   上面那句 `list-style: none` 是无效的：主题的 `.md-typeset ul` 是 (0,1,1)，
+   而单个类选择器 `.tk-launch__list` 是 (0,1,0) —— 主题赢，两项清单实际渲染出
+   了 disc 项目符号（实测 `getComputedStyle(ul).listStyleType === "disc"`）。
+   这与「两者都是 `li + 上边框` 的分隔行」这个设计意图不符：行本来靠 border-top
+   分隔，再多一个圆点就是两套分隔语言。
+
+   缩进还要多一层：真正压住 `margin-left` 的是主题的
+   `[dir="ltr"] .md-typeset ul { margin-left: .625em }` —— 特异性 **(0,2,1)**，
+   比 `.md-typeset .tk-launch__list` 的 (0,2,0) **高一档**（实测残留 9.375px =
+   0.625em × 15px 字号，正好对上）。所以选择器要写成
+   `[dir="ltr"] .md-typeset .tk-launch__list`（(0,3,0)）才算真的赢。
+
+   判据（本项目已两次踩到）：**凡是写在 `.md-typeset` 里、又要改 `<ul>` / `<a>`
+   这类「主题也在管」的标签的样式，都要先查主题有没有带 `[dir]` 属性选择器的
+   同名规则** —— 单类或双类选择器都可能照样输。诊断法：遍历 `document.styleSheets`，
+   对目标元素 `el.matches(rule.selectorText)` 后打印所有命中且含该属性的规则。 */
+[dir="ltr"] .md-typeset .tk-launch__list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
 .tk-launch__list a {
   display: flex;
   align-items: baseline;
@@ -2372,6 +2398,18 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 .tk-launch__list a:hover b { text-decoration: underline; }
 .tk-launch__list b { color: var(--tk-brand-dark); }
+
+/* 左卡（读）的「三步走」清单：与右卡的工具清单共用同一套行结构，
+   但**不是链接** —— 整张左卡本身就是一个 <a>，里面不能再嵌 <a>
+   （嵌套锚点会被浏览器拆开，行样式与点击区都会坏掉）。 */
+.tk-launch__list > li > .tk-launch__row {
+  display: flex;
+  align-items: baseline;
+  gap: .6em;
+  padding: .34em .05em;
+  font-size: .7rem;
+  color: var(--tk-ink-2);
+}
 
 .tk-launch__list i {
   margin-left: auto;
@@ -2418,37 +2456,100 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   .tk-launch { grid-template-columns: 1fr; }
 }
 
-/* —— 52.2 全站页头入口 ——
-   页头是 Fiord 承色块（见 §1），所以用同样的浅色描边语言；
-   窄屏只留图标，给标题与搜索让位。 */
+/* —— 52.2 全站工具菜单（页头下拉） ——
+   原为单个「🧰 我的进度」链接 —— 它只能到进度页，而站点已经有六个工具，
+   等于把另外五个藏起来（首页此前也只提了三个：赛季特质模拟器与依赖树
+   在首页 grep 命中 0）。改成下拉菜单后，**任意页 ≤1 次点击到任一工具**。
+   页头是 Fiord 承色块（见 §1），按钮沿用同样的浅色描边语言；
+   面板是**纸面**（里面是要读的内容，必须浅底深字），右对齐、方角、
+   顶部 3px 色脊，与 §52.1 / §52.3 同一套语言。 */
 
-.tk-headtool {
+.tk-toolmenu {
+  position: relative;
+  display: inline-flex;
+  align-self: center;
+  margin-right: .45rem;
+}
+
+.tk-toolmenu__btn {
   display: inline-flex;
   align-items: center;
-  align-self: center;
   gap: .32em;
   height: 1.62rem;
   padding: 0 .6em;
-  margin-right: .45rem;
   border: 1px solid rgba(245, 244, 240, .4);
   border-radius: 2px;
+  background: transparent;
   color: #F5F4F0;
+  font-family: inherit;
   font-size: .66rem;
   font-weight: 600;
   white-space: nowrap;
-  text-decoration: none;
+  cursor: pointer;
 }
 
-.tk-headtool:hover {
-  background: rgba(245, 244, 240, .14);
+.tk-toolmenu__btn:hover,
+.tk-toolmenu__btn--open {
+  background: rgba(245, 244, 240, .16);
   color: #fff;
 }
 
-.tk-headtool__ic { font-size: .8rem; line-height: 1; }
+.tk-toolmenu__ic { font-size: .8rem; line-height: 1; }
+.tk-toolmenu__caret { font-size: .58rem; line-height: 1; opacity: .85; }
 
+.tk-toolmenu__panel {
+  position: absolute;
+  top: calc(100% + .55rem);
+  right: 0;
+  z-index: 40;
+  width: 18.5rem;
+  padding: .5rem .6rem .55rem;
+  border: 1px solid var(--tk-line-3);
+  border-top: 3px solid var(--tk-fiord);
+  border-radius: 2px;
+  background: var(--tk-paper);
+  box-shadow: 0 .55rem 1.3rem rgba(20, 24, 30, .2);
+  text-align: left;
+}
+
+.tk-toolmenu__head {
+  display: flex;
+  align-items: baseline;
+  gap: .5em;
+  padding: 0 .1em .4em;
+  border-bottom: 1px solid var(--tk-line);
+}
+
+.tk-toolmenu__head b { font-size: .74rem; color: var(--tk-ink); }
+.tk-toolmenu__badge { margin-left: auto; font-size: .6rem; color: var(--tk-brand); }
+
+.tk-toolmenu__item {
+  display: block;
+  padding: .4em .1em;
+  border-bottom: 1px solid var(--tk-line);
+  text-decoration: none;
+}
+
+.tk-toolmenu__item:last-child { border-bottom: 0; }
+.tk-toolmenu__item:hover { background: var(--tk-brand-soft); }
+
+.tk-toolmenu__name { display: block; font-size: .7rem; font-weight: 600; color: var(--tk-brand-dark); }
+.tk-toolmenu__desc { display: block; font-size: .62rem; line-height: 1.5; color: var(--tk-ink-2); }
+
+/* 窄屏：只留图标；面板改成接近全宽的浮层（右对齐的 18.5rem 在 390px 下会出界） */
 @media screen and (max-width: 44.9375em) {
-  .tk-headtool { padding: 0 .42em; margin-right: .3rem; }
-  .tk-headtool__tx { display: none; }
+  .tk-toolmenu { margin-right: .3rem; }
+  .tk-toolmenu__btn { padding: 0 .42em; }
+  .tk-toolmenu__tx,
+  .tk-toolmenu__caret { display: none; }
+
+  .tk-toolmenu__panel {
+    position: fixed;
+    top: 2.75rem;
+    right: .4rem;
+    left: .4rem;
+    width: auto;
+  }
 }
 
 /* —— 52.3 任务图鉴工具条（#tk-toolstrip 挂载点，由 toolbox.js 渲染）—— */
@@ -2527,6 +2628,23 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 [data-md-color-scheme="slate"] .tk-toolstrip__tx { color: #A9A49A; }
 [data-md-color-scheme="slate"] .tk-toolstrip__tx b { color: #C3CFDD; }
 [data-md-color-scheme="slate"] .tk-toolstrip__stat { color: #8FA3BA; }
+
+/* 52.2 工具菜单：页头按钮本身在深色下文字已是浅色（页头承色块不变），
+   只需覆盖面板 —— 它从纸面翻成深面，文字同步提亮。 */
+[data-md-color-scheme="slate"] .tk-toolmenu__panel {
+  background: #232220;
+  border-color: #4A473F;
+  border-top-color: var(--tk-fiord-lt);
+  box-shadow: 0 .55rem 1.3rem rgba(0, 0, 0, .45);
+}
+
+[data-md-color-scheme="slate"] .tk-toolmenu__head { border-bottom-color: #3A3833; }
+[data-md-color-scheme="slate"] .tk-toolmenu__head b { color: #E6E4DF; }
+[data-md-color-scheme="slate"] .tk-toolmenu__badge { color: #8FA3BA; }
+[data-md-color-scheme="slate"] .tk-toolmenu__item { border-bottom-color: #3A3833; }
+[data-md-color-scheme="slate"] .tk-toolmenu__item:hover { background: #2A2F36; }
+[data-md-color-scheme="slate"] .tk-toolmenu__name { color: #C3CFDD; }
+[data-md-color-scheme="slate"] .tk-toolmenu__desc { color: #A9A49A; }
 
 /* --------------------------------------------------------------------------
    53. 赛季特质模拟器（javascripts/season-planner.js 的样式）
@@ -3526,7 +3644,11 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 }
 
 /* ==========================================================================
-   52.3 首页「本站速览」（scripts/gen_home_stats.py 生成）
+   58. 首页「本站速览」（scripts/gen_home_stats.py 生成）
+   --------------------------------------------------------------------------
+   ⚠️ 本节编号原为「52.3」，与 §52.3「任务图鉴工具条」重号、且位置排在 §57
+   之后 —— 那是历史遗留（首页速览是后加的一节，直接追加到文件末尾）。
+   2026-10 整理：改号为 58（文件内最后一个分节），保持编号单调递增。
    --------------------------------------------------------------------------
    对照站（eftarkov）的首屏是密集的数据卡、且每张卡都是入口；本站首页此前是
    「双轨卡 → 一大段正文」，第一屏看不到规模。这一块补上那个**信息结构**，

@@ -12,7 +12,13 @@
 
   【A】路径断言 —— 手册里反引号引用的每个文件/脚本必须真实存在。
   【B】门禁断言 —— 手册里说「是 CI 门禁」的脚本必须真的被 workflow 调用；
-                   说「不是门禁（信息性）」的必须真的没被调用。
+                   说「不是门禁（信息性）」的必须真的没被调用；
+                   说「巡检」（第三类，2026-10 加入）的必须真的出现在一个
+                   **带 schedule 触发器**的 workflow 里。
+                   为什么要有第三类：巡检脚本（需要联网 / 只报告不阻断）既不能
+                   放进部署前置（GitHub 抖动会变成失败的部署），也不能「完全
+                   不进 CI」（那样它永远不会跑）。原来的二分法里，这两种脚本
+                   无论怎么标都对不上，于是迟早会被静默地改成谎话。
 
 退出码：有任何一条不成立 → 1（可作为 CI 门禁）。全部通过 → 0。
 只读，不修改任何文件。
@@ -116,16 +122,28 @@ def workflow_text() -> str:
     return "\n".join(chunks)
 
 
-def parse_gate_claims(text: str) -> list[tuple[str, bool, str]]:
+def scheduled_workflow_text() -> str:
+    """只拼「带 schedule 触发器」的 workflow —— 巡检类脚本的判据。"""
+    chunks = []
+    for wf in sorted(WORKFLOW_DIR.glob("*.y*ml")):
+        text = wf.read_text(encoding="utf-8")
+        # 认 `schedule:` 出现在触发器区（缩进 0–2 格的键）
+        if re.search(r"^\s{0,2}schedule:", text, re.M):
+            chunks.append(f"# === {wf.name} ===\n{text}")
+    return "\n".join(chunks)
+
+
+def parse_gate_claims(text: str) -> list[tuple[str, str, str]]:
     """从 skill 的表格里解析「是否阻断部署」声明。
 
     解析到的行形如：
         | `scripts/check-freshness.py` | ... | 否（信息性，恒返回 0） |
         | `scripts/check_entries.py`   | ... | 是（CI 部署前置） |
+        | `scripts/check_drift.py`     | ... | 巡检（定时 job 调用，不阻断部署） |
 
-    返回 [(脚本路径, 是否声称是门禁, 原始声明文本)]
+    返回 [(脚本路径, 类型, 原始声明文本)]，类型 ∈ {gate, info, patrol}
     """
-    claims: list[tuple[str, bool, str]] = []
+    claims: list[tuple[str, str, str]] = []
     for line in text.splitlines():
         if not line.strip().startswith("|"):
             continue
@@ -138,9 +156,11 @@ def parse_gate_claims(text: str) -> list[tuple[str, bool, str]]:
             continue
         verdict = cells[-1]
         if verdict.startswith("是"):
-            claims.append((m.group(1), True, verdict))
+            claims.append((m.group(1), "gate", verdict))
         elif verdict.startswith("否"):
-            claims.append((m.group(1), False, verdict))
+            claims.append((m.group(1), "info", verdict))
+        elif verdict.startswith(("巡", "定时")):
+            claims.append((m.group(1), "patrol", verdict))
     return claims
 
 
@@ -156,6 +176,7 @@ def main() -> int:
 
     basename_index = build_basename_index()
     wf_text = workflow_text()
+    sched_text = scheduled_workflow_text()
 
     errors: list[str] = []
     checked_paths = 0
@@ -196,23 +217,37 @@ def main() -> int:
         claims = parse_gate_claims(text)
         if claims:
             print("  · 门禁声明核对：")
-        for script, claimed_gate, raw in claims:
+        for script, kind, raw in claims:
             in_ci = script in wf_text
-            if claimed_gate and not in_ci:
-                errors.append(
-                    f"{rel}：声明 `{script}` 是 CI 门禁（「{raw}」），"
-                    f"但没有任何 workflow 调用它 —— 声明已失效"
-                )
-                print(f"    ✗ {script}  声明「{raw}」但 CI 未调用")
-            elif not claimed_gate and in_ci:
-                errors.append(
-                    f"{rel}：声明 `{script}` 非门禁（「{raw}」），"
-                    f"但它出现在 workflow 里 —— 声明已失效"
-                )
-                print(f"    ✗ {script}  声明「{raw}」但 CI 已在调用")
-            else:
-                verdict = "已在 CI 调用" if in_ci else "未接入 CI"
-                print(f"    ✓ {script}  「{raw}」 —— 与 workflow 一致（{verdict}）")
+            in_sched = script in sched_text
+            if kind == "gate":
+                if not in_ci:
+                    errors.append(
+                        f"{rel}：声明 `{script}` 是 CI 门禁（「{raw}」），"
+                        f"但没有任何 workflow 调用它 —— 声明已失效"
+                    )
+                    print(f"    ✗ {script}  声明「{raw}」但 CI 未调用")
+                else:
+                    print(f"    ✓ {script}  「{raw}」 —— 与 workflow 一致（已在 CI 调用）")
+            elif kind == "info":
+                if in_ci:
+                    errors.append(
+                        f"{rel}：声明 `{script}` 非门禁（「{raw}」），"
+                        f"但它出现在 workflow 里 —— 声明已失效"
+                    )
+                    print(f"    ✗ {script}  声明「{raw}」但 CI 已在调用")
+                else:
+                    print(f"    ✓ {script}  「{raw}」 —— 与 workflow 一致（未接入 CI）")
+            else:  # patrol —— 巡检类：必须出现在带 schedule 的 workflow 里
+                if not in_sched:
+                    errors.append(
+                        f"{rel}：声明 `{script}` 是定时巡检（「{raw}」），"
+                        f"但没有任何带 schedule 触发器的 workflow 调用它 —— "
+                        f"巡检脚本不进定时任务，等于永远不会跑"
+                    )
+                    print(f"    ✗ {script}  声明「{raw}」但没有定时 workflow 调用它")
+                else:
+                    print(f"    ✓ {script}  「{raw}」 —— 与 workflow 一致（已在定时巡检中调用）")
 
     print("\n" + "=" * 62)
     print(f"扫描 skill：{len(skill_files)} 个 ｜ 路径断言：{ok_paths}/{checked_paths} 通过")
