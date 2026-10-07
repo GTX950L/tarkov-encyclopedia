@@ -22,6 +22,56 @@
 </div>
 </div>
 
+<!-- AUTO-GEN:HOME-STATS:START -->
+
+<div class="tk-stat">
+<div class="tk-stat__head">本站速览<i>数字由数据文件生成，随内容自动更新</i></div>
+<div class="tk-stat__grid">
+<a class="tk-stat__card" href="entries/index.md">
+<b class="tk-stat__n">87<em>篇</em></b>
+<span class="tk-stat__l">百科条目</span>
+<span class="tk-stat__d">10 篇主线 · 逐篇可读</span>
+</a>
+<a class="tk-stat__card" href="quests/index.md">
+<b class="tk-stat__n">515<em>个</em></b>
+<span class="tk-stat__l">任务逐条</span>
+<span class="tk-stat__d">要求 / 奖励 / 门槛 / 前置</span>
+</a>
+<a class="tk-stat__card" href="quests/progress.md">
+<b class="tk-stat__n">1441<em>条</em></b>
+<span class="tk-stat__l">任务目标</span>
+<span class="tk-stat__d">可勾选，进度按前置反推</span>
+</a>
+<a class="tk-stat__card" href="entries/achievements.md">
+<b class="tk-stat__n">127<em>个</em></b>
+<span class="tk-stat__l">成就</span>
+<span class="tk-stat__d">含 25 个隐藏成就</span>
+</a>
+<a class="tk-stat__card" href="entries/ammo-table.md">
+<b class="tk-stat__n">200<em>条</em></b>
+<span class="tk-stat__l">弹药数值</span>
+<span class="tk-stat__d">含对 1–6 级护甲判定</span>
+</a>
+<a class="tk-stat__card" href="entries/hideout-modules.md">
+<b class="tk-stat__n">26<em>模块</em></b>
+<span class="tk-stat__l">藏身处</span>
+<span class="tk-stat__d">68 级 · 前置可判定</span>
+</a>
+<a class="tk-stat__card" href="quests/index.md">
+<b class="tk-stat__n">79<em>种</em></b>
+<span class="tk-stat__l">物品需求</span>
+<span class="tk-stat__d">被 3 个及以上任务需要</span>
+</a>
+<a class="tk-stat__card" href="quests/index.md">
+<b class="tk-stat__n">59<em>把</em></b>
+<span class="tk-stat__l">任务钥匙</span>
+<span class="tk-stat__d">按地图归拢</span>
+</a>
+</div>
+</div>
+
+<!-- AUTO-GEN:HOME-STATS:END -->
+
 《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **87 个**条目，分十篇组织：**前八篇**是“从零上手”的主线，**第九篇 · [任务图鉴](quests/index.md)** 把 **515 个任务**的要求、奖励与接取门槛逐条列全，**第十篇 · [参考](docs/index.md)** 收齐速查表与站务工具页。
 
 > 💡 本站**全文不使用配图**，弱网环境可流畅阅读。所有数值描述以“机制原理”为主，具体数值随版本变动，请以游戏内为准。

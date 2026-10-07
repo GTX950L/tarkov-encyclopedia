@@ -2403,6 +2403,15 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   color: #F2F4F7;
 }
 
+/* ⚠️ **必须再写一次色，且提高特异性。**
+   只写上面的 `color: #F2F4F7` 是没用的：主题的 `.md-typeset a` 是 (0,1,1)，
+   而单个类选择器是 (0,1,0) —— 主题赢，文字色退回品牌色 #3D4A5C，
+   压在 fiord 底 #4A596C 上，**实测对比度 1.26:1，等于看不见**。
+   这也是首页那个按钮看起来「像一块空方块」的原因。
+   判据：**凡是「底色 + 文字色」都要自己给的按钮，都要检查它是不是 `<a>`** ——
+   在 `.md-typeset` 里，任何单类选择器都斗不过主题的链接规则。 */
+.tk-launch .tk-launch__cta--primary { color: #F2F4F7; }
+
 .tk-launch__card:hover .tk-launch__cta--primary { background: var(--tk-brand-dark); }
 
 @media screen and (max-width: 44.9375em) {
@@ -3514,4 +3523,88 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   .tk-tree__node--d4 { padding-left: 2.4rem; }
   .tk-tree__node--d5 { padding-left: 3rem; }
   .tk-tree__node--d6 { padding-left: 3.6rem; }
+}
+
+/* ==========================================================================
+   52.3 首页「本站速览」（scripts/gen_home_stats.py 生成）
+   --------------------------------------------------------------------------
+   对照站（eftarkov）的首屏是密集的数据卡、且每张卡都是入口；本站首页此前是
+   「双轨卡 → 一大段正文」，第一屏看不到规模。这一块补上那个**信息结构**，
+   但只用**静态计数** —— 站内不收实时数值、不用游戏美术资源。
+   视觉沿用 §52 的语言：方角、panel 底、顶部 3px 色脊、等宽数字。
+   ========================================================================== */
+
+.tk-stat { margin: 1.1em 0 .3em; }
+
+.tk-stat__head {
+  display: flex;
+  align-items: baseline;
+  gap: .6em;
+  padding-bottom: .3em;
+  margin-bottom: .5em;
+  border-bottom: 2px solid var(--tk-fiord);
+  font-size: .74rem;
+  font-weight: 700;
+  color: var(--tk-brand);
+}
+
+.tk-stat__head i {
+  margin-left: auto;
+  font-style: normal;
+  font-size: .62rem;
+  font-weight: 400;
+  color: var(--tk-ink-2);
+}
+
+.tk-stat__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(7.4rem, 100%), 1fr));
+  gap: .5rem;
+}
+
+.tk-stat__card {
+  display: flex;
+  flex-direction: column;
+  gap: .1em;
+  padding: .55em .7em;
+  border: 1px solid var(--tk-line-2);
+  border-top: 3px solid var(--tk-fiord-lt);
+  border-radius: 2px;
+  background: var(--tk-panel);
+  text-decoration: none;
+}
+
+.tk-stat__card:hover {
+  border-color: var(--tk-fiord);
+  border-top-color: var(--tk-fiord);
+  background: var(--tk-brand-soft);
+}
+
+.tk-stat__n {
+  font-family: var(--tk-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  color: var(--tk-brand-dark);
+}
+
+.tk-stat__n em {
+  margin-left: .18em;
+  font-style: normal;
+  font-size: .6rem;
+  font-weight: 400;
+  color: var(--tk-ink-2);
+}
+
+.tk-stat__l { font-size: .72rem; font-weight: 600; color: var(--tk-ink); }
+
+.tk-stat__d { font-size: .62rem; line-height: 1.5; color: var(--tk-ink-2); }
+
+[data-md-color-scheme="slate"] .tk-stat__card { background: #2A2825; border-color: #4A473F; }
+
+/* 窄屏两列 —— auto-fit 的 8.4rem 下限在 390px 下只剩一列，卡片会拉得很长 */
+@media screen and (max-width: 44.9375em) {
+  .tk-stat__grid { grid-template-columns: repeat(2, 1fr); }
+  .tk-stat__head i { display: none; }
 }

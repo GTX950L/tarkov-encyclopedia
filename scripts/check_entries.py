@@ -32,6 +32,11 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+# 同目录脚本互引（4c 节要调用首页速览的生成器做比对）。
+# 不靠工作目录 —— CI 里 `python scripts/check_entries.py` 的 cwd 是仓库根，
+# 而直接执行时 cwd 可能是别处；按 `__file__` 定位才稳。
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content"
 
@@ -387,6 +392,17 @@ def main() -> int:
                 f"篇数不一致（{label}）: {path.relative_to(ROOT)} 写的是 {found.group(1)}篇，"
                 f"nav 实际 {n_groups} 篇"
             )
+
+    # 4c. 首页「本站速览」的数字必须与数据一致
+    #     **刻意复用生成器的实现**（`render()`），而不是在这里另写一遍算术：
+    #     两套实现必然漂，而首页是第 N 处计数落点，肉眼绝对看不过来。
+    #     生成器自己会比对磁盘内容，过期就返回 1 —— 这就是「数据变了但没重生成」的门禁。
+    try:
+        import gen_home_stats  # noqa: PLC0415  同目录，脚本模式下已加进 sys.path
+        if gen_home_stats.main_check() != 0:
+            errors.append("首页「本站速览」已过期 —— 跑 `python scripts/gen_home_stats.py` 重新生成")
+    except Exception as exc:  # pragma: no cover
+        errors.append(f"首页速览核对未能执行：{type(exc).__name__}: {exc}")
 
     # 5. tags.md 与 frontmatter 实际统计是否一致
     tagmap: dict[str, set[str]] = defaultdict(set)
