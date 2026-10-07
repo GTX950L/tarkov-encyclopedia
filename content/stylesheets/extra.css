@@ -1545,6 +1545,89 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   background: var(--tk-amber-bg);
 }
 
+/* —— 前置未通（2026-10-07 新增）—————————————————————————
+   此前前置只当文字显示、不参与判定；现在它是判定的一部分，
+   所以「未通」必须有一个**比「材料未齐」更靠前**的视觉档：
+   灰脊 + 淡红底，一眼看出「不是缺东西，是还没轮到它」。 */
+.tk-hut__cell.is-locked {
+  border-left-color: var(--tk-red);
+  background: var(--tk-red-bg);
+}
+
+.tk-hut__lock {
+  padding: .15rem .5rem;
+  border: 1px solid var(--tk-red);
+  color: var(--tk-red);
+  font-size: .66rem;
+  line-height: 1.5;
+}
+
+/* 前置逐条的勾/叉（技能那条是「未入册」色，说明本站不判定） */
+.tk-hut__deps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .2rem .5rem;
+}
+
+.tk-hut__dep {
+  font-size: .66rem;
+  line-height: 1.6;
+  font-family: var(--tk-mono);
+}
+
+.tk-hut__dep--ok { color: var(--tk-grn); }
+.tk-hut__dep--no { color: var(--tk-red); }
+
+.tk-hut__dep--unknown {
+  color: var(--tk-ink-2);
+  text-decoration: underline dotted var(--tk-line-3);
+  text-underline-offset: 2px;
+}
+
+/* —— 计数式筛选（学小喵的「可建造 9 / 条件不足 17」）—— */
+
+.tk-hut__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin: .6rem 0 .2rem;
+}
+
+.tk-hut__chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .4em;
+  padding: .24em .7em;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  background: var(--tk-panel);
+  color: var(--tk-ink-2);
+  font: inherit;
+  font-size: .72rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tk-hut__chip:hover { border-color: var(--tk-line-3); color: var(--tk-ink); }
+
+.tk-hut__chip[aria-pressed="true"] {
+  background: var(--tk-fiord);
+  border-color: var(--tk-fiord);
+  color: #F5F4F0;
+}
+
+.tk-hut__chip b {
+  font-family: var(--tk-mono);
+  font-size: .94em;
+  font-weight: 400;
+  opacity: .9;
+}
+
+[data-md-color-scheme="slate"] .tk-hut__chip {
+  background: #2A2825;
+  border-color: #4A473F;
+}
+
 .tk-board__notready {
   margin: .6rem 0 0;
   padding: .6rem .8rem;

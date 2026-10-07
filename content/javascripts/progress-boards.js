@@ -1512,21 +1512,42 @@
     host.textContent = "";
     if (!list.length) { host.appendChild(notReady("藏身处清单")); return; }
 
-    var cards = sumCards([["已建造"], ["已建满"], ["可升下一级"], ["模块总数", String(hut.total || list.length)]]);
+    var cards = sumCards([["已建造"], ["已建满"], ["现在可升"], ["前置未通"]]);
     var refs = cards.refs;
     host.appendChild(cards.el);
 
-    var bar = el("div", "tk-board__filter");
-    var only = document.createElement("label");
-    only.className = "tk-board__check";
-    var cb = document.createElement("input");
-    cb.type = "checkbox";
-    only.appendChild(cb);
-    only.appendChild(document.createTextNode("只看材料未齐的模块"));
-    bar.appendChild(only);
-    var count = el("span", "tk-board__filtercount");
-    bar.appendChild(count);
+    /* 模块中文名索引：前置判定要按名字反查另一个模块的当前等级 */
+    var byName = {};
+    for (var bi = 0; bi < list.length; bi++) if (list[bi].name) byName[list[bi].name] = list[bi];
+
+    /* 计数式筛选：每一档都带实时数字（学的是小喵的「可建造 9 / 条件不足 17」）——
+       先告诉你分布，再让你筛，比只给一个复选框更快看懂全局。 */
+    var FILTERS = [
+      ["all", "全部"],
+      ["can", "现在可升"],
+      ["lock", "前置未通"],
+      ["mat", "材料未齐"],
+      ["max", "已建满"]
+    ];
+    var mode = "all";
+    var bar = el("div", "tk-hut__chips");
+    var chipEls = {};
+    for (var fi = 0; fi < FILTERS.length; fi++) {
+      (function (f) {
+        var b = el("button", "tk-hut__chip");
+        b.type = "button";
+        var lab = el("span", null, f[1]);
+        var num = el("b", null, "0");
+        b.appendChild(lab);
+        b.appendChild(num);
+        b.addEventListener("click", function () { mode = f[0]; apply(); });
+        bar.appendChild(b);
+        chipEls[f[0]] = { el: b, num: num };
+      })(FILTERS[fi]);
+    }
     host.appendChild(bar);
+    var count = el("span", "tk-board__filtercount");
+    host.appendChild(count);
 
     var cells = [];
     var groups = [], byLayer = {};
@@ -1543,7 +1564,7 @@
       sec.appendChild(head);
       var grid = el("div", "tk-hut__grid");
       for (var k = 0; k < byLayer[groups[gi]].length; k++) {
-        var built = hideoutCard(byLayer[groups[gi]][k]);
+        var built = hideoutCard(byLayer[groups[gi]][k], byName);
         cells.push(built);
         grid.appendChild(built.el);
       }
@@ -1551,31 +1572,81 @@
       host.appendChild(sec);
     }
     host.appendChild(el("p", "tk-board__note",
-      (hut.note || "") + " 「可升下一级」只看**材料**够不够 —— 前置设施与技能属游戏内状态，本站没有数据可判定，只做提示。"));
+      (hut.note || "") + " **「现在可升」＝ 前置设施已通 ＋ 材料已齐**；"
+      + "「前置未通」的卡片会写明还缺哪个模块的几级。"
+      + "**技能要求只提示不判定** —— 技能等级是游戏内状态，本站不记录。"));
 
     function apply() {
-      var onlyOn = cb.checked;
-      var builtN = 0, maxedN = 0, readyN = 0, shown = 0;
+      var builtN = 0, maxedN = 0, canN = 0, lockN = 0, matN = 0, shown = 0;
       for (var r = 0; r < cells.length; r++) {
         var st = cells[r].sync();
+        /* 四档必须**互斥**，否则「材料未齐」会把前置未通的也吞进来（26/26 全中，
+           数字就没有信息量）。分区口径：已建满 ｜ 前置未通 ｜ 现在可升 ｜ 前置已通但材料未齐。 */
+        var matShort = !st.maxed && !st.locked && !st.ready;
         if (st.built) builtN++;
         if (st.maxed) maxedN++;
-        if (st.ready) readyN++;
-        var show = !onlyOn || !st.ready;
+        if (st.canBuild) canN++;
+        if (st.locked) lockN++;
+        if (matShort) matN++;
+        var show = mode === "all"
+          || (mode === "can" && st.canBuild)
+          || (mode === "lock" && st.locked)
+          || (mode === "mat" && matShort)
+          || (mode === "max" && st.maxed);
         cells[r].el.hidden = !show;
         if (show) shown++;
       }
-      count.textContent = "显示 " + shown + " / " + cells.length;
+      /* 整组都空时把分组标题也收起来 —— 否则筛「现在可升」会看到一堆空标题 */
+      var secs = host.querySelectorAll(".tk-hut");
+      for (var si = 0; si < secs.length; si++) {
+        var vis = secs[si].querySelectorAll(".tk-hut__cell:not([hidden])").length;
+        secs[si].hidden = vis === 0;
+      }
+      for (var ci = 0; ci < FILTERS.length; ci++) {
+        var f = FILTERS[ci], n = 0;
+        if (f[0] === "all") n = cells.length;
+        else if (f[0] === "can") n = canN;
+        else if (f[0] === "lock") n = lockN;
+        else if (f[0] === "mat") n = matN;
+        else n = maxedN;
+        chipEls[f[0]].num.textContent = String(n);
+        chipEls[f[0]].el.setAttribute("aria-pressed", mode === f[0] ? "true" : "false");
+      }
+      count.textContent = "显示 " + shown + " / " + cells.length + " 个模块";
       refs["已建造"].textContent = builtN + " / " + cells.length;
       refs["已建满"].textContent = String(maxedN);
-      refs["可升下一级"].textContent = String(readyN);
+      refs["现在可升"].textContent = String(canN);
+      refs["前置未通"].textContent = String(lockN);
     }
-    cb.addEventListener("change", apply);
     host.__tkSync = apply;
     apply();
   }
 
-  function hideoutCard(mod) {
+  /* 前置设施判定：把「前置 安保 1 级」从**一行文字**变成**真的判定**。
+
+     数据一直都在 —— progress-manifest.js 里每个模块的 `levels[].stations[]` 就是前置
+     （实测 26 个模块 / 68 个等级 / **126 条前置边**），此前却没参与判定，
+     看板还写着「前置设施与技能属游戏内状态，本站没有数据可判定」—— **「前置」那半句是错的**。
+
+     ⚠️ **技能要求（`levels[].skills[]`）确实没有数据源**（本站不记录技能等级），
+     所以它只提示、不判定。两条要**分开表述**，不能混成一句「本站没有数据」。
+
+     `byName` 是「模块中文名 → 模块对象」的索引，由 renderHideoutBoard 建好后传进来；
+     前置里出现站内没有的模块名时按「未知」处理（不谎报为 0 级，也不放行）。 */
+  function missingPrereqs(req, byName) {
+    var out = [];
+    for (var i = 0; i < req.stations.length; i++) {
+      var s = req.stations[i];
+      if (!s || !s.name) continue;
+      var m = byName[s.name];
+      var want = parseInt(s.level, 10) || 0;
+      var have = m ? (parseInt(TP.hideoutLevel(m.name), 10) || 0) : 0;
+      if (have < want) out.push({ name: s.name, want: want, have: have, known: !!m });
+    }
+    return out;
+  }
+
+  function hideoutCard(mod, byName) {
     var cell = el("div", "tk-hut__cell");
     var name = el("div", "tk-hut__name");
     name.appendChild(document.createTextNode(mod.name));
@@ -1617,19 +1688,33 @@
     next.appendChild(matWrap);
     var doneBadge = el("div", "tk-hut__done", "已建满");
     cell.appendChild(doneBadge);
+    /* 前置未通的徽标 —— 与「已建满」互斥，同一位置只显示一个 */
+    var lockBadge = el("div", "tk-hut__lock");
+    lockBadge.hidden = true;
+    cell.appendChild(lockBadge);
 
     var matRows = [];
     function buildNext(req) {
       nextHead.textContent = "下一级：" + req.level + " 级 ｜ 施工 " + fmtTime(req.time);
-      var d = [];
-      for (var i = 0; i < req.stations.length; i++) {
-        if (req.stations[i].name) d.push("前置 " + req.stations[i].name + " " + req.stations[i].level + " 级");
+      /* 前置逐条渲染成可判定的行：满足打勾、不足写「现有 N 级」。
+         技能单独一组（无数据源，只提示）—— 不与前置混在一起。 */
+      deps.textContent = "";
+      var miss = missingPrereqs(req, byName);
+      var i;
+      for (i = 0; i < req.stations.length; i++) {
+        var s = req.stations[i];
+        if (!s || !s.name) continue;
+        deps.appendChild(depPill("前置 " + s.name + " " + s.level + " 级", s, byName, miss));
       }
-      for (var j = 0; j < req.skills.length; j++) {
-        if (req.skills[j].name) d.push("技能 " + req.skills[j].name + " " + req.skills[j].level + " 级");
+      for (i = 0; i < req.skills.length; i++) {
+        var sk = req.skills[i];
+        if (!sk || !sk.name) continue;
+        var pill = el("span", "tk-hut__dep tk-hut__dep--unknown",
+          "技能 " + sk.name + " " + sk.level + " 级");
+        pill.title = "技能等级是游戏内状态，本站不记录，故只提示不判定";
+        deps.appendChild(pill);
       }
-      deps.textContent = d.length ? d.join(" · ") : "";
-      deps.hidden = !d.length;
+      deps.hidden = !deps.firstChild;
       matWrap.textContent = "";
       matRows = [];
       if (!req.items.length) {
@@ -1653,17 +1738,45 @@
       }
     }
 
+    /* 一条前置的呈现：满足 → 勾 + 次要色；不足 → 叉 + 警示色 + 「现有 N 级」 */
+    function depPill(text, s, map, miss) {
+      var bad = null;
+      for (var i = 0; i < miss.length; i++) {
+        if (miss[i].name === s.name && miss[i].want === (parseInt(s.level, 10) || 0)) bad = miss[i];
+      }
+      var pill = el("span", "tk-hut__dep" + (bad ? " tk-hut__dep--no" : " tk-hut__dep--ok"),
+        (bad ? "✕ " : "✓ ") + text + (bad ? "（现有 " + bad.have + " 级）" : ""));
+      if (bad && !bad.known) pill.title = "站内没有这个模块的记录，无法判定 —— 按未满足处理";
+      else if (bad) pill.title = "先把 " + bad.name + " 升到 " + bad.want + " 级";
+      return pill;
+    }
+
     function sync() {
       var level = TP.hideoutLevel(mod.name);
       if (sel.value !== String(level)) sel.value = String(level);
       var maxed = level >= top && top > 0;
       var req = nextLevelReq(mod, level);
-      var stamp = maxed ? "max" : (req ? String(req.level) : "none");
+      var miss = req ? missingPrereqs(req, byName) : [];
+      var locked = !maxed && !!req && miss.length > 0;
+      /* ⚠️ 指纹必须**把前置的当前等级也算进去**：只按 `req.level` 做指纹时，
+         你升级「安保」之后，那些以「安保」为前置的卡片指纹不变 → deps 不重建 →
+         勾/叉停在旧状态。这正是「同一份数据两条渲染路径，其中一条不刷新」的老坑。 */
+      var preSig = req ? req.stations.map(function (s) { return TP.hideoutLevel(s && s.name) || 0; }).join(",") : "";
+      var stamp = maxed ? "max" : (req ? req.level + "|" + preSig : "none");
       if (cell.getAttribute("data-stamp") !== stamp) {
         cell.setAttribute("data-stamp", stamp);
-        if (maxed) { next.hidden = true; doneBadge.hidden = false; }
-        else if (!req) { next.hidden = true; doneBadge.hidden = true; }
-        else { next.hidden = false; doneBadge.hidden = true; buildNext(req); }
+        if (maxed) { next.hidden = true; doneBadge.hidden = false; lockBadge.hidden = true; }
+        else if (!req) { next.hidden = true; doneBadge.hidden = true; lockBadge.hidden = true; }
+        else {
+          next.hidden = false; doneBadge.hidden = true;
+          lockBadge.hidden = !locked;
+          if (locked) {
+            lockBadge.textContent = "前置未通：还缺 " + miss.map(function (m) {
+              return m.name + " " + m.want + " 级";
+            }).join("、");
+          }
+          buildNext(req);
+        }
       }
       var allMet = true;
       for (var i = 0; i < matRows.length; i++) {
@@ -1674,11 +1787,18 @@
         matRows[i].row.className = ok2 ? "tk-hut__mrow tk-met" : "tk-hut__mrow";
       }
       if (!matRows.length) allMet = false;
+      var matsOK = !maxed && matRows.length > 0 && allMet;
       cell.className = "tk-hut__cell"
         + (level > 0 ? " is-built" : "")
         + (maxed ? " is-maxed" : "")
-        + (!maxed && matRows.length && allMet ? " is-ready" : "");
-      return { built: level > 0, maxed: maxed, ready: !maxed && matRows.length > 0 && allMet };
+        + (locked ? " is-locked" : "")
+        + (matsOK ? " is-ready" : "");
+      return {
+        built: level > 0, maxed: maxed,
+        ready: matsOK,                       /* 兼容旧语义：只看材料 */
+        locked: locked,
+        canBuild: matsOK && !locked          /* 「现在就能升」：前置与材料都齐 */
+      };
     }
     return { el: cell, sync: sync };
   }
