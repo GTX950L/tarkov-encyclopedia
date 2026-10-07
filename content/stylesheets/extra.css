@@ -805,11 +805,29 @@ body[data-md-color-scheme="slate"] {
   display: none;
 }
 
+/* 失败态（2026-10-07）：等过 45 秒索引还没好，提示改口为「没能载入」。
+   换色不是为了「更醒目」，而是**两句话的严重程度不同**：
+     琥珀 = 「再等等」，读者等完就好；
+     红   = 「这样下去不会好，刷新」，继续等是浪费读者时间。
+   沿用站内既有的语义分工（§1 的 --tk-red 用于「不可逆/ 危险」，
+   --tk-amber 用于「需要注意但不是错」），不新造一套。 */
+.tk-searchwait--fail {
+  background: var(--tk-red-bg);
+  border-color: var(--tk-red);
+  border-left-color: var(--tk-red);
+}
+
 [data-md-color-scheme="slate"] .tk-searchwait {
   background: #2E2B24;
   color: #EDE8DC;
   border-color: #6B5F45;
   border-left-color: var(--tk-sand);
+}
+
+[data-md-color-scheme="slate"] .tk-searchwait--fail {
+  background: #2E2320;
+  border-color: #A85B52;
+  border-left-color: var(--tk-red);
 }
 
 @media print {
