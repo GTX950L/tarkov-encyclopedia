@@ -71,6 +71,9 @@ def tail(text: str, n: int = 14) -> str:
 
 STEPS: list[tuple[str, list[str], str]] = [
     ("① 生成术语数据", [PY, "scripts/build_glossary.py"], "terms-data.js 未生成时，正文术语提示会静默消失"),
+    ("①b 生成物品图鉴", [PY, "scripts/gen_items_catalog.py"],
+     "catalog-data.js 与 16 个分类页未生成时，图鉴只剩降级文案；"
+     "生成器的七道对账会顺带校验分类清单是否仍与数据源闭合"),
     ("② 内容一致性", [PY, "scripts/check_entries.py"], "断链 / 计数漂移 / 骨架缺失 / 直引号 / 表格吞块"),
     ("③ 图标语义表", [PY, "scripts/check_icons.py"], "表外 emoji 与 template.md 的统计数字"),
     ("④ 引用承诺", [PY, "scripts/check_promises.py"], "《引用说明》第三节的每条承诺"),

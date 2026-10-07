@@ -10,6 +10,13 @@ site/
 # 不纳入版本管理（CI 在 build 前会重新生成，见 .github/workflows/deploy-pages.yml）
 content/javascripts/terms-data.js
 
+# 物品图鉴的抓取缓存与生成物：由 scripts/gen_items_catalog.py --fetch 生成，
+# 不纳入版本管理（CI 在 build 前会重新抓取，见 .github/workflows/deploy-pages.yml）。
+# 理由：缓存 11 MB，远超站内其它数据文件（最大 1.4 MB）；
+# 而 catalog-data.js 是**生成物**，仓库里存一份就够，重新生成随时可做。
+scripts/data/items_full.json
+content/javascripts/catalog-data.js
+
 # IDE
 .vscode/
 .idea/

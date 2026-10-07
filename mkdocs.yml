@@ -195,7 +195,24 @@ nav:
           - 彩蛋与制作组的恶意: entries/easter-eggs.md
           - 世界观与阵营背景: entries/worldview.md
   - 查阅栏目:
-      - 第九篇 · 任务图鉴:
+      - 第九篇 · 物品图鉴:
+          - 总览与检索: catalog/index.md
+          - 枪械: catalog/weapons.md
+          - 武器配件·瞄具与夜视: catalog/mods-sight.md
+          - 武器配件·枪管与膛口: catalog/mods-barrel.md
+          - 武器配件·枪身与握持: catalog/mods-body.md
+          - 防护装备: catalog/gear-armor.md
+          - 穿戴与面罩: catalog/gear-wear.md
+          - 背包与胸挂: catalog/carriers.md
+          - 储藏容器: catalog/containers.md
+          - 弹药与弹药箱: catalog/ammo.md
+          - 以物换物原料: catalog/barter.md
+          - 钥匙与门禁: catalog/keys.md
+          - 食物与药品: catalog/consumables.md
+          - 情报与笔记: catalog/intel.md
+          - 特殊物品: catalog/special.md
+          - 零散物品: catalog/misc.md
+      - 第十篇 · 任务图鉴:
           - 总览: quests/index.md
           - 我的进度: quests/progress.md
           - 物品反查（要不要留）: quests/item-lookup.md
@@ -211,7 +228,7 @@ nav:
           - Ref（竞技场裁判）: quests/ref.md
           - BTR 司机: quests/btr-driver.md
           - Lightkeeper: quests/lightkeeper.md
-      - 第十篇 · 参考:
+      - 第十一篇 · 参考:
           - 项目欢迎页: docs/index.md
           - 数据口径与引用说明: docs/citation.md
           - 新手成长路线: docs/progression.md

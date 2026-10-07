@@ -4196,3 +4196,224 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 [data-md-color-scheme="slate"] .tk-il__why { color: #DCD8D0; }
 [data-md-color-scheme="slate"] .tk-il__verdict--keep { color: #A8C07A; border-color: #A8C07A; }
 [data-md-color-scheme="slate"] .tk-il__nobarter { color: #D9B061; }
+
+/* ==========================================================================
+   物品图鉴（catalog.js）
+   --------------------------------------------------------------------------
+   只服务于 /catalog/ 下的 16 个生成页。三个要点：
+
+     · **表格不加 class 也能拿到承色块**：站内第 3 节的规则是
+       `.md-typeset table:not([class])`，所以本体脚本刻意不给 table 加 class。
+       下面的 .tk-cat__table 只调间距与对齐，不重画样式。
+     · **控件行用 grid 而不是 flex-wrap**：中文标签宽度差异大，
+       flex 换行会让「搜索框独占一行、三个下拉挤第二行」很难看。
+     · **窄屏**：搜索框 `min-width: min(18rem, 100%)` —— 本站 html 字号 125%，
+       写死 18rem 等于 400px 下限，390px 视口下会把整页撑宽（实测基线 369px）。
+   ========================================================================== */
+
+.tk-cat__bar {
+  display: grid;
+  grid-template-columns: minmax(min(20rem, 100%), 2fr) minmax(7rem, auto) minmax(7rem, auto) auto;
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 1rem;
+  padding: 10px 12px;
+  background: var(--tk-panel);
+  border: 1px solid var(--tk-line);
+  border-radius: 3px;
+}
+
+.tk-cat__q,
+.tk-cat__kind,
+.tk-cat__sort {
+  width: 100%;
+  min-width: 0;
+  /* ⚠️ select 的宽度由「最长 option」决定，而 grid 给的 1fr 会把它压到
+     只剩一个字的宽度（实测截图里两个下拉框都只剩「全部类型」的残形）。
+     用 auto + minmax(7rem, auto) 让它按内容撑开，同时给窄屏一个下限。 */
+  font: inherit;
+  font-size: .8rem;
+  padding: 6px 8px;
+  color: var(--tk-ink);
+  background: var(--tk-paper);
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+}
+
+.tk-cat__q:focus-visible,
+.tk-cat__kind:focus-visible,
+.tk-cat__sort:focus-visible {
+  outline: 2px solid var(--tk-fiord);
+  outline-offset: 1px;
+}
+
+.tk-cat__count {
+  font-family: var(--tk-mono);
+  font-size: .72rem;
+  color: var(--tk-brand);
+  white-space: nowrap;
+}
+
+/* 表格本体**不给 min-width** —— 滚动由外层 .md-typeset__table 承担，
+   宽度约束交给下面的 min-width。中文表格 min-content 极小，只加 overflow
+   永远不会触发滚动（站内已踩过：中文「说明」列被压到每行 8 个汉字）。 */
+.tk-cat__table { width: 100%; }
+.tk-cat__table td { vertical-align: top; }
+.tk-cat__table td:nth-child(3) { text-align: right; white-space: nowrap; }
+/* ⚠️ min-width 必须**同时给 th 和 td** —— 只给 td 时，表头格仍按内容宽度
+   收缩，于是「英文名」被压成竖排单字（实测截图）。表格布局下同一列的
+   所有格子共享列宽，但表头有自己的最小内容宽度，不加就会被挤。 */
+.tk-cat__table th:nth-child(1),
+.tk-cat__table td:nth-child(1) { min-width: 9rem; }
+/* 「关键属性」是这一栏最有价值的（口径与等级都在里面），要够宽才不被挤成两三行 */
+.tk-cat__table th:nth-child(4),
+.tk-cat__table td:nth-child(4) { min-width: 18rem; }
+.tk-cat__table th:nth-child(2),
+.tk-cat__table th:nth-child(3),
+.tk-cat__table th:nth-child(5),
+.tk-cat__table th:nth-child(6) { white-space: nowrap; }
+/* JS 建的表需要 min-width 才会真的溢出、进而让外层滚起来。
+   34rem 在本站 html 125% 字号下约 680px —— 够放下 6 列又不至于太宽。 */
+.tk-cat__holder .md-typeset__table { display: block; overflow-x: auto; }
+.tk-cat__holder .tk-cat__table { min-width: 34rem; }
+
+.tk-cat__name {
+  font: inherit;
+  color: var(--tk-brand);
+  background: none;
+  border: 0;
+  border-bottom: 1px dotted var(--tk-line-3);
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+.tk-cat__name:hover { color: var(--tk-brand-dark); border-bottom-style: solid; }
+
+.tk-cat__more {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  font: inherit;
+  font-size: .76rem;
+  color: var(--tk-brand);
+  background: var(--tk-brand-soft);
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.tk-cat__more:hover { background: var(--tk-panel-2); }
+
+.tk-cat__empty {
+  margin: 0;
+  padding: 14px 16px;
+  font-size: .8rem;
+  color: var(--tk-ink-2);
+  background: var(--tk-panel);
+  border: 1px dashed var(--tk-line-2);
+  border-radius: 3px;
+}
+
+.tk-cat-detail {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 20;
+  width: min(30rem, calc(100vw - 2rem));
+  max-height: min(26rem, 80vh);
+  overflow-y: auto;
+  padding: 14px 16px;
+  background: var(--tk-paper);
+  border: 1px solid var(--tk-line-3);
+  border-radius: 3px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .12);
+}
+
+.tk-cat-detail__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid var(--tk-line);
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+.tk-cat-detail__head h3 { margin: 0; font-size: .95rem; }
+
+.tk-cat-detail__x {
+  font: inherit;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--tk-ink-2);
+  background: none;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  padding: 2px 7px;
+  cursor: pointer;
+}
+
+.tk-cat-detail__dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 12px;
+  margin: 0 0 12px;
+  font-size: .76rem;
+}
+.tk-cat-detail__dl dt { color: var(--tk-ink-2); }
+.tk-cat-detail__dl dd { margin: 0; overflow-wrap: anywhere; }
+
+.tk-cat-detail__props h4 {
+  margin: 0 0 4px;
+  font-size: .78rem;
+  color: var(--tk-brand);
+}
+.tk-cat-detail__props p { margin: 0; font-size: .76rem; line-height: 1.6; }
+
+.tk-cat-detail__note {
+  margin: 12px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--tk-line);
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+}
+
+[data-md-color-scheme="slate"] .tk-cat__bar { background: #2A2825; border-color: #4A473F; }
+[data-md-color-scheme="slate"] .tk-cat__q,
+[data-md-color-scheme="slate"] .tk-cat__kind,
+[data-md-color-scheme="slate"] .tk-cat__sort {
+  background: #22211E;
+  border-color: #5A564C;
+  color: #DCD8D0;
+}
+[data-md-color-scheme="slate"] .tk-cat__count { color: #C6D2DE; }
+[data-md-color-scheme="slate"] .tk-cat__name { color: #C6D2DE; border-bottom-color: #7A756A; }
+[data-md-color-scheme="slate"] .tk-cat__more {
+  background: #33312D;
+  border-color: #5A564C;
+  color: #C6D2DE;
+}
+[data-md-color-scheme="slate"] .tk-cat__empty {
+  background: #2A2825;
+  border-color: #5A564C;
+  color: #BDB8AE;
+}
+[data-md-color-scheme="slate"] .tk-cat-detail {
+  background: #22211E;
+  border-color: #5A564C;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .5);
+}
+[data-md-color-scheme="slate"] .tk-cat-detail__head { border-bottom-color: #4A473F; }
+[data-md-color-scheme="slate"] .tk-cat-detail__x {
+  color: #BDB8AE;
+  border-color: #5A564C;
+}
+[data-md-color-scheme="slate"] .tk-cat-detail__dl dt { color: #A8A399; }
+[data-md-color-scheme="slate"] .tk-cat-detail__props h4 { color: #C6D2DE; }
+[data-md-color-scheme="slate"] .tk-cat-detail__note { border-top-color: #4A473F; color: #A8A399; }
+
+@media (max-width: 520px) {
+  .tk-cat__bar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .tk-cat__count { text-align: right; }
+}

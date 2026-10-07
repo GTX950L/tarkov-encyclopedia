@@ -61,6 +61,15 @@ jobs:
       - name: Generate glossary data
         run: python scripts/build_glossary.py
 
+      # 物品图鉴（第九篇）：先抓数据再生成，两步都要。
+      # ⚠️ 生成器内有七道对账，不过就退出码 1 —— CI 因此顺带验证了
+      # 「数据源结构没变、分类清单仍闭合」，而不只是「构建没报错」。
+      - name: Fetch item catalog data
+        run: python scripts/gen_items_catalog.py --fetch
+
+      - name: Generate item catalog
+        run: python scripts/gen_items_catalog.py
+
       - name: Build site
         run: zensical build
 

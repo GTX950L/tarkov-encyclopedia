@@ -5,6 +5,7 @@
      · 「我的进度」：任务 / 物品 / 藏身处三轨，按前置反推（972 个交互控件）
      · 「任务图鉴」：515 个任务逐条 + 按条件筛选器
      · 「赛季特质模拟器」：34 张卡的点数市场与互斥校验
+     · 「物品图鉴」：4,979 件全量物品，检索 / 筛选 / 商人价
      · 「配方速查」：214 条制作 + 855 条交换配方
      · 「术语速查」：全称 / 缩写 / 社区俗称三向可查
    但这些工具此前**只在自己那一页出现** —— 首页只提了其中三个，其余一百多页
@@ -58,6 +59,7 @@
     { slug: "quests/progress/", name: "我的进度", desc: "任务 · 物品 · 藏身处，按前置反推" },
     { slug: "quests/", name: "任务图鉴", desc: "逐条要求与奖励，可按条件筛选" },
     { slug: "entries/season-modifiers/", name: "赛季特质模拟器", desc: "点选构筑，互斥与点数当场校验" },
+    { slug: "catalog/", name: "物品图鉴", desc: "全站物品检索、属性与商人价" },
     { slug: "docs/recipes/", name: "配方速查", desc: "制作与交换配方查询" },
     { slug: "docs/glossary/", name: "术语与黑话", desc: "全称 / 缩写 / 社区俗称三向查" },
     { slug: "docs/mechanics/", name: "机制速查表", desc: "一页看懂所有核心规则" }
@@ -291,6 +293,7 @@
         本文件是全站加载的入口脚本，所以这里只做「发现挂载点 → 注入本体」：
           · 赛季特质模拟器（season-modifiers 页）
           · 配方速查表（docs/recipes 页）
+          · 物品图鉴（catalog/ 下的 16 页）
           · 任务筛选器（quests/index 页）
         instant 换页回到这些页面时，本体脚本已在内，它们自己的 document$
         订阅会负责重新挂载。
@@ -311,6 +314,7 @@
   var recipesInjected = false;
   var filterInjected = false;
   var itemsInjected = false;
+  var catalogInjected = false;
 
   function loadPageTools() {
     if (!plannerInjected && document.getElementById("tk-season-planner")) {
@@ -333,6 +337,15 @@
       itemsInjected = true;
       injectScript("quest-items.js");
     }
+    /* 物品图鉴：catalog-data.js 未压缩 0.74 MB / gzip 约 226 KB，
+       全站 130+ 页每页背这个包是纯浪费 —— 只在 /catalog/ 下的 16 页注入。
+       **数据文件与本体分两步**：先数据再本体，否则本体读不到 window.TARKOV_CATALOG。 */
+    if (!catalogInjected && (document.getElementById("tk-catalog")
+                             || document.getElementById("tk-catalog-all"))) {
+      catalogInjected = true;
+      injectScript("catalog-data.js");
+      injectScript("catalog.js");
+    }
   }
 
   /* --------------------------------------------------------------------------
@@ -349,9 +362,18 @@
     loadPageTools();
   }
 
+  /* 两条入口都要。⚠️ 只写 subscribe 的形态在**首次整页加载**时可能错过
+     document$ 的第一次通知 —— 于是 /catalog/ 这类「靠 loadPageTools 注入本体」
+     的页面在首屏不会被注入。本批实测踩到：分类页的图鉴 UI 不出现，
+     而控制台**一个错都不报**（两个 <script> 顺序无保证 + 没有轮询兜底）。 */
+  function boot() { render(); }
+
   if (window.document$ && typeof window.document$.subscribe === "function") {
-    window.document$.subscribe(render);
+    window.document$.subscribe(boot);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
   } else {
-    document.addEventListener("DOMContentLoaded", render);
+    boot();
   }
 })();

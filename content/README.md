@@ -8,7 +8,7 @@
 <div class="tk-launch">
 <a class="tk-launch__card tk-launch--read" href="entries/spawn-and-opening.md">
 <span class="tk-launch__title">📖 读 · 从零上手</span>
-<span class="tk-launch__desc">87 个条目分十篇：先懂规则，再看地图，最后吃透装备与经济。</span>
+<span class="tk-launch__desc">87 个条目分十一篇：先懂规则，再看地图，最后吃透装备与经济。</span>
 <ul class="tk-launch__list">
 <li><span class="tk-launch__row"><b>① 先活下来</b><i>撤离 · 保险 · 健康</i></span></li>
 <li><span class="tk-launch__row"><b>② 再认识地图</b><i>十四张图逐张讲</i></span></li>
@@ -39,7 +39,7 @@
 <a class="tk-stat__card" href="entries/index.md">
 <b class="tk-stat__n">87<em>篇</em></b>
 <span class="tk-stat__l">百科条目</span>
-<span class="tk-stat__d">10 篇主线 · 逐篇可读</span>
+<span class="tk-stat__d">11 篇主线 · 逐篇可读</span>
 </a>
 <a class="tk-stat__card" href="quests/index.md">
 <b class="tk-stat__n">515<em>个</em></b>
@@ -81,7 +81,7 @@
 
 <!-- AUTO-GEN:HOME-STATS:END -->
 
-《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **87 个**条目，分十篇组织：**前八篇**是“从零上手”的主线，**第九篇 · [任务图鉴](quests/index.md)** 把 **515 个任务**的要求、奖励与接取门槛逐条列全，**第十篇 · [参考](docs/index.md)** 收齐速查表与站务工具页。
+《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **87 个**条目，分十一篇组织 —— **前八篇**是“从零上手”的主线，**第九篇 · [物品图鉴](catalog/index.md)** 收录 **4,979 件**物品的属性与商人价，**第十篇 · [任务图鉴](quests/index.md)** 把 **515 个任务**的要求、奖励与接取门槛逐条列全，**第十一篇 · [参考](docs/index.md)** 收齐速查表与站务工具页。
 
 > 💡 本站**全文不使用配图**，弱网环境可流畅阅读。所有数值描述以“机制原理”为主，具体数值随版本变动，请以游戏内为准。
 
@@ -108,22 +108,24 @@
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s8" href="entries/weather.md"><b>第八篇</b><em>世界与背景</em><i>4 篇</i></a>
 <span class="tk-arrow">→</span>
-<a class="tk-step tk-s9" href="quests/index.md"><b>第九篇</b><em>任务图鉴</em><i>15 篇</i></a>
+<a class="tk-step tk-s9" href="catalog/index.md"><b>第九篇</b><em>物品图鉴</em><i>16 篇</i></a>
 <span class="tk-arrow">→</span>
-<a class="tk-step tk-s10" href="docs/index.md"><b>第十篇</b><em>参考</em><i>18 篇</i></a>
+<a class="tk-step tk-s10" href="quests/index.md"><b>第十篇</b><em>任务图鉴</em><i>15 篇</i></a>
+<span class="tk-arrow">→</span>
+<a class="tk-step tk-s11" href="docs/index.md"><b>第十一篇</b><em>参考</em><i>18 篇</i></a>
 </div>
 
 <div class="tk-reason">
 <b>为什么这样排</b>
 <p>先懂撤离与保险，才敢进图 → 知道死在哪，才懂该练什么 → 看懂穿深与护甲，才明白为什么死 → 把每一条命变成资产，才有本钱练 → 同一套装备为什么打出不同结局，想通这个才谈得上进阶 → 机制吃透了，再把知识变成动作 → 会玩了、想换规则重来，才用得上赛季 → 最后补上设定与环境，才算看懂战场。</p>
-<p>前八篇是这条顺序；<b>第九 · 第十篇不在其中</b>——它们是随查随用的栏目（卡任务翻第九篇，查速查表与站务页翻第十篇），侧栏里收在「查阅栏目」一组下，所以那两张卡用中性色，不参与“从入门到终局”的难度梯度。</p>
+<p>前八篇是这条顺序；<b>第九至第十一篇不在其中</b>——它们是随查随用的查阅型栏目（查物品翻第九篇，卡任务翻第十篇，查速查表与站务页翻第十一篇），侧栏里收在「查阅栏目」一组下，所以那三张卡用中性色，不参与“从入门到终局”的难度梯度。</p>
 </div>
 
 路径图只是建议。已经在玩的玩家可以直接跳到对应条目查漏补缺——**兴趣驱动的跳跃式阅读也是常见的打开方式**。
 
 ---
 
-## 📋 任务图鉴（第九篇：随查随用）
+## 📦 物品图鉴（第九篇：随查随用）
 
 [**任务图鉴**](quests/index.md) 排在“从零上手”的主线之后，不属于前八篇那条学习顺序：它把持久 PvP 档案下的 **515 个任务**（共 **1441** 条目标）逐条列出**要求、完成奖励、接取门槛、前置任务、需要钥匙与失败条件**——数据取自官方任务定义的**结构化字段**（要求、奖励、门槛等），**不含坐标，也不写逐步攻略**。卡在某个任务上时从那里查。
 
@@ -262,7 +264,7 @@
 | 86 | [彩蛋与制作组的恶意](entries/easter-eggs.md) | 制作组藏在图里的玩笑，以及那些“设计好的死亡”——雷区、阔剑、不生效的保险 |
 | 87 | [世界观与阵营背景](entries/worldview.md) | 诺文斯克为什么被封锁、USEC 与 BEAR 从哪来——解释“你为什么出不去” |
 
-> 第九 · 第十篇没有“先后”——任务图鉴与参考是查阅型栏目：卡任务翻[任务图鉴](quests/index.md)，查数值口径、速查表与站务页翻下方「📁 其他资源」。
+> 第九至第十一篇没有“先后”——物品图鉴、任务图鉴与参考都是查阅型栏目：查物品翻[物品图鉴](catalog/index.md)，卡任务翻[任务图鉴](quests/index.md)，查数值口径与速查表翻下方「📁 其他资源」。
 
 ---
 

@@ -51,13 +51,36 @@ COUNT_RE = re.compile(r"查看全部 (\d+) 个条目")
 CN_CHAR = re.compile(r"[\u4e00-\u9fff]")
 TAG_LINE = re.compile(r"^\s*-\s*(.+?)\s*$")
 # nav 里的「第X篇」分组标题：`- 第一篇 · 入门机制:` / `- 第九篇 · 任务图鉴:`
-NAV_GROUP_RE = re.compile(r"^(\s*)-\s*(第[一二三四五六七八九十]篇)\s*·\s*(.+?):\s*$")
+NAV_GROUP_RE = re.compile(r"^(\s*)-\s*(第[零一二三四五六七八九十]{1,3}篇)\s*·\s*(.+?):\s*$")
 # 正文里的篇数声明：「分为十篇」/「分十篇组织」/「分十篇：…」
-GROUP_DECL_RE = re.compile(r"分(?:为)?([一二三四五六七八九十])篇")
-CN_NUM = {c: i for i, c in enumerate("一二三四五六七八九十", 1)}
+# 中文数字 → 整数。支持到「十九」——分篇数会随栏目增长，
+# 「十一篇」是第九篇物品图鉴落地后的实际值，写死只到「十」会让三处声明同时失配。
+_CN_DIGITS = {c: i for i, c in enumerate("零一二三四五六七八九", 0)}
+
+
+def cn2int(text):
+    """中文数字转 int（支持 0–99）。无法解析时返回 None —— 声明匹配不到必须响。"""
+    if not text:
+        return None
+    if text == "十":
+        return 10
+    if "十" in text:
+        left, _, right = text.partition("十")
+        hi = _CN_DIGITS.get(left, 1) if left else 1
+        lo = _CN_DIGITS.get(right, 0) if right else 0
+        return hi * 10 + lo
+    total = 0
+    for ch in text:
+        if ch not in _CN_DIGITS:
+            return None
+        total = total * 10 + _CN_DIGITS[ch]
+    return total
+
+
+GROUP_DECL_RE = re.compile(r"分(?:为)?([零一二三四五六七八九十]{1,3})篇")
 # 首页路径图的单张卡片：`<b>第X篇</b><em>篇名</em><i>N 篇</i>`
 # （v1.21.0 起由 mermaid 改为零依赖纯 CSS 路径条，标记形态随之固定）
-PATH_CARD_RE = re.compile(r"<b>(第[一二三四五六七八九十]篇)</b><em>([^<]*)</em><i>(\d+) 篇</i>")
+PATH_CARD_RE = re.compile(r"<b>(第[零一二三四五六七八九十]{1,3}篇)</b><em>([^<]*)</em><i>(\d+) 篇</i>")
 # tags.md 的表格行：| 标签 | 篇数 | 覆盖条目 |
 TAGS_ROW_RE = re.compile(r"^\|\s*([^|]+?)\s*\|\s*(\d+)\s*\|\s*([^|]*?)\s*\|\s*$", re.M)
 # 「覆盖条目」列允许写成 markdown 链接（`[slug](path)`）——解析时只取显示文字。
@@ -386,7 +409,13 @@ def main() -> int:
                 f"篇数声明缺失（{label}）: {path.relative_to(ROOT)} 里找不到「分N篇」的声明"
             )
             continue
-        declared = CN_NUM[found.group(1)]
+        declared = cn2int(found.group(1))
+        if declared is None:
+            errors.append(
+                f"篇数无法解析（{label}）: {path.relative_to(ROOT)} 写的是「{found.group(1)}篇」，"
+                f"不是可识别的中文数字"
+            )
+            continue
         if declared != n_groups:
             errors.append(
                 f"篇数不一致（{label}）: {path.relative_to(ROOT)} 写的是 {found.group(1)}篇，"
@@ -623,7 +652,7 @@ def main() -> int:
         g = GROUP_DECL_RE.search(text)
         if not g:
             errors.append("llms.txt 里找不到「分N篇」的篇数声明")
-        elif CN_NUM[g.group(1)] != n_groups:
+        elif cn2int(g.group(1)) != n_groups:
             errors.append(f"llms.txt 篇数不一致: 写的是 {g.group(1)}篇，nav 实际 {n_groups} 篇")
         for slug in sorted(set(re.findall(r"/(?:entries|docs)/([a-z0-9-]+)/", text))):
             if not (

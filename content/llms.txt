@@ -1,6 +1,6 @@
 # 逃离塔科夫百科全书
 
-> 面向玩家与 AI 智能体的《逃离塔科夫》中文结构化资料库：87 个条目 + 参考页，分十篇组织（前八篇是条目主线，第九 / 第十篇是查阅型栏目）。
+> 面向玩家与 AI 智能体的《逃离塔科夫》中文结构化资料库：87 个条目 + 参考页，分十一篇组织 —— **前八篇是条目主线**，后三篇是查阅型栏目（第九篇物品图鉴 4,979 件 / 第十篇任务图鉴 515 个 / 第十一篇参考区）。
 > 静态事实对照官方来源核验；动态数值标注实时口径；全站不使用任何配图，弱网环境可流畅阅读。
 
 版本基线：2026 年 9 月
@@ -22,10 +22,22 @@
 - [第六篇 · 战局内行为手册](https://gtx950l.github.io/tarkov-encyclopedia/entries/raid-flow/)：战局流程与节奏、搜刮效率、遇敌处置、交火技术动作、投掷物来袭处置、战中伤情处置
 - [第七篇 · 赛季与衍生内容](https://gtx950l.github.io/tarkov-encyclopedia/entries/seasons/)：赛季与修改器、联赛、竞技场、PvE 模式
 - [第八篇 · 世界与背景](https://gtx950l.github.io/tarkov-encyclopedia/entries/weather/)：天气与时间、光照与夜战、彩蛋、世界观与阵营背景
-- [第九篇 · 任务图鉴](https://gtx950l.github.io/tarkov-encyclopedia/quests/)：515 个任务的逐条要求、奖励、接取门槛、前置与失败条件 —— **查阅型栏目，不属前八篇的学习顺序**。另有[限时与活动任务补遗](https://gtx950l.github.io/tarkov-encyclopedia/quests/event-quests/)收录随版本挂载、到期即消失的那类任务（不在 515 条口径内）
-- [第十篇 · 参考](https://gtx950l.github.io/tarkov-encyclopedia/docs/)：项目欢迎页、数据口径与引用说明、新手成长路线、机制速查表及其余站务页 —— **查阅型栏目，不属前八篇的学习顺序**
+- [第九篇 · 物品图鉴](https://gtx950l.github.io/tarkov-encyclopedia/catalog/)：4,979 件物品的全量属性与商人买卖价，按 86 个官方分类归并成 16 页 —— **查阅型栏目，不属前八篇的学习顺序**
+- [第十篇 · 任务图鉴](https://gtx950l.github.io/tarkov-encyclopedia/quests/)：515 个任务的逐条要求、奖励、接取门槛、前置与失败条件 —— **查阅型栏目，不属前八篇的学习顺序**。另有[限时与活动任务补遗](https://gtx950l.github.io/tarkov-encyclopedia/quests/event-quests/)收录随版本挂载、到期即消失的那类任务（不在 515 条口径内）
+- [第十一篇 · 参考](https://gtx950l.github.io/tarkov-encyclopedia/docs/)：项目欢迎页、数据口径与引用说明、新手成长路线、机制速查表及其余站务页 —— **查阅型栏目，不属前八篇的学习顺序**
 
-## 任务图鉴（第九篇 · 逐任务明细）
+## 物品图鉴（第九篇 · 全量物品数据）
+
+> 覆盖去重后 **4,979 件物品**（不含 497 条枪械预配方案 —— 那是同一底枪的改装组合而非独立物品），
+> 按官方 `itemCategories` 树的 86 个叶子分类归并成 16 页。每件给出**中文名 / 英文名 / 归一化 ID /
+> 重量 / 关键属性 / 商人最低售价（附商人与等级）/ 商人最高回收（附参与家数）**。
+> 口径：json.tarkov.dev 的 `items` 与 `itemCategories` 接口（二级来源），2026-10-08 抓取。
+> **不含配图**（沿用全站约定，以文字与表格呈现）；商人价是**随商人等级变动的挂牌价，不是跳蚤市场价**。
+
+- [物品图鉴总览](https://gtx950l.github.io/tarkov-encyclopedia/catalog/)：全站检索（中英文 + 归一化 ID）、分类页清单与怎么用
+- 按类分页：[枪械](https://gtx950l.github.io/tarkov-encyclopedia/catalog/weapons/) 172 · [配件·瞄具与夜视](https://gtx950l.github.io/tarkov-encyclopedia/catalog/mods-sight/) 238 · [配件·枪管与膛口](https://gtx950l.github.io/tarkov-encyclopedia/catalog/mods-barrel/) 558 · [配件·枪身与握持](https://gtx950l.github.io/tarkov-encyclopedia/catalog/mods-body/) 1,518 · [防护装备](https://gtx950l.github.io/tarkov-encyclopedia/catalog/gear-armor/) 128 · [穿戴与面罩](https://gtx950l.github.io/tarkov-encyclopedia/catalog/gear-wear/) 433 · [背包与胸挂](https://gtx950l.github.io/tarkov-encyclopedia/catalog/carriers/) 152 · [储藏容器](https://gtx950l.github.io/tarkov-encyclopedia/catalog/containers/) 383 · [弹药与弹药箱](https://gtx950l.github.io/tarkov-encyclopedia/catalog/ammo/) 444 · [以物换物原料](https://gtx950l.github.io/tarkov-encyclopedia/catalog/barter/) 326 · [钥匙与门禁](https://gtx950l.github.io/tarkov-encyclopedia/catalog/keys/) 259 · [食物与药品](https://gtx950l.github.io/tarkov-encyclopedia/catalog/consumables/) 89 · [情报与笔记](https://gtx950l.github.io/tarkov-encyclopedia/catalog/intel/) 224 · [特殊物品](https://gtx950l.github.io/tarkov-encyclopedia/catalog/special/) 23 · [零散物品](https://gtx950l.github.io/tarkov-encyclopedia/catalog/misc/) 32
+
+## 任务图鉴（第十篇 · 逐任务明细）
 
 > 覆盖持久 PvP 档案下**全部 515 个任务**：每个任务的要求、完成奖励、接取门槛（商人忠诚度／声望）、
 > 前置任务、需要钥匙与失败条件。**不含坐标**（含真实 x/y/z 的字段在抓取阶段整体剔除）**与逐步攻略**。
@@ -36,7 +48,7 @@
 - [限时与活动任务补遗](https://gtx950l.github.io/tarkov-encyclopedia/quests/event-quests/)：**515 条之外**的那类任务 —— 随版本挂载、到期即消失（当前收录 1.1.5.0 灯塔重做附带的 10 条活动任务链）。该批任务不进 tarkov.dev 的 `regular` 档案，故主表查不到；来源为社区整理（三级），引用须附「以游戏内商人菜单为准」
 - 按商人分页（每页按等级门槛升序）：[Mechanic](https://gtx950l.github.io/tarkov-encyclopedia/quests/mechanic/) · [Prapor](https://gtx950l.github.io/tarkov-encyclopedia/quests/prapor/) · [Skier](https://gtx950l.github.io/tarkov-encyclopedia/quests/skier/) · [Jaeger](https://gtx950l.github.io/tarkov-encyclopedia/quests/jaeger/) · [Ragman](https://gtx950l.github.io/tarkov-encyclopedia/quests/ragman/) · [Therapist](https://gtx950l.github.io/tarkov-encyclopedia/quests/therapist/) · [Peacekeeper](https://gtx950l.github.io/tarkov-encyclopedia/quests/peacekeeper/) · [Fence](https://gtx950l.github.io/tarkov-encyclopedia/quests/fence/) · [Ref（竞技场裁判）](https://gtx950l.github.io/tarkov-encyclopedia/quests/ref/) · [BTR 司机](https://gtx950l.github.io/tarkov-encyclopedia/quests/btr-driver/) · [Lightkeeper](https://gtx950l.github.io/tarkov-encyclopedia/quests/lightkeeper/)
 
-## 参考区（第十篇）
+## 参考区（第十一篇）
 
 - [数据口径与引用说明](https://gtx950l.github.io/tarkov-encyclopedia/docs/citation/)：三档口径、基准快照、已知未决项、资料来源分级、引用建议
 - [机制速查表](https://gtx950l.github.io/tarkov-encyclopedia/docs/mechanics/)：一页看懂所有核心规则
@@ -79,6 +91,7 @@
 - **内容约定**：`content/template.md`（骨架与页眉写法）、`content/CONTRIBUTING.md`（体例仲裁规则）、`content/docs/citation.md`（三档口径、条目页眉模板与已知未决项）
 - **校验脚本**：`scripts/check_entries.py`（一致性 + **覆盖率**，CI 门禁）、`scripts/skills_consistency.py`（手册与实现是否脱节，CI 门禁）、`scripts/check-freshness.py`（内容新鲜度，信息性）
 - **生成器**：`scripts/gen_quests.py`（任务图鉴）—— 分「抓取」与「生成」两步，页面生成**不依赖网络**，改动后重跑 `python scripts/gen_quests.py --fetch` 即可整栏重建
+- **生成器**：`scripts/gen_items_catalog.py`（物品图鉴）—— 同两步；**七道对账不过就不写盘**（叶子分类集合闭合 / 前缀全部命中 / 引用有效 / 件数之和相等 / 无未归类物品 / 每页件数一致 / slug 唯一），另有锚点自检。新增叶子分类时须在 `PAGES` 里补一条，漏了会被对账报出来而不是静默丢失
 - **改动纪律**：同一个实体在站内出现多处时，改一处必须 grep 全站 —— 否则别处会静默变错
 
 ## 相关资源
