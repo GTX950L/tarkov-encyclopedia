@@ -161,20 +161,33 @@
      -------------------------------------------------------------------------- */
   var indexChecked = false;
 
+  /*站点根目录 —— **不能用相对路径**（2026-10-07 线上实测踩到）。
+     `fetch("search.json")` 在**子目录页面**上会解析成
+     `.../quests/item-lookup/search.json` → **404**。
+     实测：首页控制台干净，一进 /quests/item-lookup/ 就多一条 404。
+     取法与 toolbox.js 的 siteRoot() 同源 —— 从**本脚本自己的 src**反推，
+     不用 `document.baseURI`（它在GitHub Pages 的子路径部署下未必可靠，
+     而 script.src 是绝对 URL，反推最稳）。 */
+  function siteRoot() {
+    var s = document.querySelector("script[src*='search-ready.js']");
+    if (!s || !s.src) return "";
+    return s.src.replace(/javascripts\/[^/]*$/, "");
+  }
+
   function probeIndex() {
     if (indexChecked) return;
     indexChecked = true;
+    var root = siteRoot();
+    if (!root) { window.__tkSearchIndexSettled = false; return; }
     /* 主题自己已经在 fetch 这个文件了，这里**只读缓存**，
-       同一份响应被两个消费者复用，浏览器会自动去重（同一个 URL 的并发
-       fetch 共享一个网络请求）。所以多这一次探测**不产生额外流量**。
-       ⚠️ 但它会**等主题先取完**才 resolve（response.text() 只能读一次），
-       所以这里不用 await —— 只挂一个 onload 去记账。 */
+       同一份响应被两个消费者复用，浏览器会自动去重（同一个绝对 URL 的
+       并发 fetch 共享一个网络请求）。所以多这一次探测**不产生额外流量**。 */
     try {
-      fetch("search.json", { cache: "force-cache" })
+      fetch(root + "search.json", { cache: "force-cache" })
         .then(function (r) {
           if (!r.ok) { window.__tkSearchIndexSettled = false; return; }
           /* content-length 只在未压缩时给；取不到就用默认文案里的数字。
-             实测产物 2.54 MB / gzip 后约 0.4 MB。 */
+             实测线上 gzip 传输 821 KB、未压缩 2.54 MB。 */
           var cl = r.headers.get("content-length");
           if (cl) indexSizeMB = (parseInt(cl, 10) / 1048576).toFixed(1);
           window.__tkSearchIndexSettled = true;
