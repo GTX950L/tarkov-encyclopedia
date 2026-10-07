@@ -22,7 +22,7 @@
 - [第六篇 · 战局内行为手册](https://gtx950l.github.io/tarkov-encyclopedia/entries/raid-flow/)：战局流程与节奏、搜刮效率、遇敌处置、交火技术动作、投掷物来袭处置、战中伤情处置
 - [第七篇 · 赛季与衍生内容](https://gtx950l.github.io/tarkov-encyclopedia/entries/seasons/)：赛季与修改器、联赛、竞技场、PvE 模式
 - [第八篇 · 世界与背景](https://gtx950l.github.io/tarkov-encyclopedia/entries/weather/)：天气与时间、光照与夜战、彩蛋、世界观与阵营背景
-- [第九篇 · 任务图鉴](https://gtx950l.github.io/tarkov-encyclopedia/quests/)：515 个任务的逐条要求、奖励、接取门槛、前置与失败条件 —— **查阅型栏目，不属前八篇的学习顺序**
+- [第九篇 · 任务图鉴](https://gtx950l.github.io/tarkov-encyclopedia/quests/)：515 个任务的逐条要求、奖励、接取门槛、前置与失败条件 —— **查阅型栏目，不属前八篇的学习顺序**。另有[限时与活动任务补遗](https://gtx950l.github.io/tarkov-encyclopedia/quests/event-quests/)收录随版本挂载、到期即消失的那类任务（不在 515 条口径内）
 - [第十篇 · 参考](https://gtx950l.github.io/tarkov-encyclopedia/docs/)：项目欢迎页、数据口径与引用说明、新手成长路线、机制速查表及其余站务页 —— **查阅型栏目，不属前八篇的学习顺序**
 
 ## 任务图鉴（第九篇 · 逐任务明细）
@@ -33,6 +33,7 @@
 
 - [任务图鉴总览](https://gtx950l.github.io/tarkov-encyclopedia/quests/)：数据口径、十条字段判读、按商人／等级／关键标记的分布统计
 - [任务进度追踪](https://gtx950l.github.io/tarkov-encyclopedia/quests/progress/)：515 个任务的本地打勾表（PVP / PVE / 赛季 三套独立记录），按商人汇总完成度；进度只存在读者本机浏览器，可导出／导入，无账号无服务端
+- [限时与活动任务补遗](https://gtx950l.github.io/tarkov-encyclopedia/quests/event-quests/)：**515 条之外**的那类任务 —— 随版本挂载、到期即消失（当前收录 1.1.5.0 灯塔重做附带的 10 条活动任务链）。该批任务不进 tarkov.dev 的 `regular` 档案，故主表查不到；来源为社区整理（三级），引用须附「以游戏内商人菜单为准」
 - 按商人分页（每页按等级门槛升序）：[Mechanic](https://gtx950l.github.io/tarkov-encyclopedia/quests/mechanic/) · [Prapor](https://gtx950l.github.io/tarkov-encyclopedia/quests/prapor/) · [Skier](https://gtx950l.github.io/tarkov-encyclopedia/quests/skier/) · [Jaeger](https://gtx950l.github.io/tarkov-encyclopedia/quests/jaeger/) · [Ragman](https://gtx950l.github.io/tarkov-encyclopedia/quests/ragman/) · [Therapist](https://gtx950l.github.io/tarkov-encyclopedia/quests/therapist/) · [Peacekeeper](https://gtx950l.github.io/tarkov-encyclopedia/quests/peacekeeper/) · [Fence](https://gtx950l.github.io/tarkov-encyclopedia/quests/fence/) · [Ref（竞技场裁判）](https://gtx950l.github.io/tarkov-encyclopedia/quests/ref/) · [BTR 司机](https://gtx950l.github.io/tarkov-encyclopedia/quests/btr-driver/) · [Lightkeeper](https://gtx950l.github.io/tarkov-encyclopedia/quests/lightkeeper/)
 
 ## 参考区（第十篇）

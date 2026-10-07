@@ -140,7 +140,21 @@ body[data-md-color-scheme="default"] {
    -------------------------------------------------------------------------- */
 
 .md-header {
-  position: relative;
+  /* ⚠️ 这里必须是 sticky，不能是 relative（2026-10-07 修正）。
+     主题给 .md-header 的默认值是 `position: sticky; top: 0; z-index: 4`——
+     也就是**页头本来就该冻结在视口顶**。第三十五批把它改成 relative 之后，
+     页头随正文一起滚走，于是「要搜任务先把页面拉回顶部」成了每次都得做的动作。
+
+     为什么当初会写 relative：那条规则真正的意图是给 `::after`（危险条纹带）
+     一个定位父级——条纹带用的是 `position: absolute; bottom: 0`，
+     而 absolute 的定位父级是**最近的已定位祖先**。改成 sticky 之后
+     .md-header 依然是「已定位」（sticky 属于 positioned），条纹带不受影响。
+
+     顺带把 backdrop-filter 撤掉：sticky 页头下方的内容会从半透明层下滚过，
+     而本站页头是**不透明 Fiord 承色块**，玻璃模糊只会白耗 GPU。 */
+  position: sticky;
+  top: 0;
+  z-index: 4;
   background-color: var(--tk-fiord);
   color: #F5F4F0;
   -webkit-backdrop-filter: none;
@@ -3730,3 +3744,183 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   .tk-stat__grid { grid-template-columns: repeat(2, 1fr); }
   .tk-stat__head i { display: none; }
 }
+
+/* —— 53. 顶部导航（.tk-topnav，由 nav-top.js 挂进 .md-header__inner）——
+   解决的问题：页头太空。站内 130+ 页全靠左侧抽屉的十篇结构导航，
+   而页头除站名/搜索/主题切换外空无一物——从搜索或外链落地的读者
+   在页头得不到任何方向感。做法参照中文 Wiki（eftarkov.com）的横向下拉。
+
+   三条设计约束（理由都写在 nav-top.js 的文件头，这里只说视觉上的取舍）：
+
+     ① **按钮是「透明底＋浅色描边」，不是实心块**。页头已经是Fiord 承色块，
+        再往里塞九个实心按钮会变成一排色块互相打架。描边按钮与页头
+        是同一套浅色线条语言（§52.2 的工具箱按钮同款）。
+     ② **面板是纸面**（浅底深字），不是页头底色。里面是要读的内容——
+        深底浅字的浮层在小字号下阅读疲劳明显高于浅底。右对齐 + 方角 +
+        顶部 3px 色脊，与 §52.2 工具箱面板同一套语言。
+     ③ **多列**按条目数自适应（2–4 列）。地图篇有 17 条、参考篇有 15 条，
+        单列会拉出一屏长条；任务篇只有 13 条但分 5 个子组，
+        按子组分列正好把「入口/ 进度 / 补遗 / 各商人」压成 2列 4 行。
+
+   页头高度：主题给 .md-header 是 2rem，§11 的搜索提示条按「2.4rem」定位。
+   按钮高度 1.62rem 与工具箱一致，不改页头高度——**页头一变高，
+   全站所有 fixed 浮层的top 都要重算**，这个代价不值得。 */
+
+.tk-topnav {
+  display: flex;
+  align-items: center;
+  gap: .04rem;
+  align-self: center;
+  margin-right: .3rem;
+  min-width: 0;
+}
+
+.tk-topnav__group { position: relative; }
+
+.tk-topnav__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .3em;
+  height: 1.62rem;
+  padding: 0 .48em;
+  border: 1px solid transparent;      /* 见约束①：靠 hover 时才显形，保持页头干净 */
+  border-radius: 2px;
+  background: transparent;
+  color: #F5F4F0;
+  font-family: inherit;
+  font-size: .64rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .12s linear, border-color .12s linear;
+}
+
+.tk-topnav__btn:hover,
+.tk-topnav--open > .tk-topnav__btn {
+  background: rgba(245, 244, 240, .14);
+  border-color: rgba(245, 244, 240, .34);
+  color: #fff;
+}
+
+.tk-topnav__caret { font-size: .52rem; line-height: 1; opacity: .7; }
+
+.tk-topnav__panel {
+  position: absolute;
+  top: calc(100% + .58rem);
+  left: 0;
+  z-index: 40;
+  display: flex;
+  gap: 0;
+  max-width: min(46rem, calc(100vw - 2.5rem));
+  padding: .5rem .6rem .55rem;
+  border: 1px solid var(--tk-line-3);
+  border-top: 3px solid var(--tk-fiord);
+  border-radius: 2px;
+  background: var(--tk-paper);
+  box-shadow: 0 .55rem 1.3rem rgba(20, 24, 30, .22);
+  text-align: left;
+}
+
+/* ⚠️ **这条是必需的，不是冗余**（2026-10-07 实测截图才发现）：
+   上一条给面板写了 `display: flex`，而 `display` 的**作者样式优先级高于**
+   UA 样式表里的 `[hidden] { display: none }` —— 于是 JS 设的
+   `panel.hidden = true` **完全不起作用**，九个面板从头到尾全部挂在页头上。
+   现象与 JS 无关，改 JS 再多次也没用。
+   同类兜底在本文件里已有先例：§「.tk-board__tbl tr[hidden] { display: none }」
+   （表格行的 display 默认是 table-row，同一个道理）。 */
+.tk-topnav__panel[hidden] { display: none; }
+
+/* 靠右的分组（参考篇在最后）面板右对齐，否则会顶出视口 */
+.tk-topnav__group:last-child .tk-topnav__panel {
+  left: auto;
+  right: 0;
+}
+
+.tk-topnav__col {
+  display: flex;
+  flex-direction: column;
+  min-width: 8.6rem;
+  padding: 0 .55rem;
+  border-right: 1px solid var(--tk-line);
+}
+
+.tk-topnav__col:first-child { padding-left: 0; }
+.tk-topnav__col:last-child { padding-right: 0; border-right: 0; }
+
+/* 单列（组内无子分组）时不需要内边距与分隔线 */
+.tk-topnav__panel > .tk-topnav__col:only-child {
+  min-width: 11rem;
+  border-right: 0;
+}
+
+.tk-topnav__colhead {
+  margin-bottom: .28em;
+  padding-bottom: .2em;
+  border-bottom: 1px solid var(--tk-line-2);
+  font-family: var(--tk-mono);
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--tk-olive);
+}
+
+.tk-topnav__link {
+  display: block;
+  padding: .21em .28em;
+  border-radius: 2px;
+  font-size: .68rem;
+  line-height: 1.45;
+  color: var(--tk-ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.tk-topnav__link:hover {
+  background: var(--tk-brand-soft);
+  color: var(--tk-brand-dark);
+  text-decoration: none;
+}
+
+/* 当前页所属的分组给一个持续标记，避免「打开菜单不知道自己在哪」 */
+.tk-topnav__link[aria-current="page"] {
+  background: var(--tk-brand-soft);
+  color: var(--tk-brand-dark);
+  font-weight: 700;
+  box-shadow: inset 2px 0 0 var(--tk-fiord);
+}
+
+/* 面板靠到视口边缘时（窄屏抽屉已隐藏，但窗口可能刚好卡在断点附近）给个兜底 */
+@media screen and (max-width: 76.1875em) {
+  .tk-topnav { display: none; }
+}
+
+/* 中等宽度（能挂下菜单但放不满九个分组）：逐级减组，只留最常用的。
+   靠JS 也筛一遍会更干净，但那样「某组在某个宽度下不存在」就成了
+   需要解释的行为；纯 CSS 的display: none 不改变任何逻辑。 */
+@media screen and (min-width: 76.25em) and (max-width: 89.9375em) {
+  .tk-topnav__group:nth-child(n+8) { display: none; }
+}
+
+@media screen and (min-width: 89.9375em) and (max-width: 104.9375em) {
+  .tk-topnav__group:nth-child(n+7) { display: none; }
+}
+
+[data-md-color-scheme="slate"] .tk-topnav__panel {
+  background: #22211E;
+  border-color: #4A473F;
+  border-top-color: var(--tk-fiord-lt);
+  box-shadow: 0 .55rem 1.3rem rgba(0, 0, 0, .5);
+}
+
+[data-md-color-scheme="slate"] .tk-topnav__col { border-right-color: #3A3833; }
+[data-md-color-scheme="slate"] .tk-topnav__colhead { border-bottom-color: #3A3833; color: #C9B37F; }
+
+[data-md-color-scheme="slate"] .tk-topnav__link { color: #DCD8D0; }
+[data-md-color-scheme="slate"] .tk-topnav__link:hover { background: #2A2F36; color: #fff; }
+[data-md-color-scheme="slate"] .tk-topnav__link[aria-current="page"] {
+  background: #2A2F36; color: #fff; box-shadow: inset 2px 0 0 var(--tk-fiord-lt);
+}
+
+/* 窄屏的兜底已经交给 §53 开头的 max-width 断点，这里不再重复。
+   打印不需要额外处理：§12 已把 .md-header 整体 display: none。 */
