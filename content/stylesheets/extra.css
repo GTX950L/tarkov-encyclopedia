@@ -3319,3 +3319,199 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   .tk-qs__q { flex-basis: 100%; }
   .tk-qs__sel { flex: 1 1 7em; }
 }
+
+/* ==========================================================================
+   57. 任务依赖树（javascripts/progress-boards.js 的 renderQuestTree）
+   --------------------------------------------------------------------------
+   只出现在「我的进度 · 依赖树」分页。**纯 DOM 折叠树，不引任何库**。
+   层级用 padding-left 表达（d1…d6，最多缩进 6 层），不用连线字符 ——
+   中文等宽下框线字符在窄屏会错位。
+   ========================================================================== */
+
+.tk-tree { margin: 1rem 0; }
+
+.tk-tree__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem .6rem;
+  margin-bottom: .5rem;
+}
+
+.tk-tree__q {
+  flex: 1 1 14em;
+  min-width: 8em;
+  padding: .32em .6em;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--tk-ink);
+  font: inherit;
+  font-size: .74rem;
+}
+
+.tk-tree__q::placeholder { color: var(--tk-ink-2); opacity: .75; }
+
+.tk-tree__hint {
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-tree__picks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3rem;
+  margin-bottom: .7rem;
+}
+
+.tk-tree__pickhead {
+  font-size: .72rem;
+  color: var(--tk-ink-2);
+  font-weight: 600;
+}
+
+.tk-tree__chip {
+  padding: .22em .6em;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  background: var(--tk-panel);
+  color: var(--tk-ink);
+  font: inherit;
+  font-size: .7rem;
+  cursor: pointer;
+}
+
+.tk-tree__chip:hover { border-color: var(--tk-line-3); }
+.tk-tree__chip--in { border-color: var(--tk-amber); color: var(--tk-amber); }
+.tk-tree__chip--goal { border-color: var(--tk-brand); color: var(--tk-brand); }
+
+.tk-tree__title {
+  margin: .2rem 0 .7rem;
+  padding: .5rem .7rem;
+  background: var(--tk-panel);
+  border-left: 3px solid var(--tk-fiord);
+}
+
+.tk-tree__title b { font-size: .86rem; color: var(--tk-brand); }
+
+.tk-tree__title em {
+  display: block;
+  font-style: normal;
+  font-size: .7rem;
+  color: var(--tk-ink-2);
+  margin-top: .15rem;
+}
+
+.tk-tree__cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+  gap: .8rem;
+  align-items: start;
+}
+
+.tk-tree__col {
+  border: 1px solid var(--tk-line-2);
+  border-radius: 3px;
+  background: #fff;
+  padding: .5rem .6rem;
+  min-width: 0;
+}
+
+.tk-tree__colhead {
+  font-size: .74rem;
+  font-weight: 600;
+  color: var(--tk-brand);
+  padding-bottom: .35rem;
+  margin-bottom: .35rem;
+  border-bottom: 1px solid var(--tk-line);
+}
+
+.tk-tree__node {
+  display: flex;
+  align-items: baseline;
+  gap: .4rem;
+  padding: .18rem .2rem;
+  border-bottom: 1px dashed var(--tk-line);
+  min-width: 0;
+}
+
+.tk-tree__node:last-child { border-bottom: 0; }
+
+/* 层级：最多 6 档，再深就不再缩进（否则窄屏正文只剩几个字） */
+.tk-tree__node--d1 { padding-left: 1.1rem; }
+.tk-tree__node--d2 { padding-left: 2.2rem; }
+.tk-tree__node--d3 { padding-left: 3.3rem; }
+.tk-tree__node--d4 { padding-left: 4.4rem; }
+.tk-tree__node--d5 { padding-left: 5.5rem; }
+.tk-tree__node--d6 { padding-left: 6.6rem; }
+
+.tk-tree__dot {
+  flex: 0 0 auto;
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+  border: 1px solid var(--tk-line-3);
+  background: transparent;
+  align-self: center;
+}
+
+.tk-tree__dot--inhand { background: var(--tk-amber); border-color: var(--tk-amber); }
+.tk-tree__dot--done { background: var(--tk-grn); border-color: var(--tk-grn); }
+
+.tk-tree__name {
+  flex: 0 1 auto;
+  min-width: 0;
+  font-size: .76rem;
+  color: var(--tk-ink);
+}
+
+.tk-tree__meta {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: .66rem;
+  color: var(--tk-ink-2);
+  text-align: right;
+}
+
+.tk-tree__state {
+  flex: 0 0 auto;
+  padding: .16em .5em;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  background: var(--tk-panel);
+  color: var(--tk-ink-2);
+  font: inherit;
+  font-size: .66rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tk-tree__state:hover { border-color: var(--tk-line-3); }
+.tk-tree__state--inhand { border-color: var(--tk-amber); color: var(--tk-amber); background: var(--tk-amber-bg); }
+.tk-tree__state--done { border-color: var(--tk-grn); color: var(--tk-grn); background: var(--tk-grn-bg); }
+
+[data-md-color-scheme="slate"] .tk-tree__q,
+[data-md-color-scheme="slate"] .tk-tree__col {
+  background: #232220;
+  border-color: #4A473F;
+}
+
+[data-md-color-scheme="slate"] .tk-tree__chip,
+[data-md-color-scheme="slate"] .tk-tree__state {
+  background: #2A2825;
+  border-color: #4A473F;
+}
+
+/* 窄屏：状态芯片换到第二行右对齐，别把任务名挤成一个字 */
+@media screen and (max-width: 44.9375em) {
+  .tk-tree__node { flex-wrap: wrap; }
+  .tk-tree__meta { flex-basis: 100%; text-align: left; padding-left: 1.1rem; }
+  .tk-tree__node--d1 .tk-tree__meta, .tk-tree__node--d5 .tk-tree__meta { padding-left: 0; }
+  .tk-tree__node--d1 { padding-left: .6rem; }
+  .tk-tree__node--d2 { padding-left: 1.2rem; }
+  .tk-tree__node--d3 { padding-left: 1.8rem; }
+  .tk-tree__node--d4 { padding-left: 2.4rem; }
+  .tk-tree__node--d5 { padding-left: 3rem; }
+  .tk-tree__node--d6 { padding-left: 3.6rem; }
+}

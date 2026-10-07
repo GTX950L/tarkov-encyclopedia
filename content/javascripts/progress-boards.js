@@ -2071,6 +2071,289 @@
      入口
      -------------------------------------------------------------------------- */
 
+  /* --------------------------------------------------------------------------
+     看板：任务依赖树（上游链 / 下游收益）
+
+     为什么不做成「一张静态的树」：站内已有两样别人没有的东西 —— **本机的进度状态**
+     与**算好的解锁收益**。所以这棵树不是用来「看全貌」的，是**从你当前进度出发的两个方向**：
+
+       · 上游链 —— 「做它之前，我必须先完成什么」→ 直接回答「卡在哪个前置」
+       · 下游收益 —— 「做完它，放开哪些」→ 按直接解锁数降序
+
+     三条边界：
+
+       · **纯 DOM 折叠树，不引任何库**（站内约定无配图、不引重型库）；
+       · **前置只算「完成」边**，与「优先级速查」和任务看板的「可接」判定同口径
+         （全图 238 条边里 224 条带 `complete`）；
+       · **搜索只按中文名** —— 图数据（quests-graph.js）里没有英文名，
+         英文名搜在任务图鉴页的筛选器里有。**这一点写在界面上，不让读者以为搜不到就是没有。**
+     -------------------------------------------------------------------------- */
+
+  var TREE_MAX = 300;   /* 单棵树最多渲染多少节点 —— 汇合点的上游可以很长，别把页面拉爆 */
+
+  function renderQuestTree(host) {
+    host.textContent = "";
+    var mf = window.TARKOV_PROGRESS_MANIFEST;
+    var td = (mf && mf.traders) || [];
+    var tname = {};
+    for (var i = 0; i < td.length; i++) tname[td[i].slug] = td[i].name;
+
+    host.appendChild(el("p", "tk-board__loading", "正在载入任务树…"));
+    ensureGraph(function (graph) {
+      host.textContent = "";
+      if (!graph) { host.appendChild(notReady("任务树")); return; }
+      buildQuestTree(host, graph, tname);
+    });
+  }
+
+  function buildQuestTree(host, graph, tname) {
+    var tasks = graph.tasks;
+    var qidByName = {};
+    for (var q in tasks) if (tasks[q][N_NAME]) qidByName[tasks[q][N_NAME]] = q;
+
+    /* 反查表：前置 → 需要它的任务。**只算「完成」边**（与可接判定、解锁收益同口径）。 */
+    var succ = {};
+    for (var a in tasks) {
+      var pre = tasks[a][N_PRE] || [];
+      for (var p = 0; p < pre.length; p++) {
+        var pid = pre[p][0], mark = String(pre[p][1] || "");
+        if (mark.indexOf("c") < 0) continue;
+        if (!succ[pid]) succ[pid] = [];
+        succ[pid].push(a);
+      }
+    }
+
+    function label(qid) {
+      var n = tasks[qid];
+      return n ? n[N_NAME] : qid;
+    }
+    function who(qid) {
+      var n = tasks[qid];
+      return n ? (tname[n[N_TRADER]] || n[N_TRADER]) : "—";
+    }
+
+    /* 上游：按深度 DFS。同一节点只保留**最短**的那条路径（否则汇合点会重复出现到爆）。 */
+    function ancestors(root) {
+      var best = {}, stack = [[root, 0]], guard = 0;
+      while (stack.length && guard++ < 20000) {
+        var cur = stack.pop(), id = cur[0], d = cur[1];
+        var ps = tasks[id] ? (tasks[id][N_PRE] || []) : [];
+        for (var i = 0; i < ps.length; i++) {
+          if (String(ps[i][1] || "").indexOf("c") < 0) continue;
+          var pid = ps[i][0];
+          if (best[pid] === undefined || best[pid] > d + 1) {
+            best[pid] = d + 1;
+            stack.push([pid, d + 1]);
+          }
+        }
+      }
+      var out = [];
+      for (var k in best) out.push({ qid: k, depth: best[k], direct: !!~indexOfPre(root, k) });
+      out.sort(function (x, y) { return (y.depth - x.depth) || label(x.qid).localeCompare(label(y.qid), "zh"); });
+      return out;
+    }
+    function indexOfPre(root, pid) {
+      var ps = (tasks[root] && tasks[root][N_PRE]) || [];
+      for (var i = 0; i < ps.length; i++) if (ps[i][0] === pid) return 1;
+      return 0;
+    }
+
+    /* 下游：BFS，带深度；按「直接解锁数 → 深度 → 名称」排 */
+    function descendants(root) {
+      var best = {}, queue = [[root, 0]], guard = 0;
+      while (queue.length && guard++ < 20000) {
+        var cur = queue.shift(), id = cur[0], d = cur[1];
+        var nx = succ[id] || [];
+        for (var i = 0; i < nx.length; i++) {
+          if (best[nx[i]] === undefined || best[nx[i]] > d + 1) {
+            best[nx[i]] = d + 1;
+            queue.push([nx[i], d + 1]);
+          }
+        }
+      }
+      var out = [];
+      for (var k in best) out.push({ qid: k, depth: best[k], fanout: (succ[k] || []).length });
+      out.sort(function (x, y) {
+        if (y.depth !== x.depth) return x.depth - y.depth;      /* 先近的 */
+        if (y.fanout !== x.fanout) return y.fanout - x.fanout;  /* 再看它自己放开几个 */
+        return label(x.qid).localeCompare(label(y.qid), "zh");
+      });
+      return out;
+    }
+
+    /* —— 界面骨架 —— */
+    var root = el("div", "tk-tree");
+    host.appendChild(root);
+
+    var bar = el("div", "tk-tree__bar");
+    var qi = document.createElement("input");
+    qi.type = "search";
+    qi.className = "tk-tree__q";
+    qi.placeholder = "搜任务名（中文）…";
+    qi.setAttribute("aria-label", "在依赖树里搜任务");
+    bar.appendChild(qi);
+    var hint = el("span", "tk-tree__hint", "只按中文名搜（图数据里没有英文名）");
+    bar.appendChild(hint);
+    root.appendChild(bar);
+
+    var picks = el("div", "tk-tree__picks");
+    root.appendChild(picks);
+
+    var head = el("div", "tk-tree__head");
+    root.appendChild(head);
+    var cols = el("div", "tk-tree__cols");
+    root.appendChild(cols);
+
+    var sel = null;         /* 当前选中的任务 id */
+    var liveNodes = [];     /* 树里已渲染的节点（qid + 状态点 + 状态芯片），供增量刷新 */
+
+    function chip(text, onClick, cls) {
+      var b = el("button", "tk-tree__chip" + (cls ? " " + cls : ""), text);
+      b.type = "button";
+      b.addEventListener("click", onClick);
+      return b;
+    }
+
+    function renderPicks() {
+      picks.textContent = "";
+      var inIds = [];
+      for (var q in tasks) if (TP.taskState(q) === "inhand") inIds.push(q);
+      inIds.sort(function (x, y) { return label(x).localeCompare(label(y), "zh"); });
+      if (inIds.length) {
+        picks.appendChild(el("span", "tk-tree__pickhead", "从我在做的任务出发："));
+        for (var i = 0; i < inIds.length && i < 12; i++) {
+          (function (id) {
+            picks.appendChild(chip(label(id), function () { pick(id); }, "tk-tree__chip--in"));
+          })(inIds[i]);
+        }
+        if (inIds.length > 12) picks.appendChild(el("span", "tk-tree__hint", "等 " + inIds.length + " 个"));
+      }
+      /* 两条长线的终点 —— 这两个任务最值得「倒着看」 */
+      [["收藏家", "Kappa 线终点"], ["守望者箴言", "前置最多的汇合点"]].forEach(function (p) {
+        var id = qidByName[p[0]];
+        if (id) picks.appendChild(chip(p[1] + "：" + p[0], function () { pick(id); }, "tk-tree__chip--goal"));
+      });
+    }
+
+    function search() {
+      var kw = qi.value.trim();
+      if (!kw) { renderPicks(); return; }
+      picks.textContent = "";
+      var hits = [];
+      for (var q in tasks) if (label(q).indexOf(kw) >= 0) hits.push(q);
+      hits.sort(function (x, y) {
+        return label(x).length - label(y).length || label(x).localeCompare(label(y), "zh");
+      });
+      if (!hits.length) { picks.appendChild(el("span", "tk-tree__hint", "没有匹配的任务名。")); return; }
+      picks.appendChild(el("span", "tk-tree__pickhead", "匹配 " + hits.length + " 个："));
+      for (var i = 0; i < hits.length && i < 12; i++) {
+        (function (id) { picks.appendChild(chip(label(id), function () { pick(id); })); })(hits[i]);
+      }
+    }
+
+    function nodeRow(rec, kind) {
+      var row = el("div", "tk-tree__node tk-tree__node--d" + Math.min(rec.depth, 6));
+      var st0 = TP.taskState(rec.qid);
+      var dot = el("span", "tk-tree__dot tk-tree__dot--" + (st0 || "none"));
+      row.appendChild(dot);
+      var link = questUrl(tasks[rec.qid] ? tasks[rec.qid][N_LINK] : "");
+      var nm = el(link ? "a" : "span", "tk-tree__name", label(rec.qid));
+      if (link) nm.href = link;
+      row.appendChild(nm);
+      var meta = who(rec.qid) + " · Lv" + ((tasks[rec.qid] && tasks[rec.qid][N_LEVEL]) || 0);
+      meta = kind === "up" ? ("第 " + rec.depth + " 层前置 · " + meta)
+                           : ("第 " + rec.depth + " 步 · 它自己放开 " + rec.fanout + " 个 · " + meta);
+      row.appendChild(el("span", "tk-tree__meta", meta));
+      var sb = miniState(rec.qid, tasks[rec.qid] ? tasks[rec.qid][N_TRADER] : "");
+      row.appendChild(sb.el);
+      liveNodes.push({ qid: rec.qid, dot: dot, btn: sb });
+      return row;
+    }
+
+    /* 节点上的状态芯片：**点一下循环切换**，不用展开下拉（高频控件不藏）。 */
+    function miniState(qid, trader) {
+      var b = el("button", "tk-tree__state");
+      b.type = "button";
+      b.setAttribute("data-focus-key", "tree-state:" + qid);
+      function paint() {
+        var s = TP.taskState(qid);
+        b.textContent = s === "done" ? "已完成" : s === "inhand" ? "进行中" : "未标记";
+        b.className = "tk-tree__state tk-tree__state--" + (s || "none");
+      }
+      b.title = "点一下切换：未标记 → 进行中 → 已完成";
+      b.addEventListener("click", function () {
+        var s = TP.taskState(qid);
+        TP.setTaskState(qid, s === "" ? "inhand" : s === "inhand" ? "done" : "", trader);
+      });
+      paint();
+      return { el: b, paint: paint };
+    }
+
+    function pick(id) {
+      sel = id;
+      liveNodes = [];
+      head.textContent = "";
+      cols.textContent = "";
+
+      var up = ancestors(id);
+      var dn = descendants(id);
+      var upMiss = 0;
+      for (var i = 0; i < up.length; i++) if (TP.taskState(up[i].qid) !== "done") upMiss++;
+
+      var h = el("div", "tk-tree__title");
+      h.appendChild(el("b", null, label(id)));
+      h.appendChild(el("em", null, who(id) + " · Lv" + (tasks[id][N_LEVEL] || 0)
+        + " ｜ 上游 " + up.length + " 个前置（未完成 " + upMiss + "）｜ 下游放开 " + dn.length + " 个"));
+      head.appendChild(h);
+      if (!up.length && !dn.length) {
+        cols.appendChild(el("p", "tk-board__note", "这个任务既没有前置，也不阻塞任何任务。"));
+      }
+
+      /* 上游：按深度倒序 = 从最远的前置读到眼前，最后一行才是它自己 */
+      if (up.length) {
+        var c1 = el("div", "tk-tree__col");
+        c1.appendChild(el("div", "tk-tree__colhead", "上游链 · 做它之前必须完成什么"));
+        var shown = up.length > TREE_MAX ? up.slice(0, TREE_MAX) : up;
+        for (var u = 0; u < shown.length; u++) c1.appendChild(nodeRow(shown[u], "up"));
+        if (up.length > TREE_MAX) c1.appendChild(el("p", "tk-board__note", "只显示了 " + TREE_MAX + " 个，其余见该任务的商人页。"));
+        cols.appendChild(c1);
+      }
+
+      /* 下游：从它自己开始，逐层展开 */
+      if (dn.length) {
+        var c2 = el("div", "tk-tree__col");
+        c2.appendChild(el("div", "tk-tree__colhead", "下游收益 · 做完它放开哪些（近的在前）"));
+        var shown2 = dn.length > TREE_MAX ? dn.slice(0, TREE_MAX) : dn;
+        for (var d2 = 0; d2 < shown2.length; d2++) c2.appendChild(nodeRow(shown2[d2], "down"));
+        if (dn.length > TREE_MAX) c2.appendChild(el("p", "tk-board__note", "只显示了前 " + TREE_MAX + " 个。"));
+        cols.appendChild(c2);
+      }
+    }
+
+    qi.addEventListener("input", search);
+    renderPicks();
+
+    /* 增量刷新：**只重画状态点与状态芯片**，不重建整棵树 ——
+       重建会让读者正在看的节点跳走（而每次改状态都会触发 sync）。
+       代价是这句必须把「所有会影响显示的东西」都覆盖到：现在只有状态。 */
+    host.__tkSync = function () {
+      for (var i = 0; i < liveNodes.length; i++) {
+        var n = liveNodes[i];
+        n.dot.className = "tk-tree__dot tk-tree__dot--" + (TP.taskState(n.qid) || "none");
+        n.btn.paint();
+      }
+      if (sel) {
+        var bit = head.querySelector(".tk-tree__title em");
+        if (bit) {
+          var up = ancestors(sel), dn = descendants(sel), miss = 0;
+          for (var j = 0; j < up.length; j++) if (TP.taskState(up[j].qid) !== "done") miss++;
+          bit.textContent = who(sel) + " · Lv" + (tasks[sel][N_LEVEL] || 0)
+            + " ｜ 上游 " + up.length + " 个前置（未完成 " + miss + "）｜ 下游放开 " + dn.length + " 个";
+        }
+      }
+    };
+  }
+
   function render(mounts) {
     for (var i = 0; i < mounts.length; i++) {
       var h = mounts[i];
@@ -2079,13 +2362,14 @@
       if (id === "tk-board-overview") renderOverview(h);
       else if (id === "tk-progress-board") renderQuestBoard(h);
       else if (id === "tk-board-items") renderItemBoard(h);
+      else if (id === "tk-board-tree") renderQuestTree(h);
       else if (id === "tk-board-hideout") renderHideoutBoard(h);
       else if (id === "tk-board-ops") renderOps(h);
     }
   }
 
   function sync() {
-    var ids = ["tk-board-overview", "tk-progress-board", "tk-board-items", "tk-board-hideout", "tk-board-ops"];
+    var ids = ["tk-board-overview", "tk-progress-board", "tk-board-tree", "tk-board-items", "tk-board-hideout", "tk-board-ops"];
     for (var i = 0; i < ids.length; i++) {
       var h = document.getElementById(ids[i]);
       if (h && h.__tkSync) h.__tkSync();

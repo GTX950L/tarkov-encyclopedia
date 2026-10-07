@@ -1054,7 +1054,7 @@
      看板模块（「我的进度」页的任务 / 物品 / 藏身处 / 管理四块）
      -------------------------------------------------------------------------- */
 
-  var BOARD_IDS = ["tk-board-overview", "tk-progress-board", "tk-board-items", "tk-board-hideout", "tk-board-ops"];
+  var BOARD_IDS = ["tk-board-overview", "tk-progress-board", "tk-board-tree", "tk-board-items", "tk-board-hideout", "tk-board-ops"];
   var boardsState = 0;   // 0 未开始 / 1 加载中 / 2 就绪 / -1 失败
   var boardsCbs = [];
 
