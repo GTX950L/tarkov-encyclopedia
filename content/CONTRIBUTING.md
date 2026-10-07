@@ -90,7 +90,19 @@ gh release create v1.72.0 --title "v1.72.0 —— 一句话主题" --notes-file 
 
 **踩过的坑（2026-10-06 实测）**：只推 tag、不建 Release，徽标会**一直停在上一版**。本站在 v1.49–v1.70 期间只改 CHANGELOG 没建 Release，页头因此长期停在 **v1.48.0**，与 CHANGELOG 差了 **23 个版本**。
 
+**第二次踩（2026-10-07 实测）**：v1.77.0–v1.80.4 又漏了 **8 个**，徽标停在 **v1.76.1**。已用
+`scripts/backfill_releases.py` 补齐（它直接读 CHANGELOG 段落当 body，并给 v1.80.1~80.3 各挑出自己那一行）。
+
+> **补建时的坑**：**不能给 `gh release create` 传 `--target <短SHA>`** —— 实测 422
+> 「`tag_name is not a valid tag` / `Release.target_commitish is invalid`」。
+> 正确次序是**先把 tag 打在目标 commit 上并推送**，再建 Release（不带 `--target`）：
+> ```bash
+> git tag -f v1.80.0 <sha> && git push -f origin v1.80.0
+> gh release create v1.80.0 --title "…" --notes-file notes.md
+> ```
+
 > **判据**：页头徽标里的版本号必须等于 `CHANGELOG.md` 最新条目括号里的版本号。不相等 → 先查最新版有没有建 Release。
+> **自检命令**（一眼看出版本序列断在哪）：`gh release list --limit 40 --json tagName --jq '.[].tagName' | sort -V`
 
 ## 🐛 报告问题
 
