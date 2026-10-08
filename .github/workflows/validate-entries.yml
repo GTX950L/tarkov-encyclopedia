@@ -27,6 +27,22 @@ jobs:
       # 物品数值一致性：既有图鉴条目与物品图鉴的同一件物品，数值是否还对得上。
       # ⚠️ 它需要 items_full.json 缓存（不入仓），所以这一条自己抓一次数据源。
       #    数据源结构变了、或某篇条目写错了数，这里就会红。
-      - name: Check item value consistency
+      # 顺序有讲究：**先生成，后核对**。
+      # gen_items_catalog --fetch 会把数据抓下来放进 scripts/data/items_full.json，
+      # 后面两步都复用它 —— 抓三遍数据和抓一遍，结果一样但时间差好几倍。
+      - name: Generate item catalog
+        run: python scripts/gen_items_catalog.py --fetch
+
+      - name: Generate quest item index
+        run: python scripts/gen_quest_carrier.py
+
+      # 物品→图鉴映射是否跟上图鉴数据：跑完生成器若文件有变化，说明有人改了
+      # 图鉴（或改了 recipes）却没重跑这一步 —— 那会让任务页静默留下旧链接。
+      # ⚠️ 只查**入仓**的那两份；catalog-data.js 在 .gitignore 里，对它做
+      #    git diff 永远为空，等于没查。
+      - name: Check item link wiring
         run: |
-          python scripts/check_catalog_consistency.py --fetch
+          git diff --exit-code content/javascripts/items_index.js                                scripts/data/item_pages.json
+
+      - name: Check item value consistency
+        run: python scripts/check_catalog_consistency.py

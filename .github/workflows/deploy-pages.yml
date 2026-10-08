@@ -73,6 +73,13 @@ jobs:
       - name: Generate item catalog
         run: python scripts/gen_items_catalog.py
 
+      # ⚠️ **必须在 gen_items_catalog 之后**：物品名 → 图鉴位置的映射
+      # （scripts/data/item_pages.json）由上一步产出，本步读它把物品名变成链接。
+      # 顺序错了不会报错，只会**静默出一份没有链接的任务物品索引** ——
+      # 所以本步也自己会检查映射是否存在，缺失时打印警告。
+      - name: Generate quest item index
+        run: python scripts/gen_quest_carrier.py
+
       - name: Build site
         run: zensical build
 

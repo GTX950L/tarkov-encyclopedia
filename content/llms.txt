@@ -91,6 +91,7 @@
 - **内容约定**：`content/template.md`（骨架与页眉写法）、`content/CONTRIBUTING.md`（体例仲裁规则）、`content/docs/citation.md`（三档口径、条目页眉模板与已知未决项）
 - **校验脚本**：`scripts/check_entries.py`（一致性 + **覆盖率** + 图鉴页页眉基线，CI 门禁）、`scripts/skills_consistency.py`（手册与实现是否脱节，CI 门禁）、`scripts/check_catalog_consistency.py`（**既有图鉴条目 ↔ 物品图鉴的同一件物品数值是否一致**，CI 门禁）、`scripts/check-freshness.py`（内容新鲜度，信息性）
 - **生成器**：`scripts/gen_quests.py`（任务图鉴）—— 分「抓取」与「生成」两步，页面生成**不依赖网络**，改动后重跑 `python scripts/gen_quests.py --fetch` 即可整栏重建
+- **联动**：**任务图鉴 ↔ 物品图鉴已打通** —— 物品反查页的物品名可点，跳到图鉴对应页并自动展开详情；图鉴详情里有「怎么拿到它」（商人出售 / 以物换物 / 藏身处制作）与「有任务要它吗」，两侧可来回跳。映射由 `scripts/data/item_pages.json` 承载（`gen_items_catalog.py` 产出、`gen_quest_carrier.py` 消费，**顺序敏感**）。「去哪取得」只给**确定途径**，不含地图刷新（散落数据只覆盖 6.2% 的物品，给出来会误导）
 - **生成器**：`scripts/gen_items_catalog.py`（物品图鉴）—— 同两步；**七道对账不过就不写盘**（叶子分类集合闭合 / 前缀全部命中 / 引用有效 / 件数之和相等 / 无未归类物品 / 每页件数一致 / slug 唯一），另有锚点自检。新增叶子分类时须在 `PAGES` 里补一条，漏了会被对账报出来而不是静默丢失
 - **改动纪律**：同一个实体在站内出现多处时，改一处必须 grep 全站 —— 否则别处会静默变错
 

@@ -4417,3 +4417,67 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   }
   .tk-cat__count { text-align: right; }
 }
+
+/* 图鉴详情面板：「怎么拿到它」与「有任务要它吗」两节
+   --------------------------------------------------------------------------
+   两节都用 <ul> 列条目，所以先清掉 Material 默认给 .md-typeset ul 的
+   额外缩进与行距 —— 面板只有 30rem 宽，默认样式会让一行只剩几个字。 */
+.tk-cat-detail__route {
+  margin: 10px 0 4px;
+  font-size: .76rem;
+}
+
+.tk-cat-detail__mats {
+  margin: 0 0 6px;
+  padding-left: 1.1em;
+  font-size: .74rem;
+  line-height: 1.65;
+  color: var(--tk-ink);
+}
+.tk-cat-detail__mats li { margin: 0; }
+
+.tk-cat-detail__caution {
+  margin: 8px 0 0;
+  padding: 6px 9px;
+  font-size: .7rem;
+  line-height: 1.6;
+  color: var(--tk-amber);
+  background: var(--tk-amber-bg);
+  border-left: 3px solid var(--tk-amber);
+  border-radius: 0 2px 2px 0;
+}
+
+.tk-cat-detail__more {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: .72rem;
+  color: var(--tk-brand);
+  border-bottom: 1px dotted var(--tk-line-3);
+}
+.tk-cat-detail__more:hover { border-bottom-style: solid; }
+
+[data-md-color-scheme="slate"] .tk-cat-detail__mats { color: #DCD8D0; }
+[data-md-color-scheme="slate"] .tk-cat-detail__caution {
+  color: #E0C489;
+  background: #3A321F;
+  border-left-color: #E0C489;
+}
+[data-md-color-scheme="slate"] .tk-cat-detail__more { color: #C6D2DE; }
+
+/* 物品反查页里指向图鉴的链接
+   --------------------------------------------------------------------------
+   原来是纯文本，现在能点。要让它**看得出能点**，但又不能抢了表格本身的
+   视觉重心 —— 所以用虚线下划线而不是实线/按钮。 */
+.tk-il__link,
+.tk-ilt__link {
+  color: var(--tk-brand);
+  border-bottom: 1px dotted var(--tk-line-3);
+  text-decoration: none;
+}
+.tk-il__link:hover,
+.tk-ilt__link:hover {
+  color: var(--tk-brand-dark);
+  border-bottom-style: solid;
+}
+[data-md-color-scheme="slate"] .tk-il__link,
+[data-md-color-scheme="slate"] .tk-ilt__link { color: #C6D2DE; }

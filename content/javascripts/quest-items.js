@@ -59,6 +59,46 @@
     return s.src.replace(/javascripts\/[^/]*$/, "");
   }
 
+  /* ---------------------------------------------------------------- 图鉴链接
+     本页回答「这物品要不要留」，读者紧接着会问「那它长什么样、去哪弄」——
+     那一跳由第九篇·物品图鉴承接。data.pages 是构建期算好的映射：
+
+       · [slug, id] → **精确链接**到图鉴该页的那一行，并自动展开详情面板
+       · null       → 图鉴里有**多个同名型号**（50 个名字属于这种），
+                      硬指一件会指错，所以改链到搜索让读者自己挑
+       · undefined  → **任务专属道具**，根本不在图鉴里（111 种），
+                      此时**不给链接**，并把原因写在 title 上 ——
+                      给一个点进去查无此物的链接比不给更糟
+  ------------------------------------------------------------------------ */
+  var PAGE_MAP = {};
+
+  /* ⚠️ ``styleCls`` 只负责**外观**（字号、间距），可点的标识类
+     ``tk-il__link`` 由本函数自己加 —— 第一版把两者混成一个参数，
+     结果传「tk-il__name」时链接就丢掉了标识类，样式里那套虚线全不生效，
+     而**页面上看不出任何异常**（链接还在、也能点，只是不像链接）。
+     外层的测试用例正是靠 ``tk-il__link`` 找链接的，所以直接报「0 个链接」。 */
+  function itemAnchor(name, styleCls) {
+    var p = PAGE_MAP[name];
+    var root = siteRoot();
+    var cls = (styleCls ? styleCls + " " : "") + "tk-il__link";
+    var a;
+    if (p && p.length === 2) {
+      a = el("a", cls, name);
+      a.href = root + "catalog/" + p[0] + "/#item-" + p[1];
+      a.title = "在物品图鉴里看它的属性、怎么拿到、哪些任务要它";
+      return a;
+    }
+    if (p === null) {
+      a = el("a", cls, name);
+      a.href = root + "catalog/#q=" + encodeURIComponent(name);
+      a.title = "图鉴里有多个同名型号 —— 点开自己挑";
+      return a;
+    }
+    var span = el("span", styleCls || "tk-il__name", name);
+    span.title = "任务专属道具，不在物品图鉴收录范围内";
+    return span;
+  }
+
   function load(cb) {
     if (window[DATA_KEY]) { cb(window[DATA_KEY]); return; }
     var url = siteRoot() + "javascripts/" + DATA_FILE;
@@ -109,7 +149,7 @@
     var card = el("div", "tk-il__card");
 
     var head = el("div", "tk-il__cardhead");
-    head.appendChild(el("span", "tk-il__name", name));
+    head.appendChild(itemAnchor(name, "tk-il__name"));
     var v = verdict(rec);
     head.appendChild(el("span", "tk-il__verdict tk-il__verdict--" + v.cls, v.text));
     card.appendChild(head);
@@ -246,7 +286,9 @@
     names.slice(0, 60).forEach(function (name) {
       var rec = items[name];
       var r = el("tr");
-      r.appendChild(el("td", "tk-ilt__name", name));
+      var td = el("td", "tk-ilt__name");
+      td.appendChild(itemAnchor(name, "tk-ilt__name"));
+      r.appendChild(td);
       r.appendChild(el("td", "tk-ilt__n", String(rec.n)));
       r.appendChild(el("td", null, (rec.traders || []).join(" / ") || "—"));
       r.appendChild(el("td", null, (rec.barter || []).length
@@ -270,6 +312,7 @@
         "物品数据未加载 —— 需要 JavaScript 与 scripts/data/items_index.json。";
       return;
     }
+    PAGE_MAP = data.pages || {};
     if (f.lookup) buildLookup(f.lookup, data);
     if (f.table) buildTable(f.table, data);
   });

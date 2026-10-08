@@ -235,12 +235,42 @@ def main() -> None:
             "maps": sorted(v["maps"]),
             "barter": trades.get(name) or [],
         }
+    # ── 物品 → 图鉴位置（供前端把物品名变成链接）─────────────────────
+    #
+    # 读者手上拿着一件物品时，下一跳通常是「这东西长什么样、还有什么属性」——
+    # 那一跳由第九篇·物品图鉴承接。要跳得准，就得知道这个名字在图鉴的哪一页。
+    #
+    # ⚠️ **只对「本页收录的物品」出映射**，不把图鉴的全量映射（4548 个唯一名、
+    # 327 KB）搬过来 —— 前端只用得上这 833 个名字里的子集，全搬是纯浪费。
+    # ⚠️ **重名必须走搜索**：图鉴里有 50 个名字对应多件物品（不同配色/版本），
+    # 硬指某一件会**指到另一件物品上，而读者看不出来**。这类给 null，
+    # 前端改链到 `catalog/#q=<名字>` 让读者自己挑。
+    pages_map: dict[str, list | None] = {}
+    ip = ROOT / "scripts" / "data" / "item_pages.json"
+    if ip.exists():
+        pd = json.loads(ip.read_text(encoding="utf-8"))
+        exact = pd.get("pages") or {}
+        dups = set(pd.get("dups") or [])
+        for _name in items:
+            if _name in exact:
+                pages_map[_name] = list(exact[_name])     # [slug, id] → 精确链接
+            elif _name in dups:
+                pages_map[_name] = None                   # 重名 → 走搜索
+        n_exact = sum(1 for v in pages_map.values() if v)
+        n_dup = sum(1 for v in pages_map.values() if v is None)
+        print(f"物品→图鉴映射：精确 {n_exact} ｜ 重名走搜索 {n_dup} ｜ "
+              f"不在图鉴 {len(items) - n_exact - n_dup}（任务专属道具）")
+    else:
+        print(f"⚠️ 找不到 {ip.relative_to(ROOT)} —— 物品名将不带图鉴链接。"
+              f"先跑 scripts/gen_items_catalog.py 生成它。")
+
     payload2 = {
         "fetched": fetched,
         "coverage": coverage,
         "note": ("barter 字段只对「出现在 recipes.json 的 names 里」的物品有值；"
                  "未命中不等于买不到，只表示不在本站收录的配方里"),
         "items": items,
+        "pages": pages_map,
     }
     OUT_ITEMS.write_text(
         json.dumps(payload2, ensure_ascii=False, indent=1), encoding="utf-8")

@@ -835,30 +835,114 @@ def index_markdown(plan, total_items, leaves_zh) -> str:
     return "\n".join(out)
 
 
-def write_js(plan, buckets, leaves, total_items):
-    """按大类切块写 catalog-data.js —— 每页只加载自己那一块。"""
+def load_routes():
+    """读 ``scripts/data/recipes.json`` → 「物品 id → 获取途径列表」。
+
+    要回答读者的第二个问题：**「这个东西我去哪弄？」**
+
+    ⚠️ **只收「确定的途径」：商人以物换物、藏身处制作。**
+
+    刻意**不收「哪张图能刷到」**，理由是实测出来的量级问题：
+    静态端点的 ``maps.lootLoose`` 只覆盖 **341 / 5476 = 6.2%** 的物品，而它只含
+    **散落刷新**（战利品大头在容器里，而容器的掉落表只在 GraphQL 端点里有、
+    静态端点不给）。拿 6.2% 去回答「去哪找」，读者会以为「只有这几张图有」——
+    **不全是误导，是多半会误导**。站内既有的 [战利品分布](../entries/loot.md) 本来
+    也只给判断框架、不给点位表，这里的边界与它一致。
+
+    所以本栏的措辞是「**这三条是确定的获取途径**」，而不是「全部获取途径」。
+
+    ``recipes.json`` 的产物数是 932 种、途径 1069 条。
+    """
+    f = ROOT / "scripts" / "data" / "recipes.json"
+    if not f.exists():
+        return {}, {}, {}
+    r = json.loads(f.read_text(encoding="utf-8"))
+    names = r.get("names") or {}
+    routes = collections.defaultdict(list)
+    for c in r.get("crafts") or []:
+        routes[c["product"]].append({
+            "k": "craft", "s": c["station"], "lv": c["level"],
+            # [材料名, 数量, 是否只当工具用（不消耗）]
+            "m": [[names.get(m["item"], m["item"]), m["count"],
+                   1 if m.get("tool") else 0] for m in (c.get("materials") or [])],
+        })
+    for b in r.get("barters") or []:
+        routes[b["product"]].append({
+            "k": "barter", "s": b["trader"], "lv": b["level"],
+            "m": [[names.get(m["item"], m["item"]), m["count"]]
+                  for m in (b.get("materials") or [])],
+        })
+    return routes, names, {"fetched": r.get("fetched"), "baseline": r.get("baseline")}
+
+
+def load_quest_needs(leaf_ids):
+    """读 ``scripts/data/items_index.json`` → 「物品名 → 任务需求」。
+
+    要回答第三个问题：**「这东西有任务要吗、要不要留？」**（站内已有
+    [物品反查](../quests/item-lookup.md) 覆盖面，这里做的是**从图鉴侧反向接过去**，
+    让读者查到一件物品时不必再手动去那一页搜。）
+
+    ⚠️ **这份数据按「中文名」索引，而图鉴按 id 索引**，所以要按名字桥接。
+    桥不上的**必须报出来、不静默丢** —— 实测 833 种任务物品里只有 **722 种（86.7%）**
+    能在图鉴里找到，剩下 111 种是**任务专属道具**（「Prapor 的包裹」「水泵运行数据」），
+    它们不在 tarkov.dev 的 items 端点里 —— 那类东西本来也不该问「去哪取得」，
+    是任务给你的。这个数字由 main 输出，让人一眼看到覆盖率。
+    """
+    f = ROOT / "scripts" / "data" / "items_index.json"
+    if not f.exists():
+        return {}, 0
+    d = json.loads(f.read_text(encoding="utf-8"))
+    return d.get("items") or {}, len(d.get("items") or {})
+
+
+def write_js(plan, buckets, leaves, total_items, routes, quests, item_of_name):
+    """按大类切块写 catalog-data.js —— 每页只加载自己那一块。
+
+    除物品本体外还带三份索引，都是「详情面板点开后才用」的：
+
+      · ``routes``  物品 id → 获取途径（商人换 / 藏身处做）
+      · ``quests``  物品 id → 哪些任务要它
+      · ``pages``   物品 id → 图鉴页 slug（供站内其它页面链接过来定位）
+    """
     chunks = {}
+    pages = {}
     for p in plan:
         arr = []
         for lid in p["leaves"]:
             for it in buckets.get(lid, []):
                 arr.append([it["id"], it["name"], it["en"], it["weight"], it["props"],
                             it["buy"], it["sell"], it["types"][0] if it["types"] else ""])
+                pages[it["id"]] = p["slug"]
         chunks[p["slug"]] = arr
     idx = {p["slug"]: {"title": p["title"], "count": p["count"],
                        "leaves": [{"path": leaves[l], "n": len(buckets.get(l, []))}
                                   for l in p["leaves"] if buckets.get(l)]}
            for p in plan}
+
+    # 「任务需求」按中文名索引，这里翻成按 id 索引，前端才查得到。
+    quests_by_id = {}
+    unmatched_quest_items = []
+    for name, v in (quests or {}).items():
+        iid = item_of_name.get(name)
+        if iid:
+            quests_by_id[iid] = v
+        else:
+            unmatched_quest_items.append(name)
+
+    # 只保留**确实收进图鉴的**物品的途径，避免前端拿到悬空 id 画不出东西。
+    live = set(pages)
+    routes = {k: v for k, v in (routes or {}).items() if k in live}
+
     body = json.dumps({"fetched": FETCH_DATE, "total": total_items,
-                       "index": idx, "chunks": chunks},
+                       "index": idx, "chunks": chunks,
+                       "routes": routes, "quests": quests_by_id},
                       ensure_ascii=False, separators=(",", ":"))
     JS.mkdir(parents=True, exist_ok=True)
-    (JS / "catalog-data.js").write_text(
-        "/* 由 scripts/gen_items_catalog.py 生成 —— 勿手改。\n"
-        f"   数据源 json.tarkov.dev（二级），抓取日期 {FETCH_DATE}。 */\n"
-        "window.TARKOV_CATALOG=" + body + ";\n",
-        encoding="utf-8")
-    return len(body)
+    (JS / "catalog-data.js").write_bytes(
+        ("/* 由 scripts/gen_items_catalog.py 生成 —— 勿手改。\n"
+         f"   数据源 json.tarkov.dev（二级），抓取日期 {FETCH_DATE}。 */\n"
+         "window.TARKOV_CATALOG=" + body + ";\n").encode("utf-8"))
+    return len(body), pages, unmatched_quest_items
 
 
 def check_anchors(md, slug):
@@ -989,9 +1073,48 @@ def main() -> int:
         for e in anchor_errs:
             print("  " + e, file=sys.stderr)
         return 1
-    size = write_js(plan, buckets, leaves, items_total)
+    routes, recipe_names, recipe_meta = load_routes()
+    quests, quest_n = load_quest_needs(leaf_ids)
+
+    # 中文名 → 图鉴位置。任务侧的数据是**按名字**索引的，所以这份映射也得按名字出。
+    #
+    # ⚠️ **重名必须单独处理，不能「同名取第一个」**：实测图鉴里有 **381 个重名**
+    # （占 7.7%，例如不同配色的「Daniel Defence RIS II 9.5 英寸 AR-15 规格护木」）。
+    # 硬取第一个会让任务侧链接**指到另一件物品**上 —— 而读者根本看不出错了。
+    # 所以：唯一名 → 给 [slug, id] 让链接精确落到那一行；
+    #       重名   → 给 null，链接改走**搜索**（`catalog/#q=名字`），由读者自己挑。
+    item_of_name, dup_names = {}, set()
+    for p in plan:
+        for lid in p["leaves"]:
+            for it in buckets.get(lid, []):
+                n = it["name"]
+                if n in item_of_name:
+                    dup_names.add(n)
+                item_of_name[n] = (p["slug"], it["id"])
+
+    size, pages, unmatched_q = write_js(plan, buckets, leaves, items_total,
+                                        routes, quests,
+                                        {k: v[1] for k, v in item_of_name.items()})
+    # 站内其它页面（任务侧）靠这份映射把物品名链到图鉴对应位置
+    ip = ROOT / "scripts" / "data" / "item_pages.json"
+    ip.write_bytes(json.dumps(
+        {"fetched": FETCH_DATE,
+         "pages": {n: list(v) for n, v in item_of_name.items() if n not in dup_names},
+         "dups": sorted(dup_names)},
+        ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
+
     print(f"\n写出 {len(written)} 个页面 + catalog-data.js（{size / 1048576:.2f} MB 未压缩）")
     print("锚点自检通过")
+    print(f"获取途径：{len(routes)} 种物品 ｜ "
+          f"{sum(len(v) for v in routes.values())} 条（换 {len([1 for v in routes.values() for x in v if x['k'] == 'barter'])} ／ "
+          f"做 {len([1 for v in routes.values() for x in v if x['k'] == 'craft'])}）"
+          f"　来源 recipes.json 抓取于 {recipe_meta.get('fetched')}")
+    print(f"任务需求：任务侧 {quest_n} 种 → 桥上 {quest_n - len(unmatched_q)} 种，"
+          f"未桥上 {len(unmatched_q)} 种（任务专属道具，不在 items 端点里）")
+    if unmatched_q:
+        print("  未桥上样例：" + "、".join(unmatched_q[:6]))
+    print(f"物品定位映射：{len(item_of_name) - len(dup_names)} 个唯一名精确链接 ｜ "
+          f"{len(dup_names)} 个重名走搜索（未桥上任务物品 {len(unmatched_q)} 种不链接）")
     return 0
 
 

@@ -264,6 +264,43 @@
     more.addEventListener("click", function () { page += 1; draw(); });
 
     draw();
+
+    /* ---------------------------------------------------------- 深链定位
+       站内其它页面（任务图鉴、物品反查、以后任何条目）链到图鉴时带 hash：
+
+         · ``#q=<名字>``     → 自动搜索。**重名物品走这条**（图鉴里有 50 个名字
+                              对应多件物品，硬指某一件会指错，索性让读者自己挑）。
+         · ``#item-<id>``    → 定位到那一行并直接打开详情面板。**唯一名走这条**。
+
+       ⚠️ 只在**本页确实有该物品**时才处理 ``#item-``：链接是构建期按 slug 生成的，
+       理论上不会错；但读者手改 hash、或旧链接遇到改版时，**静默什么都不做**
+       会让人以为是页面坏了 —— 所以查不到就退化成搜索。
+    */
+    function applyHash() {
+      var h = (location.hash || "").replace(/^#/, "");
+      if (!h) return;
+      if (h.indexOf("q=") === 0) {
+        var term = decodeURIComponent(h.slice(2));
+        input.value = term; state.q = term; page = 1; draw();
+        return;
+      }
+      if (h.indexOf("item-") === 0) {
+        var id = h.slice(5);
+        var all = apply(d);
+        var i = all.findIndex(function (row) { return row[0] === id; });
+        if (i < 0) {                       // 不在本页 → 退化成搜索该 id
+          input.value = id; state.q = id; page = 1; draw();
+          return;
+        }
+        page = Math.floor(i / PAGE_LIMIT) + 1;
+        draw();
+        openDetail(all[i], d);
+      }
+    }
+    applyHash();
+    mount._onHash = applyHash;
+    window.addEventListener("hashchange", mount._onHash);
+
     return wrap;
   }
 
@@ -299,12 +336,122 @@
     props.appendChild(el("p", null, r[4] || "该物品没有数值属性。"));
     box.appendChild(props);
 
+    box.appendChild(buildRoutes(r, d));
+    box.appendChild(buildQuestNeeds(r, d));
+
     box.appendChild(el("p", "tk-cat-detail__note",
       "本页数值随版本调整，以游戏内为准。数据源 tarkov.dev（二级），抓取于 " + (d.fetched || "—") + "。"));
 
     document.body.appendChild(box);
     x.addEventListener("click", function () { box.remove(); });
     box.addEventListener("click", function (e) { if (e.target === box) box.remove(); });
+  }
+
+  /* -------------------------------------------------- 「怎么拿到它」一节
+     回答读者的第二个问题：**这东西我去哪弄？**
+
+     ⚠️ **口径必须写死在界面上**，否则读者会把它当成「全部获取途径」：
+       这里只列**确定的途径**（商人换 / 藏身处做）—— 它们可复核、可执行。
+       **不含「哪张图能刷到」**：静态端点的散落刷新数据只覆盖 6.2% 的物品，
+       给出「只有这几张图有」比不给更容易误导。站内 loot 页同样只给判断框架。
+  ------------------------------------------------------------------------ */
+  function buildRoutes(r, d) {
+    var sec = el("div", "tk-cat-detail__props");
+    sec.appendChild(el("h4", null, "怎么拿到它"));
+
+    var list = (d.routes || {})[r[0]] || [];
+    var bought = r[5] && String(r[5]).indexOf("—") !== 0;
+
+    if (!list.length && !bought) {
+      var empty = el("p", null, "");
+      empty.appendChild(document.createTextNode("这件物品"));
+      empty.appendChild(el("strong", null, "不在"));
+      empty.appendChild(document.createTextNode(
+        "站内收录的以物换物与制作配方里。这不等于拿不到 —— "
+        + "只表示它得靠搜刮或跳蚤市场，而那两样站内不给点位（判据见战利品分布页）。"));
+      sec.appendChild(empty);
+      return sec;
+    }
+
+    if (bought) {
+      var p0 = el("p", null, "");
+      p0.appendChild(el("strong", null, "商人出售　"));
+      p0.appendChild(document.createTextNode(r[5]));
+      sec.appendChild(p0);
+    }
+
+    list.forEach(function (route) {
+      var isBarter = route.k === "barter";
+      var head = el("p", "tk-cat-detail__route");
+      head.appendChild(el("strong", null,
+        (isBarter ? "以物换物" : "藏身处制作") + "　"));
+      head.appendChild(document.createTextNode(
+        route.s + (route.lv ? "　" + route.lv + " 级" : "")));
+      sec.appendChild(head);
+
+      var ul = document.createElement("ul");
+      ul.className = "tk-cat-detail__mats";
+      (route.m || []).forEach(function (m) {
+        var li = document.createElement("li");
+        li.textContent = m[0] + " × " + m[1] + (m[2] ? "（工具，不消耗）" : "");
+        ul.appendChild(li);
+      });
+      sec.appendChild(ul);
+    });
+
+    var caution = el("p", "tk-cat-detail__caution");
+    caution.appendChild(document.createTextNode("以上是"));
+    caution.appendChild(el("strong", null, "确定的获取途径"));
+    caution.appendChild(document.createTextNode(
+      "（配方可复核）。不含「哪张图能刷到」—— 站内的散落刷新数据只覆盖少数物品，"
+      + "给出来反而会让人以为「只有这几张图有」。找刷取点请用当前版本的社区地图。"));
+    sec.appendChild(caution);
+
+    return sec;
+  }
+
+  /* -------------------------------------------------- 「哪些任务要它」一节
+     ⚠️ 措辞要卡死两点，否则会读成相反的意思：
+       ① 这是**任务要不要它**，不是「物品在哪」；
+       ② `maps` 是**任务所在地图**，不是**物品刷新地图** —— 数据源里叫 maps，
+          但它跟着任务目标走。写成「在森林刷」就是错的。
+  ------------------------------------------------------------------------ */
+  function buildQuestNeeds(r, d) {
+    var sec = el("div", "tk-cat-detail__props");
+    sec.appendChild(el("h4", null, "有任务要它吗"));
+    var q = (d.quests || {})[r[0]];
+    if (!q) {
+      sec.appendChild(el("p", null,
+        "没有任务需要这件物品（或它是任务专属道具，不在图鉴收录范围内）。"));
+      return sec;
+    }
+    var n = q.n || 0;
+    var keep = q.keep || [];
+    sec.appendChild(el("p", null,
+      "被 " + n + " 个任务需要" + (keep.length ? "，建议保留" : "") + "。"));
+    if (keep.length) {
+      var ul = document.createElement("ul");
+      ul.className = "tk-cat-detail__mats";
+      keep.slice(0, 8).forEach(function (t) {
+        ul.appendChild(el("li", null, t));
+      });
+      if (keep.length > 8) {
+        ul.appendChild(el("li", null, "…等共 " + keep.length + " 个"));
+      }
+      sec.appendChild(ul);
+    }
+    if ((q.maps || []).length) {
+      var m = el("p", "tk-cat-detail__caution");
+      m.appendChild(document.createTextNode("需要它的任务在：" + q.maps.join("、") + "。"));
+      m.appendChild(el("strong", null, "这是任务所在地图、不是物品的刷新位置"));
+      m.appendChild(document.createTextNode("。"));
+      sec.appendChild(m);
+    }
+    var a = el("a", "tk-cat-detail__more");
+    a.href = siteRoot().replace(/javascripts\/$/, "") + "quests/item-lookup/";
+    a.textContent = "去物品反查页看完整任务列表 →";
+    sec.appendChild(a);
+    return sec;
   }
 
   /* ---------------------------------------------------------------- 挂载 */
@@ -325,6 +472,14 @@
       return;
     }
     host.dataset.tkReady = "1";
+    /* ⚠️ 每次挂载（＝每次换页）都要**重置筛选状态**。
+       state 是模块级变量，instant 换页不会重新加载脚本 —— 不重置的话，
+       在枪械页搜了「glock」再点到配件页，搜索词还在，读者会以为
+       「这一页怎么只有 glock 相关的配件」。 */
+    state.q = ""; state.kind = ""; state.sort = "weight"; page = 1;
+    /* ⚠️ hashchange 监听要**先摘掉上一次的**：换页后旧监听器仍抓着已被
+       Material 卸掉的旧 DOM，既泄漏又可能对不存在的节点动手。 */
+    if (mount._onHash) window.removeEventListener("hashchange", mount._onHash);
     var ui = panel(d);
     host.textContent = "";
     host.appendChild(ui);
