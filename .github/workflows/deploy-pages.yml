@@ -36,8 +36,23 @@ jobs:
       - name: Check agent manual consistency
         run: python scripts/skills_consistency.py
 
+      # ⚠️ 顺序：**先抓一次数据、再跑三个用它/查它的步骤**。
+      # 抓三遍和抓一遍结果一样，时间差好几倍。
+      - name: Generate item catalog
+        run: python scripts/gen_items_catalog.py --fetch
+
+      - name: Generate quest item index
+        run: python scripts/gen_quest_carrier.py
+
+      # 物品→图鉴映射是否跟上图鉴数据：跑完生成器若入仓文件有变化，说明有人
+      # 改了图鉴（或 recipes）却没重跑这一步 —— 那会让线上留下**过期的物品链接**。
+      # ⚠️ 只查入仓的两份；catalog-data.js 在 .gitignore 里，对它 git diff 恒为空。
+      - name: Check item link wiring
+        run: |
+          git diff --exit-code content/javascripts/items_index.js                                scripts/data/item_pages.json
+
       - name: Check item value consistency
-        run: python scripts/check_catalog_consistency.py --fetch
+        run: python scripts/check_catalog_consistency.py
 
   deploy:
     needs: validate

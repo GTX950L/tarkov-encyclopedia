@@ -27,7 +27,7 @@ jobs:
       # 物品数值一致性：既有图鉴条目与物品图鉴的同一件物品，数值是否还对得上。
       # ⚠️ 它需要 items_full.json 缓存（不入仓），所以这一条自己抓一次数据源。
       #    数据源结构变了、或某篇条目写错了数，这里就会红。
-      # 顺序有讲究：**先生成，后核对**。
+      # 顺序有讲究：**先生成，后核对**（与 deploy-pages.yml 的 validate job 一致）。
       # gen_items_catalog --fetch 会把数据抓下来放进 scripts/data/items_full.json，
       # 后面两步都复用它 —— 抓三遍数据和抓一遍，结果一样但时间差好几倍。
       - name: Generate item catalog
