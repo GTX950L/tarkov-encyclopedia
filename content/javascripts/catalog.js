@@ -266,39 +266,51 @@
     draw();
 
     /* ---------------------------------------------------------- 深链定位
-       站内其它页面（任务图鉴、物品反查、以后任何条目）链到图鉴时带 hash：
+       站内其它页面（任务图鉴、物品反查、以后任何条目）链到图鉴时带参数：
 
-         · ``#q=<名字>``     → 自动搜索。**重名物品走这条**（图鉴里有 50 个名字
+         · ``?item=<id>``   → 定位到那一行并直接打开详情面板。**唯一名走这条**。
+         · ``?q=<名字>``    → 自动搜索。**重名物品走这条**（图鉴里有 50 个名字
                               对应多件物品，硬指某一件会指错，索性让读者自己挑）。
-         · ``#item-<id>``    → 定位到那一行并直接打开详情面板。**唯一名走这条**。
 
-       ⚠️ 只在**本页确实有该物品**时才处理 ``#item-``：链接是构建期按 slug 生成的，
-       理论上不会错；但读者手改 hash、或旧链接遇到改版时，**静默什么都不做**
-       会让人以为是页面坏了 —— 所以查不到就退化成搜索。
+       ⚠️ **用 query 不用 hash —— 这是被 Material 逼的，不是风格选择。**
+       第一版用的是 ``#item-<id>``。**直接打开那个 URL 完全正常**（所以本地
+       和线上手输地址都测得出「能用」），但只要读者是**点站内链接**过去的，
+       Material 的 instant navigation 会把跨页 hash 改写成 ``#_1`` ——
+       实测点击后 URL 变成 ``/catalog/barter/#_1``，参数**整个丢掉**，
+       于是落地的是一张干净的表格，详情不展开，而**控制台一个错都不报**。
+       query 参数不经过那套改写，两种情况行为一致。
+
+       hash 形式仍然兼容（老链接、手输地址），但站内生成的链接一律用 query。
     */
-    function applyHash() {
-      var h = (location.hash || "").replace(/^#/, "");
-      if (!h) return;
-      if (h.indexOf("q=") === 0) {
-        var term = decodeURIComponent(h.slice(2));
+    function applyDeepLink() {
+      var item = null, term = null;
+      try {
+        var sp = new URLSearchParams(location.search || "");
+        item = sp.get("item");
+        term = sp.get("q");
+      } catch (e) { /* 老浏览器没有 URLSearchParams → 退到 hash 分支 */ }
+      if (!item && !term) {
+        var h = (location.hash || "").replace(/^#/, "");
+        if (h.indexOf("q=") === 0) term = decodeURIComponent(h.slice(2));
+        else if (h.indexOf("item-") === 0) item = h.slice(5);
+      }
+      if (term) {
         input.value = term; state.q = term; page = 1; draw();
         return;
       }
-      if (h.indexOf("item-") === 0) {
-        var id = h.slice(5);
-        var all = apply(d);
-        var i = all.findIndex(function (row) { return row[0] === id; });
-        if (i < 0) {                       // 不在本页 → 退化成搜索该 id
-          input.value = id; state.q = id; page = 1; draw();
-          return;
-        }
-        page = Math.floor(i / PAGE_LIMIT) + 1;
-        draw();
-        openDetail(all[i], d);
+      if (!item) return;
+      var all = apply(d);
+      var i = all.findIndex(function (row) { return row[0] === item; });
+      if (i < 0) {                       // 不在本页 → 退化成搜索该 id
+        input.value = item; state.q = item; page = 1; draw();
+        return;
       }
+      page = Math.floor(i / PAGE_LIMIT) + 1;
+      draw();
+      openDetail(all[i], d);
     }
-    applyHash();
-    mount._onHash = applyHash;
+    applyDeepLink();
+    mount._onHash = applyDeepLink;
     window.addEventListener("hashchange", mount._onHash);
 
     return wrap;

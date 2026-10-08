@@ -82,15 +82,18 @@
     var root = siteRoot();
     var cls = (styleCls ? styleCls + " " : "") + "tk-il__link";
     var a;
+    /* ⚠️ **用 query 不用 hash**：Material 的 instant navigation 会把跨页 hash
+       改写成 ``#_1``，参数整个丢掉 —— 点击后落地一张干净的表格、详情不展开，
+       而控制台一个错都不报。query 不经过那套改写。详见 catalog.js 的同名注释。 */
     if (p && p.length === 2) {
       a = el("a", cls, name);
-      a.href = root + "catalog/" + p[0] + "/#item-" + p[1];
+      a.href = root + "catalog/" + p[0] + "/?item=" + p[1];
       a.title = "在物品图鉴里看它的属性、怎么拿到、哪些任务要它";
       return a;
     }
     if (p === null) {
       a = el("a", cls, name);
-      a.href = root + "catalog/#q=" + encodeURIComponent(name);
+      a.href = root + "catalog/?q=" + encodeURIComponent(name);
       a.title = "图鉴里有多个同名型号 —— 点开自己挑";
       return a;
     }
