@@ -932,6 +932,12 @@ def write_js(plan, buckets, leaves, total_items, routes, quests, item_of_name):
     # 只保留**确实收进图鉴的**物品的途径，避免前端拿到悬空 id 画不出东西。
     live = set(pages)
     routes = {k: v for k, v in (routes or {}).items() if k in live}
+    route_stats = {
+        "items": len(routes),
+        "total": sum(len(v) for v in routes.values()),
+        "barter": sum(1 for v in routes.values() for x in v if x["k"] == "barter"),
+        "craft": sum(1 for v in routes.values() for x in v if x["k"] == "craft"),
+    }
 
     body = json.dumps({"fetched": FETCH_DATE, "total": total_items,
                        "index": idx, "chunks": chunks,
@@ -942,7 +948,7 @@ def write_js(plan, buckets, leaves, total_items, routes, quests, item_of_name):
         ("/* 由 scripts/gen_items_catalog.py 生成 —— 勿手改。\n"
          f"   数据源 json.tarkov.dev（二级），抓取日期 {FETCH_DATE}。 */\n"
          "window.TARKOV_CATALOG=" + body + ";\n").encode("utf-8"))
-    return len(body), pages, unmatched_quest_items
+    return len(body), pages, unmatched_quest_items, route_stats
 
 
 def check_anchors(md, slug):
@@ -1092,9 +1098,9 @@ def main() -> int:
                     dup_names.add(n)
                 item_of_name[n] = (p["slug"], it["id"])
 
-    size, pages, unmatched_q = write_js(plan, buckets, leaves, items_total,
-                                        routes, quests,
-                                        {k: v[1] for k, v in item_of_name.items()})
+    size, pages, unmatched_q, rstat = write_js(
+        plan, buckets, leaves, items_total, routes, quests,
+        {k: v[1] for k, v in item_of_name.items()})
     # 站内其它页面（任务侧）靠这份映射把物品名链到图鉴对应位置
     ip = ROOT / "scripts" / "data" / "item_pages.json"
     ip.write_bytes(json.dumps(
@@ -1105,10 +1111,12 @@ def main() -> int:
 
     print(f"\n写出 {len(written)} 个页面 + catalog-data.js（{size / 1048576:.2f} MB 未压缩）")
     print("锚点自检通过")
-    print(f"获取途径：{len(routes)} 种物品 ｜ "
-          f"{sum(len(v) for v in routes.values())} 条（换 {len([1 for v in routes.values() for x in v if x['k'] == 'barter'])} ／ "
-          f"做 {len([1 for v in routes.values() for x in v if x['k'] == 'craft'])}）"
+    print(f"获取途径：{rstat['items']} 种物品 ｜ {rstat['total']} 条"
+          f"（换 {rstat['barter']} ／ 做 {rstat['craft']}）"
           f"　来源 recipes.json 抓取于 {recipe_meta.get('fetched')}")
+    print(f"  ⚠️ 口径：recipes 里共 {len(routes)} 种产物，这里只报"
+          f"**收进图鉴的 {rstat['items']} 种**（差额是任务专属道具等不在图鉴里的物品）"
+          f" —— 打印值必须等于产物里的值，否则文档引用的数字会与页面不符")
     print(f"任务需求：任务侧 {quest_n} 种 → 桥上 {quest_n - len(unmatched_q)} 种，"
           f"未桥上 {len(unmatched_q)} 种（任务专属道具，不在 items 端点里）")
     if unmatched_q:

@@ -461,14 +461,39 @@
     if (!host || host.dataset.tkReady) return;
     var d = data();
     if (!d || !d.chunks) {
-      /* 数据没到。⚠️ **不能就这么放弃** —— 两个 <script> 是并行注入的，
-         没有「先数据后本体」的顺序保证（本批实测：本体先执行，直接 return 后
-         页面永远停在降级文案，且**控制台一个错都不报**）。
-         所以改成有上限的轮询；数据真的缺失时（生成物没构建）轮询几次就放弃，
-         保留生成器写好的降级文案。 */
-      if (!mount._tries) mount._tries = 0;
-      if (mount._tries++ > 40) return;   /* 约 6 秒，够脚本下载完 */
-      window.setTimeout(mount, 150);
+      /* 数据还没到。两个 <script> 是并行注入的，**没有「先数据后本体」的顺序保证**，
+         实测 catalog.js 常常先执行完。
+
+         ⚠️ **别用「限时轮询」当唯一机制** —— 第一版是 40 次 × 150ms（6 秒），
+         本地够用，**线上必挂**：catalog-data.js 未压缩 1.26 MB，实测冷启动
+         要 **35 秒**才下完（GitHub Pages 在弱网下就是这个速度）。6 秒一到就
+         永久放弃，数据后来到了也**没人再试**，页面永远停在降级文案 ——
+         而且**控制台一个错都不报**。
+
+         所以主机制换成**事件驱动**：数据脚本下完就挂载，不受时长限制。
+         轮询只作兜底（比如脚本元素查不到、或数据已被缓存的情况）。 */
+      if (!mount._wired) {
+        mount._wired = true;
+        var ds = document.querySelector('script[src*="catalog-data.js"]');
+        if (ds) {
+          ds.addEventListener("load", function () {
+            mount._wired = false;
+            mount();
+          });
+        }
+        var n = 0;
+        var iv = window.setInterval(function () {
+          if (host.dataset.tkReady || ++n > 300) {   /* 300 × 200ms ≈ 60 秒兜底 */
+            window.clearInterval(iv);
+            return;
+          }
+          if (data()) {
+            window.clearInterval(iv);
+            mount._wired = false;
+            mount();
+          }
+        }, 200);
+      }
       return;
     }
     host.dataset.tkReady = "1";
@@ -486,10 +511,10 @@
   }
 
   /* 两条入口都要：toolbox.js 注入的脚本可能晚于 document$ 首次发出。
-     ⚠️ **instant 换页会重放脚本**，所以挂载标记与轮询计数要按「每次新页面」重置 ——
-     否则第一次的 mount._tries 会让第二个页面直接放弃。 */
+     ⚠️ **instant 换页会重放脚本**，所以挂载相关的标记要按「每次新页面」重置 ——
+     不清 _wired 的话，第二个页面不会再装监听器，数据晚到就永远不会挂。 */
   function boot() {
-    mount._tries = 0;
+    mount._wired = false;
     mount();
   }
 
