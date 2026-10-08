@@ -49,6 +49,15 @@ theme:
         name: 切换亮色模式
 
 markdown_extensions:
+  # ⚠️ md_in_html 用来支持「在原始 HTML 块里写 Markdown」——
+  # 目前只有一处用到：物品图鉴的每个分类大表被包进
+  # `<div data-search-exclude markdown>`，目的是把这些几千行的表格
+  # **排除出全文搜索索引**（它们占了索引的 39%，见 scripts/gen_items_catalog.py）。
+  # 没有这个扩展，块里的 Markdown **不会被解析**，表格会退化成纯文本（实测过）。
+  #
+  # 边界：**只有带 markdown 属性的块才会被解析**，站内既有的
+  # `<div id="tk-...">` 一类原始 HTML 块行为不变（已逐页比对产物确认）。
+  - md_in_html
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg

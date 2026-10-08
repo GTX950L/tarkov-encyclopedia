@@ -33,6 +33,8 @@ tags:
 
 分类路径：物品 › 组合物品 › 武器配件 › 基础配件
 
+<div data-search-exclude markdown>
+
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
 | 1 | 柯尔特 CAR-15 细款下护木 | `ar-15-colt-car-15-skinny-lower-handguard` | 0.025 千克 | 人机工效 7；精度修正 0%；后坐修正 0%；热量系数 1.04 | 1,837 卢布，需 Peacekeeper 2 级 | 441 卢布（6 家最高） |
@@ -323,13 +325,23 @@ tags:
 | 286 | MTs-255-12 山毛榉下护木 | `mts-255-12-beechwood-forestock` | 0.8 千克 | 人机工效 9；精度修正 0%；后坐修正 2%；热量系数 1.03 | — | 688 卢布（6 家最高） |
 | 287 | SAG MK1 SVD 枪身套件 | `svd-sag-mk1-chassis` | 0.89 千克 | 人机工效 15；精度修正 0%；后坐修正 2%；热量系数 0.95 | 19,875 卢布，需 Mechanic 3 级 | 7,155 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **287 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 287 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+柯尔特 CAR-15 细款下护木　AB Arms MOD1 AR-15 下护木　柯尔特 A2 型下护木　SR-3M 聚合物护木（黑红色）　SR-3M聚合物护木　VSS/VAL 聚合物护木（黑红色）　VSS/VAL聚合物护木（黑色）　KAC URX 3 8 英寸 AR-15 下护木　Strike Industries Viper 卡宾枪规格 AR-15 M-LOK 护木　Strike Industries Viper 卡宾枪规格 AR-15 M-LOK 护木 (FDE)　Midwest 4.5英寸MPX M-LOK护木　SR-3M Karden 导轨护木　SR-3M 聚合物导轨护木（黑色）　UZI PRO A3 Tactical M-LOK护木　AB Arms MOD1 AR-15 护木　Strike Industries Viper 卡宾枪规格 AR-15 M-LOK 下护木　Strike Industries Viper 卡宾枪规格 M-LOK 下护木 (FDE)　KAC URX 3.1 10.75 英寸下护木　KAC RIS AR-15 下护木　OP-SKS导气管防尘盖　SKS ATI Monte Carlo导气管防尘盖　SKS导气管防尘盖　MDR 微型 M-LOK 护木 (FDE)　MDR 微型 M-LOK 护木 (黑色)　Aeroknox AX-15 4英寸 AR-15 M-LOK 护木　Zenit AK-12 Sport-12 护木防尘盖　AKS-74U 木制护木　Daniel Defence RIS III 9.5 英寸 AR-15 下护木（军规+）　Daniel Defence RIS III 9.5 英寸 AR-15 下护木（黑色）　Daniel Defence RIS II 9.5 英寸 AR-15 下护木（狼棕色）　Daniel Defence RIS II 9.5 英寸 AR-15 下护木（黑色）　SR-2M 聚合物护木（黑红色）　SR-2M聚合物护木（黑）　M870 Speedfeed短下护木　Strike Industries GRIDLOK AR-15 护木框架式基座 (红色)　Strike Industries GRIDLOK AR-15 护木框架式基座 (黄色)　Strike Industries GRIDLOK AR-15 护木框架式基座 (黑色)　柯尔特 M4 卡宾枪长度 AR-15 下护木　HK MP5SD 聚合物护木　MP-18聚合物护木　AK-12护木　AK-308 护木　Benelli M3护木　Midwest 6.5英寸MPX M-LOK护木　Lancer OEM M-LOK 14英寸MPX护木　AK-308 M-LOK 护木　Alfa Arms Goliaf AKS-74U护木　Daniel Defence RIS II 12.25 英寸 AR-15 下护木（狼棕色）　KAC M5 RAS 下护木　UZI聚合物护木　Zenit AK-12 Sport-12 护木　Zenit B-10 AK护木　Zenit B-11 AKS-74U 护木　柯尔特 CAR-15 细款护木　CMMG MK3 RML9 9英寸 AR-10 M-LOK 护木　联盟-TM 9 英寸 AR-15 M-LOK 护木　Lancer MCX 碳纤维 M-LOK 10.5 英寸护木　Strike Industries GRIDLOK 8.5 英寸 AR-15 护木　9A-91护木　Hexagon AK 管状护木　Hexagon AK 管状护木（电镀红）　RPK-16 护木　VSK-94护木　KAC URX 3 8 英寸 AR-15 护木　Daniel Defence RIS III 12.5 英寸 AR-15 下护木（军规+）　Daniel Defence RIS III 12.5 英寸 AR-15 下护木（黑色）　HK MP5 Wide Tropical聚合物护木　HK MP5K 聚合物护木　“迅猛龙”聚合物护木　Hexagon Cheese Grater mod.1 AK 护木（电镀灰）　Hexagon Cheese Grater mod.1 AK 护木（电镀红）　Hexagon Cheese Grater mod.1 AK 护木（电镀黄）　SOK-12聚合物护木Sb.7-1　UZI K-Grip 护木　UZI 握把护木　Lancer MCX 碳纤维 M-LOK 12 英寸护木　MP-18木制护木　M870 Magpul MOE 护木　Hexagon Cheese Grater mod.2 AK 护木（电镀灰）　Hexagon Cheese Grater mod.2 AK 护木（电镀红）　Hexagon Cheese Grater mod.2 AK 护木（电镀黄）　Magpul MOE SL卡宾枪长度M-LOK AR15护木　Samson K-Rail 3 AKS-74U 护木　TTS System 9A-91 护木　柯尔特 M4 卡宾枪长度 AR-15 护木　联盟-TM 12 英寸 AR-15 M-LOK 护木　Strike Industries SMC-90 P90 M-LOK 短护木　柯尔特 M16A2 AR-15 护木　Strike Industries GRIDLOK 11 英寸 AR-15 护木　HK UMP 加长 M-LOK 护木　STNGR VYPR 10 英寸 AR-15 M-LOK 护木　FAB Defense UAS SKS 导气管防尘盖　Aim Sport Keymod FAL通用护木　M1895/MXLR Ranger Point Precision M-LOK 护木　M1895/MXLR Ranger Point Precision M-LOK 护木 (FDE)　M1895/MXLR Ranger Point Precision M-LOK 护木 (绿色)　CAA RS47 AK 护木　CMMG MK3 RML15 15英寸 AR-10 M-LOK 护木　Fab Defence PR870下护木　M1895/MXLR Magpul ELG M-LOK 护木　M1895/MXLR Magpul ELG M-LOK 护木 (FDE)　MXLR 标准护木　TAPCO SKS 导轨导气管防尘盖　联盟-TM 15 英寸 AR-15 M-LOK 护木　Kel-Tec RFB标准护木　Magpul MOE AKM 护木 (FDE)　Magpul MOE AKM 护木（哑光灰）　Magpul MOE AKM 护木（橄榄绿）　Magpul MOE AKM 护木（黑红色）　Magpul MOE AKM 护木（黑色）　TDI AKM-L AK护木　TDI AKM-L 护木（电镀棕）　TDI AKM-L 护木（电镀红）　柯尔特 M16A1 AR-15 护木　MDR BLK LBL ALX 16 脚架护木 (FDE)　MDR BLK LBL ALX 16 脚架护木 (黑色)　LOBAEV Arms DVL-10 M2护木　KAC URX 3.1 10.75 英寸 AR-15 护木　Vltor CASV FAL护木　Hexagon PK 步兵机枪护木　KAC RIS AR-15 护木　Midwest 10.5英寸MPX M-LOK护木　HK G36 2 孔护木　M1895/MXLR Ranger Point Precision COSTA M-LOK 护木　M1895/MXLR Ranger Point Precision COSTA M-LOK 护木 (FDE)　M1895/MXLR Ranger Point Precision COSTA M-LOK 护木 (绿色)　Magpul MOE SL中等长度M-LOK AR15护木　Vltor CASV FAS护木　NB AS VAL MOD.4 套件护木　SOK-12 Custom Guns Type 340护木　MDR BLK LBL ALX 16 寸护木 (FDE)　MDR BLK LBL ALX 16 寸护木 (黑色)　Unique-ARs HEX 12 英寸 AR-15 护木　AK-74 聚合物护木　AK-74 聚合物护木（黑红色）　Alfa Arms Goliaf AKS-74U M-LOK 护木　Custom Guns Hedon S Saiga-12 护木（红线）　DS Arms RPD 导轨护木　Daniel Defence RIS III 9.5 英寸 AR-15 护木（军规+）　Daniel Defence RIS III 9.5 英寸 AR-15 护木（黑色）　KAC M5 RAS AR-15 护木　RPD木制护木　SVDS聚合物护木　TROY M-LOK HK 416 13 英寸护木　Unique-ARs 飞翼骷髅 12 英寸 AR-15 护木　5.45 Design Aggressor AK 护木　AK-74 木制护木　AKM 木制护木　Krebs Custom UFM KeyMod AK 护木　Strike Industries TRAX 1 AK 护木　Strike Industries TRAX 2 AK 护木延长组件　VPO-136 野猪-KM 木制护木　VPO-209 木制护木　Zenit B-10M 导轨护木+ B-19 上导轨组合　北方工业 QBZ-191 聚合物护木　Aim Sport M-LOK FAL通用护木　MDR 护木（黑色）　MDR护木（FDE）　MPX GEN2 4 英寸 M-LOK 护木　Midwest 14英寸MPX M-LOK护木　AK-100系列聚合物护木　ASh-12聚合物护木　Saiga-9 Hartman Gyurza护木　Lancer MCX 碳纤维 M-LOK 18 英寸护木　B&T TL-99 铝制 MP5 护木　MPX GEN1 4 英寸护木　Daniel Defence RIS II 9.5 英寸 AR-15 规格下护木（黑色）　Daniel Defence RIS II 9.5 英寸 AR-15 规格护木（狼棕色）　CAF WASR-10/63 木制握把护木　HK 416 Midwest Industries 9 英寸 M-LOK 护木　HK G36 4 孔护木　Strike Industries GRIDLOK 15 英寸 AR-15 护木　Daniel Defence RIS II 9.5 英寸 AR-15 规格护木（狼棕色）　Daniel Defence RIS III 12.5 英寸 AR-15 护木（军规+）　Daniel Defence RIS III 12.5 英寸 AR-15 护木（黑色）　SIG MPX Gen. 1 MPX护木　MPX GEN2 6 英寸 M-LOK 护木　SAI 10 英寸 AR-15 快拆导轨护木　MDR BLK LBL ALX 20 脚架护木 (FDE)　MDR BLK LBL ALX 20 脚架护木 (黑色)　HK MP5 CAA HX-5护木　HK MP5 PTR三轨护木　Izhmash MP-153聚合物枪托　Magpul Zhukov-U AK 护木（FDE）　Magpul Zhukov-U AK 护木（黑红色）　Magpul Zhukov-U AK 护木（黑色）　R11 RSASS护木　Ultima МP-155 聚乙烯枪托　AKdemia Dominator AK 护木　MPX GEN2 8 英寸 M-LOK 护木　Strike Industries GRIDLOK 17 英寸 AR-15 护木　Jia Zhou QBZ-191 TRS M-LOK 10英寸护木　丰和 20 式 M-LOK 护木　MPX GEN1 8 英寸护木　SV-98 CNC Guns OV-SV98 KeyMod护木　Geissele SMR MK16 9.5 英寸 AR-15 M-LOK 护木 (DDC)　Strike Industries SMC-90 P90 M-LOK 长护木　Aeroknox AX-15 10.5 英寸 AR-15 M-LOK 护木　Aeroknox AX-15 15.8英寸 AR-15 M-LOK 护木　Daniel Defence RIS II 12.25 英寸 AR-15 规格护木（狼棕色）　MDR BLK LBL ALX 20 寸护木 (FDE)　MDR BLK LBL ALX 20 寸护木 (黑色)　SAI 14.5 英寸 AR-15 快拆导轨护木　Lancer LCH-7 12.5英寸 AR-10 M-LOK护木　Zenit B-50 PK 机枪护木　Geissele SMR HK 10.5 英寸 HK 416 护木 (DDC)　Geissele SMR HK 10.5 英寸 HK 416 护木（黑色）　Alfa Arms ASPID AK 护木　HK 416 Midwest Industries 13.5 英寸 M-LOK 护木　SOK-12 Bravo-18铝合金护木　Alexander Arms MK10 AR-15 步枪全长护木　HK G36 6 孔护木　Lone Star Ion Lite AR-15 护木　ADAR 2-15 AR-15 木制护木　HK 416 MRS KeyMod 14 英寸护木　M700 AB Arms MOD*X GEN 3 KeyMod护木　MCX GEN1 KeyMod 8 英寸护木　Zenit B-30 护木 + B-31S 上导轨　MCX GEN1 10.5 英寸护木　VLTOR CMRD Keymod AK护木　HK 416 四面导轨护木　HK 416 四面导轨护木 (RAL 8000)　KAC URX 3.1 13.5 英寸 AR-10 护木　KAC URX 3.1 13.5 英寸 AR-10 护木（灰褐色）　L.A.C. AK-12 Akvilon-15 (北风-15) 护木　Tactical Ideas AK-12 N-4 护木　Geissele M110A1 14.5 英寸 HK417/G28 护木　SOK-12 Chaos Titan 四面导轨护木　SOK-12 MTU002短顶型铝制护木　TKPD 护木 (FDE)　TKPD 护木 (黑色)　KAC URX 4 14.5 英寸 AR-10 护木　Mk-18 18 英寸护木　TDI X47 AK 战术护木导轨系统　Precision Reflex GEN III Delta Carbon AR-15 护木 (FDE)　SOK-12 MTU002长顶型铝制护木　AI AXMC AX KeySlot 16英寸护木　HK 416 四面导轨折叠准星护木　HK417 巡逻型护木（附折叠式准星）　MCX GEN1 KeyMod 12 英寸护木　MCX SPEAR 11英寸 M-LOK护木　KAC URX 2 12.5 英寸 AR-10 护木　KAC URX 2 12.5 英寸 AR-10 护木（灰褐色）　HK 416 Strike Industries CRUX 15 英寸 M-LOK 护木　HK G36 Slim Line HKey 护木　Jia Zhou QBZ-191 TRS M-LOK 13.5英寸护木　Orsis T-5000护木　Geissele SMR HK 14.5 英寸 HK 416 护木 (DDC)　Geissele SMR HK 14.5 英寸 HK 416 护木（黑色）　KAC RAS 12 英寸 AR-15 浮置步枪护木　雷电 Model 1 14 英寸 AR-15 护木　M60E6护木　Custom Guns 10.5 英寸 AR-15 M-LOK 护木　Custom Guns 14 英寸 AR-15 M-LOK 护木　DS Arms SA-58四导轨护木　Geissele SMR MK16 13.5 英寸 AR-15 M-LOK 护木 (DDC)　NL545 10.5 英寸 M-LOK 护木 (FDE)　SVD现代化护木　Precision Reflex GEN III Round Carbon 12 英寸 AR-15 护木　Precision Reflex GEN III Round Carbon 12 英寸 AR-15 护木 (FDE)　MP-133有导轨的定制塑料下护木　War Sport LVOA-S AR-15 护木（黑色）　Noveske SWS N6 10.5 英寸 AR-10 护木　Noveske SWS N6 AR-10 分体式护木　DSA FAL比利时型护木　HK G36 KAC 四面导轨护木　CAA XRSU47SU AKS-74U 战术护木　CNC Guns OV GP AK 护木　HK 416 加长四面导轨护木　HK417 加长浮置护木（附折叠式准星）　M60E4 Mod 1护木　M60E4 Mod 1护木（FDE）　TOZ KS-23M下护木　War Sport LVOA-C AR-15 护木（黑色）　Magpul MOE M590 下护木　DS Arms SA-58全尺寸四导轨护木　原奥地利FAL护木　AK-545 Mk.3 护木　Sako TRG M10 11英寸护木组件　CAA XRS-DRG SVD护木　Speedfeed M870 短下护木　Sako TRG M10 M-LOK 15英寸护木组件　Sako TRG M10 15 英寸护木套组　Izhmekh MP-133山毛榉下护木　Izhmekh MP-155 Walnut护木　MTs-255-12 山毛榉下护木　SAG MK1 SVD 枪身套件
+
+</details>
 
 ### 机匣
 
 <a id="机匣"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 基础配件
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -444,13 +456,23 @@ tags:
 | 109 | PPSH-41 防尘盖 | `ppsh-41-dust-cover` | 1.1 千克 | 人机工效 3；精度修正 0%；后坐修正 2% | — | 540 卢布（6 家最高） |
 | 110 | AK-50 防尘盖 | `ak-50-dust-cover` | 1.644 千克 | 人机工效 2；精度修正 0%；后坐修正 3%；耐久损耗系数 0.97 | — | 4,339 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **110 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 110 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+SVDS定制防尘盖　AK-545 导轨防尘盖　AK-74 防尘盖　AK-74M 防尘盖　AKM 防尘盖　Molot Arms AKM 样式防尘盖　RD-704防尘盖　SVDS防尘盖　SVT防尘盖　OP-SKS防尘盖　SKS防尘盖　Legal Arsenal Piligrim AKS-74U 导轨防尘盖　SOK-12 Kiba Arms定制生化风格导轨防尘盖　SOK-12 防尘盖　SOK-12 防尘盖（红线）　VPO-101 防尘盖　AKS-74U 防尘盖　PP-19-01 Vityaz 防尘盖　PP-19-01 Vityaz-SN 防尘盖　AKS-74UB 防尘盖　Five-seveN MK2手枪套筒　PL-15手枪套筒　SR-2M 防尘盖　FAL标准防尘盖　Glock Lone Wolf AlphaWolf手枪套筒　Glock Zev Tech Hex Spartan套筒　M9A3 9x19手枪套筒　MP9 上机匣　TX15 轻量化上机匣　Zev Tech Hex Gen3套筒　西格-绍尔 P226R MK25 手枪套筒　TWS Dog Leg АК 导轨防尘盖　AS VAL防尘盖　FN SCAR-H 7.62x51 上机匣 (FDE)　FN SCAR-H 7.62x51上机匣　FN SCAR-L 5.56x45 上机匣　FN SCAR-L 5.56x45 上机匣 (FDE)　P226 Sig Legion全尺寸手枪套筒　VSS Vintorez防尘盖　丰和 20 式 5.56x45 突击步枪上机匣　FAB Defense PDC АК 导轨防尘盖　Noveske Gen.3 5.56x45 AR-15 上机匣　AK-12 导轨防尘盖　AK-308 导轨防尘盖　DS Arms Extreme Duty SA-58防尘盖　RPK-16 防尘盖　SKS Leapers UTG PRO MTU017机匣基座　Zenit B-33 AK 防尘盖　P226 Sig Emperor Scorpion手枪套筒　P226 Stainless Elite 手枪套筒　AKademia Bastion AK 导轨防尘盖　P226 Axelson Mk.25战术手枪套筒　Vltor MUR-1S 5.56x45 AR-15 上机匣　CMMG Resolute Mk47 7.62x39 Mk47上机匣　FN P90 EFFEN 90 5.7x28上机匣　Glock 9x19 Moto Cut套筒　Glock 9x19 Viper Cut套筒　TKPD 导轨防尘盖　ADAR 2-15 5.56x45 2-15突击步枪上机匣　B&T MP9-N 9x19 SMG上机匣　Glock 19X 9x19手枪套筒　HK 416A5 5.56x45 上机匣　HK 416A5 5.56x45 上机匣 (RAL 8000)　HK G28 7.62x51上机匣　MCX SPEAR 6.8x51上机匣　NL545 (DI) 5.45x39 上机匣　NL545 (GP) 5.45x39 上机匣 (FDE)　STM-9 9x19上机匣　UZI PRO防尘盖　柯尔特M4A1 5.56x45突击步枪上机匣　PM手枪套筒　Aeroknox AX-15 5.56x45 AR-15 上机匣　Glock Lone Wolf AlphaWolf定制手枪套筒　QBZ-191 5.8x42 上机匣　雷电 Model 1 5.56x45 AR-15 上机匣　AI AXMC .338 LM 枪身　FN P90上机匣　FN PS90上机匣　沙漠之鹰L5 .357手枪套筒　沙漠之鹰L5 AE手枪套筒　Glock 18C 9x19套筒　Glock 9x19 MOS套筒　Glock 9x19套筒　Polymer80 PS9 Glock套筒　柯尔特 M16A1E1 5.56x45 突击步枪上机匣　AI AXMC上机匣　柯尔特 M16A2 5.56x45 突击步枪上机匣　HK USP .45 ACP手枪套筒　M1911A1 .45 ACP 套筒　沙漠之鹰L6手枪套筒　沙漠之鹰L6手枪套筒（白色虎纹）　沙漠之鹰Mk XIX手枪套筒　HK USP 专家型 手枪套筒　HK MP5K 9x19上机匣　HK USP 赛事型 手枪套筒　Sword Int. Mk-18 mod 1上机匣　M45A1 .45 ACP套筒　HK USP 战术型 手枪套筒　MCX GEN1 .300 BLK 上机匣　SIG MPX一代上机匣　Sako TRG M10 .338 LM 机匣　HK MP5上机匣　HK USP 精英型 手枪套筒　SR-25 7.62x51 上机匣　SR-25 7.62x51 上机匣（褐灰色）　Steyr AUG A3 Vltor 5.56x45 机匣　HK MP5SD 9x19上机匣　Steyr AUG A3 5.56x45机匣　PPSH-41 防尘盖　AK-50 防尘盖
+
+</details>
 
 ### 枪托
 
 <a id="枪托"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 装备配件
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -747,13 +769,23 @@ tags:
 | 291 | Promag Archangel M700 枪身套件 | `m700-promag-archangel-chassis` | 2.2 千克 | 人机工效 28；精度修正 3%；后坐修正 25%；热量系数 0.94 | 26,250 卢布，需 Mechanic 3 级 | 10,080 卢布（7 家最高） |
 | 292 | SV-98木制枪托 | `sv-98-wooden-stock` | 2.913 千克 | 人机工效 6；精度修正 0%；后坐修正 20%；热量系数 1.18 | 5,141 卢布，需 Prapor 2 级 | 1,814 卢布（7 家最高） |
 
+</div>
+
 > 本分类 **292 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 292 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+JMac 定制 RSA-5.5 AK 枪托转接器　UZI PRO A3战术枪托转换器　Zenit AK-74M/AK-100 PT 锁扣　Zenit AKM/AK-74 PT 锁扣　Zenit AKS-74/AKS-74U PT 枪托锁扣　Samson AK 折叠枪托后耳轴转接器　UZI PRO CSM枪托转换器　UZI PRO背部盖板　Magpul UCS 托腮板　HK MP5K机匣尾盖　Custom Arms ST-EF 74 AK 金属框架枪托抵肩垫　Daniel Defense TCS 12毫米枪托垫　Magpul MOE 卡宾枪橡胶枪托垫　HK可调节托腮板　FN P90枪托垫　FN SCAR托腮板　FN SCAR托腮板 （FDE）　HK G36 IDZ 凸缘枪托垫　HK G36 IDZ 凹缘枪托垫　HK MP5机匣尾盖　Strike Industries SMC-90 托腮板　UZI StormWerkz枪托转接器　Daniel Defense TCS 20毫米枪托垫　John Masen AR-15 缓冲垫　FN SCAR JMac Customs RSA-SCAR 1913 转接器　Armacon Monolit 5 AKS-74 缓冲管转接器　Damage Industries P90枪托垫　柯尔特 A2 AR-15 缓冲管　FN SCAR橡胶枪托垫　MP-133/153塑料手枪式握把　UZI PRO A3战术模块化折叠稳定带　Strike Industries 先进机匣延长缓冲管　Strike Industries 先进机匣延长缓冲管（电镀红）　RTM ATP AR-15 缓冲管　M700 AB Arms MOD*X缓冲管侧折叠转换器　MP-43-1s枪托垫　柯尔特 N1 AR-15 枪托　SVDS Lynx Arms Hinge缓冲管转接器　CMMG AR-15 缓冲管　Custom Guns AR-15 缓冲管　Custom Guns AR-15 缓冲管 (FDE)　HK G36 Tommy Built AR 枪托转接器　AK-12缓冲管　RPK-16 缓冲管　AK-12 枪托　LMT SOPMOD AR-15 枪托　LMT SOPMOD AR-15 枪托 (FDE)　AI AXMC GTAC AR 规格手枪式握把转接器　APB可拆卸钢丝枪托　B&T MP9常规枪托　GP-25 附件包 AK 后座力缓冲垫　MP-155 ”Ultima” 小型后坐力缓冲垫　TOZ-106 FAB Defense GPCP托腮板　Armacon Monolit 3 Gen.2 AK-74M 缓冲管转接器（红线）　NB AS VAL 枪托转接器　Fab Defence AGR-870缓冲管　HK 416 Enhanced 缓冲管　HK G28缓冲管　Magpul Enhanced AR-15 机匣延长缓冲管　SIG Sauer 低轮廓枪托缓冲管转接器（黄褐色）　柯尔特 AR-15 卡宾枪缓冲管　联盟-TM AR-15 缓冲管　LOBAEV Arms枪托　Lead Star Arms Ravage AR-15 枪托　Lead Star Arms Ravage AR-15 枪托（红色）　Lead Star Arms Ravage AR-15 枪托（黄色）　Phase5 AR-15 通用迷你枪托　Phase5 AR-15 通用迷你枪托（红色）　Phase5 AR-15 通用迷你枪托（黄色）　AK-545 缓冲管　Hexagon“烧火棍”AKM/AK-74 枪托（电镀红）　Phase5 Hexone AR-15 缓冲管　Hogue UMP 缓冲管转接器　Strike Industries Viper Mod 1 AR-15 枪托　ADAR缓冲管　TAPCO Intrafuse SKS 缓冲管　SB Tactical SBA3 AR-15 臂箍　RD AK 转 M4 缓冲管转接器　Aim Sports莫辛步枪后座力缓冲垫　HK MP7A1标准枪托　HK MP7A2标准枪托　SIG Sauer 折叠锁扣式缓冲管转接器　SIG Sauer 枪托锁定铰链套件　SR-2MP折叠枪托　FAB Defense GL-CORE S AR-15 枪托（红线）　SR-2M折叠枪托　MP-155 ”Ultima” 中型后坐力缓冲垫　AKS-74U 金属框架枪托　PP-19-01 勇士 金属框架枪托　Zenit PT-3 ”Klassika” AK 枪托　AI AXMC手枪式握把　Double Star ACE 后座力缓冲垫　FN SCAR Vltor VSS-11 聚合物枪托　FN SCAR Vltor VSS-11 聚合物枪托（爱国棕）　Raptor M870握把　Magpul CTR AR-15 卡宾枪托 (FDE)　Magpul CTR AR-15 卡宾枪托（黑色）　Magpul MOE AR-15 卡宾枪托 (FDE)　Magpul MOE AR-15 卡宾枪托 (叶绿色)　Magpul MOE AR-15 卡宾枪托（哑光灰）　Magpul MOE AR-15 卡宾枪托（橄榄绿）　Magpul MOE AR-15 卡宾枪托（黑色）　Magpul MOE SL-K AR-15 枪托（黄褐色）　Daniel Defense Enhanced AR-15 伸缩式枪托 (FDE)　Daniel Defense Enhanced AR-15 伸缩式枪托（黑色）　M60E6枪托　M60E6枪托（FDE）　CAA AKTS AKM/AK-74 缓冲管　High Standard M4SS AR-15 枪托　CAA AKTS AK74M 缓冲管　Fab Defense FX-KPOS ARS 枪托　Front Zveno PK 步兵机枪缓冲管转接器　HK UMP 聚合物枪托　Kriss Vector手枪吊带卡口　M60E4枪托　MFT BUS AR-15 枪托　KS-23金属枪托　AK 100 系列金属框架枪托　AK 金属框架枪托（定制版）　AKS-74 金属框架枪托　ME4 AKM/AK-74枪托转接器　Armacon Baskak枪托　Fab Defense MP7 ARS 枪托转接器　SIG Sauer 轻量化折叠式枪托　北方工业 QBZ-191 缓冲管　FAB Defense GL-CORE AR-15 枪托　MP-155 ”Ultima” 大号后坐力缓冲垫　CAA SBS AR-15 枪托　CAA SBS AR-15 枪托（热带卡其色）　FAB Defense GLR-16-S AR-15 枪托　CMMG RipStock AR-15 枪托　KRISS Vector 非可折叠枪托转接器　FN SCAR Vltor RE-SCAR 枪托转接器　FN SCAR Vltor RE-SCAR 枪托转接器（爱国棕）　TSNIITochMash AS VAL枪托　UZI Type 6底托　Zenit PT-1 ”Klassika” AK 枪托　丰和 20 式枪托　FN SCAR 伸缩式聚合物枪托　FN SCAR 伸缩式聚合物枪托 （FDE）　KRISS Vector Gen.2 折叠枪托　Mesa Tactical Crosshair Hydraulic 缓冲管　FAB Defense GL-SHOCK AR-15 枪托　Orsis T-5000M枪托　SA-58缓冲管转接器　北方工业 QBZ-191 枪托　DoubleStar ACE ARFX AR-15 镂空枪托　Magpul ACS AR-15 卡宾枪托 (FDE)　Magpul ACS AR-15 卡宾枪托 (黑色)　SIG Sauer 伸缩/折叠式枪托　AK-74 聚合物枪托　AK-74 聚合物枪托（黑红色）　AK-74M 聚合物枪托　FN SCAR 折叠式聚合物枪托　FN SCAR 折叠式聚合物枪托 （FDE）　LEO gen.1 M590枪托转接器　SOK-12 AK 式枪托　SVDS聚合物枪托　HK A2枪托　UZI PRO稳定带　Fab Defence GLR-17 Glock 枪托　HK E1 AR-15 枪托　HK417 E2枪托　ProMag Archangel OPFOR AAK7 AK 枪托　Vltor EMOD AR-15枪托　SB Tactical MPX“手枪”稳定臂箍　SIG Sauer 伸缩/折叠式枪托　AK-EVO AK 枪托　FN P90枪托　FN PS90枪托　Fab Defence UAS SKS枪托　KRISS Defiance DS150 枪托 (FDE)　KRISS Defiance DS150 枪托（黑色）　LEO M870枪托转接器　M700 Magpul Pro 700折叠枪托　TROY M7A1 PDW AR-15 枪托 (FDE)　TROY M7A1 PDW AR-15 枪托（黑色）　HK G36 IDZ 伸缩式枪托　UZI Type 7底托　VPO-215 战术枪身　柯尔特 A2 AR-15 枪托　AKM/AK-74 Magpul Zhukov-S 枪托　AKMS FAB Defense M4-AKMS P 枪托转接器　KS-23木制枪托　AK-74 木制枪托　AKM 木制枪托　Fab Defense UAS AK枪托　MTs-255-12木制枪托　UZI Type 3底托　VPO-136 野猪-KM 木制枪托　VPO-209 木制枪托　HK G36聚合物枪托　UZI PRO SBR底托　MP-133/153塑料枪托　MPX/MCX PMM ULSS 枪托　Magpul UCS 枪托 (FDE)　Magpul UCS 枪托 (黑色)　DoubleStar ACE SOCOM Gen.4 AR-15 枪托　MP-18聚合物枪托　柯尔特 M16A1 7 型枪托　Hera Arms CQR AR-15 一体化枪托　9A-91上折叠枪托　M1895/MXLR Magpul ELG 枪托　M1895/MXLR Magpul ELG 枪托 (FDE)　MXLR 标准枪托　PKP聚合物枪托　MPX/MCX Maxim Defense CQB 枪托　Ultima МP-155 聚乙烯枪托　AI AXMC AX枪托　Hera Arms CQR47 AKM/AK-74 一体式枪托　CNC Guns OV-SV98 枪身　MP-18木制枪托　Strike Industries Viper PDW AR-15 枪托　KAC SASS AR-15 枪托（褐灰色）　ERGO F93 PRO AR-15 枪托　TSNIITochMash VSS Vintorez枪托　M1895/MXLR Ranger Point Precision 铝制枪托　M1895/MXLR Ranger Point Precision 铝制枪托 (FDE)　M1895/MXLR Ranger Point Precision 铝制枪托 (绿色)　AKMS 折叠式枪托　AKMSN 折叠式枪托　Fab Defence UAS SKS 枪身套件　PKM木制枪托　Magpul UBR GEN2 AR-15 枪托 (FDE)　Magpul UBR GEN2 AR-15 枪托（黑色）　AI AT AICS M700 聚合物枪身　M590A1 聚合物枪托　MP-133/153木制枪托　MP-155木制枪托　Orsis T-5000 铝枪体　Remington SPS M870聚合物枪托　Zenit PT-2 ”Klassika” PK 机枪枪托　UZI Type 5底托　B5 Systems AR-15 可伸缩精准枪托　HK A3老版枪托　M870 Magpul SGA 聚合物枪托　SGA M590 枪托　ADAR 2-15木质枪托　HK Slim Line AR-15 枪托　HK Slim Line AR-15 枪托 (RAL 8000)　VSK-94枪托　Molot OP-SKS木质枪托　SKS TOZ 木制枪托 (56-A-231 Sb.5)　TAPCO Intrafuse SKS 枪身套件　Strike Industries SMC-90 P90 枪身　Benelli M3可伸缩枪托　Magpul PRS GEN3 AR-15 枪托（灰色）　Magpul PRS GEN3 AR-15 枪托（黑色）　Magpul PRS GEN2 AR-15 枪托 (FDE)　DS Arms RPD 枪托　DSA SA-58折叠枪托　DSA “驼背” SA-58聚合物枪托　锯短式莫辛标准步枪枪托　DSA BRS SA-58枪托　锯短式莫辛狙击枪枪托　Magpul PRS 2 SA58/FAL 聚合物枪托　AA-12 枪托套组　AA-12 枪托套组 (FDE)　AA-12 枪托套组 (TerraGroup)　AB Arms MOD*X GEN 3 M700 枪身套件　HK G36 KV伸缩式枪托　HK可调节枪托垫　DSA SPR SA-58枪托　M14 M14ALCS（MOD. 0）枪托　M1A Socom 16枪托　CNC Guns OV-SV98 M12B枪托　Benelli M3 Mesa Tactical Urbino枪托　PPSH-41 枪托　VPO-101 SVD 样式胡桃木枪托　SKS ATI Monte Carlo枪托　RPD木制枪托　ATI Monte Carlo莫辛步枪枪托　AVT-40木制枪托　SVT-40 仿 SVD 样式枪托　MC 20-01枪托　TOZ TOZ-106枪托　VPO-101 木制枪托　VPO-215 木制枪托　Sako TRG M10 枪身　定制截断莫辛枪托TOZ-106改　莫辛步枪狙击型卡宾枪托　莫辛卡宾式枪托　Magpul Pro 700 枪身套件　莫辛步枪标准枪托　M700 Hogue Overmolded Ghillie枪托　步兵式莫辛步枪枪托　ProMag Archangel M1A 枪身套件　SAGE International M14ALCS 枪身套件　ProMag Archangel OPFOR PRS 莫辛步枪枪身　TROY S.A.S.S M14 枪身套件　Promag Archangel M700 枪身套件　SV-98木制枪托
+
+</details>
 
 ### 手枪式握把
 
 <a id="手枪式握把"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 基础配件
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -893,13 +925,23 @@ tags:
 | 134 | Zenit RK-3 AK 手枪式握把 (FDE) | `ak-zenit-rk-3-pistol-grip-fde` | 0.225 千克 | 人机工效 5；精度修正 0%；后坐修正 1% | 16,128 卢布，需 Skier 3 级 | 5,040 卢布（6 家最高） |
 | 135 | M1911A1 标准聚合物握把 | `m1911a1-side-grips` | 0.27 千克 | 人机工效 2；精度修正 0%；后坐修正 0% | — | 360 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **135 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 135 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+Lynx Arms SVDS AK 手枪式握把转接器　Tactical Dynamics AR-15 镂空手枪式握把　M60E4手枪式握把　M60E6手枪式握把　M60E6手枪式握把（FDE）　Custom Guns CG101 AR 规格手枪式握把转接器　AK-12 手枪式握把　Magpul MIAD AR-15 手枪式握把 (FDE)　Magpul MOE AR-15 手枪式握把 (FDE)　Magpul MOE AR-15 手枪式握把（黑色）　Izhmekh MP-443聚合物手枪握把　RPD木制手枪式握把　Razor Arms TT橡胶握把　Tactical Dynamics Hexgrip AR-15 手枪式握把　AK-74 聚合物手枪式握把　AS VAL Rotor 43 手枪式握把附缓冲管转接器　AK-74 胶木手枪式握把　AKM 木制手枪式握把　AKM 胶木手枪式握把　AKS-74U 胶木手枪式握把　Molot AK胶木手枪式握把　P226手指凹槽橡胶握把　PM胶木握把侧片　PP-19-01 Izhmash手枪式握把　SIG MPX手枪式握把　SR-2M 手枪式握把（黑红色）　SR-2M手枪式握把（黑）　SVDS手枪式握把　TOZ 002 TOZ-106手枪式握把　TT 握把装饰侧片　UZI手枪式握把盖板　仿制版Hogue TT橡胶握把　北方工业 QBZ-191 手枪式握把　标准TT握把侧片　ZMZ PP-91聚合物手枪式握把　FAB Defense PM-G 手枪式握把　FAB Defense PM-G 手枪式握把（橄榄绿）　Aeroknox Orion AR-15 手枪式握把　Damage Industries ECS AR-15 手枪式握把 (FDE)　F1 Firearms 镂空 1 型 AR-15 手枪式握把　Glock Pachmayr 战术橡胶握把套　HK Battle Grip AR-15 手枪式握把　HK Battle Grip“海狸尾”AR-15 手枪式握把　HK Battle Grip“海狸尾”AR-15 手枪式握把 (RAL 8000)　HK V2 AR-15 手枪式握把　Hera Arms HG-15 AR-15 手枪式握把　Hogue OverMolded 橡胶握把 (FDE)　Hogue OverMolded 橡胶握把（吉利土色）　Hogue OverMolded 橡胶握把（吉利绿）　Hogue OverMolded 橡胶握把（橄榄绿）　Hogue OverMolded 橡胶握把（黑色）　M14ALCS（MOD. 0）M14手枪式握把　M700 Magpul Pro 700手枪式握把　MCX 手枪式握把　MDR 手枪式握把（黑色）　MDR手枪式握把（FDE）　Magpul MOE AK 手枪式握把（黑色）　Orsis T-5000手枪式握把　P226 Stainless Elite 木制握把贴片　SIG M400 小倾角 AR-15 手枪式握把（黄褐色）　柯尔特A2 AR-15手枪式握把　SA-58 仿 SAW 手枪式握把（黑）　F1 Firearms 镂空 2 型 AR-15 手枪式握把　F1 Firearms 镂空 2 型 AR-15 手枪式握把（缠线版本）　Fab AG FAL SA-58手枪式握把　Chiappa Rhino塑料手枪式握把　Daniel Defense Enhanced AR-15 手枪式握把（军规+）　Daniel Defense Enhanced AR-15 手枪式握把（黑色）　Hogue Chain Link P226手枪握把　M9A3聚合物手枪握把　P226 Axelson Tactical MK25手枪式握把　P226 战斗手枪握把 (FDE)　P226西格-绍尔黑色聚合物手枪握把　PK手枪式握把　PK手枪式握把（黑）　PM-Laser PM 激光瞄具握把侧片　PM-Laser TT-206 激光模块握把侧片　Sierra Precision SPR AR-15 手枪式握把　Stark AR AR-15 手枪式握把 (FDE)　Stark AR AR-15 手枪式握把（黑色）　TAPCO Intrafuse 仿 SAW 手枪式握把　US Palm AK手枪式握把　西格-绍尔P226 Emperor Scorpion手枪握把　Strike Industries AK 增强型手枪式握把 (FDE)　Strike Industries AK 增强型手枪式握把（黑色）　Naroh Arms GRAL-S AR-15 手枪式握把　M60E6扳机机构　M60E6扳机机构（FDE）　Chiappa Rhino木质手枪式握把　DLG Tactical DLG-123 AR-15 手枪式握把　DLG 战术 DLG-138 AR-15 手枪式握把 (FDE)　DLG 战术 DLG-138 AR-15 手枪式握把 (黑色)　M60E4扳机机构　APS胶木握把贴片　PB胶木握把侧片　AK TangoDown Battle Grip手枪式握把　DS Arms SA-58标准手枪式握把　HK Ergo PSG-1 样式 AR-15 手枪式握把　Hogue沙漠之鹰橡胶握把　RSH-12 手枪式握把　TangoDown Battle Grip AK 手枪式握把 (FDE)　Tyrant Designs MOD Chevron AR-15 镂空手枪式握把（红色）　Tyrant Designs MOD Chevron AR-15 镂空手枪式握把（黄色）　Tyrant Designs MOD Chevron AR-15 镂空手枪式握把（黑色）　Fab Defence AG-58 SKS/VZ-58 手枪式握把　柯尔特 A1 AR-15 手枪式握把　PM战术手枪式握把　FAB Defense AGR-47 AK 手枪式握把 (FDE)　M1911 Kiba Arms Geneburn定制侧握把　Mission First Tactical ENGAGE AK47 手枪式握把　丰和 20 式手枪式握把　沙漠之鹰Houge凹槽橡胶握把　Fab Defence AGR-870 雷明顿-870手枪式握把　Gladman AK 镂空手枪式握把　TAPCO SAW 样式 AK 手枪式握把 (FDE)　TAPCO SAW 样式 AK 手枪式握把 (黑色)　Ultima МP-155 塑料手枪式握把　PUFGUN SG-M2 AK 手枪式握把　Benelli M3可伸缩手枪式握把枪托　Aeroknox scorpius AK手枪式握把　9A-91手枪式握把　AS VAL 手枪式握把（黑红色）　AS VAL手枪式握把（黑色）　Custom Arms AGS-74 PRO + 狙击套件 AK 手枪式握把　Custom Arms AGS-74 PRO + 狙击套件 AK 手枪式握把（红线）　KS-23M聚合物手枪式握把　KGB MG-47 AK 手枪式握把（电镀红）　KGB MG-47 AK手枪式握把　Tacfire莫辛步枪手枪式握把　Pachmayr “美国传奇” #423 M1911A1 握把　Zenit RK-3 AS VAL 手枪式握把　M45A1 标准聚合物握把　Zenit RK-3 AK 手枪式握把　Zenit RK-3 AK 手枪式握把 (FDE)　M1911A1 标准聚合物握把
+
+</details>
 
 ### 拉机柄
 
 <a id="拉机柄"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 装备配件
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -950,13 +992,23 @@ tags:
 | 45 | AI AXMC .338 LM枪栓零件套组 | `ai-axmc-338-lm-bolt-assembly` | 0.45 千克 | 人机工效 -3；精度修正 0%；后坐修正 1% | 19,585 卢布，需 Jaeger 4 级 | 5,850 卢布（6 家最高） |
 | 46 | Sako TRG M10 .338 LM 枪栓套组 | `sako-trg-m10-338-lm-bolt-assembly` | 0.45 千克 | 人机工效 -2；精度修正 0%；后坐修正 1% | 25,668 卢布，需 Skier 4 级 | 6,975 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **46 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 46 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+Steyr AUG A3拉机柄　Benelli M3 Super 90拉机柄　Steyr AUG A1拉机柄　CSS AK 凸缘拉机柄　FN P90拉机柄　FN SCAR拉机柄　Sure Cycle Frag FN SCAR 斜角拉机柄　Zenit RP-1 AK拉机柄　FN P90 K&M The Handler拉机柄　B&T MP9拉机柄　PMM BCD FN SCAR 辅助释放杆　Rainier Arms Avalanche MOD2 AR-15 拉机柄　MPX GEN 2双侧拉机柄　AR-15 Magpul B.A.D. 辅助释放杆　Geissele ACH AR-15 拉机柄 (DDC)　MPX Geissele “SCH”拉机柄　Mk47 双侧拉机柄　SIG MPX单掣子销拉机柄　MPX 双侧拉机柄　MASP Industries AR-15 双侧战斗拉机柄　MCX SPEAR拉机柄　MCX 拉机柄　NL545 拉机柄　丰和 20 式拉机柄　柯尔特 AR-15 早期拉机柄　柯尔特AR-15拉机柄　ADAR 2-15 AR-15拉机柄　雷电 Raptor AR-15 拉机柄（钨灰色）　雷电 Raptor-SD AR-15 拉机柄　雷电 Raptor-SD AR-15 拉机柄 (FDE)　HK417 E1 加长拉机柄　KAC SR-25 拉机柄　KAC SR-25 拉机柄（褐灰色）　Daniel Defense GRIP-N-RIP AR-15 拉机柄　KAC AR-10 双侧拉机柄　Precision Reflex M84 Gas Buster AR-15 拉机柄　KDG RCH FN SCAR 拉机柄　Badger Ordnance 战术掣子销 AR-15 拉机柄　HK 加长卡笋 AR-15 拉机柄　HK 加长卡笋 AR-15 拉机柄 (RAL 8000)　M1895/MXLR Ranger Point Precision 中型环状杠杆　MXLR 环状杠杆　MP5K 拉机柄　HK MP5拉机柄　AI AXMC .338 LM枪栓零件套组　Sako TRG M10 .338 LM 枪栓套组
+
+</details>
 
 ### 前握把
 
 <a id="前握把"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -1022,13 +1074,23 @@ tags:
 | 60 | Wilcox Stubby Para 前握把 | `wilcox-stubby-para-grip` | 0.185 千克 | 人机工效 0；精度修正 0%；后坐修正 2% | — | 2,970 卢布（6 家最高） |
 | 61 | Zenit RK-2前握把 | `zenit-rk-2-tactical-foregrip` | 0.2 千克 | 人机工效 -2；精度修正 0%；后坐修正 4% | 26,136 卢布，需 Skier 4 级 | 7,425 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **61 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 61 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+Daniel Defense Enhanced M-LOK 垂直前握把（狼棕色）　Daniel Defense Enhanced M-LOK 垂直前握把（黑色）　Monstrum Tactical KeyMod垂直前握把　Magpul M-LOK AFG 战术握把 (FDE)　Magpul M-LOK AFG 战术握把（哑光灰）　Magpul M-LOK AFG 战术握把（橄榄绿）　Magpul M-LOK AFG 战术握把（黑色）　Daniel Defense 垂直前握把（军规+）　Daniel Defense 垂直前握把（黑色）　BCM GUNFIGHTER MOD 3 垂直前握把　BCM GUNFIGHTER MOD 3 M-LOK前握把（FDE）　BCM GUNFIGHTER MOD 3 M-LOK前握把（黑色）　SIG Sauer KeyMod 垂直握把（黑色）　RTM Pillau 战术前握把　RTM Pillau战术前握把（沙漠色）　RTM Pillau P-2战术前握把（红色）　HK Sturmgriff前握把　KAC 垂直前握把　TangoDown Stubby BGV-MK46K 前握把 (FDE)　TangoDown Stubby BGV-MK46K 前握把（哑光灰）　TangoDown Stubby BGV-MK46K 前握把（黑色）　ASh-12 垂直前握把　B&T MP9垂直握把　SR-3M 聚合物前握把（黑红色）　SR-3M聚合物前握把　Steyr AUG 垂直前握把（黑色）　Steyr AUG垂直前握把　Strike Industries Cobra 战术前握把　Strike Industries Cobra 战术前握把 (FDE)　T-5000护垫　Magpul AFG 战术握把 (FDE)　Magpul AFG 战术握把（森林绿）　Magpul AFG 战术握把（橄榄绿）　Magpul AFG 战术握把（黑色）　Magpul RVG 前握把 (FDE)　Magpul RVG 前握把（黑色）　AI AXMC护木握把　Fortis Shift 战术前握把　SE-5 Express握把　Stark SE-5 Express Forward握把（FDE）　A3 Tactical MVF001 KeyMod 垂直前握把（黑色）　Zenit RK-6前握把　TangoDown Stubby BGV-QDK前握把（FDE）　TangoDown Stubby BGV-QDK前握把（黑色）　Sako TRG M10 前握把衬垫　Viking Tactical UVG战术握把　RTM Osovets P-2战术前握把　RTM Osovets P-2战术前握把（卡其色）　Zenit RK-4前握把　Zenit RK-5前握把　Tactical Dynamics 镂空前握把　TangoDown Stubby BGV-QDITI前握把（FDE）　TangoDown Stubby BGV-QDITI前握把（黑色）　Zenit RK-0前握把　IRBIS-GUN 30AL 前握把　IRBIS-GUN 45AL 前握把　Hera Arms CQR 战术前握把　Zenit RK-1前握把　Zenit RK-1 B-25U基座前握把　Wilcox Stubby Para 前握把　Zenit RK-2前握把
+
+</details>
 
 ### 手电筒
 
 <a id="手电筒"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -1037,13 +1099,23 @@ tags:
 | 3 | SureFire M600 Ultra Scout 手电 | `surefire-m600-ultra-scout-light` | 0.224 千克 | 人机工效 -1.5；精度修正 0%；后坐修正 0% | 15,750 卢布，需 Mechanic 2 级 | 5,670 卢布（6 家最高） |
 | 4 | Zenit 2D 战术手电 | `zenit-2d-flashlight` | 0.25 千克 | 人机工效 -2；精度修正 0%；后坐修正 0% | 10,205 卢布，需 Prapor 2 级 | 3,376 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **4 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 4 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+Armytek Predator Pro v3 XHP35 HI手电　Ultrafire WF-501B手电筒　SureFire M600 Ultra Scout 手电　Zenit 2D 战术手电
+
+</details>
 
 ### 组合式战术设备
 
 <a id="组合式战术设备"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -1070,13 +1142,23 @@ tags:
 | 21 | Zenit Perst-3战术设备 | `zenit-perst-3-tactical-device` | 0.3 千克 | 人机工效 -2；精度修正 0%；后坐修正 0% | 24,552 卢布，需 Skier 4 级 | 7,672 卢布（6 家最高） |
 | 22 | Wilcox RAPTAR ES 战术测距仪 | `wilcox-raptar-es-tactical-rangefinder` | 0.308 千克 | 人机工效 -1；精度修正 0%；后坐修正 0% | 28,820 卢布，需 Jaeger 3 级 | 9,900 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **22 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 22 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+NcSTAR Tactical LAM模块 蓝色激光　Surefire XC1战术手电　DLP “战术精密” TT手枪LAM模块　Glock GTL 21 战术手电激光组合　Steiner LAS/TAC 2 战术手电　Olight Baldr Pro 战术手电激光组合　Olight Baldr Pro 战术手电激光组合（黄褐色）　SureFire X400 Ultra 战术手电与镭射装置　Steiner DBAL-PL 战术装置　Zenit 2P Klesch 手电激光指示器　Zenit Klesch-2IKS 红外补光/激光指示器　L3Harris NGAL 战术设备　Holosun LS321战术设备　Insight AN/PEQ-2 战术设备　Insight WMX200 战术手电　L3Harris AN/PEQ-15 战术设备　L3Harris AN/PEQ-15 战术设备 (黑色)　L3Harris LA-5B 战术设备　Zenit Klesch-2U 战术手电　MAWL-C1+战术装置　Zenit Perst-3战术设备　Wilcox RAPTAR ES 战术测距仪
+
+</details>
 
 ### 导轨基座
 
 <a id="导轨基座"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 装备配件
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -1366,13 +1448,23 @@ tags:
 | 284 | HK G36折叠瞄具导轨 | `hk-g36-optic-rail-with-flip-up-sights` | 0.453 千克 | 人机工效 -1；精度修正 0%；后坐修正 0% | 5,623 卢布，需 Peacekeeper 3 级 | 1,440 卢布（7 家最高） |
 | 285 | KMZ 1P69 韦佛式基座 | `kmz-1p69-weaver-mount` | 0.5 千克 | 人机工效 -1；精度修正 0%；后坐修正 0% | 2,557 卢布，需 Prapor 2 级 | 902 卢布（7 家最高） |
 
+</div>
+
 > 本分类 **285 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 285 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+FN SCAR PMM 侧导轨盖板　FN SCAR PMM 侧导轨盖板 (FDE)　Glock TangoDown AAM-01 ACRO基座　HK USP导轨转换器　Cyclone Shakhin 基座　Aimpoint Micro H-2瞄具基座　Aimpoint Micro瞄具垫高器　Aimpoint Micro瞄具基座　Hensoldt RIS顶部导轨　Recknagel Era-Tac Sunshade Aimpoint T-1基座　SIG Sauer ROMEO 瞄具基座　Elcan SpecterDR Trijicon 基座适配顶板　Arisaka Inline Scout 手电 KeyMod 基座　Arisaka Inline Scout 手电 M-LOK 基座　Armasight Vulcan 通用基座　Armasight Zeus通用基座　Burris FastFire韦弗式基座　Trijicon RMR 低基线基座　Trijicon RMR 高基线基座　Trijicon RMR西格-绍尔手枪基座　Hartman Lenok 70毫米导轨　A.R.M.S. #22 瞄准镜环顶盖　DI Optical FC1 增高座　Geissele Super Precision 环形基座顶盖　Geissele Super Precision 环形基座顶盖 (DDC)　HK G36 STANAG 弹匣井　HK G36 原装弹匣井　Kochetov莫辛步枪基座　OP-SKS燕尾槽基座　Ops Core单卡头导轨转接基座　Ops Core皮卡汀尼导轨适配器　PU 3.5x环形基座　Reptilia ROF-90 RMR Geissele瞄具基座　Reptilia ROF-90 RMR Geissele瞄具基座 （DDC）　SVT-40 Tokarev PU基座　Trijicon ACOG 瞄准镜 RMR 基座　FN SCAR PMM M-LOK 侧导轨　FN SCAR PMM M-LOK 侧导轨 (FDE)　Odin Works K-Pod KeyMod 脚架转接器　Alexander Arms 3英寸导轨　UZI StormWerkz 护木底轨　标准Aimpont瞄具垫高器　SureFire M600 Scout 手电夹具基座　Trijicon MRO 低基线基座　AI AXMC KeySlot Harris 脚架基座　DI Optical FC1 瞄具基座　Magpul M-LOK 脚架基座　AS VAL MOD.4 弹匣井　Magpul M-LOK 0.93英寸导轨　Zenit KR-2 老款手电基座　Magpul M-LOK Offset Light基座　NB MOD.4 套件 3.5 英寸导轨　NCStar M1911A1 扳机保护基座　NPZ 1P78-1燕尾槽基座　NcStar MPR45备用导轨　Rotor 43 RIS PP-91 导轨基座　SR-2M Zenit B-17基座　SR1MP单轨基座　SR1MP四导轨基座　SR1MP消音器基座　Tactica Tula 12003 MP-133/153枪托转接器　VOMZ Pilad 043-02 燕尾槽基座　Zenit B-3 VSS/VAL 环形基座　Zenit B-8 MP-443 基座　KAC MWS脚架转接器　Axion Kobra 燕尾槽适配导轨基座　MTU-028SG M870导轨　AK-12 护木导轨　Cross Slot DeltaPoint 瞄具基座　FN SCAR PMM M-LOK 下导轨　FN SCAR PMM M-LOK 下导轨 (FDE)　TROY QARS 3.2 英寸导轨　B&T MP9侧轨　CNC Guns KeyMod 2英寸导轨　Custom Guns导轨　FN P90 EFFEN 90机匣导轨　Geissele SMR HK 短导轨　HK G36 侧导轨　HK UMP 侧导轨　KRISS Vector侧导轨　MP-155 ”Ultima”短导轨　Magpul M-LOK 2.5英寸导轨　Magpul M-LOK悬挂式基座　Oris中导轨　Oris长导轨　SIG GEN1 护木 4 英寸导轨　SR-2M短侧导轨　SR-3MP 侧导轨（黑红色）　SR-3MP 侧导轨（黑色）　Sako TRG 短款导轨　TOZ-106燕尾槽基座　UZI StormWerkz瞄具基座　Vltor CASV 2英寸导轨　Zenit B-2 导轨　雷明顿RAHG 2英寸导轨　EMTI-019基座　Zenit AKS-74U B-18 导轨基座　TTS System 2.5 英寸导轨　Corvus Defensio KeyMod 6.8 英寸导轨　Steyr AUG Corvus Defensio KeyMod 前端附件导轨　Daniel Defense 25毫米环形基座　SR-2M侧导轨　Vltor CASV 4英寸导轨　TTS System 护木上导轨　AI AXMC Adapter Kit短导轨　M1895/MXLR Ranger Point Precision COSTA 上导轨　TROY QARS 4.2 英寸导轨　Vltor CASV Keymod 2英寸导轨　北方工业短导轨　RS Regulate AKR 上导轨基座　AI AXMC AT X顶部导轨　AI AXMC Adapter Kit中导轨　AN/PVS-14 Norotos 双燕尾槽安装座　B&T QD NAR Aimpoint ACRO 准镜基座　CNC Guns KeyMod 4英寸导轨　FN P90上机匣侧导轨　FN SCAR侧导轨　Geissele SMR HK 长导轨　HK G36 底导轨　HK HKey 3 英寸导轨　HK UMP 下导轨　Hexagon 短长度导轨（电镀红）　Hexagon短长度导轨　KAC URX 3英寸导轨　KRISS Vector底导轨　Magpul M-LOK 4.1英寸导轨　Norotos钛合金高级战术支架　PVS-7 Wilcox接口　Precision Reflex护木短侧导轨基座　ProMag 三角洲风格 AR-15 提把瞄具基座　SIG GEN1 护木 2 英寸导轨　SOK-12 Chaos Titan 四面导轨护木顶盖　Sako TRG 中等长度导轨　Strike Industries Keymod 4英寸导轨　TOZ-106瞄准镜基座　UTG SKS SOCOM导轨基座　UZI PRO SMG导轨转换器　UZI护木导轨　VPO-215 战术枪身前导轨　Vltor CASV 5英寸导轨　Vltor CASV Keymod 4英寸导轨　Zenit B-2U 导轨　雷明顿RAHG 4英寸导轨　MFI MP5 通用低基线瞄具导轨　Aim Sports莫辛步枪MNG导轨　A.R.M.S. #22 战术环形基座顶轨　Aimpoint LRP COMP M4瞄具基座　CAA DRG L-1 SVD基座　FN SCAR底轨　Hexagon 中长度导轨（电镀红）　Hexagon中长度导轨　Kel-Tec RFB导轨护木　Precision Reflex护木底部导轨基座　SAG Bit 低基线燕尾槽基座　Strike Industries Keymod 6英寸导轨　Strike industries导轨桥　Vltor CASV Keymod 6英寸导轨　北方工业长导轨　PNV-10T燕尾槽转接器　Trijicon MRO 高基线基座　Zenit B-3 VSS/VAL 基座组合　B&T MP5SD 三导轨环形基座　Kiba Arms 25毫米环形基座　M870 Mesa Tactical 弹仓夹具　Zenit B-12 导轨基座　Alexander Arms 10英寸导轨　B&T MP9底轨　Kel-Tec RFB瞄准镜导轨基座　M1895/MXLR Ranger Point Precision RHINO 5 英寸瞄准镜导轨　M700 AB Arms MOD*X基座　M700多插槽拓展Weaver导轨　SOK-12 Chaos Titan 机匣上导轨　VPO-215 瞄准镜导轨基座　VSS/VAL TOZ 6P29M 基座　CASV 14 M14基座　Delta-Tek “章鱼”泵动霰弹枪导轨基座　M1A Socom 16上机匣　Aimpoint QRP2 CompM4/PRO反射式瞄具基座　RS Regulate AK-303M 全尺寸导轨燕尾槽下基座　Armasight N-15 #194 转接支架　Precision Reflex M590 瞄具基座　TAPCO Intrafuse SKS 枪身下导轨　Wilcox L4G24 夜视仪支架 (狼棕色)　Wilcox L4G24 夜视仪支架 (黑色)　XS M870鬼环照门短导轨　Strike Industries GRIDLOK AR-15 护木延长段 (红色)　Strike Industries GRIDLOK AR-15 护木延长段 (黄色)　Strike Industries GRIDLOK AR-15 护木延长段 (黑色)　Allen Engineering SPR Collar 消音器基座　Benelli M3 Super 90上机匣导轨　FN SCAR Vltor CASV-SCAR 加长护木　FN SCAR Vltor CASV-SCAR 加长护木（爱国棕）　Kiba Arms 短基座瞄准镜适配器　La Rue Tactical QD LT-101皮卡汀尼立管导轨基座　RFB 3 英寸 四面导轨　SR-3MP 燕尾槽侧导轨（黑红色）　SR-3MP 燕尾槽侧导轨（黑色）　TA51瞄具基座　UNV DLOC-IRD瞄准镜基座　北方工业 QMK-171A 瞄具基座　AN/AVS-6&9 夜视仪基座　Steyr AUG A3 M1低基座　NB AS VAL MOD.4 套件防尘盖　Toni System 战术附件枪管夹具　Aimtech Glock基座　Aimtech Tiger Shark基座　Arbalet VPO-102基座　FN RMR 5-7 Mk.2基座　Kiba Arms International泵动式霰弹枪SPRM导轨　MP-18瞄具基座　P226桥轨基座　UM Tactical UM3瞄具基座　Weigand Weig-a-tinny M1911A1 基座　FN SCAR PMM MRE XL 延长导轨　FN SCAR PMM MRE XL 延长导轨 (FDE)　Leapers UTG 通用霰弹枪枪管夹具　Zenit B-50 16 毫米 PK 机枪顶轨　MeproLight Mepro 瞄具基座　Zenit B-50 66 毫米 PK 机枪顶轨　Orsis T-5000M瞄准镜基座　GBRS Aimpoint Hydra基座套组（FDE）　GBRS Aimpoint Hydra基座套组（黑色）　KRISS Vector Mk.5 模块化导轨　Steyr AUG A3 M1高基座　Zenit B-13V ”Klassika” 燕尾槽导轨平台　Precision Reflex护木长顶部导轨基座　M1895/MXLR XS 马林步枪瞄具基座　M700 Badger Ordnance瞄准镜导轨　SAG AK燕尾侧基座　SAG SVD 低基线侧导轨基座　Leupold Mark IMS 35毫米瞄准镜固定基座　SKS CHOAT瞄准镜基座　Zenit B-13 ”Klassika” 燕尾槽导轨平台　A.R.M.S. #22 30 毫米环形瞄准镜基座　Aim Sports “三轨” 莫辛步枪导轨　M14 Mini Scout导轨基座　Steyr AUG A3 Corvus Defensio 机匣导轨（MOI 30 齿）　丰和 30 毫米环形瞄准镜基座　Nightforce 30毫米瞄准镜基座环　SIG Sauer ALPHA4 30 毫米环形瞄准镜基座　UTG 25毫米环　UltiMAK M14 M8 Forward 光学瞄具基座　Geissele Super Precision 30 毫米环形瞄准镜基座　Geissele Super Precision 30 毫米环形瞄准镜基座 (DDC)　JP 30毫米环形基座　I-E-A Mil Optics Magmount 34毫米一体式基座环　Arbalet Patriot K+W基座　Corvus Defensio KeyMod 1.8 英寸导轨　TKPD 护木枢轴　Arms #18 M14导轨基座　M14 DCSB　B&T 三导轨 MP5 机匣基座　FN SCAR PWS SRX延长导轨　CAA XD RGL SVD机匣基座　FN SCAR Kinetic MREX 6.5 M-LOK 导轨 (FDE)　FN SCAR Kinetic MREX 6.5 M-LOK导轨　Nightforce MagMount一体式基座环　AI AX-50 34毫米瞄具基座　SVD 现代化套件上导轨　Burris AR- P.E.P.R. 30毫米环形基座　M700 30毫米瞄具基座环　SVDS照门固定环　Lobar Arms 30毫米瞄准镜基座　M14 UTG 4点锁定式高级基座　Nightforce MagMount Multimount 34毫米一体式导轨基座　OP-SKS照门固定环　Recknagel Era-Tac 30毫米环形基座　Recknagel Era-Tac 34毫米环形基座　SKS照门固定环　FN P90上机匣上导轨　Sako TRG M10 瞄准镜基座　Magpul Pro 700 枪身轴向基座　FN SCAR Vltor CASV-SCAR 护木　FN SCAR Vltor CASV-SCAR 护木（爱国棕）　Precision Reflex GEN III SPR 机匣顶部导轨　Addley Precision SVT-40 钢制瞄准镜基座　Addley Precision SVT-40 Smith-less 瞄准镜基座　HK USP 精英型 补偿器　HK G36瞄具基座　HK USP 赛事型 补偿器　KMZ 1P59 燕尾槽基座　M590 战术导轨　MP-155 ”Ultima”上导轨　HK G36折叠瞄具导轨　KMZ 1P69 韦佛式基座
+
+</details>
 
 ### 辅助配件
 
 <a id="辅助配件"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -1429,13 +1521,23 @@ tags:
 | 51 | Sako TRG M10 枪托抵肩尾钩 | `sako-trg-m10-rear-hook` | 0.15 千克 | 人机工效 2；精度修正 0%；后坐修正 1% | 20,700 卢布，需 Skier 4 级 | 5,625 卢布（6 家最高） |
 | 52 | MP-155 ”Ultima” 枪管下基座 | `mp-155-ultima-underbarrel-mount` | 0.2 千克 | 人机工效 5；精度修正 0%；后坐修正 0%；热量系数 0.99 | 2,327 卢布，需 Jaeger 2 级 | 799 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **52 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 52 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+Armasight Vulcan MG瞄准镜眼罩　Armasight Zeus Pro瞄准镜眼罩　Axion Kobra 瞄具遮光罩　Cyclone Shakhin 瞄准镜眼罩　FAB Defense AGR-870 保护盖　HK G36 阻手　KAC URX 3/3.1 阻手护木片　KAC URX 3/3.1 阻手护木片 (FDE)　KAC URX 3/3.1专用短款护木片　KAC URX 3/3.1专用短款护木片 (FDE)　KAC URX 3/3.1专用长款护木片　KAC URX 3/3.1专用长款护木片 (FDE)　KMZ 1P59瞄准镜眼罩　KP-SR2 瞄具遮光罩　NPZ 1P78瞄准镜眼罩　NSPU-M瞄准镜眼罩　PSO瞄准镜眼罩　REAP-IR瞄准镜眼罩　SV-98消音器隔热板　USP-1瞄准镜眼罩　Zev Tech Glock 瞄具基座保护盖　HK USP套筒卡锁　M45A1 空仓挂机柄　M1911A1 空仓挂机柄　Wilson M1911A1 加长套筒卡锁　Wilson Ultralight M1911A1 镂空击锤　HK USP 扳机　M45A1 扳机　M1911A1 扳机　MXLR 扳机　Caspian Trik M1911A1 扳机　M1911A1 击锤　HK USP 击锤　M45A1 击锤　M1911A1 击锤　MXLR 击锤　STI HEX M1911A1击锤　M1895/MXLR Ranger Point Precision 扳机　M1895/MXLR Ranger Point Precision 扳机 (金色)　M1895/MXLR Ranger Point Precision 扳机 (黑色)　M1895/MXLR Ranger Point Precision 击锤帽　M1895/MXLR Ranger Point Precision 击锤帽 (黑色)　MP-155 ”Ultima”手枪式握把橡胶垫　MXLR 击锤帽　STM-9弹匣转换器　STM-9弹匣转换器 Grey　SV-98 隔热带　Unique-ARs AR-15 隔热套管（电镀灰）　Unique-ARs AR-15 隔热套管（电镀红）　Unique-ARs AR-15 隔热套管（电镀黄）　Sako TRG M10 枪托抵肩尾钩　MP-155 ”Ultima” 枪管下基座
+
+</details>
 
 ### 弹簧驱动弹巢
 
 <a id="弹簧驱动弹巢"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 装备配件 › 弹匣 › 弹巢
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -1664,7 +1766,15 @@ tags:
 | 223 | AA-12 12 铅径 20发弹鼓 | `aa-12-12ga-20-round-drum-magazine` | 1.13 千克 | 容量 20 格；人机工效 -10；精度修正 0%；后坐修正 0%；装填修正 15%（共 7 项） | — | 5,639 卢布（6 家最高） |
 | 224 | PK 7.62x54R 100发弹链盒 | `pk-762x54r-100-round-box` | 1.5 千克 | 容量 100 格；人机工效 -7；精度修正 0%；后坐修正 0%；装填修正 20%（共 7 项） | 20,927 卢布，需 Prapor 4 级 | 6,924 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **224 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 224 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+玩具枪 20x1毫米 20发弹匣　KS-23M 23mm 3发弹舱　M870 12 铅径 4 发弹仓盖　Mossberg 590A1 12 铅径 8 发弹仓　APS 9x18PM 20发标准弹匣　90-93 9x18PM 8发PM弹匣　MP9 9x19标准15发弹匣　MP9 9x19标准20发弹匣　MP9 9x19标准25发弹匣　MP9 9x19标准30发弹匣　tt-105 7.62x25 TT弹匣　M9A3 9x19 17发弹匣　Benelli M3 Super 90 12铅径5发容量弹匣　PUFGUN SG-919 30 9x19 20发PP-19-01弹匣　Five-seveN 5.7x28 20发弹匣　Five-seveN 5.7x28 Pro-Mag 30发弹匣　M700 7.62x51 Magpul PMAG AC 5发容量弹匣　M9A3 9x19 CX4 30发弹匣　HK USP 战术型 .45 ACP 12发弹匣　MC 20-01 Sb.3 12铅径 2发TOZ-106弹匣　Glock .45 ACP 弹匣　Glock 9x19弹匣　P226弹匣　PL-15 9x19 16发弹匣　HK USP .45 ACP 12发弹匣　HK MP7 4.6x30 20发弹匣　HK417/G28 7.62x51 10发弹匣　MP-153 12 铅径 4 发弹仓前盖　Pmag GL9聚合物弹匣　Steyr AUG 5.56x45 10发容量弹匣　PP-91 9x18PM标准20发弹匣　MP-443 9x19 18发弹匣　SR1-MP弹匣　Glock 9x19 19发弹匣（灰褐色）　PUFGUN SG-919 30 9x19 30发PP-19-01弹匣　Chiappa Rhino .357 6发弹巢　Chiappa Rhino 9x19 6发弹巢　Lancer L5 AWM 5.56x45 AR-15 30发弹匣　Lancer L5 AWM 5.56x45 AR-15 30发弹匣（黄褐色）　MC 20-01 Sb.3 12铅径 4发TOZ-106弹匣　P226 9x19扩容弹匣　Glock 9x19 ”Big Stick” 24 发弹匣（灰褐色）　ProMag SKS-A5 7.62x39 20发SKS弹匣　SVD 7.62x54 10发弹匣　SVD 7.62x54R 20发弹匣　Saiga 5.45x39 AK-74 10发弹匣　TKPD 9.3x64 10发弹匣　7.62x54R 10发SV-98聚合物弹匣　FN SCAR-L 5.56x45 30发弹匣　FN SCAR-L 5.56x45 30发弹匣 （FDE）　柯尔特 5.56x45 STANAG 30发弹匣　7.62x39 AK 10发铝制弹匣　HK MP5 9x19 20发弹匣　M700 7.62x51 Magpul PMAG AC 10发容量弹匣　Magpul PMAG 10 GEN M3 5.56x45 STANAG 10发弹匣　MP-153 12 铅径 6 发弹仓　MP-155 12 铅径 6 发弹仓　Magpul PMAG 20 GEN M3 5.56x45 STANAG 20发弹匣　PP-91 9x18PM 30发标准弹匣　Delta-Tek Saiga 545 5.45x39 20发弹匣　MC 20-01 Sb.3 20铅径TOZ-106 5发弹匣　SR-2M 9x21 20发弹匣　Steyr AUG 5.56x45 30发容量弹匣　VSS/VAL 9x39 6L24 10发弹匣　Magpul PMAG 30 GEN M3 5.56x45 STANAG 30发弹匣　Magpul PMAG 30 GEN M3 5.56x45 STANAG 30发弹匣 (FDE)　Magpul PMAG 30 GEN M3 STANAG 30 发 BB 弹弹匣 (FDE)　Magpul PMAG 30 GEN M3 W 5.56x45 STANAG 30发弹匣　Magpul PMAG 30 GEN M3 W 5.56x45 STANAG 30发弹匣 (FDE)　TROY Battlemag 5.56x45 STANAG 30发弹匣　Glock 9x19 ”Big Stick” 31 发弹匣（灰褐色）　HK G36 5.56x45 30发弹匣　M45A1 .45 ACP 7发弹匣　标准MPX 20发9x19弹匣　Magpul PMAG 20 GEN M3 7.62x39 20发 AK 弹匣　Steyr AUG 5.56x45 42发容量弹匣　Daniel Defense 5.56x45 AR-15 32发弹匣　HK MP7 4.6x30 30发弹匣　“Big Stick” Glock 9x19加长弹匣　7.62x39 AK FAB Defense Ultimag 30R 30发弹匣　MP-153 12 铅径 7 发弹仓　M1A 7.62x51 10发弹匣　HK PM Gen.2 5.56x45 STANAG 30发弹匣　HK417/G28 7.62x51 20发弹匣　M1911 .45 ACP 7发弹匣　7.62x39 AKMS 30发铝制弹匣　HK 30 5.56x45 STANAG 30发聚合物弹匣　HK MP5 9x19 30发弹匣　HK UMP .45 ACP 25发弹匣　MPX 9x19 30发标准弹匣　PP-19-01 9x19 30发标准弹匣　SR-2M 9x21 30发弹匣　lzh.9x19 Sb.7 10发弹匣　柯尔特 AR-15 5.56x45 STANAG 20发弹匣　KRISS G30 MagEx Glock .45 ACP 30 发弹匣　SureFire MAG5-60 5.56x45 STANAG 60发弹匣　沙漠之鹰.357 9发弹匣　沙漠之鹰.50 AE 7发弹匣　VSS/VAL 9x39 6L25 20发弹匣（黑红色）　AK-12 早期版 5.45x39 30发弹匣　SKS 7.62x39 10发内置弹仓　AK-12 5.45x39 30发弹匣　Sako TRG M10 .338 LM 8发弹匣　Sb.5 12/70 SOK-12 5发弹匣　UZI PRO 9x19 20发弹匣　ProMag AALVX 35 7.62x39 35发SKS弹匣　7.62x39 AK 10发加强筋金属弹匣　7.62x51 10发VPO-101兼容金属弹匣　7.62x51 5发VPO-101兼容金属弹匣　HK MP7 4.6x30 40发弹匣　MP-133 12铅径 6 发弹仓　Magpul PMAG 30 GEN M3 5.45x39 30发 AK 弹匣　Magpul PMAG 30 GEN M3 5.45x39 30发 AK 弹匣 (FDE)　Magpul PMAG 30 GEN M3 7.62x39 30 发 AK 弹匣（香蕉黄）　Magpul PMAG 30 GEN M3 7.62x39 30发 AK 弹匣　Magpul PMAG 40 GEN M3 5.56x45 STANAG 40发弹匣　Magpul PMAG 40 GEN M3 5.56x45 STANAG 40发弹匣 (FDE)　US Palm AK30 7.62x39 AK 30发弹匣 (FDE)　US Palm AK30 7.62x39 AK 30发弹匣 (黑色)　UZI 9x19标准20发弹匣　VPO-215 .366 TKM 4发弹匣　SAI-02 12/70 SOK-12 10发弹匣　6L20 5.45x39 AK-74 30发弹匣　6L23 5.45x39 AK-74 30 发弹匣（黑红色）　6L23 5.45x39 AK-74 30发弹匣　6L29 5.56x45 AK-101 30发弹匣　7.62x39 AK-103 30发弹匣　M1A 7.62x51 20发弹匣　7.62x54r ProMag OPFOR Archangel套件10发莫辛步枪弹匣　Benelli M3 Super 90 12铅径7发容量弹匣　UZI 9x19标准25发弹匣　UZI PRO 9x19 25发弹匣　RSh-12 12.7x55 5发容量弹巢　Mec-Gar .45 ACP M1911A1 11发弹匣　UZI PRO 9x19 32发弹匣　5.8x42 QBZ-191 30发弹匣　M870 12 铅径 7 发弹仓　MTs-255-12 12 铅径 5发弹巢　UZI 9x19标准32发弹匣　VSS/VAL 9x39 30发弹匣　Benelli M3 Super 90 12铅径 Toni System 9发容量弹匣　AK-308 7.62x51 20发弹匣　UZI 9x19标准40发弹匣　SA-58/FAL 7.62x51 10发弹匣　SureFire MAG5-100 AR-15 5.56x45 STANAG 100发弹匣　M60 7.62x51 LBT 100发供弹包　AK-308/Saiga-308 7.62x51 ProMag 24发弹匣　AVT-40 7.62x54R 10发弹匣　SA-58/FAL 7.62x51 MMW 20发聚合物弹匣　Benelli M3 Super 90 12铅径 Toni System 11发容量弹匣　6L18 5.45x39 AK-74 45发弹匣　6L26 5.45x39 AK-74 45发弹匣　6L31 5.45x39 AK-74 60发弹匣　9A-91 9x39 20发弹匣　AK 5.56x45 Molot Arms 45发弹匣　M700 7.62x51 AICS 5发容量弹匣　MP-133 12铅径 8 发弹仓　MP-153 12 铅径 8 发弹仓　MPX TTI Base pad+11 9x19 41发弹匣　MXLR .308 ME 5发弹仓　UZI 9x19标准50发弹匣　6P2 7.62x39 AK 40发胶木弹匣　HK 钢制防水腐蚀 5.56x45 STANAG 30发弹匣　FN SCAR-H 7.62x51 20发弹匣　7.62x51 30发M14弹匣　AA-12 12铅径 8发弹匣　Benelli M3 Super 90 12铅径 Toni System 13发容量弹匣　.308 T-5000 5发弹匣　12.7x55 ASh-12 10发弹匣　AVT-40 7.62x54R 15发弹匣　FN SCAR-H 7.62x51 20发弹匣 （FDE）　Lancer L7AWM 7.62x51 AR-10 20发弹匣　Lancer L7AWM 7.62x51 AR-10 25发弹匣　Magpul PMAG 20 SR-LR GEN M3 7.62x51 20发弹匣　SA-58/FAL 7.62x51 20发弹匣　PM 9x18PM 84发简易弹鼓　6L10 7.62x39 AK 30发胶木弹匣　7.62x39 AK 30发弹匣（1955 年后配发）　PPSH-41 7.62x25 35发弹匣　VSS/VAL SR3M.130 9x39 30发弹匣　AI AXMC .338 LM 10发容量弹匣　M870 12 铅径 10 发弹仓　莫辛纳甘 7.62x54R 5 发弹仓　KAC 7.62x51 AR-10 10发弹匣　M60 7.62x51 Capco 100发突击弹药盒　Circle 10 5.56x45 SLR-106/AK 30发弹匣　FN P90 5.7x28 50发弹匣　6P2.Sb-11 Molot 7.62x39 AK 40发弹匣　SA-58/FAL 7.62x51 30发弹匣　SA-58/FAL/SLR 7.62x51 30发弹匣　12.7x55 ASh-12 20发弹匣　DVL-10 7.62x51 10发弹匣　M700 7.62x51 AICS 10发容量弹匣　M700 7.62x51 ProMag AA-70 10发容量弹匣　M700 7.62x51 ProMag AA-70 20发容量弹匣　M700 7.62x51 Wyatt's Outdoor 10发容量弹匣　M700 7.62x51 Wyatt's Outdoor 5发容量弹匣　KAC 7.62x51 AR-10 20发弹匣　Magpul PMAG D-60 5.56x45 STANAG 60发弹鼓　M700 7.62x51 MDT AICS 12发弹匣　SGMT Glock 9x19 50发弹鼓　Sword Int. Mk-18 .338 LM 10发弹匣　M82A1 .50 BMG 10发弹匣　X Products HK MP5 9x19 X-5 50发弹鼓　F5 MPX 50发9x19弹鼓　MaxRounds Powermag 12/76 20发SOK-12兼容武器弹匣　SOK-12 12 铅径 MD Arms 20发弹鼓　PP-19-01 9x19 F5 MFG 50发弹鼓　RPK-16 5.45x39 95发弹鼓　X Products 7.62x51 AR-10 X-25 50发弹鼓　X Products 7.62x39 AK X-47 50发弹鼓　X Products 7.62x51 M14 X-14 50发弹鼓　X Products 7.62x51 SA58/FAL X-FAL 50发弹匣　ProMag 7.62x39 AK-A-16 73发弹鼓　M32A1 40毫米弹巢　RPD 7.62x39“圆木”100 发弹链盒　Molot Arms 7.62x39 AK 75发弹鼓　PPSh-41 7.62x25 71发弹鼓　MP-153 12 铅径 5 发弹仓　UZI 9x19 Beta C-Mag 100发弹鼓　KCI 7.62x39 SKS 75发弹鼓　Beta C-Mag 5.56x45 AR-15 100发弹鼓　AA-12 12 铅径 20发弹鼓　PK 7.62x54R 100发弹链盒
+
+</details>
 
 ---
 

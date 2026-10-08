@@ -3,7 +3,8 @@
    --------------------------------------------------------------------------
    背景（第四十七批交互层审查实测）：
    Zensical 的全文搜索把 UI 建在 **Shadow DOM** 里，而那个 Shadow DOM 的
-   输入框**只有在 `search.json`（本站 2.0 MB）下载并解析完成之后才被插入**。
+   输入框**只有在 `search.json`（本站 2.15 MB 未压缩 / gzip 约 593 KB）
+   下载并解析完成之后才被插入**。
    在它插入之前：
 
      · 点右上角「查找」——没有任何反应；
@@ -40,7 +41,7 @@
   var patched = false;         // placeholder 已本地化
   var tries = 0;
   var lastHint = 0;
-  var indexSizeMB = "2.5";     // 供失败提示引用，实测值由 fetch 时校正
+  var indexSizeMB = "2.2";     // 供失败提示引用，实测值由 fetch 时校正
   var FAIL_AFTER_MS = 45000;   // 45 秒还没好就改口说「没能载入」
   var hintEl = null;
   var hideTimer = 0;
@@ -181,13 +182,18 @@
     if (!root) { window.__tkSearchIndexSettled = false; return; }
     /* 主题自己已经在 fetch 这个文件了，这里**只读缓存**，
        同一份响应被两个消费者复用，浏览器会自动去重（同一个绝对 URL 的
-       并发 fetch 共享一个网络请求）。所以多这一次探测**不产生额外流量**。 */
+       并发 fetch 共享一个网络请求）。所以多这一次探测**不产生额外流量**。
+       ⚠️ 这条**实测验证过**（2026-10-08，用 resource timing 的 transferSize）：
+          主题的 XHR 条目 transfer = 2.30 MB（真走网络），
+          本探针的 fetch 条目 transfer = **0**（走缓存）。
+       所以别把这次 fetch 当成优化目标去掉 —— 它不花流量，而去掉它
+       就失去了「索引是否就绪」的判据（下面 __tkSearchIndexSettled 靠它）。 */
     try {
       fetch(root + "search.json", { cache: "force-cache" })
         .then(function (r) {
           if (!r.ok) { window.__tkSearchIndexSettled = false; return; }
           /* content-length 只在未压缩时给；取不到就用默认文案里的数字。
-             实测线上 gzip 传输 821 KB、未压缩 2.54 MB。 */
+             实测线上 gzip 传输约 600 KB、未压缩 2.15 MB（2026-10-08 优化后）。 */
           var cl = r.headers.get("content-length");
           if (cl) indexSizeMB = (parseInt(cl, 10) / 1048576).toFixed(1);
           window.__tkSearchIndexSettled = true;

@@ -33,6 +33,8 @@ tags:
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块 › 膛口装置
 
+<div data-search-exclude markdown>
+
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
 | 1 | VPO-209 螺纹保护帽 | `vpo-209-thread-protector` | 0.01 千克 | 人机工效 2；精度修正 0%；后坐修正 0% | — | 270 卢布（6 家最高） |
@@ -200,13 +202,23 @@ tags:
 | 163 | HK MP5 诺维斯克型 9x19 膛口制退器 | `hk-mp5-noveske-style-9x19-muzzle-brake` | 0.38 千克 | 人机工效 -2；精度修正 0%；后坐修正 10%；耐久损耗系数 0.97；热量系数 0.99 | 11,125 卢布，需 Mechanic 2 级 | 4,005 卢布（6 家最高） |
 | 164 | SV-98 SRVV Mk.2.0 7.62x54R膛口制退补偿器 | `sv-98-srvv-mk20-762x54r-muzzle-brake` | 0.46 千克 | 人机工效 -2；精度修正 6%；后坐修正 13%；耐久损耗系数 0.96；热量系数 0.99 | 9,750 卢布，需 Mechanic 3 级 | 3,510 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **164 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 164 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+VPO-209 螺纹保护帽　AKM 7.62x39 膛口制退器　VPO-136 野猪-KM 7.62x39 制退补偿器　TAA ZK-23 5.56x45 AR-15 膛口制退器　TAA ZK-38 7.62x51 AR-10 膛口制退器　Glock 9x19 CARVER定制四口补偿器　Glock 9x19 Lone Wolf AlphaWolf Bullnose补偿器　Lone Wolf 9 9x19补偿器　P226 TJ's Custom 9x19补偿器　PM-Laser DTK-TT TT 手枪制退器　AKML 系统 7.62x39 消焰器　HK G36C 5.56x45四棘消焰器　PKM 7.62x54R消焰器　2A Armanent X3 7.62x51 AR-10 补偿器　HK G36 5.56x45四棘消焰器　SV-98 7.62x54R 螺纹转接器　Smith Enterprise Vortex 7.62x51 M14 膛口制退器　Surefire SF4P 5.56x45 AR-15 消焰器　A2 9x19 MPX消焰器　Decelerator 3 Port 9x19补偿器　Glock 9x19 Double Diamond消焰器　HK G36 5.56x45消焰器　KAC QDC 5.56x45 AR-15 消焰器套件　PKM 7.62x54R枪口制退器　Steyr AUG A1 5.56x45封闭式消焰器　Yankee Hill Phantom 5.56x45 AR-15 消焰器　丰和 20 式 5.56x45 补偿器　ADAR 2-15.56x45消焰器　DS Arms RPD“比利时型”7.62x51 膛口制退器　Kriss Vector .45 ACP 消焰器　Kriss Vector 9x19 消焰器　QBZ-191 5.8x42 鸟笼式消焰器　RFB 7.62x51 标准消焰器　SA-58 3-Prong ”三叉戟” 7.62x51消焰器　SAI JailBrake 5.56x45 AR-15 膛口装置　SIG Sauer Micro Brake 7.62x51 微型膛口制退器　Steyr AUG A3 5.56x45封闭式消焰器　SureFire SF3P 5.56x45 AR-15 消焰器　Surefire WarComp 5.56x45 AR-15消焰器　TROY Claymore 5.56x45 AR-15膛口制退器　柯尔特 USGI A1 5.56x45 三叉消焰器　柯尔特USGI A2 5.56x45 AR-15消焰器　KAC QDC 5.56x45 AR-15 三叉消焰器　Griffin Armament Gate-LOK Hammer 5.56x45 AR-15 消焰器　Aeroknox Butterfly 5.56x45 AR-15 膛口制退器　M14 Yankee Hill Phantom 7.62x51消焰器　PP-19-01 勇士 9x19 膛口制退器　SIG Sauer 7.62x51 三叉消焰器　SVT-40 7.62x54R 膛口制退器　Saiga-9 9x19 膛口制退器　SureFire SF3P 4.6x30 MP7 消焰器　NB AS VAL MOD.4 9x39 JailBrake 膛口装置　Steyr AUG A3 5.56x45枪口制退器　Spike Tactical Dynacomp 7.62x39 AK 膛口制退器　TACCOM Carbine Brake 9x19制退器　CMMG SV Brake 7.62x51 AR-10 膛口制退器　HK MP7A1 4.6x30 消焰器　JMAC RRD-4C 7.62x39 AKM 膛口制退器　SVDS 7.62x54R膛口制退器　STM-9 9x19枪口制退器　AlienTech 5.56x45 AR-15 膛口制退器　HK BLITZ 5.56x45 AR-15 消焰器　JMAC RRD-4C AK-74 多口径膛口制退器　NB AS VAL MOD.4 9x39 膛口装置　Strike Industries Checkmate 5.56x45 AR-15 补偿器　Allen Engineering SPR 5.56x45 AR-15 膛口制退器　Lantac Dragon 5.56x45 AR-15 膛口制退器　Lantac Dragon 7.62x39 AK 膛口制退器　Lantac Dragon 7.62x51 AR-10 膛口制退器　RPK-16 5.45x39 膛口制退器　Hexagon Reactor 5.45x39 AK 膛口制退器　SIG Sauer Two Port Brake 7.62x51 双端膛口制退器　Venom Tactical Antidote 7.62x39 AK 膛口制退器　Surefire ProComp 7.62x51 AR-10膛口制退器　DVL-10 M2 7.62x51膛口制退器　ORSIS T-5000M 7.62x51膛口制退器　AK-101 5.56x45 膛口制退器　AK-102 5.56x45 膛口制退器　AK-103 7.62x39 膛口制退器　AK-105 5.45x39 膛口制退器　AK-12 5.45x39 膛口制退器　AK-308 7.62x51 消焰器　AK-74 5.45x39 膛口制退器　AK-74M 5.45x39 膛口制退器　AKS-74U 5.45x39 膛口制退器　FN P90 5.7x28消焰器　Izhmash 7.62x39 AK-104膛口制退补偿器（6P46 0-20）　Potomac Armory M110 7.62x51 消焰器　Anarchy Outdoors .45 ACP M1911 膛口制退器　DVL-10 7.62x51膛口装置　SV-98 7.62x54R膛口装置　Strike Industries G4套筒补偿器 9x19　Fortis RED Brake 7.62x51 AR-10 膛口制退器　WDR NERO 556 5.56x45 AR-15 膛口制退器　Daniel Defence WAVE 5.56x45 AR-15 膛口制退器　Daniel Defence WAVE 7.62x51 AR-10 膛口制退器　Thunder Beast Arms 223CB 5.56x45 AR-15 膛口制退器　Thunder Beast Arms 30CB 7.62x51 AR-10 膛口制退器　Dead Air Keymount 7.62x51 AR-10 膛口制退器　KAC QDC 7.62x51 AR-10 消焰器套件　SA-58 奥地利型 7.62x51 膛口制退器　SRVV 7.62x39 AK 膛口制退器　SRVV MBR Jet 5.45x39 AK-74 膛口制退器　SilencerCo AC-858 ASR .338 LM 膛口制退器　Smith Enterprise SOCOM 16 7.62x51 M1A 螺纹膛口制退器 & 导气箍套件　M60E3 7.62x51消焰器　Vector VR-05T 7.62x39 AK 膛口制退器　Keeno Arms SHREWD 7.62x51 AR-10膛口制退器　Odin Works ATLAS-7 7.62x51 AR-10 膛口制退器　Precision Armament M-11 7.62x51 AR-10膛口制退器　UZI枪管排气罩　AAC Blackout 51T 5.56x45 AR-15 消焰器　AAC Blackout 51T 7.62x51 AR-10 消焰器　HK Prolonged 7.62x51消焰器　MCX SPEAR Clutch-Lok QD 6.8x51消焰器　Zenit DTK-1P 7.62x54R PK 膛口制退器　Bulletec ST-6012 5.56x45 AR-15 膛口制退器　Delta-Tek DTK-AR10 7.62x51 AR-10 膛口制退器　Delta-Tek DTK-M16 5.56x45 AR-15 膛口制退器　Nordic Corvette 5.56x45 AR-15补偿器　Nordic Corvette 7.62x51 AR-10膛口制退器　M60E6 7.62x51消焰器　B&T 9x19 MP5 快拆膛口制退器　Yankee Hill Annihilator 多口径消焰器　Zenit DTK-1 7.62x39 & 5.45x39 AK 膛口制退器　JMAC LAF-24 AK-74 多口径膛口制退器　M14 JP Enterprises 7.62x51膛口战术制退补偿器　SOCOM 16 7.62x51 M1A 膛口制退器　Ferfrans CRD 5.56x45 后座缓冲装置　HUXWRX 7.62x51 AR-10 消焰器　M1A National Match 7.62x51消焰器　SilencerCo ASR 5.56x45 AR-15 消焰器　Smith Enterprise Good Iron 7.62x51 M14 膛口制退器　AWC PSR 5.56x45 AR-15 膛口制退器　KAC QDC 7.62x51 AR-10 膛口制退器套件　ASh-12 12.7x55 膛口制退器　FN SCAR-L 5.56x45消焰器　Ferfrans CQB 5.56x45 AR-15 膛口制退器　AAC SCAR-SD 51T 7.62x51 AR-10 消焰器　AWC PSR 7.62x51 AR-10 膛口制退器　莫辛步枪Witt Machine 7.62x54R膛口制退器　Lantac BMD 7.62x51 爆炸缓冲装置　AWC PSR .338 LM膛口制退器　Arsenal AK 7.62x39 四棘消焰器　PWS CQB 74 5.45x39 AK-74 膛口制退器　莫辛步枪Texas Precision Products 7.62x54R制退器　Ase Utra BoreLock .338 LM 膛口制退器　Desert Tech 5.56x45膛口制退器　PWS CQB 5.56x45 AR-15 膛口制退器　Vendetta precision VP-09 Interceptor 5.56x45 AR-15 膛口制退器　沙漠科技 7.62x51 AR-10 消焰器　Noveske KX3 5.56x45 AR-15 消焰器　DoubleStar Carlson Tac Comp 5.56x45 AR-15 枪口补偿装置　SureFire Warden 7.62x51 AR-10 爆炸调节器　AK-50 .50 BMG 膛口制退器　SureFire Warden 5.56x45 AR-15 爆炸调节器　AI .338 LM战术型枪口制退器　莫辛步枪Tacfire坦克手型7.62x54R膛口制退器　Strike Industries Oppressor Lite V2 5.56x45 膛口装置　Sako TRG 22/42/M10 .338 LM 狙击步枪枪口制退器　TKPD 9.3x64 膛口制退器　Sako TRG Coretac CoreBrake .338 LM 枪口制退器　HK MP5 诺维斯克型 9x19 膛口制退器　SV-98 SRVV Mk.2.0 7.62x54R膛口制退补偿器
+
+</details>
 
 ### 消音器
 
 <a id="消音器"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块 › 膛口装置
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -296,13 +308,23 @@ tags:
 | 84 | Hexagon DTKP 7.62x54 PKP 消音器 | `pkp-hexagon-dtkp-762x54-sound-suppressor` | 0.99 千克 | 人机工效 -19；精度修正 0%；后坐修正 7%；耐久损耗系数 1.8；热量系数 1.15 | 107,847 卢布，需 Prapor 4 级 | 29,249 卢布（6 家最高） |
 | 85 | Bramit莫辛步枪消音器 | `mosin-rifle-bramit-762x54r-sound-suppressor` | 1.1 千克 | 人机工效 -20；精度修正 5%；后坐修正 7%；耐久损耗系数 1.5；热量系数 1.14 | — | 18,563 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **85 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 85 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+PP-91-01 Kedr-B 9x18PM 消音器　PB 9x18马卡洛夫库藏消音器　Gemtech SFN-57 5.7x28毫米消音器　Thunder Beast Ultra 5 消音器　SIG Sauer SRD9 9x19 消音器　SV-98 7.62x54R 消音器　SilencerCo Omega 45k .45 ACP 消音器　SilencerCo Osprey 9 9x19 消音器　AS VAL MOD.4 9x39 枪管一体式消音器　Alpha Dog Alpha 9 9x19 消音器　B&T MP9 9x19毫米声音抑制器　Hexagon Wafflemaker 5.45x39 AK 消音器　PL-15 9x19 消音器　AAC Illusion 9 9x19毫米消音器　土制7.62x25 TT消音器　Fisher Development FD917 Glock 9x19 消音器　Zenit DTK-4M 7.62x39 AKM 消音器　MPX 9x19 Ronin Arms 8 英寸 SD 型消音器　Steyr AUG Relfex T4AUG Ranger 5.56x45消音器　Griffin Armament M4SD-K 5.56x45 AR-15 消音器　Hexagon DTKP MK.2 7.62x39 消音器　SureFire SOCOM556-MINI MONSTER 5.56x45 消音器　MPX 9x19 Ronin Arms 12 英寸 SD 型消音器　B&T 丰和 Print-X 5.56x45 消音器　AKM PBS-1 7.62x39消音器　AK-12 5.45x39消音器　B&T OEM .45 ACP UMP 消音器　KAC QDC 5.56x45消音器　B&T QD 7.62x51 G28 快拆消音器　Gemtech ONE 多口径消音器　SIG Sauer SRD762-QD 7.62x51 消音器　SIG Sauer SRD762Ti 7.62x51 消音器　Hexagon AK-74 5.45x39消音器　Hexagon AKM 7.62x39 消音器　Hexagon SKS 7.62x39 消音器　Surefire SOCOM556-RC2 5.56x45消音器　Daniel Defence WAVE 快拆消音器　APB 9x18PM消音器　Rotor 43 9x19 消音器　SR-1MP 9x21 消音器　Silencerco Hybrid 46多口径消音器　Hexagon 12K 12 铅径消音器　Steyr AUG Ase Utra S Series SL7i 5.56x45消音器　9A-91 9x39 消音器　AS VAL 9x39 一体式消音枪管　HK MP5SD 9x19消音器　SureFire SOCOM556-MONSTER 5.56x45 消音器　VSS 9x39 一体式消音枪管　CGS Hekate DT .338 LM 消音器　SilencerCo SAKER ASR 556 5.56x45 消音器　PP-19-01 Vityaz 9x19 消音器　HUXWRX HX-QD 7.62x51 消音器　HUXWRX HX-QD 7.62x51 消音器（黄褐色）　AAC 762-SDN-6 多口径消音器　Rotor 43 .366TKM 消音器　Rotor 43 5.56x45 消音器　Rotor 43 7.62x39 消音器　SR-2M 9x21 SV-1381 消音器　SR-3M 9x39消音器　北方工业 VQX-191 5.8x42 消音器　Allen Engineering AEM-5 5.56x45 消音器　KAC PRS/QDC 7.62x51 消音器　MCX SPEAR SLX68-MG-QD 6.8x51消音器　MPX-SD 9x19整体式消声器　B&T Rotex 2 4.6x30 MP7 消音器　Ase Utra SL7i-BL BoreLock .338 LM 消音器　AI .338 LM 战术消音器　Sako TRG PGM Precision .338 LM 消音器　FN P90 Attenuator 5.7x28消音器　KAC QDSS NT-4 5.56x45 消音器 (FDE)　KAC QDSS NT-4 5.56x45 消音器（黑色）　UZI 9x19毫米消音器　AK-74 TGP-A 5.45x39消音器　AKS-74U PBS-4 5.45x39消音器　ASh-12 12.7x55 声音抑制器　AWC Thor PSR XL多口径消音器　AK-308 7.62x51 快拆式消音器　Rotor 43 7.62x54R 消音器　KAC SR-25/Mk.11 7.62x51 消音器　KAC SR-25/Mk.11 7.62x51 消音器（灰褐色）　VPO-101 Rotor 43 7.62x51 消音器　SilencerCo Salvo 12 12 铅径消音器　Hexagon DTKP 7.62x54 PK 消音器　Hexagon DTKP 7.62x54 PKP 消音器　Bramit莫辛步枪消音器
+
+</details>
 
 ### 组合膛口制退器
 
 <a id="组合膛口制退器"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块 › 膛口装置
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -366,13 +388,23 @@ tags:
 | 58 | GK-02 12 铅径膛口制退器 | `gk-02-12ga-muzzle-brake` | 0.233 千克 | 人机工效 -1；精度修正 0%；后坐修正 14%；耐久损耗系数 0.98；热量系数 0.98 | 5,301 卢布，需 Jaeger 2 级 | 1,820 卢布（6 家最高） |
 | 59 | Tromix 怪爪 12 铅径膛口制退器 | `tromix-monster-claw-12ga-muzzle-brake` | 0.34 千克 | 人机工效 -7；精度修正 0%；后坐修正 19%；耐久损耗系数 0.96；热量系数 0.98 | 10,998 卢布，需 Mechanic 3 级 | 3,959 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **59 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 59 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+9A-91护木固定器　AA-12 螺纹保护帽　AI AXMC螺纹保护帽　AS VAL MOD.4 9x39 消音筒盖　AWC PSR 膛口制退器螺纹护帽　Double Diamond Glock螺纹保护帽　Glock 9x19 Lone Wolf AlphaWolf螺纹保护帽　Glock SAI 9x19螺纹保护帽　HK USP 战术型 螺纹保护帽　Kriss Vector .45 ACP螺纹保护帽　M700 不锈钢螺纹枪管保护帽　M700螺纹保护帽　M9A3螺纹保护帽　P226螺纹保护帽　RFB螺纹保护帽　RPD 枪管螺纹保护帽　Sako TRG .338 LM 螺纹保护帽　VPO-215 战术螺纹保护帽　VPO-215螺纹保护帽　Vector 9x19螺纹保护帽　雷明顿战术型收束器 12 铅径　Allen Engineering SPR 制退器螺纹保护帽　Lantac BMD 爆炸缓冲装置 螺纹转接器　CMMG 5.56x45 P90 膛口转接器　SKS Weapon Tuning 7.62x39螺纹转换器　ME Cylinder 12铅径膛口转接器　莫辛步枪Weapon Tuning 7.62x39螺纹转接器　PP-91-01“雪松-B”螺纹消音器转接器　SOK-12 螺纹保护帽　莫辛步枪Tiger Rock 7.62x51螺纹转换器　HK MP5 三叉膛口转接器　UZI 9x19 三叉螺纹枪管保护帽　UZI 9x19枪管3-lug螺纹帽　UZI 9x19枪管螺纹帽　UZI PRO 9x19 Masada螺纹保护器　UZI PRO 9x19枪管螺纹帽　SR-2M 9x21 枪口阻手器　莫辛步枪Kiba Arms 7.62x54R定制螺纹转接器　HK MP5 海军型样式三叉消音器转接器　RFB螺纹垫片　Ase Utra BoreLock 螺纹保护帽　BRT AK-12 M24 螺纹膛口转接器　CNC Warrior 5.56x45 AK 膛口转接器　Mts-255-12 12铅径收束器　SilencerCo Salvo12 铅径枪管螺纹转接器　Taktika Tula 7.62x39 AK 膛口转接器　AA-12 12 铅径收束器　Gemtech One直接螺纹安装转接器　Kiba Arms 7.62x39 AKM .308 枪口转接器　SilencerCo Salvo 12 喉缩转接器　SIG Sauer Taper-LOK 7.62x51/.300 BLK膛口转接器　Steyr AUG RAT Worx 5.56x45膛口转换器　SilencerCo Omega 45k直螺纹转接器　MP9 9x19消音器转接器　Silencerco Hybrid 46直接螺纹转接器　SilencerCo Omega 45k Piston转接器　Rotor 43 SVDS 螺纹转接器　GK-02 12 铅径膛口制退器　Tromix 怪爪 12 铅径膛口制退器
+
+</details>
 
 ### 枪管
 
 <a id="枪管"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 基础配件
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -573,13 +605,23 @@ tags:
 | 195 | DVL-10 7.62x51 500 毫米消音枪管 | `dvl-10-762x51-500mm-suppressed-barrel` | 2.9 千克 | 人机工效 -15；精度修正 0%；后坐修正 12%；弹着点 0.02 厘米；散布曲线 1（共 8 项） | 49,928 卢布，需 Skier 4 级 | 16,642 卢布（7 家最高） |
 | 196 | PKP 7.62x54R 658毫米枪管 | `pkp-762x54r-658mm-barrel` | 3.2 千克 | 人机工效 -30；精度修正 0%；后坐修正 16%；弹着点 0.03 厘米；散布曲线 1.35（共 8 项） | 46,736 卢布，需 Prapor 4 级 | 16,494 卢布（7 家最高） |
 
+</div>
+
 > 本分类 **196 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 196 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+116毫米7.62x25 TT镀金枪管　116毫米TT枪管 7.62x25　121毫米 7.62x25 自制TT螺纹口枪管　M1911A1 .45 ACP 标准枪管　Glock 19X 9x19枪管　National M1911 .45 ACP 竞赛枪管　HK USP .45 ACP 112 毫米枪管　M1911A1 .45 ACP 螺纹枪管　HK USP 战术型 .45 ACP 129 毫米螺纹枪管　UZI 238毫米3-lug螺纹枪管　UZI PRO 9x19 Pike Arms 114毫米螺纹枪管　UZI PRO 9x19 114毫米枪管　HK USP 专家型 .45 ACP 132 毫米枪管　4.5 英寸 MPX 枪管 9x19　5 英寸 KRISS Vector 枪管 9x19　HK USP 精英型 .45 ACP 153 毫米枪管　5 英寸 KRISS Vector 枪管 .45 ACP　Five-seveN 5.7x28枪管　HK USP 赛事型 .45 ACP 153 毫米枪管　112毫米P226枪管 9x19　4.75 英寸 Ronin Arms MPX 开口式消音枪管 9x19　6.5英寸 MPX-SD 分体式枪管 9x19　6.75 英寸 Ronin Arms MPX 开口式消音枪管 9x19　Double Diamond Glock 9x19螺纹枪管　Five-seveN 5.7x28螺纹枪管　Glock 17标准枪管 9x19　Glock 17补偿器枪管 9x19　Glock 18C补偿器枪管 9x19　Glock 9x19 Lone Wolf AlphaWolf螺纹枪管　P226带螺纹枪管 9x19　PL-15 9x19 112 毫米螺纹枪管　PL-15 9x19 112毫米枪管　Salient Arms Glock 9x19螺纹枪管　6.5 英寸 MPX 枪管 9x19　UZI PRO 9x19 170毫米枪管　6 英寸 KRISS Vector 枪管 9x19　M9A3 9x19 127 毫米螺纹枪管　6 英寸 KRISS Vector 枪管 .45 ACP　UZI PRO 9x19 210毫米枪管　8 英寸 MPX 枪管 9x19　10.5 英寸 MPX 枪管 9x19　UZI 9x19 259毫米枪管　UZI 9x19 409毫米枪管　UZI PRO 9x19 240毫米枪管　沙漠之鹰L5 .357 127毫米枪管　沙漠之鹰L5 .50 AE 127毫米枪管　14 英寸 MPX 枪管 9x19　11.5 英寸 MDR 枪管 5.56x45　HK G36 5.56x45 228毫米枪管　10.3 英寸 AR-15 枪管 5.56x45　10.5 英寸 STM-9 枪管 9x19　11 英寸 SA-58 枪管 7.62x51　6.75 英寸 MCX 枪管 .300 BLK　8 英寸 HK UMP 枪管 .45 ACP　9A-91 9x39枪管　VSK-94 9x39枪管　8 英寸HK UMP 螺纹枪管 .45 ACP　沙漠之鹰L6 .50 AE 152毫米枪管　沙漠之鹰L6 .50 AE 152毫米枪管（白色虎纹）　沙漠之鹰Mk XIX .50 AE 152毫米枪管　254毫米Mk47枪管　HK G36 5.56x45 318毫米枪管　13 英寸 MCX-SPEAR 枪管 6.8x51　9 英寸 MCX 枪管 .300 BLK　10.5 英寸 P90 枪管 5.7x28　12 英寸 STM-9 枪管 9x19　13.7 英寸 Hanson Carbine AR-15 枪管 5.56x45　14.5 英寸 AR-15 枪管 5.56x45　16 英寸 MDR 枪管 5.56x45　7.62x25 PPSh-41 269 毫米枪管　11.5 英寸HK UMP 螺纹枪管 .45 ACP　16 英寸 MCX 枪管 .300 BLK　16 英寸 Steyr AUG A3 枪管 5.56x45　16 英寸 Steyr AUG A1 枪管 5.56x45　15 英寸 RPK-16 枪管 5.45x39　QBZ-191 5.8x42 266毫米枪管　10.6 英寸 HK416 枪管 5.56x45　11.5 英寸 AR-15 枪管 5.56x45　16 英寸 Molot Arms AR-15 枪管 5.56x45　14 英寸 STM-9 枪管 9x19　16 英寸 SA-58 枪管 7.62x51　11 英寸 HK416 枪管 5.56x45　16 英寸 MDR 枪管 7.62x51　22 英寸 RPK-16 枪管 5.45x39　QBZ-191 5.8x42 368毫米枪管　20 英寸 MDR 枪管 5.56x45　16.5 英寸HK UMP 螺纹枪管 .45 ACP　HK G36 5.56x45 480毫米枪管　莫辛纳甘 200 毫米锯短枪管 7.62x54R　20 英寸 MDR 枪管 7.62x51　11.5 英寸 NL545 (GP) 枪管 5.45x39　16 英寸 Hanson Carbine AR-15 枪管 5.56x45　16.3 英寸 NL545 (DI) 枪管 5.45x39　16.5 英寸 NL545 (GP) 枪管 5.45x39　18 英寸 AR-15 枪管 5.56x45　21 英寸 SA-58 枪管 7.62x51　16 英寸 P90 枪管 5.7x28　16 英寸 STM-9 枪管 9x19　AA-12 12 铅径 330 毫米枪管　Benelli M3 Super 90 12铅径 500毫米枪管　MP-133 12 铅径 510 毫米枪管　MP-133 12 铅径 540 毫米枪管　MP-155 12 铅径 510 毫米枪管　MP-155 12 铅径 660 毫米枪管　MP-155 12 铅径 750 毫米枪管　MP-43 12铅径 310毫米截短枪管　20 英寸 Steyr AUG A1 枪管 5.56x45　14.5 英寸 HK416 枪管 5.56x45　MP-133 12 铅径 510 毫米枪管 (附基座)　MP-133 12 铅径 540 毫米枪管 (附基座)　13 英寸 20 式枪管 5.56x45　325毫米M870截短枪管 12铅径　10 英寸 FN SCAR-L 枪管 5.56x45　莫辛纳甘 220 毫米锯短螺纹枪管 7.62x54R　18 英寸 RFB 枪管 7.62x51　20 英寸 AR-15 枪管 5.56x45　510mm枪管 KS-23 23x75mm　20 英寸 M16A2 枪管 5.56x45　355毫米M870枪管 12铅径　AA-12 12 铅径 342 毫米螺纹枪管　TKPD 9.3x64 457 毫米枪管　14.5 英寸 HK416 附折叠式准星枪管 5.56x45　14 英寸 FN SCAR-L 枪管 5.56x45　16 英寸 Centurion Arms Mk12 AR-15 枪管 5.56x45　13 英寸 FN SCAR-H 枪管 7.62x51　13 英寸 HK417 枪管 7.62x51　16 英寸 SR-25 枪管 7.62x51　AA-12 12 铅径 417 毫米螺纹枪管　16 英寸 M1A 枪管 7.62x51　16.5 英寸 HK416 附折叠式准星枪管 5.56x45　18 英寸 FN SCAR-L 枪管 5.56x45　18 英寸 Centurion Arms Mk12 AR-15 枪管 5.56x45　DS Arms 7.62x39 RPD 370毫米枪管　MXLR .308 ME 24 英寸枪管　RPD 7.62x39 350毫米截短枪管　22 英寸 M1A 枪管 7.62x51　16 英寸 FN SCAR-H 枪管 7.62x51　18 英寸 AR-10 枪管 7.62x51　SVD 7.62x54R 565 毫米枪管　TKPD 9.3x64 570 毫米枪管　409毫米Mk47枪管　AA-12 12 铅径 457 毫米枪管　16.5 英寸 HK417 枪管 7.62x51　20 英寸 HK416 附折叠式准星枪管 5.56x45　20 英寸 M700 不锈钢螺纹枪管 7.62x51　20 英寸 M700 螺纹枪管 7.62x51　22 英寸 AR-10 枪管 7.62x51　MP-133 12 铅径 610 毫米枪管　MP-133 12 铅径 660 毫米枪管　VPO-215 .366TKM 360 毫米枪管　VPO-215-02 .366TKM 600 毫米枪管　700mm枪管 KS-23 23x75mm　MP-133 12 铅径 610 毫米枪管 (附基座)　MP-133 12 铅径 660 毫米枪管 (附基座)　MP-153 12 铅径 610 毫米枪管　MP-153 12 铅径 660 毫米枪管　20 英寸 FN SCAR-H 枪管 7.62x51　MP-133 12 铅径 710 毫米枪管　SVT-40 7.62x54R 625毫米枪管　MP-133 12 铅径 710 毫米枪管 (附基座)　MP-153 12 铅径 710 毫米枪管　MP-18 7.62x54R 600毫米枪管　MP-43-1C 12 铅径 510 毫米枪管　508毫米M870枪管 12铅径　26 英寸 M700 不锈钢枪管 7.62x51　26 英寸 M700 枪管 7.62x51　508毫米M870固定瞄具枪管 12铅径　24 英寸 Mk-18 枪管 .338 LM　514毫米莫辛卡宾枪标准枪管　MP-133 12 铅径 750 毫米枪管　OP-SKS 7.62x39 520毫米枪管　SKS 7.62x39 520毫米枪管　20 英寸 M590 枪管 12铅径　755毫米MTs-255-12霰弹枪肋条枪管 12铅径　MP-133 12 铅径 750 毫米枪管 (附基座)　MP-153 12 铅径 750 毫米枪管　20 英寸 SR-25 枪管 7.62x51　MP-43-1C 12 铅径 725 毫米枪管　24 英寸 AK-50 .50 BMG 枪管　750毫米MP-43e-1c枪管 12铅径　7.62x54R 730毫米莫辛标准枪管　RPD 7.62x39 520毫米枪管　660毫米M870枪管 12铅径　Sako TRG M10 .338 LM 20英寸枪管　28 英寸 AI AXMC 枪管 .338 LM　M60E6 7.62x51 458毫米枪管　Sako TRG M10 .338 LM 23.5 英寸枪管　M60E4 7.62x51 458毫米枪管　M60E3 7.62x51 584毫米枪管　Sako TRG M10 .338 LM 27英寸枪管　PKM 7.62x54R 658毫米枪管　M60E4 7.62x51 475毫米重型枪管　660毫米T-5000枪管 .308　DVL-10 M2 7.62x51 660 毫米枪管　DVL-10 7.62x51 500 毫米消音枪管　PKP 7.62x54R 658毫米枪管
+
+</details>
 
 ### 脚架
 
 <a id="脚架"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -593,7 +635,15 @@ tags:
 | 8 | SV-98 脚架 | `sv-98-bipod` | 0.472 千克 | 人机工效 0；精度修正 0%；后坐修正 0% | 5,806 卢布，需 Prapor 2 级 | 1,921 卢布（6 家最高） |
 | 9 | M60脚架 | `m60-bipod` | 0.537 千克 | 人机工效 -8；精度修正 0%；后坐修正 0% | 4,763 卢布，需 Peacekeeper 4 级 | 1,143 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **9 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 9 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+HK G36脚架　MDR BLK LBL ALX 16 脚架　Harris S-BRM 6-9” 脚架　MDR BLK LBL ALX 20 脚架　BT10 V8 Atlas折叠脚架　RPD脚架　PK脚架　SV-98 脚架　M60脚架
+
+</details>
 
 ### 下挂式榴弹发射器
 
@@ -601,18 +651,30 @@ tags:
 
 分类路径：物品 › 组合物品 › 武器配件 › 装备配件
 
+<div data-search-exclude markdown>
+
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
 | 1 | M203 40毫米下挂式榴弹发射器 | `m203-40mm-underbarrel-grenade-launcher` | 1.36 千克 | 人机工效 -41；精度修正 0%；后坐修正 10% | — | 27,900 卢布（6 家最高） |
 | 2 | GP-25“篝火”40 毫米下挂式榴弹发射器 | `gp-25-kostyor-40mm-underbarrel-grenade-launcher` | 1.4 千克 | 人机工效 -35；精度修正 0%；后坐修正 8% | — | 22,905 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **2 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 2 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+M203 40毫米下挂式榴弹发射器　GP-25“篝火”40 毫米下挂式榴弹发射器
+
+</details>
 
 ### 导气箍
 
 <a id="导气箍"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -660,7 +722,15 @@ tags:
 | 42 | TROY AK 全尺寸导轨护木 & 导气管组合 | `ak-troy-full-length-rail-handguard-with-gas-tube` | 0.55 千克 | 人机工效 17；精度修正 0%；后坐修正 0%；耐久损耗系数 0.98；热量系数 0.93 | 24,049 卢布，需 Mechanic 4 级 | 8,657 卢布（6 家最高） |
 | 43 | AK-50 M-LOK 护木与导气管组合 | `ak-50-m-lok-handguard-with-gas-tube` | 0.729 千克 | 人机工效 2；精度修正 0%；后坐修正 3%；热量系数 1.09 | — | 5,652 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **43 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 43 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+AKS-74U导气管　SLR Rifleworks Sentry 7 AR-15 导气箍　Cal-X MCX 中等长度导气箍　KAC 低轮廓 AR-10 导气箍　MCX SPEAR可调节气动活塞　MCX 导气箍　AR-15 Ballistic Advantage Lo-Pro导气箍　Daniel Defense MK12 AR-15 低轮廓导气箍　HK G36导气箍　JP Enterprises 5B 型 AR-15 导气系统　NL545 导气箍　CMMG AR-10 低轮廓导气箍　AK-545 Mk. 2.1 导气管　PP-19-01 Vityaz 导气管　KAC M110 双面皮卡汀尼导轨高轮廓导气箍　KAC M110 双面皮卡汀尼导轨高轮廓导气箍（灰褐色）　AK-12导气管　AK-74导气管　AKM 导气管　HK 416A5 低轮廓导气箍　HK417 低轮廓导气箍　Kiba Arms VDM CS导气管　Mk-18导气箍　Molot Arms AKM 样式导气管　OP-SKS导气管　SKS导气管　SVDS导气管　TKPD 导气管　UltiMAK M1-B AK 护木导气管套件　VPO-101导气管　Windham Weaponry AR-15 导轨导气箍　Precision Reflex Mk12 Gen.1 AR-15 折叠式前准星导气箍　丰和 20 式导气箍　柯尔特 M4准星　QBZ-191 导气箍　JP Enterprises 6 型 AR-10 导气系统　PP-19-01 Vityaz Vector VR-LPS 左侧拉机柄　PP-19-01 Vityaz SAG MK1 M-LOK 护木与导气管　Strelok VS-24 + VS-33c AK 护木导气管套件　Strelok VS-24 + VS-33c AK 护木导气管套件（白色）　RD-704 SLR ION Lite + Railed Gas Tube护木导气箍套件　TROY AK 全尺寸导轨护木 & 导气管组合　AK-50 M-LOK 护木与导气管组合
+
+</details>
 
 ---
 

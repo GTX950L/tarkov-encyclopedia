@@ -33,6 +33,8 @@ tags:
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块 › 瞄具
 
+<div data-search-exclude markdown>
+
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
 | 1 | M1895/MXLR XS 马林步枪鬼环式照门 | `m1895mxlr-xs-marlin-ghost-ring-rear-sight` | 0.002 千克 | 人机工效 0；瞄准距离 200 米；精度修正 0%；后坐修正 0%；归零距离 1 档（共 6 项） | 1,163 卢布，需 Mechanic 2 级 | 418 卢布（6 家最高） |
@@ -166,13 +168,23 @@ tags:
 | 129 | 莫辛照门 | `mosin-rifle-rear-sight` | 0.15 千克 | 人机工效 0；瞄准距离 600 米；精度修正 0%；后坐修正 0%；归零距离 1 档（共 6 项） | 1,195 卢布，需 Prapor 1 级 | 395 卢布（6 家最高） |
 | 130 | Leapers UTG 低轮廓 A2 AR-15 准星 | `ar-15-leapers-utg-low-profile-a2-front-sight` | 0.176 千克 | 人机工效 -0.5；瞄准距离 600 米；精度修正 0%；后坐修正 0%；归零距离 1 档（共 6 项） | 750 卢布，需 Mechanic 1 级 | 270 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **130 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 130 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+M1895/MXLR XS 马林步枪鬼环式照门　MXLR 标准照门　Novak Lomount M45A1 准星　PM照门　Chiappa Rhino Fiber Optic 准星　Chiappa Rhino准星　HK USP准星　M1911A1 准星　Novak Lomount M45A1 照门　SOK-12 照门　Chiappa Rhino Fiber Optic 照门　Chiappa Rhino照门　HK USP照门　M1911A1 照门　HK USP 战术型 准星　沙漠之鹰准星　沙漠之鹰照门　APS准星　Chaos 仿 HK 式准星　Dead Ringer Snake Eye Glock准星　Five-seveN MK2标准准星　Five-seveN标准照门　Glock 19X准星　Glock ZEV Tech准星　Glock准星　M1895/MXLR XS 马林步枪鬼环式准星　M9A3标准准星　MXLR 标准准星　PL-15加长准星　PL-15加长照门　PL-15标准准星　PL-15标准照门　Truglo TFX Glock准星　西格-绍尔标准准星　APB照门　APS照门　Dead Ringer Snake Eye Glock照门　Glock 19X照门　Glock ZEV Tech照门　Glock照门　HK USP 战术型 照门　Truglo TFX Glock照门　伯莱塔M9A3标准照门　西格-绍尔P226标准照门　AKMP系统准星装置　AKMP系统照门装置　B&T MP9标准照门　AK-545 照门　KRISS “Defiance 低轮廓折叠式” 准星　KRISS “Defiance 低轮廓折叠式” 照门　M590 鬼环准星　M590 鬼环照门　AK-105 照门　AK-12照门　AK-74 照门　AK-74M 照门　AKM 照门　AS VAL标准照门　Izhmash PP-19-01照门　PK照门　RPD照门　RPK-16 照门　SKS标准照门　SVT-40照门　VPO-101 照门　VPO-209 照门　VSS Vintorez标准照门　RD Enhanced V2 AK 照门　HK USP红点瞄具基座　M9照门基座　西格220-239照门式导轨　Daniel Defense AR-15 固定准星　Izhmash SV-98照门　M14军用觇孔式照门　SOK-12 CSS SIGHT RAIL MOUNT照门　FN SCAR折叠式准星　Magpul MBUS Gen.2 翻转式准星　Magpul MBUS Gen.2 翻转式准星 (FDE)　Trijicon ACOG备用照门　丰和 20 式折叠式准星　AKMB系统照门　Benelli M3 Ghost Ring照门　FN SCAR折叠式照门　Magpul MBUS Gen.2 翻转式照门　Magpul MBUS Gen.2 翻转式照门 (FDE)　丰和 20 式折叠式照门　北方工业 QBZ-191 折叠式照门　SA National Match .062 M1A刃形准星　SA XS Post .125 blade M1A准星　Daniel Defense AR-15 固定照门　HK MP5鼓式照门　AK-12照门基座　AK-308 照门基座　RPK-16 照门基座　SIG MCX折叠式准星　KAC HK G36 折叠式准星　A.R.M.S. #40 折叠式照门　ASh-12折叠式准星　HK G36准星　KAC折叠式准星　KAC折叠式微型准星　Meprolight “Tru Dot Night Sight” P226准星　SVT-40准星　M60E6前瞄具导轨　KAC折叠式微型照门　KAC折叠式照门　Meprolight “Tru Dot Night Sight” P226照门　SVDS准星　莫辛准星　M60E4准星　Taktika Tula TT01 照门导轨　SA-58 荷兰样式照门　M60照门　MaTech BUIS 照门　KAC HK G36 600m 照门导轨　HK MP7 折叠式准星　SIG MCX 折叠式照门　SIG可折叠准星　Chaos 仿 HK 式照门　HK 416A5可折叠照门　HK MP7 折叠式照门　SIG可折叠照门　AR-15提把式照门　ASh-12提把式照门　HK G36照门　SVDS照门　柯尔特A2 AR-15照门　莫辛卡宾枪照门　莫辛照门　Leapers UTG 低轮廓 A2 AR-15 准星
+
+</details>
 
 ### 紧凑型反射式瞄具
 
 <a id="紧凑型反射式瞄具"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块 › 瞄具
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -191,13 +203,23 @@ tags:
 | 13 | Trijicon MRO 反射式瞄具 | `trijicon-mro-reflex-sight` | 0.116 千克 | 人机工效 -0.5；瞄准距离 150 米；精度修正 0%；后坐修正 0%；归零距离 1 档（共 6 项） | 35,613 卢布，需 Peacekeeper 2 级 | 8,549 卢布（6 家最高） |
 | 14 | DI Optical FC1 反射式瞄具 | `di-optical-fc1-reflex-sight` | 0.13 千克 | 人机工效 0；瞄准距离 150 米；精度修正 0%；后坐修正 0%；归零距离 1 档（共 6 项） | — | 8,093 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **14 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 14 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+Burris FastFire 3反射式瞄具　SwampFox Justice 反射式瞄具　Trijicon RMR 反射式瞄具　Trijicon SRO 反射式瞄具　Trijicon SRO 反射式瞄具 (FDE)　Strike Industries Hexion Tech Seeker 反射式瞄具　Leupold DeltaPoint反射式瞄具　Aimpoint ACRO P-1反射式瞄具　Aimpoint Micro T-1反射式瞄具　SIG Sauer ROMEO4 反射式瞄具　BelOMO PK-06 反射式瞄具　Aimpoint Micro H-2 反射式瞄具　Trijicon MRO 反射式瞄具　DI Optical FC1 反射式瞄具
+
+</details>
 
 ### 反射式瞄具
 
 <a id="反射式瞄具"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块 › 瞄具
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -238,13 +260,23 @@ tags:
 | 35 | EOTech HHS-1 复合瞄具 | `eotech-hhs-1-hybrid-sight` | 0.635 千克 | 人机工效 -3；瞄准距离 600 米；精度修正 0%；后坐修正 0%；归零距离 1 档（共 6 项） | 71,062 卢布，需 Peacekeeper 4 级 | 20,070 卢布（6 家最高） |
 | 36 | EOTech HHS-1 复合瞄具（黄褐色） | `eotech-hhs-1-hybrid-sight-tan` | 0.635 千克 | 人机工效 -3；瞄准距离 600 米；精度修正 0%；后坐修正 0%；归零距离 1 档（共 6 项） | 69,390 卢布，需 Peacekeeper 3 级 | 20,070 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **36 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 36 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+Walther MRS反射式瞄具　VOMZ Pilad P1x42 韦佛导轨反射式瞄具　VOMZ PILAD Target Ring反射式瞄具　Hensoldt RV 红点瞄具　Leapers UTG反射式瞄具　KOMZ Rusak反射式瞄具　MeproLight Mepro M21 反射式瞄具　Wilcox BOSS Xe反射式瞄具　EOTech XPS3-0 全息瞄具　EOTech XPS3-2 全息瞄具　OKP-7反射式瞄具　Aimpoint PRO反射式瞄具　SR-2M KP-SR2反射式瞄具　Steiner R1X 反射式瞄具　Axion Kobra EKP-1S-03 反射式瞄具（燕尾槽）　Axion Kobra EKP-8-02 反射式瞄具（燕尾槽）　Axion Kobra EKP-8-18 反射式瞄具　OKP-7反射式瞄具（燕尾槽）　FN P90 Ring Sight反射式瞄具　Valday PK-120 (1P87) 反射式瞄具　EOTech EXPS3-0 全息瞄具（黄褐色）　Vortex Razor AMG UH-1全息瞄具　Eotech 553全息瞄具　FALKE LE 反射式瞄具　Valday Krechet反射式瞄具　SIG Sauer ROMEO7 1x30反射式瞄具（原型版本）　Holosun HS401G5反射式瞄具　Aimpoint COMP M4反射式瞄具　SIG Sauer ROMEO8T 反射式瞄具　Trijicon SRS-02反射式瞄具　ELCAN Specter HCO 全息瞄具　BelOMO PK-AA 燕尾槽反射式瞄具　NPZ PK1 Obzor“监视”反射式瞄具（燕尾槽）　Milkor M2A1榴弹发射器反射式瞄具　EOTech HHS-1 复合瞄具　EOTech HHS-1 复合瞄具（黄褐色）
+
+</details>
 
 ### 突击瞄准镜
 
 <a id="突击瞄准镜"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块 › 瞄具
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -267,13 +299,23 @@ tags:
 | 17 | ELCAN SpecterDR 1x/4x瞄准镜 FDE | `elcan-specterdr-1x4x-scope-fde` | 0.64 千克 | 人机工效 -4；瞄准距离 800 米；精度修正 0%；后坐修正 0%；归零距离 2 档（共 6 项） | — | 19,132 卢布（7 家最高） |
 | 18 | Steyr AUG A1 STG77 1.5倍光学瞄准镜 | `steyr-aug-a1-stg77-15x-optic-sight` | 1.22 千克 | 人机工效 -3；瞄准距离 600 米；精度修正 0%；后坐修正 0%；归零距离 2 档（共 6 项） | 18,258 卢布，需 Peacekeeper 1 级 | 4,675 卢布（7 家最高） |
 
+</div>
+
 > 本分类 **18 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 18 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+HK G36 Hensoldt HKV ZF 1.5x 瞄具提把　HK G36 Hensoldt HKV 3x 瞄具提把　Kiba Arms 短款 2.5x 棱镜式瞄准镜　北方工业 QMK 171A 3x 棱镜式瞄准镜　Trijicon ACOG TA01NSN 4x32 瞄准镜 (黑色)　Trijicon ACOG TA01NSN 4x32 瞄准镜（黄褐色）　Trijicon ACOG TA11D 3.5x35 瞄准镜　Leupold Mark 4 HAMR 4x24 DeltaPoint 组合式突击瞄准镜　SIG Sauer BRAVO4 4x30 瞄准镜　Monstrum 紧凑战术棱镜式瞄准镜 2x32　SwampFox Trihawk 棱镜式瞄准镜 3x30　Trijicon ACOG TA02 4x32 瞄准镜　Monstrum Tactical Marksman 棱镜式瞄准镜 3x30　Valday PS-320 1x/6x瞄准镜　Steyr AUG A3 M1 1.5倍光学瞄准镜　ELCAN SpecterDR 1x/4x瞄准镜　ELCAN SpecterDR 1x/4x瞄准镜 FDE　Steyr AUG A1 STG77 1.5倍光学瞄准镜
+
+</details>
 
 ### 瞄准镜
 
 <a id="瞄准镜"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块 › 瞄具
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -302,13 +344,23 @@ tags:
 | 23 | Schmidt & Bender PM II 5-25x56 34 毫米步枪瞄准镜 | `schmidt-bender-pm-ii-5-25x56-34mm-riflescope` | 1.08 千克 | 人机工效 -8；瞄准距离 2000 米；精度修正 0%；后坐修正 0%；归零距离 1 档（共 6 项） | 124,450 卢布，需 Jaeger 3 级 | 45,600 卢布（7 家最高） |
 | 24 | Nightforce ATACR 7-35x56 34 毫米步枪瞄准镜 | `nightforce-atacr-7-35x56-34mm-riflescope` | 1.113 千克 | 人机工效 -8；瞄准距离 2000 米；精度修正 0%；后坐修正 0%；归零距离 1 档（共 6 项） | 115,015 卢布，需 Jaeger 4 级 | 42,142 卢布（7 家最高） |
 
+</div>
+
 > 本分类 **24 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 24 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+VOMZ Pilad 4x32 25.4 毫米步枪瞄准镜　PU 3.5x步枪瞄准镜　Leupold Mark 4 MR/T TS-30A2 2.5-8x36 30 毫米步枪瞄准镜　DEON March-F 1-8x24 紧凑型 30 毫米步枪瞄准镜　Burris FullField TAC30 1-4x24 30 毫米 步枪瞄准镜　EOTech Vudu 1-6x24 30 毫米 步枪瞄准镜　Vortex Razor HD Gen.2 1-6x24 30 毫米步枪瞄准镜　NcSTAR ADO P4 狙击手 3-9x42 步枪瞄准镜　BelOMO PSO-1 4x24 瞄准镜　BelOMO PSO-1M2 4x24 瞄准镜　BelOMO PSO-1M2-1 4x24 瞄准镜　NPZ 1P78-1 2.8倍瞄准镜　Leupold Mark 4 LR 6.5-20x50 30 毫米步枪瞄准镜　SIG Sauer TANGO6T 1-6x24 30 毫米步枪瞄准镜　March Tactical 3-24x42 FFP 30 毫米步枪瞄准镜　NPZ USP-1 郁金香 4x 瞄准镜　Leupold Mark 5HD 5-25x56mm 35毫米步枪瞄准镜 (FDE)　Hensoldt FF 4-16x56 34 毫米步枪瞄准镜　Schmidt & Bender PM II 1-8x24 30 毫米步枪瞄准镜　Schmidt & Bender PM II 3-20x50 34 毫米步枪瞄准镜　KMZ 1P59 3-10x步枪瞄准镜　KMZ 1P69 3-10x步枪瞄准镜　Schmidt & Bender PM II 5-25x56 34 毫米步枪瞄准镜　Nightforce ATACR 7-35x56 34 毫米步枪瞄准镜
+
+</details>
 
 ### 夜视仪
 
 <a id="夜视仪"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块 › 瞄具 › 特种观瞄
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -321,13 +373,23 @@ tags:
 | 7 | NSPU-M 3.5 倍 燕尾槽夜视瞄准镜 | `nspu-m-35x-dovetail-night-vision-scope` | 1.9 千克 | 人机工效 -20；瞄准距离 300 米；精度修正 0%；后坐修正 5%；归零距离 1 档（共 6 项） | 18,676 卢布，需 Prapor 1 级 | 6,591 卢布（7 家最高） |
 | 8 | PNV-57E 夜视仪 | `pnv-57e-night-vision-goggles` | 2.3 千克 | 放大倍率 1.3 倍；归零距离 1 档；漫射强度 0.02；噪声强度 0.06 | — | 6,225 卢布（7 家最高） |
 
+</div>
+
 > 本分类 **8 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 8 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+L3Harris PVS-31A 夜视仪　L3Harris AN/PVS-14 单筒夜视仪　Armasight N-15夜视仪　PNV-10T夜视仪　L3Harris GPNVG-18 夜视仪　Armasight Vulcan MG 3.5x Bravo夜视瞄准镜　NSPU-M 3.5 倍 燕尾槽夜视瞄准镜　PNV-57E 夜视仪
+
+</details>
 
 ### 热成像
 
 <a id="热成像"></a>
 
 分类路径：物品 › 组合物品 › 武器配件 › 功能性模块 › 瞄具 › 特种观瞄
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -340,7 +402,15 @@ tags:
 | 7 | T7 热成像目镜（附夜视仪基座） | `t-7-thermal-goggles-with-a-night-vision-mount` | 0.92 千克 | — | 21,693,600 卢布，需 Jaeger 4 级 | 230,400 卢布（7 家最高） |
 | 8 | Cyclone Shakhin 3.7x 热成像瞄准镜 | `cyclone-shakhin-37x-thermal-scope` | 1.014 千克 | 人机工效 -20；瞄准距离 500 米；精度修正 0%；后坐修正 0%；归零距离 1 档（共 6 项） | — | 132,210 卢布（7 家最高） |
 
+</div>
+
 > 本分类 **8 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 8 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+Torrey Pines Logic T12W热成像反射式瞄具　MP-155 ”Ultima”热成像摄像头　SIG Sauer ECHO1 1-2x30毫米 30赫兹反射式热成像瞄准镜　FLIR RS-32 2.25-9x 35毫米 60Hz热成像步枪瞄准镜　Trijicon REAP-IR热成像步枪瞄准镜　Armasight Zeus-Pro 640 2-8x50 30Hz热成像瞄准镜　T7 热成像目镜（附夜视仪基座）　Cyclone Shakhin 3.7x 热成像瞄准镜
+
+</details>
 
 ---
 

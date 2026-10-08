@@ -715,6 +715,27 @@ def page_markdown(page, leaves, buckets, total_items) -> str:
         if len(path) > 2:
             out.append(f"分类路径：{' › '.join(path[:-1])}")
             out.append("")
+
+        # ── 大表排除出全文搜索索引 ────────────────────────────────────
+        #
+        # 每个分类的表格把**该分类全部物品的属性与价格**平铺在一节里，
+        # 一节动辄 40 K 字符（mods-body 的「护木」一节 287 件 → 45 K）。
+        # 16 个图鉴页合计占了 search.json 正文字符的 **39%**，是搜索变慢的主因
+        # （实测 3.6 MB / gzip 983 KB，而在加图鉴之前是 2.5 MB / 821 KB）。
+        #
+        # 排除它**不损失可发现性**，因为下面补了一个只含名称的 <details>：
+        #   · 按物品名搜 → 命中那个名称一览（<details> 的内容**会被索引**，实测确认）
+        #   · 按分类名搜 → 命中 ### 小标题（不受影响）
+        #   · 在页内找具体物品 → 用页面自己的检索框（本来就有，且比全局搜索精确）
+        # 换掉的只是「口径 9×19mm Parabellum；人机工效 93；垂直后坐 302…」这类
+        # **没人会拿去搜的数字串**。
+        #
+        # ⚠️ 两个前提，缺一不可：
+        #   ① `markdown` 属性 —— 否则原始 HTML 块里的 Markdown 不解析，
+        #      表格会退化成纯文本（前提由 mkdocs.yml 的 md_in_html 扩展提供）；
+        #   ② `data-search-exclude` —— 索引器认这个属性（已实测，两种写法都生效）。
+        out.append('<div data-search-exclude markdown>')
+        out.append("")
         out.append("| # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |")
         out.append("|---|------|--------|------|----------|--------------|--------------|")
         for n, it in enumerate(items, 1):
@@ -724,8 +745,19 @@ def page_markdown(page, leaves, buckets, total_items) -> str:
                 f"| {it['buy']} | {it['sell']} |"
             )
         out.append("")
+        out.append("</div>")
+        out.append("")
         out.append(f"> 本分类 **{len(items)} 件**。价格取各商人中的最优价；"
                    "「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。")
+        out.append("")
+        # 名称一览：**折叠着**，所以不占版面；内容会被索引用上，
+        # 让读者在站内搜索里仍能按物品名找到这一页。
+        out.append(f"<details><summary>本分类 {len(items)} 件的名称一览"
+                   "（点开可浏览；站内搜索靠它命中物品名）</summary>")
+        out.append("")
+        out.append("　".join(it["name"] for it in items))
+        out.append("")
+        out.append("</details>")
         out.append("")
     out.append("---")
     out.append("")

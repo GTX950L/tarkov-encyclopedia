@@ -33,6 +33,8 @@ tags:
 
 分类路径：物品 › 组合物品 › 可搜索物品
 
+<div data-search-exclude markdown>
+
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
 | 1 | IDEA DIY胸挂 | `diy-idea-chest-rig` | 0.22 千克 | 容量 8 格；移速惩罚 0%；转身惩罚 0%；人机工效惩罚 0% | — | 2,500 卢布（4 家最高） |
@@ -141,13 +143,23 @@ tags:
 | 104 | First Spear Siege-R Optimized M.A.S.S. 插板胸挂 (黑色军团) | `first-spear-siege-r-optimized-mass-plate-carrier-black-division` | 10.8 千克 | 防护等级 5 级；材质 轻型；容量 25 格；耐久 350；防护区域 15 处（共 10 项） | — | 73,612 卢布（4 家最高） |
 | 105 | 6B5-15 Zh-86 Uley 防弹胸挂（丛林迷彩） | `6b5-15-zh-86-uley-armored-rig-flora` | 12.2 千克 | 防护等级 4 级；材质 轻型；容量 10 格；耐久 110；防护区域 7 处（共 10 项） | 71,084 卢布，需 Ragman 2 级 | 25,569 卢布（4 家最高） |
 
+</div>
+
 > 本分类 **105 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 105 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+IDEA DIY胸挂　Scav背心　保安背心　Zulu Nylon Gear M4 低特征胸挂（丛林绿）　Blue Force Gear Ten-Speed SF 胸挂（丛林绿）　Direct Action Thunderbolt 紧凑型胸挂　Direct Action Thunderbolt 紧凑型胸挂（PenCott 荒林迷彩）　Direct Action Thunderbolt 紧凑型胸挂（丛林绿）　Direct Action Thunderbolt 紧凑型胸挂（劫掠者）　56式胸挂　Haley Strategic D3CRX 胸挂（复合迷彩）　Haley Strategic D3CRX 胸挂（狼棕色）　Spiritus Systems Bank Robber 胸挂　Spiritus Systems Bank Robber 胸挂 (高原复合迷彩)　CSA 胸挂（黑色）　SOE微型胸挂　Haley Strategic D3CRX 胸挂（丛林绿）　Haley Strategic D3CRX 胸挂（黑色）　Gear Craft GC-BSS-MK1 胸挂 (A-TACS 橄榄绿迷彩)　WARTECH TV-115 插板胸挂（橄榄绿）　WARTECH TV-115 插板胸挂（黑色）　Tac-Kek JayPC 插板胸挂（黑色）　Umka М33-SET1 猎人背心　Triton M43-A胸挂　S&S Precision PlateFrame 插板胸挂（Goons 特别版）　Eagle Allied Industries MBSS 插板胸挂（狼棕色）　Blackhawk! Commando胸挂（Desert Tan）　Blackhawk! Commando胸挂（黑）　LBT-1961A 承重胸挂（AOR1）　LBT-1961A 承重胸挂（Goons特别版）　LBT-1961A 承重胸挂（MAS 灰色）　LBT-1961A 承重胸挂（复合迷彩）　LBT-1961A 承重胸挂（沙漠防夜视迷彩）　Stich Profi MK2胸挂（侦察型，A-TACS FG迷彩）　Stich Profi MK2胸挂（侦察型，数码丛林迷彩）　Splav Tarzan M22 胸挂　Tasmanian Tiger SK 插板胸挂（黑系复合迷彩）　Azimut SS ”Zhuk”胸挂（SURPAT）　Azimut SS ”Zhuk”胸挂（黑）　Tac-Kek JayPC 插板胸挂（橄榄绿）　Velocity Systems多用途巡逻背心　WARTECH MK3 TV-104 胸挂 (复合迷彩)　WARTECH MK3 TV-104 胸挂 (苔藓迷彩)　ANA Tactical Alpha 胸挂（A-TACS AU）　ANA Tactical Alpha 胸挂（复合迷彩）　ANA Tactical Alpha胸挂　Azimut SS ”Khamelion”胸挂（橄榄色）　Poyas-A + Poyas-B 复合胸挂　UMTBS 6Sh112 Scout-Sniper胸挂（数码丛林迷彩）　Stich Profi MK2胸挂（突击型，A-TACS FG迷彩）　BlackRock 胸挂（卡其色）　BlackRock胸挂　WARTECH TV-109 + TV-106 胸挂（A-TACS 橄榄绿迷彩）　Crye Precision JPC 插板胸挂（复合迷彩）　Crye Precision AVS 插板胸挂（Tagilla 版）　Stich Profi V2 插板胸挂（A-TACS FG）　Stich Profi V2 插板胸挂（MARPAT 林地迷彩）　Stich Profi V2 插板胸挂（灰褐色）　Stich Profi V2 插板胸挂（黑色）　ANA Tactical M2 插板胸挂 (A-TACS AU-X)　ANA Tactical M2 插板胸挂 (A-TACS iX)　ANA Tactical M2 插板胸挂（橄榄绿）　ANA Tactical M2 插板胸挂（高原复合迷彩）　Blue Force Gear PLATEminus V2 插板胸挂（灾厄）　5.11 Tactical TacTec 插板胸挂（丛林绿）　5.11 Tactical TacTec 插板胸挂（风暴灰）　Blue Force Gear PLATEminus V2 插板胸挂（复合迷彩）　Ars Arma A18 Skanda 插板胸挂（复合迷彩）　Blue Force Gear PLATEminus V2 插板胸挂（狼棕色）　ECLiPSE RBAV-AF 插板胸挂（丛林绿）　Blue Force Gear PLATEminus V2 插板胸挂（狼灰色）　Stich Profi Stich Defense mod.2 插板胸挂（复合迷彩）　Ars Arma CPC MOD.1 插板胸挂（A-TACS FG 迷彩）　FORT Gladiator-S（格斗-S）轻型插板胸挂（复合迷彩）　Eagle Industries MMAC 插板胸挂 （丛林绿）　Crye Precision AVS 插板胸挂（丛林绿）　Crye Precision AVS 插板胸挂（复合迷彩）　ANA Tactical M1 插板胸挂（数码丛林迷彩）　ANA Tactical M1 插板胸挂（橄榄绿）　FORT Gladiator-S（格斗-S）轻型插板胸挂（维京）　Shellback Tactical Banshee 插板胸挂（A-TACS AU 迷彩）　Tasmanian Tiger MKIII 插板胸挂（狼棕色）　FirstSpear Strandhogg 插板胸挂（ABU 迷彩）　FirstSpear Strandhogg 插板胸挂（丛林绿）　FirstSpear Strandhogg 插板胸挂（黑系复合迷彩）　WARTECH TV-110 插板胸挂（灰褐色）　Stich Profi Stich Defense mod.2 插板胸挂（A-TACS FG 迷彩）　Stich Profi Stich Defense mod.2 插板胸挂（清场小队）　Crye Precision CPC 插板胸挂（Goons 特别版）　Spiritus Systems LV-119 插板胸挂 (黑色军团 V1)　6B45 防弹胸挂（突击型，数码丛林迷彩）　6B45 防弹胸挂（通用型，数码丛林迷彩）　6B45 防弹胸挂（医疗型，数码丛林迷彩）　FORT Gladiator-S（格斗-S）轻型插板胸挂（复合迷彩）　NPP KlASS Bagariy 防弹胸挂（数码丛林迷彩）　Spiritus Systems LV-119 插板胸挂 (黑系复合迷彩)　Spiritus Systems LV-119 插板胸挂 (黑色军团 V2)　Ferro Concepts FCPC V5 插板胸挂 (黑色军团)　CQC 鱼鹰 MK4A 防弹胸挂（突击型，多地形迷彩）　CQC 鱼鹰 MK4A 防弹胸挂（防护型，多地形迷彩）　6B5-16 Zh-86 Uley 防弹胸挂（卡其色）　FORT Gladiator-S（格斗-S）插板胸挂（无惧死亡）　6B3TM-01 防弹胸挂（卡其色）　First Spear Siege-R Optimized M.A.S.S. 插板胸挂 (黑色军团)　6B5-15 Zh-86 Uley 防弹胸挂（丛林迷彩）
+
+</details>
 
 ### 背包
 
 <a id="背包"></a>
 
 分类路径：物品 › 组合物品 › 可搜索物品
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -199,7 +211,15 @@ tags:
 | 46 | Mystery Ranch NICE 框架式承重系统 | `mystery-ranch-nice-frame-load-sling` | 7.035 千克 | 容量 35 格；移速惩罚 4%；转身惩罚 2%；人机工效惩罚 6% | — | 63,350 卢布（3 家最高） |
 | 47 | Mystery Ranch NICE COMM 3 BVS 稳固系统（黄褐色） | `mystery-ranch-nice-comm-3-bvs-frame-system-coyote` | 15 千克 | 容量 14 格；移速惩罚 6%；转身惩罚 1%；人机工效惩罚 5% | — | 90,000 卢布（3 家最高） |
 
+</div>
+
 > 本分类 **47 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 47 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+Vertx Ready Pack背包（红色）　战术挎包　LBT-8005A Day Pack 背包（黑系复合迷彩）　Partizan的包　邮差小挎包　VKBO军用背包　LolKek 3F Transfer 旅行背包　Oakley Mechanism 重型背包（黑色）　WARTECH 金雕 BB-102 背包 (A-TACS FG 迷彩)　Tasmanian Tiger Trooper 35 背包（卡其色）　旅行包　Flyye MBSS 背包（通用迷彩）　Tehinkom RK-PT-25巡逻背包（数码丛林迷彩）　LBT-1476A 3 日行军背包 (高原复合迷彩)　LBT-1476A 3 日行军背包（林地迷彩）　Gruppa 99 T20背包 （复合迷彩）　Gruppa 99 T20背包（茶褐色）　Gruppa 99 T30背包 （复合迷彩）　Gruppa 99 T30背包（黑色）　Sanitar 包　Mystery Ranch 2 日突击包 (黑色)　Hazard 4 Takedown 单肩背包（复合迷彩）　Hazard 4 Takedown 单肩背包（黑色）　Eberlestock F5 弹簧刀 背包（干土色）　Hazard 4 Drawbridge 背包（黄褐色）　LBT-2670 小型野战医物包　ANA Tactical Beta 2 战斗背包（橄榄绿）　3V Gear Paratus 3 日干员战术背包（林地灰）　Camelbak Tri-Zip 突击背包（叶绿色）　Camelbak Tri-Zip 突击背包（复合迷彩）　Mystery Ranch Terraframe 背包（橄榄绿）　Scav背包　Mystery Ranch Terraframe 背包（圣诞特装版）　Hazard 4 Pillbox 背包 （黑色）　5.11 Tactical RUSH 100 背包（黑色）　圣诞老人的背包　SSO Attack 2 突击背包（卡其色）　Eberlestock G2 Gunslinger II 背包（干土色）　Direct Action 龙蛋 Mark II 背包（黑色）　Mystery Ranch SATL Bridger突击背包（叶绿色）　Tasmanian Tiger Modular Pack 45 Plus 模块化背包 (黑系复合迷彩)　Mystery Ranch Blackjack 50 背包（复合迷彩）　Pilgrim旅行包　6Sh118 突击背包（数码丛林迷彩）　Eberlestock F4 终结者 承重背包（虎纹迷彩）　Mystery Ranch NICE 框架式承重系统　Mystery Ranch NICE COMM 3 BVS 稳固系统（黄褐色）
+
+</details>
 
 ---
 

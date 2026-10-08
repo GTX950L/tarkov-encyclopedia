@@ -33,6 +33,8 @@ tags:
 
 分类路径：物品 › 组合物品 › 装备 › 护甲装备
 
+<div data-search-exclude markdown>
+
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
 | 1 | Hexatac HPC 插板背心（复合迷彩） | `hexatac-hpc-plate-carrier-multicam` | 0.47 千克 | 防护等级 5 级；材质 轻型；耐久 90；防护区域 2 处；钝伤防护 23%（共 9 项） | — | 15,699 卢布（4 家最高） |
@@ -85,13 +87,23 @@ tags:
 | 48 | NPP KlASS Kora-Kulon防弹衣 | `npp-klass-kora-kulon-body-armor-black` | 11.1 千克 | 防护等级 3 级；材质 轻型；耐久 128；防护区域 4 处；钝伤防护 30%（共 9 项） | — | 16,621 卢布（5 家最高） |
 | 49 | NPP KlASS Kora-Kulon防弹衣（数码迷彩） | `npp-klass-kora-kulon-body-armor-emr` | 11.1 千克 | 防护等级 3 级；材质 轻型；耐久 128；防护区域 4 处；钝伤防护 30%（共 9 项） | 45,210 卢布，需 Prapor 1 级 | 16,621 卢布（5 家最高） |
 
+</div>
+
 > 本分类 **49 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 49 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+Hexatac HPC 插板背心（复合迷彩）　Hexatac HPC 插板背心（黑系复合迷彩）　5.11 Hexgrid 插板背心　LBT 6094A Slick 插板背心（橄榄绿）　LBT 6094A Slick 插板背心（黄褐色）　LBT-6094A Slick 插板背心（黑色）　Blue Force Gear PLATEminus V2 防弹衣（狼棕色）　Blue Force Gear PLATEminus V2 防弹衣（狼灰色）　NFM THOR 隐蔽型强化防弹背心　NFM THOR 隐蔽型强化防弹背心（头眼）　NPP KlASS Korund-VM（刚玉-VM）防弹衣（虎纹迷彩）　NPP KlASS Korund-VM（刚玉-VM）防弹衣（黑色）　BNTI Zhuk（甲虫）防弹衣（战地记者版）　6B13 M 突击甲（Killa 版）　6B13 M 突击甲（圣诞特装版）　6B13 突击甲（丛林迷彩）　6B13 突击甲（数码丛林迷彩）　BNTI Gzhel-K（彩瓷-K）防弹衣　BNTI Zhuk（甲虫）防弹衣（数码丛林迷彩）　BNTI Kirasa-N（胸甲-N）防弹衣　BNTI Kirasa-N（胸甲-N）防弹衣（绿色）　6B23-1 防弹衣（数码丛林迷彩）　6B23-2 防弹衣（山地丛林迷彩）　FORT Gladiator-S（格斗-S）插板胸挂（灰色）　PACA 软质防弹背心　PACA 软质防弹背心（Rivals 版本）　6B45 防弹衣（数码丛林迷彩）　Interceptor OTV 防弹衣（林地迷彩）　Interceptor OTV防弹衣（通用迷彩）　DRD防弹衣　HighCom Trooper TFO 防弹背心（复合迷彩）　HighCom Trooper TFO 防弹背心（郊狼棕）　6B2 防弹衣（丛林迷彩）　FORT Defender-2 防弹衣　FORT Defender-2 防弹衣（德国斑点迷彩）　BNTI Module-3M 防弹背心　FORT Redut-M（堡垒-M）防弹衣　FORT Redut-M（堡垒-M）防弹衣（竞技场之囚）　FORT Redut-M（堡垒-M）防弹衣（韩国林地迷彩）　FORT Redut-M（堡垒-M）防弹衣（黑色）　IOTV Gen4 防弹衣（高机动型，复合迷彩）　FORT Redut-T5（堡垒-T5）防弹衣（烟雾迷彩）　IOTV Gen4 防弹衣（突击型，复合迷彩）　MF-UNTAR防弹背心　NFM THOR 一体式防弹护甲　IOTV Gen4 防弹衣（全面防护型，复合迷彩）　6B43 屏障-Sh 防弹衣（数码丛林迷彩）　NPP KlASS Kora-Kulon防弹衣　NPP KlASS Kora-Kulon防弹衣（数码迷彩）
+
+</details>
 
 ### 观测装置
 
 <a id="观测装置"></a>
 
 分类路径：物品 › 组合物品 › 装备 › 护甲装备
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -136,13 +148,23 @@ tags:
 | 39 | Wiley X SPEAR 防护眼镜（黑色） | `wiley-x-spear-ballistic-goggles-black` | 0.12 千克 | 防护等级 1 级；耐久 25；钝伤防护 90%；移速惩罚 0%；转身惩罚 0%（共 7 项） | — | 6,377 卢布（4 家最高） |
 | 40 | 气焊护目镜 | `gas-welder-safety-goggles` | 0.15 千克 | 防护等级 0 级；耐久 0；钝伤防护 0%；移速惩罚 0%；转身惩罚 0%（共 7 项） | — | 15,000 卢布（4 家最高） |
 
+</div>
+
 > 本分类 **40 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 40 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+Pyramex Proximity防护眼镜　反光太阳镜 (白色)　反光太阳镜 (绿色)　反光太阳镜 (蓝色)　大佬墨镜　斐格力太阳镜　斐格力太阳镜 (红色)　斐格力太阳镜 (绿色)　百叶窗太阳镜 (白色)　百叶窗太阳镜 (红色)　百叶窗太阳镜 (绿色)　百叶窗太阳镜 (蓝色)　百叶窗太阳镜 (黑色)　雷硼飞行员墨镜　雷硼飞行员墨镜（绿色镜片）　Crossbow战术目镜　NPP KIASS Condor 护目镜　Revision ShadowStrike 战术眼镜（灰色）　Revision ShadowStrike 战术眼镜（黄褐色）　Gatorz Specter 军规防弹眼镜　Oakley SI M Frame 护目镜　Oakley SI M Frame 护目镜（橙色镜片）　Fit Viper 防护眼镜 (Actualbush)　Fit Viper 防护眼镜 (Exec)　Fit Viper 防护眼镜 (Straya)　Oakley SI Gascan 墨镜　Twitch Rivals 2020 眼镜　圆框太阳镜　圆框太阳镜（绿色镜片）　Dundukk 运动太阳镜（橙色镜片）　Dundukk运动太阳镜　Oakley SI Batwolf 墨镜　战术目镜　JohnB ”Liquid DNB”墨镜　雷硼嬉皮太阳镜　防破片护目镜　6B34防破片护目镜　Wiley X SPEAR 防护眼镜（黄褐色）　Wiley X SPEAR 防护眼镜（黑色）　气焊护目镜
+
+</details>
 
 ### 护甲插板
 
 <a id="护甲插板"></a>
 
 分类路径：物品 › 组合物品 › 装备 › 护甲装备
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -186,7 +208,15 @@ tags:
 | 38 | 6B12防弹插板（前部） | `6b12-ballistic-plates-front` | 4.6 千克 | 防护等级 3 级；材质 重型；耐久 50；防护区域 1 处；钝伤防护 18%（共 9 项） | 16,889 卢布，需 Prapor 2 级 | 6,209 卢布（4 家最高） |
 | 39 | Kiba Arms Steel防弹插板 | `kiba-arms-steel-ballistic-plate` | 5.1 千克 | 防护等级 6 级；材质 重型；耐久 50；防护区域 2 处；钝伤防护 18%（共 9 项） | — | 26,450 卢布（4 家最高） |
 
+</div>
+
 > 本分类 **39 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 39 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+PRTCTR轻量化防弹插板　GAC 3s15m防弹插板　SSAPI III+ 级防弹插板（侧边）　Tac-Kek SAPI Level III+ 防弹插板（仿制品）　刚玉-VM 防弹插板（侧边）　ESBI IV 级防弹插板（侧边）　Granit 防弹插板（侧边）　Ops-Core SLAAP 附加防弹板（黄褐色）　Monoclete III 级 PE 防弹插板　SPRTN Elaphros防弹插板　SAPI III+ 级防弹插板　NewSphereTech III 级防弹插板　Kiba Arms Titan防弹插板　刚玉-VM 防弹插板（背部）　Zhuk-3防弹插板（前部）　KITECO SC-IV SA防弹插板　Cult Locust防弹插板　GAC 4sss2防弹插板　刚玉-VM-K 防弹插板（背部）　Granit Br4防弹插板　Granit 4防弹插板（前部）　ESAPI IV 级防弹插板　Granit 4防弹插板（背部）　Granit Br5防弹插板　Global Armor’s Steel防弹插板　刚玉-VM 防弹插板（前部）　6B23-2防弹插板（黑色）　Granit 4RS防弹插板（前部）　TallCom Guardian防弹插板　NESCO 4400-SA-MC防弹插板　6B33防弹插板（前部）　Granit 4RS防弹插板（背部）　AR500 Legacy Plate防弹插板　Cult Termite防弹插板　刚玉-VM-K 防弹插板（前部）　6B13定制防弹插板（黑色）　SPRTN Omega防弹插板　6B12防弹插板（前部）　Kiba Arms Steel防弹插板
+
+</details>
 
 ---
 

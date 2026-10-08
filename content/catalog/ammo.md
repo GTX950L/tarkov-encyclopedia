@@ -33,6 +33,8 @@ tags:
 
 分类路径：物品 › 可堆叠物品
 
+<div data-search-exclude markdown>
+
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
 | 1 | .300 Blackout AP弹药包（50发装） | `300-blackout-ap-ammo-pack-50-pcs` | 0.01 千克 | — | — | 450 卢布（2 家最高） |
@@ -265,13 +267,23 @@ tags:
 | 228 | 5.45x39mm US弹药包（120发装） | `545x39mm-us-gs-ammo-pack-120-pcs` | 0.1 千克 | — | — | 450 卢布（2 家最高） |
 | 229 | 5.45x39mm US弹药包（120发装） | `545x39mm-us-gs-ammo-pack-120-pcs-1` | 0.1 千克 | — | — | 450 卢布（2 家最高） |
 
+</div>
+
 > 本分类 **229 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 229 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+.300 Blackout AP弹药包（50发装）　.300 Blackout CBJ弹药包（50发装）　.300 Blackout FMJ 弹药包（50发装）　.300 Blackout M62 曳光弹弹药包（50发装）　.300 Blackout V-Max弹药包（50发装）　.300 Blackout Whisper 弹药包（50发装）　.308 ME LOKT 弹药包 (20发装)　.308 ME 弹药包 (20发装)　.338 Lapua Magnum AP弹药包（20发装）　.338 Lapua Magnum FMJ弹药包（20发装）　.338 Lapua Magnum TAC-X 弹药包（20发装）　.338 Lapua Magnum UCW 弹药包（20发装）　.357 Magnum FMJ弹药包（25发装）　.357 Magnum HP 弹药包（25发装）　.357 Magnum JHP 弹药包（25发装）　.357 Magnum SP 弹药包（25发装）　.366 TKM AP-M弹药包（20发装）　.366 TKM EKO弹药包（20发装）　.366 TKM FMJ弹药包（20发装）　.366 TKM Geksa 弹药包（20发装）　.45 ACP AP弹药包（50发装）　.45 ACP Hydra-Shok弹药包（50发装）　.45 ACP Lasermatch FMJ弹药包（50发装）　.45 ACP Match FMJ弹药包（50发装）　.45 ACP RIP弹药包（50发装）　.50 AE FMJ 弹药包（20发装）　.50 AE Hawk JSP弹药包（20发装）　.50 AE JHP 弹药包（20发装）　.50 AE 铜质实心弹 弹药包（20发装）　.50 BMG HP 弹药包（10发装）　.50 BMG M21 弹药包（10发装）　.50 BMG M33 弹药包（10发装）　.50 BMG M903 SLAP 弹药包（10发装）　12.7x55mm PS12 弹药包（10发装）　12.7x55mm PS12A 弹药包（10发装）　12.7x55mm PS12B（10发装）　12/70 .50 BMG 独头弹 弹药包（25发装）　12/70 5.25 毫米鹿弹 弹药包（25发装）　12/70 6.5 毫米 Express 鹿弹 弹药包（25发装）　12/70 7 毫米鹿弹 弹药包（25发装）　12/70 8.5 毫米 Magnum 鹿弹 弹药包（25发装）　12/70 AP-20弹药包（25发装）　12/70 CSP HP 独头弹 弹药包（25发装）　12/70 Dual Sabot 独头弹 弹药包（25发装）　12/70 FTX Custom Lite 独头弹 弹药包（25发装）　12/70 Grizzly 40 独头弹 弹药包（25发装）　12/70 Poleva-3 独头弹 弹药包（25发装）　12/70 Poleva-6u 独头弹 弹药包（25发装）　12/70 RIP弹药包（5发装）　12/70 SuperFormance HP 独头弹 弹药包（25发装）　12/70 箭形弹 弹药包（25发装）　12/70 铅头独头弹 弹药包（25发装）　12/70 食人鱼 弹药包（25发装）　20/70 5.6 毫米鹿弹 弹药包（25发装）　20/70 6.2 毫米鹿弹 弹药包（25发装）　20/70 7.3 毫米鹿弹 弹药包（25发装）　20/70 7.5 毫米鹿弹 弹药包（25发装）　20/70 DGS 独头弹 弹药包（25发装）　20/70 Devastator 独头弹 弹药包（25发装）　20/70 Poleva-3 独头弹 弹药包（25发装）　20/70 Poleva-6u 独头弹 弹药包（25发装）　20/70 Star 独头弹 弹药包（25发装）　20/70 TSS 穿甲独头弹 弹药包（25发装）　20/70 箭形弹 弹药包（25发装）　23x75mm “红星”闪光弹 弹药包（5发装）　23x75mm 破片-10 霰弹 弹药包（5发装）　23x75mm 破片-25 霰弹 弹药包（5发装）　23x75mm 破障独头弹 弹药包（5发装）　4.6x30mm AP SX弹药包（40发装）　4.6x30mm Action SX 弹药包（40发装）　4.6x30mm FMJ SX 弹药包（40发装）　4.6x30mm JSP SX弹药包（40发装）　4.6x30mm Subsonic SX 弹药包（40发装）　5.45x39mm 7N39“针刺”弹药包（120发装）　5.45x39mm 7N40 弹药包（120发装）　5.45x39mm 7N40盒装弹药（30发装）　5.45x39mm FMJ弹药包（30发装）　5.45x39mm HP弹药包（30发装）　5.45x39mm SP弹药包（30发装）　5.56x45mm FMJ 弹药包（100发装）　5.56x45mm FMJ 弹药包（50发装）　5.56x45mm HP 弹药包（100发装）　5.56x45mm HP 弹药包（50发装）　5.56x45mm M855 弹药包（100发装）　5.56x45mm M855A1 弹药包（100发装）　5.56x45mm M855A1 弹药包（50发装）　5.56x45mm M855弹药包（50发装）　5.56x45mm M856 弹药包（100发装）　5.56x45mm M856 弹药包（50发装）　5.56x45mm M856A1 弹药包（100发装）　5.56x45mm M856A1 弹药包（50发装）　5.56x45mm M995 弹药包（100发装）　5.56x45mm M995 弹药包（50发装）　5.56x45mm MK 255 Mod 0 (RRLP) 弹药包（100发装）　5.56x45mm MK 255 Mod 0 (RRLP) 弹药包（50发装）　5.56x45mm MK 318 Mod 0 (SOST) 弹药包（100发装）　5.56x45mm MK 318 Mod 0 (SOST) 弹药包（50发装）　5.56x45mm SSA AP弹药包（100发装）　5.56x45mm SSA AP弹药包（50发装）　5.56x45mm Warmageddon弹药包（20发装）　5.7x28mm L191 弹药包（50发装）　5.7x28mm R37.F 弹药包（50发装）　5.7x28mm R37.X 弹药包（50发装）　5.7x28mm SB193 弹药包（50发装）　5.7x28mm SS190弹药包（50发装）　5.7x28mm SS197SR 弹药包（50发装）　5.7x28mm SS198LF弹药包（50发装）　5.8x42mm DBP191弹药包（30发装）　5.8x42mm DBX95弹药包（30发装）　5.8x42mm DVC12弹药包（30发装）　5.8x42mm DVX12弹药包（30发装）　6.8x51mm SIG FMJ 弹药包（20发装）　6.8x51mm SIG Hybrid 弹药包（20发装）　7.62x25mm ТТ AKBS 弹药包（25发装）　7.62x25mm ТТ FMJ43 弹药包（25发装）　7.62x25mm ТТ LRN 弹药包（25发装）　7.62x25mm ТТ LRNPC 弹药包（25发装）　7.62x25mm ТТ M855A1 弹药包（25发装）　7.62x25mm ТТ M856A1 弹药包（25发装）　7.62x25mm ТТ M995 弹药包（25发装）　7.62x25mm ТТ P 弹药包（25发装）　7.62x25mm ТТ PT 弹药包（25发装）　7.62x25mm ТТ Pst 弹药包（25发装）　7.62x39mm FMJ弹药包（20发装）　7.62x39mm HP弹药包（20发装）　7.62x39mm MAI AP弹药包（20发装）　7.62x39mm PS弹药包（20发装）　7.62x39mm SP弹药包（20发装）　7.62x51mm BPZ FMJ 弹药包（20发装）　7.62x51mm M61 弹药包（20发装）　7.62x51mm M62 曳光弹 弹药包（20发装）　7.62x51mm M80 弹药包（20发装）　7.62x51mm M80A1 弹药包（20发装）　7.62x51mm M993弹药包（20发装）　7.62x51mm TCW SP 弹药包（20发装）　7.62x51mm Ultra Nosler 弹药包（20发装）　7.62x54mm R 7BT1 弹药包（20发装）　7.62x54mm R 7N1 弹药包（20发装）　7.62x54mm R 7N37 弹药包（20发装）　7.62x54mm R FMJ弹药包（20发装）　7.62x54mm R HP BT弹药包（20发装）　7.62x54mm R LPS 弹药包（20发装）　7.62x54mm R SP BT 弹药包（20发装）　7.62x54mm R T-46M 弹药包（20发装）　9.3x64mm 7N33 弹药包（20发装）　9.3x64mm FMJ 弹药包（20发装）　9.3x64mm SP 弹药包（20发装）　9x18mm PM BZhT 弹药包（50发装）　9x18mm PM P 弹药包（50发装）　9x18mm PM PBM 弹药包（50发装）　9x18mm PM PPT 弹药包（50发装）　9x18mm PM PPe 弹药包（50发装）　9x18mm PM PRS 弹药包（50发装）　9x18mm PM PS PPO 弹药包（50发装）　9x18mm PM PSO 弹药包（50发装）　9x18mm PM PSV 弹药包（50发装）　9x18mm PM Pst 弹药包（50发装）　9x18mm PM RG028 弹药包（50发装）　9x18mm PM SP7 弹药包（50发装）　9x18mm PM SP8 弹药包（50发装）　9x18mm PMM PstM 弹药包（50发装）　9x19mm AP 6.3 弹药包（50发装）　9x19mm FMJ M882弹药包（30发装）　9x19mm Luger CCI 弹药包（50发装）　9x19mm PBP (7N31) 弹药包（50 发装）　9x19mm PSO 弹药包（50发装）　9x19mm Pst 弹药包（50发装）　9x19mm QuakeMaker 弹药包（50发装）　9x19mm RIP弹药包（20发装）　9x19mm 绿色曳光弹 弹药包（50发装）　9x21mm 7N42 弹药包（30发装）　9x21mm 7U4 弹药包（30发装）　9x21mm SP10 弹药包（30发装）　9x21mm SP11 弹药包（30发装）　9x21mm SP12 弹药包（30发装）　9x21mm SP13 弹药包（30发装）　9x39mm 7N12 BP 弹药包（20发装）　9x39mm FMJ 弹药包（20发装）　9x39mm PAB-9 弹药包（20发装）　9x39mm SP-5 弹药包（20发装）　9x39mm SP-6 弹药包（20发装）　9x39mm SPP 弹药包（20发装）　5.45x39mm 7N39“针刺”弹药包（30发装）　5.45x39mm BP弹药包（30发装）　5.45x39mm BS弹药包（30发装）　5.45x39mm BT弹药包（30发装）　5.45x39mm PP弹药包（30发装）　5.45x39mm PRS弹药包（30发装）　5.45x39mm PS弹药包（30发装）　5.45x39mm T弹药包（30发装）　5.45x39mm US弹药包（30发装）　7.62x39mm BP 弹药包（20发装）　7.62x39mm PP 弹药包（20发装）　7.62x39mm T-45M1 弹药包（20发装）　7.62x39mm US 弹药包（20发装）　7.62x54mm R SNB弹药包（20发装）　9x18mm PM BZhT弹药包（16发装）　9x18mm PM PBM弹药包（16发装）　9x18mm PM PPO弹药包（16发装）　9x18mm PM PPT弹药包（16发装）　9x18mm PM PPe弹药包（16发装）　9x18mm PM PRS弹药包（16发装）　9x18mm PM PSO弹药包（16发装）　9x18mm PM PSV弹药包（16发装）　9x18mm PM Pst弹药包（16发装）　9x18mm PM P弹药包（16发装）　9x18mm PM RG028弹药包（16发装）　9x18mm PM SP7弹药包（16发装）　9x18mm PM SP8弹药包（16发装）　9x18mm PMM PstM弹药包（16发装）　9x19mm Pst弹药包（16发装）　9x39mm 7N12 BP 弹药包（8发装）　9x39mm SPP弹药包（8发装）　5.45x39mm BP弹药包（120发装）　5.45x39mm BP弹药包（120发装）　5.45x39mm BS弹药包（120发装）　5.45x39mm BS弹药包（120发装）　5.45x39mm BT弹药包（120发装）　5.45x39mm BT弹药包（120发装）　5.45x39mm PP弹药包（120发装）　5.45x39mm PP弹药包（120发装）　5.45x39mm PRS弹药包（120发装）　5.45x39mm PRS弹药包（120发装）　5.45x39mm PS弹药包（120发装）　5.45x39mm PS弹药包（120发装）　5.45x39mm T弹药包（120发装）　5.45x39mm T弹药包（120发装）　5.45x39mm US弹药包（120发装）　5.45x39mm US弹药包（120发装）
+
+</details>
 
 ### 火箭弹
 
 <a id="火箭弹"></a>
 
 分类路径：物品 › 可堆叠物品 › 弹药
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -477,13 +489,23 @@ tags:
 | 200 | ShG-2 反人员火箭弹 | `shg-2-assault-rocket` | 0.23 千克 | — | — | 69,902 卢布（5 家最高） |
 | 201 | 40毫米VOG-25榴弹 | `40mm-vog-25-grenade` | 0.255 千克 | 口径 Caliber40mmRU；弹种 grenade；精度修正 0%；后坐修正 0%；弹道系数 0.22（共 13 项） | 27,540 卢布，需 Prapor 3 级 | 3,037 卢布（6 家最高） |
 
+</div>
+
 > 本分类 **201 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 201 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+20x1毫米塑料片　9x19毫米 FMJ M882　9x19毫米 Pst　5.7x28毫米 L191　5.7x28毫米 R37.F　5.7x28毫米 R37.X　5.7x28毫米 SS190　5.7x28毫米 SS198LF　9x19毫米 绿色曳光弹　4.6x30毫米 AP SX　4.6x30毫米 Action SX　4.6x30毫米 FMJ SX　4.6x30毫米 JSP SX　5.7x28毫米 SB193　5.7x28毫米 SS197SR　9x18毫米 PM PBM　9x18毫米 PM PSO　9x18毫米 PM PPe　9x18毫米 PM SP8　9x18毫米 PMM PstM　9x19毫米 7N31　9x19毫米 AP 6.3　.366 TKM EKO　4.6x30毫米 Subsonic SX　5.45x39毫米 BP　5.45x39毫米 BS　5.45x39毫米 BT　5.45x39毫米 FMJ　5.45x39毫米 HP　5.45x39毫米 PP　5.45x39毫米 PRS　5.45x39毫米 PS　5.45x39毫米 SP　5.45x39毫米 T　5.45x39毫米 US　7.62x25毫米 TT PT　7.62x25毫米 TT Pst　7.62x25毫米TT AKBS　7.62x25毫米TT FMJ43　7.62x25毫米TT LRN　7.62x25毫米TT LRNPC　7.62x25毫米TT P gl　9x18毫米 PM BZhT　9x18毫米 PM PPT　9x18毫米 PM PS PPO　9x18毫米 PM Pst　9x19毫米 PSO gzh　9x21毫米 SP12　5.45x39毫米 7N39“针刺”　5.45x39毫米 7N40　5.56x45毫米 Warmageddon　9x18毫米 PM P　9x18毫米 PM PRS　9x18毫米 PM RG028　9x18毫米 PM SP7　9x21毫米 7N42“凿刀”穿甲手枪弹　9x21毫米 SP10　9x21毫米 SP13　9x21毫米 SP11　5.56x45毫米 FMJ　5.56x45毫米 HP　5.56x45毫米 M855　5.56x45毫米 M855A1　5.56x45毫米 M856　5.56x45毫米 M856A1　5.56x45毫米 M995　5.56x45毫米 MK 255 Mod 0 (RRLP)　5.56x45毫米 Mk 318 Mod 0 (SOST)　7.62x39毫米 FMJ　7.62x39毫米 HP　7.62x39毫米 SP　9x18毫米 PM PSV　5.8x42毫米 DBX95　5.8x42毫米 DBP191　5.56x45毫米 SSA AP　5.8x42毫米 DVX12　7.62x25毫米 TT M855A1　9x19毫米 QuakeMaker　9x19毫米 RIP　7.62x25毫米 TT M856A1　5.8x42毫米 DVC12　.300 Blackout AP　7.62x25毫米 TT M995　.300 Blackout BPZ FMJ　.300 Blackout CBJ　.300 Blackout V-Max　.300 Whisper　.357 Magnum Soft Point　.45 ACP AP　.45 ACP FMJ　.45 ACP Lasermatch FMJ　7.62x39毫米 MAI AP　9x19毫米 Luger CCI　9x21毫米 7U4　.300 Blackout M62 曳光弹　.357 Magnum FMJ　.357 Magnum Hollow Point　.357 Magnum JHP　.366 TKM FMJ　.366 TKM Geksa　7.62x39毫米 BP　7.62x39毫米 PP　7.62x39毫米 PS　7.62x39毫米 T45M1　.45 ACP Hydra-Shok　.366 AP　.45 RIP　7.62x39毫米 US　7.62x51毫米 Ultra Nosler　7.62x51毫米 M80A1　7.62x51毫米 M993　7.62x51毫米 BPZ FMJ　7.62x51毫米 M62 曳光弹　7.62x51毫米 TCW SP　9x39毫米 BP　9x39毫米 FMJ　9x39毫米 SP-5　9x39毫米 SP-6　9x39毫米 SPP　.308 ME　.308 ME LOKT　6.8x51毫米 SIG FMJ　6.8x51毫米 SIG Hybrid　7.62x51毫米 M61　7.62x51毫米 M80　7.62x54R 7BT1　7.62x54R 7N1狙击弹　7.62x54R FMJ　7.62x54R HP BT　7.62x54R LPS　7.62x54R SNB　7.62x54R SP BT　9x39毫米 PAB-9　7.62x54R 7N37　7.62x54R T-46M　12/70 FTX Custom Lite独头弹　.50 AE FMJ　20/70 5.6毫米鹿弹　.50 AE JHP　20/70 Devastator独头弹　20/70 Poleva-3 独头弹　20/70 6.2毫米鹿弹　20/70 7.3毫米鹿弹　20/70 Poleva-6U 独头弹　12/70 SuperFormance 空尖独头弹　20/70 Star独头弹　.50 AE实心铜弹　20/70 箭形弹　.50 AE FMJ Bull　.50 AE Hawk JSP　20/70“危险猎物”独头弹 (DGS)　9.3x64毫米 SP　12/70 RIP　12/70 箭形弹　20/70 7.5毫米鹿弹　20/70 TSS 穿甲独头弹　9.3x64毫米 7N33　26x75 毫米照明信号弹（红色）　9.3x64毫米 FMJ　12/70 Copper Sabot Premier 空尖独头弹　26x75 毫米照明信号弹（绿色）　26x75 毫米照明信号弹（酸绿）　.338 Lapua Magnum TAC-X　12.7x55毫米 PS12A　12/70 5.25毫米鹿弹　12/70 Poleva-3 独头弹　.338 Lapua Magnum UCW　.338 Lapua Magnum FMJ　12/70 Express 6.5 毫米鹿弹　12/70 Poleva-6U 独头弹　.338 Lapua Magnum AP　12/70 7毫米鹿弹　12/70 AP-20 穿甲独头弹　12/70 Dual Sabot 独头弹　12/70 “食人鱼”　12/70 铅头弹　26x75燃烧照明信号弹（黄色）　12.7x55毫米 PS12B　12/70 .50 BMG 简易独头弹　12/70 Grizzly 40独头弹　26x75 毫米照明信号弹（白色）　12/70 Magnum 8.5 毫米鹿弹　信号弹（新年）　信号弹（蓝）　12.7x55毫米 PS12　23x75毫米“红星”闪光弹　23x75 毫米“破片-25”霰弹　23x75毫米“破片-10”霰弹　23x75毫米破障独头弹　.50 BMG M903 SLAP　.50 BMG M33　.50 BMG HP　40x46毫米 M576(MP-APERS)　.50 BMG M21　40x46毫米 M381(HE)　40x46毫米 M386(HE)　40x46毫米 M406(HE)　40x46毫米 M433 (HEDP)　40x46毫米 M441(HE)　ShG-2 反人员火箭弹　40毫米VOG-25榴弹
+
+</details>
 
 ### 模拟投掷武器
 
 <a id="模拟投掷武器"></a>
 
 分类路径：物品 › 投掷武器
+
+<div data-search-exclude markdown>
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|--------------|--------------|
@@ -502,7 +524,15 @@ tags:
 | 13 | F-1手榴弹（短引信） | `f-1-hand-grenade-reduced-delay` | 0.6 千克 | 引信 1.5 秒；破片数 90；最小爆炸距离 3 米；最大爆炸距离 7 米；震荡半径 12 米（共 6 项） | — | 2,920 卢布（3 家最高） |
 | 14 | RDG-2B烟雾弹 | `rdg-2b-smoke-grenade` | 0.6 千克 | 引信 3.5 秒；破片数 0；最小爆炸距离 0 米；最大爆炸距离 0 米；震荡半径 0 米（共 6 项） | 5,920 卢布，需 Prapor 1 级 | 2,176 卢布（3 家最高） |
 
+</div>
+
 > 本分类 **14 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+
+<details><summary>本分类 14 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+
+V40 微型手榴弹　Zarya震撼手榴弹　Model 8230 CS 催泪弹　VOG-25 Khattabka 简易手榴弹　VOG-17 Khattabka 简易手榴弹　RGD-5手榴弹　RGN手榴弹　M67手榴弹　Model 7290闪光弹　RGO手榴弹　M18烟雾弹 （绿色）　F-1手榴弹　F-1手榴弹（短引信）　RDG-2B烟雾弹
+
+</details>
 
 ---
 
