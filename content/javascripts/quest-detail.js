@@ -28,6 +28,7 @@
 
   var SHARDS = 32;         /* ⚠️ 必须等于 scripts/gen_quests.py 的 QUEST_DETAIL_SHARDS */
   var cache = {};          /* 片名 → 数据 */
+  var currentId = "";      /* 当前渲染的任务 id —— 同页跳转要靠它判「是不是自己」 */
 
   function siteRoot() {
     var s = document.querySelector('script[src*="toolbox.js"]');
@@ -159,6 +160,7 @@
 
   function renderDetail(host, id, it) {
     host.textContent = "";
+    currentId = id;
 
     /* ---- 标题与标识 ---- */
     host.appendChild(h(3, it.n));
@@ -270,6 +272,36 @@
     bl.href = siteRoot() + "quests/" + traderSlug(it.t) + "/";
     back.appendChild(bl);
     host.appendChild(back);
+
+    bindSamePage(host);
+  }
+
+  /* ⚠️ **必须自己接管本页内的任务链**。
+     从 ?id=A 点到 ?id=B 是**同一个路径**，Material 的 instant navigation 按路径
+     判页面、既不重放脚本也不做任何事 —— 不接管的话点了**毫无反应**（2026-10-10
+     线上实测：点「货运延误 - 1」，标题与 URL 都不动）。
+
+     ⚠️ **接管后必须用整页导航（location.assign），不能用 pushState + 重渲染**：
+     试过后者，pushState 能与 Material 的历史栈打架 —— 按浏览器后退时它会把内容
+     清掉（本地实测 `#tk-quest-page h3` 消失）。整页导航把这段历史完全交给浏览器，
+     代价只是多下一次框架（缓存命中，实际就几 KB）。
+
+     只接管指向本详情页的链接：`quests/quest/` 匹配时**不带前导斜杠** ——
+     线上是绝对 URL、本地验证页是相对 URL，两种都要覆盖。 */
+  function bindSamePage(host) {
+    var as = host.querySelectorAll("a");
+    Array.prototype.forEach.call(as, function (a) {
+      var href = a.getAttribute("href") || "";
+      if (href.indexOf("quests/quest/") === -1) return;
+      a.addEventListener("click", function (e) {
+        var nid = "";
+        try { nid = new URL(a.href, location.href).searchParams.get("id") || ""; }
+        catch (err) { return; }
+        if (!nid || nid === currentId) return;   /* 自己跳自己：交回浏览器 */
+        e.preventDefault();
+        location.assign(a.href);
+      });
+    });
   }
 
   /* 商人显示名 → nav 里的 slug。**只覆盖 nav 里真实存在的 11 个**，
@@ -300,7 +332,8 @@
   }
 
   /* ⚠️ instant 换页会重放脚本，所以每次 boot 都要**重新读一次地址参数** ——
-     从一个任务跳到另一个任务时 URL 变了，不能沿用上一次解析的结果。 */
+     从一个任务跳到另一个任务时 URL 变了，不能沿用上一次解析的结果。
+     本页内的任务链走的是**整页导航**（见 bindSamePage），不经过这里。 */
   if (typeof document$ !== "undefined" && document$.subscribe) {
     document$.subscribe(boot);
   }
