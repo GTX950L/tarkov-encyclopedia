@@ -235,7 +235,7 @@ tags:
 - [Prestige 转生](prestige.md) — 额外每日 / 每周槽位的来源
 - [邮件与领取](mail.md) — 物品类奖励的领取期限
 - [声望与 Karma](karma.md) — 声望的加减分全貌
-- [地面零点](ground-zero.md) — 任务起步的热门舞台
+- [中心区](ground-zero.md) — 任务起步的热门舞台
 - [储备站](reserve.md) — 中期任务重镇
 - [成就系统](achievements.md) — 任务之外的长期目标
 - [安全箱与容器](containers.md) — Kappa 的获取条件与型号对照

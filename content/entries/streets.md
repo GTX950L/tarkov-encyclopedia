@@ -84,7 +84,7 @@ tags:
 
 街区的招牌之一：**同一局里可能同时出现两名 Boss**——**Kaban** 与 **Kollontay**。
 
-> **注意口径**：**「同局两名 Boss」不止街区一处**——[立交桥](interchange.md)（Killa + Tagilla）与[终点站](terminal.md)（黑师指挥官 + 一位轮换 Boss）同样可能。街区真正的不同在于**两名 Boss 各有独立据点、彼此相距较远**；另外 **Kollontay 也见于[地面零点](ground-zero.md)**，并非本图专属。
+> **注意口径**：**「同局两名 Boss」不止街区一处**——[立交桥](interchange.md)（Killa + Tagilla）与[终点站](terminal.md)（黑师指挥官 + 一位轮换 Boss）同样可能。街区真正的不同在于**两名 Boss 各有独立据点、彼此相距较远**；另外 **Kollontay 也见于[中心区](ground-zero.md)**，并非本图专属。
 
 ### 2. Kaban 的据点化防守
 
@@ -173,7 +173,7 @@ Kollontay 是前警察上校，武器从冲锋枪到霰弹枪到轻机枪都有�
 ## 🔗 相关条目
 
 - [海关](customs.md) — 城市战的入门课
-- [地面零点](ground-zero.md) — 同一城市题材的低等级入口
+- [中心区](ground-zero.md) — 同一城市题材的低等级入口
 - [灯塔](lighthouse.md) — Boss 强度较高的对照
 - [任务系统](quests.md) — 街区承载的后期任务线
 

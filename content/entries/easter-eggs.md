@@ -172,7 +172,7 @@ tags:
 - [工厂](factory.md) — 摄像头密度最高的一张图
 - [灯塔](lighthouse.md) — 阔剑与半岛攻防
 - [街区](streets.md) — 三处阔剑点位之一
-- [地面零点](ground-zero.md) — 阔剑分布图之一
+- [中心区](ground-zero.md) — 阔剑分布图之一
 - [战斗复盘与常见死因](death-review.md) — 把“边界死”和“战斗死”分开看
 
 ## 📚 所有条目

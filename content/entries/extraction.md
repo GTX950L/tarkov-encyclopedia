@@ -97,7 +97,7 @@ tags:
 
 - [撤离点详解](extraction-points.md) — 条件型撤离点（钥匙 / 信号弹 / 合作 / 付费）速查
 - [海关](customs.md) — 撤离点类型最丰富的入门地图
-- [地面零点](ground-zero.md) — 新手密集的撤离博弈
+- [中心区](ground-zero.md) — 新手密集的撤离博弈
 - [工厂](factory.md) — 撤离点少、节奏极快的极端案例
 - [天气与时间系统](weather.md) — 进图前的两个时钟
 - [开局与出生点](spawn-and-opening.md) — 出生点决定你从哪进来，撤离点决定你能不能出去
