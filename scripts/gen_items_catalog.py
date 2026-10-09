@@ -613,11 +613,17 @@ def collect(items, zh, leaves, cats, leaf_ids):
                 item_name(it, zh))
             continue
         summary, numeric = prop_cells(props)
+        # 占地格数 = 宽 × 高（游戏内的格子数，不是体积）。单格价值榜要靠它：
+        # 拿重量估「占几格」是不准的 —— 0.4 kg 的东西可能占 1 格，也可能占 4 格。
+        # 数据源顶层就有 width/height，4979 件实测零缺失。
+        w, h = it.get("width"), it.get("height")
+        size = (w * h) if isinstance(w, int) and isinstance(h, int) and w > 0 and h > 0 else None
         buckets[leaf].append({
             "id": it["id"],
             "name": item_name(it, zh),
             "en": it.get("normalizedName") or "",
             "weight": it.get("weight"),
+            "size": size,
             "types": it.get("types") or [],
             "props": summary,
             "buy": price_cell(it.get("buyFromTrader"), "buy"),
@@ -822,6 +828,30 @@ def index_markdown(plan, total_items, leaves_zh) -> str:
     out.append("")
     out.append("---")
     out.append("")
+    out.append("## 💎 单格价值榜")
+    out.append("")
+    out.append('<a id="value-rank"></a>')
+    out.append("")
+    out.append("**「背包里的一格，装什么最值钱」**—— 用站内现成的重量与商人回收价算出来的排序，"
+               "不联网、不需要跳蚤价。")
+    out.append("")
+    out.append("> **口径三条，引用前先读**：")
+    out.append(">")
+    out.append("> ① 价值取 **商人最高回收**，**不是跳蚤价** —— 站内不收录实时价格"
+               "（理由见[配方速查表](../docs/recipes.md)的口径节）。"
+               "所以本榜回答的是「卖给商人时哪种东西最值钱」，跳蚤价通常更高、排序也可能不同；")
+    out.append("> ② 分母是 **占地格数**（宽 × 高），不是体积、不是重量 —— "
+               "拿重量估「占几格」会错，0.4 千克的东西可能占 1 格也可能占 4 格；")
+    out.append("> ③ **缺回收价或缺格数的物品不入榜** —— 算不出就算不出，不拿默认值凑数。")
+    out.append("")
+    out.append("本榜只列前 30 名。要看**全部**可算物品的完整排序，用上方检索区的 "
+               "**「排序方式 → 按单格价值降序」**（可同时按类型、关键词把范围缩小）。")
+    out.append("")
+    out.append('<div id="tk-catalog-value">单格价值榜需要 JavaScript —— '
+               "上方检索区的静态内容与下方分类清单不受影响，不开 JS 也能用。</div>")
+    out.append("")
+    out.append("---")
+    out.append("")
     out.append("## 📂 分类页清单")
     out.append("")
     out.append("| 分类 | 件数 | 覆盖范围 |")
@@ -834,8 +864,10 @@ def index_markdown(plan, total_items, leaves_zh) -> str:
     out.append("")
     out.append("## 💡 怎么用这本图鉴")
     out.append("")
-    out.append("**① 先查分类，再筛数值。** 每页按重量升序排列 —— "
-               "同样占一格，越轻越划算，这是最省事的取舍判据。")
+    out.append("**① 先查分类，再筛数值。** 每页默认按重量升序排列 —— "
+               "同样占一格，越轻越划算，这是最省事的取舍判据。"
+               "想知道**一格装什么最值钱**，把排序换成「按单格价值降序」，"
+               "或直接看上方[单格价值榜](#value-rank)。")
     out.append("")
     out.append("**② 价格栏读法不同。** 「商人最低售价」是**你要付的钱**（附商人与等级要求），"
                "「商人最高回收」是**你能拿回的钱**。两者差距大，说明这件物品值得自己带去卖。")
@@ -938,12 +970,17 @@ def write_js(plan, buckets, leaves, total_items, routes, quests, item_of_name):
     """
     chunks = {}
     pages = {}
+    # 每行按**位置**索引读出，前端 catalog.js 也是按位置读的 ——
+    # 改动这里的列序，必须同步改 content/javascripts/catalog.js 里的下标。
+    #   [0]id  [1]中文名  [2]英文归一名  [3]重量kg  [4]属性摘要
+    #   [5]商人最低售价  [6]商人最高回收  [7]types[0]  [8]占地格数
     for p in plan:
         arr = []
         for lid in p["leaves"]:
             for it in buckets.get(lid, []):
                 arr.append([it["id"], it["name"], it["en"], it["weight"], it["props"],
-                            it["buy"], it["sell"], it["types"][0] if it["types"] else ""])
+                            it["buy"], it["sell"], it["types"][0] if it["types"] else "",
+                            it["size"]])
                 pages[it["id"]] = p["slug"]
         chunks[p["slug"]] = arr
     idx = {p["slug"]: {"title": p["title"], "count": p["count"],

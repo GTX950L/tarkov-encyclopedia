@@ -71,6 +71,25 @@
     return m ? parseFloat(m[0]) : null;
   }
 
+  function fmtNum(n) {
+    return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  /* 单格价值 = 商人最高回收 ÷ 占地格数（r[8]，生成器写死 = 宽 × 高）。
+
+     ⚠️ 口径是**商人回收价**，不是跳蚤价 —— 站内不联网、不收实时价（同 recipes.md 的口径节）。
+        所以本榜回答的是「卖给商人时，哪种东西单位空间最值钱」，不是「跳蚤能卖多少」。
+     ⚠️ 表格列 / 排序 / 详情面板 / 榜单**都走这一个函数**，别各算一遍 —— 四处各写一遍迟早漂。
+     ⚠️ 缺回收价或缺格数 → 返回 null（**算不出就不排，不用默认值去凑**：
+        按 1 格硬算会把无价物品排到最前，那比不排更误导）。 */
+  function slotValue(r) {
+    var p = parseNum(r[6]);
+    if (p == null) return null;
+    var s = (typeof r[8] === "number" && r[8] > 0) ? r[8] : null;
+    if (s == null) return null;
+    return p / s;
+  }
+
   function hay(r) {
     /* 一次建好检索索引，不要每次输入都重算 */
     if (r._h) return r._h;
@@ -97,6 +116,11 @@
       if (state.sort === "price") {
         var pb = parseNum(b[6]), pa = parseNum(a[6]);
         return (pb == null ? -1 : pb) - (pa == null ? -1 : pa);
+      }
+      if (state.sort === "slot") {
+        /* 缺失值（无回收价 / 无格数）排最后：降序时用 -1 垫底 */
+        var sb = slotValue(b), sa = slotValue(a);
+        return (sb == null ? -1 : sb) - (sa == null ? -1 : sa);
       }
       /* 默认按重量升序：同样占一格，越轻越划算 */
       var wa = typeof a[3] === "number" ? a[3] : 9e9;
@@ -169,7 +193,7 @@
     sort.className = "tk-cat__sort";
     sort.setAttribute("aria-label", "排序方式");
     [["weight", "按重量升序"], ["name", "按名称"],
-     ["price", "按回收价降序"]].forEach(function (s) {
+     ["price", "按回收价降序"], ["slot", "按单格价值降序"]].forEach(function (s) {
       var o = document.createElement("option");
       o.value = s[0];
       o.textContent = s[1];
@@ -214,7 +238,7 @@
       tb.className = "tk-cat__table";
       var thead = document.createElement("thead");
       var hr = document.createElement("tr");
-      ["名称", "英文名", "重量", "关键属性", "商人最低售价", "最高回收"].forEach(function (h) {
+      ["名称", "英文名", "重量", "关键属性", "商人最低售价", "最高回收", "单格价值 ₽/格"].forEach(function (h) {
         hr.appendChild(el("th", null, h));
       });
       thead.appendChild(hr);
@@ -236,6 +260,8 @@
         tr.appendChild(el("td", null, r[4] || "—"));
         tr.appendChild(el("td", null, r[5] || "—"));
         tr.appendChild(el("td", null, r[6] || "—"));
+        var sv = slotValue(r);
+        tr.appendChild(el("td", null, sv == null ? "—" : fmtNum(sv)));
         tbody.appendChild(tr);
       });
       tb.appendChild(tbody);
@@ -336,6 +362,87 @@
     return wrap;
   }
 
+  /* -------------------------------------------------------------- 单格价值榜
+     回答「背包里的一格，装什么最值钱」—— 数据全部是站内现成的
+     （重量、商人回收价、占地格数），不需要联网、不需要跳蚤价。
+
+     ⚠️ 三条口径必须写在界面上，否则会被读成「跳蚤价排行」：
+       ① 价值取**商人最高回收**，不是跳蚤价（站内不联网、不收实时价）；
+       ② 分母是**占地格数**（宽 × 高），不是体积、不是重量；
+       ③ 缺回收价或缺格数的物品**不入榜** —— 算不出就算不出，不用默认值凑。
+  -------------------------------------------------------------------------- */
+  function renderValueRank(host, d) {
+    var rows = [];
+    for (var k in d.chunks) {
+      if (Object.prototype.hasOwnProperty.call(d.chunks, k)) rows = rows.concat(d.chunks[k]);
+    }
+    var ranked = rows.filter(function (r) { return slotValue(r) != null; })
+      .sort(function (a, b) { return slotValue(b) - slotValue(a); });
+
+    var TOP = 30;
+    var top = ranked.slice(0, TOP);
+    host.textContent = "";
+
+    if (!top.length) {
+      host.appendChild(el("p", null, "数据未就绪，稍后重试。"));
+      return;
+    }
+
+    var head = el("p", null, "");
+    head.appendChild(document.createTextNode("按 "));
+    head.appendChild(el("strong", null, "商人最高回收 ÷ 占地格数"));
+    head.appendChild(document.createTextNode(
+      " 排序 —— 衡量「一格空间装什么最值钱」。口径是商人回收，不是跳蚤价"
+      + "（站内不联网、不收实时价）；缺回收价或缺格数的物品算不出，不入榜。"));
+    host.appendChild(head);
+
+    var tb = document.createElement("table");
+    tb.className = "tk-cat__table";
+    var thead = document.createElement("thead");
+    var hr = document.createElement("tr");
+    ["#", "物品", "单格价值 ₽/格", "占地", "商人最高回收"].forEach(function (h) {
+      hr.appendChild(el("th", null, h));
+    });
+    thead.appendChild(hr);
+    tb.appendChild(thead);
+
+    var tbody = document.createElement("tbody");
+    top.forEach(function (r, i) {
+      var tr = document.createElement("tr");
+      tr.appendChild(el("td", null, String(i + 1)));
+      var td = document.createElement("td");
+      var b = el("button", "tk-cat__name", r[1]);
+      b.type = "button";
+      b.title = "查看完整属性";
+      td.appendChild(b);
+      tr.appendChild(td);
+      tr.appendChild(el("td", null, fmtNum(slotValue(r))));
+      tr.appendChild(el("td", null, (typeof r[8] === "number" ? r[8] : "—") + " 格"));
+      tr.appendChild(el("td", null, r[6] || "—"));
+      tbody.appendChild(tr);
+    });
+    tb.appendChild(tbody);
+
+    /* 与检索面板同款：运行时建的表必须自己套 .md-typeset__table，
+       否则窄屏下整页被撑宽（见 panel() 里的同一条说明）。 */
+    var wrap = document.createElement("div");
+    wrap.className = "md-typeset__table";
+    wrap.appendChild(tb);
+    host.appendChild(wrap);
+
+    tbody.addEventListener("click", function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest(".tk-cat__name") : null;
+      if (!btn) return;
+      var tr = btn.closest("tr");
+      var idx = Array.prototype.indexOf.call(tr.parentNode.children, tr);
+      openDetail(top[idx], d);
+    });
+
+    var foot = el("p", null, "以上为前 " + TOP + " 名。全部 " + ranked.length
+      + " 件可算物品的完整排序，用上方检索区的「排序方式 → 按单格价值降序」。");
+    host.appendChild(foot);
+  }
+
   /* ------------------------------------------------------------ 详情面板 */
 
   function openDetail(r, d) {
@@ -356,8 +463,11 @@
 
     var dl = document.createElement("dl");
     dl.className = "tk-cat-detail__dl";
+    var sv = slotValue(r);
     [["英文名", r[2]], ["物品 ID", r[0]], ["重量", typeof r[3] === "number" ? r[3] + " 千克" : "—"],
-     ["商人最低售价", r[5] || "—"], ["商人最高回收", r[6] || "—"]].forEach(function (p) {
+     ["占地", (typeof r[8] === "number" && r[8] > 0) ? r[8] + " 格" : "—"],
+     ["商人最低售价", r[5] || "—"], ["商人最高回收", r[6] || "—"],
+     ["单格价值", sv == null ? "—（缺回收价或格数）" : fmtNum(sv) + " 卢布／格"]].forEach(function (p) {
       dl.appendChild(el("dt", null, p[0]));
       dl.appendChild(el("dd", null, p[1]));
     });
@@ -489,8 +599,11 @@
   /* ---------------------------------------------------------------- 挂载 */
 
   function mount() {
-    var host = document.getElementById("tk-catalog") || document.getElementById("tk-catalog-all");
-    if (!host || host.dataset.tkReady) return;
+    /* 两个区域各自挂载：检索面板（分类页 / 总览页）与单格价值榜（总览页）。
+       本章节其余说明照旧 —— 两块都不依赖对方，任一块先就绪就先画。 */
+    var panelHost = document.getElementById("tk-catalog") || document.getElementById("tk-catalog-all");
+    var rankHost = document.getElementById("tk-catalog-value");
+    if ((!panelHost || panelHost.dataset.tkReady) && (!rankHost || rankHost.dataset.tkReady)) return;
     var d = data();
     if (!d || !d.chunks) {
       /* 数据还没到。两个 <script> 是并行注入的，**没有「先数据后本体」的顺序保证**，
@@ -515,7 +628,11 @@
         }
         var n = 0;
         var iv = window.setInterval(function () {
-          if (host.dataset.tkReady || ++n > 300) {   /* 300 × 200ms ≈ 60 秒兜底 */
+          /* ⚠️ 判「都画完没有」要**同时看两个挂载点**，且不能直接读 host.dataset ——
+             只有榜单的页面（无 #tk-catalog）会让 host 为 null，读它就抛。 */
+          var done = (!panelHost || panelHost.dataset.tkReady)
+                  && (!rankHost || rankHost.dataset.tkReady);
+          if (done || ++n > 300) {   /* 300 × 200ms ≈ 60 秒兜底 */
             window.clearInterval(iv);
             return;
           }
@@ -528,18 +645,24 @@
       }
       return;
     }
-    host.dataset.tkReady = "1";
-    /* ⚠️ 每次挂载（＝每次换页）都要**重置筛选状态**。
-       state 是模块级变量，instant 换页不会重新加载脚本 —— 不重置的话，
-       在枪械页搜了「glock」再点到配件页，搜索词还在，读者会以为
-       「这一页怎么只有 glock 相关的配件」。 */
-    state.q = ""; state.kind = ""; state.sort = "weight"; page = 1;
-    /* ⚠️ hashchange 监听要**先摘掉上一次的**：换页后旧监听器仍抓着已被
-       Material 卸掉的旧 DOM，既泄漏又可能对不存在的节点动手。 */
-    if (mount._onHash) window.removeEventListener("hashchange", mount._onHash);
-    var ui = panel(d);
-    host.textContent = "";
-    host.appendChild(ui);
+    if (panelHost && !panelHost.dataset.tkReady) {
+      panelHost.dataset.tkReady = "1";
+      /* ⚠️ 每次挂载（＝每次换页）都要**重置筛选状态**。
+         state 是模块级变量，instant 换页不会重新加载脚本 —— 不重置的话，
+         在枪械页搜了「glock」再点到配件页，搜索词还在，读者会以为
+         「这一页怎么只有 glock 相关的配件」。 */
+      state.q = ""; state.kind = ""; state.sort = "weight"; page = 1;
+      /* ⚠️ hashchange 监听要**先摘掉上一次的**：换页后旧监听器仍抓着已被
+         Material 卸掉的旧 DOM，既泄漏又可能对不存在的节点动手。 */
+      if (mount._onHash) window.removeEventListener("hashchange", mount._onHash);
+      var ui = panel(d);
+      panelHost.textContent = "";
+      panelHost.appendChild(ui);
+    }
+    if (rankHost && !rankHost.dataset.tkReady) {
+      rankHost.dataset.tkReady = "1";
+      renderValueRank(rankHost, d);
+    }
   }
 
   /* 两条入口都要：toolbox.js 注入的脚本可能晚于 document$ 首次发出。

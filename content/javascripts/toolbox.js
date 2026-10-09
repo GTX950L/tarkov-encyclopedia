@@ -341,7 +341,8 @@
        全站 130+ 页每页背这个包是纯浪费 —— 只在 /catalog/ 下的 16 页注入。
        **数据文件与本体分两步**：先数据再本体，否则本体读不到 window.TARKOV_CATALOG。 */
     if (!catalogInjected && (document.getElementById("tk-catalog")
-                             || document.getElementById("tk-catalog-all"))) {
+                             || document.getElementById("tk-catalog-all")
+                             || document.getElementById("tk-catalog-value"))) {
       catalogInjected = true;
       injectScript("catalog-data.js");
       injectScript("catalog.js");
