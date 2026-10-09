@@ -281,10 +281,17 @@
      判页面、既不重放脚本也不做任何事 —— 不接管的话点了**毫无反应**（2026-10-10
      线上实测：点「货运延误 - 1」，标题与 URL 都不动）。
 
-     ⚠️ **接管后必须用整页导航（location.assign），不能用 pushState + 重渲染**：
-     试过后者，pushState 能与 Material 的历史栈打架 —— 按浏览器后退时它会把内容
-     清掉（本地实测 `#tk-quest-page h3` 消失）。整页导航把这段历史完全交给浏览器，
-     代价只是多下一次框架（缓存命中，实际就几 KB）。
+     ⚠️ **接管后用 `location.replace`，不是 assign、更不是 pushState**。
+     三种都线上实测过，结论如下：
+       · `pushState` + 自己重渲染 → 与 Material 的历史栈打架，后退时它把内容清掉；
+       · `location.assign`（新增历史条目）→ **后退失效**：Material 的 instant
+         navigation 自己反复 push/replace（实测 history.length 2 → 4、导航事件 9 次），
+         它维护的历史层里没有「上一个任务」，`history.back()` 返回的内容原地不动；
+       · `location.replace`（**不新增历史条目**）→ 后退**回到进入详情页之前的页面**
+         （通常是商人页）。这是三者里唯一行为一致、可预期的。
+
+     所以本页的语义是「在详情页里连续查看任务，不算独立的浏览历史」——
+     想要「返回上一个任务」，用浏览器后退回到商人页再点即可。
 
      只接管指向本详情页的链接：`quests/quest/` 匹配时**不带前导斜杠** ——
      线上是绝对 URL、本地验证页是相对 URL，两种都要覆盖。 */
@@ -299,7 +306,7 @@
         catch (err) { return; }
         if (!nid || nid === currentId) return;   /* 自己跳自己：交回浏览器 */
         e.preventDefault();
-        location.assign(a.href);
+        location.replace(a.href);
       });
     });
   }
