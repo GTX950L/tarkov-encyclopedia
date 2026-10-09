@@ -86,7 +86,10 @@
     var q = state.q.trim().toLowerCase();
     var out = rows.filter(function (r) {
       if (q && hay(r).indexOf(q) === -1) return false;
-      if (state.kind && r[7] !== state.kind) return false;
+      /* 「未分类」用哨兵值挑 types[0] 为空的物品；其余按 type 精确匹配。
+         两者分开写，别合并成一句 —— "__none__" 不是真实 type，合并会一起落空。 */
+      if (state.kind === "__none__") { if (r[7]) return false; }
+      else if (state.kind && r[7] !== state.kind) return false;
       return true;
     });
     out.sort(function (a, b) {
@@ -105,13 +108,30 @@
 
   /* ---------------------------------------------------------------- 渲染 */
 
+  /* 类型筛选项。**必须覆盖数据里 types[0] 的全部取值**，否则那一类会在
+     「按类型筛」时整类消失 —— 读者会以为库里没有这类东西（不是报错，是静默漏掉）。
+
+     实测 scripts/data/items_full.json 的有效物品（4979 件，已剔 preset）里
+     types[0] 共 23 种，本清单逐一对齐：
+
+       mods 2314 · noFlea 787 · barter 355 · keys 259 · ammoBox 225 · ammo 212
+       gun 172 · wearable 161 · armor 72 · glasses 54 · backpack 47 · provisions 43
+       rig 41 · helmet 40 · armorPlate 38 · poster 37 · container 33 · headphones 28
+       injectors 22 · meds 21 · (无类型) 7 · grenade 7 · specialSlot 4
+
+     ⚠️ 改这张表前重跑一遍上面的统计（数据源里 types 变了、本表没跟，就会再漏）。
+     ⚠️ 末尾的「__none__」是**无类型物品**的哨兵值，不能用空串 ——
+        空串已经是「全部类型」的 value，两者会撞。 */
   var TYPES = [
     ["", "全部类型"],
     ["gun", "枪械"], ["mods", "武器配件"], ["ammo", "弹药"], ["ammoBox", "弹药箱"],
-    ["armor", "护甲"], ["helmet", "头盔"], ["rig", "胸挂"], ["backpack", "背包"],
-    ["headphones", "耳机"], ["meds", "医疗"], ["provisions", "食物饮料"],
+    ["armor", "护甲"], ["armorPlate", "护甲插板"], ["helmet", "头盔"],
+    ["rig", "胸挂"], ["backpack", "背包"], ["glasses", "眼镜护目"],
+    ["headphones", "耳机"], ["meds", "医疗"], ["injectors", "注射器"],
+    ["provisions", "食物饮料"], ["grenade", "投掷武器"],
     ["keys", "钥匙"], ["container", "容器"], ["barter", "交换物"],
-    ["wearable", "穿戴"], ["noFlea", "不可交易"], ["poster", "海报装饰"]
+    ["wearable", "穿戴"], ["noFlea", "不可交易"], ["poster", "海报装饰"],
+    ["specialSlot", "特殊装备"], ["__none__", "未分类"]
   ];
 
   function el(tag, cls, txt) {
