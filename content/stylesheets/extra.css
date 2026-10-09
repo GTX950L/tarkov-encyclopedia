@@ -4200,11 +4200,17 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 /* ==========================================================================
    物品图鉴（catalog.js）
    --------------------------------------------------------------------------
-   只服务于 /catalog/ 下的 16 个生成页。三个要点：
+   只服务于 /catalog/ 下的 16 个生成页。四个要点：
 
-     · **表格不加 class 也能拿到承色块**：站内第 3 节的规则是
-       `.md-typeset table:not([class])`，所以本体脚本刻意不给 table 加 class。
-       下面的 .tk-cat__table 只调间距与对齐，不重画样式。
+     · **<table> 绝不给 class** —— 站内表格样式（表头承色块 / 斑马行 / 边框 /
+       滚动容器）全挂在第 3 节的 `.md-typeset table:not([class])` 上。2026-10-10
+       的排版审查实测到：某次迭代给 JS 表加了 `class="tk-cat__table"`，那张表就
+       **整类丢样式**（表头底色 rgb(74,89,108) → 透明、字重 700 → 400、斑马行
+       与边框全没），而且**不报任何错** —— 16 个图鉴页全中，只有量 computed
+       style 才看得出来。
+     · **列宽与对齐按语义类**（.tk-col-name / -desc / -num / -nowrap）挂 th/td，
+       不再用 nth-child 按位置写：检索表 7 列、榜单 5 列，按位置写必然错位
+       （实测榜单的「#」列被撑到 180px、「占地」列 360px）。
      · **控件行用 grid 而不是 flex-wrap**：中文标签宽度差异大，
        flex 换行会让「搜索框独占一行、三个下拉挤第二行」很难看。
      · **窄屏**：搜索框 `min-width: min(18rem, 100%)` —— 本站 html 字号 125%，
@@ -4254,28 +4260,25 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   white-space: nowrap;
 }
 
-/* 表格本体**不给 min-width** —— 滚动由外层 .md-typeset__table 承担，
-   宽度约束交给下面的 min-width。中文表格 min-content 极小，只加 overflow
-   永远不会触发滚动（站内已踩过：中文「说明」列被压到每行 8 个汉字）。 */
-.tk-cat__table { width: 100%; }
-.tk-cat__table td { vertical-align: top; }
-.tk-cat__table td:nth-child(3) { text-align: right; white-space: nowrap; }
-/* ⚠️ min-width 必须**同时给 th 和 td** —— 只给 td 时，表头格仍按内容宽度
-   收缩，于是「英文名」被压成竖排单字（实测截图）。表格布局下同一列的
-   所有格子共享列宽，但表头有自己的最小内容宽度，不加就会被挤。 */
-.tk-cat__table th:nth-child(1),
-.tk-cat__table td:nth-child(1) { min-width: 9rem; }
-/* 「关键属性」是这一栏最有价值的（口径与等级都在里面），要够宽才不被挤成两三行 */
-.tk-cat__table th:nth-child(4),
-.tk-cat__table td:nth-child(4) { min-width: 18rem; }
-.tk-cat__table th:nth-child(2),
-.tk-cat__table th:nth-child(3),
-.tk-cat__table th:nth-child(5),
-.tk-cat__table th:nth-child(6) { white-space: nowrap; }
-/* JS 建的表需要 min-width 才会真的溢出、进而让外层滚起来。
+/* 列宽与对齐：**按语义类，不按第几列** —— 两张表列数不同（检索表 7 列、榜单 5 列），
+   按位置写的规则一定会错位。表格本体仍**不给 min-width**，溢出交给外层
+   .md-typeset__table（中文表格 min-content 极小，只加 overflow 永远不会触发滚动 ——
+   站内踩过：中文「说明」列被压到每行 8 个汉字）。
+
+   ⚠️ min-width 必须**同时给 th 和 td** —— 只给 td 时表头格仍按内容宽度收缩，
+   会把「英文名」压成竖排单字（实测过）。表格布局下同列共享列宽，但表头有
+   自己的最小内容宽度，不加就会被挤。 */
+.tk-cat__holder td { vertical-align: top; }
+.tk-cat__holder .tk-col-name { min-width: 9rem; }
+/* 「关键属性」是检索表里最有价值的一栏（口径与等级都在里面），要够宽才不挤成两三行 */
+.tk-cat__holder .tk-col-desc { min-width: 18rem; }
+.tk-cat__holder .tk-col-num { text-align: right; white-space: nowrap; }
+.tk-cat__holder .tk-col-nowrap { white-space: nowrap; }
+
+/* JS 建的表要 min-width 才会真的溢出、进而让外层滚起来。
    34rem 在本站 html 125% 字号下约 680px —— 够放下 6 列又不至于太宽。 */
 .tk-cat__holder .md-typeset__table { display: block; overflow-x: auto; }
-.tk-cat__holder .tk-cat__table { min-width: 34rem; }
+.tk-cat__holder table { min-width: 34rem; }
 
 .tk-cat__name {
   font: inherit;
@@ -4481,3 +4484,63 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 }
 [data-md-color-scheme="slate"] .tk-il__link,
 [data-md-color-scheme="slate"] .tk-ilt__link { color: #C6D2DE; }
+
+/* ==========================================================================
+   59. 单件物品详情页（javascripts/catalog-item.js）
+   --------------------------------------------------------------------------
+   这一页由 JS 按 ?id= 渲染，站内没有第二处用它的结构。样式目标只有一个：
+   **让它看起来与图鉴详情面板（.tk-cat-detail__*）是同一套东西** ——
+   读者从面板点进详情页，不该有「换了个站」的感觉。
+
+   ⚠️ 面板用 <div> + 自定义类，这里用的是语义标签（h3/h4/dl/ul）。所以本节点
+      只补**语义标签缺的样式**：全局的 h3/h4/p/ul 已有主题与第 2 节的规则，
+      而 `dl` **全站没有任何样式**（唯一的 dl 规则是 .tk-cat-detail__dl）——
+      不补的话「关键数值」会退化成「标签一行 + 缩进 26.25px 的值一行」，
+      每个字段占两行（2026-10-10 排版审查实测）。
+   ========================================================================== */
+
+#tk-item-page > h3 {
+  margin: 0 0 .15em;
+  padding-bottom: .3em;
+  border-bottom: 2px solid var(--tk-line);
+  font-size: 1.25rem;
+}
+
+/* ⚠️ h4 必须显式定字号：主题默认 h4 = 14px，**比正文的 15px 还小**，
+   详情页的小节标题会视觉倒挂（实测值）。 */
+#tk-item-page h4 {
+  margin: 1.5em 0 .5em;
+  font-size: .95rem;
+  color: var(--tk-fiord);
+}
+
+/* 标识行（英文名 / 物品 ID）压暗，不抢标题 */
+#tk-item-page > p:first-of-type { color: var(--tk-ink-2); }
+
+/* 数值表：两列网格、标签淡、值醒目 —— 与 .tk-cat-detail__dl 同一套观感，
+   只是详情页版面更宽，加个面板底把小节圈起来。 */
+#tk-item-page dl {
+  display: grid;
+  grid-template-columns: minmax(7rem, auto) 1fr;
+  gap: 3px 14px;
+  margin: .6em 0 1em;
+  padding: .8em 1em;
+  background: var(--tk-panel);
+  border: 1px solid var(--tk-line);
+  border-radius: 3px;
+}
+#tk-item-page dt { color: var(--tk-ink-2); font-size: .8rem; }
+#tk-item-page dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+
+/* 材料 / 任务清单：主题给 ul 的 padding-left 是 0，项目符号会贴边 */
+#tk-item-page ul { margin: .35em 0 .9em; padding-left: 1.15em; }
+
+/* 窄屏：两列网格在 390px 下会把值挤成一条细柱，退成一列 */
+@media screen and (max-width: 44.9375em) {
+  #tk-item-page dl { grid-template-columns: 1fr; gap: 0; }
+  #tk-item-page dt { margin-top: .5em; }
+}
+
+[data-md-color-scheme="slate"] #tk-item-page h4 { color: #C6D2DE; }
+[data-md-color-scheme="slate"] #tk-item-page dl { background: #2A2825; border-color: #4A473F; }
+[data-md-color-scheme="slate"] #tk-item-page dt { color: #A8A399; }

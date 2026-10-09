@@ -231,15 +231,22 @@
         return;
       }
 
-      /* ⚠️ 建表不加 class —— 站内 extra.css 第 3 节的规则是
-         `.md-typeset table:not([class])`，给了 class 会整套丢失样式
-         （表头承色块 / 斑马行 / 边框 / 横向滚动）。 */
+      /* ⚠️ **绝不能给 <table> 加 class** —— 站内表格样式（表头承色块 / 斑马行 /
+         边框 / 滚动容器）全部挂在 `.md-typeset table:not([class])`（extra.css 第 3 节），
+         一加 class 就整类失配。实测过的代价：表头底色 rgb(74,89,108) → 透明、
+         字重 700 → 400、斑马行与边框全没，而且**不报任何错**，只有量 computed
+         style 才看得见（2026-10-10 排版审查发现，16 个图鉴页全中）。
+
+         列宽与对齐改用**挂在 th/td 上的语义类**（.tk-col-*）——
+         子元素带 class 不影响 `table:not([class])` 的匹配，两套规则互不干扰。 */
       var tb = document.createElement("table");
-      tb.className = "tk-cat__table";
       var thead = document.createElement("thead");
       var hr = document.createElement("tr");
-      ["名称", "英文名", "重量", "关键属性", "商人最低售价", "最高回收", "单格价值 ₽/格"].forEach(function (h) {
-        hr.appendChild(el("th", null, h));
+      [["名称", "tk-col-name"], ["英文名", "tk-col-nowrap"], ["重量", "tk-col-num"],
+       ["关键属性", "tk-col-desc"], ["商人最低售价", "tk-col-nowrap"],
+       ["最高回收", "tk-col-nowrap"], ["单格价值 ₽/格", "tk-col-num"]
+      ].forEach(function (p) {
+        hr.appendChild(el("th", p[1], p[0]));
       });
       thead.appendChild(hr);
       tb.appendChild(thead);
@@ -247,21 +254,22 @@
       var tbody = document.createElement("tbody");
       rows.slice(0, shown).forEach(function (r) {
         var tr = document.createElement("tr");
-        var td0 = document.createElement("td");
+        var td0 = el("td", "tk-col-name");
         var b = el("button", "tk-cat__name", r[1]);
         b.type = "button";
         b.title = "查看完整属性";
         td0.appendChild(b);
         tr.appendChild(td0);
-        tr.appendChild(el("td", null, ""));
-        tr.children[1].appendChild(el("code", null, r[2]));
-        tr.appendChild(el("td", null,
+        var tdEn = el("td", "tk-col-nowrap");
+        tdEn.appendChild(el("code", null, r[2]));
+        tr.appendChild(tdEn);
+        tr.appendChild(el("td", "tk-col-num",
           typeof r[3] === "number" ? r[3] + " 千克" : "—"));
-        tr.appendChild(el("td", null, r[4] || "—"));
-        tr.appendChild(el("td", null, r[5] || "—"));
-        tr.appendChild(el("td", null, r[6] || "—"));
+        tr.appendChild(el("td", "tk-col-desc", r[4] || "—"));
+        tr.appendChild(el("td", "tk-col-nowrap", r[5] || "—"));
+        tr.appendChild(el("td", "tk-col-nowrap", r[6] || "—"));
         var sv = slotValue(r);
-        tr.appendChild(el("td", null, sv == null ? "—" : fmtNum(sv)));
+        tr.appendChild(el("td", "tk-col-num", sv == null ? "—" : fmtNum(sv)));
         tbody.appendChild(tr);
       });
       tb.appendChild(tbody);
@@ -396,12 +404,15 @@
       + "（站内不联网、不收实时价）；缺回收价或缺格数的物品算不出，不入榜。"));
     host.appendChild(head);
 
+    /* ⚠️ 同 panel()：<table> **不加 class**（加了会丢站内表格样式），
+       列宽与对齐靠挂在 th/td 上的语义类。 */
     var tb = document.createElement("table");
-    tb.className = "tk-cat__table";
     var thead = document.createElement("thead");
     var hr = document.createElement("tr");
-    ["#", "物品", "单格价值 ₽/格", "占地", "商人最高回收"].forEach(function (h) {
-      hr.appendChild(el("th", null, h));
+    [["#", "tk-col-num"], ["物品", "tk-col-name"], ["单格价值 ₽/格", "tk-col-num"],
+     ["占地", "tk-col-num"], ["商人最高回收", "tk-col-nowrap"]
+    ].forEach(function (p) {
+      hr.appendChild(el("th", p[1], p[0]));
     });
     thead.appendChild(hr);
     tb.appendChild(thead);
@@ -409,26 +420,30 @@
     var tbody = document.createElement("tbody");
     top.forEach(function (r, i) {
       var tr = document.createElement("tr");
-      tr.appendChild(el("td", null, String(i + 1)));
-      var td = document.createElement("td");
+      tr.appendChild(el("td", "tk-col-num", String(i + 1)));
+      var td = el("td", "tk-col-name");
       var b = el("button", "tk-cat__name", r[1]);
       b.type = "button";
       b.title = "查看完整属性";
       td.appendChild(b);
       tr.appendChild(td);
-      tr.appendChild(el("td", null, fmtNum(slotValue(r))));
-      tr.appendChild(el("td", null, (typeof r[8] === "number" ? r[8] : "—") + " 格"));
-      tr.appendChild(el("td", null, r[6] || "—"));
+      tr.appendChild(el("td", "tk-col-num", fmtNum(slotValue(r))));
+      tr.appendChild(el("td", "tk-col-num", (typeof r[8] === "number" ? r[8] : "—") + " 格"));
+      tr.appendChild(el("td", "tk-col-nowrap", r[6] || "—"));
       tbody.appendChild(tr);
     });
     tb.appendChild(tbody);
 
-    /* 与检索面板同款：运行时建的表必须自己套 .md-typeset__table，
-       否则窄屏下整页被撑宽（见 panel() 里的同一条说明）。 */
+    /* 两层容器：外层 .tk-cat__holder 让列宽与滚动规则能选中它（与检索面板同款），
+       内层 .md-typeset__table 是全站唯一的表格滚动容器（见 panel() 的同一条说明）。
+       少套外层，.tk-col-* 的 min-width 就落不到这张表上。 */
+    var holder = document.createElement("div");
+    holder.className = "tk-cat__holder";
     var wrap = document.createElement("div");
     wrap.className = "md-typeset__table";
     wrap.appendChild(tb);
-    host.appendChild(wrap);
+    holder.appendChild(wrap);
+    host.appendChild(holder);
 
     tbody.addEventListener("click", function (e) {
       var btn = e.target && e.target.closest ? e.target.closest(".tk-cat__name") : null;
@@ -483,8 +498,8 @@
 
     /* 指向单件物品详情页 —— 面板是「在表格里顺手看一眼」，详情页是
        「一个可以分享、可以收藏的地址」。两处内容同源，只是承载形式不同。 */
-    var full = el("p", "tk-cat-detail__more");
-    var fa = el("a", null, "打开完整页面（链接可分享）→");
+    var full = document.createElement("p");
+    var fa = el("a", "tk-cat-detail__more", "打开完整页面（链接可分享）→");
     fa.href = siteRoot().replace(/javascripts\/$/, "")
       + "catalog/item/?id=" + encodeURIComponent(r[0]);
     full.appendChild(fa);
