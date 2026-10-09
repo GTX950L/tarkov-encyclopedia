@@ -47,6 +47,19 @@
     return n;
   }
 
+  /* 「要做 N 个任务」里的任务名 —— 数据是 `[名字, 任务id 或 null]` 对
+     （由 gen_quest_carrier.py 产出）。id 为 null ＝ **重名任务**，生成器已判定
+     不给链接（硬指会指到另一个任务上），退成纯文本。
+     ⚠️ 兼容纯字符串，别让旧数据渲染成 [object Object]。 */
+  function questNode(pair) {
+    var name = Array.isArray(pair) ? pair[0] : pair;
+    var id = Array.isArray(pair) ? pair[1] : null;
+    if (!id) return document.createTextNode(name);
+    var a = el("a", "tk-il__quest", name);
+    a.href = siteRoot() + "quests/quest/?id=" + encodeURIComponent(id);
+    return a;
+  }
+
   function esc(s) {
     return String(s == null ? "" : s)
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
@@ -161,7 +174,12 @@
     if (rec.n > 0) {
       var why = el("p", "tk-il__why");
       why.appendChild(el("b", null, "要做 " + rec.n + " 个任务："));
-      why.appendChild(document.createTextNode(rec.keep.join("、")));
+      /* 任务名逐个渲染成链接（重名的退成纯文本）—— 分隔符自己加。
+         原来是一句 `rec.keep.join("、")`，那样没法往名字上挂链接。 */
+      rec.keep.forEach(function (t, i) {
+        if (i) why.appendChild(document.createTextNode("、"));
+        why.appendChild(questNode(t));
+      });
       card.appendChild(why);
 
       if (rec.traders && rec.traders.length) {

@@ -225,7 +225,17 @@ def main() -> None:
 
     items = {}
     for name, v in idx.items():
-        keep_tasks = sorted({r["task"] for r in v["keep"]})
+        # keep：`[[任务名, 任务id 或 None], …]` —— 名字给读者看、id 给「跳任务详情页」用。
+        # ⚠️ **重名任务（站内 10 个，如「新起点」一名对 4 个 id）给 None** ——
+        #    硬取第一个会指到另一个任务上，而读者根本看不出来。判据与图鉴侧
+        #    item_pages.json 的 dups、gen_quests 的 questLink() 完全一致。
+        by_name: dict[str, set] = {}
+        for r in v["keep"]:
+            by_name.setdefault(r["task"], set()).add(r["qid"])
+        keep_tasks = sorted(
+            ([n, sorted(ids)[0] if len(ids) == 1 else None]
+             for n, ids in by_name.items()),
+            key=lambda x: x[0])
         items[name] = {
             "keep": keep_tasks,
             "n": len(keep_tasks),

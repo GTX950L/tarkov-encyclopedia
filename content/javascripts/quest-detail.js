@@ -59,6 +59,11 @@
     return siteRoot() + "quests/quest/?id=" + encodeURIComponent(id);
   }
 
+  /* 物品详情页（单件视图）—— 任务页里「这东西哪来的」的落点 */
+  function itemUrl(id) {
+    return siteRoot() + "catalog/item/?id=" + encodeURIComponent(id);
+  }
+
   /* ---------------------------------------------------------------- DOM */
 
   function el(tag, cls, txt) {
@@ -70,14 +75,34 @@
 
   function h(level, txt) { return el("h" + level, null, txt); }
 
-  /* 把生成器写下的 ``**粗体**`` 变成真元素 —— 生成器复用 render_objective /
-     render_rewards 输出 markdown，这里只解析这一种内联记号，不引 markdown 库。 */
+  /* 内联记号解析 —— 只认两种，不引 markdown 库：
+       · `**粗体**`    —— 生成器复用 render_objective / render_rewards 的输出；
+       · `[[名字|id]]` —— **物品名 → 图鉴链接**，由生成器的 linkify_items() 写下
+                          （重名与未收录的名字不带这个标记，退成普通粗体）。
+
+     ⚠️ 一次扫描处理两种标记，不要先 split("**") 再找 [[…]] ——
+        两种标记可能相邻，分两步会把中间的普通文本切碎。 */
   function rich(text) {
     var frag = document.createDocumentFragment();
-    String(text == null ? "" : text).split("**").forEach(function (seg, i) {
-      if (i % 2 === 1) frag.appendChild(el("strong", null, seg));
-      else frag.appendChild(document.createTextNode(seg));
-    });
+    var s = String(text == null ? "" : text);
+    var re = /\[\[([^\]|]+)\|([^\]]+)\]\]|\*\*([^*]+)\*\*/g;
+    var last = 0, m;
+    while ((m = re.exec(s)) !== null) {
+      if (m.index > last) {
+        frag.appendChild(document.createTextNode(s.slice(last, m.index)));
+      }
+      if (m[1] != null) {
+        var a = el("a", null, m[1]);
+        a.href = itemUrl(m[2]);
+        frag.appendChild(a);
+      } else {
+        frag.appendChild(el("strong", null, m[3]));
+      }
+      last = re.lastIndex;
+    }
+    if (last < s.length) {
+      frag.appendChild(document.createTextNode(s.slice(last)));
+    }
     return frag;
   }
 
@@ -104,6 +129,11 @@
       li.appendChild(document.createTextNode(name));
     }
   }
+
+  /* ⚠️ 「出发前必带」的三类划分与行文本 **在生成器的 carry_lines() 里**，
+     不在前端 —— v1.96.0 就是在前端另写一遍、把 pack 的**对象**当字符串渲染，
+     结果整块变成 `[object Object]`（bring 96 / pack 87 个任务受影响）。
+     md 商人页与这一页现在共用同一个函数，前端只负责排版。 */
 
   /* --------------------------------------------------------------- 数据 */
 
@@ -234,21 +264,14 @@
     }
 
     /* ---- 出发前必带 ---- */
-    var keys = it.keys || [], bring = it.bring || [], pack = it.pack || [];
-    if (keys.length || bring.length || pack.length) {
+    /* 行文本由生成器的 carry_lines() 生成，**与商人页同一份**（物品 / 钥匙 / 局内获取
+       三类划分也在那边定），这里只排版 —— 两处各写一遍就会漂。 */
+    var carry = it.carry || [];
+    if (carry.length) {
       host.appendChild(h(4, "📦 出发前必带"));
-      if (pack.length) {
-        host.appendChild(p("**要自带进图**（放置 / 标记 / 使用类目标 —— 漏带等于白跑）"));
-        host.appendChild(ul(pack));
-      }
-      if (bring.length) {
-        host.appendChild(p("**建议携带**"));
-        host.appendChild(ul(bring));
-      }
-      if (keys.length) {
-        host.appendChild(p("**需要钥匙**"));
-        host.appendChild(ul(keys));
-      }
+      host.appendChild(p("**物品**要从仓库带进图、**钥匙**别忘了、"
+        + "**局内获取**是本任务里先找到再用同一件 —— 漏带等于白跑。"));
+      host.appendChild(ul(carry));
     }
 
     /* ---- 失败条件 ---- */

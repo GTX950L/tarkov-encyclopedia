@@ -825,33 +825,20 @@ def render_task(rec: dict, i: int) -> list[str]:
     # 所以这里把 CARRIER_IDX 里的结论**原样提到任务最上方**，
     # 让「带什么」成为读这条任务时看到的第一个答案，而不是第五段。
     car = CARRIER_IDX.get(rec.get("id", ""))
-    if car:
-        pack, keys = car.get("pack", []), car.get("keys", [])
-        if pack or keys:
-            L += ["**出发前必带**", ""]
-            if pack:
-                names = "／".join(f"**{b['item']}**" for b in pack)
-                mp = sorted({m for b in pack for m in b["maps"]})
-                where = f"（地图：{'、'.join(mp)}）" if mp else ""
-                L.append(f"- **物品**：{names}{where}")
-            if keys:
-                L.append("- **钥匙**：" + "／".join(f"**{k}**" for k in keys))
-            # 局内获取的那些要显式说清：它们**也要带着**，只是不用从仓库备。
-            raid = [b for b in car.get("bring", []) if b["givenInRaid"]]
-            if raid:
-                seen, nm = set(), []
-                for b in raid:
-                    if b["item"] not in seen:
-                        seen.add(b["item"])
-                        nm.append(f"**{b['item']}**")
-                L.append("- **局内获取**（本任务里先找到、再用同一个）：" + "／".join(nm))
-            L.append("")
-            L.append(f"> 📐 **这一栏是「带什么」，[下面的「要求」是「做什么」** ——"
-                     "两栏分开是因为它们回答的是不同的问题。"
-                     f"判定口径：目标类型为 `放置 / 标记 / 使用` 的才进这一栏，"
-                     f"来源 `scripts/data/quests_carrier.json`"
-                     f"（由 `scripts/gen_quest_carrier.py` 生成）。")
-            L.append("")
+    # ⚠️ **判空一律用 carry_lines() 的结果**，不要另外写 `if pack or keys` ——
+    #    那样会漏掉「只有局内获取、没有 pack/keys」的任务（实测 6 个），
+    #    而详情页用的是 carry_lines()，两边条件不一致就会一边显示一边不显示。
+    carry = carry_lines(car) if car else []
+    if carry:
+        L += ["**出发前必带**", ""]
+        L += ["- " + x for x in carry]
+        L.append("")
+        L.append(f"> 📐 **这一栏是「带什么」，[下面的「要求」是「做什么」** ——"
+                 "两栏分开是因为它们回答的是不同的问题。"
+                 f"判定口径：目标类型为 `放置 / 标记 / 使用` 的才进这一栏，"
+                 f"来源 `scripts/data/quests_carrier.json`"
+                 f"（由 `scripts/gen_quest_carrier.py` 生成）。")
+        L.append("")
 
     # ── 「接取条件」与「要求」分开 ──────────────────────────────────────────
     # 前者回答「**接不接得到**」，后者回答「**要做什么**」。混在一起时，
@@ -860,12 +847,8 @@ def render_task(rec: dict, i: int) -> list[str]:
     line = render_req_line(rec["traderReqs"])
     if line:
         cond.append(line)
-    for o in rec["otherReqs"]:
-        if o["kind"] == "dialogue":
-            cond.append("- **需先对话**：" + "／".join(f"**{x}**" for x in o["traders"]))
-        else:
-            cond.append(f"- **进度计数**：**{o['trader']}** {cmp_txt([o['cmp'], o['value']])}"
-                        "（含义见[总览](index.md)）")
+    for o in other_req_lines(rec, with_overview_link=True):
+        cond.append("- " + o)
     if rec["prereqs"]:
         segs = []
         for p in rec["prereqs"]:
@@ -894,9 +877,8 @@ def render_task(rec: dict, i: int) -> list[str]:
     fails: list[str] = []
     if rec["failConditions"]:
         fails.append("- **失败条件**：")
-        # 端点里有把同一条失败条件列两遍的情况，渲染时会变成两行一模一样的字。
-        # 去重放在渲染这一层，数据仍按原样保留。
-        fails.extend("  " + x for x in uniq([render_objective(o, "-") for o in rec["failConditions"]]))
+        # 去重放由 fail_lines() 负责（详情页共用同一个函数）
+        fails.extend("  - " + x for x in fail_lines(rec))
     if rec["fail"]:
         bits = [f"**{nm}** ×{c:,}" for nm, c in rec["fail"].get("items", [])]
         bits += [f"**{nm}** 声望 {v:+}" for nm, v in rec["fail"].get("standing", [])]
@@ -1458,14 +1440,17 @@ def write_quest_detail(tasks: list[dict]) -> None:
             "gates": [[g.get("trader", ""), g.get("kind", ""),
                        g.get("cmp", ""), g.get("value")]
                       for g in (t.get("traderReqs") or [])],
-            "oth": list(t.get("otherReqs") or []),
+            # ⚠️ 下面五处文本**都要过 linkify_items()** —— 它们是「任务 → 物品」方向
+            #    唯一的接线点；漏掉任一处，那一栏里的物品名就点不动。
+            "oth": [linkify_items(x) for x in other_req_lines(t, with_overview_link=False)],
             # bullet=""：详情页自己排版，不要生成器再带一个列表符号
-            "o": [render_objective(o, "").strip() for o in (t.get("objectives") or [])],
-            "fail": list(t.get("failConditions") or []),
-            "rw": rwlines,
-            "keys": list(car.get("keys") or []),
-            "bring": list(car.get("bring") or []),
-            "pack": list(car.get("pack") or []),
+            "o": [linkify_items(render_objective(o, "").strip())
+                  for o in (t.get("objectives") or [])],
+            "fail": [linkify_items(x) for x in fail_lines(t)],
+            "rw": [linkify_items(x) for x in rwlines],
+            # 「出发前必带」三类（物品 / 钥匙 / 局内获取）—— **与 md 商人页共用
+            # carry_lines()**，不在这里另写一遍（v1.96.0 就是另写一遍出的 [object Object]）。
+            "carry": [linkify_items(x) for x in (carry_lines(car) if car else [])],
         }
 
     QUEST_JS_DIR.mkdir(parents=True, exist_ok=True)
@@ -1496,6 +1481,108 @@ def payload_fetched() -> str:
         return json.loads(DATA_FILE.read_text(encoding="utf-8")).get("fetched") or "—"
     except Exception:
         return "—"
+
+
+def carry_lines(car: dict) -> list[str]:
+    """「出发前必带」的条目文本（**不含列表符号**，调用方自己排版）。
+
+    md 商人页（``render_task``）与任务详情页（``write_quest_detail``）
+    **共用这一个函数** —— 两处各写一遍必然漂，v1.96.0 就是这么出的事：
+    详情页分片把 ``pack`` 的**对象**原样写进去，前端按字符串渲染，
+    「出发前必带」整块变成 ``[object Object]``（bring 96 / pack 87 个任务受影响）。
+
+    三类划分沿用 md 侧既有口径，不另立说法：
+      · **物品** = ``pack``，要从仓库带进图的；
+      · **钥匙** = ``keys``；
+      · **局内获取** = ``bring`` 里 ``givenInRaid`` 为真的（也要带着，但不用从仓库备）。
+    """
+    out: list[str] = []
+    pack, keys = car.get("pack") or [], car.get("keys") or []
+    if pack:
+        names = "／".join(f"**{b['item']}**" for b in pack)
+        mp = sorted({m for b in pack for m in (b.get("maps") or [])})
+        out.append(f"**物品**：{names}" + (f"（地图：{'、'.join(mp)}）" if mp else ""))
+    if keys:
+        out.append("**钥匙**：" + "／".join(f"**{k}**" for k in keys))
+    raid = [b for b in (car.get("bring") or []) if b.get("givenInRaid")]
+    if raid:
+        seen, nm = set(), []
+        for b in raid:
+            if b["item"] not in seen:
+                seen.add(b["item"])
+                nm.append(f"**{b['item']}**")
+        out.append("**局内获取**（本任务里先找到、再用同一个）：" + "／".join(nm))
+    return out
+
+
+def other_req_lines(rec: dict, with_overview_link: bool = True) -> list[str]:
+    """``otherReqs``（对话 / 进度计数）的条目文本，不含列表符号。
+
+    ``with_overview_link``：md 页里带上「（含义见[总览](index.md)）」——
+    那是**给页面读者**的指路；详情页自己就在站内、且不解析 markdown 链接，
+    传 False 免得把 markdown 语法当字面显示出来。
+    """
+    out: list[str] = []
+    for o in rec.get("otherReqs") or []:
+        if o.get("kind") == "dialogue":
+            out.append("**需先对话**：" + "／".join(f"**{x}**" for x in o["traders"]))
+        else:
+            s = f"**进度计数**：**{o['trader']}** {cmp_txt([o['cmp'], o['value']])}"
+            if with_overview_link:
+                s += "（含义见[总览](index.md)）"
+            out.append(s)
+    return out
+
+
+def fail_lines(rec: dict) -> list[str]:
+    """失败条件的条目文本，不含列表符号。
+
+    ⚠️ 端点里有把同一条失败条件列两遍的情况 —— 去重放在这一层
+       （与 md 侧同一处理），数据仍按原样保留。
+    """
+    return uniq([render_objective(o, "").strip() for o in (rec.get("failConditions") or [])])
+
+
+# ---------------------------------------------------------------------------
+# 任务 → 物品：把详情页文本里的物品名变成图鉴链接
+#
+# 数据源直接复用图鉴那边已经维护好的 scripts/data/item_pages.json
+# （4548 个唯一名 → [slug, id]，50 个重名）—— **不另建一份**，
+# 否则「物品名 → id」会出现两套口径。
+# ---------------------------------------------------------------------------
+
+def _load_item_ids() -> tuple[dict, set]:
+    p = ROOT / "scripts" / "data" / "item_pages.json"
+    if not p.exists():
+        return {}, set()
+    d = json.loads(p.read_text(encoding="utf-8"))
+    return ({n: v[1] for n, v in (d.get("pages") or {}).items()},
+            set(d.get("dups") or []))
+
+
+ITEM_IDS, ITEM_DUPS = _load_item_ids()
+
+
+def linkify_items(text: str) -> str:
+    """把文本里的 ``**物品名**`` 换成图鉴链接标记 ``[[名字|id]]``。
+
+    ⚠️ **只在详情页分片里用** —— md 商人页不能插自定义标记（会原样显示出来）。
+       所以 md 与详情页共用渲染函数、但**只有详情页多走这一步**。
+    ⚠️ **重名（50 个）与未收录的名字不给链接** —— 硬指会指到另一件物品上，
+       而读者看不出来（与 item_pages.json 的 dups 同一套处理）。
+    标记交给前端 quest-detail.js 的 rich() 解析，格式是 ``[[名字|id]]``。
+    """
+    if not text:
+        return text
+
+    def sub(m: "re.Match") -> str:
+        name = m.group(1)
+        if name in ITEM_DUPS:
+            return m.group(0)            # 重名：保留粗体，不给链接
+        iid = ITEM_IDS.get(name)
+        return f"[[{name}|{iid}]]" if iid else m.group(0)
+
+    return re.sub(r"\*\*([^*]+)\*\*", sub, text)
 
 
 def generate() -> None:

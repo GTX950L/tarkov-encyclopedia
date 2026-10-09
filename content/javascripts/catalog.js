@@ -458,6 +458,23 @@
     host.appendChild(foot);
   }
 
+  /* ------------------------------------------------------------ 任务链接
+     物品侧显示「哪些任务要它」时，任务名要能点进任务详情页。
+
+     数据是 `[任务名, 任务id 或 null]` 对（由 gen_quest_carrier.py 产出）：
+       · id 有值 → 链接到 /quests/quest/?id=…
+       · id 为 null → **重名任务**，生成器已判定不给链接（站内 10 个重名任务，
+         硬指会指到另一个任务上而读者看不出来）—— 退成纯文本。
+     ⚠️ 兼容纯字符串（旧数据 / 兜底），别让它渲染成 [object Object]。 */
+  function questNode(pair) {
+    var name = Array.isArray(pair) ? pair[0] : pair;
+    var id = Array.isArray(pair) ? pair[1] : null;
+    if (!id) return document.createTextNode(name);
+    var a = el("a", "tk-cat-detail__quest", name);
+    a.href = siteRoot() + "quests/quest/?id=" + encodeURIComponent(id);
+    return a;
+  }
+
   /* ------------------------------------------------------------ 详情面板 */
 
   function openDetail(r, d) {
@@ -599,7 +616,9 @@
       var ul = document.createElement("ul");
       ul.className = "tk-cat-detail__mats";
       keep.slice(0, 8).forEach(function (t) {
-        ul.appendChild(el("li", null, t));
+        var li = document.createElement("li");
+        li.appendChild(questNode(t));
+        ul.appendChild(li);
       });
       if (keep.length > 8) {
         ul.appendChild(el("li", null, "…等共 " + keep.length + " 个"));

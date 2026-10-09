@@ -69,6 +69,17 @@
     return a;
   }
 
+  /* 「哪些任务要它」里的任务名 —— 数据是 `[名字, 任务id 或 null]` 对
+     （由 gen_quest_carrier.py 产出）。id 为 null ＝ **重名任务**，生成器已判定
+     不给链接（硬指会指到另一个任务上），退成纯文本。
+     ⚠️ 兼容纯字符串，别让旧数据渲染成 [object Object]。 */
+  function questNode(pair) {
+    var name = Array.isArray(pair) ? pair[0] : pair;
+    var id = Array.isArray(pair) ? pair[1] : null;
+    if (!id) return document.createTextNode(name);
+    return link(siteRoot() + "quests/quest/?id=" + encodeURIComponent(id), name);
+  }
+
   function h(level, txt) { return el("h" + level, null, txt); }
 
   /* ------------------------------------------------------------- 数值 */
@@ -231,7 +242,11 @@
         + ((q.keep || []).length ? "，建议保留。" : "。")));
       if ((q.keep || []).length) {
         var qul = document.createElement("ul");
-        q.keep.slice(0, 12).forEach(function (t) { qul.appendChild(el("li", null, t)); });
+        q.keep.slice(0, 12).forEach(function (t) {
+          var li = document.createElement("li");
+          li.appendChild(questNode(t));      /* 任务名 → 任务详情页（重名退纯文本） */
+          qul.appendChild(li);
+        });
         if (q.keep.length > 12) {
           qul.appendChild(el("li", null, "…等共 " + q.keep.length + " 个"));
         }
