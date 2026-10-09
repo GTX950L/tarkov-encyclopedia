@@ -4486,10 +4486,12 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 [data-md-color-scheme="slate"] .tk-ilt__link { color: #C6D2DE; }
 
 /* ==========================================================================
-   59. 单件物品详情页（javascripts/catalog-item.js）
+   59. 单件详情视图页（javascripts/catalog-item.js ｜ quest-detail.js）
    --------------------------------------------------------------------------
-   这一页由 JS 按 ?id= 渲染，站内没有第二处用它的结构。样式目标只有一个：
-   **让它看起来与图鉴详情面板（.tk-cat-detail__*）是同一套东西** ——
+   物品详情与任务详情是**同一类页面**（按 id 渲染的单件视图），共用这一节 ——
+   两者的结构也用同一套语义标签，样式自然该同源。
+
+   样式目标只有一个：**让它看起来与图鉴详情面板（.tk-cat-detail__*）是同一套东西** ——
    读者从面板点进详情页，不该有「换了个站」的感觉。
 
    ⚠️ 面板用 <div> + 自定义类，这里用的是语义标签（h3/h4/dl/ul）。所以本节点
@@ -4499,7 +4501,8 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
       每个字段占两行（2026-10-10 排版审查实测）。
    ========================================================================== */
 
-#tk-item-page > h3 {
+#tk-item-page > h3,
+#tk-quest-page > h3 {
   margin: 0 0 .15em;
   padding-bottom: .3em;
   border-bottom: 2px solid var(--tk-line);
@@ -4508,17 +4511,19 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 /* ⚠️ h4 必须显式定字号：主题默认 h4 = 14px，**比正文的 15px 还小**，
    详情页的小节标题会视觉倒挂（实测值）。 */
-#tk-item-page h4 {
+#tk-item-page h4,
+#tk-quest-page h4 {
   margin: 1.5em 0 .5em;
   font-size: .95rem;
   color: var(--tk-fiord);
 }
 
-/* 标识行（英文名 / 物品 ID）压暗，不抢标题 */
-#tk-item-page > p:first-of-type { color: var(--tk-ink-2); }
+/* 标识行（英文名 / 物品 ID / 任务 ID）压暗，不抢标题 */
+#tk-item-page > p:first-of-type,
+#tk-quest-page > p:first-of-type { color: var(--tk-ink-2); }
 
 /* 数值表：两列网格、标签淡、值醒目 —— 与 .tk-cat-detail__dl 同一套观感，
-   只是详情页版面更宽，加个面板底把小节圈起来。 */
+   只是详情页版面更宽，加个面板底把小节圈起来。（任务详情页不用 dl。） */
 #tk-item-page dl {
   display: grid;
   grid-template-columns: minmax(7rem, auto) 1fr;
@@ -4532,8 +4537,16 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 #tk-item-page dt { color: var(--tk-ink-2); font-size: .8rem; }
 #tk-item-page dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
 
-/* 材料 / 任务清单：主题给 ul 的 padding-left 是 0，项目符号会贴边 */
-#tk-item-page ul { margin: .35em 0 .9em; padding-left: 1.15em; }
+/* 材料 / 目标 / 奖励清单：主题给 ul 的 padding-left 是 0，项目符号会贴边 */
+#tk-item-page ul,
+#tk-quest-page ul { margin: .35em 0 .9em; padding-left: 1.15em; }
+
+/* 奖励里的子项（声望 / 技能 / 解锁）—— 生成器用两个空格缩进标记 */
+#tk-quest-page li.tk-quest-sub {
+  list-style: circle;
+  color: var(--tk-ink-2);
+  margin-left: .8em;
+}
 
 /* 窄屏：两列网格在 390px 下会把值挤成一条细柱，退成一列 */
 @media screen and (max-width: 44.9375em) {
@@ -4541,6 +4554,8 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   #tk-item-page dt { margin-top: .5em; }
 }
 
-[data-md-color-scheme="slate"] #tk-item-page h4 { color: #C6D2DE; }
+[data-md-color-scheme="slate"] #tk-item-page h4,
+[data-md-color-scheme="slate"] #tk-quest-page h4 { color: #C6D2DE; }
 [data-md-color-scheme="slate"] #tk-item-page dl { background: #2A2825; border-color: #4A473F; }
 [data-md-color-scheme="slate"] #tk-item-page dt { color: #A8A399; }
+[data-md-color-scheme="slate"] #tk-quest-page li.tk-quest-sub { color: #A8A399; }

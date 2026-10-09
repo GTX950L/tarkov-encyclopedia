@@ -23,7 +23,7 @@
 - [第七篇 · 赛季与衍生内容](https://gtx950l.github.io/tarkov-encyclopedia/entries/seasons/)：赛季与修改器、联赛、竞技场、PvE 模式
 - [第八篇 · 世界与背景](https://gtx950l.github.io/tarkov-encyclopedia/entries/weather/)：天气与时间、光照与夜战、彩蛋、世界观与阵营背景
 - [第九篇 · 物品图鉴](https://gtx950l.github.io/tarkov-encyclopedia/catalog/)：4,979 件物品的全量属性与商人买卖价，按 86 个官方分类归并成 16 页；单件物品的完整页面（官方介绍、数值、获取途径、任务需求）走[物品详情](https://gtx950l.github.io/tarkov-encyclopedia/catalog/item/) —— 一个按物品 ID 渲染的视图页 —— **查阅型栏目，不属前八篇的学习顺序**
-- [第十篇 · 任务图鉴](https://gtx950l.github.io/tarkov-encyclopedia/quests/)：515 个任务的逐条要求、奖励、接取门槛、前置与失败条件 —— **查阅型栏目，不属前八篇的学习顺序**。另有[限时与活动任务补遗](https://gtx950l.github.io/tarkov-encyclopedia/quests/event-quests/)收录随版本挂载、到期即消失的那类任务（不在 515 条口径内）
+- [第十篇 · 任务图鉴](https://gtx950l.github.io/tarkov-encyclopedia/quests/)：515 个任务的逐条要求、奖励、接取门槛、前置与失败条件 —— **查阅型栏目，不属前八篇的学习顺序**。单个任务的完整页面（前置与后续、目标清单、完成奖励、出发前必带）走[任务详情](https://gtx950l.github.io/tarkov-encyclopedia/quests/quest/)（一个按任务 ID 渲染的视图页）。另有[限时与活动任务补遗](https://gtx950l.github.io/tarkov-encyclopedia/quests/event-quests/)收录随版本挂载、到期即消失的那类任务（不在 515 条口径内）
 - [第十一篇 · 参考](https://gtx950l.github.io/tarkov-encyclopedia/docs/)：项目欢迎页、数据口径与引用说明、新手成长路线、机制速查表及其余站务页 —— **查阅型栏目，不属前八篇的学习顺序**
 
 ## 物品图鉴（第九篇 · 全量物品数据）

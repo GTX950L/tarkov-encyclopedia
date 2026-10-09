@@ -99,6 +99,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Make Ultra Great Again**
 
+<a href="../quest/?id=5ae448bf86f7744d733e55ee">打开完整页面 →</a>
+
 `地图：立交桥`
 
 **接取条件**
@@ -115,6 +117,8 @@ tags:
 <h3 id="q02" data-qid="5ae4495086f77443c122bc40">临行密密缝 - 1<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Sew It Good Part 1**
+
+<a href="../quest/?id=5ae4495086f77443c122bc40">打开完整页面 →</a>
 
 `**Kappa 必需**`
 
@@ -136,6 +140,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sew It Good Part 2**
 
+<a href="../quest/?id=5ae4497b86f7744cf402ed00">打开完整页面 →</a>
+
 `**Kappa 必需**`
 
 **接取条件**
@@ -156,6 +162,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sew It Good Part 3**
 
+<a href="../quest/?id=5ae4495c86f7744e87761355">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**临行密密缝 - 2**（Ragman）
@@ -174,6 +182,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sew It Good Part 4**
 
+<a href="../quest/?id=5ae4496986f774459e77beb6">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**临行密密缝 - 3**（Ragman）
@@ -189,6 +199,8 @@ tags:
 <h3 id="q06" data-qid="608974af4b05530f55550c21">储备专家<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Reserve Expert**
+
+<a href="../quest/?id=608974af4b05530f55550c21">打开完整页面 →</a>
 
 `地图：储备站`
 
@@ -220,6 +232,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **Another Shipping Delay**
 
+<a href="../quest/?id=6740b60c60a98cad1b0e0aa0">打开完整页面 →</a>
+
 `地图：森林`
 
 **接取条件**
@@ -236,6 +250,8 @@ tags:
 <h3 id="q08" data-qid="5c112d7e86f7740d6f647486">垃圾佬<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Scavenger**
+
+<a href="../quest/?id=5c112d7e86f7740d6f647486">打开完整页面 →</a>
 
 **接取条件**
 
@@ -255,6 +271,8 @@ tags:
 <h3 id="q09" data-qid="5ae448e586f7744dcf0c2a67">大甩卖<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Big Sale**
+
+<a href="../quest/?id=5ae448e586f7744dcf0c2a67">打开完整页面 →</a>
 
 `地图：立交桥`
 
@@ -277,6 +295,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Living High Is Not a Crime**
 
+<a href="../quest/?id=5b47891f86f7744d1b23c571">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Ragman** ≥ 1（含义见[总览](index.md)）
@@ -296,6 +316,8 @@ tags:
 <h3 id="q11" data-qid="5c10f94386f774227172c572">小事大帮忙<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Small Things Big Help**
+
+<a href="../quest/?id=5c10f94386f774227172c572">打开完整页面 →</a>
 
 `地图：森林`
 
@@ -323,6 +345,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Inventory Files**
 
+<a href="../quest/?id=5ae4493486f7744efa289417">打开完整页面 →</a>
+
 `地图：立交桥`
 
 **接取条件**
@@ -344,6 +368,8 @@ tags:
 <h3 id="q13" data-qid="5b478d0f86f7744d190d91b5">微型客车<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Minibus**
+
+<a href="../quest/?id=5b478d0f86f7744d190d91b5">打开完整页面 →</a>
 
 `地图：立交桥`
 
@@ -370,6 +396,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sensory Analysis Part 1**
 
+<a href="../quest/?id=67a0967c003a9986cb0f5ac1">打开完整页面 →</a>
+
 `接取延迟 35 分钟`
 
 **接取条件**
@@ -388,6 +416,8 @@ tags:
 <h3 id="q15" data-qid="5ae449b386f77446d8741719">感恩的心<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gratitude**
+
+<a href="../quest/?id=5ae449b386f77446d8741719">打开完整页面 →</a>
 
 `地图：森林`
 
@@ -414,6 +444,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Key to Success**
 
+<a href="../quest/?id=5ae4498786f7744bde357695">打开完整页面 →</a>
+
 `地图：立交桥`
 
 **接取条件**
@@ -433,6 +465,8 @@ tags:
 <h3 id="q17" data-qid="5ae4493d86f7744b8e15aa8f">损失惨重<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **A Big Loss**
+
+<a href="../quest/?id=5ae4493d86f7744b8e15aa8f">打开完整页面 →</a>
 
 `地图：立交桥`
 
@@ -459,6 +493,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pathfinder**
 
+<a href="../quest/?id=5ae449c386f7744bde357697">打开完整页面 →</a>
+
 `地图：立交桥`
 
 **接取条件**
@@ -478,6 +514,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fresh Stock**
 
+<a href="../quest/?id=69ce21e990144e437802b1e0">打开完整页面 →</a>
+
 `地图：破冰船`
 
 **要求**
@@ -491,6 +529,8 @@ tags:
 <h3 id="q20" data-qid="5ae449a586f7744bde357696">暗度陈仓<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **No Fuss Needed**
+
+<a href="../quest/?id=5ae449a586f7744bde357696">打开完整页面 →</a>
 
 **接取条件**
 
@@ -506,6 +546,8 @@ tags:
 <h3 id="q21" data-qid="5b478b1886f7744d1b23c57d">火线速递<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Hot Delivery**
+
+<a href="../quest/?id=5b478b1886f7744d1b23c57d">打开完整页面 →</a>
 
 `地图：立交桥`
 
@@ -532,6 +574,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fuel Crisis**
 
+<a href="../quest/?id=5ae448f286f77448d73c0131">打开完整页面 →</a>
+
 `地图：立交桥`
 
 **出发前必带**
@@ -557,6 +601,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Dressed to Kill**
 
+<a href="../quest/?id=5ae4490786f7744ca822adcc">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Ragman** ≥ 1（含义见[总览](index.md)）
@@ -575,6 +621,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Stabilize Business**
 
+<a href="../quest/?id=6744a4717e3818d5bb0680bb">打开完整页面 →</a>
+
 `地图：中心区`
 
 **接取条件**
@@ -592,6 +640,8 @@ tags:
 <h3 id="q25" data-qid="639135a7e705511c8a4a1b78">芭蕾舞者<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Ballet Lover**
+
+<a href="../quest/?id=639135a7e705511c8a4a1b78">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -618,6 +668,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Supervisor**
 
+<a href="../quest/?id=5ae449d986f774453a54a7e1">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Ragman** ≥ 4（含义见[总览](index.md)）
@@ -638,6 +690,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Long Line**
 
+<a href="../quest/?id=60e71dc0a94be721b065bbfc">打开完整页面 →</a>
+
 `地图：立交桥`
 
 **接取条件**
@@ -654,6 +708,8 @@ tags:
 <h3 id="q28" data-qid="5ae4499a86f77449783815db">风流倜傥<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **Charisma Brings Success**
+
+<a href="../quest/?id=5ae4499a86f77449783815db">打开完整页面 →</a>
 
 **接取条件**
 
@@ -673,6 +729,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Key to the City**
 
+<a href="../quest/?id=666314c5a9290f9e0806cca5">打开完整页面 →</a>
+
 `地图：塔科夫街区`
 
 **接取条件**
@@ -689,6 +747,8 @@ tags:
 <h3 id="q30" data-qid="638fcd23dc65553116701d33">审计<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Audit**
+
+<a href="../quest/?id=638fcd23dc65553116701d33">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -707,6 +767,8 @@ tags:
 <h3 id="q31" data-qid="675c085d59b0575973005f52">浑水摸鱼<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Break the Deal**
+
+<a href="../quest/?id=675c085d59b0575973005f52">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -735,6 +797,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Nothing Fishy About This**
 
+<a href="../quest/?id=65802b627b44fa5e14638899">打开完整页面 →</a>
+
 `地图：海岸线`
 
 **接取条件**
@@ -752,6 +816,8 @@ tags:
 <h3 id="q33" data-qid="65734c186dc1e402c80dc19e">花花公子<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Dandies**
+
+<a href="../quest/?id=65734c186dc1e402c80dc19e">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -779,6 +845,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv15** ｜ **无前置** ｜ 英文名 **Only Business**
 
+<a href="../quest/?id=5ae448a386f7744d3730fff0">打开完整页面 →</a>
+
 **要求**
 
 - **商人等级** **Ragman** ｜ **Lv2** —— Ragman信任度达到2级
@@ -791,6 +859,8 @@ tags:
 <h3 id="q35" data-qid="5b47876e86f7744d1c353205">战争之血 - 2<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv23** ｜ 前置 **2** 个 ｜ 英文名 **The Blood of War Part 2**
+
+<a href="../quest/?id=5b47876e86f7744d1c353205">打开完整页面 →</a>
 
 **接取条件**
 
@@ -809,6 +879,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv25** ｜ **无前置** ｜ 英文名 **New Beginning**
 
+<a href="../quest/?id=6761f28a022f60bb320f3e95">打开完整页面 →</a>
+
 **要求**
 
 - **击杀／射击** **击杀** ｜ 目标：Scav／狙击手 ｜ **×50** —— 消灭 Scav
@@ -823,6 +895,8 @@ tags:
 <h3 id="q37" data-qid="67d03be712fb5f8fd2096332">清空外围<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **Vacate the Premises**
+
+<a href="../quest/?id=67d03be712fb5f8fd2096332">打开完整页面 →</a>
 
 `地图：迷宫`
 
@@ -840,6 +914,8 @@ tags:
 <h3 id="q38" data-qid="6613f3007f6666d56807c929">人靠衣装 - 1<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Drip Out Part 1 Bear**
+
+<a href="../quest/?id=6613f3007f6666d56807c929">打开完整页面 →</a>
 
 `仅限 **BEAR**` ｜ `失败可重接`
 
@@ -859,6 +935,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Drip Out Part 1 Usec**
 
+<a href="../quest/?id=66151401efb0539ae10875ae">打开完整页面 →</a>
+
 `仅限 **USEC**` ｜ `失败可重接`
 
 **接取条件**
@@ -877,6 +955,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Know Your Place**
 
+<a href="../quest/?id=66aa61663aa37705c5024277">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Ragman** 忠诚 **LL3**
@@ -893,6 +973,8 @@ tags:
 <h3 id="q41" data-qid="60e71dc67fcf9c556f325056">酒瘾<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Booze**
+
+<a href="../quest/?id=60e71dc67fcf9c556f325056">打开完整页面 →</a>
 
 **接取条件**
 
@@ -915,6 +997,8 @@ tags:
 <h3 id="q42" data-qid="608974d01a66564e74191fc0">雪中送炭<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **A Fuel Matter**
+
+<a href="../quest/?id=608974d01a66564e74191fc0">打开完整页面 →</a>
 
 `地图：储备站`
 
@@ -939,6 +1023,8 @@ tags:
 <h3 id="q43" data-qid="639135bbc115f907b14700a6">高保真<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Audiophile**
+
+<a href="../quest/?id=639135bbc115f907b14700a6">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -969,6 +1055,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv30** ｜ **无前置** ｜ 英文名 **New Beginning 2**
 
+<a href="../quest/?id=6761ff17cdc36bd66102e9d0">打开完整页面 →</a>
+
 `地图：实验室` ｜ `需**威望 P1**`
 
 **要求**
@@ -986,6 +1074,8 @@ tags:
 <h3 id="q45" data-qid="6848100b00afffa81f09e365">新起点<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv35** ｜ **无前置** ｜ 英文名 **New Beginning 3**
+
+<a href="../quest/?id=6848100b00afffa81f09e365">打开完整页面 →</a>
 
 `需**威望 P2**`
 
@@ -1009,6 +1099,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv40** ｜ **无前置** ｜ 英文名 **New Beginning 4**
 
+<a href="../quest/?id=68481881f43abfdda2058369">打开完整页面 →</a>
+
 `需**威望 P3**`
 
 **要求**
@@ -1030,6 +1122,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Drip Out Part 2 Bear**
 
+<a href="../quest/?id=6613f307fca4f2f386029409">打开完整页面 →</a>
+
 `仅限 **BEAR**` ｜ `失败可重接`
 
 **接取条件**
@@ -1048,6 +1142,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Drip Out Part 2 Usec**
 
+<a href="../quest/?id=6615141bfda04449120269a7">打开完整页面 →</a>
+
 `仅限 **USEC**` ｜ `失败可重接`
 
 **接取条件**
@@ -1065,6 +1161,8 @@ tags:
 <h3 id="q49" data-qid="5c1141f386f77430ff393792">古董爱好者<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Antique Enthusiast**
+
+<a href="../quest/?id=5c1141f386f77430ff393792">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1088,6 +1186,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Combat Proven**
 
+<a href="../quest/?id=666314a31cd52e3d040a2e76">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**特殊提议**（Ragman）
@@ -1104,6 +1204,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Old Patterns**
 
+<a href="../quest/?id=666314a50aa5c7436c00908a">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**实战考验**（Ragman）
@@ -1117,6 +1219,8 @@ tags:
 <h3 id="q52" data-qid="666314a1920800278d0f6746">特殊提议<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Special Offer**
+
+<a href="../quest/?id=666314a1920800278d0f6746">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1141,6 +1245,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **The Invisible Hand**
 
+<a href="../quest/?id=6663149cfd5ca9577902e037">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Ragman** 忠诚 **LL4**
@@ -1154,6 +1260,8 @@ tags:
 <h3 id="q54" data-qid="5e381b0286f77420e3417a74">纺织业 - 1<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Textile Part 1 Bear**
+
+<a href="../quest/?id=5e381b0286f77420e3417a74">打开完整页面 →</a>
 
 `仅限 **BEAR**`
 
@@ -1177,6 +1285,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Textile Part 1 Usec**
 
+<a href="../quest/?id=5e383a6386f77465910ce1f3">打开完整页面 →</a>
+
 `仅限 **USEC**`
 
 **接取条件**
@@ -1198,6 +1308,8 @@ tags:
 <h3 id="q56" data-qid="5e4d4ac186f774264f758336">纺织业 - 2<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Textile Part 2 Bear**
+
+<a href="../quest/?id=5e4d4ac186f774264f758336">打开完整页面 →</a>
 
 `仅限 **BEAR**`
 
@@ -1221,6 +1333,8 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Textile Part 2 Usec**
 
+<a href="../quest/?id=5e4d515e86f77438b2195244">打开完整页面 →</a>
+
 `仅限 **USEC**`
 
 **接取条件**
@@ -1242,6 +1356,8 @@ tags:
 <h3 id="q58" data-qid="6663149f1d3ec95634095e75">经济流动<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Circulate**
+
+<a href="../quest/?id=6663149f1d3ec95634095e75">打开完整页面 →</a>
 
 **接取条件**
 

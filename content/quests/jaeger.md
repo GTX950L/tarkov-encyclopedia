@@ -105,6 +105,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Work Smarter**
 
+<a href="../quest/?id=675c1cf4a757ddd00404f0a3">打开完整页面 →</a>
+
 `地图：海关`
 
 **接取条件**
@@ -123,6 +125,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Foresters Duty**
 
+<a href="../quest/?id=66ab9da7eb102b9bcd08591c">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Jaeger** ≥ 4（含义见[总览](index.md)）
@@ -140,6 +144,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Rough Tarkov**
 
+<a href="../quest/?id=66b38c7bf85b8bf7250f9cb6">打开完整页面 →</a>
+
 **要求**
 
 - **到访** —— 在森林 USEC 营地周围找到高密度雷区
@@ -151,6 +157,8 @@ tags:
 <h3 id="q04" data-qid="5bc4776586f774512d07cf05">塔科夫神射手 - 1<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Tarkov Shooter Part 1**
+
+<a href="../quest/?id=5bc4776586f774512d07cf05">打开完整页面 →</a>
 
 `**Kappa 必需**`
 
@@ -170,6 +178,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **A Wedge Between Us**
 
+<a href="../quest/?id=69ce1cfb298a6529b30d712b">打开完整页面 →</a>
+
 `地图：破冰船`
 
 **要求**
@@ -183,6 +193,8 @@ tags:
 <h3 id="q06" data-qid="608a768d82e40b3c727fd17d">害虫防治<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pest Control**
+
+<a href="../quest/?id=608a768d82e40b3c727fd17d">打开完整页面 →</a>
 
 `地图：储备站`
 
@@ -201,6 +213,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Claustrophobia**
 
+<a href="../quest/?id=669fa3979b0ce3feae01a130">打开完整页面 →</a>
+
 `地图：工厂`
 
 **接取条件**
@@ -218,6 +232,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Swift**
 
+<a href="../quest/?id=60e729cf5698ee7b05057439">打开完整页面 →</a>
+
 `地图：森林`
 
 **接取条件**
@@ -234,6 +250,8 @@ tags:
 <h3 id="q09" data-qid="5d25e4ad86f77443e625e387">怀旧之情<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Nostalgia**
+
+<a href="../quest/?id=5d25e4ad86f77443e625e387">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -254,6 +272,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **First Aid**
 
+<a href="../quest/?id=5d25e46e86f77409453bce7c">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Jaeger** ≥ 1（含义见[总览](index.md)）
@@ -272,6 +292,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **All This Filth**
 
+<a href="../quest/?id=600302d73b897b11364cd161">打开完整页面 →</a>
+
 **要求**
 
 - **击杀／射击** **击杀** ｜ 目标：Scav／狙击手 ｜ **×20** —— 在立交桥、中心区、森林或海关消灭 Scav
@@ -283,6 +305,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Acquaintance**
 
+<a href="../quest/?id=5d24b81486f77439c92d6ba8">打开完整页面 →</a>
+
 **要求**
 
 - **交物品** **Iskra（“火花”）单兵口粮**／**军用饼干**／**Alyonka 巧克力**／**炖美味牛肉罐头（大）**／**黑麦面包块**／**炖牛肉罐头**／**炼乳罐头**／**Emelya黑麦面包块** 等 **24** 种 ｜ **×10** —— 上交任意饮食
@@ -293,6 +317,8 @@ tags:
 <h3 id="q13" data-qid="5d25e4ca86f77409dd5cdf2c">狩猎之旅<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Hunting Trip**
+
+<a href="../quest/?id=5d25e4ca86f77409dd5cdf2c">打开完整页面 →</a>
 
 `地图：森林`
 
@@ -314,6 +340,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Secured Perimeter**
 
+<a href="../quest/?id=5d25e2b486f77409de05bba0">打开完整页面 →</a>
+
 `地图：工厂`
 
 **接取条件**
@@ -331,6 +359,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Crooked Cop**
 
+<a href="../quest/?id=6578eb36e5020875d64645cd">打开完整页面 →</a>
+
 `地图：塔科夫街区`
 
 **要求**
@@ -345,6 +375,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Big Game**
 
+<a href="../quest/?id=64e7b971f9d6fa49d6769b44">打开完整页面 →</a>
+
 `地图：塔科夫街区`
 
 **要求**
@@ -357,6 +389,8 @@ tags:
 <h3 id="q17" data-qid="60c0c018f7afb4354815096a">猎人之路 - 工厂头目<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Factory Chief**
+
+<a href="../quest/?id=60c0c018f7afb4354815096a">打开完整页面 →</a>
 
 `地图：工厂`
 
@@ -372,6 +406,8 @@ tags:
 <h3 id="q18" data-qid="5d25e44386f77409453bce7b">猎人之路 - 愤怒守望者<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Angry Watchman**
+
+<a href="../quest/?id=5d25e44386f77409453bce7b">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -389,6 +425,8 @@ tags:
 <h3 id="q19" data-qid="5d25e2c386f77443e7549029">猎人之路 - 战利品<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Trophy**
+
+<a href="../quest/?id=5d25e2c386f77443e7549029">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -408,6 +446,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Forest Cleaning**
 
+<a href="../quest/?id=5d25e2cc86f77443e47ae019">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Jaeger** ≥ 4（含义见[总览](index.md)）
@@ -422,6 +462,8 @@ tags:
 <h3 id="q21" data-qid="5d25e2ee86f77443e35162ea">猎人之路 - 森林管理员<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Woods Keeper**
+
+<a href="../quest/?id=5d25e2ee86f77443e35162ea">打开完整页面 →</a>
 
 `地图：森林`
 
@@ -442,6 +484,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Justice**
 
+<a href="../quest/?id=5d25e43786f7740a212217fa">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Jaeger** ≥ 3（含义见[总览](index.md)）
@@ -457,6 +501,8 @@ tags:
 <h3 id="q23" data-qid="6179ad0a6e9dd54ac275e3f2">猎人之路 - 流浪汉<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Outcasts**
+
+<a href="../quest/?id=6179ad0a6e9dd54ac275e3f2">打开完整页面 →</a>
 
 `地图：灯塔`
 
@@ -475,6 +521,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Sellout**
 
+<a href="../quest/?id=5d25e2e286f77444001e2e48">打开完整页面 →</a>
+
 `地图：立交桥`
 
 **要求**
@@ -489,6 +537,8 @@ tags:
 <h3 id="q25" data-qid="5d25e44f86f77443e625e385">猎人之路 - 蒸发密令 - 1<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Eraser**
+
+<a href="../quest/?id=5d25e44f86f77443e625e385">打开完整页面 →</a>
 
 `地图：储备站`
 
@@ -508,6 +558,8 @@ tags:
 <h3 id="q26" data-qid="5edab4b1218d181e29451435">猎人之路 - 虐待狂<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Sadist**
+
+<a href="../quest/?id=5edab4b1218d181e29451435">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -533,6 +585,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Liberation**
 
+<a href="../quest/?id=5d25e45e86f77408251c4bfa">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Jaeger** ≥ 4（含义见[总览](index.md)）
@@ -547,6 +601,8 @@ tags:
 <h3 id="q28" data-qid="5d25e48186f77443e625e386">礼节性拜访<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Courtesy Visit**
+
+<a href="../quest/?id=5d25e48186f77443e625e386">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -567,6 +623,8 @@ tags:
 <h3 id="q29" data-qid="63a88045abf76d719f42d715">美味香肠<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Delicious Sausage**
+
+<a href="../quest/?id=63a88045abf76d719f42d715">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -589,6 +647,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Rite of Passage**
 
+<a href="../quest/?id=675c1ec7a46173572a0bf20a">打开完整页面 →</a>
+
 `地图：海关`
 
 **接取条件**
@@ -608,6 +668,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Cease Fire**
 
+<a href="../quest/?id=639136e84ed9512be67647db">打开完整页面 →</a>
+
 `地图：塔科夫街区`
 
 **接取条件**
@@ -626,6 +688,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Thirsty Hounds**
 
+<a href="../quest/?id=665eeacf5d86b6c8aa03c79b">打开完整页面 →</a>
+
 `地图：海岸线`
 
 **接取条件**
@@ -641,6 +705,8 @@ tags:
 <h3 id="q33" data-qid="5bc479e586f7747f376c7da3">塔科夫神射手 - 2<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 2**
+
+<a href="../quest/?id=5bc479e586f7747f376c7da3">打开完整页面 →</a>
 
 `**Kappa 必需**`
 
@@ -661,6 +727,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 3**
 
+<a href="../quest/?id=5bc47dbf86f7741ee74e93b9">打开完整页面 →</a>
+
 `**Kappa 必需**`
 
 **接取条件**
@@ -679,6 +747,8 @@ tags:
 <h3 id="q35" data-qid="669fa3a08b4a64b332041ff7">妥善保管<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Dragnet**
+
+<a href="../quest/?id=669fa3a08b4a64b332041ff7">打开完整页面 →</a>
 
 `地图：工厂`
 
@@ -705,6 +775,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Every Hunter Knows This**
 
+<a href="../quest/?id=66b38e144f2ab7cc530c3fe7">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Jaeger** 忠诚 **LL2**
@@ -720,6 +792,8 @@ tags:
 <h3 id="q37" data-qid="5d25bfd086f77442734d3007">生存者之路 - Zhivchik<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Zhivchik**
+
+<a href="../quest/?id=5d25bfd086f77442734d3007">打开完整页面 →</a>
 
 **接取条件**
 
@@ -737,6 +811,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Unprotected But Dangerous**
 
+<a href="../quest/?id=5d25aed386f77442734d25d2">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**生存者之路 - Zhivchik**（Jaeger）
@@ -751,6 +827,8 @@ tags:
 <h3 id="q39" data-qid="5d25c81b86f77443e625dd71">生存者之路 - 受伤的野兽<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Wounded Beast**
+
+<a href="../quest/?id=5d25c81b86f77443e625dd71">打开完整页面 →</a>
 
 **接取条件**
 
@@ -767,6 +845,8 @@ tags:
 <h3 id="q40" data-qid="5d25b6be86f77444001e1b89">生存者之路 - 省吃俭用<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **The Survivalist Path Thrifty**
+
+<a href="../quest/?id=5d25b6be86f77444001e1b89">打开完整页面 →</a>
 
 `地图：森林`
 
@@ -794,6 +874,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Tough Guy**
 
+<a href="../quest/?id=5d25cf2686f77443e75488d4">打开完整页面 →</a>
+
 `地图：森林` ｜ `失败可重接`
 
 **接取条件**
@@ -818,6 +900,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **Reserve**
 
+<a href="../quest/?id=5d25e4d586f77443e625e388">打开完整页面 →</a>
+
 `地图：储备站`
 
 **接取条件**
@@ -835,6 +919,8 @@ tags:
 <h3 id="q43" data-qid="5bc480a686f7741af0342e29">塔科夫神射手 - 4<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 4**
+
+<a href="../quest/?id=5bc480a686f7741af0342e29">打开完整页面 →</a>
 
 `**Kappa 必需**`
 
@@ -855,6 +941,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 5**
 
+<a href="../quest/?id=5bc4826c86f774106d22d88b">打开完整页面 →</a>
+
 `地图：海关`
 
 **接取条件**
@@ -873,6 +961,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 5 2**
 
+<a href="../quest/?id=5bc4836986f7740c0152911c">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**塔科夫神射手 - 4**（Jaeger）
@@ -887,6 +977,8 @@ tags:
 <h3 id="q46" data-qid="5d25e2d886f77442734d335e">猎人之路 - 支配者<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Huntsman Path Controller**
+
+<a href="../quest/?id=5d25e2d886f77442734d335e">打开完整页面 →</a>
 
 **接取条件**
 
@@ -903,6 +995,8 @@ tags:
 <h3 id="q47" data-qid="639136df4b15ca31f76bc31f">猎人之路 - 管理者<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **The Huntsman Path Administrator**
+
+<a href="../quest/?id=639136df4b15ca31f76bc31f">打开完整页面 →</a>
 
 `地图：储备站`
 
@@ -928,6 +1022,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **The Huntsman Path Administrator 2**
 
+<a href="../quest/?id=6a45208043b8d7604d00b8d5">打开完整页面 →</a>
+
 `地图：灯塔`
 
 **出发前必带**
@@ -952,6 +1048,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Eagle Owl**
 
+<a href="../quest/?id=5d25e29d86f7740a22516326">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**生存者之路 - 冷血**（Jaeger）
@@ -966,6 +1064,8 @@ tags:
 <h3 id="q50" data-qid="5d25d2c186f77443e35162e5">生存者之路 - 冷血<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Cold Blooded**
+
+<a href="../quest/?id=5d25d2c186f77443e35162e5">打开完整页面 →</a>
 
 **接取条件**
 
@@ -982,6 +1082,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Combat Medic**
 
+<a href="../quest/?id=5d25e2a986f77409dd5cdf2a">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**生存者之路 - 雕鸮**（Jaeger）
@@ -997,6 +1099,8 @@ tags:
 <h3 id="q52" data-qid="63a511ea30d85e10e375b045">直播 - 3<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **Broadcast Part 3**
+
+<a href="../quest/?id=63a511ea30d85e10e375b045">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -1016,6 +1120,8 @@ tags:
 <h3 id="q53" data-qid="6391372c8ba6894d155e77d7">直播 - 4<a class="headerlink" href="#q53" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **Broadcast Part 4**
+
+<a href="../quest/?id=6391372c8ba6894d155e77d7">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -1040,6 +1146,8 @@ tags:
 <h3 id="q54" data-qid="64ee99639878a0569d6ec8c9">直播 - 5<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **Broadcast Part 5**
+
+<a href="../quest/?id=64ee99639878a0569d6ec8c9">打开完整页面 →</a>
 
 **出发前必带**
 
@@ -1066,6 +1174,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Hermit**
 
+<a href="../quest/?id=61904daa7d0d857927447b9c">打开完整页面 →</a>
+
 `地图：灯塔`
 
 **接取条件**
@@ -1086,6 +1196,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **Fishing Place**
 
+<a href="../quest/?id=5d25e4b786f77408251c4bfc">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Jaeger** 忠诚 **LL3**
@@ -1103,6 +1215,8 @@ tags:
 <h3 id="q57" data-qid="5d25e48d86f77408251c4bfb">黑幕交易<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv20** ｜ 前置 **2** 个 ｜ 英文名 **Shady Business**
+
+<a href="../quest/?id=5d25e48d86f77408251c4bfb">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1122,6 +1236,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv33** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 6**
 
+<a href="../quest/?id=5bc4856986f77454c317bea7">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Jaeger** 忠诚 **LL4**
@@ -1137,6 +1253,8 @@ tags:
 <h3 id="q59" data-qid="5bc4893c86f774626f5ebf3e">塔科夫神射手 - 7<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv33** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 7**
+
+<a href="../quest/?id=5bc4893c86f774626f5ebf3e">打开完整页面 →</a>
 
 `失败可重接`
 
@@ -1159,6 +1277,8 @@ tags:
 <h3 id="q60" data-qid="63a9b36cc31b00242d28a99f">屠宰场<a class="headerlink" href="#q60" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv33** ｜ **无前置** ｜ 英文名 **Slaughterhouse**
+
+<a href="../quest/?id=63a9b36cc31b00242d28a99f">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1183,6 +1303,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv33** ｜ **无前置** ｜ 英文名 **Stray Dogs**
 
+<a href="../quest/?id=626bdcc3a371ee3a7a3514c5">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Jaeger** 忠诚 **LL4**
@@ -1200,6 +1322,8 @@ tags:
 <h3 id="q62" data-qid="6a4532e48e82d8ffea0c3eae">猎人之路 - 控制<a class="headerlink" href="#q62" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv33** ｜ **无前置** ｜ 英文名 **The Huntsman Path Control**
+
+<a href="../quest/?id=6a4532e48e82d8ffea0c3eae">打开完整页面 →</a>
 
 `地图：实验室`
 
@@ -1220,6 +1344,8 @@ tags:
 
 **Jaeger** ｜ 需 **Lv33** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Junkie**
 
+<a href="../quest/?id=5eaaaa7c93afa0558f3b5a1c">打开完整页面 →</a>
+
 `地图：森林`
 
 **接取条件**
@@ -1239,6 +1365,8 @@ tags:
 <h3 id="q64" data-qid="60e71e8ed54b755a3b53eb67">猎人之路 - 无情杀手<a class="headerlink" href="#q64" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv55** ｜ **无前置** ｜ 英文名 **The Huntsman Path Relentless**
+
+<a href="../quest/?id=60e71e8ed54b755a3b53eb67">打开完整页面 →</a>
 
 `失败可重接`
 

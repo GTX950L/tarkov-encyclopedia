@@ -107,6 +107,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Polikhim Hobo**
 
+<a href="../quest/?id=5979f8bb86f7743ec214c7a6">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Skier** ≥ 2（含义见[总览](index.md)）
@@ -121,6 +123,8 @@ tags:
 <h3 id="q02" data-qid="5979ed3886f77431307dc512">U盘里有什么？<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Whats on the Flash Drive**
+
+<a href="../quest/?id=5979ed3886f77431307dc512">打开完整页面 →</a>
 
 **接取条件**
 
@@ -137,6 +141,8 @@ tags:
 <h3 id="q03" data-qid="6745fae369a58fceba10343d">人往高处走<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **The Higher They Fly**
+
+<a href="../quest/?id=6745fae369a58fceba10343d">打开完整页面 →</a>
 
 `地图：森林`
 
@@ -159,6 +165,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Supplier**
 
+<a href="../quest/?id=596b36c586f77450d6045ad2">打开完整页面 →</a>
+
 **接取条件**
 
 - **需先对话**：**Skier**
@@ -174,6 +182,8 @@ tags:
 <h3 id="q05" data-qid="5b478ff486f7744d184ecbbf">供货<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Supplements**
+
+<a href="../quest/?id=5b478ff486f7744d184ecbbf">打开完整页面 →</a>
 
 **接取条件**
 
@@ -195,6 +205,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Setup**
 
+<a href="../quest/?id=5c1234c286f77406fa13baeb">打开完整页面 →</a>
+
 `地图：海关`
 
 **接取条件**
@@ -211,6 +223,8 @@ tags:
 <h3 id="q07" data-qid="674600a366e6a521aa05eb66">偏离路线<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Route Deviation**
+
+<a href="../quest/?id=674600a366e6a521aa05eb66">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -245,6 +259,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Key Partner**
 
+<a href="../quest/?id=6746053b5b555b53460d9896">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**后知后觉**（Skier）
@@ -263,6 +279,8 @@ tags:
 <h3 id="q09" data-qid="5979f9ba86f7740f6c3fe9f2">化学品 - 1<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Chemical Part 1**
+
+<a href="../quest/?id=5979f9ba86f7740f6c3fe9f2">打开完整页面 →</a>
 
 `**Kappa 必需**` ｜ `地图：海关`
 
@@ -291,6 +309,8 @@ tags:
 <h3 id="q10" data-qid="597a0b2986f77426d66c0633">化学品 - 2<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Chemical Part 2**
+
+<a href="../quest/?id=597a0b2986f77426d66c0633">打开完整页面 →</a>
 
 `**Kappa 必需**` ｜ `地图：海关`
 
@@ -321,6 +341,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Connections Up North**
 
+<a href="../quest/?id=6764174c86addd02bc033d68">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Skier** ≥ 1（含义见[总览](index.md)）
@@ -338,6 +360,8 @@ tags:
 <h3 id="q12" data-qid="6572e876dc0d635f633a5714">发财计划<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pyramid Scheme**
+
+<a href="../quest/?id=6572e876dc0d635f633a5714">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -373,6 +397,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Hindsight 2020**
 
+<a href="../quest/?id=674602307e3818d5bb069489">打开完整页面 →</a>
+
 `地图：森林`
 
 **出发前必带**
@@ -403,6 +429,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Night Sweep**
 
+<a href="../quest/?id=60e71c11d54b755a3b53eb65">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Skier** ≥ 1（含义见[总览](index.md)）
@@ -422,6 +450,8 @@ tags:
 <h3 id="q15" data-qid="626bd75d5bef5d7d590bd415">头号机密<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Top Secret**
+
+<a href="../quest/?id=626bd75d5bef5d7d590bd415">打开完整页面 →</a>
 
 `地图：灯塔`
 
@@ -450,6 +480,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Safe Corridor**
 
+<a href="../quest/?id=6089743983426423753cd58a">打开完整页面 →</a>
+
 `地图：储备站`
 
 **接取条件**
@@ -467,6 +499,8 @@ tags:
 <h3 id="q17" data-qid="67af4c1d8c9482eca103e477">安慰奖<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Consolation Prize**
+
+<a href="../quest/?id=67af4c1d8c9482eca103e477">打开完整页面 →</a>
 
 `地图：实验室`
 
@@ -496,6 +530,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Informed Means Armed**
 
+<a href="../quest/?id=5b47926a86f7747ccc057c15">打开完整页面 →</a>
+
 **出发前必带**
 
 - **物品**：**WIFI摄像头**（地图：森林、立交桥）
@@ -518,6 +554,8 @@ tags:
 <h3 id="q19" data-qid="596b43fb86f77457ca186186">敲诈者<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Extortionist**
+
+<a href="../quest/?id=596b43fb86f77457ca186186">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -546,6 +584,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Kind of Sabotage**
 
+<a href="../quest/?id=596a101f86f7741ddb481582">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**供给计划**（Therapist）（**只要该任务处于进行中**，不必完成）
@@ -566,6 +606,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **No Swiping**
 
+<a href="../quest/?id=658027799634223183395339">打开完整页面 →</a>
+
 `地图：海岸线`
 
 **接取条件**
@@ -582,6 +624,8 @@ tags:
 <h3 id="q22" data-qid="675c3582f6ddc329a90f9c6d">私人俱乐部<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Private Club**
+
+<a href="../quest/?id=675c3582f6ddc329a90f9c6d">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -600,6 +644,8 @@ tags:
 <h3 id="q23" data-qid="64f6aafd67e11a7c6206e0d0">秘制食谱<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Secret Recipe**
+
+<a href="../quest/?id=64f6aafd67e11a7c6206e0d0">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -625,6 +671,8 @@ tags:
 <h3 id="q24" data-qid="5b478eca86f7744642012254">维他命<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Vitamins**
+
+<a href="../quest/?id=5b478eca86f7744642012254">打开完整页面 →</a>
 
 **出发前必带**
 
@@ -653,6 +701,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Debtor**
 
+<a href="../quest/?id=639dbaf17c898a131e1cffff">打开完整页面 →</a>
+
 `地图：塔科夫街区`
 
 **接取条件**
@@ -672,6 +722,8 @@ tags:
 <h3 id="q26" data-qid="5edabd13218d181e29451442">肮脏游戏<a class="headerlink" href="#q26" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Rigged Game**
+
+<a href="../quest/?id=5edabd13218d181e29451442">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -699,6 +751,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Killer Argument**
 
+<a href="../quest/?id=674605df60a98cad1b0ec799">打开完整页面 →</a>
+
 `地图：森林`
 
 **接取条件**
@@ -721,6 +775,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Friend From the West**
 
+<a href="../quest/?id=5a27c99a86f7747d2c6bdd8e">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Skier** ≥ 3（含义见[总览](index.md)）
@@ -735,6 +791,8 @@ tags:
 <h3 id="q29" data-qid="67460662d0fbbc74ca0f7229">识时务者为俊杰<a class="headerlink" href="#q29" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **Choose Your Friends Wisely**
+
+<a href="../quest/?id=67460662d0fbbc74ca0f7229">打开完整页面 →</a>
 
 **接取条件**
 
@@ -761,6 +819,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **From Hand to Hand**
 
+<a href="../quest/?id=5c0d0f1886f77457b8210226">打开完整页面 →</a>
+
 `地图：灯塔`
 
 **出发前必带**
@@ -785,6 +845,8 @@ tags:
 <h3 id="q31" data-qid="639135c3744e452011470807">软禁<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **House Arrest**
+
+<a href="../quest/?id=639135c3744e452011470807">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -813,6 +875,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Golden Swag**
 
+<a href="../quest/?id=5979eee086f774311955e614">打开完整页面 →</a>
+
 `地图：海关`
 
 **出发前必带**
@@ -840,6 +904,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Long Road**
 
+<a href="../quest/?id=6193850f60b34236ee0483de">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Skier** ≥ 1（含义见[总览](index.md)）
@@ -855,6 +921,8 @@ tags:
 <h3 id="q34" data-qid="669fa39c64ea11e84c0642a6">隔墙有“眼”<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Walls Have Eyes**
+
+<a href="../quest/?id=669fa39c64ea11e84c0642a6">打开完整页面 →</a>
 
 `地图：工厂`
 
@@ -883,6 +951,8 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Stirrup**
 
+<a href="../quest/?id=596b455186f77457cb50eccb">打开完整页面 →</a>
+
 `地图：工厂`
 
 **接取条件**
@@ -899,6 +969,8 @@ tags:
 <h3 id="q36" data-qid="657315e270bb0b8dba00cc48">快车初体验<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv1** ｜ **无前置** ｜ 英文名 **Burning Rubber**
+
+<a href="../quest/?id=657315e270bb0b8dba00cc48">打开完整页面 →</a>
 
 `地图：中心区`
 
@@ -918,6 +990,8 @@ tags:
 
 **Skier** ｜ 需 **Lv7** ｜ **无前置** ｜ 英文名 **Exit Here**
 
+<a href="../quest/?id=669fa395c4c5c04798002497">打开完整页面 →</a>
+
 `地图：工厂`
 
 **接取条件**
@@ -934,6 +1008,8 @@ tags:
 <h3 id="q38" data-qid="64f5e20652fc01298e2c61e3">好吃到上瘾<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv7** ｜ **无前置** ｜ 英文名 **Beyond the Red Meat**
+
+<a href="../quest/?id=64f5e20652fc01298e2c61e3">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -960,6 +1036,8 @@ tags:
 
 **Skier** ｜ 需 **Lv7** ｜ **无前置** ｜ 英文名 **Chumming**
 
+<a href="../quest/?id=5b4795fb86f7745876267770">打开完整页面 →</a>
+
 **出发前必带**
 
 - **物品**：**金项链**（地图：森林、海关）
@@ -983,6 +1061,8 @@ tags:
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Chemical Part 3**
 
+<a href="../quest/?id=597a0e5786f77426d66c0636">打开完整页面 →</a>
+
 `**Kappa 必需**` ｜ `地图：工厂`
 
 **接取条件**
@@ -1001,6 +1081,8 @@ tags:
 <h3 id="q41" data-qid="597a0f5686f774273b74f676">化学品 - 4<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Chemical Part 4**
+
+<a href="../quest/?id=597a0f5686f774273b74f676">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -1032,6 +1114,8 @@ tags:
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Thirsty Breadwinner**
 
+<a href="../quest/?id=665eec1f5e47a79f8605565a">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**口干舌燥 - 猎犬行动**（Jaeger）
@@ -1046,6 +1130,8 @@ tags:
 <h3 id="q43" data-qid="665eec4a4dfc83b0ed0a9dca">口干舌燥 - 送货服务<a class="headerlink" href="#q43" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Thirsty Delivery**
+
+<a href="../quest/?id=665eec4a4dfc83b0ed0a9dca">打开完整页面 →</a>
 
 **出发前必带**
 
@@ -1071,6 +1157,8 @@ tags:
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Loyalty Buyout**
 
+<a href="../quest/?id=59c93e8e86f7742a406989c4">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**化学品 - 4**（Skier）（**只要求该任务失败过**）
@@ -1085,6 +1173,8 @@ tags:
 <h3 id="q45" data-qid="5a27d2af86f7744e1115b323">西方来客 - 2<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Friend From the West Part 2**
+
+<a href="../quest/?id=5a27d2af86f7744e1115b323">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1103,6 +1193,8 @@ tags:
 <h3 id="q46" data-qid="66058cb22cee99303f1ba067">赚点快钱 - 1（PVP）<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv10** ｜ **无前置** ｜ 英文名 **Easy Money Part 1 Pvp Zone**
+
+<a href="../quest/?id=66058cb22cee99303f1ba067">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -1128,6 +1220,8 @@ tags:
 
 **Skier** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Proper Comeback**
 
+<a href="../quest/?id=666314c3acf8442f8b0531a3">打开完整页面 →</a>
+
 **出发前必带**
 
 - **物品**：**金公鸡塑像**（地图：工厂、森林、海岸线）
@@ -1150,6 +1244,8 @@ tags:
 
 **Skier** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Serious Allegations**
 
+<a href="../quest/?id=666314bf1cd52e3d040a2e78">打开完整页面 →</a>
+
 `地图：海岸线`
 
 **接取条件**
@@ -1166,6 +1262,8 @@ tags:
 <h3 id="q49" data-qid="666314bc1d3ec95634095e77">高光时刻<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Minute of Fame**
+
+<a href="../quest/?id=666314bc1d3ec95634095e77">打开完整页面 →</a>
 
 `地图：立交桥`
 
@@ -1187,6 +1285,8 @@ tags:
 
 **Skier** ｜ 需 **Lv22** ｜ **无前置** ｜ 英文名 **Missing Cargo**
 
+<a href="../quest/?id=6179b4f16e9dd54ac275e407">打开完整页面 →</a>
+
 `地图：灯塔`
 
 **接取条件**
@@ -1206,6 +1306,8 @@ tags:
 
 **Skier** ｜ 需 **Lv22** ｜ **无前置** ｜ 英文名 **Classified Technologies**
 
+<a href="../quest/?id=60896888e4a85c72ef3fa300">打开完整页面 →</a>
+
 `地图：储备站`
 
 **接取条件**
@@ -1223,6 +1325,8 @@ tags:
 <h3 id="q52" data-qid="671a49f77d49aea42c029b5f">诱人新货<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv22** ｜ **无前置** ｜ 英文名 **Irresistible**
+
+<a href="../quest/?id=671a49f77d49aea42c029b5f">打开完整页面 →</a>
 
 `地图：立交桥`
 
@@ -1249,6 +1353,8 @@ tags:
 
 **Skier** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **Indisputable Authority**
 
+<a href="../quest/?id=67a097379f2068e74603c6ac">打开完整页面 →</a>
+
 `地图：迷宫`
 
 **接取条件**
@@ -1268,6 +1374,8 @@ tags:
 <h3 id="q54" data-qid="639135cd8ba6894d155e77cb">软禁 - 2<a class="headerlink" href="#q54" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv33** ｜ 前置 **1** 个 ｜ 英文名 **House Arrest Part 2**
+
+<a href="../quest/?id=639135cd8ba6894d155e77cb">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -1295,6 +1403,8 @@ tags:
 
 **Skier** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Flint**
 
+<a href="../quest/?id=5c0bdb5286f774166e38eed4">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**愿者上钩**（Skier）
@@ -1310,6 +1420,8 @@ tags:
 <h3 id="q56" data-qid="5c0bbaa886f7746941031d82">一派胡言<a class="headerlink" href="#q56" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv38** ｜ **无前置** ｜ 英文名 **Bullshit**
+
+<a href="../quest/?id=5c0bbaa886f7746941031d82">打开完整页面 →</a>
 
 `地图：灯塔` ｜ `失败可重接`
 
@@ -1347,6 +1459,8 @@ tags:
 
 **Skier** ｜ 需 **Lv38** ｜ **无前置** ｜ 英文名 **Silent Caliber**
 
+<a href="../quest/?id=5c0bc91486f7746ab41857a2">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Skier** 忠诚 **LL4**
@@ -1364,6 +1478,8 @@ tags:
 <h3 id="q58" data-qid="671a59e43d73dac1360765cc">致命道具<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv38** ｜ 前置 **1** 个 ｜ 英文名 **Dangerous Props**
+
+<a href="../quest/?id=671a59e43d73dac1360765cc">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1384,6 +1500,8 @@ tags:
 
 **Skier** ｜ 需 **Lv45** ｜ 前置 **1** 个 ｜ 英文名 **Fair Price Part 1**
 
+<a href="../quest/?id=68400926706e0a55e90b0007">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**同好俱乐部**（Mechanic）（**完成，或只要处于进行中**）
@@ -1397,6 +1515,8 @@ tags:
 <h3 id="q60" data-qid="68400953506db3b4db0700e7">公道价 - 2<a class="headerlink" href="#q60" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv45** ｜ 前置 **1** 个 ｜ 英文名 **Fair Price Part 2**
+
+<a href="../quest/?id=68400953506db3b4db0700e7">打开完整页面 →</a>
 
 `地图：森林`
 
@@ -1417,6 +1537,8 @@ tags:
 <h3 id="q61" data-qid="67af4c1cc0e59d55e2010b97">人生之课<a class="headerlink" href="#q61" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **A Life Lesson**
+
+<a href="../quest/?id=67af4c1cc0e59d55e2010b97">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1443,6 +1565,8 @@ tags:
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **Profit Retention**
 
+<a href="../quest/?id=67af4c1a6c3ebfd8e6034916">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**人生之课**（Skier）
@@ -1467,6 +1591,8 @@ tags:
 <h3 id="q63" data-qid="67af4c17f4f1fb58a907f8f6">学无止境<a class="headerlink" href="#q63" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **Never Too Late to Learn**
+
+<a href="../quest/?id=67af4c17f4f1fb58a907f8f6">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1493,6 +1619,8 @@ tags:
 
 **Skier** ｜ 需 **Lv50** ｜ **无前置** ｜ 英文名 **Safety Guarantee**
 
+<a href="../quest/?id=67af4c169d95ad16e004fd86">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Skier** 忠诚 **LL4**
@@ -1518,6 +1646,8 @@ tags:
 
 **Skier** ｜ 需 **Lv50** ｜ **无前置** ｜ 英文名 **Profitable Venture**
 
+<a href="../quest/?id=67af4c1405c58dc6f7056667">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Skier** 忠诚 **LL4**
@@ -1540,6 +1670,8 @@ tags:
 <h3 id="q66" data-qid="67af4c1991ee75c6d7060a16">站稳脚跟<a class="headerlink" href="#q66" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **Get a Foothold**
+
+<a href="../quest/?id=67af4c1991ee75c6d7060a16">打开完整页面 →</a>
 
 **接取条件**
 

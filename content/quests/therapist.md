@@ -93,6 +93,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **General Wares**
 
+<a href="../quest/?id=596a1e6c86f7741ddc2d3206">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Therapist** ≥ 1（含义见[总览](index.md)）
@@ -109,6 +111,8 @@ tags:
 <h3 id="q02" data-qid="596a0e1686f7741ddf17dbee">供给计划<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Supply Plans**
+
+<a href="../quest/?id=596a0e1686f7741ddf17dbee">打开完整页面 →</a>
 
 `地图：森林`
 
@@ -134,6 +138,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **A Healthy Alternative**
 
+<a href="../quest/?id=669fa3910c828825de06d69f">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**悬结已解**（Peacekeeper）（**只要该任务处于进行中**，不必完成）
@@ -152,6 +158,8 @@ tags:
 <h3 id="q04" data-qid="64f731ab83cfca080a361e42">兽医也是医<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pets Wont Need It**
+
+<a href="../quest/?id=64f731ab83cfca080a361e42">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -182,6 +190,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Pets Wont Need It Part 2**
 
+<a href="../quest/?id=6573387d0b26ed4fde798de3">打开完整页面 →</a>
+
 `地图：塔科夫街区`
 
 **接取条件**
@@ -201,6 +211,8 @@ tags:
 <h3 id="q06" data-qid="5a68661a86f774500f48afb0">医疗隐私 - 1<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Health Care Privacy Part 1**
+
+<a href="../quest/?id=5a68661a86f774500f48afb0">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -223,6 +235,8 @@ tags:
 <h3 id="q07" data-qid="59689ee586f7740d1570bbd5">卫生标准<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Sanitary Standards**
+
+<a href="../quest/?id=59689ee586f7740d1570bbd5">打开完整页面 →</a>
 
 `地图：工厂`
 
@@ -249,6 +263,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Urban Medicine**
 
+<a href="../quest/?id=639135e0fa894f0a866afde6">打开完整页面 →</a>
+
 `地图：塔科夫街区`
 
 **接取条件**
@@ -269,6 +285,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Tarkov Butcher**
 
+<a href="../quest/?id=67a09673972c11a3f507731d">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Therapist** ≥ 4（含义见[总览](index.md)）
@@ -284,6 +302,8 @@ tags:
 <h3 id="q10" data-qid="5edaba7c0c502106f869bc02">塔科夫式手腕<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Tarkov Style Diplomacy**
+
+<a href="../quest/?id=5edaba7c0c502106f869bc02">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -312,6 +332,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Blood in the Water**
 
+<a href="../quest/?id=5968eb3186f7741dde183a4d">打开完整页面 →</a>
+
 `地图：海关`
 
 **接取条件**
@@ -328,6 +350,8 @@ tags:
 <h3 id="q12" data-qid="675c04f4db8807b75d0f38e8">平易近人<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Closer to the People**
+
+<a href="../quest/?id=675c04f4db8807b75d0f38e8">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -346,6 +370,8 @@ tags:
 <h3 id="q13" data-qid="64f3176921045e77405d63b5">急诊室的故事<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Paramedic**
+
+<a href="../quest/?id=64f3176921045e77405d63b5">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -366,6 +392,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **War Never Changes**
 
+<a href="../quest/?id=69ce204c8702b378f9091e4b">打开完整页面 →</a>
+
 `地图：破冰船`
 
 **要求**
@@ -378,6 +406,8 @@ tags:
 <h3 id="q15" data-qid="675c03d1f7da9792a405549a">无主货物<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Abandoned Cargo**
+
+<a href="../quest/?id=675c03d1f7da9792a405549a">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -410,6 +440,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Operation Aquarius**
 
+<a href="../quest/?id=59689fbd86f7740d137ebfc4">打开完整页面 →</a>
+
 `地图：海关`
 
 **出发前必带**
@@ -435,6 +467,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Car Repair**
 
+<a href="../quest/?id=596a218586f77420d232807c">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Therapist** ≥ 1（含义见[总览](index.md)）
@@ -454,6 +488,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Seaside Vacation**
 
+<a href="../quest/?id=6179ad56c760af5ad2053587">打开完整页面 →</a>
+
 `地图：灯塔`
 
 **接取条件**
@@ -472,6 +508,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Biochemistry**
 
+<a href="../quest/?id=69ce213a298a6529b30d7134">打开完整页面 →</a>
+
 `地图：破冰船`
 
 **接取条件**
@@ -488,6 +526,8 @@ tags:
 <h3 id="q20" data-qid="60896e28e4a85c72ef3fa301">病历<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Disease History**
+
+<a href="../quest/?id=60896e28e4a85c72ef3fa301">打开完整页面 →</a>
 
 `地图：储备站`
 
@@ -516,6 +556,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shortage**
 
+<a href="../quest/?id=5967733e86f774602332fc84">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Therapist** ≥ 1（含义见[总览](index.md)）
@@ -533,6 +575,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fall Ailment**
 
+<a href="../quest/?id=6a5424ae135497b9df0c68be">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Therapist** ≥ 4（含义见[总览](index.md)）
@@ -548,6 +592,8 @@ tags:
 <h3 id="q23" data-qid="626bd75b05f287031503c7f6">缉毒行动<a class="headerlink" href="#q23" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Drug Trafficking**
+
+<a href="../quest/?id=626bd75b05f287031503c7f6">打开完整页面 →</a>
 
 `地图：灯塔`
 
@@ -574,6 +620,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **A Difficult Choice**
 
+<a href="../quest/?id=5edac34d0bb72a50635c2bfa">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**猎人之路 - 虐待狂**（Jaeger）（**只要该任务处于进行中**，不必完成）
@@ -598,6 +646,8 @@ tags:
 <h3 id="q25" data-qid="5969f9e986f7741dde183a50">药剂师<a class="headerlink" href="#q25" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pharmacist**
+
+<a href="../quest/?id=5969f9e986f7741dde183a50">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -626,6 +676,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shipment Tracking**
 
+<a href="../quest/?id=675c047fa46173572a0bd878">打开完整页面 →</a>
+
 `地图：海关`
 
 **出发前必带**
@@ -651,6 +703,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Postman Pat Part 2**
 
+<a href="../quest/?id=596760e186f7741e11214d58">打开完整页面 →</a>
+
 `**Kappa 必需**`
 
 **接取条件**
@@ -667,6 +721,8 @@ tags:
 <h3 id="q28" data-qid="657315ddab5a49b71f098853">新手上路<a class="headerlink" href="#q28" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv1** ｜ **无前置** ｜ 英文名 **First in Line**
+
+<a href="../quest/?id=657315ddab5a49b71f098853">打开完整页面 →</a>
 
 `地图：中心区`
 
@@ -686,6 +742,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv5** ｜ **无前置** ｜ 英文名 **Population Census**
 
+<a href="../quest/?id=639135d89444fb141f4e6eea">打开完整页面 →</a>
+
 `地图：塔科夫街区`
 
 **接取条件**
@@ -704,6 +762,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv5** ｜ **无前置** ｜ 英文名 **All Is Revealed**
 
+<a href="../quest/?id=669fa39ee749756c920d02c8">打开完整页面 →</a>
+
 `地图：工厂`
 
 **接取条件**
@@ -721,6 +781,8 @@ tags:
 <h3 id="q31" data-qid="5a68663e86f774501078f78a">医疗隐私 - 2<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv5** ｜ 前置 **1** 个 ｜ 英文名 **Health Care Privacy Part 2**
+
+<a href="../quest/?id=5a68663e86f774501078f78a">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -749,6 +811,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv5** ｜ 前置 **1** 个 ｜ 英文名 **Health Care Privacy Part 3**
 
+<a href="../quest/?id=5a68665c86f774255929b4c7">打开完整页面 →</a>
+
 `地图：森林`
 
 **接取条件**
@@ -767,6 +831,8 @@ tags:
 <h3 id="q33" data-qid="59c9392986f7742f6923add2">救助站点<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv5** ｜ **无前置** ｜ 英文名 **Aid Stations**
+
+<a href="../quest/?id=59c9392986f7742f6923add2">打开完整页面 →</a>
 
 **接取条件**
 
@@ -790,6 +856,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv8** ｜ 前置 **1** 个 ｜ 英文名 **Sanitary Standards Part 2**
 
+<a href="../quest/?id=596a204686f774576d4c95de">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**卫生标准**（Therapist）
@@ -805,6 +873,8 @@ tags:
 <h3 id="q35" data-qid="597a160786f77477531d39d2">出于好奇<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Out of Curiosity**
+
+<a href="../quest/?id=597a160786f77477531d39d2">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -835,6 +905,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Thirsty Echo**
 
+<a href="../quest/?id=665eeca45d86b6c8aa03c79d">打开完整页面 →</a>
+
 `地图：海岸线`
 
 **接取条件**
@@ -852,6 +924,8 @@ tags:
 <h3 id="q37" data-qid="665eeca92f7aedcc900b0437">口干舌燥 - 秘密配方<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Thirsty Secrets**
+
+<a href="../quest/?id=665eeca92f7aedcc900b0437">打开完整页面 →</a>
 
 **接取条件**
 
@@ -871,6 +945,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Quality Standard**
 
+<a href="../quest/?id=666314b696a9349baa021bac">打开完整页面 →</a>
+
 `地图：实验室`
 
 **接取条件**
@@ -889,6 +965,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv15** ｜ 前置 **1** 个 ｜ 英文名 **Dangerous Road**
 
+<a href="../quest/?id=63ab180c87413d64ae0ac20a">打开完整页面 →</a>
+
 `地图：塔科夫街区`
 
 **接取条件**
@@ -906,6 +984,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv18** ｜ 前置 **1** 个 ｜ 英文名 **An Apple a Day Keeps the Doctor Away**
 
+<a href="../quest/?id=5d6fb2c086f77449da599c24">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**医疗隐私 - 4**（Therapist）（**完成，或只要处于进行中**）
@@ -920,6 +1000,8 @@ tags:
 <h3 id="q41" data-qid="5a68667486f7742607157d28">医疗隐私 - 4<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv18** ｜ 前置 **1** 个 ｜ 英文名 **Health Care Privacy Part 4**
+
+<a href="../quest/?id=5a68667486f7742607157d28">打开完整页面 →</a>
 
 **接取条件**
 
@@ -936,6 +1018,8 @@ tags:
 <h3 id="q42" data-qid="5a68669a86f774255929b4d4">医疗隐私 - 5<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv18** ｜ 前置 **1** 个 ｜ 英文名 **Health Care Privacy Part 5**
+
+<a href="../quest/?id=5a68669a86f774255929b4d4">打开完整页面 →</a>
 
 `地图：夜间工厂`
 
@@ -961,6 +1045,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv18** ｜ **无前置** ｜ 英文名 **Colleagues**
 
+<a href="../quest/?id=5edab736cc183c769d778bc2">打开完整页面 →</a>
+
 `地图：海岸线`
 
 **接取条件**
@@ -981,6 +1067,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv18** ｜ **无前置** ｜ 英文名 **Charity**
 
+<a href="../quest/?id=5969f90786f77420d2328015">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Therapist** 忠诚 **LL3**
@@ -996,6 +1084,8 @@ tags:
 <h3 id="q45" data-qid="6179afd0bca27a099552e040">消失的线人<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv18** ｜ **无前置** ｜ 英文名 **Lost Contact**
+
+<a href="../quest/?id=6179afd0bca27a099552e040">打开完整页面 →</a>
 
 `地图：灯塔`
 
@@ -1017,6 +1107,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **This Tape Sucks**
 
+<a href="../quest/?id=67a0972e77dd677f600804bd">打开完整页面 →</a>
+
 `地图：迷宫`
 
 **接取条件**
@@ -1037,6 +1129,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv30** ｜ 前置 **1** 个 ｜ 英文名 **Athlete**
 
+<a href="../quest/?id=5c0d0d5086f774363760aef2">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**医疗隐私 - 4**（Therapist）
@@ -1052,6 +1146,8 @@ tags:
 <h3 id="q48" data-qid="5c0be5fc86f774467a116593">私人诊所<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Private Clinic**
+
+<a href="../quest/?id=5c0be5fc86f774467a116593">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1070,6 +1166,8 @@ tags:
 <h3 id="q49" data-qid="669fa3a3ad7f1eac2607ed48">医疗隐私 - 6<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv37** ｜ 前置 **1** 个 ｜ 英文名 **Health Care Privacy Part 6**
+
+<a href="../quest/?id=669fa3a3ad7f1eac2607ed48">打开完整页面 →</a>
 
 `地图：工厂`
 
@@ -1099,6 +1197,8 @@ tags:
 
 **Therapist** ｜ 需 **Lv37** ｜ **无前置** ｜ 英文名 **Decontamination Service**
 
+<a href="../quest/?id=5c0d1c4cd0928202a02a6f5c">打开完整页面 →</a>
+
 `地图：实验室`
 
 **接取条件**
@@ -1118,6 +1218,8 @@ tags:
 <h3 id="q51" data-qid="66aba85403e0ee3101042877">街区之下<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv37** ｜ **无前置** ｜ 英文名 **Beneath the Streets**
+
+<a href="../quest/?id=66aba85403e0ee3101042877">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1142,6 +1244,8 @@ tags:
 <h3 id="q52" data-qid="60e71c48c1bfa3050473b8e5">急单<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
 **Therapist** ｜ 需 **Lv38** ｜ **无前置** ｜ 英文名 **Crisis**
+
+<a href="../quest/?id=60e71c48c1bfa3050473b8e5">打开完整页面 →</a>
 
 **接取条件**
 

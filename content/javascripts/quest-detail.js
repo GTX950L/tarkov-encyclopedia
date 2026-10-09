@@ -1,0 +1,312 @@
+/* ==========================================================================
+   单个任务详情视图页（content/quests/quest.md）
+   --------------------------------------------------------------------------
+   定位：**一个视图页承载 515 个任务的详情**，不是 515 个 HTML。
+
+   为什么不做成每件一个页面
+   ------------------------
+   站点每页平均约 146 KB，其中绝大部分是站点框架（侧栏 nav + 主题）——
+   515 页既拖慢构建也难维护，而每页真正的内容只有 1 KB 上下。
+   所以这一页按地址里的 ``?id=<任务id>`` 渲染：链接可分享、可收藏、可刷新恢复。
+
+   数据从哪来
+   ----------
+   ``quest-detail-<NN>.js`` 共 32 片（由 scripts/gen_quests.py 生成），
+   按**任务 id 的十六进制数字之和 % 32** 定位。
+
+   ⚠️ 片数 32 与分片算法在**生成器与本文件各写一遍**，改一处必须改另一处。
+      不一致的表现是：拉错片 → 查不到该 id → 静默显示「找不到这个任务」。
+      算法用「数字和取模」而不是 id 首字符：物品侧实测首字符只有 5/6 两种，
+      按它切只得到 2 片。
+
+   ⚠️ 本页**不加载**进度看板与任务树的数据（progress-manifest / quests-graph）——
+      分片是自包含的。这是「弱网可读」的关键：单次只下约 15 KB。
+   ========================================================================== */
+
+(function () {
+  "use strict";
+
+  var SHARDS = 32;         /* ⚠️ 必须等于 scripts/gen_quests.py 的 QUEST_DETAIL_SHARDS */
+  var cache = {};          /* 片名 → 数据 */
+
+  function siteRoot() {
+    var s = document.querySelector('script[src*="toolbox.js"]');
+    if (!s || !s.src) return "";
+    return s.src.replace(/javascripts\/[^/]*$/, "");
+  }
+
+  function shardKey(id) {
+    var s = 0;
+    for (var i = 0; i < id.length; i++) {
+      var v = parseInt(id.charAt(i), 16);
+      if (!isNaN(v)) s += v;
+    }
+    return s % SHARDS;
+  }
+
+  function shardFile(id) {
+    var k = shardKey(id);
+    return "quest-detail-" + (k < 10 ? "0" + k : String(k)) + ".js";
+  }
+
+  function param(name) {
+    try { return new URLSearchParams(location.search || "").get(name); }
+    catch (e) { return null; }
+  }
+
+  function questUrl(id) {
+    return siteRoot() + "quests/quest/?id=" + encodeURIComponent(id);
+  }
+
+  /* ---------------------------------------------------------------- DOM */
+
+  function el(tag, cls, txt) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (txt != null) e.textContent = txt;
+    return e;
+  }
+
+  function h(level, txt) { return el("h" + level, null, txt); }
+
+  /* 把生成器写下的 ``**粗体**`` 变成真元素 —— 生成器复用 render_objective /
+     render_rewards 输出 markdown，这里只解析这一种内联记号，不引 markdown 库。 */
+  function rich(text) {
+    var frag = document.createDocumentFragment();
+    String(text == null ? "" : text).split("**").forEach(function (seg, i) {
+      if (i % 2 === 1) frag.appendChild(el("strong", null, seg));
+      else frag.appendChild(document.createTextNode(seg));
+    });
+    return frag;
+  }
+
+  function p(text) { var e = el("p"); e.appendChild(rich(text)); return e; }
+
+  function ul(items, render) {
+    var list = document.createElement("ul");
+    items.forEach(function (x) {
+      var li = document.createElement("li");
+      if (render) render(li, x); else li.appendChild(rich(x));
+      list.appendChild(li);
+    });
+    return list;
+  }
+
+  /* 一行「任务名 → 详情页」；同名任务没有 id（生成器已判重名），退成纯文本 */
+  function questLink(li, pair) {
+    var name = pair[0], id = pair[1];
+    if (id) {
+      var a = el("a", null, name);
+      a.href = questUrl(id);
+      li.appendChild(a);
+    } else {
+      li.appendChild(document.createTextNode(name));
+    }
+  }
+
+  /* --------------------------------------------------------------- 数据 */
+
+  function loadShard(id, cb) {
+    var f = shardFile(id);
+    if (cache[f]) { cb(cache[f]); return; }
+    var s = document.createElement("script");
+    s.src = siteRoot() + "javascripts/" + f;
+    s.onload = function () {
+      /* 分片脚本执行时挂到 window.TARKOV_QUEST_DETAIL_ONE —— 必须**在 onload 里
+         立刻取走**，否则下一片加载会把它覆盖掉。 */
+      cache[f] = window.TARKOV_QUEST_DETAIL_ONE || {};
+      cb(cache[f]);
+    };
+    s.onerror = function () { cb(null); };
+    document.head.appendChild(s);
+  }
+
+  /* --------------------------------------------------------------- 渲染 */
+
+  function renderMissing(host, id) {
+    host.textContent = "";
+    var a = el("p");
+    a.appendChild(document.createTextNode("找不到 ID 为 "));
+    a.appendChild(el("code", null, id || "（空）"));
+    a.appendChild(document.createTextNode(
+      " 的任务。可能是 ID 抄错了，也可能这个任务在当前版本已被移除。"));
+    host.appendChild(a);
+    var b = el("p");
+    b.appendChild(document.createTextNode("去"));
+    var lk = el("a", null, "任务图鉴总览");
+    lk.href = siteRoot() + "quests/";
+    b.appendChild(lk);
+    b.appendChild(document.createTextNode("按商人或等级找，或用"));
+    var lk2 = el("a", null, "我的进度");
+    lk2.href = siteRoot() + "quests/progress/";
+    b.appendChild(lk2);
+    b.appendChild(document.createTextNode("看手上正在做的。"));
+    host.appendChild(b);
+  }
+
+  function renderEmpty(host) {
+    host.textContent = "";
+    var a = el("p");
+    a.appendChild(document.createTextNode("这一页要用任务 ID 打开 —— 从"));
+    var lk = el("a", null, "任务图鉴");
+    lk.href = siteRoot() + "quests/";
+    a.appendChild(lk);
+    a.appendChild(document.createTextNode(
+      "里点任意一个任务，或在任务名上右键复制链接即可直达。"
+      + "地址形如 quests/quest/?id=<任务ID>。"));
+    host.appendChild(a);
+  }
+
+  function renderDetail(host, id, it) {
+    host.textContent = "";
+
+    /* ---- 标题与标识 ---- */
+    host.appendChild(h(3, it.n));
+    var ident = el("p");
+    if (it.e) {
+      ident.appendChild(document.createTextNode("英文名 "));
+      ident.appendChild(el("code", null, it.e));
+      ident.appendChild(document.createTextNode("　｜　"));
+    }
+    ident.appendChild(document.createTextNode("任务 ID "));
+    ident.appendChild(el("code", null, id));
+    host.appendChild(ident);
+
+    /* ---- 概览：商人 / 等级 / 地图 / 主线标记 ---- */
+    var tags = [it.t + " 发布", "需 Lv" + it.lv];
+    if (it.m) tags.push("地图：" + it.m);
+    if (it.f) tags.push("仅 " + it.f);
+    if (it.pr) tags.push("需转生 ×" + it.pr);
+    if (it.k) tags.push("Kappa 线");
+    if (it.lk) tags.push("Lightkeeper 线");
+    if (it.rs) tags.push("可重接");
+    if (it.d) tags.push("接取后延迟 " + it.d + " 秒");
+    var tagLine = el("p");
+    tags.forEach(function (t, i) {
+      if (i) tagLine.appendChild(document.createTextNode("　·　"));
+      tagLine.appendChild(el("strong", null, t));
+    });
+    host.appendChild(tagLine);
+
+    /* ---- 接取门槛 ---- */
+    var g = it.gates || [];
+    var needGate = g.length || (it.pre || []).length || (it.oth || []).length;
+    if (needGate) {
+      host.appendChild(h(4, "🎯 接取门槛"));
+      if ((it.pre || []).length) {
+        host.appendChild(p("**前置任务**（做完才能接）"));
+        host.appendChild(ul(it.pre, questLink));
+      }
+      if (g.length) {
+        var segs = g.map(function (x) {
+          var label = x[1] === "level" ? "忠诚 LL" + x[3] : "声望 " + (x[2] || "") + " " + x[3];
+          return x[0] + " " + label;
+        });
+        host.appendChild(p("**商人门槛**：" + segs.join(" ｜ ")));
+      }
+      if ((it.oth || []).length) {
+        host.appendChild(p("**其他条件**"));
+        host.appendChild(ul(it.oth));
+      }
+    }
+
+    /* ---- 任务目标 ---- */
+    host.appendChild(h(4, "📋 任务目标"));
+    if ((it.o || []).length) host.appendChild(ul(it.o));
+    else host.appendChild(p("这个任务在数据端点里没有逐条登记目标。"));
+
+    /* ---- 完成奖励 ---- */
+    if ((it.rw || []).length) {
+      host.appendChild(h(4, "🎁 完成奖励"));
+      var list = document.createElement("ul");
+      it.rw.forEach(function (line) {
+        var m = String(line).match(/^(\s*)- (.*)$/);
+        if (!m) return;
+        var li = document.createElement("li");
+        /* 生成器用「两个空格缩进」表示子项（声望 / 技能 / 解锁） */
+        if (m[1].length >= 2) li.className = "tk-quest-sub";
+        li.appendChild(rich(m[2]));
+        list.appendChild(li);
+      });
+      host.appendChild(list);
+    }
+
+    /* ---- 出发前必带 ---- */
+    var keys = it.keys || [], bring = it.bring || [], pack = it.pack || [];
+    if (keys.length || bring.length || pack.length) {
+      host.appendChild(h(4, "📦 出发前必带"));
+      if (pack.length) {
+        host.appendChild(p("**要自带进图**（放置 / 标记 / 使用类目标 —— 漏带等于白跑）"));
+        host.appendChild(ul(pack));
+      }
+      if (bring.length) {
+        host.appendChild(p("**建议携带**"));
+        host.appendChild(ul(bring));
+      }
+      if (keys.length) {
+        host.appendChild(p("**需要钥匙**"));
+        host.appendChild(ul(keys));
+      }
+    }
+
+    /* ---- 失败条件 ---- */
+    if ((it.fail || []).length) {
+      host.appendChild(h(4, "⚠️ 失败条件"));
+      host.appendChild(p("动手前先读清 —— 踩中就得重来。"));
+      host.appendChild(ul(it.fail));
+    }
+
+    /* ---- 后续任务 ---- */
+    if ((it.nxt || []).length) {
+      host.appendChild(h(4, "🔗 做完放开什么"));
+      host.appendChild(p("以下任务把本任务列为前置："));
+      host.appendChild(ul(it.nxt, questLink));
+    }
+
+    /* ---- 归属 ---- */
+    var back = el("p");
+    back.appendChild(document.createTextNode("所属商人页："));
+    var bl = el("a", null, it.t);
+    bl.href = siteRoot() + "quests/" + traderSlug(it.t) + "/";
+    back.appendChild(bl);
+    host.appendChild(back);
+  }
+
+  /* 商人显示名 → nav 里的 slug。**只覆盖 nav 里真实存在的 11 个**，
+     对不上就返回空串（调用处会退成纯文本），不猜。 */
+  var TRADER_SLUG = {
+    "Mechanic": "mechanic", "Prapor": "prapor", "Skier": "skier",
+    "Jaeger": "jaeger", "Ragman": "ragman", "Therapist": "therapist",
+    "Peacekeeper": "peacekeeper", "Fence": "fence",
+    "Ref（竞技场裁判）": "ref", "BTR 司机": "btr-driver", "Lightkeeper": "lightkeeper"
+  };
+
+  function traderSlug(label) { return TRADER_SLUG[label] || ""; }
+
+  /* --------------------------------------------------------------- 挂载 */
+
+  function boot() {
+    var host = document.getElementById("tk-quest-page");
+    if (!host) return;
+    var id = (param("id") || "").trim();
+    if (!id) { renderEmpty(host); return; }
+    host.textContent = "";
+    host.appendChild(el("p", null, "正在载入任务数据…"));
+    loadShard(id, function (data) {
+      var it = data ? data[id] : null;
+      if (it) renderDetail(host, id, it);
+      else renderMissing(host, id);
+    });
+  }
+
+  /* ⚠️ instant 换页会重放脚本，所以每次 boot 都要**重新读一次地址参数** ——
+     从一个任务跳到另一个任务时 URL 变了，不能沿用上一次解析的结果。 */
+  if (typeof document$ !== "undefined" && document$.subscribe) {
+    document$.subscribe(boot);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+})();

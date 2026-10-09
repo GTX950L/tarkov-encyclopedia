@@ -55,6 +55,8 @@ tags:
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Payback**
 
+<a href="../quest/?id=63966fd9ea19ac7ed845db30">打开完整页面 →</a>
+
 `地图：储备站` ｜ `接取延迟 600 分钟`
 
 **出发前必带**
@@ -82,6 +84,8 @@ tags:
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Order From Outside**
 
+<a href="../quest/?id=673f61a066e6a521aa04b62b">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**必然回应**（BTR 司机）（**完成，或只要处于进行中**）
@@ -103,6 +107,8 @@ tags:
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make an Impression**
 
+<a href="../quest/?id=6396701b9113f06a7c3b2379">打开完整页面 →</a>
+
 `接取延迟 600 分钟`
 
 **接取条件**
@@ -120,6 +126,8 @@ tags:
 <h3 id="q04" data-qid="63967028c4a91c5cb76abd81">大都会之谜<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Trouble in the Big City**
+
+<a href="../quest/?id=63967028c4a91c5cb76abd81">打开完整页面 →</a>
 
 `地图：塔科夫街区` ｜ `接取延迟 600 分钟`
 
@@ -149,6 +157,8 @@ tags:
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Missing Informant**
 
+<a href="../quest/?id=63966fbeea19ac7ed845db2e">打开完整页面 →</a>
+
 `地图：塔科夫街区` ｜ `接取延迟 600 分钟`
 
 **出发前必带**
@@ -176,6 +186,8 @@ tags:
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Return the Favor**
 
+<a href="../quest/?id=63966fe7ea74a47c2d3fc0e6">打开完整页面 →</a>
+
 `地图：森林` ｜ `接取延迟 600 分钟`
 
 **出发前必带**
@@ -200,6 +212,8 @@ tags:
 <h3 id="q07" data-qid="63966faeea19ac7ed845db2c">情报之源<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Information Source**
+
+<a href="../quest/?id=63966faeea19ac7ed845db2c">打开完整页面 →</a>
 
 `接取延迟 0 分钟`
 
@@ -229,6 +243,8 @@ tags:
 <h3 id="q08" data-qid="63966fccac6f8f3c677b9d89">抢夺先机<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Snatch**
+
+<a href="../quest/?id=63966fccac6f8f3c677b9d89">打开完整页面 →</a>
 
 `接取延迟 600 分钟`
 
@@ -261,6 +277,8 @@ tags:
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Following the Bread Crumbs**
 
+<a href="../quest/?id=639670029113f06a7c3b2377">打开完整页面 →</a>
+
 `接取延迟 600 分钟`
 
 **出发前必带**
@@ -289,6 +307,8 @@ tags:
 <h3 id="q10" data-qid="63966ff54c3ef01b6f3ffad8">挑衅<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Provocation**
+
+<a href="../quest/?id=63966ff54c3ef01b6f3ffad8">打开完整页面 →</a>
 
 `地图：立交桥` ｜ `接取延迟 600 分钟`
 
@@ -320,6 +340,8 @@ tags:
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Simple Side Job**
 
+<a href="../quest/?id=6745fdddd3346c216702e0bf">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**现世报**（BTR 司机）
@@ -340,6 +362,8 @@ tags:
 <h3 id="q12" data-qid="6396700fea19ac7ed845db32">观察员<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Spotter**
+
+<a href="../quest/?id=6396700fea19ac7ed845db32">打开完整页面 →</a>
 
 `地图：塔科夫街区` ｜ `接取延迟 600 分钟`
 
@@ -373,6 +397,8 @@ tags:
 
 **Lightkeeper** ｜ 需 **Lv26** ｜ 前置 **6** 个 ｜ 英文名 **Keepers Word**
 
+<a href="../quest/?id=67a09761e720611a6a01f288">打开完整页面 →</a>
+
 `地图：迷宫`
 
 **出发前必带**
@@ -401,6 +427,8 @@ tags:
 <h3 id="q14" data-qid="67e993b1ac26bf29380a320b">天降大礼 [PVP ZONE]<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Lightkeeper** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Surprise Gift Pvp Zone**
+
+<a href="../quest/?id=67e993b1ac26bf29380a320b">打开完整页面 →</a>
 
 **出发前必带**
 

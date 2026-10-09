@@ -57,6 +57,8 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Wergild**
 
+<a href="../quest/?id=61e6e60c5ca3b3783662be27">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Fence** 声望 ≤ -3
@@ -71,6 +73,8 @@ tags:
 <h3 id="q02" data-qid="61e6e5e0f5b9633f6719ed95">亡羊补牢 - 信任<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Trust**
+
+<a href="../quest/?id=61e6e5e0f5b9633f6719ed95">打开完整页面 →</a>
 
 **接取条件**
 
@@ -88,6 +92,8 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Collection**
 
+<a href="../quest/?id=61e6e621bfeab00251576265">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Fence** 声望 ≤ -1
@@ -103,6 +109,8 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Wager**
 
+<a href="../quest/?id=61e6e60223374d168a4576a6">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Fence** 声望 ≤ -1
@@ -117,6 +125,8 @@ tags:
 <h3 id="q05" data-qid="61e6e615eea2935bc018a2c5">亡羊补牢 - 酒保<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Barkeep**
+
+<a href="../quest/?id=61e6e615eea2935bc018a2c5">打开完整页面 →</a>
 
 **接取条件**
 
@@ -134,6 +144,8 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Immunity**
 
+<a href="../quest/?id=6663148ca9290f9e0806cca1">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**陌路相交**（Fence）
@@ -148,6 +160,8 @@ tags:
 <h3 id="q07" data-qid="6663148ed7f171c4c20226c1">小本生意 - 1<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Small Business Part 1**
+
+<a href="../quest/?id=6663148ed7f171c4c20226c1">打开完整页面 →</a>
 
 **接取条件**
 
@@ -181,6 +195,8 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Small Business Part 2**
 
+<a href="../quest/?id=6663149196a9349baa021baa">打开完整页面 →</a>
+
 `失败可重接`
 
 **接取条件**
@@ -202,6 +218,8 @@ tags:
 <h3 id="q09" data-qid="66631493312343839d032d22">小本生意 - 3<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Small Business Part 3**
+
+<a href="../quest/?id=66631493312343839d032d22">打开完整页面 →</a>
 
 **出发前必带**
 
@@ -227,6 +245,8 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Establish Contact**
 
+<a href="../quest/?id=6672d9def1c88688a707d042">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Fence** 声望 ≥ 4
@@ -241,6 +261,8 @@ tags:
 <h3 id="q11" data-qid="66631489acf8442f8b05319f">陌路相交<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Friend Among Strangers**
+
+<a href="../quest/?id=66631489acf8442f8b05319f">打开完整页面 →</a>
 
 `失败可重接`
 
@@ -265,6 +287,8 @@ tags:
 <h3 id="q12" data-qid="66058ccf06ef1d50a60c1f48">两害相权（PVP）<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Between Two Fires Pvp Zone**
+
+<a href="../quest/?id=66058ccf06ef1d50a60c1f48">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -291,6 +315,8 @@ tags:
 <h3 id="q13" data-qid="66058ccbc7f3584787181478">良心作祟 - 1（PVP）<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv10** ｜ 前置 **2** 个 ｜ 英文名 **Against the Conscience Part 1 Pvp Zone**
+
+<a href="../quest/?id=66058ccbc7f3584787181478">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -319,6 +345,8 @@ tags:
 <h3 id="q14" data-qid="66d9cbb67b491f9d5304f6e6">这是什么梗？<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv25** ｜ **无前置** ｜ 英文名 **Is This a Reference**
+
+<a href="../quest/?id=66d9cbb67b491f9d5304f6e6">打开完整页面 →</a>
 
 **出发前必带**
 
@@ -369,6 +397,8 @@ tags:
 <h3 id="q15" data-qid="5c51aac186f77432ea65c552">收藏家<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv42** ｜ 前置 **5** 个 ｜ 英文名 **Collector**
+
+<a href="../quest/?id=5c51aac186f77432ea65c552">打开完整页面 →</a>
 
 `**Kappa 必需**`
 
@@ -431,6 +461,8 @@ tags:
 <h3 id="q16" data-qid="60effd818b669d08a35bfad5">抉择<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Fence** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **The Choice**
+
+<a href="../quest/?id=60effd818b669d08a35bfad5">打开完整页面 →</a>
 
 **接取条件**
 

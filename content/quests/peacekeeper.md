@@ -92,6 +92,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Terragroup Employee**
 
+<a href="../quest/?id=5edac63b930f5454f51e128b">打开完整页面 →</a>
+
 `地图：实验室`
 
 **出发前必带**
@@ -121,6 +123,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Master Key**
 
+<a href="../quest/?id=5a0449d586f77474e66227b7">打开完整页面 →</a>
+
 `地图：海岸线`
 
 **接取条件**
@@ -140,6 +144,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Overpopulation**
 
+<a href="../quest/?id=6179aff8f57fb279792c60a1">打开完整页面 →</a>
+
 `地图：灯塔`
 
 **接取条件**
@@ -157,6 +163,8 @@ tags:
 <h3 id="q04" data-qid="5a27b87686f77460de0252a8">人道主义援助<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Humanitarian Supplies**
+
+<a href="../quest/?id=5a27b87686f77460de0252a8">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -187,6 +195,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **I Need More Power**
 
+<a href="../quest/?id=5a03296886f774569778596a">打开完整页面 →</a>
+
 `地图：海岸线`
 
 **出发前必带**
@@ -213,6 +223,8 @@ tags:
 <h3 id="q06" data-qid="639135534b15ca31f76bc317">你的车该洗了<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Your Car Needs a Service**
+
+<a href="../quest/?id=639135534b15ca31f76bc317">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -241,6 +253,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Seizing the Initiative**
 
+<a href="../quest/?id=675c1d6d59b0575973008fc7">打开完整页面 →</a>
+
 **要求**
 
 - **撤离** 撤离点状态：转移 —— 使用转移功能从海关转移到海岸线
@@ -252,6 +266,8 @@ tags:
 <h3 id="q08" data-qid="5a27bafb86f7741c73584017">化学实验<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Chemical Experiments**
+
+<a href="../quest/?id=5a27bafb86f7741c73584017">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -271,6 +287,8 @@ tags:
 <h3 id="q09" data-qid="6179b5eabca27a099552e052">反抗<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Counteraction Usec**
+
+<a href="../quest/?id=6179b5eabca27a099552e052">打开完整页面 →</a>
 
 `地图：灯塔` ｜ `仅限 **USEC**`
 
@@ -293,6 +311,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Peaceful Atom**
 
+<a href="../quest/?id=69ce1f84ebbdbf36a200627c">打开完整页面 →</a>
+
 `地图：破冰船`
 
 **接取条件**
@@ -309,6 +329,8 @@ tags:
 <h3 id="q11" data-qid="5c0bd01e86f7747cdd799e56">彻夜难眠<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Insomnia**
+
+<a href="../quest/?id=5c0bd01e86f7747cdd799e56">打开完整页面 →</a>
 
 **接取条件**
 
@@ -328,6 +350,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Hiking**
 
+<a href="../quest/?id=6a5c1578f2689567c30eb0f3">打开完整页面 →</a>
+
 `地图：森林`
 
 **接取条件**
@@ -345,6 +369,8 @@ tags:
 <h3 id="q13" data-qid="669fa38fad7f1eac2607ed46">悬结已解<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **One Less Loose End**
+
+<a href="../quest/?id=669fa38fad7f1eac2607ed46">打开完整页面 →</a>
 
 **接取条件**
 
@@ -368,6 +394,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Trophies**
 
+<a href="../quest/?id=60e71ccb5688f6424c7bfec4">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Peacekeeper** ≥ 1（含义见[总览](index.md)）
@@ -387,6 +415,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **New Paths**
 
+<a href="../quest/?id=66aa58245ab22944110db6e9">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Peacekeeper** ≥ 1（含义见[总览](index.md)）
@@ -403,6 +433,8 @@ tags:
 <h3 id="q16" data-qid="639135f286e646067c176a87">无中生有 - 塔科夫街区<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Revision Streets of Tarkov**
+
+<a href="../quest/?id=639135f286e646067c176a87">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -428,6 +460,8 @@ tags:
 <h3 id="q17" data-qid="61958c366726521dd96828ec">来自塔科夫的礼物<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gifts From Tarkov**
+
+<a href="../quest/?id=61958c366726521dd96828ec">打开完整页面 →</a>
 
 `地图：灯塔`
 
@@ -455,6 +489,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Road Closed Usec**
 
+<a href="../quest/?id=639282134ed9512be67647ed">打开完整页面 →</a>
+
 `地图：塔科夫街区` ｜ `仅限 **USEC**`
 
 **接取条件**
@@ -473,6 +509,8 @@ tags:
 <h3 id="q19" data-qid="5a27ba1c86f77461ea5a3c56">武器流通<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Weapons Circulation**
+
+<a href="../quest/?id=5a27ba1c86f77461ea5a3c56">打开完整页面 →</a>
 
 **出发前必带**
 
@@ -498,6 +536,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Cleaner**
 
+<a href="../quest/?id=60e71c9ad54b755a3b53eb66">打开完整页面 →</a>
+
 `地图：储备站`
 
 **接取条件**
@@ -516,6 +556,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fuel Shortage**
 
+<a href="../quest/?id=5a0327ba86f77456b9154236">打开完整页面 →</a>
+
 **要求**
 
 - **交物品** **打印纸**／**碱性换热器表面洗涤剂**／**Paid杀蟑剂**／**Ox漂白剂**／**一包氯石灰**／**Smoked Chimney下水道清洁剂**／**Repellent杀虫剂**／**罐装白盐** 等 **18** 种 ｜ **×5** ｜ **必须战局内找到** —— 上交战局中找到的物品：任意家居用品
@@ -527,6 +569,8 @@ tags:
 <h3 id="q22" data-qid="60e71ce009d7c801eb0c0ec6">特殊装备<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Special Equipment**
+
+<a href="../quest/?id=60e71ce009d7c801eb0c0ec6">打开完整页面 →</a>
 
 **接取条件**
 
@@ -556,6 +600,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Tigr Safari**
 
+<a href="../quest/?id=5a27b7a786f774579c3eb376">打开完整页面 →</a>
+
 `地图：海关`
 
 **出发前必带**
@@ -578,6 +624,8 @@ tags:
 <h3 id="q24" data-qid="5a27b7d686f77460d847e6a6">破铜烂铁<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Scrap Metal**
+
+<a href="../quest/?id=5a27b7d686f77460d847e6a6">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -604,6 +652,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Cargo X**
 
+<a href="../quest/?id=5a27bb1e86f7741f27621b7e">打开完整页面 →</a>
+
 `地图：海岸线`
 
 **出发前必带**
@@ -629,6 +679,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Secret Message**
 
+<a href="../quest/?id=6a5ccda873f06065630d61b0">打开完整页面 →</a>
+
 `地图：塔科夫街区`
 
 **接取条件**
@@ -645,6 +697,8 @@ tags:
 <h3 id="q27" data-qid="69e5583240c3e6c8ba0edbd5">窃听风暴<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Wiring the Vessel**
+
+<a href="../quest/?id=69e5583240c3e6c8ba0edbd5">打开完整页面 →</a>
 
 `地图：破冰船`
 
@@ -673,6 +727,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Peacekeeping Mission**
 
+<a href="../quest/?id=5c0d4c12d09282029f539173">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Peacekeeper** ≥ 1（含义见[总览](index.md)）
@@ -694,6 +750,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Metal Birds**
 
+<a href="../quest/?id=5b4794cb86f774598100d5d4">打开完整页面 →</a>
+
 `地图：森林`
 
 **接取条件**
@@ -713,6 +771,8 @@ tags:
 <h3 id="q30" data-qid="5a27b80086f774429a5d7e20">鹰眼<a class="headerlink" href="#q30" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Eagle Eye**
+
+<a href="../quest/?id=5a27b80086f774429a5d7e20">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -736,6 +796,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv8** ｜ **无前置** ｜ 英文名 **One Way Ticket**
 
+<a href="../quest/?id=5a03153686f77442d90e2171">打开完整页面 →</a>
+
 `地图：工厂`
 
 **接取条件**
@@ -752,6 +814,8 @@ tags:
 <h3 id="q32" data-qid="5a27b75b86f7742e97191958">渔具<a class="headerlink" href="#q32" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv8** ｜ **无前置** ｜ 英文名 **Fishing Gear**
+
+<a href="../quest/?id=5a27b75b86f7742e97191958">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -780,6 +844,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv8** ｜ **无前置** ｜ 英文名 **Wet Job Part 1**
 
+<a href="../quest/?id=5a27bb8386f7741c770d2d0a">打开完整页面 →</a>
+
 `地图：海岸线`
 
 **接取条件**
@@ -796,6 +862,8 @@ tags:
 <h3 id="q34" data-qid="5a27bbf886f774333a418eeb">湿活 - 2<a class="headerlink" href="#q34" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv8** ｜ 前置 **1** 个 ｜ 英文名 **Wet Job Part 2**
+
+<a href="../quest/?id=5a27bbf886f774333a418eeb">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -821,6 +889,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv8** ｜ **无前置** ｜ 英文名 **The Cult**
 
+<a href="../quest/?id=5a27b9de86f77464e5044585">打开完整页面 →</a>
+
 `地图：海岸线`
 
 **接取条件**
@@ -840,6 +910,8 @@ tags:
 <h3 id="q36" data-qid="5a03173786f77451cb427172">疗养之旅 - 2<a class="headerlink" href="#q36" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Spa Tour Part 2**
+
+<a href="../quest/?id=5a03173786f77451cb427172">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -866,6 +938,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Spa Tour Part 6**
 
+<a href="../quest/?id=5a27ba9586f7741b543d8e85">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**主钥匙**（Peacekeeper）
@@ -880,6 +954,8 @@ tags:
 <h3 id="q38" data-qid="5a27bb3d86f77411ea361a21">定向追踪<a class="headerlink" href="#q38" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv19** ｜ **无前置** ｜ 英文名 **Tracker**
+
+<a href="../quest/?id=5a27bb3d86f77411ea361a21">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -900,6 +976,8 @@ tags:
 <h3 id="q39" data-qid="6086c852c945025d41566124">无中生有 - 储备站<a class="headerlink" href="#q39" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv19** ｜ **无前置** ｜ 英文名 **Revision Reserve**
+
+<a href="../quest/?id=6086c852c945025d41566124">打开完整页面 →</a>
 
 `地图：储备站`
 
@@ -933,6 +1011,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv19** ｜ **无前置** ｜ 英文名 **Revision Lighthouse**
 
+<a href="../quest/?id=6179b4d1bca27a099552e04e">打开完整页面 →</a>
+
 `地图：灯塔`
 
 **出发前必带**
@@ -958,6 +1038,8 @@ tags:
 <h3 id="q41" data-qid="5a27bc1586f7741f6d40fa2f">湿活 - 3<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv19** ｜ 前置 **1** 个 ｜ 英文名 **Wet Job Part 3**
+
+<a href="../quest/?id=5a27bc1586f7741f6d40fa2f">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -985,6 +1067,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv19** ｜ 前置 **1** 个 ｜ 英文名 **Wet Job Part 4**
 
+<a href="../quest/?id=5a27bc3686f7741c73584026">打开完整页面 →</a>
+
 `地图：海岸线`
 
 **接取条件**
@@ -1003,6 +1087,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv19** ｜ **无前置** ｜ 英文名 **Demonstration Model**
 
+<a href="../quest/?id=6a5cd2178fd7c2b201032f3f">打开完整页面 →</a>
+
 `地图：储备站`
 
 **接取条件**
@@ -1019,6 +1105,8 @@ tags:
 <h3 id="q44" data-qid="5a27bb5986f7741dfb660900">神秘货物 - 3<a class="headerlink" href="#q44" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv19** ｜ 前置 **1** 个 ｜ 英文名 **Cargo X Part 3**
+
+<a href="../quest/?id=5a27bb5986f7741dfb660900">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -1039,6 +1127,8 @@ tags:
 <h3 id="q45" data-qid="67a09724972c11a3f5077324">机密情报<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **Confidential Info**
+
+<a href="../quest/?id=67a09724972c11a3f5077324">打开完整页面 →</a>
 
 `地图：迷宫`
 
@@ -1066,6 +1156,8 @@ tags:
 <h3 id="q46" data-qid="5c0d4e61d09282029f53920e">向导<a class="headerlink" href="#q46" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv32** ｜ **无前置** ｜ 英文名 **The Guide**
+
+<a href="../quest/?id=5c0d4e61d09282029f53920e">打开完整页面 →</a>
 
 `失败可重接`
 
@@ -1098,6 +1190,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv37** ｜ 前置 **1** 个 ｜ 英文名 **Mentor**
 
+<a href="../quest/?id=5d6fbc2886f77449d825f9d3">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**湿活 - 5**（Peacekeeper）（**完成，或只要处于进行中**）
@@ -1112,6 +1206,8 @@ tags:
 <h3 id="q48" data-qid="63a9b229813bba58a50c9ee5">最烂的差事<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv37** ｜ **无前置** ｜ 英文名 **Worst Job in the World**
+
+<a href="../quest/?id=63a9b229813bba58a50c9ee5">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1131,6 +1227,8 @@ tags:
 <h3 id="q49" data-qid="5edac020218d181e29451446">样品<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv37** ｜ **无前置** ｜ 英文名 **Samples**
+
+<a href="../quest/?id=5edac020218d181e29451446">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1161,6 +1259,8 @@ tags:
 
 **Peacekeeper** ｜ 需 **Lv37** ｜ 前置 **1** 个 ｜ 英文名 **Wet Job Part 5**
 
+<a href="../quest/?id=5a27bc6986f7741c7358402b">打开完整页面 →</a>
+
 `地图：海岸线`
 
 **出发前必带**
@@ -1186,6 +1286,8 @@ tags:
 <h3 id="q51" data-qid="5a27bc8586f7741b543d8ea4">湿活 - 6<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
 **Peacekeeper** ｜ 需 **Lv37** ｜ 前置 **1** 个 ｜ 英文名 **Wet Job Part 6**
+
+<a href="../quest/?id=5a27bc8586f7741b543d8ea4">打开完整页面 →</a>
 
 **接取条件**
 

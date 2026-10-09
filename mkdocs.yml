@@ -224,6 +224,7 @@ nav:
           - 零散物品: catalog/misc.md
       - 第十篇 · 任务图鉴:
           - 总览: quests/index.md
+          - 任务详情（单件）: quests/quest.md
           - 我的进度: quests/progress.md
           - 物品反查（要不要留）: quests/item-lookup.md
           - 限时与活动任务补遗: quests/event-quests.md

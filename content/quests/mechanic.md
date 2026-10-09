@@ -130,6 +130,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **A Helping Hand**
 
+<a href="../quest/?id=6752f6d83038f7df520c83e8">打开完整页面 →</a>
+
 `地图：森林`
 
 **要求**
@@ -143,6 +145,8 @@ tags:
 <h3 id="q02" data-qid="5ac3475486f7741d6224abd3">不良嗜好<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Bad Habit**
+
+<a href="../quest/?id=5ac3475486f7741d6224abd3">打开完整页面 →</a>
 
 **接取条件**
 
@@ -160,6 +164,8 @@ tags:
 <h3 id="q03" data-qid="5d2495a886f77425cd51e403">介绍<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Introduction**
+
+<a href="../quest/?id=5d2495a886f77425cd51e403">打开完整页面 →</a>
 
 `地图：森林`
 
@@ -181,6 +187,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Scout**
 
+<a href="../quest/?id=5ac3477486f7741d651d6885">打开完整页面 →</a>
+
 `地图：工厂`
 
 **接取条件**
@@ -201,6 +209,8 @@ tags:
 <h3 id="q05" data-qid="65733403eefc2c312a759ddb">公司福报<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Corporate Perks**
+
+<a href="../quest/?id=65733403eefc2c312a759ddb">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -228,6 +238,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Chemistry Closet**
 
+<a href="../quest/?id=5f04886a3937dc337a6b8238">打开完整页面 →</a>
+
 `地图：海岸线`
 
 **出发前必带**
@@ -253,6 +265,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Secrets of Polikhim**
 
+<a href="../quest/?id=66aa74571e5e199ecd094f18">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Mechanic** ≥ 5（含义见[总览](index.md)）
@@ -270,6 +284,8 @@ tags:
 <h3 id="q08" data-qid="5ac3464c86f7741d651d6877">半导体危机<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Semiconductor Crisis**
+
+<a href="../quest/?id=5ac3464c86f7741d651d6877">打开完整页面 →</a>
 
 **接取条件**
 
@@ -290,6 +306,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Knock Knock**
 
+<a href="../quest/?id=625d7005a4eb80027c4f2e09">打开完整页面 →</a>
+
 `**Lightkeeper 必需**` ｜ `地图：灯塔`
 
 **接取条件**
@@ -308,6 +326,8 @@ tags:
 <h3 id="q10" data-qid="6179b3bdc7560e13d23eeb8d">商业机密<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Corporate Secrets**
+
+<a href="../quest/?id=6179b3bdc7560e13d23eeb8d">打开完整页面 →</a>
 
 `地图：灯塔`
 
@@ -329,6 +349,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Needle in a Haystack**
 
+<a href="../quest/?id=67a0964e972c11a3f507731b">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**影子雇员**（Mechanic）
@@ -347,6 +369,8 @@ tags:
 <h3 id="q12" data-qid="5c0bde0986f77479cf22c2f8">天神射手<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shooter Born in Heaven**
+
+<a href="../quest/?id=5c0bde0986f77479cf22c2f8">打开完整页面 →</a>
 
 `**Kappa 必需**`
 
@@ -371,6 +395,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Passion for Ergonomics**
 
+<a href="../quest/?id=675c1570526ff496850895d9">打开完整页面 →</a>
+
 `地图：海关`
 
 **接取条件**
@@ -389,6 +415,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shady Contractor**
 
+<a href="../quest/?id=67a09636b8725511260bc421">打开完整页面 →</a>
+
 `地图：中心区`
 
 **接取条件**
@@ -406,6 +434,8 @@ tags:
 <h3 id="q15" data-qid="60e71d6d7fcf9c556f325055">急先锋<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Courier**
+
+<a href="../quest/?id=60e71d6d7fcf9c556f325055">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -431,6 +461,8 @@ tags:
 <h3 id="q16" data-qid="5ac3467986f7741d6224abc2">恶意环伺<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Ill Wisher**
+
+<a href="../quest/?id=5ac3467986f7741d6224abc2">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -459,6 +491,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Playing the Market**
 
+<a href="../quest/?id=5ac345dc86f774288030817f">打开完整页面 →</a>
+
 `地图：工厂`
 
 **出发前必带**
@@ -483,6 +517,8 @@ tags:
 <h3 id="q18" data-qid="5ac3462b86f7741d6118b983">挖矿<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Farming**
+
+<a href="../quest/?id=5ac3462b86f7741d6118b983">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -511,6 +547,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Surveillance**
 
+<a href="../quest/?id=639135e8c115f907b14700aa">打开完整页面 →</a>
+
 `地图：塔科夫街区`
 
 **出发前必带**
@@ -536,6 +574,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Hidden Layer**
 
+<a href="../quest/?id=67a096577e86e067eb045733">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**大海捞针**（Mechanic）
@@ -552,6 +592,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Ak 105**
 
+<a href="../quest/?id=5ae327c886f7745c7b3f2f3f">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Mechanic** ≥ 3（含义见[总览](index.md)）
@@ -566,6 +608,8 @@ tags:
 <h3 id="q22" data-qid="5ae3277186f7745973054106">枪匠 - AKS-74N<a class="headerlink" href="#q22" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Aks 74n**
+
+<a href="../quest/?id=5ae3277186f7745973054106">打开完整页面 →</a>
 
 **接取条件**
 
@@ -582,6 +626,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Aks 74u**
 
+<a href="../quest/?id=5ac2426c86f774138762edfe">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Mechanic** ≥ 1（含义见[总览](index.md)）
@@ -597,6 +643,8 @@ tags:
 <h3 id="q24" data-qid="5ac2428686f77412450b42bf">枪匠 - HK MP5<a class="headerlink" href="#q24" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Hk Mp5**
+
+<a href="../quest/?id=5ac2428686f77412450b42bf">打开完整页面 →</a>
 
 **接取条件**
 
@@ -615,6 +663,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Model 870**
 
+<a href="../quest/?id=5ae3267986f7742a413592fe">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Mechanic** ≥ 5（含义见[总览](index.md)）
@@ -632,6 +682,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Mp 133**
 
+<a href="../quest/?id=5ac23c6186f7741247042bad">打开完整页面 →</a>
+
 **接取条件**
 
 - **需先对话**：**Mechanic**
@@ -647,6 +699,8 @@ tags:
 <h3 id="q27" data-qid="5b47799d86f7746c5d6a5fd8">枪匠 - MPX<a class="headerlink" href="#q27" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Mpx**
+
+<a href="../quest/?id=5b47799d86f7746c5d6a5fd8">打开完整页面 →</a>
 
 **接取条件**
 
@@ -664,6 +718,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Op Sks**
 
+<a href="../quest/?id=639872f9decada40426d3447">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Mechanic** ≥ 3（含义见[总览](index.md)）
@@ -680,6 +736,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith P226r**
 
+<a href="../quest/?id=639872fa9b4fb827b200d8e5">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Mechanic** ≥ 1（含义见[总览](index.md)）
@@ -695,6 +753,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gunsmith Vector 9x19**
 
+<a href="../quest/?id=639872fc93ae507d5858c3a6">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Mechanic** ≥ 3（含义见[总览](index.md)）
@@ -709,6 +769,8 @@ tags:
 <h3 id="q31" data-qid="625d70031ed3bb5bcc5bd9e5">灯塔之匙<a class="headerlink" href="#q31" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Key to the Tower**
+
+<a href="../quest/?id=625d70031ed3bb5bcc5bd9e5">打开完整页面 →</a>
 
 `**Lightkeeper 必需**` ｜ `地图：灯塔` ｜ `接取延迟 1440 分钟`
 
@@ -732,6 +794,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Goals and Means**
 
+<a href="../quest/?id=68db9c7557bc51a8c804c14b">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Mechanic** ≥ 1（含义见[总览](index.md)）
@@ -749,6 +813,8 @@ tags:
 <h3 id="q33" data-qid="6391d90f4ed9512be67647df">破镜重圆<a class="headerlink" href="#q33" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends**
+
+<a href="../quest/?id=6391d90f4ed9512be67647df">打开完整页面 →</a>
 
 `地图：灯塔`
 
@@ -776,6 +842,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends 2**
 
+<a href="../quest/?id=6391d912f8e5dd32bf4e3ab2">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**破镜重圆 - 大扫除**（Mechanic）
@@ -794,6 +862,8 @@ tags:
 <h3 id="q35" data-qid="6391d9144b15ca31f76bc323">破镜重圆<a class="headerlink" href="#q35" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends 3**
+
+<a href="../quest/?id=6391d9144b15ca31f76bc323">打开完整页面 →</a>
 
 **接取条件**
 
@@ -814,6 +884,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends Sweep Up**
 
+<a href="../quest/?id=62614836f7308432be1d44cc">打开完整页面 →</a>
+
 `地图：储备站`
 
 **接取条件**
@@ -830,6 +902,8 @@ tags:
 <h3 id="q37" data-qid="626148334149f1149b5b12ca">破镜重圆 - 安保<a class="headerlink" href="#q37" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends Security**
+
+<a href="../quest/?id=626148334149f1149b5b12ca">打开完整页面 →</a>
 
 `地图：灯塔`
 
@@ -858,6 +932,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends Buyout**
 
+<a href="../quest/?id=626148251ed3bb5bcc5bd9ed">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Lightkeeper** 声望 ≤ 0
@@ -874,6 +950,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends Equipment**
 
+<a href="../quest/?id=6261482fa4eb80027c4f2e11">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**破镜重圆 - 收买人心**（Mechanic）
@@ -888,6 +966,8 @@ tags:
 <h3 id="q40" data-qid="6261483ac48e6c62a440fab7">破镜重圆 - 软件<a class="headerlink" href="#q40" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends Software**
+
+<a href="../quest/?id=6261483ac48e6c62a440fab7">打开完整页面 →</a>
 
 **接取条件**
 
@@ -904,6 +984,8 @@ tags:
 <h3 id="q41" data-qid="6261483dc4874104f230c0cd">破镜重圆 - 隔离<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Make Amends Quarantine**
+
+<a href="../quest/?id=6261483dc4874104f230c0cd">打开完整页面 →</a>
 
 `地图：实验室`
 
@@ -929,6 +1011,8 @@ tags:
 <h3 id="q42" data-qid="64ee9df4496db64f9b7a4432">神秘的门<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Door**
+
+<a href="../quest/?id=64ee9df4496db64f9b7a4432">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -958,6 +1042,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Steady Signal**
 
+<a href="../quest/?id=6578ec473dbd035d04531a8d">打开完整页面 →</a>
+
 `地图：森林`
 
 **出发前必带**
@@ -982,6 +1068,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Network Provider Part 1**
 
+<a href="../quest/?id=625d6ff5ddc94657c21a1625">打开完整页面 →</a>
+
 `**Lightkeeper 必需**`
 
 **接取条件**
@@ -1000,6 +1088,8 @@ tags:
 <h3 id="q45" data-qid="625d6ffaf7308432be1d44c5">网络供应商 - 2<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Network Provider Part 2**
+
+<a href="../quest/?id=625d6ffaf7308432be1d44c5">打开完整页面 →</a>
 
 `**Lightkeeper 必需**` ｜ `地图：灯塔` ｜ `接取延迟 540 分钟`
 
@@ -1027,6 +1117,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fertilizers**
 
+<a href="../quest/?id=5c1128e386f7746565181106">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Mechanic** ≥ 3（含义见[总览](index.md)）
@@ -1044,6 +1136,8 @@ tags:
 <h3 id="q47" data-qid="6179b3a12153c15e937d52bc">能源危机<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Energy Crisis**
+
+<a href="../quest/?id=6179b3a12153c15e937d52bc">打开完整页面 →</a>
 
 `地图：灯塔`
 
@@ -1071,6 +1165,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Assessment Part 1**
 
+<a href="../quest/?id=625d6ffcaa168e51321d69d7">打开完整页面 →</a>
+
 `**Lightkeeper 必需**` ｜ `地图：灯塔`
 
 **接取条件**
@@ -1086,6 +1182,8 @@ tags:
 <h3 id="q49" data-qid="625d6fff4149f1149b5b12c9">试探 - 2<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Assessment Part 2**
+
+<a href="../quest/?id=625d6fff4149f1149b5b12c9">打开完整页面 →</a>
 
 `**Lightkeeper 必需**` ｜ `地图：森林`
 
@@ -1112,6 +1210,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Assessment Part 3**
 
+<a href="../quest/?id=625d7001c4874104f230c0c5">打开完整页面 →</a>
+
 `**Lightkeeper 必需**` ｜ `地图：实验室`
 
 **接取条件**
@@ -1131,6 +1231,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Import**
 
+<a href="../quest/?id=5c139eb686f7747878361a6f">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Mechanic** ≥ 5（含义见[总览](index.md)）
@@ -1149,6 +1251,8 @@ tags:
 <h3 id="q52" data-qid="625d700cc48e6c62a440fab5">邂逅<a class="headerlink" href="#q52" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Getting Acquainted**
+
+<a href="../quest/?id=625d700cc48e6c62a440fab5">打开完整页面 →</a>
 
 `地图：灯塔`
 
@@ -1175,6 +1279,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Secret to Productivity**
 
+<a href="../quest/?id=6573382e557ff128bf3da536">打开完整页面 →</a>
+
 `地图：塔科夫街区`
 
 **出发前必带**
@@ -1200,6 +1306,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv1** ｜ **无前置** ｜ 英文名 **Saving the Mole**
 
+<a href="../quest/?id=657315e4a6af4ab4b50f3459">打开完整页面 →</a>
+
 `地图：中心区`
 
 **接取条件**
@@ -1222,6 +1330,8 @@ tags:
 <h3 id="q55" data-qid="639136fa9444fb141f4e6eee">你被盯上了<a class="headerlink" href="#q55" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Watching You**
+
+<a href="../quest/?id=639136fa9444fb141f4e6eee">打开完整页面 →</a>
 
 `地图：塔科夫街区`
 
@@ -1249,6 +1359,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv12** ｜ 前置 **2** 个 ｜ 英文名 **Insider**
 
+<a href="../quest/?id=5ac3479086f7742880308199">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**恶意环伺**（Mechanic） ｜ **枪匠 - HK MP5**（Mechanic）
@@ -1263,6 +1375,8 @@ tags:
 <h3 id="q57" data-qid="5ac3460c86f7742880308185">挖矿 - 2<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Farming Part 2**
+
+<a href="../quest/?id=5ac3460c86f7742880308185">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1284,6 +1398,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Rat Hunting**
 
+<a href="../quest/?id=5ac346a886f7744e1b083d67">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Mechanic** 忠诚 **LL2**
@@ -1303,6 +1419,8 @@ tags:
 <h3 id="q59" data-qid="626bd75e47ea7f506e5493c5">直播 - 1<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Broadcast Part 1**
+
+<a href="../quest/?id=626bd75e47ea7f506e5493c5">打开完整页面 →</a>
 
 `地图：灯塔`
 
@@ -1329,6 +1447,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Broadcast Part 2**
 
+<a href="../quest/?id=63913715f8e5dd32bf4e3aaa">打开完整页面 →</a>
+
 `地图：塔科夫街区`
 
 **接取条件**
@@ -1345,6 +1465,8 @@ tags:
 <h3 id="q61" data-qid="666314b8312343839d032d24">航空包裹<a class="headerlink" href="#q61" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Airmail**
+
+<a href="../quest/?id=666314b8312343839d032d24">打开完整页面 →</a>
 
 `地图：森林`
 
@@ -1368,6 +1490,8 @@ tags:
 <h3 id="q62" data-qid="666314c10aa5c7436c00908c">镜头就位，开拍！<a class="headerlink" href="#q62" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Camera Action**
+
+<a href="../quest/?id=666314c10aa5c7436c00908c">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1394,6 +1518,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Black Swan**
 
+<a href="../quest/?id=669fa39b91b0a8c9680fc467">打开完整页面 →</a>
+
 `地图：工厂`
 
 **出发前必带**
@@ -1417,6 +1543,8 @@ tags:
 <h3 id="q64" data-qid="5ac346cf86f7741d63233a02">信号 - 3<a class="headerlink" href="#q64" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv15** ｜ 前置 **1** 个 ｜ 英文名 **Signal Part 3**
+
+<a href="../quest/?id=5ac346cf86f7741d63233a02">打开完整页面 →</a>
 
 `地图：海岸线`
 
@@ -1444,6 +1572,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv15** ｜ 前置 **1** 个 ｜ 英文名 **Signal Part 4**
 
+<a href="../quest/?id=5ac346e886f7741d6118b99b">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**信号 - 3**（Mechanic）
@@ -1460,6 +1590,8 @@ tags:
 <h3 id="q66" data-qid="6089736efa70fc097863b8f6">后门<a class="headerlink" href="#q66" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv26** ｜ **无前置** ｜ 英文名 **Back Door**
+
+<a href="../quest/?id=6089736efa70fc097863b8f6">打开完整页面 →</a>
 
 `地图：储备站`
 
@@ -1480,6 +1612,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv26** ｜ **无前置** ｜ 英文名 **Gunsmith Akm**
 
+<a href="../quest/?id=5ae3270f86f77445ba41d4dd">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Mechanic** 忠诚 **LL3**
@@ -1495,6 +1629,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv26** ｜ **无前置** ｜ 英文名 **Gunsmith M4a1**
 
+<a href="../quest/?id=5ac244eb86f7741356335af1">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Mechanic** 忠诚 **LL3**
@@ -1509,6 +1645,8 @@ tags:
 <h3 id="q69" data-qid="67a0970f05d1611ed90be75d">检验假说<a class="headerlink" href="#q69" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **Hypotheses Testing**
+
+<a href="../quest/?id=67a0970f05d1611ed90be75d">打开完整页面 →</a>
 
 `地图：迷宫`
 
@@ -1528,6 +1666,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **Offensive Reconnaissance**
 
+<a href="../quest/?id=67a0970744893b9f3f0d9b68">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Mechanic** 忠诚 **LL3**
@@ -1543,6 +1683,8 @@ tags:
 <h3 id="q71" data-qid="6089732b59b92115597ad789">物尽其用<a class="headerlink" href="#q71" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv26** ｜ **无前置** ｜ 英文名 **Surplus Goods**
+
+<a href="../quest/?id=6089732b59b92115597ad789">打开完整页面 →</a>
 
 `地图：储备站`
 
@@ -1569,6 +1711,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv29** ｜ **无前置** ｜ 英文名 **Gunsmith As Val**
 
+<a href="../quest/?id=5ae3280386f7742a41359364">打开完整页面 →</a>
+
 **接取条件**
 
 - **进度计数**：**Mechanic** ≥ 5（含义见[总览](index.md)）
@@ -1587,6 +1731,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv40** ｜ **无前置** ｜ 英文名 **Gunsmith Master Part 1**
 
+<a href="../quest/?id=639872fe8871e1272b10ccf6">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Mechanic** 忠诚 **LL4**
@@ -1602,6 +1748,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 10**
 
+<a href="../quest/?id=64f83bb69878a0569d6ecfbe">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**枪匠大师 - 9**（Mechanic）
@@ -1615,6 +1763,8 @@ tags:
 <h3 id="q75" data-qid="64f83bcdde58fc437700d8fa">枪匠大师 - 11<a class="headerlink" href="#q75" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 11**
+
+<a href="../quest/?id=64f83bcdde58fc437700d8fa">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1631,6 +1781,8 @@ tags:
 <h3 id="q76" data-qid="676529af9c90953d090882e7">枪匠大师 - 12<a class="headerlink" href="#q76" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 12**
+
+<a href="../quest/?id=676529af9c90953d090882e7">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1649,6 +1801,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 13**
 
+<a href="../quest/?id=64f83bd983cfca080a362c82">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**枪匠大师 - 12**（Mechanic）
@@ -1665,6 +1819,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 2**
 
+<a href="../quest/?id=5ac244c486f77413e12cf945">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**枪匠大师 - 1**（Mechanic）
@@ -1678,6 +1834,8 @@ tags:
 <h3 id="q79" data-qid="5ac242ab86f77412464f68b4">枪匠大师 - 3<a class="headerlink" href="#q79" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 3**
+
+<a href="../quest/?id=5ac242ab86f77412464f68b4">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1694,6 +1852,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 4**
 
+<a href="../quest/?id=5b47749f86f7746c5d6a5fd4">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**枪匠大师 - 3**（Mechanic）
@@ -1709,6 +1869,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 5**
 
+<a href="../quest/?id=5b477b6f86f7747290681823">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**枪匠大师 - 4**（Mechanic）
@@ -1722,6 +1884,8 @@ tags:
 <h3 id="q82" data-qid="639873003693c63d86328f25">枪匠大师 - 6<a class="headerlink" href="#q82" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 6**
+
+<a href="../quest/?id=639873003693c63d86328f25">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1738,6 +1902,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 7**
 
+<a href="../quest/?id=5b477f7686f7744d1b23c4d2">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**枪匠大师 - 6**（Mechanic）
@@ -1752,6 +1918,8 @@ tags:
 <h3 id="q84" data-qid="63987301e11ec11ff5504036">枪匠大师 - 8<a class="headerlink" href="#q84" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 8**
+
+<a href="../quest/?id=63987301e11ec11ff5504036">打开完整页面 →</a>
 
 **接取条件**
 
@@ -1768,6 +1936,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv40** ｜ 前置 **1** 个 ｜ 英文名 **Gunsmith Master Part 9**
 
+<a href="../quest/?id=5b47825886f77468074618d3">打开完整页面 →</a>
+
 **接取条件**
 
 - **前置任务**：**枪匠大师 - 8**（Mechanic）
@@ -1781,6 +1951,8 @@ tags:
 <h3 id="q86" data-qid="5c0be13186f7746f016734aa">狙击疯魔<a class="headerlink" href="#q86" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv40** ｜ **无前置** ｜ 英文名 **Psycho Sniper**
+
+<a href="../quest/?id=5c0be13186f7746f016734aa">打开完整页面 →</a>
 
 `失败可重接`
 
@@ -1807,6 +1979,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv40** ｜ **无前置** ｜ 英文名 **Calibration**
 
+<a href="../quest/?id=60e71d23c1bfa3050473b8e6">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Mechanic** 忠诚 **LL4**
@@ -1825,6 +1999,8 @@ tags:
 
 **Mechanic** ｜ 需 **Lv40** ｜ **无前置** ｜ 英文名 **Setting Priorities**
 
+<a href="../quest/?id=6942b44f891369fc790e385a">打开完整页面 →</a>
+
 **接取条件**
 
 - **接取门槛**：**Mechanic** 忠诚 **LL4**
@@ -1842,6 +2018,8 @@ tags:
 <h3 id="q89" data-qid="684009026ceedc792c09b2a7">同好俱乐部<a class="headerlink" href="#q89" title="Permanent link">&para;</a></h3>
 
 **Mechanic** ｜ 需 **Lv45** ｜ **无前置** ｜ 英文名 **Hobby Club**
+
+<a href="../quest/?id=684009026ceedc792c09b2a7">打开完整页面 →</a>
 
 **出发前必带**
 

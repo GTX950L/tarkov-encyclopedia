@@ -796,6 +796,17 @@ def render_task(rec: dict, i: int) -> list[str]:
     if rec["delay"]:
         flags.append(f"接取延迟 {rec['delay'] // 60} 分钟")
     L.append(" ｜ ".join(meta))
+    # 指向「单个任务详情」视图页。
+    #
+    # ⚠️ 用**原生 HTML** 而不是 markdown 链接，为两条硬约束：
+    #   ① markdown 链接 `[x](quest.md?id=…)` 会被 check_entries 判成断链 ——
+    #      它 resolve 的是字面路径 `quest.md?id=…`，不剥 query；
+    #   ② HTML 的 href **不会被 MkDocs 重写**，所以这里必须直接写**构建后**
+    #      的相对路径 `../quest/`（页面在 /quests/<trader>/，目标是 /quests/quest/）。
+    #      写成 `quest.md` 反而会 404 —— 这两件事别搞反。
+    if rec.get("id"):
+        L.append("")
+        L.append(f'<a href="../quest/?id={rec["id"]}">打开完整页面 →</a>')
     if flags:
         L += ["", "`" + "` ｜ `".join(flags) + "`"]
     L.append("")
@@ -1294,6 +1305,196 @@ def write_trader_page(key: str, rows: list[dict]) -> None:
     (OUT_DIR / f"{key}.md").write_text("\n".join(L) + "\n", encoding="utf-8")
 
 
+# ---------------------------------------------------------------------------
+# 单个任务的详情页（javascripts/quest-detail.js）
+#
+# 与物品详情页（catalog-item-*）是同一套路：数据自包含、按 id 哈希分片，
+# 前端拿到 id 就能算出该拉哪一片，**不需要索引文件**。
+# ---------------------------------------------------------------------------
+
+QUEST_DETAIL_SHARDS = 32
+QUEST_JS_DIR = ROOT / "content" / "javascripts"
+
+
+def quest_shard_key(qid: str) -> int:
+    """任务 id → 分片号（0 ~ QUEST_DETAIL_SHARDS-1）。
+
+    ⚠️ 与物品详情用**同一套算法**（十六进制数字之和取模）。不用 id 首字符 ——
+       塔科夫 id 由同一套规则生成，物品侧实测首字符**只有 5 与 6 两种**
+       （2148 / 2831 件），按它切只得到 2 片、等于没切。
+    ⚠️ 前端 ``content/javascripts/quest-detail.js`` 里有一份**等价实现**，
+       算法与片数必须一致，否则详情页会拉错片、静默显示「找不到这个任务」。
+    """
+    return sum(int(c, 16) for c in qid) % QUEST_DETAIL_SHARDS
+
+
+def quest_page_markdown(total: int) -> str:
+    """生成「单个任务详情」视图页的静态骨架（``content/quests/quest.md``）。"""
+    out: list[str] = []
+    out.append("---")
+    out.append("tags:")
+    out.append("  - 任务")
+    out.append("  - 索引")
+    out.append("---")
+    out.append("")
+    out.append("# 任务详情（Quest Detail）")
+    out.append("")
+    out.append("> 版本基线：2026 年 9 月 ｜ 1.1.5.1（第一赛季 KORD BREACH）"
+               "｜ 数据来源：tarkov.dev（二级）")
+    out.append("> 单个任务的完整页面。数值随版本调整，引用时请附「以当前版本为准」。")
+    out.append("")
+    out.append('<a id="top"></a>')
+    out.append("")
+    out.append("## 📸 本页是什么")
+    out.append("")
+    out.append("[任务图鉴](index.md) 的商人页是**一排任务顺着看**；这一页是"
+               "**单个任务摊开看** —— 接取门槛、前置与后续、目标清单、完成奖励、"
+               "出发前必带，一屏读完。")
+    out.append("")
+    out.append("> **这是一个视图页，不是 515 个页面。** 全站没有给每个任务各生成一个 HTML —— "
+               "实测站点每页平均 146 KB，绝大部分是站点框架开销，515 页不划算且难维护。"
+               "本页按地址里的任务 ID 渲染，**链接可分享、可收藏、可刷新恢复**。")
+    out.append("")
+    out.append("---")
+    out.append("")
+    out.append("## 🔎 单个任务详情")
+    out.append("")
+    out.append('<div id="tk-quest-page">任务详情需要 JavaScript —— 不开脚本时，请到'
+               "[任务图鉴总览](index.md)或各商人页里查（那里有全量静态明细，零脚本可读）。</div>")
+    out.append("")
+    out.append("---")
+    out.append("")
+    out.append("## 📐 数据口径")
+    out.append("")
+    out.append("| 项目 | 说明 |")
+    out.append("|------|------|")
+    out.append(f"| **覆盖范围** | 持久 PvP 下全部 **{total} 个任务**，"
+               "与[任务图鉴](index.md)同一份数据 |")
+    out.append("| **前置 / 后续** | 前置读官方任务定义；**后续是站内反向算的**"
+               "（谁把本任务列为前置）。**同名任务不给链接** —— 站内有 10 个重名，"
+               "硬指会指到另一个任务上而读者看不出来 |")
+    out.append("| **不含什么** | ① **坐标与点位**（带真实 x/y/z 的字段在抓取阶段整体剔除）；"
+               "② **走位路线与执行顺序** —— 属作业不属知识，口径同[任务图鉴总览](index.md) |")
+    out.append("| **出发前必带** | 来自[物品反查](item-lookup.md)同一份携带清单；"
+               "数据缺失时这一栏整体不显示，**不影响本页其余内容** |")
+    out.append("")
+    out.append("---")
+    out.append("")
+    out.append("## 📚 相关页面")
+    out.append("")
+    out.append("- [任务图鉴总览](index.md) — 515 个任务的分类检索入口")
+    out.append("- [我的进度](progress.md) — 记录做到哪了")
+    out.append("- [物品反查（要不要留）](item-lookup.md) — 某物品被哪些任务要求")
+    out.append("")
+    out.append("📖 [返回任务图鉴总览](index.md)")
+    out.append("")
+    out.append('⬆️ **[回到顶部](#top)**')
+    out.append("")
+    out.append("**最后更新**: 2026 年 9 月 ｜ "
+               "**贡献者** [GTX950L](https://github.com/GTX950L) ｜ "
+               "**License**: CC BY-NC-SA 4.0")
+    out.append("")
+    return "\n".join(out)
+
+
+def write_quest_detail(tasks: list[dict]) -> None:
+    """写「单个任务详情」的分片数据，外加承载它的那一个视图页。
+
+    **为什么要分片**：515 个任务的详情（目标 + 奖励 + 门槛 + 前置后续）合计
+    约 0.4 MB。合成一个文件的话，读者点开任意一个任务都得先下整包 ——
+    与全站「弱网可读」的定位相冲突。
+
+    ⚠️ 目标与奖励文本**直接复用 ``render_objective()`` / ``render_rewards()``**，
+       不在这里另写一套 —— 两处各写一遍必然漂（页面上是「交物品」，详情页里
+       变成「上交物品」这种）。
+    """
+    # 名字 → id：前置 / 后续要能点进去。
+    # ⚠️ **重名不给链接** —— 站内有 10 个重名任务（23 条记录），硬取第一个会指到
+    #    另一个任务上，而读者根本看不出来（与物品侧 item_pages.json 的 dups 同一套处理）。
+    id_of_name: dict[str, str] = {}
+    dup: set[str] = set()
+    for t in tasks:
+        n = t["name"]
+        if n in id_of_name:
+            dup.add(n)
+        id_of_name[n] = t["id"]
+
+    # 后续任务 = 反向索引（谁把「我」列为前置）
+    nxt: dict[str, set] = defaultdict(set)
+    for t in tasks:
+        for p in (t.get("prereqs") or []):
+            if p.get("name"):
+                nxt[p["name"]].add(t["name"])
+
+    def link(name: str) -> list:
+        """名字 → [名字, 可跳转的 id 或空串]。空串＝同名不给链接。"""
+        if not name:
+            return ["", ""]
+        return [name, "" if name in dup else id_of_name.get(name, "")]
+
+    rows: dict[int, dict] = defaultdict(dict)
+    for t in tasks:
+        qid = t["id"]
+        car = CARRIER_IDX.get(qid) or {}
+        rwobj = t.get("rewards") or {}
+        # render_rewards 的第一行自带「完成奖励：」前缀，而详情页的小节标题已经是
+        # 「🎁 完成奖励」—— 原样搬过去会重复一遍。**只削这一行的前缀**，
+        # 其余行（声望 / 技能 / 解锁）原样保留，它们的缩进前端用来分子项。
+        rwlines = [re.sub(r"^\s*-\s*\*\*完成奖励\*\*：", "- ", x).strip()
+                   for x in render_rewards(t)] if (t.get("exp") or rwobj) else []
+        rows[quest_shard_key(qid)][qid] = {
+            "n": t["name"], "e": t.get("en") or "",
+            "t": TRADER_LABEL.get(t["trader"], t["trader"]),
+            "lv": t.get("level") or 0, "xp": t.get("exp") or 0,
+            "m": t.get("map") or "", "f": t.get("faction") or "",
+            "pr": t.get("prestige") or 0,
+            "k": bool(t.get("kappa")), "lk": bool(t.get("lightkeeper")),
+            "rs": bool(t.get("restartable")), "d": t.get("delay") or 0,
+            "pre": [link(p.get("name", "")) for p in (t.get("prereqs") or [])],
+            "nxt": [link(n) for n in sorted(nxt.get(t["name"], set()))],
+            "gates": [[g.get("trader", ""), g.get("kind", ""),
+                       g.get("cmp", ""), g.get("value")]
+                      for g in (t.get("traderReqs") or [])],
+            "oth": list(t.get("otherReqs") or []),
+            # bullet=""：详情页自己排版，不要生成器再带一个列表符号
+            "o": [render_objective(o, "").strip() for o in (t.get("objectives") or [])],
+            "fail": list(t.get("failConditions") or []),
+            "rw": rwlines,
+            "keys": list(car.get("keys") or []),
+            "bring": list(car.get("bring") or []),
+            "pack": list(car.get("pack") or []),
+        }
+
+    QUEST_JS_DIR.mkdir(parents=True, exist_ok=True)
+    # 先清旧分片：片数改过之后旧文件名不会与新的一致，不清就会残留一堆没人引用的文件
+    for old in QUEST_JS_DIR.glob("quest-detail-*.js"):
+        old.unlink()
+    total_bytes = 0
+    for k in sorted(rows):
+        body = json.dumps(rows[k], ensure_ascii=False, separators=(",", ":"))
+        total_bytes += len(body.encode("utf-8"))
+        (QUEST_JS_DIR / f"quest-detail-{k:02d}.js").write_bytes(
+            ("/* 由 scripts/gen_quests.py 生成 —— 勿手改。\n"
+             f"   任务详情分片 #{k}（id 十六进制数字之和 % {QUEST_DETAIL_SHARDS} = {k}）。"
+             f"数据抓取于 {payload_fetched()}。 */\n"
+             "window.TARKOV_QUEST_DETAIL_ONE=" + body + ";\n").encode("utf-8"))
+
+    md = quest_page_markdown(len(tasks))
+    (OUT_DIR / "quest.md").write_bytes(
+        md.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8"))
+    print(f"任务详情：{len(rows)} 个分片 ｜ {len(tasks)} 个任务 ｜ "
+          f"合计 {total_bytes / 1024:.0f} KB（单次只下 1 片，"
+          f"约 {total_bytes / max(len(rows), 1) / 1024:.0f} KB）")
+
+
+def payload_fetched() -> str:
+    """数据抓取日期（写进分片文件头，方便肉眼核对线上是新是旧）。"""
+    try:
+        return json.loads(DATA_FILE.read_text(encoding="utf-8")).get("fetched") or "—"
+    except Exception:
+        return "—"
+
+
 def generate() -> None:
     payload = json.loads(DATA_FILE.read_text(encoding="utf-8"))
     tasks = payload["tasks"]
@@ -1306,6 +1507,9 @@ def generate() -> None:
             continue
         write_trader_page(key, rows)
         written.append(OUT_DIR / f"{key}.md")
+    # 单个任务的详情页（视图页 + 分片数据）
+    write_quest_detail(tasks)
+    written.append(OUT_DIR / "quest.md")
     total = sum(p.stat().st_size for p in written)
     print(f"已生成 {len(written)} 个页面，共 {len(tasks)} 个任务，合计 {total / 1024:.0f} KB：")
     for p in written:

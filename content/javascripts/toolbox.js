@@ -316,6 +316,7 @@
   var itemsInjected = false;
   var catalogInjected = false;
   var itemPageInjected = false;
+  var questPageInjected = false;
 
   function loadPageTools() {
     if (!plannerInjected && document.getElementById("tk-season-planner")) {
@@ -354,6 +355,11 @@
     if (!itemPageInjected && document.getElementById("tk-item-page")) {
       itemPageInjected = true;
       injectScript("catalog-item.js");
+    }
+    /* 任务详情页：同样按需注入，单次只下 1 片（约 15 KB），自包含。 */
+    if (!questPageInjected && document.getElementById("tk-quest-page")) {
+      questPageInjected = true;
+      injectScript("quest-detail.js");
     }
   }
 
