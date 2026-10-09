@@ -17,6 +17,11 @@ content/javascripts/terms-data.js
 scripts/data/items_full.json
 content/javascripts/catalog-data.js
 
+# 物品详情页的分片（catalog-item-00.js … catalog-item-31.js）：同一个生成器产出，
+# 合计约 2.5 MB，是**纯生成物**（片数与分片算法都写在生成器里，随时可重跑）。
+# 与 catalog-data.js 同理，不入仓；CI 在 build 前会重新生成。
+content/javascripts/catalog-item-*.js
+
 # IDE
 .vscode/
 .idea/

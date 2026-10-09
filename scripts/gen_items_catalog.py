@@ -628,6 +628,11 @@ def collect(items, zh, leaves, cats, leaf_ids):
             "props": summary,
             "buy": price_cell(it.get("buyFromTrader"), "buy"),
             "sell": price_cell(it.get("sellToTrader"), "sell"),
+            # 官方介绍（游戏内物品描述的中文本地化原文）与官方 Wiki 外链 —— 只有详情页用。
+            # `zh` 字典的键是 "<物品id> Description"；实测 4964 / 4979 件有中文，
+            # 其余 15 件官方未提供中文本地化，取值会是 None → 统一落成空串。
+            "desc": (zh.get(it.get("description") or "") or "").strip(),
+            "wiki": it.get("wikiLink") or "",
             "_num": numeric,
         })
     for v in buckets.values():
@@ -1020,6 +1025,163 @@ def write_js(plan, buckets, leaves, total_items, routes, quests, item_of_name):
     return len(body), pages, unmatched_quest_items, route_stats
 
 
+def item_page_markdown(total_items, with_desc) -> str:
+    """生成「单件物品详情」视图页的静态骨架（``content/catalog/item.md``）。
+
+    ⚠️ 这一页**不是** 4979 个页面，是**一个**按地址里的物品 ID 渲染的视图页。
+       为什么不做成每件一个 HTML：实测每页平均 146 KB，其中绝大部分是站点框架
+       （侧栏 nav + 主题）；4979 页合计约 700 MB —— 既逼近 GitHub Pages 的 1 GB 上限，
+       也是「一页框架装 1 KB 内容」的浪费，还让构建时间翻数十倍。
+    """
+    out = []
+    out.append("---")
+    out.append("tags:")
+    out.append("  - 物品")
+    out.append("  - 索引")
+    out.append("---")
+    out.append("")
+    out.append("# 物品详情（Item Detail）")
+    out.append("")
+    out.append(f"> 版本基线：{BASE_MONTH} ｜ {BASE_VER}（第一赛季 KORD BREACH）"
+               "｜ 数据来源：tarkov.dev（二级）")
+    out.append("> 单件物品的完整页面。数值随版本调整，引用时请附「以游戏内为准」。")
+    out.append("")
+    out.append('<a id="top"></a>')
+    out.append("")
+    out.append("## 📸 本页是什么")
+    out.append("")
+    out.append("[物品图鉴](index.md) 的分类页是**一排同类物品横着比**；这一页是"
+               "**单件物品竖着看** —— 官方介绍、重量与占地、商人买卖价、怎么拿到它、"
+               "有没有任务要它，一屏读完。")
+    out.append("")
+    out.append("> **这是一个视图页，不是 4979 个页面。** 全站没有给每件物品各生成一个 HTML —— "
+               "实测那样做站点会从 23 MB 涨到约 700 MB，而每页 146 KB 里绝大部分是站点框架开销。"
+               "本页按地址里的物品 ID 渲染对应物品，**链接可分享、可收藏、可刷新恢复**。")
+    out.append("")
+    out.append("---")
+    out.append("")
+    out.append("## 🔎 单件物品详情")
+    out.append("")
+    out.append('<div id="tk-item-page">物品详情需要 JavaScript —— 不开脚本时，请到'
+               "[物品图鉴总览](index.md)的分类页里查（那里有全量静态表格，零脚本可读）。</div>")
+    out.append("")
+    out.append("---")
+    out.append("")
+    out.append("## 📐 数据口径")
+    out.append("")
+    out.append("| 项目 | 说明 |")
+    out.append("|------|------|")
+    out.append(f"| **收录范围** | 全部 **{total_items} 件**物品（不含枪械预配方案），"
+               "与[物品图鉴](index.md)同一份数据 |")
+    out.append(f"| **官方介绍** | 游戏内物品描述的中文本地化原文 —— **{with_desc} 件有**，"
+               "其余官方未提供中文，显示为空 |")
+    out.append("| **价格** | **商人最低售价 / 最高回收**，静态快照；**不含跳蚤价**"
+               "（站内不联网、不收实时价，与[配方速查表](../docs/recipes.md)同口径） |")
+    out.append("| **占地** | 宽 × 高，即游戏内的格子数（不是体积、不是重量） |")
+    out.append("| **外部链接** | 指向官方 Wiki 的对应条目；本站不收录配图（沿用全站约定） |")
+    out.append("")
+    out.append("---")
+    out.append("")
+    out.append("## 📚 相关页面")
+    out.append("")
+    out.append("- [物品图鉴总览](index.md) — 全站物品的分类检索入口")
+    out.append("- [物品反查（要不要留）](../quests/item-lookup.md) — 某物品被哪些任务要求")
+    out.append("- [配方速查表](../docs/recipes.md) — 制作与以物换物")
+    out.append("")
+    out.append("📖 [返回物品图鉴总览](index.md)")
+    out.append("")
+    out.append('⬆️ **[回到顶部](#top)**')
+    out.append("")
+    out.append(f"**最后更新**: {FETCH_DATE[:7].replace('-', ' 年 ')} 月 ｜ "
+               "**贡献者** [GTX950L](https://github.com/GTX950L) ｜ "
+               "**License**: CC BY-NC-SA 4.0")
+    out.append("")
+    return "\n".join(out)
+
+
+# 详情分片的片数。32 是实测选的：片内最多 175 / 最少 137 件（极差比 1.28），
+# 单次只下约 78 KB 未压缩。改这个数**必须同步改** 前端 catalog-item.js。
+SHARD_COUNT = 32
+
+
+def shard_key(iid) -> int:
+    """物品 id → 分片号（0 ~ SHARD_COUNT-1）。
+
+    ⚠️ **不能用 id 的首字符**：实测塔科夫物品 id 的首字符**只有 5 与 6 两种**
+       （2148 / 2831 件），按它切只得到 2 片、单片 1.2 MB —— 等于没切。
+       改用「十六进制数字之和取模」：实测 32 片下分布均匀（最多 175 / 最少 137）。
+
+    ⚠️ 前端 ``content/javascripts/catalog-item.js`` 里有一份**等价实现**，
+       算法与片数必须一致，否则详情页会拉错片、静默显示「找不到这件物品」。
+    """
+    return sum(int(c, 16) for c in iid) % SHARD_COUNT
+
+
+def write_item_detail(plan, buckets, routes, quests, name_to_id, total_items):
+    """写「单件物品详情」的分片数据，外加承载它的那一个视图页。
+
+    **为什么要分片**：一件物品的完整详情（含官方介绍、获取途径、任务需求）
+    平均约 500 字节，4979 件合计约 2.5 MB。合成一个文件的话，读者点开任意一件
+    都得先下 2.5 MB —— 与全站「弱网可读」的定位直接冲突。
+
+    分片规则见 ``shard_key()``：前端拿到 id 就能直接算出该拉哪一片，
+    **不需要额外的索引文件**。
+    """
+    # 「这件物品属于哪个分类页」—— 详情页的「返回同类」链接要用
+    slug_of = {}
+    title_of = {}
+    for p in plan:
+        for lid in p["leaves"]:
+            for it in buckets.get(lid, []):
+                slug_of[it["id"]] = p["slug"]
+                title_of[it["id"]] = p["title"]
+
+    # 任务需求按**中文名**索引，这里翻成按 id（与 write_js 里是同一套翻法）
+    quests_by_id = {}
+    for name, v in (quests or {}).items():
+        iid = name_to_id.get(name)
+        if iid:
+            quests_by_id[iid] = v
+
+    rows = collections.defaultdict(dict)
+    with_desc = 0
+    for p in plan:
+        for lid in p["leaves"]:
+            for it in buckets.get(lid, []):
+                iid = it["id"]
+                if it["desc"]:
+                    with_desc += 1
+                rows[shard_key(iid)][iid] = {
+                    "n": it["name"], "e": it["en"], "w": it["weight"],
+                    "z": it["size"], "t": it["types"][0] if it["types"] else "",
+                    "b": it["buy"], "s": it["sell"], "p": it["props"],
+                    "d": it["desc"], "k": it["wiki"], "g": slug_of[iid],
+                    "gt": title_of[iid],
+                    "r": (routes or {}).get(iid) or [],
+                    "q": quests_by_id.get(iid),
+                }
+
+    JS.mkdir(parents=True, exist_ok=True)
+    # 先清掉旧分片：片数改过之后，旧文件名不会与新的一致，
+    # 不清就会**残留一堆没人引用的分片**（站点白白变重）。
+    for old in JS.glob("catalog-item-*.js"):
+        old.unlink()
+    total_bytes = 0
+    for c in sorted(rows):
+        body = json.dumps(rows[c], ensure_ascii=False, separators=(",", ":"))
+        total_bytes += len(body.encode("utf-8"))
+        (JS / f"catalog-item-{c:02d}.js").write_bytes(
+            ("/* 由 scripts/gen_items_catalog.py 生成 —— 勿手改。\n"
+             f"   物品详情分片 #{c}（十六进制数字之和 % {SHARD_COUNT} = {c}）。"
+             f"抓取日期 {FETCH_DATE}。 */\n"
+             "window.TARKOV_ITEM=" + body + ";\n").encode("utf-8"))
+
+    md = item_page_markdown(total_items, with_desc)
+    (OUT / "item.md").write_bytes(
+        md.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8"))
+    return md, len(rows), sum(len(v) for v in rows.values()), total_bytes, with_desc
+
+
 def check_anchors(md, slug):
     """页面内所有 ``(#anchor)`` 都要有对应的 ``<a id="anchor">``。
 
@@ -1178,7 +1340,21 @@ def main() -> int:
          "dups": sorted(dup_names)},
         ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
 
+    item_md, n_shards, n_items, item_bytes, n_desc = write_item_detail(
+        plan, buckets, routes, quests,
+        {k: v[1] for k, v in item_of_name.items()}, items_total)
+    item_anchor_errs = check_anchors(item_md, "item")
+    if item_anchor_errs:
+        print("\n物品详情页锚点自检未通过：", file=sys.stderr)
+        for e in item_anchor_errs:
+            print("  " + e, file=sys.stderr)
+        return 1
+    written.append(OUT / "item.md")
+
     print(f"\n写出 {len(written)} 个页面 + catalog-data.js（{size / 1048576:.2f} MB 未压缩）")
+    print(f"物品详情：{n_shards} 个分片 ｜ {n_items} 件 ｜ 合计 {item_bytes / 1048576:.2f} MB 未压缩"
+          f"（单次只下 1 片，约 {item_bytes / max(n_shards, 1) / 1024:.0f} KB）"
+          f"　有官方介绍 {n_desc} 件")
     print("锚点自检通过")
     print(f"获取途径：{rstat['items']} 种物品 ｜ {rstat['total']} 条"
           f"（换 {rstat['barter']} ／ 做 {rstat['craft']}）"

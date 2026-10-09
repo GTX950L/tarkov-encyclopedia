@@ -206,6 +206,7 @@ nav:
   - 查阅栏目:
       - 第九篇 · 物品图鉴:
           - 总览与检索: catalog/index.md
+          - 物品详情（单件）: catalog/item.md
           - 枪械: catalog/weapons.md
           - 武器配件·瞄具与夜视: catalog/mods-sight.md
           - 武器配件·枪管与膛口: catalog/mods-barrel.md

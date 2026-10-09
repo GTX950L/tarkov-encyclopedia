@@ -315,6 +315,7 @@
   var filterInjected = false;
   var itemsInjected = false;
   var catalogInjected = false;
+  var itemPageInjected = false;
 
   function loadPageTools() {
     if (!plannerInjected && document.getElementById("tk-season-planner")) {
@@ -346,6 +347,13 @@
       catalogInjected = true;
       injectScript("catalog-data.js");
       injectScript("catalog.js");
+    }
+    /* 物品详情页：单次只下 1 片（约 80 KB），但仍然**按需注入** ——
+       全站 130+ 页没有理由每页都背这份脚本。
+       ⚠️ 它**不需要 catalog-data.js**：分片自包含。所以这里只注入本体。 */
+    if (!itemPageInjected && document.getElementById("tk-item-page")) {
+      itemPageInjected = true;
+      injectScript("catalog-item.js");
     }
   }
 

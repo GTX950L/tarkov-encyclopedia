@@ -481,6 +481,15 @@
     box.appendChild(buildRoutes(r, d));
     box.appendChild(buildQuestNeeds(r, d));
 
+    /* 指向单件物品详情页 —— 面板是「在表格里顺手看一眼」，详情页是
+       「一个可以分享、可以收藏的地址」。两处内容同源，只是承载形式不同。 */
+    var full = el("p", "tk-cat-detail__more");
+    var fa = el("a", null, "打开完整页面（链接可分享）→");
+    fa.href = siteRoot().replace(/javascripts\/$/, "")
+      + "catalog/item/?id=" + encodeURIComponent(r[0]);
+    full.appendChild(fa);
+    box.appendChild(full);
+
     box.appendChild(el("p", "tk-cat-detail__note",
       "本页数值随版本调整，以游戏内为准。数据源 tarkov.dev（二级），抓取于 " + (d.fetched || "—") + "。"));
 
