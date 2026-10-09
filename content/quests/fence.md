@@ -57,7 +57,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Wergild**
 
-<a href="../quest/?id=61e6e60c5ca3b3783662be27">打开完整页面 →</a>
+<a href="quest.md?id=61e6e60c5ca3b3783662be27">打开完整页面 →</a>
 
 **接取条件**
 
@@ -74,7 +74,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Trust**
 
-<a href="../quest/?id=61e6e5e0f5b9633f6719ed95">打开完整页面 →</a>
+<a href="quest.md?id=61e6e5e0f5b9633f6719ed95">打开完整页面 →</a>
 
 **接取条件**
 
@@ -92,7 +92,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Collection**
 
-<a href="../quest/?id=61e6e621bfeab00251576265">打开完整页面 →</a>
+<a href="quest.md?id=61e6e621bfeab00251576265">打开完整页面 →</a>
 
 **接取条件**
 
@@ -109,7 +109,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Wager**
 
-<a href="../quest/?id=61e6e60223374d168a4576a6">打开完整页面 →</a>
+<a href="quest.md?id=61e6e60223374d168a4576a6">打开完整页面 →</a>
 
 **接取条件**
 
@@ -126,7 +126,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Barkeep**
 
-<a href="../quest/?id=61e6e615eea2935bc018a2c5">打开完整页面 →</a>
+<a href="quest.md?id=61e6e615eea2935bc018a2c5">打开完整页面 →</a>
 
 **接取条件**
 
@@ -144,7 +144,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Immunity**
 
-<a href="../quest/?id=6663148ca9290f9e0806cca1">打开完整页面 →</a>
+<a href="quest.md?id=6663148ca9290f9e0806cca1">打开完整页面 →</a>
 
 **接取条件**
 
@@ -161,7 +161,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Small Business Part 1**
 
-<a href="../quest/?id=6663148ed7f171c4c20226c1">打开完整页面 →</a>
+<a href="quest.md?id=6663148ed7f171c4c20226c1">打开完整页面 →</a>
 
 **接取条件**
 
@@ -195,7 +195,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Small Business Part 2**
 
-<a href="../quest/?id=6663149196a9349baa021baa">打开完整页面 →</a>
+<a href="quest.md?id=6663149196a9349baa021baa">打开完整页面 →</a>
 
 `失败可重接`
 
@@ -219,7 +219,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Small Business Part 3**
 
-<a href="../quest/?id=66631493312343839d032d22">打开完整页面 →</a>
+<a href="quest.md?id=66631493312343839d032d22">打开完整页面 →</a>
 
 **出发前必带**
 
@@ -245,7 +245,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Establish Contact**
 
-<a href="../quest/?id=6672d9def1c88688a707d042">打开完整页面 →</a>
+<a href="quest.md?id=6672d9def1c88688a707d042">打开完整页面 →</a>
 
 **接取条件**
 
@@ -262,7 +262,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Friend Among Strangers**
 
-<a href="../quest/?id=66631489acf8442f8b05319f">打开完整页面 →</a>
+<a href="quest.md?id=66631489acf8442f8b05319f">打开完整页面 →</a>
 
 `失败可重接`
 
@@ -288,7 +288,7 @@ tags:
 
 **Fence** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Between Two Fires Pvp Zone**
 
-<a href="../quest/?id=66058ccf06ef1d50a60c1f48">打开完整页面 →</a>
+<a href="quest.md?id=66058ccf06ef1d50a60c1f48">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -316,7 +316,7 @@ tags:
 
 **Fence** ｜ 需 **Lv10** ｜ 前置 **2** 个 ｜ 英文名 **Against the Conscience Part 1 Pvp Zone**
 
-<a href="../quest/?id=66058ccbc7f3584787181478">打开完整页面 →</a>
+<a href="quest.md?id=66058ccbc7f3584787181478">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -346,7 +346,7 @@ tags:
 
 **Fence** ｜ 需 **Lv25** ｜ **无前置** ｜ 英文名 **Is This a Reference**
 
-<a href="../quest/?id=66d9cbb67b491f9d5304f6e6">打开完整页面 →</a>
+<a href="quest.md?id=66d9cbb67b491f9d5304f6e6">打开完整页面 →</a>
 
 **出发前必带**
 
@@ -398,7 +398,7 @@ tags:
 
 **Fence** ｜ 需 **Lv42** ｜ 前置 **5** 个 ｜ 英文名 **Collector**
 
-<a href="../quest/?id=5c51aac186f77432ea65c552">打开完整页面 →</a>
+<a href="quest.md?id=5c51aac186f77432ea65c552">打开完整页面 →</a>
 
 `**Kappa 必需**`
 
@@ -462,7 +462,7 @@ tags:
 
 **Fence** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **The Choice**
 
-<a href="../quest/?id=60effd818b669d08a35bfad5">打开完整页面 →</a>
+<a href="quest.md?id=60effd818b669d08a35bfad5">打开完整页面 →</a>
 
 **接取条件**
 

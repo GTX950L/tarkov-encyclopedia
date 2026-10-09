@@ -798,15 +798,18 @@ def render_task(rec: dict, i: int) -> list[str]:
     L.append(" ｜ ".join(meta))
     # 指向「单个任务详情」视图页。
     #
-    # ⚠️ 用**原生 HTML** 而不是 markdown 链接，为两条硬约束：
-    #   ① markdown 链接 `[x](quest.md?id=…)` 会被 check_entries 判成断链 ——
-    #      它 resolve 的是字面路径 `quest.md?id=…`，不剥 query；
-    #   ② HTML 的 href **不会被 MkDocs 重写**，所以这里必须直接写**构建后**
-    #      的相对路径 `../quest/`（页面在 /quests/<trader>/，目标是 /quests/quest/）。
-    #      写成 `quest.md` 反而会 404 —— 这两件事别搞反。
+    # ⚠️ 这里有三处坑，都是实测踩出来的（2026-10-10）：
+    #   ① 写成 markdown 链接 `[x](quest.md?id=…)` 会被 `check_entries.py` 判成断链 ——
+    #      它 resolve 的是字面路径，不剥 query；
+    #   ② 所以改用原生 HTML `<a href>`：HTML 的 href **不进**那个断链检查；
+    #   ③ **但 MkDocs 仍会重写 HTML 里的相对链接**（按**源文件**位置解析，与 markdown
+    #      链接同一套 treeprocessor）—— 第一版写成 `../quest/`，线上实测被解析成
+    #      `/quest/?id=…`（少了 `quests/` 一层，因为 `content/quests/../quest/` ＝
+    #      `content/quest/`）。**正确写法是与源文件同目录的 `quest.md`**，
+    #      MkDocs 会把它重写成 `../quest/`（构建后的真实位置）。
     if rec.get("id"):
         L.append("")
-        L.append(f'<a href="../quest/?id={rec["id"]}">打开完整页面 →</a>')
+        L.append(f'<a href="quest.md?id={rec["id"]}">打开完整页面 →</a>')
     if flags:
         L += ["", "`" + "` ｜ `".join(flags) + "`"]
     L.append("")

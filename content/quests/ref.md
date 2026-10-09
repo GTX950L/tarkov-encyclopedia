@@ -61,7 +61,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Professional Fitness Part 1 Pvp Zone**
 
-<a href="../quest/?id=69788c2bac719606e40b4e77">打开完整页面 →</a>
+<a href="quest.md?id=69788c2bac719606e40b4e77">打开完整页面 →</a>
 
 **接取条件**
 
@@ -78,7 +78,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Professional Fitness Part 2 Pvp Zone**
 
-<a href="../quest/?id=69788db3878a4385d10c0718">打开完整页面 →</a>
+<a href="quest.md?id=69788db3878a4385d10c0718">打开完整页面 →</a>
 
 **接取条件**
 
@@ -95,7 +95,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Decisions Decisions Pvp Zone**
 
-<a href="../quest/?id=66058cd19f59e625462acc90">打开完整页面 →</a>
+<a href="quest.md?id=66058cd19f59e625462acc90">打开完整页面 →</a>
 
 **出发前必带**
 
@@ -128,7 +128,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Hold the Lead Pvp Zone**
 
-<a href="../quest/?id=697895b6c639962b2e0cf268">打开完整页面 →</a>
+<a href="quest.md?id=697895b6c639962b2e0cf268">打开完整页面 →</a>
 
 **接取条件**
 
@@ -144,7 +144,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 1 Pvp Zone**
 
-<a href="../quest/?id=66058cc1da30b620a34e6e86">打开完整页面 →</a>
+<a href="quest.md?id=66058cc1da30b620a34e6e86">打开完整页面 →</a>
 
 **接取条件**
 
@@ -161,7 +161,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 2 Pvp Zone**
 
-<a href="../quest/?id=66058cc208308761cf390993">打开完整页面 →</a>
+<a href="quest.md?id=66058cc208308761cf390993">打开完整页面 →</a>
 
 **接取条件**
 
@@ -178,7 +178,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 3 Pvp Zone**
 
-<a href="../quest/?id=66058cc5bb83da7ba474aba9">打开完整页面 →</a>
+<a href="quest.md?id=66058cc5bb83da7ba474aba9">打开完整页面 →</a>
 
 **接取条件**
 
@@ -195,7 +195,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 4 Pvp Zone**
 
-<a href="../quest/?id=66058cc72cee99303f1ba069">打开完整页面 →</a>
+<a href="quest.md?id=66058cc72cee99303f1ba069">打开完整页面 →</a>
 
 `失败可重接`
 
@@ -221,7 +221,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 5 Pvp Zone**
 
-<a href="../quest/?id=66058cc9ae4719735349b9ea">打开完整页面 →</a>
+<a href="quest.md?id=66058cc9ae4719735349b9ea">打开完整页面 →</a>
 
 **接取条件**
 
@@ -238,7 +238,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 6 Pvp Zone**
 
-<a href="../quest/?id=69789418b2187365e70bb947">打开完整页面 →</a>
+<a href="quest.md?id=69789418b2187365e70bb947">打开完整页面 →</a>
 
 **接取条件**
 
@@ -256,7 +256,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Create a Distraction Part 1 Pvp Zone**
 
-<a href="../quest/?id=66058cbd9f59e625462acc8e">打开完整页面 →</a>
+<a href="quest.md?id=66058cbd9f59e625462acc8e">打开完整页面 →</a>
 
 `地图：中心区`
 
@@ -281,7 +281,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Create a Distraction Part 2 Pvp Zone**
 
-<a href="../quest/?id=66058cbf2f19c31a5a1337ec">打开完整页面 →</a>
+<a href="quest.md?id=66058cbf2f19c31a5a1337ec">打开完整页面 →</a>
 
 `地图：塔科夫街区` ｜ `失败可重接`
 
@@ -305,7 +305,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Balancing Part 1 Pvp Zone**
 
-<a href="../quest/?id=66058cb7c7f3584787181476">打开完整页面 →</a>
+<a href="quest.md?id=66058cb7c7f3584787181476">打开完整页面 →</a>
 
 **接取条件**
 
@@ -323,7 +323,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Balancing Part 2 Pvp Zone**
 
-<a href="../quest/?id=66058cb9e8e4f17985230805">打开完整页面 →</a>
+<a href="quest.md?id=66058cb9e8e4f17985230805">打开完整页面 →</a>
 
 **接取条件**
 
@@ -341,7 +341,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Surprise Pvp Zone**
 
-<a href="../quest/?id=66058cbb06ef1d50a60c1f46">打开完整页面 →</a>
+<a href="quest.md?id=66058cbb06ef1d50a60c1f46">打开完整页面 →</a>
 
 **接取条件**
 
@@ -358,7 +358,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Provide Viewership**
 
-<a href="../quest/?id=675c15fbf7da9792a4059871">打开完整页面 →</a>
+<a href="quest.md?id=675c15fbf7da9792a4059871">打开完整页面 →</a>
 
 `地图：海关`
 
@@ -388,7 +388,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Arena Business Pvp Zone**
 
-<a href="../quest/?id=697877e0c639962b2e0cf24f">打开完整页面 →</a>
+<a href="quest.md?id=697877e0c639962b2e0cf24f">打开完整页面 →</a>
 
 **接取条件**
 
@@ -406,7 +406,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Against the Conscience Part 2 Pvp Zone**
 
-<a href="../quest/?id=66058ccde8e4f17985230807">打开完整页面 →</a>
+<a href="quest.md?id=66058ccde8e4f17985230807">打开完整页面 →</a>
 
 **接取条件**
 
@@ -423,7 +423,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Easy Money Part 2 Pvp Zone**
 
-<a href="../quest/?id=66058cb5ae4719735349b9e8">打开完整页面 →</a>
+<a href="quest.md?id=66058cb5ae4719735349b9e8">打开完整页面 →</a>
 
 **接取条件**
 
@@ -443,7 +443,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Postponed Reward Pvp Zone**
 
-<a href="../quest/?id=67e993f5ed537409f009da75">打开完整页面 →</a>
+<a href="quest.md?id=67e993f5ed537409f009da75">打开完整页面 →</a>
 
 **接取条件**
 
