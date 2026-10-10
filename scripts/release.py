@@ -4,8 +4,9 @@
 为什么需要它
 ------------
 **Release 必须与 CHANGELOG 一起发**，否则版本序列会断 —— 本项目已经因此补建过
-两轮：v1.49–v1.70 期间只写 CHANGELOG 没建 Release（一次要补 23 个版本的量级），
-v1.77.0–v1.80.4 又漏了 8 个（用 `scripts/backfill_releases.py` 补的）。
+三轮：v1.49–v1.70 期间只写 CHANGELOG 没建 Release（23 个版本的量级）、
+v1.77.0–v1.80.4 又漏了 8 个、v1.88.0–v1.98.1 再漏 18 个（都用
+`scripts/backfill_releases.py` 补齐）。
 
 ⚠️ **不要拿「页头徽标会更新」当理由 —— 那已经不成立了（2026-10-07 实测）。**
    本项目当前用的 Material 7（经 Zensical 构建）**不再渲染任何版本元素**：

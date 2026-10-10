@@ -110,6 +110,13 @@ gh release create v1.72.0 --title "v1.72.0 —— 一句话主题" --notes-file 
 > gh release list --limit 40 --json tagName --jq '.[].tagName' | sort -V   # 一眼看出序列断在哪
 > ```
 
+> **补建记录（2026-10-10）**：v1.87.1 之后又出现两段断档（**v1.88.0–v1.92.0**、**v1.93.1–v1.98.1**），
+> 连同一直没补的 **v1.49.0–v1.70.0**，用 `scripts/backfill_releases.py` 一并补建 **40 个** ——
+> **版本序列自 v1.47.0（Release 实践起点）起已连续**；更早的 v1.0.0–v1.46.0 从无 Release 约定，不在补建范围。
+> ⚠️ **补建有个坑：Latest 徽标会被带走。** GitHub 对「**新发布**的 Release」默认置为 Latest（与提交日期无关）——
+> 补完 40 个旧版本后，`/releases/latest` 实测指向了 **v1.98.1**（最后一个补建的）。
+> 脚本收尾已内置指回（`gh release edit <CHANGELOG 最新版> --latest`）；手工补建时别漏这步。
+
 > **若将来要把版本号重新显示到页头**：主题不再提供该组件，需要自建 —— 从 CHANGELOG 解析出版本、
 > 注入 `.md-header__inner`、并在 `extra.css` 里补样式（主题也没带 `.md-version` 的样式）。
 > **务必让显示值由 CHANGELOG 生成、并加一条 CI 断言**，否则就是一个会静默漂移的第二处数字源。
