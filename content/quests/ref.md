@@ -20,13 +20,14 @@ tags:
 | **排序** | 按**等级门槛升序**，同级按任务名 |
 | **分档** | 每 10 级一档（Lv10–19 …），与[总览](index.md)「按等级门槛」同口径 |
 | **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |
-| **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md) |
+| **💬 商人台词** | **每个任务都有** —— 点明细块里的「💬 台词与完整明细 →」，看商人接取时说的话与任务完成对话，另外还能顺着**前置／后续任务**（可点击）走任务链 |
+| **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md)；台词为**三级来源**（玩家维基），见[任务详情](quest.md) 的口径表 |
 
 ---
 
 ## 🔎 任务索引 ｜ 20 项
 
-点任务名跳到下方明细。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
+点任务名跳到下方明细。**每个明细块里都有「💬 台词与完整明细 →」**，点开是该任务的完整页面（商人台词 · 前置与后续 · 目标 · 奖励 · 出发前必带）。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
 
 | # | 任务 | 门槛 | 地图 | 标记 |
 |---|------|------|------|------|
@@ -61,7 +62,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Professional Fitness Part 1 Pvp Zone**
 
-<a href="quest.md?id=69788c2bac719606e40b4e77">打开完整页面 →</a>
+<a href="quest.md?id=69788c2bac719606e40b4e77">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -78,7 +79,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Professional Fitness Part 2 Pvp Zone**
 
-<a href="quest.md?id=69788db3878a4385d10c0718">打开完整页面 →</a>
+<a href="quest.md?id=69788db3878a4385d10c0718">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -95,7 +96,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Decisions Decisions Pvp Zone**
 
-<a href="quest.md?id=66058cd19f59e625462acc90">打开完整页面 →</a>
+<a href="quest.md?id=66058cd19f59e625462acc90">💬 台词与完整明细 →</a>
 
 **出发前必带**
 
@@ -128,7 +129,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Hold the Lead Pvp Zone**
 
-<a href="quest.md?id=697895b6c639962b2e0cf268">打开完整页面 →</a>
+<a href="quest.md?id=697895b6c639962b2e0cf268">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -144,7 +145,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 1 Pvp Zone**
 
-<a href="quest.md?id=66058cc1da30b620a34e6e86">打开完整页面 →</a>
+<a href="quest.md?id=66058cc1da30b620a34e6e86">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -161,7 +162,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 2 Pvp Zone**
 
-<a href="quest.md?id=66058cc208308761cf390993">打开完整页面 →</a>
+<a href="quest.md?id=66058cc208308761cf390993">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -178,7 +179,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 3 Pvp Zone**
 
-<a href="quest.md?id=66058cc5bb83da7ba474aba9">打开完整页面 →</a>
+<a href="quest.md?id=66058cc5bb83da7ba474aba9">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -195,7 +196,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 4 Pvp Zone**
 
-<a href="quest.md?id=66058cc72cee99303f1ba069">打开完整页面 →</a>
+<a href="quest.md?id=66058cc72cee99303f1ba069">💬 台词与完整明细 →</a>
 
 `失败可重接`
 
@@ -221,7 +222,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 5 Pvp Zone**
 
-<a href="quest.md?id=66058cc9ae4719735349b9ea">打开完整页面 →</a>
+<a href="quest.md?id=66058cc9ae4719735349b9ea">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -238,7 +239,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 6 Pvp Zone**
 
-<a href="quest.md?id=69789418b2187365e70bb947">打开完整页面 →</a>
+<a href="quest.md?id=69789418b2187365e70bb947">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -256,7 +257,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Create a Distraction Part 1 Pvp Zone**
 
-<a href="quest.md?id=66058cbd9f59e625462acc8e">打开完整页面 →</a>
+<a href="quest.md?id=66058cbd9f59e625462acc8e">💬 台词与完整明细 →</a>
 
 `地图：中心区`
 
@@ -281,7 +282,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Create a Distraction Part 2 Pvp Zone**
 
-<a href="quest.md?id=66058cbf2f19c31a5a1337ec">打开完整页面 →</a>
+<a href="quest.md?id=66058cbf2f19c31a5a1337ec">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区` ｜ `失败可重接`
 
@@ -305,7 +306,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Balancing Part 1 Pvp Zone**
 
-<a href="quest.md?id=66058cb7c7f3584787181476">打开完整页面 →</a>
+<a href="quest.md?id=66058cb7c7f3584787181476">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -323,7 +324,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Balancing Part 2 Pvp Zone**
 
-<a href="quest.md?id=66058cb9e8e4f17985230805">打开完整页面 →</a>
+<a href="quest.md?id=66058cb9e8e4f17985230805">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -341,7 +342,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Surprise Pvp Zone**
 
-<a href="quest.md?id=66058cbb06ef1d50a60c1f46">打开完整页面 →</a>
+<a href="quest.md?id=66058cbb06ef1d50a60c1f46">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -358,7 +359,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Provide Viewership**
 
-<a href="quest.md?id=675c15fbf7da9792a4059871">打开完整页面 →</a>
+<a href="quest.md?id=675c15fbf7da9792a4059871">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -388,7 +389,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Arena Business Pvp Zone**
 
-<a href="quest.md?id=697877e0c639962b2e0cf24f">打开完整页面 →</a>
+<a href="quest.md?id=697877e0c639962b2e0cf24f">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -406,7 +407,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Against the Conscience Part 2 Pvp Zone**
 
-<a href="quest.md?id=66058ccde8e4f17985230807">打开完整页面 →</a>
+<a href="quest.md?id=66058ccde8e4f17985230807">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -423,7 +424,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Easy Money Part 2 Pvp Zone**
 
-<a href="quest.md?id=66058cb5ae4719735349b9e8">打开完整页面 →</a>
+<a href="quest.md?id=66058cb5ae4719735349b9e8">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -443,7 +444,7 @@ tags:
 
 **Ref（竞技场裁判）** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Postponed Reward Pvp Zone**
 
-<a href="quest.md?id=67e993f5ed537409f009da75">打开完整页面 →</a>
+<a href="quest.md?id=67e993f5ed537409f009da75">💬 台词与完整明细 →</a>
 
 **接取条件**
 

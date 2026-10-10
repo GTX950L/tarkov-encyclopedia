@@ -351,6 +351,11 @@ def main() -> int:
             len(pred.get(t["id"], ())),
             len(unlock[t["id"]]),
             link_of[t["id"]],
+            # 末列加任务 id：筛选器要用它拼「💬 台词与完整明细」的链接
+            # （/quests/quest/?id=…）。**追加在最后**，前面的下标一律不动 ——
+            # 这个数组是按下标读的（quests-filter.js 的 C_* 常量），
+            # 插在中间会把后面所有列错位。
+            t["id"],
         ])
     rows.sort(key=lambda r: (r[2], -r[13], r[0]))
 
@@ -362,7 +367,7 @@ def main() -> int:
         "edgeCount": all_edges,
         "completeEdgeCount": complete_edges,
         "cols": ["name", "en", "trader", "level", "map", "keys", "faction", "flags",
-                 "fail", "delay", "restart", "exp", "dUnlock", "cUnlock", "link"],
+                 "fail", "delay", "restart", "exp", "dUnlock", "cUnlock", "link", "id"],
         "tasks": rows,
     }
     JS_OUT.write_text(

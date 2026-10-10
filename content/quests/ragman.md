@@ -20,13 +20,14 @@ tags:
 | **排序** | 按**等级门槛升序**，同级按任务名 |
 | **分档** | 每 10 级一档（Lv0–9 …），与[总览](index.md)「按等级门槛」同口径 |
 | **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |
-| **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md) |
+| **💬 商人台词** | **每个任务都有** —— 点明细块里的「💬 台词与完整明细 →」，看商人接取时说的话与任务完成对话，另外还能顺着**前置／后续任务**（可点击）走任务链 |
+| **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md)；台词为**三级来源**（玩家维基），见[任务详情](quest.md) 的口径表 |
 
 ---
 
 ## 🔎 任务索引 ｜ 58 项
 
-点任务名跳到下方明细。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
+点任务名跳到下方明细。**每个明细块里都有「💬 台词与完整明细 →」**，点开是该任务的完整页面（商人台词 · 前置与后续 · 目标 · 奖励 · 出发前必带）。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
 
 | # | 任务 | 门槛 | 地图 | 标记 |
 |---|------|------|------|------|
@@ -99,7 +100,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Make Ultra Great Again**
 
-<a href="quest.md?id=5ae448bf86f7744d733e55ee">打开完整页面 →</a>
+<a href="quest.md?id=5ae448bf86f7744d733e55ee">💬 台词与完整明细 →</a>
 
 `地图：立交桥`
 
@@ -118,7 +119,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Sew It Good Part 1**
 
-<a href="quest.md?id=5ae4495086f77443c122bc40">打开完整页面 →</a>
+<a href="quest.md?id=5ae4495086f77443c122bc40">💬 台词与完整明细 →</a>
 
 `**Kappa 必需**`
 
@@ -140,7 +141,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sew It Good Part 2**
 
-<a href="quest.md?id=5ae4497b86f7744cf402ed00">打开完整页面 →</a>
+<a href="quest.md?id=5ae4497b86f7744cf402ed00">💬 台词与完整明细 →</a>
 
 `**Kappa 必需**`
 
@@ -162,7 +163,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sew It Good Part 3**
 
-<a href="quest.md?id=5ae4495c86f7744e87761355">打开完整页面 →</a>
+<a href="quest.md?id=5ae4495c86f7744e87761355">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -182,7 +183,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sew It Good Part 4**
 
-<a href="quest.md?id=5ae4496986f774459e77beb6">打开完整页面 →</a>
+<a href="quest.md?id=5ae4496986f774459e77beb6">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -200,7 +201,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Reserve Expert**
 
-<a href="quest.md?id=608974af4b05530f55550c21">打开完整页面 →</a>
+<a href="quest.md?id=608974af4b05530f55550c21">💬 台词与完整明细 →</a>
 
 `地图：储备站`
 
@@ -232,7 +233,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **Another Shipping Delay**
 
-<a href="quest.md?id=6740b60c60a98cad1b0e0aa0">打开完整页面 →</a>
+<a href="quest.md?id=6740b60c60a98cad1b0e0aa0">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -251,7 +252,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Scavenger**
 
-<a href="quest.md?id=5c112d7e86f7740d6f647486">打开完整页面 →</a>
+<a href="quest.md?id=5c112d7e86f7740d6f647486">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -272,7 +273,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Big Sale**
 
-<a href="quest.md?id=5ae448e586f7744dcf0c2a67">打开完整页面 →</a>
+<a href="quest.md?id=5ae448e586f7744dcf0c2a67">💬 台词与完整明细 →</a>
 
 `地图：立交桥`
 
@@ -295,7 +296,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Living High Is Not a Crime**
 
-<a href="quest.md?id=5b47891f86f7744d1b23c571">打开完整页面 →</a>
+<a href="quest.md?id=5b47891f86f7744d1b23c571">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -317,7 +318,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Small Things Big Help**
 
-<a href="quest.md?id=5c10f94386f774227172c572">打开完整页面 →</a>
+<a href="quest.md?id=5c10f94386f774227172c572">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -345,7 +346,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Inventory Files**
 
-<a href="quest.md?id=5ae4493486f7744efa289417">打开完整页面 →</a>
+<a href="quest.md?id=5ae4493486f7744efa289417">💬 台词与完整明细 →</a>
 
 `地图：立交桥`
 
@@ -369,7 +370,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Minibus**
 
-<a href="quest.md?id=5b478d0f86f7744d190d91b5">打开完整页面 →</a>
+<a href="quest.md?id=5b478d0f86f7744d190d91b5">💬 台词与完整明细 →</a>
 
 `地图：立交桥`
 
@@ -396,7 +397,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Sensory Analysis Part 1**
 
-<a href="quest.md?id=67a0967c003a9986cb0f5ac1">打开完整页面 →</a>
+<a href="quest.md?id=67a0967c003a9986cb0f5ac1">💬 台词与完整明细 →</a>
 
 `接取延迟 35 分钟`
 
@@ -417,7 +418,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Gratitude**
 
-<a href="quest.md?id=5ae449b386f77446d8741719">打开完整页面 →</a>
+<a href="quest.md?id=5ae449b386f77446d8741719">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -444,7 +445,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Key to Success**
 
-<a href="quest.md?id=5ae4498786f7744bde357695">打开完整页面 →</a>
+<a href="quest.md?id=5ae4498786f7744bde357695">💬 台词与完整明细 →</a>
 
 `地图：立交桥`
 
@@ -466,7 +467,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **A Big Loss**
 
-<a href="quest.md?id=5ae4493d86f7744b8e15aa8f">打开完整页面 →</a>
+<a href="quest.md?id=5ae4493d86f7744b8e15aa8f">💬 台词与完整明细 →</a>
 
 `地图：立交桥`
 
@@ -493,7 +494,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pathfinder**
 
-<a href="quest.md?id=5ae449c386f7744bde357697">打开完整页面 →</a>
+<a href="quest.md?id=5ae449c386f7744bde357697">💬 台词与完整明细 →</a>
 
 `地图：立交桥`
 
@@ -514,7 +515,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fresh Stock**
 
-<a href="quest.md?id=69ce21e990144e437802b1e0">打开完整页面 →</a>
+<a href="quest.md?id=69ce21e990144e437802b1e0">💬 台词与完整明细 →</a>
 
 `地图：破冰船`
 
@@ -530,7 +531,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **No Fuss Needed**
 
-<a href="quest.md?id=5ae449a586f7744bde357696">打开完整页面 →</a>
+<a href="quest.md?id=5ae449a586f7744bde357696">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -547,7 +548,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Hot Delivery**
 
-<a href="quest.md?id=5b478b1886f7744d1b23c57d">打开完整页面 →</a>
+<a href="quest.md?id=5b478b1886f7744d1b23c57d">💬 台词与完整明细 →</a>
 
 `地图：立交桥`
 
@@ -574,7 +575,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fuel Crisis**
 
-<a href="quest.md?id=5ae448f286f77448d73c0131">打开完整页面 →</a>
+<a href="quest.md?id=5ae448f286f77448d73c0131">💬 台词与完整明细 →</a>
 
 `地图：立交桥`
 
@@ -601,7 +602,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Dressed to Kill**
 
-<a href="quest.md?id=5ae4490786f7744ca822adcc">打开完整页面 →</a>
+<a href="quest.md?id=5ae4490786f7744ca822adcc">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -621,7 +622,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Stabilize Business**
 
-<a href="quest.md?id=6744a4717e3818d5bb0680bb">打开完整页面 →</a>
+<a href="quest.md?id=6744a4717e3818d5bb0680bb">💬 台词与完整明细 →</a>
 
 `地图：中心区`
 
@@ -641,7 +642,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Ballet Lover**
 
-<a href="quest.md?id=639135a7e705511c8a4a1b78">打开完整页面 →</a>
+<a href="quest.md?id=639135a7e705511c8a4a1b78">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -668,7 +669,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Supervisor**
 
-<a href="quest.md?id=5ae449d986f774453a54a7e1">打开完整页面 →</a>
+<a href="quest.md?id=5ae449d986f774453a54a7e1">💬 台词与完整明细 →</a>
 
 **出发前必带**
 
@@ -696,7 +697,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Long Line**
 
-<a href="quest.md?id=60e71dc0a94be721b065bbfc">打开完整页面 →</a>
+<a href="quest.md?id=60e71dc0a94be721b065bbfc">💬 台词与完整明细 →</a>
 
 `地图：立交桥`
 
@@ -715,7 +716,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **Charisma Brings Success**
 
-<a href="quest.md?id=5ae4499a86f77449783815db">打开完整页面 →</a>
+<a href="quest.md?id=5ae4499a86f77449783815db">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -735,7 +736,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Key to the City**
 
-<a href="quest.md?id=666314c5a9290f9e0806cca5">打开完整页面 →</a>
+<a href="quest.md?id=666314c5a9290f9e0806cca5">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -754,7 +755,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Audit**
 
-<a href="quest.md?id=638fcd23dc65553116701d33">打开完整页面 →</a>
+<a href="quest.md?id=638fcd23dc65553116701d33">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -774,7 +775,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Break the Deal**
 
-<a href="quest.md?id=675c085d59b0575973005f52">打开完整页面 →</a>
+<a href="quest.md?id=675c085d59b0575973005f52">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -803,7 +804,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Nothing Fishy About This**
 
-<a href="quest.md?id=65802b627b44fa5e14638899">打开完整页面 →</a>
+<a href="quest.md?id=65802b627b44fa5e14638899">💬 台词与完整明细 →</a>
 
 `地图：海岸线`
 
@@ -823,7 +824,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **Dandies**
 
-<a href="quest.md?id=65734c186dc1e402c80dc19e">打开完整页面 →</a>
+<a href="quest.md?id=65734c186dc1e402c80dc19e">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -851,7 +852,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv15** ｜ **无前置** ｜ 英文名 **Only Business**
 
-<a href="quest.md?id=5ae448a386f7744d3730fff0">打开完整页面 →</a>
+<a href="quest.md?id=5ae448a386f7744d3730fff0">💬 台词与完整明细 →</a>
 
 **要求**
 
@@ -866,7 +867,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv23** ｜ 前置 **2** 个 ｜ 英文名 **The Blood of War Part 2**
 
-<a href="quest.md?id=5b47876e86f7744d1c353205">打开完整页面 →</a>
+<a href="quest.md?id=5b47876e86f7744d1c353205">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -885,7 +886,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv25** ｜ **无前置** ｜ 英文名 **New Beginning**
 
-<a href="quest.md?id=6761f28a022f60bb320f3e95">打开完整页面 →</a>
+<a href="quest.md?id=6761f28a022f60bb320f3e95">💬 台词与完整明细 →</a>
 
 **要求**
 
@@ -902,7 +903,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **Vacate the Premises**
 
-<a href="quest.md?id=67d03be712fb5f8fd2096332">打开完整页面 →</a>
+<a href="quest.md?id=67d03be712fb5f8fd2096332">💬 台词与完整明细 →</a>
 
 `地图：迷宫`
 
@@ -921,7 +922,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Drip Out Part 1 Bear**
 
-<a href="quest.md?id=6613f3007f6666d56807c929">打开完整页面 →</a>
+<a href="quest.md?id=6613f3007f6666d56807c929">💬 台词与完整明细 →</a>
 
 `仅限 **BEAR**` ｜ `失败可重接`
 
@@ -941,7 +942,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Drip Out Part 1 Usec**
 
-<a href="quest.md?id=66151401efb0539ae10875ae">打开完整页面 →</a>
+<a href="quest.md?id=66151401efb0539ae10875ae">💬 台词与完整明细 →</a>
 
 `仅限 **USEC**` ｜ `失败可重接`
 
@@ -961,7 +962,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Know Your Place**
 
-<a href="quest.md?id=66aa61663aa37705c5024277">打开完整页面 →</a>
+<a href="quest.md?id=66aa61663aa37705c5024277">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -980,7 +981,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Booze**
 
-<a href="quest.md?id=60e71dc67fcf9c556f325056">打开完整页面 →</a>
+<a href="quest.md?id=60e71dc67fcf9c556f325056">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1004,7 +1005,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **A Fuel Matter**
 
-<a href="quest.md?id=608974d01a66564e74191fc0">打开完整页面 →</a>
+<a href="quest.md?id=608974d01a66564e74191fc0">💬 台词与完整明细 →</a>
 
 `地图：储备站`
 
@@ -1030,7 +1031,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Audiophile**
 
-<a href="quest.md?id=639135bbc115f907b14700a6">打开完整页面 →</a>
+<a href="quest.md?id=639135bbc115f907b14700a6">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -1061,7 +1062,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv30** ｜ **无前置** ｜ 英文名 **New Beginning 2**
 
-<a href="quest.md?id=6761ff17cdc36bd66102e9d0">打开完整页面 →</a>
+<a href="quest.md?id=6761ff17cdc36bd66102e9d0">💬 台词与完整明细 →</a>
 
 `地图：实验室` ｜ `需**威望 P1**`
 
@@ -1081,7 +1082,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv35** ｜ **无前置** ｜ 英文名 **New Beginning 3**
 
-<a href="quest.md?id=6848100b00afffa81f09e365">打开完整页面 →</a>
+<a href="quest.md?id=6848100b00afffa81f09e365">💬 台词与完整明细 →</a>
 
 `需**威望 P2**`
 
@@ -1105,7 +1106,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv40** ｜ **无前置** ｜ 英文名 **New Beginning 4**
 
-<a href="quest.md?id=68481881f43abfdda2058369">打开完整页面 →</a>
+<a href="quest.md?id=68481881f43abfdda2058369">💬 台词与完整明细 →</a>
 
 `需**威望 P3**`
 
@@ -1128,7 +1129,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Drip Out Part 2 Bear**
 
-<a href="quest.md?id=6613f307fca4f2f386029409">打开完整页面 →</a>
+<a href="quest.md?id=6613f307fca4f2f386029409">💬 台词与完整明细 →</a>
 
 `仅限 **BEAR**` ｜ `失败可重接`
 
@@ -1148,7 +1149,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Drip Out Part 2 Usec**
 
-<a href="quest.md?id=6615141bfda04449120269a7">打开完整页面 →</a>
+<a href="quest.md?id=6615141bfda04449120269a7">💬 台词与完整明细 →</a>
 
 `仅限 **USEC**` ｜ `失败可重接`
 
@@ -1168,7 +1169,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Antique Enthusiast**
 
-<a href="quest.md?id=5c1141f386f77430ff393792">打开完整页面 →</a>
+<a href="quest.md?id=5c1141f386f77430ff393792">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1192,7 +1193,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Combat Proven**
 
-<a href="quest.md?id=666314a31cd52e3d040a2e76">打开完整页面 →</a>
+<a href="quest.md?id=666314a31cd52e3d040a2e76">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1210,7 +1211,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Old Patterns**
 
-<a href="quest.md?id=666314a50aa5c7436c00908a">打开完整页面 →</a>
+<a href="quest.md?id=666314a50aa5c7436c00908a">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1226,7 +1227,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Special Offer**
 
-<a href="quest.md?id=666314a1920800278d0f6746">打开完整页面 →</a>
+<a href="quest.md?id=666314a1920800278d0f6746">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1251,7 +1252,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **The Invisible Hand**
 
-<a href="quest.md?id=6663149cfd5ca9577902e037">打开完整页面 →</a>
+<a href="quest.md?id=6663149cfd5ca9577902e037">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1267,7 +1268,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Textile Part 1 Bear**
 
-<a href="quest.md?id=5e381b0286f77420e3417a74">打开完整页面 →</a>
+<a href="quest.md?id=5e381b0286f77420e3417a74">💬 台词与完整明细 →</a>
 
 `仅限 **BEAR**`
 
@@ -1291,7 +1292,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Textile Part 1 Usec**
 
-<a href="quest.md?id=5e383a6386f77465910ce1f3">打开完整页面 →</a>
+<a href="quest.md?id=5e383a6386f77465910ce1f3">💬 台词与完整明细 →</a>
 
 `仅限 **USEC**`
 
@@ -1315,7 +1316,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Textile Part 2 Bear**
 
-<a href="quest.md?id=5e4d4ac186f774264f758336">打开完整页面 →</a>
+<a href="quest.md?id=5e4d4ac186f774264f758336">💬 台词与完整明细 →</a>
 
 `仅限 **BEAR**`
 
@@ -1339,7 +1340,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Textile Part 2 Usec**
 
-<a href="quest.md?id=5e4d515e86f77438b2195244">打开完整页面 →</a>
+<a href="quest.md?id=5e4d515e86f77438b2195244">💬 台词与完整明细 →</a>
 
 `仅限 **USEC**`
 
@@ -1363,7 +1364,7 @@ tags:
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Circulate**
 
-<a href="quest.md?id=6663149f1d3ec95634095e75">打开完整页面 →</a>
+<a href="quest.md?id=6663149f1d3ec95634095e75">💬 台词与完整明细 →</a>
 
 **接取条件**
 

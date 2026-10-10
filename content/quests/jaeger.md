@@ -20,13 +20,14 @@ tags:
 | **排序** | 按**等级门槛升序**，同级按任务名 |
 | **分档** | 每 10 级一档（Lv0–9 …），与[总览](index.md)「按等级门槛」同口径 |
 | **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |
-| **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md) |
+| **💬 商人台词** | **每个任务都有** —— 点明细块里的「💬 台词与完整明细 →」，看商人接取时说的话与任务完成对话，另外还能顺着**前置／后续任务**（可点击）走任务链 |
+| **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md)；台词为**三级来源**（玩家维基），见[任务详情](quest.md) 的口径表 |
 
 ---
 
 ## 🔎 任务索引 ｜ 64 项
 
-点任务名跳到下方明细。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
+点任务名跳到下方明细。**每个明细块里都有「💬 台词与完整明细 →」**，点开是该任务的完整页面（商人台词 · 前置与后续 · 目标 · 奖励 · 出发前必带）。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
 
 | # | 任务 | 门槛 | 地图 | 标记 |
 |---|------|------|------|------|
@@ -105,7 +106,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Work Smarter**
 
-<a href="quest.md?id=675c1cf4a757ddd00404f0a3">打开完整页面 →</a>
+<a href="quest.md?id=675c1cf4a757ddd00404f0a3">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -125,7 +126,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Foresters Duty**
 
-<a href="quest.md?id=66ab9da7eb102b9bcd08591c">打开完整页面 →</a>
+<a href="quest.md?id=66ab9da7eb102b9bcd08591c">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -144,7 +145,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Rough Tarkov**
 
-<a href="quest.md?id=66b38c7bf85b8bf7250f9cb6">打开完整页面 →</a>
+<a href="quest.md?id=66b38c7bf85b8bf7250f9cb6">💬 台词与完整明细 →</a>
 
 **要求**
 
@@ -158,7 +159,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Tarkov Shooter Part 1**
 
-<a href="quest.md?id=5bc4776586f774512d07cf05">打开完整页面 →</a>
+<a href="quest.md?id=5bc4776586f774512d07cf05">💬 台词与完整明细 →</a>
 
 `**Kappa 必需**`
 
@@ -178,7 +179,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **A Wedge Between Us**
 
-<a href="quest.md?id=69ce1cfb298a6529b30d712b">打开完整页面 →</a>
+<a href="quest.md?id=69ce1cfb298a6529b30d712b">💬 台词与完整明细 →</a>
 
 `地图：破冰船`
 
@@ -194,7 +195,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pest Control**
 
-<a href="quest.md?id=608a768d82e40b3c727fd17d">打开完整页面 →</a>
+<a href="quest.md?id=608a768d82e40b3c727fd17d">💬 台词与完整明细 →</a>
 
 `地图：储备站`
 
@@ -213,7 +214,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Claustrophobia**
 
-<a href="quest.md?id=669fa3979b0ce3feae01a130">打开完整页面 →</a>
+<a href="quest.md?id=669fa3979b0ce3feae01a130">💬 台词与完整明细 →</a>
 
 `地图：工厂`
 
@@ -232,7 +233,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Swift**
 
-<a href="quest.md?id=60e729cf5698ee7b05057439">打开完整页面 →</a>
+<a href="quest.md?id=60e729cf5698ee7b05057439">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -251,7 +252,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Nostalgia**
 
-<a href="quest.md?id=5d25e4ad86f77443e625e387">打开完整页面 →</a>
+<a href="quest.md?id=5d25e4ad86f77443e625e387">💬 台词与完整明细 →</a>
 
 `地图：海岸线`
 
@@ -272,7 +273,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **First Aid**
 
-<a href="quest.md?id=5d25e46e86f77409453bce7c">打开完整页面 →</a>
+<a href="quest.md?id=5d25e46e86f77409453bce7c">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -292,7 +293,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **All This Filth**
 
-<a href="quest.md?id=600302d73b897b11364cd161">打开完整页面 →</a>
+<a href="quest.md?id=600302d73b897b11364cd161">💬 台词与完整明细 →</a>
 
 **要求**
 
@@ -305,7 +306,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Acquaintance**
 
-<a href="quest.md?id=5d24b81486f77439c92d6ba8">打开完整页面 →</a>
+<a href="quest.md?id=5d24b81486f77439c92d6ba8">💬 台词与完整明细 →</a>
 
 **要求**
 
@@ -318,7 +319,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Hunting Trip**
 
-<a href="quest.md?id=5d25e4ca86f77409dd5cdf2c">打开完整页面 →</a>
+<a href="quest.md?id=5d25e4ca86f77409dd5cdf2c">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -340,7 +341,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Secured Perimeter**
 
-<a href="quest.md?id=5d25e2b486f77409de05bba0">打开完整页面 →</a>
+<a href="quest.md?id=5d25e2b486f77409de05bba0">💬 台词与完整明细 →</a>
 
 `地图：工厂`
 
@@ -359,7 +360,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Crooked Cop**
 
-<a href="quest.md?id=6578eb36e5020875d64645cd">打开完整页面 →</a>
+<a href="quest.md?id=6578eb36e5020875d64645cd">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -375,7 +376,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Big Game**
 
-<a href="quest.md?id=64e7b971f9d6fa49d6769b44">打开完整页面 →</a>
+<a href="quest.md?id=64e7b971f9d6fa49d6769b44">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -390,7 +391,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Factory Chief**
 
-<a href="quest.md?id=60c0c018f7afb4354815096a">打开完整页面 →</a>
+<a href="quest.md?id=60c0c018f7afb4354815096a">💬 台词与完整明细 →</a>
 
 `地图：工厂`
 
@@ -407,7 +408,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Angry Watchman**
 
-<a href="quest.md?id=5d25e44386f77409453bce7b">打开完整页面 →</a>
+<a href="quest.md?id=5d25e44386f77409453bce7b">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -426,7 +427,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Trophy**
 
-<a href="quest.md?id=5d25e2c386f77443e7549029">打开完整页面 →</a>
+<a href="quest.md?id=5d25e2c386f77443e7549029">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -446,7 +447,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Forest Cleaning**
 
-<a href="quest.md?id=5d25e2cc86f77443e47ae019">打开完整页面 →</a>
+<a href="quest.md?id=5d25e2cc86f77443e47ae019">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -463,7 +464,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Woods Keeper**
 
-<a href="quest.md?id=5d25e2ee86f77443e35162ea">打开完整页面 →</a>
+<a href="quest.md?id=5d25e2ee86f77443e35162ea">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -484,7 +485,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Justice**
 
-<a href="quest.md?id=5d25e43786f7740a212217fa">打开完整页面 →</a>
+<a href="quest.md?id=5d25e43786f7740a212217fa">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -502,7 +503,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Outcasts**
 
-<a href="quest.md?id=6179ad0a6e9dd54ac275e3f2">打开完整页面 →</a>
+<a href="quest.md?id=6179ad0a6e9dd54ac275e3f2">💬 台词与完整明细 →</a>
 
 `地图：灯塔`
 
@@ -521,7 +522,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Sellout**
 
-<a href="quest.md?id=5d25e2e286f77444001e2e48">打开完整页面 →</a>
+<a href="quest.md?id=5d25e2e286f77444001e2e48">💬 台词与完整明细 →</a>
 
 `地图：立交桥`
 
@@ -538,7 +539,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Eraser**
 
-<a href="quest.md?id=5d25e44f86f77443e625e385">打开完整页面 →</a>
+<a href="quest.md?id=5d25e44f86f77443e625e385">💬 台词与完整明细 →</a>
 
 `地图：储备站`
 
@@ -559,7 +560,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Sadist**
 
-<a href="quest.md?id=5edab4b1218d181e29451435">打开完整页面 →</a>
+<a href="quest.md?id=5edab4b1218d181e29451435">💬 台词与完整明细 →</a>
 
 `地图：海岸线`
 
@@ -585,7 +586,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Huntsman Path Liberation**
 
-<a href="quest.md?id=5d25e45e86f77408251c4bfa">打开完整页面 →</a>
+<a href="quest.md?id=5d25e45e86f77408251c4bfa">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -602,7 +603,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Courtesy Visit**
 
-<a href="quest.md?id=5d25e48186f77443e625e386">打开完整页面 →</a>
+<a href="quest.md?id=5d25e48186f77443e625e386">💬 台词与完整明细 →</a>
 
 `地图：海岸线`
 
@@ -624,7 +625,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Delicious Sausage**
 
-<a href="quest.md?id=63a88045abf76d719f42d715">打开完整页面 →</a>
+<a href="quest.md?id=63a88045abf76d719f42d715">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -647,7 +648,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Rite of Passage**
 
-<a href="quest.md?id=675c1ec7a46173572a0bf20a">打开完整页面 →</a>
+<a href="quest.md?id=675c1ec7a46173572a0bf20a">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -668,7 +669,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Cease Fire**
 
-<a href="quest.md?id=639136e84ed9512be67647db">打开完整页面 →</a>
+<a href="quest.md?id=639136e84ed9512be67647db">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -688,7 +689,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Thirsty Hounds**
 
-<a href="quest.md?id=665eeacf5d86b6c8aa03c79b">打开完整页面 →</a>
+<a href="quest.md?id=665eeacf5d86b6c8aa03c79b">💬 台词与完整明细 →</a>
 
 `地图：海岸线`
 
@@ -706,7 +707,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 2**
 
-<a href="quest.md?id=5bc479e586f7747f376c7da3">打开完整页面 →</a>
+<a href="quest.md?id=5bc479e586f7747f376c7da3">💬 台词与完整明细 →</a>
 
 `**Kappa 必需**`
 
@@ -727,7 +728,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 3**
 
-<a href="quest.md?id=5bc47dbf86f7741ee74e93b9">打开完整页面 →</a>
+<a href="quest.md?id=5bc47dbf86f7741ee74e93b9">💬 台词与完整明细 →</a>
 
 `**Kappa 必需**`
 
@@ -748,7 +749,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Dragnet**
 
-<a href="quest.md?id=669fa3a08b4a64b332041ff7">打开完整页面 →</a>
+<a href="quest.md?id=669fa3a08b4a64b332041ff7">💬 台词与完整明细 →</a>
 
 `地图：工厂`
 
@@ -775,7 +776,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **Every Hunter Knows This**
 
-<a href="quest.md?id=66b38e144f2ab7cc530c3fe7">打开完整页面 →</a>
+<a href="quest.md?id=66b38e144f2ab7cc530c3fe7">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -793,7 +794,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Zhivchik**
 
-<a href="quest.md?id=5d25bfd086f77442734d3007">打开完整页面 →</a>
+<a href="quest.md?id=5d25bfd086f77442734d3007">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -811,7 +812,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Unprotected But Dangerous**
 
-<a href="quest.md?id=5d25aed386f77442734d25d2">打开完整页面 →</a>
+<a href="quest.md?id=5d25aed386f77442734d25d2">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -828,7 +829,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Wounded Beast**
 
-<a href="quest.md?id=5d25c81b86f77443e625dd71">打开完整页面 →</a>
+<a href="quest.md?id=5d25c81b86f77443e625dd71">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -846,7 +847,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ **无前置** ｜ 英文名 **The Survivalist Path Thrifty**
 
-<a href="quest.md?id=5d25b6be86f77444001e1b89">打开完整页面 →</a>
+<a href="quest.md?id=5d25b6be86f77444001e1b89">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -874,7 +875,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Tough Guy**
 
-<a href="quest.md?id=5d25cf2686f77443e75488d4">打开完整页面 →</a>
+<a href="quest.md?id=5d25cf2686f77443e75488d4">💬 台词与完整明细 →</a>
 
 `地图：森林` ｜ `失败可重接`
 
@@ -900,7 +901,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **Reserve**
 
-<a href="quest.md?id=5d25e4d586f77443e625e388">打开完整页面 →</a>
+<a href="quest.md?id=5d25e4d586f77443e625e388">💬 台词与完整明细 →</a>
 
 `地图：储备站`
 
@@ -920,7 +921,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 4**
 
-<a href="quest.md?id=5bc480a686f7741af0342e29">打开完整页面 →</a>
+<a href="quest.md?id=5bc480a686f7741af0342e29">💬 台词与完整明细 →</a>
 
 `**Kappa 必需**`
 
@@ -941,7 +942,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 5**
 
-<a href="quest.md?id=5bc4826c86f774106d22d88b">打开完整页面 →</a>
+<a href="quest.md?id=5bc4826c86f774106d22d88b">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -961,7 +962,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 5 2**
 
-<a href="quest.md?id=5bc4836986f7740c0152911c">打开完整页面 →</a>
+<a href="quest.md?id=5bc4836986f7740c0152911c">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -978,7 +979,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Huntsman Path Controller**
 
-<a href="quest.md?id=5d25e2d886f77442734d335e">打开完整页面 →</a>
+<a href="quest.md?id=5d25e2d886f77442734d335e">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -996,7 +997,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **The Huntsman Path Administrator**
 
-<a href="quest.md?id=639136df4b15ca31f76bc31f">打开完整页面 →</a>
+<a href="quest.md?id=639136df4b15ca31f76bc31f">💬 台词与完整明细 →</a>
 
 `地图：储备站`
 
@@ -1022,7 +1023,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **The Huntsman Path Administrator 2**
 
-<a href="quest.md?id=6a45208043b8d7604d00b8d5">打开完整页面 →</a>
+<a href="quest.md?id=6a45208043b8d7604d00b8d5">💬 台词与完整明细 →</a>
 
 `地图：灯塔`
 
@@ -1048,7 +1049,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Eagle Owl**
 
-<a href="quest.md?id=5d25e29d86f7740a22516326">打开完整页面 →</a>
+<a href="quest.md?id=5d25e29d86f7740a22516326">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1065,7 +1066,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Cold Blooded**
 
-<a href="quest.md?id=5d25d2c186f77443e35162e5">打开完整页面 →</a>
+<a href="quest.md?id=5d25d2c186f77443e35162e5">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1082,7 +1083,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Combat Medic**
 
-<a href="quest.md?id=5d25e2a986f77409dd5cdf2a">打开完整页面 →</a>
+<a href="quest.md?id=5d25e2a986f77409dd5cdf2a">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1100,7 +1101,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **Broadcast Part 3**
 
-<a href="quest.md?id=63a511ea30d85e10e375b045">打开完整页面 →</a>
+<a href="quest.md?id=63a511ea30d85e10e375b045">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -1121,7 +1122,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **Broadcast Part 4**
 
-<a href="quest.md?id=6391372c8ba6894d155e77d7">打开完整页面 →</a>
+<a href="quest.md?id=6391372c8ba6894d155e77d7">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -1147,7 +1148,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **Broadcast Part 5**
 
-<a href="quest.md?id=64ee99639878a0569d6ec8c9">打开完整页面 →</a>
+<a href="quest.md?id=64ee99639878a0569d6ec8c9">💬 台词与完整明细 →</a>
 
 **出发前必带**
 
@@ -1174,7 +1175,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Hermit**
 
-<a href="quest.md?id=61904daa7d0d857927447b9c">打开完整页面 →</a>
+<a href="quest.md?id=61904daa7d0d857927447b9c">💬 台词与完整明细 →</a>
 
 `地图：灯塔`
 
@@ -1196,7 +1197,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **Fishing Place**
 
-<a href="quest.md?id=5d25e4b786f77408251c4bfc">打开完整页面 →</a>
+<a href="quest.md?id=5d25e4b786f77408251c4bfc">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1216,7 +1217,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv20** ｜ 前置 **2** 个 ｜ 英文名 **Shady Business**
 
-<a href="quest.md?id=5d25e48d86f77408251c4bfb">打开完整页面 →</a>
+<a href="quest.md?id=5d25e48d86f77408251c4bfb">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1236,7 +1237,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv33** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 6**
 
-<a href="quest.md?id=5bc4856986f77454c317bea7">打开完整页面 →</a>
+<a href="quest.md?id=5bc4856986f77454c317bea7">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1254,7 +1255,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv33** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 7**
 
-<a href="quest.md?id=5bc4893c86f774626f5ebf3e">打开完整页面 →</a>
+<a href="quest.md?id=5bc4893c86f774626f5ebf3e">💬 台词与完整明细 →</a>
 
 `失败可重接`
 
@@ -1278,7 +1279,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv33** ｜ **无前置** ｜ 英文名 **Slaughterhouse**
 
-<a href="quest.md?id=63a9b36cc31b00242d28a99f">打开完整页面 →</a>
+<a href="quest.md?id=63a9b36cc31b00242d28a99f">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1303,7 +1304,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv33** ｜ **无前置** ｜ 英文名 **Stray Dogs**
 
-<a href="quest.md?id=626bdcc3a371ee3a7a3514c5">打开完整页面 →</a>
+<a href="quest.md?id=626bdcc3a371ee3a7a3514c5">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1323,7 +1324,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv33** ｜ **无前置** ｜ 英文名 **The Huntsman Path Control**
 
-<a href="quest.md?id=6a4532e48e82d8ffea0c3eae">打开完整页面 →</a>
+<a href="quest.md?id=6a4532e48e82d8ffea0c3eae">💬 台词与完整明细 →</a>
 
 `地图：实验室`
 
@@ -1344,7 +1345,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv33** ｜ 前置 **1** 个 ｜ 英文名 **The Survivalist Path Junkie**
 
-<a href="quest.md?id=5eaaaa7c93afa0558f3b5a1c">打开完整页面 →</a>
+<a href="quest.md?id=5eaaaa7c93afa0558f3b5a1c">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -1366,7 +1367,7 @@ tags:
 
 **Jaeger** ｜ 需 **Lv55** ｜ **无前置** ｜ 英文名 **The Huntsman Path Relentless**
 
-<a href="quest.md?id=60e71e8ed54b755a3b53eb67">打开完整页面 →</a>
+<a href="quest.md?id=60e71e8ed54b755a3b53eb67">💬 台词与完整明细 →</a>
 
 `失败可重接`
 

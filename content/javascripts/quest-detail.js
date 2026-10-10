@@ -30,7 +30,18 @@
   var cache = {};          /* 片名 → 数据 */
   var currentId = "";      /* 当前渲染的任务 id —— 同页跳转要靠它判「是不是自己」 */
 
-  function siteRoot() {
+function siteRoot() {
+    /* 优先用 toolbox.js 在首次整页加载时算好并公布的站点根，不要每次现算。
+       Material 的 instant navigation 换页时会重建 <script> 元素，重建后的
+       .src 按【换页前】的地址解析，得出 <根>/quests/javascripts/toolbox.js
+       这种错路径 —— 于是所有「换页之后才算 siteRoot()」的代码都拼出 404 地址。
+
+       实测（2026-10-10）：从任务图鉴总览点「台词」入口进任务详情页，注入的脚本
+       请求到了 /quests/javascripts/quest-detail.js（404），页面永远停在静态
+       占位文案上，而控制台一个错都不报。
+
+       fallback 保留原写法，供 toolbox.js 自己首次计算时使用。 */
+    if (window.__tkRoot) return window.__tkRoot;
     var s = document.querySelector('script[src*="toolbox.js"]');
     if (!s || !s.src) return "";
     return s.src.replace(/javascripts\/[^/]*$/, "");
@@ -186,15 +197,32 @@
 
   function renderEmpty(host) {
     host.textContent = "";
-    var a = el("p");
-    a.appendChild(document.createTextNode("这一页要用任务 ID 打开 —— 从"));
-    var lk = el("a", null, "任务图鉴");
-    lk.href = siteRoot() + "quests/";
-    a.appendChild(lk);
-    a.appendChild(document.createTextNode(
-      "里点任意一个任务，或在任务名上右键复制链接即可直达。"
-      + "地址形如 quests/quest/?id=<任务ID>。"));
-    host.appendChild(a);
+    host.appendChild(p("这一页要用任务 ID 打开。两条路："));
+    var ul = document.createElement("ul");
+
+    /* ⚠️ 别再写「从任务图鉴里点任意一个任务即可直达」—— 那是**假话**：
+       任务图鉴里的任务名只跳页内锚点，真正指向本页的是下面这两处小入口。
+       文案必须指到真实存在的东西上，否则读者照做一次失败就再也不试了。 */
+    var li1 = document.createElement("li");
+    li1.appendChild(document.createTextNode("在"));
+    var lk1 = el("a", null, "任务图鉴总览");
+    lk1.href = siteRoot() + "quests/";
+    li1.appendChild(lk1);
+    li1.appendChild(document.createTextNode("的筛选表里，点任务名后面的 "));
+    li1.appendChild(el("strong", null, "💬"));
+    ul.appendChild(li1);
+
+    var li2 = document.createElement("li");
+    li2.appendChild(document.createTextNode("在任意商人页的任务明细块里，点 "));
+    li2.appendChild(el("strong", null, "「💬 台词与完整明细 →」"));
+    ul.appendChild(li2);
+    host.appendChild(ul);
+
+    var b = el("p");
+    b.appendChild(document.createTextNode("地址形如 "));
+    b.appendChild(el("code", null, "quests/quest/?id=<任务ID>"));
+    b.appendChild(document.createTextNode("，复制给别人也能直接打开。"));
+    host.appendChild(b);
   }
 
   function renderDetail(host, id, it) {
@@ -390,6 +418,13 @@
       else renderMissing(host, id);
     });
   }
+
+  /* ⚠️ 把入口挂到 window，供 toolbox.js 在**每次换页后**回调。
+     这是本页能被「从别的页面点进来」的关键 —— 本脚本是异步注入的，
+     它自己的 boot() 有可能跑在某次内容换入的间隙里（那时挂载点还不在 DOM 中），
+     而 document$ 的通知不会为「脚本刚加载完」再补一次。
+     详见 toolbox.js 的 remount()。 */
+  window.__tkQuestBoot = boot;
 
   /* ⚠️ instant 换页会重放脚本，所以每次 boot 都要**重新读一次地址参数** ——
      从一个任务跳到另一个任务时 URL 变了，不能沿用上一次解析的结果。

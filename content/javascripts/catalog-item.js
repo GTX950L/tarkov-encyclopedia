@@ -29,7 +29,18 @@
   var SHARD_COUNT = 32;   /* ⚠️ 必须等于 scripts/gen_items_catalog.py 的 SHARD_COUNT */
   var shardCache = {};    /* 片名 → 数据，避免同一轮浏览里重复请求同一片 */
 
-  function siteRoot() {
+function siteRoot() {
+    /* 优先用 toolbox.js 在首次整页加载时算好并公布的站点根，不要每次现算。
+       Material 的 instant navigation 换页时会重建 <script> 元素，重建后的
+       .src 按【换页前】的地址解析，得出 <根>/quests/javascripts/toolbox.js
+       这种错路径 —— 于是所有「换页之后才算 siteRoot()」的代码都拼出 404 地址。
+
+       实测（2026-10-10）：从任务图鉴总览点「台词」入口进任务详情页，注入的脚本
+       请求到了 /quests/javascripts/quest-detail.js（404），页面永远停在静态
+       占位文案上，而控制台一个错都不报。
+
+       fallback 保留原写法，供 toolbox.js 自己首次计算时使用。 */
+    if (window.__tkRoot) return window.__tkRoot;
     var s = document.querySelector('script[src*="toolbox.js"]');
     if (!s || !s.src) return "";
     return s.src.replace(/javascripts\/[^/]*$/, "");
@@ -293,6 +304,12 @@
       else renderMissing(host, id);
     });
   }
+
+  /* ⚠️ 把入口挂到 window，供 toolbox.js 在**每次换页后**回调。
+     本页与任务详情页是同一套机制：脚本异步注入，boot() 可能跑在内容换入的间隙里，
+     那时挂载点还不在 DOM 中，而 document$ 不会为「脚本刚加载完」再补一次通知。
+     详见 toolbox.js 的 remount()。 */
+  window.__tkBootItem = boot;
 
   /* 两条入口都要（toolbox.js 注入的脚本可能晚于 document$ 首次发出）。
      ⚠️ instant 换页会重放脚本，所以每次 boot 都要**重新读一次地址参数** ——

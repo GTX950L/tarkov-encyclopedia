@@ -32,11 +32,22 @@
   /* 数据列顺序（与生成器里的 cols 严格一致） */
   var C_NAME = 0, C_EN = 1, C_TRADER = 2, C_LEVEL = 3, C_MAP = 4, C_KEYS = 5,
       C_FACTION = 6, C_FLAGS = 7, C_FAIL = 8, C_DELAY = 9, C_RESTART = 10,
-      C_EXP = 11, C_DUNLOCK = 12, C_CUNLOCK = 13, C_LINK = 14;
+      C_EXP = 11, C_DUNLOCK = 12, C_CUNLOCK = 13, C_LINK = 14, C_ID = 15;
 
   var NO_MAP = "__none__";
 
-  function siteRoot() {
+function siteRoot() {
+    /* 优先用 toolbox.js 在首次整页加载时算好并公布的站点根，不要每次现算。
+       Material 的 instant navigation 换页时会重建 <script> 元素，重建后的
+       .src 按【换页前】的地址解析，得出 <根>/quests/javascripts/toolbox.js
+       这种错路径 —— 于是所有「换页之后才算 siteRoot()」的代码都拼出 404 地址。
+
+       实测（2026-10-10）：从任务图鉴总览点「台词」入口进任务详情页，注入的脚本
+       请求到了 /quests/javascripts/quest-detail.js（404），页面永远停在静态
+       占位文案上，而控制台一个错都不报。
+
+       fallback 保留原写法，供 toolbox.js 自己首次计算时使用。 */
+    if (window.__tkRoot) return window.__tkRoot;
     var s = document.querySelector('script[src*="quests-filter.js"]');
     if (!s || !s.src) return "";
     return s.src.replace(/javascripts\/[^/]*$/, "");
@@ -316,10 +327,19 @@
       var en = (nameCount[r[C_NAME]] > 1 && r[C_EN])
         ? '<span class="tk-qs__en">' + esc(r[C_EN]) + "</span>" : "";
 
+      /* 「💬」= 该任务的**完整页面**（商人台词 · 前置与后续 · 目标 · 奖励 · 出发前必带）。
+         任务名本身仍跳下方商人页的明细锚点（「就地读」），两者分工不同：
+         想顺着任务链走、或想看商人说了什么，点 💬。
+         放在名字**后面**而不是单开一列 —— 这表在窄正文里已经很挤。 */
+      var say = r[C_ID]
+        ? '<a class="tk-qs__say" href="' + esc(siteRoot() + "quests/quest/?id=" + r[C_ID])
+          + '" title="看这个任务的商人台词与完整明细">💬</a>'
+        : "";
+
       /* 列顺序：**解锁紧跟在任务名之后** —— 它是本表唯一的「本站算出来的」
          数据，也是读者来这里的理由；放在最后一列时，窄屏默认视口里根本看不见。 */
       return "<tr>"
-        + '<td><a href="' + esc(href) + '">' + esc(r[C_NAME]) + "</a>" + lv + en + "</td>"
+        + '<td><a href="' + esc(href) + '">' + esc(r[C_NAME]) + "</a>" + say + lv + en + "</td>"
         + "<td>" + unlock + "</td>"
         + "<td>" + esc(r[C_TRADER]) + "</td>"
         + "<td>" + (r[C_MAP] ? esc(r[C_MAP]) : "—") + "</td>"

@@ -20,13 +20,14 @@ tags:
 | **排序** | 按**等级门槛升序**，同级按任务名 |
 | **分档** | 每 10 级一档（Lv0–9 …），与[总览](index.md)「按等级门槛」同口径 |
 | **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |
-| **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md) |
+| **💬 商人台词** | **每个任务都有** —— 点明细块里的「💬 台词与完整明细 →」，看商人接取时说的话与任务完成对话，另外还能顺着**前置／后续任务**（可点击）走任务链 |
+| **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md)；台词为**三级来源**（玩家维基），见[任务详情](quest.md) 的口径表 |
 
 ---
 
 ## 🔎 任务索引 ｜ 66 项
 
-点任务名跳到下方明细。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
+点任务名跳到下方明细。**每个明细块里都有「💬 台词与完整明细 →」**，点开是该任务的完整页面（商人台词 · 前置与后续 · 目标 · 奖励 · 出发前必带）。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
 
 | # | 任务 | 门槛 | 地图 | 标记 |
 |---|------|------|------|------|
@@ -107,7 +108,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Youve Got Mail**
 
-<a href="quest.md?id=6391359b9444fb141f4e6ee6">打开完整页面 →</a>
+<a href="quest.md?id=6391359b9444fb141f4e6ee6">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -123,7 +124,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Half Empty**
 
-<a href="quest.md?id=6740a2c17e3818d5bb0648b6">打开完整页面 →</a>
+<a href="quest.md?id=6740a2c17e3818d5bb0648b6">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -141,7 +142,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Possessor**
 
-<a href="quest.md?id=669fa399033a3ce9870338a8">打开完整页面 →</a>
+<a href="quest.md?id=669fa399033a3ce9870338a8">💬 台词与完整明细 →</a>
 
 `地图：工厂`
 
@@ -157,7 +158,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **District Patrol**
 
-<a href="quest.md?id=64e7b9bffd30422ed03dad38">打开完整页面 →</a>
+<a href="quest.md?id=64e7b9bffd30422ed03dad38">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -172,7 +173,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Tarkov Import**
 
-<a href="quest.md?id=5c0bd94186f7747a727f09b2">打开完整页面 →</a>
+<a href="quest.md?id=5c0bd94186f7747a727f09b2">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -191,7 +192,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Documents**
 
-<a href="quest.md?id=60896b7bfa70fc097863b8f5">打开完整页面 →</a>
+<a href="quest.md?id=60896b7bfa70fc097863b8f5">💬 台词与完整明细 →</a>
 
 `地图：储备站`
 
@@ -215,7 +216,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Luxurious Life**
 
-<a href="quest.md?id=657315e1dccd301f1301416a">打开完整页面 →</a>
+<a href="quest.md?id=657315e1dccd301f1301416a">💬 台词与完整明细 →</a>
 
 `地图：中心区`
 
@@ -236,7 +237,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Kings of the Rooftops**
 
-<a href="quest.md?id=639136f086e646067c176a8b">打开完整页面 →</a>
+<a href="quest.md?id=639136f086e646067c176a8b">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -256,7 +257,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Belka and Strelka**
 
-<a href="quest.md?id=675c3507a06634b5110e3c18">打开完整页面 →</a>
+<a href="quest.md?id=675c3507a06634b5110e3c18">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -276,7 +277,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Delivery From the Past**
 
-<a href="quest.md?id=59674eb386f774539f14813a">打开完整页面 →</a>
+<a href="quest.md?id=59674eb386f774539f14813a">💬 台词与完整明细 →</a>
 
 **出发前必带**
 
@@ -303,7 +304,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Intimidator**
 
-<a href="quest.md?id=60e71bb4e456d449cd47ca75">打开完整页面 →</a>
+<a href="quest.md?id=60e71bb4e456d449cd47ca75">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -323,7 +324,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Punisher Part 1**
 
-<a href="quest.md?id=59c512ad86f7741f0d09de9b">打开完整页面 →</a>
+<a href="quest.md?id=59c512ad86f7741f0d09de9b">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -338,7 +339,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **The Punisher Part 2**
 
-<a href="quest.md?id=59c50a9e86f7745fef66f4ff">打开完整页面 →</a>
+<a href="quest.md?id=59c50a9e86f7745fef66f4ff">💬 台词与完整明细 →</a>
 
 `地图：海岸线`
 
@@ -357,7 +358,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Our Own Land Bear**
 
-<a href="quest.md?id=6179b5b06e9dd54ac275e409">打开完整页面 →</a>
+<a href="quest.md?id=6179b5b06e9dd54ac275e409">💬 台词与完整明细 →</a>
 
 `地图：灯塔` ｜ `仅限 **BEAR**`
 
@@ -378,7 +379,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Capturing Outposts**
 
-<a href="quest.md?id=60e71b9bbd90872cb85440f3">打开完整页面 →</a>
+<a href="quest.md?id=60e71b9bbd90872cb85440f3">💬 台词与完整明细 →</a>
 
 **要求**
 
@@ -391,7 +392,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shaking Up the Teller**
 
-<a href="quest.md?id=5967725e86f774601a446662">打开完整页面 →</a>
+<a href="quest.md?id=5967725e86f774601a446662">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -421,7 +422,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Search Mission**
 
-<a href="quest.md?id=5fd9fad9c1ce6b1a3b486d00">打开完整页面 →</a>
+<a href="quest.md?id=5fd9fad9c1ce6b1a3b486d00">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -438,7 +439,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Best Job in the World**
 
-<a href="quest.md?id=63a9ae24009ffc6a551631a5">打开完整页面 →</a>
+<a href="quest.md?id=63a9ae24009ffc6a551631a5">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -457,7 +458,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Stick in the Wheel**
 
-<a href="quest.md?id=6740a3f4eca8acb2d2055159">打开完整页面 →</a>
+<a href="quest.md?id=6740a3f4eca8acb2d2055159">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -473,7 +474,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Power of Persuasion**
 
-<a href="quest.md?id=63a5cf262964a7488f5243ce">打开完整页面 →</a>
+<a href="quest.md?id=63a5cf262964a7488f5243ce">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -492,7 +493,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Easy Breezy**
 
-<a href="quest.md?id=669fa3a40c828825de06d6a1">打开完整页面 →</a>
+<a href="quest.md?id=669fa3a40c828825de06d6a1">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -510,7 +511,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Oil Change**
 
-<a href="quest.md?id=69ce1de03e15cd80bd06f6c9">打开完整页面 →</a>
+<a href="quest.md?id=69ce1de03e15cd80bd06f6c9">💬 台词与完整明细 →</a>
 
 `地图：破冰船`
 
@@ -526,7 +527,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Oil Run**
 
-<a href="quest.md?id=59c124d686f774189b3c843f">打开完整页面 →</a>
+<a href="quest.md?id=59c124d686f774189b3c843f">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -553,7 +554,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Special Comms**
 
-<a href="quest.md?id=66ab970848ddbe9d4a0c49a8">打开完整页面 →</a>
+<a href="quest.md?id=66ab970848ddbe9d4a0c49a8">💬 台词与完整明细 →</a>
 
 **出发前必带**
 
@@ -579,7 +580,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Special Order**
 
-<a href="quest.md?id=68ee1c18b4e5bc9a68018cd7">打开完整页面 →</a>
+<a href="quest.md?id=68ee1c18b4e5bc9a68018cd7">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -598,7 +599,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shootout Picnic**
 
-<a href="quest.md?id=59674cd986f7744ab26e32f2">打开完整页面 →</a>
+<a href="quest.md?id=59674cd986f7744ab26e32f2">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -617,7 +618,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Green Corridor Bear**
 
-<a href="quest.md?id=639136d68ba6894d155e77cf">打开完整页面 →</a>
+<a href="quest.md?id=639136d68ba6894d155e77cf">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区` ｜ `仅限 **BEAR**`
 
@@ -634,7 +635,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **Forge a Friendship**
 
-<a href="quest.md?id=6740a15566e6a521aa051b15">打开完整页面 →</a>
+<a href="quest.md?id=6740a15566e6a521aa051b15">💬 台词与完整明细 →</a>
 
 `地图：海岸线`
 
@@ -653,7 +654,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Bad Rep Evidence**
 
-<a href="quest.md?id=5967530a86f77462ba22226b">打开完整页面 →</a>
+<a href="quest.md?id=5967530a86f77462ba22226b">💬 台词与完整明细 →</a>
 
 **出发前必带**
 
@@ -682,7 +683,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Background Check**
 
-<a href="quest.md?id=5936da9e86f7742d65037edf">打开完整页面 →</a>
+<a href="quest.md?id=5936da9e86f7742d65037edf">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -710,7 +711,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Properties All Around**
 
-<a href="quest.md?id=6573397ef3f8344c4575cd87">打开完整页面 →</a>
+<a href="quest.md?id=6573397ef3f8344c4575cd87">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -738,7 +739,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Shipping Delay Part 1**
 
-<a href="quest.md?id=673f348dd3346c21670217e7">打开完整页面 →</a>
+<a href="quest.md?id=673f348dd3346c21670217e7">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -756,7 +757,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Reconnaissance**
 
-<a href="quest.md?id=626bd75c71bd851e971b82a5">打开完整页面 →</a>
+<a href="quest.md?id=626bd75c71bd851e971b82a5">💬 台词与完整明细 →</a>
 
 `地图：灯塔`
 
@@ -777,7 +778,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Postman Pat Part 1**
 
-<a href="quest.md?id=59675ea386f77414b32bded2">打开完整页面 →</a>
+<a href="quest.md?id=59675ea386f77414b32bded2">💬 台词与完整明细 →</a>
 
 `**Kappa 必需**` ｜ `地图：工厂`
 
@@ -798,7 +799,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Ironclad Proof**
 
-<a href="quest.md?id=59ca1a6286f774509a270942">打开完整页面 →</a>
+<a href="quest.md?id=59ca1a6286f774509a270942">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -818,7 +819,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Debut**
 
-<a href="quest.md?id=5936d90786f7742b1420ba5b">打开完整页面 →</a>
+<a href="quest.md?id=5936d90786f7742b1420ba5b">💬 台词与完整明细 →</a>
 
 **要求**
 
@@ -831,7 +832,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Anesthesia**
 
-<a href="quest.md?id=5eda19f0edce541157209cee">打开完整页面 →</a>
+<a href="quest.md?id=5eda19f0edce541157209cee">💬 台词与完整明细 →</a>
 
 `地图：海岸线`
 
@@ -858,7 +859,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv1** ｜ **无前置** ｜ 英文名 **Shooting Cans**
 
-<a href="quest.md?id=657315df034d76585f032e01">打开完整页面 →</a>
+<a href="quest.md?id=657315df034d76585f032e01">💬 台词与完整明细 →</a>
 
 `地图：中心区`
 
@@ -875,7 +876,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv6** ｜ **无前置** ｜ 英文名 **Grenadier**
 
-<a href="quest.md?id=5c0d190cd09282029f5390d8">打开完整页面 →</a>
+<a href="quest.md?id=5c0d190cd09282029f5390d8">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -893,7 +894,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv6** ｜ **无前置** ｜ 英文名 **Glory to Cpsu**
 
-<a href="quest.md?id=64f5aac4b63b74469b6c14c2">打开完整页面 →</a>
+<a href="quest.md?id=64f5aac4b63b74469b6c14c2">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -915,7 +916,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv6** ｜ **无前置** ｜ 英文名 **Ice Cream Cones**
 
-<a href="quest.md?id=59675d6c86f7740a842fc482">打开完整页面 →</a>
+<a href="quest.md?id=59675d6c86f7740a842fc482">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -938,7 +939,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Big Customer**
 
-<a href="quest.md?id=597a171586f77405ba6887d3">打开完整页面 →</a>
+<a href="quest.md?id=597a171586f77405ba6887d3">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -971,7 +972,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Hell on Earth Part 1**
 
-<a href="quest.md?id=666314b0acf8442f8b0531a1">打开完整页面 →</a>
+<a href="quest.md?id=666314b0acf8442f8b0531a1">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -987,7 +988,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv12** ｜ **无前置** ｜ 英文名 **The Good Times Part 1**
 
-<a href="quest.md?id=666314b4d7f171c4c20226c3">打开完整页面 →</a>
+<a href="quest.md?id=666314b4d7f171c4c20226c3">💬 台词与完整明细 →</a>
 
 `地图：工厂`
 
@@ -1006,7 +1007,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **The Good Times Part 2**
 
-<a href="quest.md?id=666314bafd5ca9577902e03a">打开完整页面 →</a>
+<a href="quest.md?id=666314bafd5ca9577902e03a">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1023,7 +1024,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Viewer**
 
-<a href="quest.md?id=666314bd920800278d0f6748">打开完整页面 →</a>
+<a href="quest.md?id=666314bd920800278d0f6748">💬 台词与完整明细 →</a>
 
 **出发前必带**
 
@@ -1047,7 +1048,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **Glory to Cpsu Part 1**
 
-<a href="quest.md?id=639135b04ed9512be67647d7">打开完整页面 →</a>
+<a href="quest.md?id=639135b04ed9512be67647d7">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -1069,7 +1070,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个 ｜ 英文名 **Hell on Earth Part 2**
 
-<a href="quest.md?id=666314b2a9290f9e0806cca3">打开完整页面 →</a>
+<a href="quest.md?id=666314b2a9290f9e0806cca3">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1087,7 +1088,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv21** ｜ **无前置** ｜ 英文名 **No Place for Renegades**
 
-<a href="quest.md?id=60896bca6ee58f38c417d4f2">打开完整页面 →</a>
+<a href="quest.md?id=60896bca6ee58f38c417d4f2">💬 台词与完整明细 →</a>
 
 `地图：储备站`
 
@@ -1106,7 +1107,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv21** ｜ **无前置** ｜ 英文名 **The Bunker**
 
-<a href="quest.md?id=5ede55112c95834b583f052a">打开完整页面 →</a>
+<a href="quest.md?id=5ede55112c95834b583f052a">💬 台词与完整明细 →</a>
 
 `地图：储备站`
 
@@ -1131,7 +1132,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个 ｜ 英文名 **The Bunker Part 2**
 
-<a href="quest.md?id=5ede567cfa6dc072ce15d6e3">打开完整页面 →</a>
+<a href="quest.md?id=5ede567cfa6dc072ce15d6e3">💬 台词与完整明细 →</a>
 
 `地图：储备站`
 
@@ -1155,7 +1156,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv21** ｜ **无前置** ｜ 英文名 **Easy Job**
 
-<a href="quest.md?id=6179ac7511973d018217d0b9">打开完整页面 →</a>
+<a href="quest.md?id=6179ac7511973d018217d0b9">💬 台词与完整明细 →</a>
 
 `地图：灯塔`
 
@@ -1182,7 +1183,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个 ｜ 英文名 **Easy Job Part 2**
 
-<a href="quest.md?id=6179acbdc760af5ad2053585">打开完整页面 →</a>
+<a href="quest.md?id=6179acbdc760af5ad2053585">💬 台词与完整明细 →</a>
 
 `地图：灯塔`
 
@@ -1203,7 +1204,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv21** ｜ 前置 **1** 个 ｜ 英文名 **The Punisher Part 3**
 
-<a href="quest.md?id=59c50c8886f7745fed3193bf">打开完整页面 →</a>
+<a href="quest.md?id=59c50c8886f7745fed3193bf">💬 台词与完整明细 →</a>
 
 `地图：储备站`
 
@@ -1226,7 +1227,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv25** ｜ **无前置** ｜ 英文名 **Job for a Patriot**
 
-<a href="quest.md?id=64f5deac39e45b527a7c4232">打开完整页面 →</a>
+<a href="quest.md?id=64f5deac39e45b527a7c4232">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1247,7 +1248,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv35** ｜ **无前置** ｜ 英文名 **Unique Experience**
 
-<a href="quest.md?id=675c1ff1a757ddd00404f0aa">打开完整页面 →</a>
+<a href="quest.md?id=675c1ff1a757ddd00404f0aa">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1269,7 +1270,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Perfect Mediator**
 
-<a href="quest.md?id=5c12452c86f7744b83469073">打开完整页面 →</a>
+<a href="quest.md?id=5c12452c86f7744b83469073">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1293,7 +1294,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个 ｜ 英文名 **Gendarmerie Mall Cop**
 
-<a href="quest.md?id=64e7b99017ab941a6f7bf9d7">打开完整页面 →</a>
+<a href="quest.md?id=64e7b99017ab941a6f7bf9d7">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -1313,7 +1314,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个 ｜ 英文名 **Gendarmerie Tickets Please**
 
-<a href="quest.md?id=64e7b9a4aac4cd0a726562cb">打开完整页面 →</a>
+<a href="quest.md?id=64e7b9a4aac4cd0a726562cb">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -1333,7 +1334,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个 ｜ 英文名 **The Punisher Part 4**
 
-<a href="quest.md?id=59ca264786f77445a80ed044">打开完整页面 →</a>
+<a href="quest.md?id=59ca264786f77445a80ed044">💬 台词与完整明细 →</a>
 
 `地图：灯塔`
 
@@ -1356,7 +1357,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个 ｜ 英文名 **The Punisher Part 5**
 
-<a href="quest.md?id=59ca29fb86f77445ab465c87">打开完整页面 →</a>
+<a href="quest.md?id=59ca29fb86f77445ab465c87">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1380,7 +1381,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv36** ｜ 前置 **1** 个 ｜ 英文名 **The Punisher Part 6**
 
-<a href="quest.md?id=59ca2eb686f77445a80ed049">打开完整页面 →</a>
+<a href="quest.md?id=59ca2eb686f77445a80ed049">💬 台词与完整明细 →</a>
 
 `失败可重接`
 
@@ -1401,7 +1402,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv36** ｜ **无前置** ｜ 英文名 **Regulated Materials**
 
-<a href="quest.md?id=5d4bec3486f7743cac246665">打开完整页面 →</a>
+<a href="quest.md?id=5d4bec3486f7743cac246665">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1423,7 +1424,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv36** ｜ **无前置** ｜ 英文名 **The Art of Explosion**
 
-<a href="quest.md?id=67b45467814ab0ffa000c7e7">打开完整页面 →</a>
+<a href="quest.md?id=67b45467814ab0ffa000c7e7">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1443,7 +1444,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv36** ｜ **无前置** ｜ 英文名 **Getting Some Air**
 
-<a href="quest.md?id=6574e0dedc0d635f633a5805">打开完整页面 →</a>
+<a href="quest.md?id=6574e0dedc0d635f633a5805">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1466,7 +1467,7 @@ tags:
 
 **Prapor** ｜ 需 **Lv46** ｜ **无前置** ｜ 英文名 **Escort**
 
-<a href="quest.md?id=60e71b62a0beca400d69efc4">打开完整页面 →</a>
+<a href="quest.md?id=60e71b62a0beca400d69efc4">💬 台词与完整明细 →</a>
 
 `失败可重接`
 

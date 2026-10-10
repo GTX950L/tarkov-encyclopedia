@@ -20,13 +20,14 @@ tags:
 | **排序** | 按**等级门槛升序**，同级按任务名 |
 | **分档** | 每 10 级一档（Lv0–9 …），与[总览](index.md)「按等级门槛」同口径 |
 | **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |
-| **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md) |
+| **💬 商人台词** | **每个任务都有** —— 点明细块里的「💬 台词与完整明细 →」，看商人接取时说的话与任务完成对话，另外还能顺着**前置／后续任务**（可点击）走任务链 |
+| **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md)；台词为**三级来源**（玩家维基），见[任务详情](quest.md) 的口径表 |
 
 ---
 
 ## 🔎 任务索引 ｜ 66 项
 
-点任务名跳到下方明细。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
+点任务名跳到下方明细。**每个明细块里都有「💬 台词与完整明细 →」**，点开是该任务的完整页面（商人台词 · 前置与后续 · 目标 · 奖励 · 出发前必带）。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
 
 | # | 任务 | 门槛 | 地图 | 标记 |
 |---|------|------|------|------|
@@ -107,7 +108,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Polikhim Hobo**
 
-<a href="quest.md?id=5979f8bb86f7743ec214c7a6">打开完整页面 →</a>
+<a href="quest.md?id=5979f8bb86f7743ec214c7a6">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -124,7 +125,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Whats on the Flash Drive**
 
-<a href="quest.md?id=5979ed3886f77431307dc512">打开完整页面 →</a>
+<a href="quest.md?id=5979ed3886f77431307dc512">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -142,7 +143,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **The Higher They Fly**
 
-<a href="quest.md?id=6745fae369a58fceba10343d">打开完整页面 →</a>
+<a href="quest.md?id=6745fae369a58fceba10343d">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -165,7 +166,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Supplier**
 
-<a href="quest.md?id=596b36c586f77450d6045ad2">打开完整页面 →</a>
+<a href="quest.md?id=596b36c586f77450d6045ad2">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -183,7 +184,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Supplements**
 
-<a href="quest.md?id=5b478ff486f7744d184ecbbf">打开完整页面 →</a>
+<a href="quest.md?id=5b478ff486f7744d184ecbbf">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -205,7 +206,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Setup**
 
-<a href="quest.md?id=5c1234c286f77406fa13baeb">打开完整页面 →</a>
+<a href="quest.md?id=5c1234c286f77406fa13baeb">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -224,7 +225,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Route Deviation**
 
-<a href="quest.md?id=674600a366e6a521aa05eb66">打开完整页面 →</a>
+<a href="quest.md?id=674600a366e6a521aa05eb66">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -259,7 +260,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Key Partner**
 
-<a href="quest.md?id=6746053b5b555b53460d9896">打开完整页面 →</a>
+<a href="quest.md?id=6746053b5b555b53460d9896">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -280,7 +281,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Chemical Part 1**
 
-<a href="quest.md?id=5979f9ba86f7740f6c3fe9f2">打开完整页面 →</a>
+<a href="quest.md?id=5979f9ba86f7740f6c3fe9f2">💬 台词与完整明细 →</a>
 
 `**Kappa 必需**` ｜ `地图：海关`
 
@@ -310,7 +311,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Chemical Part 2**
 
-<a href="quest.md?id=597a0b2986f77426d66c0633">打开完整页面 →</a>
+<a href="quest.md?id=597a0b2986f77426d66c0633">💬 台词与完整明细 →</a>
 
 `**Kappa 必需**` ｜ `地图：海关`
 
@@ -341,7 +342,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Connections Up North**
 
-<a href="quest.md?id=6764174c86addd02bc033d68">打开完整页面 →</a>
+<a href="quest.md?id=6764174c86addd02bc033d68">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -361,7 +362,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pyramid Scheme**
 
-<a href="quest.md?id=6572e876dc0d635f633a5714">打开完整页面 →</a>
+<a href="quest.md?id=6572e876dc0d635f633a5714">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -397,7 +398,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Hindsight 2020**
 
-<a href="quest.md?id=674602307e3818d5bb069489">打开完整页面 →</a>
+<a href="quest.md?id=674602307e3818d5bb069489">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -429,7 +430,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Night Sweep**
 
-<a href="quest.md?id=60e71c11d54b755a3b53eb65">打开完整页面 →</a>
+<a href="quest.md?id=60e71c11d54b755a3b53eb65">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -451,7 +452,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Top Secret**
 
-<a href="quest.md?id=626bd75d5bef5d7d590bd415">打开完整页面 →</a>
+<a href="quest.md?id=626bd75d5bef5d7d590bd415">💬 台词与完整明细 →</a>
 
 `地图：灯塔`
 
@@ -480,7 +481,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Safe Corridor**
 
-<a href="quest.md?id=6089743983426423753cd58a">打开完整页面 →</a>
+<a href="quest.md?id=6089743983426423753cd58a">💬 台词与完整明细 →</a>
 
 `地图：储备站`
 
@@ -500,7 +501,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Consolation Prize**
 
-<a href="quest.md?id=67af4c1d8c9482eca103e477">打开完整页面 →</a>
+<a href="quest.md?id=67af4c1d8c9482eca103e477">💬 台词与完整明细 →</a>
 
 `地图：实验室`
 
@@ -530,7 +531,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Informed Means Armed**
 
-<a href="quest.md?id=5b47926a86f7747ccc057c15">打开完整页面 →</a>
+<a href="quest.md?id=5b47926a86f7747ccc057c15">💬 台词与完整明细 →</a>
 
 **出发前必带**
 
@@ -555,7 +556,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Extortionist**
 
-<a href="quest.md?id=596b43fb86f77457ca186186">打开完整页面 →</a>
+<a href="quest.md?id=596b43fb86f77457ca186186">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -584,7 +585,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Kind of Sabotage**
 
-<a href="quest.md?id=596a101f86f7741ddb481582">打开完整页面 →</a>
+<a href="quest.md?id=596a101f86f7741ddb481582">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -606,7 +607,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **No Swiping**
 
-<a href="quest.md?id=658027799634223183395339">打开完整页面 →</a>
+<a href="quest.md?id=658027799634223183395339">💬 台词与完整明细 →</a>
 
 `地图：海岸线`
 
@@ -625,7 +626,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Private Club**
 
-<a href="quest.md?id=675c3582f6ddc329a90f9c6d">打开完整页面 →</a>
+<a href="quest.md?id=675c3582f6ddc329a90f9c6d">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -645,7 +646,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Secret Recipe**
 
-<a href="quest.md?id=64f6aafd67e11a7c6206e0d0">打开完整页面 →</a>
+<a href="quest.md?id=64f6aafd67e11a7c6206e0d0">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -672,7 +673,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Vitamins**
 
-<a href="quest.md?id=5b478eca86f7744642012254">打开完整页面 →</a>
+<a href="quest.md?id=5b478eca86f7744642012254">💬 台词与完整明细 →</a>
 
 **出发前必带**
 
@@ -701,7 +702,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Debtor**
 
-<a href="quest.md?id=639dbaf17c898a131e1cffff">打开完整页面 →</a>
+<a href="quest.md?id=639dbaf17c898a131e1cffff">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -723,7 +724,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Rigged Game**
 
-<a href="quest.md?id=5edabd13218d181e29451442">打开完整页面 →</a>
+<a href="quest.md?id=5edabd13218d181e29451442">💬 台词与完整明细 →</a>
 
 `地图：海岸线`
 
@@ -751,7 +752,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Killer Argument**
 
-<a href="quest.md?id=674605df60a98cad1b0ec799">打开完整页面 →</a>
+<a href="quest.md?id=674605df60a98cad1b0ec799">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -775,7 +776,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Friend From the West**
 
-<a href="quest.md?id=5a27c99a86f7747d2c6bdd8e">打开完整页面 →</a>
+<a href="quest.md?id=5a27c99a86f7747d2c6bdd8e">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -792,7 +793,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **Choose Your Friends Wisely**
 
-<a href="quest.md?id=67460662d0fbbc74ca0f7229">打开完整页面 →</a>
+<a href="quest.md?id=67460662d0fbbc74ca0f7229">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -819,7 +820,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **From Hand to Hand**
 
-<a href="quest.md?id=5c0d0f1886f77457b8210226">打开完整页面 →</a>
+<a href="quest.md?id=5c0d0f1886f77457b8210226">💬 台词与完整明细 →</a>
 
 `地图：灯塔`
 
@@ -846,7 +847,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **House Arrest**
 
-<a href="quest.md?id=639135c3744e452011470807">打开完整页面 →</a>
+<a href="quest.md?id=639135c3744e452011470807">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -875,7 +876,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Golden Swag**
 
-<a href="quest.md?id=5979eee086f774311955e614">打开完整页面 →</a>
+<a href="quest.md?id=5979eee086f774311955e614">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -904,7 +905,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Long Road**
 
-<a href="quest.md?id=6193850f60b34236ee0483de">打开完整页面 →</a>
+<a href="quest.md?id=6193850f60b34236ee0483de">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -922,7 +923,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Walls Have Eyes**
 
-<a href="quest.md?id=669fa39c64ea11e84c0642a6">打开完整页面 →</a>
+<a href="quest.md?id=669fa39c64ea11e84c0642a6">💬 台词与完整明细 →</a>
 
 `地图：工厂`
 
@@ -951,7 +952,7 @@ tags:
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Stirrup**
 
-<a href="quest.md?id=596b455186f77457cb50eccb">打开完整页面 →</a>
+<a href="quest.md?id=596b455186f77457cb50eccb">💬 台词与完整明细 →</a>
 
 `地图：工厂`
 
@@ -970,7 +971,7 @@ tags:
 
 **Skier** ｜ 需 **Lv1** ｜ **无前置** ｜ 英文名 **Burning Rubber**
 
-<a href="quest.md?id=657315e270bb0b8dba00cc48">打开完整页面 →</a>
+<a href="quest.md?id=657315e270bb0b8dba00cc48">💬 台词与完整明细 →</a>
 
 `地图：中心区`
 
@@ -990,7 +991,7 @@ tags:
 
 **Skier** ｜ 需 **Lv7** ｜ **无前置** ｜ 英文名 **Exit Here**
 
-<a href="quest.md?id=669fa395c4c5c04798002497">打开完整页面 →</a>
+<a href="quest.md?id=669fa395c4c5c04798002497">💬 台词与完整明细 →</a>
 
 `地图：工厂`
 
@@ -1009,7 +1010,7 @@ tags:
 
 **Skier** ｜ 需 **Lv7** ｜ **无前置** ｜ 英文名 **Beyond the Red Meat**
 
-<a href="quest.md?id=64f5e20652fc01298e2c61e3">打开完整页面 →</a>
+<a href="quest.md?id=64f5e20652fc01298e2c61e3">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -1036,7 +1037,7 @@ tags:
 
 **Skier** ｜ 需 **Lv7** ｜ **无前置** ｜ 英文名 **Chumming**
 
-<a href="quest.md?id=5b4795fb86f7745876267770">打开完整页面 →</a>
+<a href="quest.md?id=5b4795fb86f7745876267770">💬 台词与完整明细 →</a>
 
 **出发前必带**
 
@@ -1061,7 +1062,7 @@ tags:
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Chemical Part 3**
 
-<a href="quest.md?id=597a0e5786f77426d66c0636">打开完整页面 →</a>
+<a href="quest.md?id=597a0e5786f77426d66c0636">💬 台词与完整明细 →</a>
 
 `**Kappa 必需**` ｜ `地图：工厂`
 
@@ -1082,7 +1083,7 @@ tags:
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Chemical Part 4**
 
-<a href="quest.md?id=597a0f5686f774273b74f676">打开完整页面 →</a>
+<a href="quest.md?id=597a0f5686f774273b74f676">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -1114,7 +1115,7 @@ tags:
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Thirsty Breadwinner**
 
-<a href="quest.md?id=665eec1f5e47a79f8605565a">打开完整页面 →</a>
+<a href="quest.md?id=665eec1f5e47a79f8605565a">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1131,7 +1132,7 @@ tags:
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Thirsty Delivery**
 
-<a href="quest.md?id=665eec4a4dfc83b0ed0a9dca">打开完整页面 →</a>
+<a href="quest.md?id=665eec4a4dfc83b0ed0a9dca">💬 台词与完整明细 →</a>
 
 **出发前必带**
 
@@ -1157,7 +1158,7 @@ tags:
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Loyalty Buyout**
 
-<a href="quest.md?id=59c93e8e86f7742a406989c4">打开完整页面 →</a>
+<a href="quest.md?id=59c93e8e86f7742a406989c4">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1174,7 +1175,7 @@ tags:
 
 **Skier** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Friend From the West Part 2**
 
-<a href="quest.md?id=5a27d2af86f7744e1115b323">打开完整页面 →</a>
+<a href="quest.md?id=5a27d2af86f7744e1115b323">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1194,7 +1195,7 @@ tags:
 
 **Skier** ｜ 需 **Lv10** ｜ **无前置** ｜ 英文名 **Easy Money Part 1 Pvp Zone**
 
-<a href="quest.md?id=66058cb22cee99303f1ba067">打开完整页面 →</a>
+<a href="quest.md?id=66058cb22cee99303f1ba067">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -1220,7 +1221,7 @@ tags:
 
 **Skier** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Proper Comeback**
 
-<a href="quest.md?id=666314c3acf8442f8b0531a3">打开完整页面 →</a>
+<a href="quest.md?id=666314c3acf8442f8b0531a3">💬 台词与完整明细 →</a>
 
 **出发前必带**
 
@@ -1244,7 +1245,7 @@ tags:
 
 **Skier** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Serious Allegations**
 
-<a href="quest.md?id=666314bf1cd52e3d040a2e78">打开完整页面 →</a>
+<a href="quest.md?id=666314bf1cd52e3d040a2e78">💬 台词与完整明细 →</a>
 
 `地图：海岸线`
 
@@ -1263,7 +1264,7 @@ tags:
 
 **Skier** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Minute of Fame**
 
-<a href="quest.md?id=666314bc1d3ec95634095e77">打开完整页面 →</a>
+<a href="quest.md?id=666314bc1d3ec95634095e77">💬 台词与完整明细 →</a>
 
 `地图：立交桥`
 
@@ -1285,7 +1286,7 @@ tags:
 
 **Skier** ｜ 需 **Lv22** ｜ **无前置** ｜ 英文名 **Missing Cargo**
 
-<a href="quest.md?id=6179b4f16e9dd54ac275e407">打开完整页面 →</a>
+<a href="quest.md?id=6179b4f16e9dd54ac275e407">💬 台词与完整明细 →</a>
 
 `地图：灯塔`
 
@@ -1306,7 +1307,7 @@ tags:
 
 **Skier** ｜ 需 **Lv22** ｜ **无前置** ｜ 英文名 **Classified Technologies**
 
-<a href="quest.md?id=60896888e4a85c72ef3fa300">打开完整页面 →</a>
+<a href="quest.md?id=60896888e4a85c72ef3fa300">💬 台词与完整明细 →</a>
 
 `地图：储备站`
 
@@ -1326,7 +1327,7 @@ tags:
 
 **Skier** ｜ 需 **Lv22** ｜ **无前置** ｜ 英文名 **Irresistible**
 
-<a href="quest.md?id=671a49f77d49aea42c029b5f">打开完整页面 →</a>
+<a href="quest.md?id=671a49f77d49aea42c029b5f">💬 台词与完整明细 →</a>
 
 `地图：立交桥`
 
@@ -1353,7 +1354,7 @@ tags:
 
 **Skier** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **Indisputable Authority**
 
-<a href="quest.md?id=67a097379f2068e74603c6ac">打开完整页面 →</a>
+<a href="quest.md?id=67a097379f2068e74603c6ac">💬 台词与完整明细 →</a>
 
 `地图：迷宫`
 
@@ -1375,7 +1376,7 @@ tags:
 
 **Skier** ｜ 需 **Lv33** ｜ 前置 **1** 个 ｜ 英文名 **House Arrest Part 2**
 
-<a href="quest.md?id=639135cd8ba6894d155e77cb">打开完整页面 →</a>
+<a href="quest.md?id=639135cd8ba6894d155e77cb">💬 台词与完整明细 →</a>
 
 `地图：塔科夫街区`
 
@@ -1403,7 +1404,7 @@ tags:
 
 **Skier** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Flint**
 
-<a href="quest.md?id=5c0bdb5286f774166e38eed4">打开完整页面 →</a>
+<a href="quest.md?id=5c0bdb5286f774166e38eed4">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1421,7 +1422,7 @@ tags:
 
 **Skier** ｜ 需 **Lv38** ｜ **无前置** ｜ 英文名 **Bullshit**
 
-<a href="quest.md?id=5c0bbaa886f7746941031d82">打开完整页面 →</a>
+<a href="quest.md?id=5c0bbaa886f7746941031d82">💬 台词与完整明细 →</a>
 
 `地图：灯塔` ｜ `失败可重接`
 
@@ -1459,7 +1460,7 @@ tags:
 
 **Skier** ｜ 需 **Lv38** ｜ **无前置** ｜ 英文名 **Silent Caliber**
 
-<a href="quest.md?id=5c0bc91486f7746ab41857a2">打开完整页面 →</a>
+<a href="quest.md?id=5c0bc91486f7746ab41857a2">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1479,7 +1480,7 @@ tags:
 
 **Skier** ｜ 需 **Lv38** ｜ 前置 **1** 个 ｜ 英文名 **Dangerous Props**
 
-<a href="quest.md?id=671a59e43d73dac1360765cc">打开完整页面 →</a>
+<a href="quest.md?id=671a59e43d73dac1360765cc">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1500,7 +1501,7 @@ tags:
 
 **Skier** ｜ 需 **Lv45** ｜ 前置 **1** 个 ｜ 英文名 **Fair Price Part 1**
 
-<a href="quest.md?id=68400926706e0a55e90b0007">打开完整页面 →</a>
+<a href="quest.md?id=68400926706e0a55e90b0007">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1516,7 +1517,7 @@ tags:
 
 **Skier** ｜ 需 **Lv45** ｜ 前置 **1** 个 ｜ 英文名 **Fair Price Part 2**
 
-<a href="quest.md?id=68400953506db3b4db0700e7">打开完整页面 →</a>
+<a href="quest.md?id=68400953506db3b4db0700e7">💬 台词与完整明细 →</a>
 
 `地图：森林`
 
@@ -1538,7 +1539,7 @@ tags:
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **A Life Lesson**
 
-<a href="quest.md?id=67af4c1cc0e59d55e2010b97">打开完整页面 →</a>
+<a href="quest.md?id=67af4c1cc0e59d55e2010b97">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1565,7 +1566,7 @@ tags:
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **Profit Retention**
 
-<a href="quest.md?id=67af4c1a6c3ebfd8e6034916">打开完整页面 →</a>
+<a href="quest.md?id=67af4c1a6c3ebfd8e6034916">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1592,7 +1593,7 @@ tags:
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **Never Too Late to Learn**
 
-<a href="quest.md?id=67af4c17f4f1fb58a907f8f6">打开完整页面 →</a>
+<a href="quest.md?id=67af4c17f4f1fb58a907f8f6">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1619,7 +1620,7 @@ tags:
 
 **Skier** ｜ 需 **Lv50** ｜ **无前置** ｜ 英文名 **Safety Guarantee**
 
-<a href="quest.md?id=67af4c169d95ad16e004fd86">打开完整页面 →</a>
+<a href="quest.md?id=67af4c169d95ad16e004fd86">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1646,7 +1647,7 @@ tags:
 
 **Skier** ｜ 需 **Lv50** ｜ **无前置** ｜ 英文名 **Profitable Venture**
 
-<a href="quest.md?id=67af4c1405c58dc6f7056667">打开完整页面 →</a>
+<a href="quest.md?id=67af4c1405c58dc6f7056667">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -1671,7 +1672,7 @@ tags:
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **Get a Foothold**
 
-<a href="quest.md?id=67af4c1991ee75c6d7060a16">打开完整页面 →</a>
+<a href="quest.md?id=67af4c1991ee75c6d7060a16">💬 台词与完整明细 →</a>
 
 **接取条件**
 

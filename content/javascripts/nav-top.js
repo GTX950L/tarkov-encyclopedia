@@ -146,7 +146,18 @@
     return cols;
   }
 
-  function siteRoot() {
+function siteRoot() {
+    /* 优先用 toolbox.js 在首次整页加载时算好并公布的站点根，不要每次现算。
+       Material 的 instant navigation 换页时会重建 <script> 元素，重建后的
+       .src 按【换页前】的地址解析，得出 <根>/quests/javascripts/toolbox.js
+       这种错路径 —— 于是所有「换页之后才算 siteRoot()」的代码都拼出 404 地址。
+
+       实测（2026-10-10）：从任务图鉴总览点「台词」入口进任务详情页，注入的脚本
+       请求到了 /quests/javascripts/quest-detail.js（404），页面永远停在静态
+       占位文案上，而控制台一个错都不报。
+
+       fallback 保留原写法，供 toolbox.js 自己首次计算时使用。 */
+    if (window.__tkRoot) return window.__tkRoot;
     var s = document.querySelector('script[src*="nav-top.js"]');
     if (!s || !s.src) return "";
     return s.src.replace(/javascripts\/[^/]*$/, "");

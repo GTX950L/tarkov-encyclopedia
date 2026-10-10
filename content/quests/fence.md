@@ -20,13 +20,14 @@ tags:
 | **排序** | 按**等级门槛升序**，同级按任务名 |
 | **分档** | 每 10 级一档（Lv0–9 …），与[总览](index.md)「按等级门槛」同口径 |
 | **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |
-| **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md) |
+| **💬 商人台词** | **每个任务都有** —— 点明细块里的「💬 台词与完整明细 →」，看商人接取时说的话与任务完成对话，另外还能顺着**前置／后续任务**（可点击）走任务链 |
+| **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md)；台词为**三级来源**（玩家维基），见[任务详情](quest.md) 的口径表 |
 
 ---
 
 ## 🔎 任务索引 ｜ 16 项
 
-点任务名跳到下方明细。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
+点任务名跳到下方明细。**每个明细块里都有「💬 台词与完整明细 →」**，点开是该任务的完整页面（商人台词 · 前置与后续 · 目标 · 奖励 · 出发前必带）。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
 
 | # | 任务 | 门槛 | 地图 | 标记 |
 |---|------|------|------|------|
@@ -57,7 +58,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Wergild**
 
-<a href="quest.md?id=61e6e60c5ca3b3783662be27">打开完整页面 →</a>
+<a href="quest.md?id=61e6e60c5ca3b3783662be27">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -74,7 +75,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Trust**
 
-<a href="quest.md?id=61e6e5e0f5b9633f6719ed95">打开完整页面 →</a>
+<a href="quest.md?id=61e6e5e0f5b9633f6719ed95">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -92,7 +93,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Collection**
 
-<a href="quest.md?id=61e6e621bfeab00251576265">打开完整页面 →</a>
+<a href="quest.md?id=61e6e621bfeab00251576265">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -109,7 +110,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Wager**
 
-<a href="quest.md?id=61e6e60223374d168a4576a6">打开完整页面 →</a>
+<a href="quest.md?id=61e6e60223374d168a4576a6">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -126,7 +127,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Compensation for Damage Barkeep**
 
-<a href="quest.md?id=61e6e615eea2935bc018a2c5">打开完整页面 →</a>
+<a href="quest.md?id=61e6e615eea2935bc018a2c5">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -144,7 +145,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Immunity**
 
-<a href="quest.md?id=6663148ca9290f9e0806cca1">打开完整页面 →</a>
+<a href="quest.md?id=6663148ca9290f9e0806cca1">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -161,7 +162,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Small Business Part 1**
 
-<a href="quest.md?id=6663148ed7f171c4c20226c1">打开完整页面 →</a>
+<a href="quest.md?id=6663148ed7f171c4c20226c1">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -195,7 +196,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Small Business Part 2**
 
-<a href="quest.md?id=6663149196a9349baa021baa">打开完整页面 →</a>
+<a href="quest.md?id=6663149196a9349baa021baa">💬 台词与完整明细 →</a>
 
 `失败可重接`
 
@@ -219,7 +220,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Small Business Part 3**
 
-<a href="quest.md?id=66631493312343839d032d22">打开完整页面 →</a>
+<a href="quest.md?id=66631493312343839d032d22">💬 台词与完整明细 →</a>
 
 **出发前必带**
 
@@ -245,7 +246,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Establish Contact**
 
-<a href="quest.md?id=6672d9def1c88688a707d042">打开完整页面 →</a>
+<a href="quest.md?id=6672d9def1c88688a707d042">💬 台词与完整明细 →</a>
 
 **接取条件**
 
@@ -262,7 +263,7 @@ tags:
 
 **Fence** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Friend Among Strangers**
 
-<a href="quest.md?id=66631489acf8442f8b05319f">打开完整页面 →</a>
+<a href="quest.md?id=66631489acf8442f8b05319f">💬 台词与完整明细 →</a>
 
 `失败可重接`
 
@@ -288,7 +289,7 @@ tags:
 
 **Fence** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Between Two Fires Pvp Zone**
 
-<a href="quest.md?id=66058ccf06ef1d50a60c1f48">打开完整页面 →</a>
+<a href="quest.md?id=66058ccf06ef1d50a60c1f48">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -316,7 +317,7 @@ tags:
 
 **Fence** ｜ 需 **Lv10** ｜ 前置 **2** 个 ｜ 英文名 **Against the Conscience Part 1 Pvp Zone**
 
-<a href="quest.md?id=66058ccbc7f3584787181478">打开完整页面 →</a>
+<a href="quest.md?id=66058ccbc7f3584787181478">💬 台词与完整明细 →</a>
 
 `地图：海关`
 
@@ -346,7 +347,7 @@ tags:
 
 **Fence** ｜ 需 **Lv25** ｜ **无前置** ｜ 英文名 **Is This a Reference**
 
-<a href="quest.md?id=66d9cbb67b491f9d5304f6e6">打开完整页面 →</a>
+<a href="quest.md?id=66d9cbb67b491f9d5304f6e6">💬 台词与完整明细 →</a>
 
 **出发前必带**
 
@@ -398,7 +399,7 @@ tags:
 
 **Fence** ｜ 需 **Lv42** ｜ 前置 **5** 个 ｜ 英文名 **Collector**
 
-<a href="quest.md?id=5c51aac186f77432ea65c552">打开完整页面 →</a>
+<a href="quest.md?id=5c51aac186f77432ea65c552">💬 台词与完整明细 →</a>
 
 `**Kappa 必需**`
 
@@ -462,7 +463,7 @@ tags:
 
 **Fence** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **The Choice**
 
-<a href="quest.md?id=60effd818b669d08a35bfad5">打开完整页面 →</a>
+<a href="quest.md?id=60effd818b669d08a35bfad5">💬 台词与完整明细 →</a>
 
 **接取条件**
 

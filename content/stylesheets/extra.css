@@ -3488,6 +3488,24 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   white-space: nowrap;
 }
 
+/* 「💬」—— 任务名后面那个通往**任务完整页面**（商人台词 · 前置与后续 · 奖励）的小入口。
+   做成描边小徽章而不是纯文字链：它要**被看见**（这正是上一版「打开完整页面 →」
+   失败的地方 —— 一行和普通链接同色的文字，没人会注意到），但又不能抢任务名的重心。 */
+.tk-qs__say {
+  margin-left: .45em;
+  padding: 0 .28em;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  font-size: .64rem;
+  line-height: 1.35;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.tk-qs__say:hover {
+  border-color: var(--tk-brand);
+  background: var(--tk-panel);
+}
+
 .tk-qs__marks { font-size: .68rem; }
 
 .tk-qs__tag {

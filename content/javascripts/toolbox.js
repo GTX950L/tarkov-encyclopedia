@@ -65,11 +65,28 @@
     { slug: "docs/mechanics/", name: "机制速查表", desc: "一页看懂所有核心规则" }
   ];
 
-  function siteRoot() {
+function siteRoot() {
+    /* 优先用 toolbox.js 在首次整页加载时算好并公布的站点根，不要每次现算。
+       Material 的 instant navigation 换页时会重建 <script> 元素，重建后的
+       .src 按【换页前】的地址解析，得出 <根>/quests/javascripts/toolbox.js
+       这种错路径 —— 于是所有「换页之后才算 siteRoot()」的代码都拼出 404 地址。
+
+       实测（2026-10-10）：从任务图鉴总览点「台词」入口进任务详情页，注入的脚本
+       请求到了 /quests/javascripts/quest-detail.js（404），页面永远停在静态
+       占位文案上，而控制台一个错都不报。
+
+       fallback 保留原写法，供 toolbox.js 自己首次计算时使用。 */
+    if (window.__tkRoot) return window.__tkRoot;
     var s = document.querySelector('script[src*="toolbox.js"]');
     if (!s || !s.src) return "";
     return s.src.replace(/javascripts\/[^/]*$/, "");
   }
+
+  /* ⚠️ **必须在这里、也就是脚本执行时刻算一次并公布给全站**。
+     这一刻是首次整页加载，<script> 的 .src 一定解析正确；
+     换页之后再去查同一个标签就会拿到错路径（原因见上面 siteRoot 的注释）。
+     其它脚本的 siteRoot() 都会优先读 window.__tkRoot。 */
+  window.__tkRoot = siteRoot();
 
   function boardUrl() { return siteRoot() + "quests/progress/"; }
 
@@ -318,6 +335,31 @@
   var itemPageInjected = false;
   var questPageInjected = false;
 
+  /* ⚠️ **「注入脚本」与「换页后重新挂载」是两件事，不能混为一谈。**
+     injectScript 是异步的（新建 <script> 再 appendChild）；而 Material 的
+     instant navigation 一次换页会**多次**换入内容。实测（2026-10-10）：
+     从 /quests/ 点 💬 跳到 /quests/quest/?id=… 时，quest-detail.js **确实注入了**，
+     但它的 boot() 恰好跑在某两次内容换入的**间隙**里 —— 那一刻
+     `#tk-quest-page` 还不在 DOM 中，boot() 第一行 `if (!host) return` 直接返回，
+     此后**再没有任何人叫它**，页面就永远停在静态占位文案上。
+
+     最坑的是它**一个错都不报**：脚本注入了、脚本也执行了、URL 也对，
+     只是内容没渲染 —— 只有量 DOM 才看得出来。
+
+     所以注入过之后，**每次换页都要再叫一次各本体的 boot**。
+     本体把入口挂到 `window.__tkBoot*`，这里统一回调（幂等：boot 自己会
+     重新读地址参数并重渲染，重复调用没有副作用）。 */
+  function remount() {
+    if (questPageInjected && document.getElementById("tk-quest-page")
+        && typeof window.__tkQuestBoot === "function") {
+      window.__tkQuestBoot();
+    }
+    if (itemPageInjected && document.getElementById("tk-item-page")
+        && typeof window.__tkBootItem === "function") {
+      window.__tkBootItem();
+    }
+  }
+
   function loadPageTools() {
     if (!plannerInjected && document.getElementById("tk-season-planner")) {
       plannerInjected = true;
@@ -361,6 +403,10 @@
       questPageInjected = true;
       injectScript("quest-detail.js");
     }
+
+    /* ⚠️ **必须放在最后** —— 上面是「第一次见到就注入」，这里是「每次换页
+       都再叫一次已注入的本体」。少了这一步，从别的页点进来会白屏（见 remount 的说明）。 */
+    remount();
   }
 
   /* --------------------------------------------------------------------------
