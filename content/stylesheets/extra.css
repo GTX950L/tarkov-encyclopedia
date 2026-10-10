@@ -376,6 +376,18 @@ body[data-md-color-scheme="default"] {
   min-width: 36rem;
 }
 
+/* ⚠️ ≥7 列的**物品大表**（图鉴每个分类一张）需要宽得多。
+   2026-10-10 实测：正文列在 1440px 视口下**只有 688px**（`md-main__inner` 1220px
+   减去两侧栏 484px），7 列挤进去每列约 98px →「关键属性」折成 5 行 →
+   **行高 153px**。同内容的 JS 检索表给了列宽下限、让表格横滚，行高只有 62px。
+
+   给静态表同样的下限后：**行高 153 → 62px、整页 272 → 118 屏（降 57%）**，
+   且**不撑破页面** —— 外层 `.md-typeset__table` 是站内唯一的滚动容器（见上一条），
+   横向溢出实测 −15px（无）。一条规则惠及 16 个图鉴页。 */
+.md-typeset table:not([class]):has(thead th:nth-child(7)) {
+  min-width: 68rem;
+}
+
 /* --------------------------------------------------------------------------
    4. 引言 / 老兵经验：橄榄褐竖线 + 米色面板 + 方角
 
@@ -4258,6 +4270,30 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   font-size: .72rem;
   color: var(--tk-brand);
   white-space: nowrap;
+}
+
+/* ⚠️ 工具栏的 4 列 grid 有自己的**最小宽度**：20rem 搜索框 + 两个 7rem 下拉 +
+   「N 件」计数 ≈ **852px**。窄于这个宽度时 grid 会把**整个页面**撑宽。
+   2026-10-10 实测：768px 视口溢出 113px、600px 视口溢出 281px（`#tk-catalog`
+   挂载点宽 730px，工具栏却要 852px）。
+
+   ⚠️ **溢出的不是表格** —— 表格在 `.md-typeset__table` 的滚动容器里，一直是好的；
+   600px 视口下表格宽 1573px 但被裁剪、不撑页面。当时差点改错地方。
+
+   两档降级：中屏让搜索框独占一行，窄屏全部竖排。
+   （断点用 Material 的两档：60em / 44.9375em，与主题一致。） */
+@media screen and (max-width: 60em) {
+  .tk-cat__bar {
+    grid-template-columns: minmax(7rem, auto) minmax(7rem, auto) auto;
+  }
+  .tk-cat__q { grid-column: 1 / -1; }
+  .tk-cat__count { justify-self: end; }
+}
+
+@media screen and (max-width: 44.9375em) {
+  .tk-cat__bar { grid-template-columns: 1fr; }
+  .tk-cat__q { grid-column: auto; }
+  .tk-cat__count { justify-self: start; }
 }
 
 /* 列宽与对齐：**按语义类，不按第几列** —— 两张表列数不同（检索表 7 列、榜单 5 列），

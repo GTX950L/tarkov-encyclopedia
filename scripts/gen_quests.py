@@ -43,6 +43,21 @@ CARRIER_IDX: dict[str, dict] = {}
 if CARRIER_FILE.exists():
     _cp = json.loads(CARRIER_FILE.read_text(encoding="utf-8"))
     CARRIER_IDX = {c["id"]: c for c in _cp.get("carriers", [])}
+
+# 任务 id → 台词 {intro, done, fail}。由 scripts/fetch_quest_dialogue.py 抓取。
+#
+# ⚠️ **这是站内唯一的「三级来源」数据**：其余数值都来自 json.tarkov.dev
+#    （二级，直读游戏文件），而那个数据源**不含台词**（查过 tasks 与 tasks_zh
+#    两个端点，字段里只有目标 / 奖励 / 门槛 / 失败条件，没有任何对话文本）。
+#    所以台词单独走 eftarkov.com（玩家维基）。**页面上必须写明这个来源差异。**
+#
+# **缺失时整块降级**：没有这个文件就不显示台词，页面照常生成 —— 与 CARRIER_IDX
+# 同一套处理，绝不能因为辅助数据缺失就让整页生成失败。
+DIALOGUE_FILE = ROOT / "scripts" / "data" / "quest_dialogue.json"
+DIALOGUE: dict[str, dict] = {}
+if DIALOGUE_FILE.exists():
+    _dl = json.loads(DIALOGUE_FILE.read_text(encoding="utf-8"))
+    DIALOGUE = _dl.get("items") or {}
 else:
     print("[提示] 找不到 quests_carrier.json —— 「出发前必带」一栏将不生成"
           "（先跑 python scripts/gen_quest_carrier.py）")
@@ -1362,6 +1377,11 @@ def quest_page_markdown(total: int) -> str:
                "② **走位路线与执行顺序** —— 属作业不属知识，口径同[任务图鉴总览](index.md) |")
     out.append("| **出发前必带** | 来自[物品反查](item-lookup.md)同一份携带清单；"
                "数据缺失时这一栏整体不显示，**不影响本页其余内容** |")
+    out.append("| **💬 商人台词** | ⚠️ **本站唯一的「三级来源」**：来自玩家维基 "
+               "eftarkov.com，**不是**直读游戏文件。其余数值都来自 `json.tarkov.dev`（二级），"
+               "而那个数据源**不含台词** —— 所以这一栏单独走三级来源。"
+               f"覆盖 **{sum(1 for v in DIALOGUE.values() if v.get('intro'))}** 个任务，"
+               "**该站没有的任务不显示这一栏**（不是本站漏抓） |")
     out.append("")
     out.append("---")
     out.append("")
@@ -1380,6 +1400,33 @@ def quest_page_markdown(total: int) -> str:
                "**License**: CC BY-NC-SA 4.0")
     out.append("")
     return "\n".join(out)
+
+
+def _norm_say(s: str) -> str:
+    """台词文本规范化：统一换行、去行尾空白、连续空行压成一个。
+
+    ⚠️ 抓回来的原文里混着 ``\\r``（源站 HTML 用 CRLF），段落分隔会变成
+       ``\\n\\r\\n\\n\\r\\n`` 这种。前端按 ``/\\n\\s*\\n/`` 切段虽然也能切对，
+       但数据本身不该留这种脏东西 —— 在这里兜一道，抓取脚本那边也一并修了。
+    """
+    if not s:
+        return ""
+    s = s.replace("\r\n", "\n").replace("\r", "\n")
+    s = re.sub(r"[ \t\u00a0]+", " ", s)
+    s = re.sub(r" *\n *", "\n", s)
+    s = re.sub(r"\n{3,}", "\n\n", s)
+    return s.strip()
+
+
+def dlg_of(qid: str) -> list:
+    """任务台词 → ``[介绍, 完成, 失败]``；三项全空返回 ``[]``。
+
+    全空（该站没有这个任务）时返回空表，前端据此**整块不显示** ——
+    不能只判其中一个字段，否则会出现「有标题、没内容」的空壳小节。
+    """
+    d = DIALOGUE.get(qid) or {}
+    v = [_norm_say(d.get("intro")), _norm_say(d.get("done")), _norm_say(d.get("fail"))]
+    return v if any(v) else []
 
 
 def write_quest_detail(tasks: list[dict]) -> None:
@@ -1451,6 +1498,9 @@ def write_quest_detail(tasks: list[dict]) -> None:
             # 「出发前必带」三类（物品 / 钥匙 / 局内获取）—— **与 md 商人页共用
             # carry_lines()**，不在这里另写一遍（v1.96.0 就是另写一遍出的 [object Object]）。
             "carry": [linkify_items(x) for x in (carry_lines(car) if car else [])],
+            # 台词 [介绍, 完成, 失败]。**不做 linkify** —— 那是游戏原文散文，
+            # 里面没有 `**粗体**` 标记，过一遍 linkify 只会白跑。
+            "say": dlg_of(qid),
         }
 
     QUEST_JS_DIR.mkdir(parents=True, exist_ok=True)

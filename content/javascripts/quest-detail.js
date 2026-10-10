@@ -152,6 +152,15 @@
     document.head.appendChild(s);
   }
 
+  /* 台词段落：原文里用空行分段，渲染成多个 <p>（一整块挤成一段会读不动）。 */
+  function sayBlock(host, text) {
+    if (!text) return;
+    String(text).split(/\n\s*\n/).forEach(function (seg) {
+      var t = seg.trim();
+      if (t) host.appendChild(p(t));
+    });
+  }
+
   /* --------------------------------------------------------------- 渲染 */
 
   function renderMissing(host, id) {
@@ -219,6 +228,15 @@
       tagLine.appendChild(el("strong", null, t));
     });
     host.appendChild(tagLine);
+
+    /* ---- 商人台词（接取时）----
+       ⚠️ 放在「接取门槛」**之前** —— 这是商人开口说的第一段话，读一个任务
+          本来就该先看到它。数据来自三级来源，见生成器的 DIALOGUE 说明。 */
+    var say = it.say || [];
+    if (say[0]) {
+      host.appendChild(h(4, "💬 商人说（接取时）"));
+      sayBlock(host, say[0]);
+    }
 
     /* ---- 接取门槛 ---- */
     var g = it.gates || [];
@@ -295,6 +313,18 @@
     bl.href = siteRoot() + "quests/" + traderSlug(it.t) + "/";
     back.appendChild(bl);
     host.appendChild(back);
+
+    /* ---- 交任务 / 失败时的台词：放在最后 ----
+       顺序照事件发生的先后：接取（开头）→ 目标与奖励 → 交差（这里）。
+       读者顺着读下来，正好是「接活 → 干活 → 回话」。 */
+    if (say[1]) {
+      host.appendChild(h(4, "💬 任务完成对话"));
+      sayBlock(host, say[1]);
+    }
+    if (say[2]) {
+      host.appendChild(h(4, "💬 任务失败对话"));
+      sayBlock(host, say[2]);
+    }
 
     bindSamePage(host);
   }
