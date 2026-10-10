@@ -179,6 +179,25 @@
     return { el: box, refs: refs };
   }
 
+  /* 三个模式的各轨条目数合计 —— 只给「清空全部进度」的确认框用。
+     **在点击时才调用**：渲染那一刻的数字会在同步 / 手勾之后过期，而
+     确认框里写错数量比不写更糟（读者会按错误信息判断要不要清）。 */
+  function allTrackCounts() {
+    var d = TP.data();
+    var keys = ["quests", "inhand", "objectives", "items", "hideout", "storyline"];
+    var out = {};
+    var i;
+    for (i = 0; i < keys.length; i++) out[keys[i]] = 0;
+    for (i = 0; i < TP.MODES.length; i++) {
+      var md = d.modes[TP.MODES[i]];
+      if (!md) continue;
+      for (var k = 0; k < keys.length; k++) {
+        out[keys[k]] += Object.keys(md[keys[k]] || {}).length;
+      }
+    }
+    return out;
+  }
+
   /* --------------------------------------------------------------------------
      数据加载
      -------------------------------------------------------------------------- */
@@ -2149,6 +2168,39 @@
         ops.appendChild(b);
       })(TRACKS[i]);
     }
+
+    /* 全清（v1.101.0）—— 上面六个按钮各清**一条轨、且只清当前模式**；
+       这一个把三个模式一起清空（连等级与门槛）。放在组末、用 margin-left:auto
+       推到右边与其他按钮分开：它不属于同一量级。
+
+       确认框**逐项列出将丢失的数量**（点击时才算）—— 比一句「不可撤销」
+       更能让人停下来看一下自己到底要丢掉什么。 */
+    var btnAll = el("button", "tk-board__btn tk-board__btn--warn tk-board__btn--all", "清空全部进度");
+    btnAll.type = "button";
+    btnAll.addEventListener("click", function () {
+      var c = allTrackCounts();
+      var total = c.quests + c.inhand + c.objectives + c.items + c.hideout + c.storyline;
+      if (!total) {
+        toast(host, "当前没有任何进度可以清空。", true);
+        return;
+      }
+      var msg = "确定清空全部进度吗？\n\n"
+        + "范围：PVP / PVE / 赛季 三个模式的全部记录 ——\n"
+        + "任务 " + (c.quests + c.inhand) + " 条（已完成 " + c.quests + " / 进行中 " + c.inhand + "）\n"
+        + "任务目标 " + c.objectives + " 条 · 物品 " + c.items + " 种 · "
+        + "藏身处 " + c.hideout + " 个 · 剧情章节 " + c.storyline + " 章\n"
+        + "以及等级、阵营与门槛（含 Fence 声望）\n\n"
+        + "这个动作不可撤销，也没有回收站。建议先点「导出进度」留一份备份。";
+      if (!window.confirm(msg)) return;
+      TP.clearAll();
+      /* 日志同步面板里那条「已并入 +N」在清空之后就是假消息 —— 一并抹掉，
+         免得读者以为进度还在。 */
+      logOut.textContent = "";
+      logCount.textContent = "";
+      toast(host, "已清空全部进度（PVP / PVE / 赛季 三个模式）。", true);
+    });
+    ops.appendChild(btnAll);
+
     host.appendChild(ops);
     host.appendChild(el("p", "tk-board__note",
       "导出 / 分享都是**纯本地**的：导出是一个 JSON 文件，分享是一条带进度数据的链接 —— "

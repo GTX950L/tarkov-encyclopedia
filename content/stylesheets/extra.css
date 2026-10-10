@@ -1308,6 +1308,12 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   border-color: var(--tk-red);
 }
 
+/* 全清：与分轨清空同为警示描边，靠**位置**区分而不是换一套颜色 ——
+   margin-left:auto 把它推到按钮组最右，宽屏上与前面的按钮拉开距离；
+   窄屏换行时它落到自己那一行，同样读得出「这是一个单列的动作」。
+   颜色不新造（--tk-red 在暗色下有对应覆盖，两套主题都安全）。 */
+.tk-board__btn--all { margin-left: auto; }
+
 .tk-board__toast {
   margin-top: .7rem;
   font-size: .75rem;

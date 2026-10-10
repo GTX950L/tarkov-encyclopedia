@@ -659,6 +659,24 @@
       emit();
     },
 
+    /* 全清：**三个模式**的全部轨，连同等级与门槛（含 Fence 声望）一起回到
+       出厂状态 —— 「清空全部进度」按钮用。
+
+       与 clear() 的分工：clear() 只清**当前模式**（一条轨，或省略参数时该模式
+       的全部轨）。全清是「把账本扔掉」，所以：
+         · 界面上的确认框会**逐项列出将丢失的数量**（数字在点击时才计算，
+           见 progress-boards.js 的 allTrackCounts）并提示先导出备份；
+         · 模式选择（当前在看 PVP 还是 PVE）**保留** —— 它是视图状态而不是
+           进度数据，清空后界面停在原模式，不会突然跳回 PVP；
+         · 一次 save + emit（逐模式调 clear 会触发三次全站重绘）。 */
+    clearAll: function () {
+      var cur = load().mode;
+      var d = blankData();
+      d.mode = MODES.indexOf(cur) >= 0 ? cur : "pvp";
+      save(d);
+      emit();
+    },
+
     exportText: function () { return JSON.stringify(load(), null, 2); },
 
     /* 导入：只接受本功能自己导出的结构。合并不是覆盖 —— 读者的直觉是
