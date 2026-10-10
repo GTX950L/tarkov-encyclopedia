@@ -297,13 +297,30 @@ def build_graph(tasks: list[dict]) -> int:
                       (r.get("cmp") or ">="), r.get("value") or 0]
                      for r in (t.get("traderReqs") or [])]
         oth = []
+        # 商人内部计数器（otherReqs 里 kind=counter）：**单独落成结构化字段**
+        # 供客户端判定，而不是只留一句人读的文本。
+        #
+        # 为什么它能判（2026-10-11）：端点是「每个商人一个计数器、互不跨商人」，
+        # 语义是「**在该商人处推进到第几环**」（见 content/quests/*.md 的字段说明）。
+        # 这与「该商人已完成几个任务」同一把尺 —— 客户端按已完成任务数判定即可。
+        # 此前它只进 `o` 当提示，后果是「可接」把一批**被柜台顺序挡着**的任务
+        # 也算进去（读者报「网页说能接几百个，游戏里远没有」）。
+        # ⚠️ trader 在端点里是**显示名**（"Mechanic"），与任务归属字段（"mechanic"）
+        # 大小写不同 —— 这里统一落成小写 slug，避免重蹈 LL 门槛大小写不匹配的覆辙。
+        counters = []
         for r in (t.get("otherReqs") or []):
             txt = _other_req_text(r)
             if txt and txt not in oth:
                 oth.append(txt)
+            if (r.get("kind") or "") == "counter":
+                slug = (r.get("trader") or "").strip().lower()
+                if slug:
+                    counters.append([slug, r.get("cmp") or ">=", r.get("value") or 0])
         gates = {}
         if g_traders:
             gates["t"] = g_traders
+        if counters:
+            gates["c"] = counters
         if t.get("faction"):
             gates["f"] = t["faction"]
         if t.get("prestige"):
@@ -368,8 +385,12 @@ def build_graph(tasks: list[dict]) -> int:
         "/* 由 scripts/gen_progress_manifest.py 生成，请勿手工编辑。\n"
         "   任务树（核心）：id → [中文名, 商人, 等级, [[前置id,标记],…], 标记, 页内链接, 门槛, 地图]。\n"
         "   前置标记 c=complete a=active f=failed；只有 c 用于「可接」判定。\n"
-        "   门槛 gates = { t:[[商人,kind,cmp,value],…], f:阵营, p:转生, o:[其他条件文本] }。\n"
-        "     其中 kind=level 是商人忠诚度（1–4），kind=reputation 是商人声望。\n"
+    "   门槛 gates = { t:[[商人,kind,cmp,value],…], c:[[商人slug,cmp,值],…],\n"
+    "                  f:阵营, p:转生, o:[其他条件文本] }。\n"
+    "     其中 kind=level 是商人忠诚度（1–4），kind=reputation 是商人声望；\n"
+    "     c 是**商人内部计数器**（原 otherReqs 的 kind=counter），语义是「在该商人处\n"
+    "     推进到第几环」，客户端按「该商人已完成任务数」判定 —— **参与「可接」判定**，\n"
+    "     不再是只看不判的提示。它一律是小写 slug，别与 t 里的显示名混用。\n"
         "     **Fence 用负值声望**，与 LL 不是一把尺 —— 客户端只在 gates.fence 填了值时\n"
         "     才参与 reputation 判定，未填按「未知」处理成提示，不阻断也不放行。\n"
         "   标记 flags 是**站内**加的 Kappa(k) / Lightkeeper(l)，与 srcStatusVocab 无关。\n"

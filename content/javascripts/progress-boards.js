@@ -274,8 +274,10 @@
        · **进行中任务的前置一律视为已完成**（能被接到，前置必然满足），沿链传递
        · 只沿 c（complete）边传播；a/f 两类本站没有对应状态，只作提示
        · 可接 = 未完成 + 未进行中 + 前置满足 + 等级够 + **门槛满足**
-     门槛四类能吃到的都吃：商人忠诚度（level）、**商人声望（reputation）**、阵营、转生。
-     吃不到的（跨任务计数器、对话）**不参与判定，但标出来** ——
+     门槛四类能吃到的都吃：商人忠诚度（level）、**商人声望（reputation）**、阵营、转生，
+     外加**商人内部计数器（c）**——它是「在该商人处推进到第几环」，与「该商人
+     完成了几个任务」同一把尺，**算得出来**（2026-10-11 起参与判定）。
+     真算不出来的只剩**对话**一类，**不参与判定但标出来** ——
      算不出来的东西宁可让读者多看一眼，也不给一个靠猜的答案。
 
      ⚠️ 声望为什么单独处理（2026-10-07 修，见 docs/roadmap 的审查批次）：
@@ -287,7 +289,16 @@
      所以单独读 `gates.fence`；**未填时按未知处理成 soft**，不给靠猜的答案。
      -------------------------------------------------------------------------- */
 
-  function gateCheck(node, gates) {
+  /* ⚠️ 门槛里的商人名是**显示名**（"Ragman"），而玩家填的忠诚度存在 `gates.ll`
+     里、键是**小写 slug**（"ragman"）。两个来源不是一个大小写，取值前必须归一，
+     否则恒取不到值、恒走「未填」分支。
+
+     2026-10-11 修的就是这个：此前直接拿显示名去 `gates.ll` 里取，结果**读者把
+     11 个商人的忠诚度都填了，判定依然当没填** —— 「可接」一个数都筛不掉
+     （实测：把存储里的键改成大写后，可接立刻从 307 掉到 227，一次 −80）。 */
+  function traderSlug(name) { return String(name || "").toLowerCase(); }
+
+  function gateCheck(node, gates, traderDone) {
     var g = node[N_GATES] || {};
     var out = { ok: true, why: [], soft: [] };
     var i;
@@ -302,27 +313,62 @@
     var tr = g.t || [];
     for (i = 0; i < tr.length; i++) {
       var trader = tr[i][0], kind = tr[i][1], cmp = tr[i][2], val = tr[i][3];
+      var tslug = traderSlug(trader);
       if (kind === "reputation") {
         /* 声望门槛：参与判定，但只对**站内采集了刻度**的商人生效。
            Fence 用负值刻度（亡羊补牢要求 ≤ −3），与 LL 的 1–4 不是一把尺，
            所以单独读 gates.fence；未填时（null）按未知处理成 soft —— 宁可让
            读者多看一眼，也不给一个靠猜的「可接」。 */
-        var label = trader === "Fence" ? "Fence 声望" : trader + " 声望";
+        var label = tslug === "fence" ? "Fence 声望" : trader + " 声望";
         var cond = label + (cmp === ">=" ? " ≥ " : cmp === "<=" ? " ≤ " : " < ") + val;
-        var haveRep = trader === "Fence" ? gates.fence : null;
+        var haveRep = tslug === "fence" ? gates.fence : null;
         if (haveRep === null || haveRep === undefined) { out.soft.push("需 " + cond); continue; }
         var passRep = cmp === ">=" ? haveRep >= val : cmp === "<=" ? haveRep <= val : haveRep < val;
         if (!passRep) { out.ok = false; out.why.push("需 " + cond); }
         continue;
       }
       if (kind !== "level") { out.soft.push("声望条件"); continue; }
-      var have = parseInt((gates.ll || {})[trader], 10) || 0;
+      var have = parseInt((gates.ll || {})[tslug], 10) || 0;
       var pass = cmp === "<=" ? have <= val : have >= val;
       if (!have) out.soft.push("需 " + trader + " LL" + val);
       else if (!pass) { out.ok = false; out.why.push("需 " + trader + " LL" + val); }
     }
+
+    /* —— 商人内部计数器（gates.c）——
+       语义是「**在该商人处推进到第几环**」（端点原字段，见任务页字段说明），
+       与「该商人已完成几个任务」同一把尺，**算得出来**，所以参与判定而不是只提示。
+
+       此前它只进 `o` 当一句提示，后果是「可接」把一批**被柜台顺序挡着**的任务
+       也算进去 —— 读者报「网页说能接几百个，游戏里远没有这么多」，主因就在这里
+       （全站 164 个任务带这一条，占「可接」的一大半）。
+
+       why 里带上「已完成 N」：被挡住时读者能直接看出还差几个，而不是以为任务不存在。 */
+    var cs = g.c || [];
+    var cBlocked = [];
+    for (i = 0; i < cs.length; i++) {
+      var cslug = cs[i][0], ccmp = cs[i][1], cval = cs[i][2];
+      var doneN = (traderDone && traderDone[cslug]) || 0;
+      var passC = ccmp === "<=" ? doneN <= cval : ccmp === ">" ? doneN > cval : doneN >= cval;
+      if (!passC) {
+        out.ok = false;
+        cBlocked.push(cslug.charAt(0).toUpperCase() + cslug.slice(1));
+        out.why.push("需 " + cBlocked[cBlocked.length - 1]
+          + " 环数 " + (ccmp === ">=" ? "≥" : ccmp) + " " + cval + "（已完成 " + doneN + "）");
+      }
+    }
     var oth = g.o || [];
-    for (i = 0; i < oth.length; i++) out.soft.push(oth[i]);
+    for (i = 0; i < oth.length; i++) {
+      /* 被挡住的计数器已经由上面那句「还差几个」说清了，o 里那句同义文本**（如
+         "Mechanic 计数器 >= 1"）不再重复** —— 两句话并排会让读者以为是两件事。
+         没被挡住的（已满足 / 无 c 字段）照旧显示，信息不丢。 */
+      var dupe = false;
+      if (oth[i].indexOf("计数器") >= 0) {
+        for (var b = 0; b < cBlocked.length; b++) {
+          if (oth[i].indexOf(cBlocked[b]) >= 0) { dupe = true; break; }
+        }
+      }
+      if (!dupe) out.soft.push(oth[i]);
+    }
     return out;
   }
 
@@ -351,6 +397,20 @@
       }
     }
 
+    /* 每商人「推进到第几环」—— 供商人内部计数器（gates.c）判定。
+       口径：已完成（含前置推断）**加**进行中。进行中的任务既然接到了，就说明
+       该商人的计数器已经推进到那一环；只算已完成会偏小、把能接的判成不能接。
+       漏报比多报更糟 —— 多报只是要多看一眼，漏报会让人以为任务不存在。 */
+    var traderDone = {};
+    function bumpTrader(qid) {
+      var nd = tasks[qid];
+      if (!nd) return;
+      var s = nd[N_TRADER] || "";
+      if (s) traderDone[s] = (traderDone[s] || 0) + 1;
+    }
+    for (id in done) bumpTrader(id);
+    for (id in inhand) if (!done[id]) bumpTrader(id);
+
     var avail = [], locked = [], stat = {}, gate = {};
     for (id in tasks) {
       var n = tasks[id];
@@ -362,7 +422,7 @@
         else ok = false;
       }
       stat[id] = [have, need];
-      gate[id] = gateCheck(n, gates);
+      gate[id] = gateCheck(n, gates, traderDone);
       if (done[id] || inhand[id] !== undefined) continue;
       if (ok && (gates.level <= 0 || (n[N_LEVEL] || 0) <= gates.level) && gate[id].ok) avail.push(id);
       else locked.push(id);

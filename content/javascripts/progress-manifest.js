@@ -4,7 +4,7 @@
    content/entries/story-chapters.md 同源（storylines.json 手维护、与剧情页对账），
    重抓数据或改动上述页面后，要按脚本头部写的顺序重跑。 */
 window.TARKOV_PROGRESS_MANIFEST = {
-  "generated": "2026-10-10",
+  "generated": "2026-10-11",
   "source": "scripts/data/quests.json（json.tarkov.dev/regular，持久 PvP） + scripts/data/hideout.json（同源，含 hideout_zh / items_zh 译名） + scripts/data/storylines.json（手维护，与剧情页对账）",
   "baseline": "2026-09-30",
   "total": 515,
