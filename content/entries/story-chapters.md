@@ -60,18 +60,20 @@ tags:
 
 | # | 章节（英文名 / 站内译名） | 目标数 | 在主线里的位置 |
 |---|---------------------------|--------|----------------|
-| ① | **Tour（游览）** | 26 | 序章；Mechanic 起手 |
-| ② | **Falling Skies（陨落之天）** | 20 | 唯一的重大多叉 |
-| ③ | **The Ticket（车票）** | 12 | 终章；四个结局 |
-| — | They Are Already Here（他们已经来了） | 30 | 穿插 |
-| — | Batya | 38 | 穿插 |
-| — | Boreas | 67 | 穿插（**最长的一章**） |
-| — | 无名者 | 24 | 穿插 |
-| — | 意外证人 | 18 | 穿插 |
-| — | 探秘“迷宫” | 14 | 穿插 |
-| — | 神秘蓝焰 | 8 | 穿插（**最短的一章**） |
+| ① | <span class="tk-chapter" data-chapter="tour"></span>**Tour（游览）** | 26 | 序章；Mechanic 起手 |
+| ② | <span class="tk-chapter" data-chapter="falling-skies"></span>**Falling Skies（陨落之天）** | 20 | 唯一的重大多叉 |
+| ③ | <span class="tk-chapter" data-chapter="the-ticket"></span>**The Ticket（车票）** | 12 | 终章；四个结局 |
+| — | <span class="tk-chapter" data-chapter="they-are-already-here"></span>They Are Already Here（他们已经来了） | 30 | 穿插 |
+| — | <span class="tk-chapter" data-chapter="batya"></span>Batya | 38 | 穿插 |
+| — | <span class="tk-chapter" data-chapter="boreas"></span>Boreas | 67 | 穿插（**最长的一章**） |
+| — | <span class="tk-chapter" data-chapter="the-unheard"></span>无名者 | 24 | 穿插 |
+| — | <span class="tk-chapter" data-chapter="accidental-witness"></span>意外证人 | 18 | 穿插 |
+| — | <span class="tk-chapter" data-chapter="labyrinth"></span>探秘“迷宫” | 14 | 穿插 |
+| — | <span class="tk-chapter" data-chapter="blue-fire"></span>神秘蓝焰 | 8 | 穿插（**最短的一章**） |
 
 > ⚠️ **中文译名各来源不一，别把两套名字当成两章**：站内沿用「游览 / 陨落之天 / 车票」，中文 Wiki 用「塔科夫之旅 / 陨落星辰 / 门票」——**指的都是同一章**。**认英文名最稳**（Tour / Falling Skies / The Ticket），中文名只作辅助。这也是本站一贯的做法：**术语首次出现给出英文名**。
+
+> **就地记录**：上表每章名称前可标「未标记 / 进行中 / 已完成」（需要 JavaScript）—— 记录与[我的进度](../quests/progress.md)同源，只存在本机浏览器，PVP / PVE / 赛季三套独立。**这条轨纯手动、不做任何推断**：官方数据里没有「章节」字段、也没有章节→任务的映射，**算不出来就不算** —— 你标什么就是什么。
 
 #### 2.2 三条主轴的前置链
 

@@ -20,7 +20,7 @@
 <div class="tk-launch__card tk-launch--tools">
 <span class="tk-launch__head"><span class="tk-launch__title">🧰 用 · 工具箱</span><span class="tk-launch__badge">离线可用 · 无需登录</span></span>
 <ul class="tk-launch__list">
-<li><a href="quests/progress.md"><b>我的进度</b><i data-tk-toolstat>任务 · 物品 · 藏身处</i></a></li>
+<li><a href="quests/progress.md"><b>我的进度</b><i data-tk-toolstat>任务 · 剧情 · 物品 · 藏身处</i></a></li>
 <li><a href="quests/index.md"><b>任务图鉴</b><i>逐条要求与奖励 · 可筛选</i></a></li>
 <li><a href="entries/season-modifiers.md"><b>赛季特质模拟器</b><i>点选构筑 · 互斥校验</i></a></li>
 <li><a href="docs/recipes.md"><b>配方速查</b><i>制作与交换配方</i></a></li>

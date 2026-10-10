@@ -1,0 +1,18 @@
+{
+  "fetched": "2026-09-30",
+  "source": "中文 Wiki 实测（三级来源），经 content/entries/story-chapters.md §2.1 收录",
+  "count": 10,
+  "note": "id 是**站内 key**，不是官方 id —— 官方任务数据里没有「章节」这层结构。英文名可查的用英文名（章节译名各来源不一，认英文名最稳），其余用站内自定名。en / zh 为空表示站内未收录该语言的名称，展示时以现场有的那个为准。本文件与 content/entries/story-chapters.md §2.1 的表**必须成对更新** —— 生成器会对账（行数 / 章名 / 目标数 / 主线标记），对不上直接退出码 1。",
+  "chapters": [
+    { "id": "tour",                  "en": "Tour",                  "zh": "游览",         "objectives": 26, "axis": true,  "note": "序章；Mechanic 起手" },
+    { "id": "falling-skies",         "en": "Falling Skies",         "zh": "陨落之天",     "objectives": 20, "axis": true,  "note": "唯一的重大多叉" },
+    { "id": "the-ticket",            "en": "The Ticket",            "zh": "车票",         "objectives": 12, "axis": true,  "note": "终章；四个结局" },
+    { "id": "they-are-already-here", "en": "They Are Already Here", "zh": "他们已经来了", "objectives": 30, "axis": false, "note": "穿插" },
+    { "id": "batya",                 "en": "Batya",                 "zh": null,           "objectives": 38, "axis": false, "note": "穿插" },
+    { "id": "boreas",                "en": "Boreas",                "zh": null,           "objectives": 67, "axis": false, "note": "穿插（最长的一章）" },
+    { "id": "the-unheard",           "en": null,                    "zh": "无名者",       "objectives": 24, "axis": false, "note": "穿插" },
+    { "id": "accidental-witness",    "en": null,                    "zh": "意外证人",     "objectives": 18, "axis": false, "note": "穿插" },
+    { "id": "labyrinth",             "en": null,                    "zh": "探秘“迷宫”",   "objectives": 14, "axis": false, "note": "穿插" },
+    { "id": "blue-fire",             "en": null,                    "zh": "神秘蓝焰",     "objectives": 8,  "axis": false, "note": "穿插（最短的一章）" }
+  ]
+}

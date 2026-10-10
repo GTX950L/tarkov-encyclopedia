@@ -21,10 +21,11 @@
 
    存储结构（localStorage 键 `tarkov_progress_v1`）：
      {
-       v: 1,
+       v: 6,
        mode: "pvp" | "pve" | "season",
-       modes: { <模式>: { q: { <任务数据 id>: <商人 slug> } } }
+       modes: { <模式>: { quests, inhand, objectives, items, hideout, storyline, … } }
      }
+     （各轨的完整键值说明见下方「存储层」；历史版本 v1→v6 的演进也在那里。）
 
    两个刻意的选择：
      · **值存商人 slug**，于是「按商人汇总」不需要另建一张 id→商人 的表；
@@ -51,26 +52,32 @@
   /* --------------------------------------------------------------------------
      存储层
 
-     结构（v2）：
+     结构（v6；演进：v2 三条轨 → v3 物品改件数 → v5 加目标与门槛 → v6 加剧情章节）：
        {
-         v: 2,
+         v: 6,
          mode: "pvp" | "pve" | "season",
-         modes: { <模式>: { quests: {}, items: {}, hideout: {} } }
+         modes: { <模式>: { quests, inhand, objectives, items, hideout, storyline, … } }
        }
 
-     三条轨各自独立、共用同一个模式维度：
-       · quests   —— 值 = 商人 slug（用于按商人汇总）
-       · items    —— 值 = "1"（只需要「囤了没有」两态）
-       · hideout  —— 值 = 等级数字的字符串；0/缺失都表示未建造
-     键：任务用数据端点 id；物品与藏身处用**中文名**（这两份派生数据里没有 id，
-     见总览页「数据与隐私」对名称变动的说明）。
+     各轨独立、共用同一个模式维度：
+       · quests / inhand —— 值 = 商人 slug（用于按商人汇总）
+       · objectives      —— 键 = `任务id|目标id`，值 = "1"
+       · items           —— 值 = 已囤件数（数字字符串）；0/缺失都表示没囤
+       · hideout         —— 值 = 等级数字的字符串；0/缺失都表示未建造
+       · storyline       —— 值 = "inhand" / "done"（剧情章节三态，**纯手动、不做推断**）
+     键：任务用数据端点 id、剧情章节用站内清单 id（scripts/data/storylines.json）；
+     物品与藏身处用**中文名**（这两份派生数据里没有 id，见总览页「数据与隐私」
+     对名称变动的说明）。
      -------------------------------------------------------------------------- */
 
-  var SCHEMA_VERSION = 5;
+  /* v6 新增 storyline 轨（剧情章节三态）。旧数据无需转换 —— load() 会把缺失的
+     键补成空表：v5 之前存下的进度照常读入，只是这条轨从「全是未标记」开始。 */
+  var SCHEMA_VERSION = 6;
 
   function blankMode() {
     return {
       quests: {}, inhand: {}, items: {}, hideout: {}, objectives: {},
+      storyline: {},           // 剧情章节：{ <站内章节id>: "inhand" | "done" }
       ll: {},                 // 商人忠诚度：{ <商人slug>: "1".."4" }
       fence: null,             // Fence 声望：**负值刻度**（如亡羊补牢要求 ≤ −3），与上面的 ll 不是一把尺。null = 未填
       level: 0,               // 我的等级
@@ -131,6 +138,9 @@
            目标 id 来自官方端点（不是下标）—— 重抓数据时目标顺序会变，
            用下标当键会让「勾过的目标」跑到别的目标上。 */
         objectives: cleanMap(src.objectives),
+        /* 剧情章节轨：值只允许 "inhand" / "done"（下面统一过滤），
+           键是站内清单 id —— 与生成器 progress-manifest.js 的 storyline 段同源。 */
+        storyline: cleanMap(src.storyline),
         ll: cleanMap(src.ll),
         fence: null,
         level: 0,
@@ -165,6 +175,13 @@
         var lv = parseInt(mode.hideout[hk[j]], 10);
         if (!isFinite(lv) || lv <= 0) delete mode.hideout[hk[j]];
         else mode.hideout[hk[j]] = String(lv);
+      }
+      /* 剧情章节：只接受 "inhand" / "done" 两个值 —— 其余（空串、旧版本残留、
+         手工改坏）一律按「未标记」处理（清掉键）。 */
+      var chk = Object.keys(mode.storyline);
+      for (var ci = 0; ci < chk.length; ci++) {
+        var csv = mode.storyline[chk[ci]];
+        if (csv !== "inhand" && csv !== "done") delete mode.storyline[chk[ci]];
       }
       out.modes[m] = mode;
     }
@@ -209,10 +226,10 @@
      公开 API
      -------------------------------------------------------------------------- */
 
-  var TRACKS = ["quests", "inhand", "objectives", "items", "hideout"];
+  var TRACKS = ["quests", "inhand", "objectives", "items", "hideout", "storyline"];
   var TRACK_LABEL = {
     quests: "已完成任务", inhand: "进行中任务", objectives: "任务目标",
-    items: "物品收集", hideout: "藏身处",
+    items: "物品收集", hideout: "藏身处", storyline: "剧情章节",
   };
 
   /* —— 藏身处清单的两把小工具（供看板与 API 共用） ——
@@ -548,9 +565,49 @@
       return n;
     },
 
+    /* —— 剧情章节轨（三态，纯手动） ——
+       剧情章节的「未标记 / 进行中 / 已完成」。**与其它轨最大的不同：不做任何
+       推断、也不与任务轨联动** —— 官方任务数据里没有「章节」这层结构、也没有
+       章节→任务的映射，算不出来就不算（清单在 progress-manifest.js 的
+       storyline 段，出处是 scripts/data/storylines.json，与剧情页成对维护）。
+       键 = 清单里的 id（英文名可查的用英文名）——**不用中文名**：章节译名各
+       来源不一（见 story-chapters.md 的说明），英文名才是稳的那个。 */
+
+    chapterState: function (chid, m) {
+      if (!chid) return "";
+      var d = load();
+      var v = d.modes[m || d.mode].storyline[chid];
+      return (v === "done" || v === "inhand") ? v : "";
+    },
+
+    setChapterState: function (chid, state, m) {
+      if (!chid) return;
+      var d = load();
+      var key = m || d.mode;
+      if (state === "done" || state === "inhand") d.modes[key].storyline[chid] = state;
+      else delete d.modes[key].storyline[chid];
+      save(d);
+      emit();
+    },
+
+    /* 汇总：{ done, inhand, total }。清单由调用方传入 —— 状态条、总览、剧情看板
+       三处必须用这一个数：各算一份，迟早出现「同一页两个数字对不上」。 */
+    storyCounts: function (list, m) {
+      var d = load();
+      var src = d.modes[m || d.mode].storyline;
+      var arr = list || [];
+      var out = { done: 0, inhand: 0, total: arr.length };
+      for (var i = 0; i < arr.length; i++) {
+        var st = src[arr[i].id];
+        if (st === "done") out.done++;
+        else if (st === "inhand") out.inhand++;
+      }
+      return out;
+    },
+
     /* —— 通用 —— */
 
-    /* track 省略 = 清空该模式的三条轨 */
+    /* track 省略 = 清空该模式的所有轨 */
     clear: function (track, m) {
       var d = load();
       var key = m || d.mode;
@@ -564,7 +621,8 @@
 
     /* 导入：只接受本功能自己导出的结构。合并不是覆盖 —— 读者的直觉是
        「把我这份并进去」，覆盖会静默毁掉另一台上的进度。
-       三条轨的合并规则**不一样**（见内层注释）：任务取并集，件数与等级取较大值。 */
+       各轨的合并规则**不一样**（见内层注释）：任务取并集，件数与等级取较大值，
+       剧情章节取较强状态。 */
     importText: function (text) {
       var src = null;
       try { src = JSON.parse(text); } catch (e) { return { ok: false, msg: "不是合法的 JSON 文件。" }; }
@@ -598,6 +656,19 @@
               continue;
             }
 
+            /* 剧情章节：**取较强状态**（done > inhand > 未标记）。
+               与「件数取较大值」同精神：导入是换设备合并、不是覆盖 ——
+               让较弱的状态回来把「已完成」拉回「进行中」，那是在毁进度。 */
+            if (track === "storyline") {
+              var rank = { "": 0, "inhand": 1, "done": 2 };
+              var imp = (sv === "done" || sv === "inhand") ? sv : "";
+              if (!imp) continue;
+              if ((rank[d.modes[m][track][id]] || 0) >= rank[imp]) continue;
+              d.modes[m][track][id] = imp;
+              added++;
+              continue;
+            }
+
             /* 物品件数与藏身处等级：**取较大值**。
                这两条轨的键值都是「进度」，而导入的用途是「换设备同步」——
                保留较旧的小值会让读者以为导入失败（实测踩到：本地 2 级 +
@@ -616,7 +687,8 @@
       emit();
       return {
         ok: true,
-        msg: "已并入 " + added + " 条进度（任务取并集、件数与等级取较大值，都不会覆盖已有）。"
+        msg: "已并入 " + added + " 条进度（任务取并集、件数与等级取较大值、"
+           + "剧情章节取较强状态，都不会覆盖已有）。"
       };
     },
 
@@ -672,53 +744,46 @@
   function pageTotal() { return document.querySelectorAll("h3[data-qid]").length; }
 
   /* --------------------------------------------------------------------------
-     任务标题上的勾选框
-     -------------------------------------------------------------------------- */
+     状态分段控件（任务 / 剧情章节共用）
 
-  /* --------------------------------------------------------------------------
-     任务标题上的状态控件
+     三个状态（未标记 / 进行中 / 已完成）并排常驻显示、当前项高亮。
+     2026-10-07 从原生 <select> 换成分段控件，原因：下拉把「有哪些状态可选」
+     藏了起来 —— 要**点开**才知道有哪些选项，改一次状态要点两次，而这是全站
+     最高频的动作；状态是整个列表里最重要的信号，却做成了最不起眼的控件。
 
-     用**三态下拉**而不是勾选框：「进行中」是按前置树反推已完成的**输入**，
-     只有两态时读者没法表达「我正拿着它」。三态也顺带解决了
-     「我不记得之前完成了什么」—— 那本来就不该由读者回答。
+     控件做成通用工厂：任务与剧情章节的读法/写法不同（任务带商人 slug、
+     章节只带站内侧清单 id），但**交互与外观必须一致** —— 差异只允许存在于
+     get / set 两个回调里，别再各写一份。
      -------------------------------------------------------------------------- */
 
   var STATE_OPTS = [["", "未标记"], ["inhand", "进行中"], ["done", "已完成"]];
 
-  /* 状态控件：三个并排的小按钮（分段控件），不是下拉。
-     2026-10-07 改。原先用原生 <select>，读者反馈「复杂且不直观」——实际问题是：
-       · 要**点开**才知道有哪些选项，三个状态里只有一个当前值可见；
-       · 改一次状态要点两次（下拉 → 选项），而这是本页最高频的动作；
-       · 状态是**整个列表里最重要的信号**，却做成了列表里最不起眼的一个控件。
-     分段控件把三个状态**同时显示出来**，当前项高亮 —— 一次点击即可切换，
-     且「有哪些状态可选」不需要额外操作就能看到。
-     做法参考 tarkovkappa 的任务卡配色规范（颜色是第一层信息，不是最后一层）。 */
-  function makeStateSelect(qid, trader, cls) {
+  function makeSegSelect(opt) {
     var box = document.createElement("div");
-    box.className = (cls || "tk-qstate") + " tk-qstate--seg";
+    box.className = (opt.cls || "tk-qstate") + " tk-qstate--seg";
     box.setAttribute("role", "group");
-    box.setAttribute("data-focus-key", "q:" + qid);
-    box.setAttribute("aria-label", "该任务在「我的进度」里的状态");
+    box.setAttribute("data-focus-key", opt.focusKey);
+    box.setAttribute("aria-label", opt.ariaLabel);
 
-    var cur = api.taskState(qid);
+    var cur = opt.get();
     for (var i = 0; i < STATE_OPTS.length; i++) {
       (function (val, label) {
         var b = document.createElement("button");
         b.type = "button";
         b.className = "tk-qseg" + (val ? " tk-qseg--" + val : " tk-qseg--none");
         b.textContent = label;
-        b.title = val ? ("标为「" + label + "」") : ("不标记这个任务（当前：" + label + "）");
+        b.title = val ? ("标为「" + label + "」") : ("不标记" + opt.what + "（当前：" + label + "）");
         b.setAttribute("aria-pressed", val === cur ? "true" : "false");
         b.addEventListener("click", function () {
-          if (api.taskState(qid) === val) return;      /* 已是当前态，不重绘 */
-          /* 先派发再改状态：调用方（如看板）要拿新值去对齐目标明细，
-             那必须在 setTaskState 触发整块重建之前跑完。 */
+          if (opt.get() === val) return;      /* 已是当前态，不重绘 */
+          /* 先派发再改状态：调用方（如看板）要拿新值去对齐明细，
+             那必须在 set 触发整块重建之前跑完。 */
           try {
             box.dispatchEvent(new CustomEvent("tk:state", { bubbles: true, detail: val }));
           } catch (e) {
             box.dispatchEvent(new Event("tk:state"));
           }
-          api.setTaskState(qid, val, trader);
+          opt.set(val);
         });
         box.appendChild(b);
       })(STATE_OPTS[i][0], STATE_OPTS[i][1]);
@@ -727,6 +792,27 @@
        控件若不自己认当前状态，两个调用点就会显示不一致。 */
     box.setAttribute("data-state", cur);
     return box;
+  }
+
+  function makeStateSelect(qid, trader, cls) {
+    return makeSegSelect({
+      cls: cls, focusKey: "q:" + qid,
+      ariaLabel: "该任务在「我的进度」里的状态",
+      what: "这个任务",
+      get: function () { return api.taskState(qid); },
+      set: function (v) { api.setTaskState(qid, v, trader); },
+    });
+  }
+
+  /* 剧情章节的状态控件：同一套分段控件、同一套存储（只是换一条轨）。 */
+  function makeChapterSelect(chid, cls) {
+    return makeSegSelect({
+      cls: cls, focusKey: "ch:" + chid,
+      ariaLabel: "该剧情章节在「我的进度」里的状态",
+      what: "这一章",
+      get: function () { return api.chapterState(chid); },
+      set: function (v) { api.setChapterState(chid, v); },
+    });
   }
 
   /* 分段控件的值同步：整块重建后由调用方对齐高亮。
@@ -781,6 +867,40 @@
   }
 
   /* --------------------------------------------------------------------------
+     剧情章节页（story-chapters.md）的状态控件
+
+     每个 `<span data-chapter="<id>">` 是页面上留的挂点，控件插进去；整行按
+     状态着色（沿用任务页的 tk-qdone / tk-qinhand 行样式 —— 全站一套视觉语言，
+     不新建第二套）。**这条轨不做推断**，所以这里也没有任何「反推」逻辑：
+     只画读者亲手标的状态。
+     -------------------------------------------------------------------------- */
+
+  function storySpans() {
+    return document.querySelectorAll("[data-chapter]");
+  }
+
+  function syncStoryRow(sp, chid) {
+    var st = chid ? api.chapterState(chid) : "";
+    syncStateSeg(sp.querySelector(".tk-qstate"), st);
+    var tr = sp.closest ? sp.closest("tr") : null;
+    if (tr) {
+      tr.classList.toggle("tk-qdone", st === "done");
+      tr.classList.toggle("tk-qinhand", st === "inhand");
+    }
+  }
+
+  function decorateStory() {
+    var sps = storySpans();
+    for (var i = 0; i < sps.length; i++) {
+      var sp = sps[i];
+      var chid = sp.getAttribute("data-chapter");
+      if (!chid) continue;
+      if (!sp.querySelector(".tk-qstate")) sp.appendChild(makeChapterSelect(chid));
+      syncStoryRow(sp, chid);
+    }
+  }
+
+  /* --------------------------------------------------------------------------
      进度模式切换条（只出现在任务页与总览页）
      -------------------------------------------------------------------------- */
 
@@ -827,6 +947,13 @@ function siteRoot() {
       return "本页已标记 " + done + " / " + total;
     }
     var mf = window.TARKOV_PROGRESS_MANIFEST;
+    /* 剧情章节页：数的是章节，不数任务 —— 查询位置相同、口径不同，必须在
+       这里分开，否则页面从任务页切到剧情页时数字会突然从「任务」变成「章节」
+       却看不出换过（同一条状态条在两页给两个含义的数）。 */
+    if (storySpans().length && mf && mf.storyline && (mf.storyline.list || []).length) {
+      var c = api.storyCounts(mf.storyline.list);
+      return "章节：已完成 " + c.done + " · 进行中 " + c.inhand + " / 共 " + c.total;
+    }
     /* 措辞必须与看板区分开：这里只数**手动标记**的完成数，
        而看板的「已完成」还含前置树推断出来的那些。写「全部 / 已完成」
        会让两处数字对不上，读者会以为有一个是错的。 */
@@ -1062,10 +1189,10 @@ function siteRoot() {
   }
 
   /* --------------------------------------------------------------------------
-     看板模块（「我的进度」页的任务 / 物品 / 藏身处 / 管理四块）
+     看板模块（「我的进度」页的任务 / 依赖树 / 物品 / 藏身处 / 剧情章节 / 管理各块）
      -------------------------------------------------------------------------- */
 
-  var BOARD_IDS = ["tk-board-overview", "tk-progress-board", "tk-board-tree", "tk-board-items", "tk-board-hideout", "tk-board-ops"];
+  var BOARD_IDS = ["tk-board-overview", "tk-progress-board", "tk-board-tree", "tk-board-items", "tk-board-hideout", "tk-board-story", "tk-board-ops"];
   var boardsState = 0;   // 0 未开始 / 1 加载中 / 2 就绪 / -1 失败
   var boardsCbs = [];
 
@@ -1102,7 +1229,8 @@ function siteRoot() {
 
     var mounts = boardMounts();
     var hasQuests = !!document.querySelector("h3[data-qid]");
-    if (!mounts.length && !hasQuests) return;   // 其余 100+ 个页面完全不介入
+    var hasStory = storySpans().length > 0;
+    if (!mounts.length && !hasQuests && !hasStory) return;   // 其余 100+ 个页面完全不介入
 
     ensureMigrated();
 
@@ -1110,6 +1238,7 @@ function siteRoot() {
        上一页的节点已经不在文档里了。 */
     mountBar();
     if (hasQuests) decorate();
+    if (hasStory) decorateStory();
 
     if (!mounts.length) return;
     for (var i = 0; i < mounts.length; i++) {
@@ -1149,6 +1278,12 @@ function siteRoot() {
       row.classList.toggle("tk-qinhand", st === "inhand");
     }
 
+    /* 剧情章节页的行状态也要跟着每次写操作重画（含跨标签页同步）。 */
+    var sps = storySpans();
+    for (var k = 0; k < sps.length; k++) {
+      syncStoryRow(sps[k], sps[k].getAttribute("data-chapter"));
+    }
+
     var bar = document.querySelector(".tk-pgbar");
     if (bar) syncBar(bar);
 
@@ -1171,6 +1306,8 @@ function siteRoot() {
     notReady: notReady,
     loadScript: loadScript,
     makeStateSelect: makeStateSelect,
+    makeChapterSelect: makeChapterSelect,
+    syncStateSeg: syncStateSeg,
     questUrl: questUrl,
     siteRoot: siteRoot,
   };

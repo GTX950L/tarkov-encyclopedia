@@ -1,10 +1,11 @@
 /* 由 scripts/gen_progress_manifest.py 生成，请勿手工编辑。
-   用途：「我的进度」三条轨的只读分母与列表（任务 / 物品收集 / 藏身处）。
-   数据源与 content/quests/*.md、content/entries/hideout-modules.md 同源，
-   重抓数据或改动藏身处页后，要按脚本头部写的顺序重跑。 */
+   用途：「我的进度」各轨的只读分母与列表（任务 / 剧情章节 / 物品收集 / 藏身处）。
+   数据源与 content/quests/*.md、content/entries/hideout-modules.md、
+   content/entries/story-chapters.md 同源（storylines.json 手维护、与剧情页对账），
+   重抓数据或改动上述页面后，要按脚本头部写的顺序重跑。 */
 window.TARKOV_PROGRESS_MANIFEST = {
-  "generated": "2026-10-07",
-  "source": "scripts/data/quests.json（json.tarkov.dev/regular，持久 PvP） + scripts/data/hideout.json（同源，含 hideout_zh / items_zh 译名）",
+  "generated": "2026-10-10",
+  "source": "scripts/data/quests.json（json.tarkov.dev/regular，持久 PvP） + scripts/data/hideout.json（同源，含 hideout_zh / items_zh 译名） + scripts/data/storylines.json（手维护，与剧情页对账）",
   "baseline": "2026-09-30",
   "total": 515,
   "traders": [
@@ -3619,6 +3620,94 @@ window.TARKOV_PROGRESS_MANIFEST = {
             ]
           }
         ]
+      }
+    ]
+  },
+  "storyline": {
+    "total": 10,
+    "source": "中文 Wiki 实测（三级来源），经 content/entries/story-chapters.md §2.1 收录",
+    "baseline": "2026-09-30",
+    "note": "剧情章节是**纯手动记录**（未标记 / 进行中 / 已完成）：官方任务数据里没有「章节」这层结构，本站也没有章节→任务的映射 —— 算不出来就不算，这条轨只记你亲手标的那一下。",
+    "list": [
+      {
+        "id": "tour",
+        "en": "Tour",
+        "zh": "游览",
+        "objectives": 26,
+        "axis": true,
+        "note": "序章；Mechanic 起手"
+      },
+      {
+        "id": "falling-skies",
+        "en": "Falling Skies",
+        "zh": "陨落之天",
+        "objectives": 20,
+        "axis": true,
+        "note": "唯一的重大多叉"
+      },
+      {
+        "id": "the-ticket",
+        "en": "The Ticket",
+        "zh": "车票",
+        "objectives": 12,
+        "axis": true,
+        "note": "终章；四个结局"
+      },
+      {
+        "id": "they-are-already-here",
+        "en": "They Are Already Here",
+        "zh": "他们已经来了",
+        "objectives": 30,
+        "axis": false,
+        "note": "穿插"
+      },
+      {
+        "id": "batya",
+        "en": "Batya",
+        "zh": null,
+        "objectives": 38,
+        "axis": false,
+        "note": "穿插"
+      },
+      {
+        "id": "boreas",
+        "en": "Boreas",
+        "zh": null,
+        "objectives": 67,
+        "axis": false,
+        "note": "穿插（最长的一章）"
+      },
+      {
+        "id": "the-unheard",
+        "en": null,
+        "zh": "无名者",
+        "objectives": 24,
+        "axis": false,
+        "note": "穿插"
+      },
+      {
+        "id": "accidental-witness",
+        "en": null,
+        "zh": "意外证人",
+        "objectives": 18,
+        "axis": false,
+        "note": "穿插"
+      },
+      {
+        "id": "labyrinth",
+        "en": null,
+        "zh": "探秘“迷宫”",
+        "objectives": 14,
+        "axis": false,
+        "note": "穿插"
+      },
+      {
+        "id": "blue-fire",
+        "en": null,
+        "zh": "神秘蓝焰",
+        "objectives": 8,
+        "axis": false,
+        "note": "穿插（最短的一章）"
       }
     ]
   }

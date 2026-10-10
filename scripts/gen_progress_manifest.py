@@ -1,4 +1,4 @@
-"""进度清单生成器 —— 为「我的进度」提供三份只读分母/列表：任务、物品收集、藏身处。
+"""进度清单生成器 —— 为「我的进度」提供各轨的只读分母/列表：任务、剧情章节、物品收集、藏身处。
 
     python scripts/gen_progress_manifest.py
 
@@ -6,7 +6,8 @@
     gen_quests.py 的产物是 12 个面向读者的任务页，带「整栏重建」语义、动辄重写
     几百 KB 正文。本清单只是前端一个只读常量，重建时机与页面完全不同。
     但清单**不自己发明数据**：商人标签从 gen_quests 导入、物品口径从
-    gen_quest_items 导入、藏身处数据直接读 gen_hideout 的产物。
+    gen_quest_items 导入、藏身处数据直接读 gen_hideout 的产物、
+    剧情章节从 scripts/data/storylines.json 读（手维护，与剧情页成对更新）。
 
 依赖顺序（改了任一项都要按序重跑）：
     gen_quests.py            → content/quests/*.md（data-qid）
@@ -17,15 +18,17 @@
 
 产物：content/javascripts/progress-manifest.js
     window.TARKOV_PROGRESS_MANIFEST = { generated, source, baseline,
-                                        total, traders, items, hideout }
+                                        total, traders, items, hideout, storyline }
 
-本脚本存在的一半理由是**三道对账**（对不上就退出码 1，卡住 CI）：
+本脚本存在的一半理由是**四道对账**（对不上就退出码 1，卡住 CI）：
     ① 任务：清单合计 == content/quests/*.md 里 data-qid 的出现次数与唯一数；
     ② 物品：清单条数 == quests/index.md 的「物品需求反查」表行数；
     ③ 藏身处：清单条数 == scripts/data/hideout.json 的站点数，
        且**每个模块名都能在 hideout-modules.md 找到**、
-       该页 §7 的「模块总表」行数与清单条数相等。
-    这三处一旦漂移，读者看到的完成度分母就是错的 —— 而分母错比没有进度更糟。
+       该页 §7 的「模块总表」行数与清单条数相等；
+    ④ 剧情章节：清单条数 == story-chapters.md §2.1 表的行数，且**每章的名称、
+       目标数与主线标记**都能在表里逐条对上（见 check_story_page）。
+    这四处一旦漂移，读者看到的完成度分母就是错的 —— 而分母错比没有进度更糟。
 """
 
 from __future__ import annotations
@@ -48,6 +51,8 @@ DETAIL_DIR = g.ROOT / "content" / "javascripts"
 QUEST_INDEX = g.ROOT / "content" / "quests" / "index.md"
 HIDEOUT_PAGE = gh.PAGE
 GRAPH_SRC = g.ROOT / "scripts" / "data" / "quest-graph.json"
+STORY_FILE = g.ROOT / "scripts" / "data" / "storylines.json"
+STORY_PAGE = g.ROOT / "content" / "entries" / "story-chapters.md"
 
 QID_RE = re.compile(r'data-qid="([0-9a-f]{24})"')
 # 任务标题：`<h3 id="q07" data-qid="…">` —— 同时抓锚点与数据 id，
@@ -447,6 +452,95 @@ def build_graph(tasks: list[dict]) -> int:
 
 
 # ---------------------------------------------------------------------------
+# ⑤ 剧情章节（数据来自 scripts/data/storylines.json —— 手维护，但与剧情页对账）
+#
+# 为什么这份清单没有「抓取」来源：官方任务数据里**没有「章节」这层结构**，
+# 也没有章节→任务的映射（实测：515 个任务里搜不到 Tour / Falling Skies /
+# The Ticket 这类章节字段）。所以章节清单只能在站内手工维护 ——
+# 但一旦手维护，就必须有对账，否则页面删一章、清单独一份这种事没人会发现。
+# ---------------------------------------------------------------------------
+
+# story-chapters.md §2.1 的范围：从「#### 2.1」到「#### 2.2」
+STORY_START = "#### 2.1"
+STORY_END = "#### 2.2"
+
+
+def build_storyline() -> dict:
+    raw = json.loads(STORY_FILE.read_text(encoding="utf-8"))
+    chapters = raw.get("chapters") or []
+    out = {
+        "total": len(chapters),
+        "source": raw.get("source"),
+        "baseline": raw.get("fetched"),
+        # 说明写在数据里、前端直接取用 —— 免得措辞在两处各写一遍。
+        "note": "剧情章节是**纯手动记录**（未标记 / 进行中 / 已完成）：官方任务数据里没有「章节」"
+                "这层结构，本站也没有章节→任务的映射 —— 算不出来就不算，这条轨只记你亲手标的那一下。",
+        "list": [],
+    }
+    for c in chapters:
+        out["list"].append({
+            "id": c.get("id"),
+            "en": c.get("en"),
+            "zh": c.get("zh"),
+            "objectives": c.get("objectives") or 0,
+            "axis": bool(c.get("axis")),
+            "note": c.get("note") or "",
+        })
+    return out
+
+
+def check_story_page(story: dict) -> list[str]:
+    """对账：§2.1 表（行数 / 章名 / 目标数 / 主线标记）必须与清单逐条对得上。
+
+    为什么连目标数也对：它不是装饰 —— 它是页面上「这一章多重」的唯一量化，
+    清单一改页面就要跟，而**没有任何东西会自动发现漏改**。"""
+    problems: list[str] = []
+    if not STORY_PAGE.exists():
+        return ["读不到 content/entries/story-chapters.md"]
+    text = STORY_PAGE.read_text(encoding="utf-8")
+    if STORY_START not in text or STORY_END not in text:
+        return [f"story-chapters.md 里找不到「{STORY_START}」/「{STORY_END}」小节标题"]
+    seg = text.split(STORY_START, 1)[1].split(STORY_END, 1)[0]
+
+    rows: list[list[str]] = []
+    for line in seg.splitlines():
+        s = line.strip()
+        if not s.startswith("|"):
+            continue
+        cells = [c.strip() for c in s.strip("|").split("|")]
+        if len(cells) < 4:
+            continue
+        if all(set(c) <= set("-: ") for c in cells):   # 分隔行
+            continue
+        if cells[0] == "#":                            # 表头行
+            continue
+        rows.append(cells)
+
+    if len(rows) != story["total"]:
+        problems.append(f"story-chapters.md §2.1 表有 {len(rows)} 行，清单 {story['total']} 章")
+
+    for ch in story["list"]:
+        label = ch["en"] or ch["zh"] or ch["id"]
+        hit = None
+        for r in rows:
+            cell = norm(r[1])
+            if (ch["en"] and norm(ch["en"]) in cell) or (ch["zh"] and norm(ch["zh"]) in cell):
+                hit = r
+                break
+        if not hit:
+            names = "/".join(x for x in (ch["en"], ch["zh"]) if x)
+            problems.append(f"章节「{label}」在 §2.1 表里找不到（按 {names} 匹配）")
+            continue
+        m = re.match(r"(\d+)", hit[2])
+        if not m or int(m.group(1)) != ch["objectives"]:
+            problems.append(f"章节「{label}」目标数：表里是 {hit[2]}，清单是 {ch['objectives']}")
+        if ch["axis"] != (hit[0] in ("①", "②", "③")):
+            problems.append(f"章节「{label}」主线标记不一致：表里标记「{hit[0]}」，"
+                            f"清单 axis={ch['axis']}")
+    return problems
+
+
+# ---------------------------------------------------------------------------
 
 def main() -> int:
     if not g.DATA_FILE.exists():
@@ -465,6 +559,7 @@ def main() -> int:
     quests = build_quests(tasks)
     items = build_items(tasks)
     hideout, hut_raw = build_hideout()
+    story = build_storyline()
     graph_n = build_graph(tasks)
     if graph_n < 0:
         return 1
@@ -472,19 +567,22 @@ def main() -> int:
     body = json.dumps({
         "generated": date.today().isoformat(),
         "source": "scripts/data/quests.json（json.tarkov.dev/regular，持久 PvP）"
-                  " + scripts/data/hideout.json（同源，含 hideout_zh / items_zh 译名）",
+                  " + scripts/data/hideout.json（同源，含 hideout_zh / items_zh 译名）"
+                  " + scripts/data/storylines.json（手维护，与剧情页对账）",
         "baseline": g.FETCH_DATE,
         "total": quests["total"],
         "traders": quests["traders"],
         "items": items,
         "hideout": hideout,
+        "storyline": story,
     }, ensure_ascii=False, indent=2)
 
     header = (
         "/* 由 scripts/gen_progress_manifest.py 生成，请勿手工编辑。\n"
-        "   用途：「我的进度」三条轨的只读分母与列表（任务 / 物品收集 / 藏身处）。\n"
-        "   数据源与 content/quests/*.md、content/entries/hideout-modules.md 同源，\n"
-        "   重抓数据或改动藏身处页后，要按脚本头部写的顺序重跑。 */\n"
+        "   用途：「我的进度」各轨的只读分母与列表（任务 / 剧情章节 / 物品收集 / 藏身处）。\n"
+        "   数据源与 content/quests/*.md、content/entries/hideout-modules.md、\n"
+        "   content/entries/story-chapters.md 同源（storylines.json 手维护、与剧情页对账），\n"
+        "   重抓数据或改动上述页面后，要按脚本头部写的顺序重跑。 */\n"
     )
     OUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     OUT_FILE.write_text(header + "window.TARKOV_PROGRESS_MANIFEST = " + body + ";\n",
@@ -494,7 +592,8 @@ def main() -> int:
           f"任务 {quests['total']} / 商人 {len(quests['traders'])}；"
           f"物品 {items['total']}（≥{ITEM_THRESHOLD} 个任务）；"
           f"藏身处 {hideout['total']} 个模块 / {hideout['levelCount']} 个等级 / "
-          f"{hideout['itemCount']} 条材料")
+          f"{hideout['itemCount']} 条材料；"
+          f"剧情章节 {story['total']} 章")
 
     # —— 对账 ——
     problems: list[str] = []
@@ -535,6 +634,8 @@ def main() -> int:
     if hut_raw.get("count") != hideout["total"]:
         problems.append(f"hideout.json 站点数 {hut_raw.get('count')}，清单 {hideout['total']}")
 
+    problems.extend(check_story_page(story))
+
     if problems:
         print("[错误] 清单与页面/数据对不上：", file=sys.stderr)
         for p in problems:
@@ -544,6 +645,7 @@ def main() -> int:
 
     print(f"对账通过：任务 data-qid {page_total} 处 / 唯一 {page_uniq} 个；"
           f"物品表 {item_rows} 行；藏身处 §7 模块总表 {hut_pages} 行；"
+          f"剧情章节 §2.1 表 {story['total']} 行；"
           f"前置树 {graph_n} 个节点。")
     return 0
 

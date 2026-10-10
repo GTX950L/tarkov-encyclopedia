@@ -1,12 +1,13 @@
 /* ==========================================================================
-   进度看板（「我的进度」页的四块面板）—— **惰性模块**
+   进度看板（「我的进度」页的任务 / 依赖树 / 物品 / 藏身处 / 剧情章节 / 管理各块）
+   —— **惰性模块**
 
    为什么单独一个文件：
-     这四块只在「我的进度」一页出现，却要背 1000 行渲染代码。放进 progress.js
+     这些块只在「我的进度」一页出现，却要背 1000 行渲染代码。放进 progress.js
      会让全部 118 个页面都多背一份 —— 由 progress.js 在检测到看板挂载点时才注入。
 
    三份数据的加载时机（越靠后越重，也越少用）：
-     progress-manifest.js   全站加载  —— 物品 79 / 藏身处 26 / 任务总数
+     progress-manifest.js   全站加载  —— 物品 79 / 藏身处 26 / 剧情章节 10 / 任务总数
      quests-graph.js        看板渲染时 —— 515 个节点 + 前置边 + 门槛 + 地图（63 KB）
      quests-detail-*.js     展开任务时 —— 该任务的**目标明细与准备项**，按商人分块
                                          （最大一块 41 KB，而不是整份 183 KB）
@@ -20,8 +21,9 @@
 
   var UI = TP._ui || {};
   var el = UI.el, notReady = UI.notReady, loadScript = UI.loadScript,
-      makeStateSelect = UI.makeStateSelect, questUrl = UI.questUrl,
-      siteRoot = UI.siteRoot;
+      makeStateSelect = UI.makeStateSelect, makeChapterSelect = UI.makeChapterSelect,
+      syncStateSeg = UI.syncStateSeg,
+      questUrl = UI.questUrl, siteRoot = UI.siteRoot;
   var MODE_LABEL = TP.MODE_LABEL, TRACKS = TP.TRACKS, TRACK_LABEL = TP.TRACK_LABEL;
 
   /* 图节点字段下标 —— 与生成器里的 cols 一致，改一处要改两处。 */
@@ -354,8 +356,9 @@
      --------------------------------------------------------------------------
      解决的问题：这一页原来直接落到「任务进度」——那是一张**操作台**（筛选、
      勾选、展开目标），适合「要干活的时候」。但「看一眼我打到哪了」是另一种
-     需求，它需要的是**总览**：四条线各自的完成度、按商人拆开的分部进度、
-     以及「接下来该干什么」。本块补的就是这个视角。
+     需求，它需要的是**总览**：五条线各自的完成度（任务 / 长线目标 / 剧情章节 /
+     藏身处 / 物品收集）、按商人拆开的分部进度、以及「接下来该干什么」。
+     本块补的就是这个视角。
 
      与同类站点的分工（不照搬的地方）：
        · 它们给**统计数字**；这里在同样位置多给一块「下一步」——
@@ -539,8 +542,8 @@
       /* —— 三、长线目标：Kappa 线 / Lightkeeper 链 ——
          ⚠️ 这里**不是**「剧情章节进度」：章节（Tour / Falling Skies / The Ticket）
          在官方任务数据里**没有对应字段**，站内也没有「章节 → 任务」的映射，
-         硬凑出来的百分比是编数据。改用**有标记支撑的两条长线**（任务节点上的
-         kappa / lightkeeper 标记），并给出剧情页入口。 */
+         硬凑出来的百分比是编数据。剧情章节改走**手动记录**（看板四 / 剧情页），
+         本块只放**有标记支撑的两条长线**（任务节点上的 kappa / lightkeeper 标记）。 */
 
       /* 分母**从任务图实算**，不写死数字（2026-10-07 改）。
          原先 hint 里硬编码「13 条 / 7 条」——那是当前数据恰好对上的结果，
@@ -554,7 +557,7 @@
       var lHead = el("div", "tk-ov__sechead");
       lHead.appendChild(el("b", null, "长线目标"));
       lHead.appendChild(el("em", null, hasGraph
-        ? "带标记的终局线 · 不含剧情章节（说明见下）"
+        ? "带标记的终局线 · 剧情章节另见「其它三条轨」"
         : "任务图未载入，暂不可用（刷新一次通常即可恢复）"));
       lSec.appendChild(lHead);
 
@@ -588,7 +591,9 @@
       lSec.appendChild(lGrid);
       host.appendChild(lSec);
 
-      /* —— 四、藏身处 + 物品：两条非任务轨 —— */
+      /* —— 四、其它三条轨：剧情章节 + 藏身处 + 物品 ——
+         剧情章节是**手动记录**（无推断）：数字就是读者亲手标的那几下，
+         口径与「剧情章节」分页一致（同一个 storyCounts）。 */
 
       var hutBuilt = 0, hutMaxed = 0, hutLevels = 0, hutLevelMax = 0;
       for (var hi = 0; hi < hutList.length; hi++) {
@@ -607,21 +612,31 @@
         if (v > 0) itemKinds++;
       }
 
+      var slList = (mf.storyline && mf.storyline.list) || [];
+      var stc = slList.length ? TP.storyCounts(slList) : null;
+
       var oSec = el("div", "tk-ov__sec");
       var oHead = el("div", "tk-ov__sechead");
-      oHead.appendChild(el("b", null, "其它两条轨"));
-      oHead.appendChild(el("em", null, "点「藏身处」「物品收集」分页可继续记录"));
+      oHead.appendChild(el("b", null, "其它三条轨"));
+      oHead.appendChild(el("em", null, "点「剧情章节」「藏身处」「物品收集」分页可继续记录"));
       oSec.appendChild(oHead);
 
       var oGrid = el("div", "tk-ov__others");
-      [
+      var oCells = [];
+      if (stc) {
+        oCells.push({ name: "剧情章节", got: stc.done, tot: stc.total,
+          extra: "进行中 " + stc.inhand + " 章 · 纯手动记录，不做推断",
+          unit: "章完成" });
+      }
+      oCells.push(
         { name: "藏身处", got: hutBuilt, tot: hutList.length, extra: "已建满 " + hutMaxed + " 个 · 总等级 " + hutLevels + "/" + hutLevelMax, unit: "个模块" },
         /* 「达标」与「已囤」是两个数，读者容易问「囤了 10 种怎么只显示达标 3 种」——
            这里把定义写进副标题，不让读者自己猜（定义与「物品收集」分页一致）。 */
         { name: "物品收集", got: itemMet, tot: itemList.length,
           extra: "已囤 " + itemKinds + " 种 · 达标 = 已囤件数 ≥ 该物品被任务要求的总件数",
           unit: "种达标" }
-      ].forEach(function (o) {
+      );
+      oCells.forEach(function (o) {
         var oCell = el("div", "tk-ov__other");
         var oTop = el("div", "tk-ov__trhead");
         oTop.appendChild(el("span", "tk-ov__trname", o.name));
@@ -691,6 +706,12 @@
       if (hutList.length && hutBuilt < hutList.length) {
         steps.push(["藏身处还有 " + (hutList.length - hutBuilt) + " 个模块未建造", "在「藏身处」分页选定当前等级后，会列出下一级要的材料"]);
       }
+      /* 剧情章节只在**已经开始记录**时给建议：没记过就不假设他卡在哪一章——
+         这条轨不做推断，建议也要守住同一条线。 */
+      if (stc && (stc.done + stc.inhand) > 0 && stc.done < stc.total) {
+        steps.push(["剧情章节已记 " + stc.done + " / " + stc.total + " 章",
+          "还差 " + (stc.total - stc.done) + " 章 —— 在「剧情章节」分页继续记录（章节顺序见剧情页）"]);
+      }
 
       if (!steps.length) {
         steps.push(["暂时没有可执行的下一步", "先把「我的等级」与进行中任务填上，这里会给出建议"]);
@@ -706,9 +727,9 @@
       nSec.appendChild(el("p", "tk-board__note",
         (hasGraph ? "任务数字含**由前置推断**的完成（推断 = 进行中任务的上游必然已完成）。"
                   : "⚠️ **任务图未载入**，所以「可接」与「长线还差几条」算不出来，上面只给了不依赖任务图的建议。")
-        + "**剧情章节没有做进度统计**：官方任务数据里没有「章节」字段，"
-        + "本站也没有章节→任务的映射，算不出来就标明不算 —— 章节顺序与前置见 "
-        + "[剧情章节与主线任务](../entries/story-chapters.md)。"));
+        + "**剧情章节是纯手动记录**：官方任务数据里没有「章节」字段、也没有章节→任务的映射，"
+        + "所以这条轨只记你亲手标的状态、**不做任何推断** —— 在「剧情章节」分页记录；"
+        + "章节顺序与前置见 [剧情章节与主线任务](../entries/story-chapters.md)。"));
 
       host.appendChild(nSec);
     });
@@ -1804,7 +1825,73 @@
   }
 
   /* --------------------------------------------------------------------------
-     看板四：进度管理（导出 / 导入 / 分享 / 分轨清空）
+     看板四：剧情章节（10 章的三态记录）
+
+     **这条轨不做任何推断**：完成数就是读者亲手标的那些，没有百分比之外的
+     算法，也不要与任务轨的「前置反推」混读 —— 官方数据里没有章节这层结构。
+     交互与其它看板一致：三态控件每行可改，__tkSync 增量回填（不重建行，
+     保住焦点 —— 与依赖树同款做法）。
+     -------------------------------------------------------------------------- */
+
+  function chLabel(ch) {
+    /* 章节名的显示口径：同时有英文与中文时用「英文（中文）」——
+       与剧情页一致（认英文名最稳，中文名只作辅助）。 */
+    if (ch.en && ch.zh) return ch.en + "（" + ch.zh + "）";
+    return ch.en || ch.zh || ch.id;
+  }
+
+  function renderStoryBoard(host) {
+    var mf = window.TARKOV_PROGRESS_MANIFEST;
+    var sl = (mf && mf.storyline) || { total: 0, list: [] };
+    var list = sl.list || [];
+    host.textContent = "";
+    if (!list.length) { host.appendChild(notReady("剧情章节清单")); return; }
+    if (!makeChapterSelect || !syncStateSeg) { host.appendChild(notReady("剧情章节看板")); return; }
+
+    var cards = sumCards([
+      ["已完成"], ["进行中"], ["未标记"], ["章节总数", String(sl.total || list.length)]
+    ]);
+    var refs = cards.refs;
+    host.appendChild(cards.el);
+
+    var tbody = el("tbody");
+    var rows = [];
+    for (var i = 0; i < list.length; i++) {
+      var ch = list[i];
+      var tr = el("tr");
+      var tdCtl = el("td", "tk-board__pick");
+      var ctl = makeChapterSelect(ch.id);
+      tdCtl.appendChild(ctl);
+      tr.appendChild(tdCtl);
+      tr.appendChild(el("td", null, chLabel(ch)));
+      tr.appendChild(el("td", "tk-board__num", String(ch.objectives)));
+      tr.appendChild(el("td", "tk-board__who", ch.note || "—"));
+      rows.push({ tr: tr, ctl: ctl, ch: ch });
+      tbody.appendChild(tr);
+    }
+    host.appendChild(wrapTable(["状态", "章节", "目标数", "在主线里的位置"], tbody));
+    host.appendChild(el("p", "tk-board__note",
+      (sl.note || "") + " 章节清单与前置见 [剧情章节与主线任务](../entries/story-chapters.md)，"
+      + "记录同时在剧情页那张「已收录的十章」表里可见（同一份数据）。"));
+
+    /* 增量回填：只改行状态与控件高亮，不重建行 —— 重建会把点击后的焦点
+       丢掉，也会让「同一个控件两个调用点显示不一致」。 */
+    host.__tkSync = function () {
+      var c = TP.storyCounts(list);
+      for (var r = 0; r < rows.length; r++) {
+        var st = TP.chapterState(rows[r].ch.id);
+        rows[r].tr.className = st === "done" ? "tk-met" : "";
+        syncStateSeg(rows[r].ctl, st);
+      }
+      refs["已完成"].textContent = c.done + " / " + c.total;
+      refs["进行中"].textContent = String(c.inhand);
+      refs["未标记"].textContent = String(Math.max(0, c.total - c.done - c.inhand));
+    };
+    host.__tkSync();
+  }
+
+  /* --------------------------------------------------------------------------
+     看板五：进度管理（导出 / 导入 / 分享 / 分轨清空）
      -------------------------------------------------------------------------- */
 
   function b64url(bytes) {
@@ -1850,7 +1937,10 @@
       u8(enc.length);
       for (var i = 0; i < enc.length; i++) u8(enc.charCodeAt(i));
     }
-    u8(1);                                   // 版本
+    /* ⚠️ 格式版本。v1 → v2 只做了一件事：末尾追加剧情章节段。
+       新增段落**只能追加在末尾、且必须升版本号** —— 旧链接（v1）解码时按
+       版本号跳过这一段，不会把后面的字节读成剧情数据。 */
+    u8(2);                                   // 版本
     u8(["pvp", "pve", "season"].indexOf(mode));
     u8(md0.level || 0);
     u8((md0.faction === "BEAR" ? 1 : md0.faction === "USEC" ? 2 : 0) | ((md0.prestige || 0) << 2));
@@ -1889,6 +1979,14 @@
     var hKeys = Object.keys(md0.hideout);
     u16(hKeys.length);
     hKeys.forEach(function (k) { u8(stations.indexOf(k) & 0xff); u8(TP.hideoutLevel(k)); });
+    /* 剧情章节（v2 追加）：按清单顺序每章 1 字节 —— 0 未标记 / 1 进行中 / 2 已完成。
+       顺序即字典，所以解码端只需要同一份清单；清单条数变化由解码端比对并提示。 */
+    var slList = ((mf.storyline || {}).list) || [];
+    u8(Math.min(255, slList.length));
+    slList.forEach(function (c) {
+      var st = TP.chapterState(c.id);
+      u8(st === "done" ? 2 : st === "inhand" ? 1 : 0);
+    });
     return b64url(b);
   }
 
@@ -1903,17 +2001,19 @@
       function u32() { var v = (b[i] | (b[i + 1] << 8) | (b[i + 2] << 16) | (b[i + 3] << 24)) >>> 0; i += 4; return v; }
       function rdStr() { var n = u8(), acc = ""; for (var k = 0; k < n; k++) acc += String.fromCharCode(u8()); return decodeURIComponent(escape(acc)); }
       var ver = u8();
-      if (ver !== 1) return null;
+      /* v1 = 无剧情章节段；v2 = 末尾追加剧情章节段。**两个版本都要能解** ——
+         读者昨天发的链接，今天打开时跑的已经是新代码。 */
+      if (ver !== 1 && ver !== 2) return null;
       var mode = ["pvp", "pve", "season"][u8()] || "pvp";
       var level = u8();
       var fp = u8();
       var fingerprint = rdStr();
       var mf = window.TARKOV_PROGRESS_MANIFEST || {};
       var out = {
-        v: 5, mode: mode,
-        modes: { pvp: { quests: {}, inhand: {}, items: {}, hideout: {}, objectives: {}, ll: {} },
-                 pve: { quests: {}, inhand: {}, items: {}, hideout: {}, objectives: {}, ll: {} },
-                 season: { quests: {}, inhand: {}, items: {}, hideout: {}, objectives: {}, ll: {} } }
+        v: 6, mode: mode,
+        modes: { pvp: { quests: {}, inhand: {}, items: {}, hideout: {}, objectives: {}, storyline: {}, ll: {} },
+                 pve: { quests: {}, inhand: {}, items: {}, hideout: {}, objectives: {}, storyline: {}, ll: {} },
+                 season: { quests: {}, inhand: {}, items: {}, hideout: {}, objectives: {}, storyline: {}, ll: {} } }
       };
       var m = out.modes[mode];
       m.level = level;
@@ -1940,8 +2040,22 @@
       var stations = ((mf.hideout || {}).list || []).map(function (x) { return x.name; });
       var nH = u16();
       for (k = 0; k < nH; k++) { var sidx = u8(); var lvv = u8(); if (stations[sidx] && lvv) m.hideout[stations[sidx]] = String(lvv); }
+      /* 剧情章节段（仅 v2）：0/1/2 三个状态，按清单顺序对位。
+         条数与本站清单不一致时标 stale —— 序号对位在这时候可能已经错位，
+         让读者看到「可能有个别条目对不上」的提示，比静默错位强。 */
+      var slStale = false;
+      if (ver >= 2) {
+        var slList = ((mf.storyline || {}).list) || [];
+        var nS = u8();
+        if (nS !== slList.length) slStale = true;
+        for (k = 0; k < nS; k++) {
+          var sv = u8();
+          var ch = slList[k];
+          if (ch && (sv === 1 || sv === 2)) m.storyline[ch.id] = sv === 2 ? "done" : "inhand";
+        }
+      }
       var now = (mf.baseline || "").slice(0, 10);
-      return { data: out, stale: !!fingerprint && fingerprint !== now };
+      return { data: out, stale: (!!fingerprint && fingerprint !== now) || slStale };
     } catch (e) {
       return { __err: String(e && e.message || e), __at: i };
     }
@@ -2038,7 +2152,8 @@
     host.appendChild(ops);
     host.appendChild(el("p", "tk-board__note",
       "导出 / 分享都是**纯本地**的：导出是一个 JSON 文件，分享是一条带进度数据的链接 —— "
-      + "两者都不经过服务器。导入时**任务取并集、件数与等级取较大值**，不会覆盖已有的进度。"));
+      + "两者都不经过服务器。导入时**任务取并集、件数与等级取较大值、剧情章节取较强状态**，"
+      + "不会覆盖已有的进度。"));
 
     /* 别人分享的链接：问一句再导入，绝不自动改读者的数据 */
     var m = (location.hash || "").match(/#p=([A-Za-z0-9_-]+)/);
@@ -2051,7 +2166,7 @@
         box.appendChild(el("b", null, "检测到一条分享的进度"));
         box.appendChild(el("p", null,
           (dec.stale ? "⚠️ 这条链接的数据版本与本站当前不同，可能有个别条目对不上。\n" : "")
-          + "导入会把两个进度合并（任务取并集、件数与等级取较大值），不会覆盖你自己的记录。"));
+          + "导入会把两个进度合并（任务取并集、件数与等级取较大值、剧情章节取较强状态），不会覆盖你自己的记录。"));
         var ok3 = el("button", "tk-board__btn", "合并进来");
         ok3.type = "button";
         ok3.addEventListener("click", function () {
@@ -2364,12 +2479,13 @@
       else if (id === "tk-board-items") renderItemBoard(h);
       else if (id === "tk-board-tree") renderQuestTree(h);
       else if (id === "tk-board-hideout") renderHideoutBoard(h);
+      else if (id === "tk-board-story") renderStoryBoard(h);
       else if (id === "tk-board-ops") renderOps(h);
     }
   }
 
   function sync() {
-    var ids = ["tk-board-overview", "tk-progress-board", "tk-board-tree", "tk-board-items", "tk-board-hideout", "tk-board-ops"];
+    var ids = ["tk-board-overview", "tk-progress-board", "tk-board-tree", "tk-board-items", "tk-board-hideout", "tk-board-story", "tk-board-ops"];
     for (var i = 0; i < ids.length; i++) {
       var h = document.getElementById(ids[i]);
       if (h && h.__tkSync) h.__tkSync();
