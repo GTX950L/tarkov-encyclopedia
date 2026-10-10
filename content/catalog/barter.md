@@ -42,7 +42,7 @@ tags:
 | 3 | 圣诞树装饰球（紫） | `christmas-tree-ornament-violet` | 0.05 千克 | — | — | 10,200 卢布（4 家最高） |
 | 4 | 圣诞树装饰球（红） | `christmas-tree-ornament-red` | 0.05 千克 | — | — | 7,650 卢布（4 家最高） |
 | 5 | 圣诞树装饰球（银） | `christmas-tree-ornament-silver` | 0.05 千克 | — | — | 5,100 卢布（4 家最高） |
-| 6 | 实体比特币 | `physical-bitcoin` | 0.05 千克 | — | — | 600,840 卢布（4 家最高） |
+| 6 | 实体比特币 | `physical-bitcoin` | 0.05 千克 | — | — | 587,194 卢布（4 家最高） |
 | 7 | 实体比特币的右半边 | `right-half-of-a-physical-bitcoin` | 0.05 千克 | — | — | 6,302 卢布（4 家最高） |
 | 8 | 实体比特币的左半边 | `left-half-of-a-physical-bitcoin` | 0.05 千克 | — | — | 6,302 卢布（4 家最高） |
 | 9 | 橘子 | `tangerine` | 0.07 千克 | — | — | 64,830 卢布（4 家最高） |
@@ -89,9 +89,9 @@ tags:
 | 50 | 钉子头玩偶 | `nailhead-figurine` | 0.2 千克 | — | — | 38,250 卢布（4 家最高） |
 | 51 | 鸭子玩偶 | `duck-figurine` | 0.2 千克 | — | — | 51,000 卢布（4 家最高） |
 | 52 | Kerman先生的全息猫 | `mr-kermans-cat-hologram` | 0.3 千克 | — | — | — |
-| 53 | PMC 硬汉玩偶 | `pmc-hardened-figurine` | 0.3 千克 | — | — | — |
+| 53 | PMC 硬汉玩偶 | `pmc-hardened-figurine` | 0.3 千克 | — | — | 38,250 卢布（3 家最高） |
 | 54 | PMC 起源玩偶 | `pmc-origins-figurine` | 0.3 千克 | — | — | — |
-| 55 | PMC 起源玩偶 | `pmc-origins-figurine-1` | 0.3 千克 | — | — | — |
+| 55 | PMC 起源玩偶 | `pmc-origins-figurine-1` | 0.3 千克 | — | — | 38,250 卢布（3 家最高） |
 | 56 | 硬汉 PMC 玩偶 | `hardened-pmc-figurine` | 0.3 千克 | — | — | — |
 | 57 | Axel鹦鹉雕像 | `axel-parrot-figurine` | 0.33 千克 | — | — | 26,010 卢布（4 家最高） |
 | 58 | Viibiin运动鞋 | `viibiin-sneaker` | 0.42 千克 | — | — | 28,939 卢布（4 家最高） |
@@ -406,12 +406,12 @@ Nooby Shield 碘化钾片　一次性注射器　检眼镜　LEDX皮肤透照仪
 | 18 | BEAR 狗牌 | `dogtag-bear-15` | 0.01 千克 | — | — | 535 卢布（4 家最高） |
 | 19 | BEAR 狗牌 | `dogtag-bear-16` | 0.01 千克 | — | — | 510 卢布（4 家最高） |
 | 20 | BEAR 狗牌 | `dogtag-bear-17` | 0.01 千克 | — | — | 510 卢布（4 家最高） |
-| 21 | BEAR 狗牌 | `dogtag-bear-18` | 0.01 千克 | — | — | — |
-| 22 | BEAR 狗牌 | `dogtag-bear-19` | 0.01 千克 | — | — | — |
-| 23 | BEAR 狗牌 | `dogtag-bear-20` | 0.01 千克 | — | — | — |
-| 24 | BEAR 狗牌 | `dogtag-bear-21` | 0.01 千克 | — | — | — |
-| 25 | BEAR 狗牌 | `dogtag-bear-22` | 0.01 千克 | — | — | — |
-| 26 | BEAR 狗牌 | `dogtag-bear-23` | 0.01 千克 | — | — | — |
+| 21 | BEAR 狗牌 | `dogtag-bear-18` | 0.01 千克 | — | — | 535 卢布（4 家最高） |
+| 22 | BEAR 狗牌 | `dogtag-bear-19` | 0.01 千克 | — | — | 561 卢布（4 家最高） |
+| 23 | BEAR 狗牌 | `dogtag-bear-20` | 0.01 千克 | — | — | 586 卢布（4 家最高） |
+| 24 | BEAR 狗牌 | `dogtag-bear-21` | 0.01 千克 | — | — | 612 卢布（4 家最高） |
+| 25 | BEAR 狗牌 | `dogtag-bear-22` | 0.01 千克 | — | — | 612 卢布（4 家最高） |
+| 26 | BEAR 狗牌 | `dogtag-bear-23` | 0.01 千克 | — | — | 612 卢布（4 家最高） |
 | 27 | BEAR狗牌 | `dogtag-bear-8` | 0.01 千克 | — | — | 535 卢布（4 家最高） |
 | 28 | USEC 狗牌 | `dogtag-usec` | 0.01 千克 | — | — | 459 卢布（4 家最高） |
 | 29 | USEC 狗牌 | `dogtag-usec-1` | 0.01 千克 | — | — | 510 卢布（4 家最高） |
@@ -430,11 +430,11 @@ Nooby Shield 碘化钾片　一次性注射器　检眼镜　LEDX皮肤透照仪
 | 42 | USEC 狗牌 | `dogtag-usec-14` | 0.01 千克 | — | — | 535 卢布（4 家最高） |
 | 43 | USEC 狗牌 | `dogtag-usec-15` | 0.01 千克 | — | — | 510 卢布（4 家最高） |
 | 44 | USEC 狗牌 | `dogtag-usec-16` | 0.01 千克 | — | — | 510 卢布（4 家最高） |
-| 45 | USEC 狗牌 | `dogtag-usec-17` | 0.01 千克 | — | — | — |
-| 46 | USEC 狗牌 | `dogtag-usec-18` | 0.01 千克 | — | — | — |
-| 47 | USEC 狗牌 | `dogtag-usec-19` | 0.01 千克 | — | — | — |
-| 48 | USEC 狗牌 | `dogtag-usec-20` | 0.01 千克 | — | — | — |
-| 49 | USEC 狗牌 | `dogtag-usec-21` | 0.01 千克 | — | — | — |
+| 45 | USEC 狗牌 | `dogtag-usec-17` | 0.01 千克 | — | — | 535 卢布（4 家最高） |
+| 46 | USEC 狗牌 | `dogtag-usec-18` | 0.01 千克 | — | — | 561 卢布（4 家最高） |
+| 47 | USEC 狗牌 | `dogtag-usec-19` | 0.01 千克 | — | — | 586 卢布（4 家最高） |
+| 48 | USEC 狗牌 | `dogtag-usec-20` | 0.01 千克 | — | — | 612 卢布（4 家最高） |
+| 49 | USEC 狗牌 | `dogtag-usec-21` | 0.01 千克 | — | — | 612 卢布（4 家最高） |
 | 50 | 带有标记的 BEAR 狗牌 | `marked-dogtag-bear` | 0.01 千克 | — | — | 535 卢布（4 家最高） |
 | 51 | 带有标记的 BEAR 狗牌 | `marked-dogtag-bear-1` | 0.01 千克 | — | — | 535 卢布（4 家最高） |
 | 52 | 带有标记的 BEAR 狗牌 | `marked-dogtag-bear-2` | 0.01 千克 | — | — | 535 卢布（4 家最高） |

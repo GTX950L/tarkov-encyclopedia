@@ -22,14 +22,14 @@
 - [第六篇 · 战局内行为手册](https://gtx950l.github.io/tarkov-encyclopedia/entries/raid-flow/)：战局流程与节奏、搜刮效率、遇敌处置、交火技术动作、投掷物来袭处置、战中伤情处置
 - [第七篇 · 赛季与衍生内容](https://gtx950l.github.io/tarkov-encyclopedia/entries/seasons/)：赛季与修改器、联赛、竞技场、PvE 模式
 - [第八篇 · 世界与背景](https://gtx950l.github.io/tarkov-encyclopedia/entries/weather/)：天气与时间、光照与夜战、彩蛋、世界观与阵营背景
-- [第九篇 · 物品图鉴](https://gtx950l.github.io/tarkov-encyclopedia/catalog/)：4,979 件物品的全量属性与商人买卖价，按 86 个官方分类归并成 16 页；单件物品的完整页面（官方介绍、数值、获取途径、任务需求）走[物品详情](https://gtx950l.github.io/tarkov-encyclopedia/catalog/item/) —— 一个按物品 ID 渲染的视图页 —— **查阅型栏目，不属前八篇的学习顺序**
+- [第九篇 · 物品图鉴](https://gtx950l.github.io/tarkov-encyclopedia/catalog/)：4,979 件物品的全量属性与商人买卖价，按 86 个官方分类归并成 **26 页**（4 个过长的分类另拆成 10 个分册，父页保留为总览）；单件物品的完整页面（官方介绍、数值、获取途径、任务需求）走[物品详情](https://gtx950l.github.io/tarkov-encyclopedia/catalog/item/) —— 一个按物品 ID 渲染的视图页 —— **查阅型栏目，不属前八篇的学习顺序**
 - [第十篇 · 任务图鉴](https://gtx950l.github.io/tarkov-encyclopedia/quests/)：515 个任务的逐条要求、奖励、接取门槛、前置与失败条件 —— **查阅型栏目，不属前八篇的学习顺序**。单个任务的完整页面（前置与后续、目标清单、完成奖励、出发前必带）走[任务详情](https://gtx950l.github.io/tarkov-encyclopedia/quests/quest/)（一个按任务 ID 渲染的视图页）。另有[限时与活动任务补遗](https://gtx950l.github.io/tarkov-encyclopedia/quests/event-quests/)收录随版本挂载、到期即消失的那类任务（不在 515 条口径内）
 - [第十一篇 · 参考](https://gtx950l.github.io/tarkov-encyclopedia/docs/)：项目欢迎页、数据口径与引用说明、新手成长路线、机制速查表及其余站务页 —— **查阅型栏目，不属前八篇的学习顺序**
 
 ## 物品图鉴（第九篇 · 全量物品数据）
 
 > 覆盖去重后 **4,979 件物品**（不含 497 条枪械预配方案 —— 那是同一底枪的改装组合而非独立物品），
-> 按官方 `itemCategories` 树的 86 个叶子分类归并成 16 页。每件给出**中文名 / 英文名 / 归一化 ID /
+> 按官方 `itemCategories` 树的 86 个叶子分类归并成 26 页（16 个分类页 + 10 个分册；4 个过长的分类已拆分，父页保留为总览）。每件给出**中文名 / 英文名 / 归一化 ID /
 > 重量 / 关键属性 / 商人最低售价（附商人与等级）/ 商人最高回收（附参与家数）**。
 > 口径：json.tarkov.dev 的 `items` 与 `itemCategories` 接口（二级来源），2026-10-08 抓取。
 > **不含配图**（沿用全站约定，以文字与表格呈现）；商人价是**随商人等级变动的挂牌价，不是跳蚤市场价**。

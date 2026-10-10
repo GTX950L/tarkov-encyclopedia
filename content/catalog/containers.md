@@ -39,7 +39,7 @@ tags:
 |---|------|--------|------|----------|--------------|--------------|
 | 1 | 腰包（路易伪登） | `fanny-pack-loui-peeton` | 0.4 千克 | 容量 6 格 | — | — |
 | 2 | 腰部安全包 | `waist-pouch` | 0.4 千克 | 容量 6 格 | — | — |
-| 3 | Alpha 安全箱 | `secure-container-alpha` | 0.6 千克 | 容量 4 格 | 1,585,804 卢布，需 Peacekeeper 2 级 | — |
+| 3 | Alpha 安全箱 | `secure-container-alpha` | 0.6 千克 | 容量 4 格 | 1,589,471 卢布，需 Peacekeeper 2 级 | — |
 | 4 | Beta 安全箱 | `secure-container-beta` | 0.8 千克 | 容量 6 格 | — | — |
 | 5 | Epsilon 安全箱 | `secure-container-epsilon` | 1.1 千克 | 容量 8 格 | — | — |
 | 6 | Gamma 安全箱 | `secure-container-gamma` | 1.2 千克 | 容量 9 格 | — | — |
@@ -118,7 +118,7 @@ tags:
 | 23 | 医疗物品箱 | `medicine-case` | 6.35 千克 | 容量 64 格 | 876,578 卢布，需 Therapist 3 级 | 243,653 卢布（4 家最高） |
 | 24 | 医疗物品箱 | `medicine-case-1` | 6.35 千克 | 容量 64 格 | — | — |
 | 25 | 主播物品箱 | `streamer-item-case` | 7 千克 | 容量 88 格 | — | — |
-| 26 | 物品箱 | `item-case` | 7 千克 | 容量 64 格 | 3,645,867 卢布，需 Therapist 3 级 | 627,296 卢布（4 家最高） |
+| 26 | 物品箱 | `item-case` | 7 千克 | 容量 64 格 | 3,642,261 卢布，需 Therapist 3 级 | 627,296 卢布（4 家最高） |
 | 27 | 物品箱 | `item-case-1` | 7 千克 | 容量 64 格 | — | — |
 | 28 | 武器箱 | `weapon-case` | 9 千克 | 容量 50 格 | — | 557,535 卢布（4 家最高） |
 | 29 | 武器箱 | `weapon-case-1` | 9 千克 | 容量 50 格 | — | — |

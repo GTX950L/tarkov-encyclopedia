@@ -209,13 +209,27 @@ nav:
           - 物品详情（单件）: catalog/item.md
           - 枪械: catalog/weapons.md
           - 武器配件·瞄具与夜视: catalog/mods-sight.md
-          - 武器配件·枪管与膛口: catalog/mods-barrel.md
-          - 武器配件·枪身与握持: catalog/mods-body.md
+          - 武器配件·枪管与膛口:
+              - 总览: catalog/mods-barrel.md
+              - 枪管与消焰器: catalog/mods-barrel-1.md
+              - 消音器与其余膛口: catalog/mods-barrel-2.md
+          - 武器配件·枪身与握持:
+              - 总览: catalog/mods-body.md
+              - 护木与机匣: catalog/mods-body-1.md
+              - 枪托: catalog/mods-body-2.md
+              - 握把与战术设备: catalog/mods-body-3.md
+              - 导轨基座与弹巢: catalog/mods-body-4.md
           - 防护装备: catalog/gear-armor.md
-          - 穿戴与面罩: catalog/gear-wear.md
+          - 穿戴与面罩:
+              - 总览: catalog/gear-wear.md
+              - 耳机与头部穿戴: catalog/gear-wear-1.md
+              - 面罩与臂章: catalog/gear-wear-2.md
           - 背包与胸挂: catalog/carriers.md
           - 储藏容器: catalog/containers.md
-          - 弹药与弹药箱: catalog/ammo.md
+          - 弹药与弹药箱:
+              - 总览: catalog/ammo.md
+              - 弹药箱: catalog/ammo-1.md
+              - 火箭弹与投掷武器: catalog/ammo-2.md
           - 以物换物原料: catalog/barter.md
           - 钥匙与门禁: catalog/keys.md
           - 食物与药品: catalog/consumables.md

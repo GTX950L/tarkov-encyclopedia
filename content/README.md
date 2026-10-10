@@ -108,7 +108,7 @@
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s8" href="entries/weather.md"><b>第八篇</b><em>世界与背景</em><i>4 篇</i></a>
 <span class="tk-arrow">→</span>
-<a class="tk-step tk-s9" href="catalog/index.md"><b>第九篇</b><em>物品图鉴</em><i>17 篇</i></a>
+<a class="tk-step tk-s9" href="catalog/index.md"><b>第九篇</b><em>物品图鉴</em><i>27 篇</i></a>
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s10" href="quests/index.md"><b>第十篇</b><em>任务图鉴</em><i>16 篇</i></a>
 <span class="tk-arrow">→</span>

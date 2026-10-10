@@ -672,6 +672,190 @@ def plan_pages(leaves, buckets, cats) -> tuple[list, list, list]:
 unresolved_pre: list[str] = []
 
 
+# ---------------------------------------------------------------------------
+# 长页拆分
+# ---------------------------------------------------------------------------
+# 实测（2026-10-10，1440×900 视口）：物品表加了列宽下限后每行约 **62px**，
+# 一屏（900px）放不下 15 行 —— 于是 **1000 件 ≈ 77 屏**。mods-body 1529 件
+# = **118 屏**，读者要滚很久，页内锚点跳转也形同虚设。
+#
+# 拆成子页而不是折叠：内容仍是**静态可读、可搜、可单页分享**的（站内定位），
+# 且每页真正变短。判据用**件数**而不是「屏数」—— 件数在数据层就有，
+# 不必先渲染再量；62px/行 这个换算也随字号/窄屏变动，用它当判据不稳。
+SPLIT_TRIGGER = 400     # 整页超过这么多件才拆
+SPLIT_CHUNK = 400       # 每个子页最多这么多件（≈ 30 屏）
+
+
+def expand_splits(plan: list, leaves: dict, buckets: dict) -> list:
+    """把过长的分类页按叶子分类**顺序切成若干子页**。
+
+    切法是**按序贪心装填**：照 ``PAGES`` 里声明的叶子顺序累加，装到
+    ``SPLIT_CHUNK`` 就新起一页。这样：
+      · 结果是**确定性**的 —— 同样的数据每次跑都一样，diff 不会乱跳；
+      · 同一大类里的叶子**不重排**，读者从导航顺序就能推断内容顺序；
+      · 数据变多时自动多切一片，不需要人工维护一张分区表。
+
+    ⚠️ ``SPLIT_TRIGGER`` 判的是**整页**件数，不是单片 —— 否则 containers
+       （387 件 / 27 屏）这种也会被切成两页，那是徒增导航层级。
+
+    子页的 slug 加 ``-1/-2/…`` 后缀、标题带上叶子范围（``… · 护木–枪托``），
+    并在页内写明它是第几部分、给出兄弟页链接 —— 拆完还要能一眼看明白
+    「这里是不是全部、其余在哪」。
+    """
+    out = []
+    for p in plan:
+        if p["count"] <= SPLIT_TRIGGER or len(p["leaves"]) < 2:
+            out.append(p)
+            continue
+
+        # 各册**尽量均分**。切分必须**保序**（读者要能从导航顺序推断内容顺序），
+        # 所以这是个「把有序序列切成 k 段、使最大段之和最小」的问题 ——
+        # 贪心装填在叶子大小悬殊时会切出一头沉的分法（实测第一版：
+        # gear-wear 的「耳机29+头部穿戴171+面罩197」被切成 397 / 40 两册）。
+        # 叶子最多几十个，直接 DP，规模上完全无所谓。
+        n_parts = max(2, -(-p["count"] // SPLIT_CHUNK))          # 向上取整，不用 math
+        sizes = [len(buckets.get(l, [])) for l in p["leaves"]]
+        cuts = best_split(sizes, n_parts)
+        groups = [p["leaves"][cuts[i]:cuts[i + 1]] for i in range(len(cuts) - 1)]
+        if len(groups) < 2:                 # 叶子太少、切不动，保持原样
+            out.append(p)
+            continue
+
+        total = len(groups)
+        slugs = [f"{p['slug']}-{i + 1}" for i in range(total)]
+        titles = []
+        for g in groups:
+            first, last = leaves[g[0]][-1], leaves[g[-1]][-1]
+            titles.append(f"{p['title']} · {first}" if first == last
+                          else f"{p['title']} · {first}–{last}")
+
+        # ① 保留原 slug 作**总览页**（只列分册，不含大表）—— 见 hub_markdown 的说明
+        out.append({
+            "slug": p["slug"], "title": p["title"], "leaves": [], "count": p["count"],
+            "hub": True,
+            # ⚠️ hub 的 leaves 是空表（它不含任何叶子表），所以**叶子数量要单独带上** ——
+            # 直接写 {page['leaves']} 会渲染成「[] 个官方分类」（第一版就踩了）。
+            "leaf_n": len(p["leaves"]),
+            "parts_list": [{"title": titles[j], "slug": slugs[j],
+                            "count": sum(len(buckets.get(l, [])) for l in groups[j])}
+                           for j in range(total)],
+        })
+        # ② 再写各分册
+        for i, g in enumerate(groups):
+            out.append({
+                "slug": slugs[i],
+                "title": titles[i],
+                "leaves": g,
+                "count": sum(len(buckets.get(l, [])) for l in g),
+                # 供 page_markdown 写「第 i / n 部分」与兄弟页链接
+                "part": i + 1,
+                "parts": total,
+                "siblings": [(titles[j], slugs[j]) for j in range(total)],
+                "whole": {"title": p["title"], "slug": p["slug"],
+                          "count": p["count"], "leaves": len(p["leaves"])},
+            })
+    return out
+
+
+def best_split(sizes: list, k: int) -> list:
+    """把 ``sizes`` **顺序**切成 ``k`` 段，使**最大段之和最小**；返回切点下标。
+
+    返回 ``[0, i1, i2, …, len(sizes)]``，共 ``k+1`` 个下标。
+    ``k`` 大于元素个数时退化为每个元素一段。
+
+    为什么要 DP 而不是贪心：切分必须保序，而叶子分类的大小可以相差几十倍
+    （mods-body 的「手电筒」5 件 vs「枪托」293 件）。贪心装填在遇到一个
+    「刚好跨过目标」的大叶子时，会把整段都算进当前册 —— 实测切出过
+    397 / 40 这种一头沉的分法。DP 直接求最优，叶子最多几十个，代价可忽略。
+    """
+    n = len(sizes)
+    k = max(1, min(k, n))
+    pre = [0]
+    for s in sizes:
+        pre.append(pre[-1] + s)
+    INF = float("inf")
+    # dp[t][i] = 把前 i 个叶子切成 t 段时的「最大段之和」最小值
+    dp = [[INF] * (n + 1) for _ in range(k + 1)]
+    cut = [[0] * (n + 1) for _ in range(k + 1)]
+    dp[0][0] = 0
+    for t in range(1, k + 1):
+        for i in range(1, n + 1):
+            for j in range(t - 1, i):
+                if dp[t - 1][j] == INF:
+                    continue
+                v = max(dp[t - 1][j], pre[i] - pre[j])
+                if v < dp[t][i]:
+                    dp[t][i] = v
+                    cut[t][i] = j
+    pts, i = [n], n
+    for t in range(k, 0, -1):
+        i = cut[t][i]
+        pts.append(i)
+    pts.reverse()
+    return pts
+
+
+def hub_markdown(page, leaves, total_items) -> str:
+    """被拆开的整页 → **总览页**（只列各分册，不含大表）。
+
+    ⚠️ 必须保留这一页，不能把原 slug 让给第一个分册 —— 否则：
+      · 子页里「[整类共 N 件](原 slug.md)」会**断链**；
+      · 站内外指向 ``catalog/mods-body/`` 的旧链接会 404。
+    总览页本身很短（一屏上下），正好当分册的入口。
+    """
+    parts = page["parts_list"]
+    out = []
+    out.append("---")
+    out.append("tags:")
+    out.append("  - 物品")
+    out.append("  - 索引")
+    out.append("---")
+    out.append("")
+    out.append(f"# {page['title']}（Item Catalog）")
+    out.append("")
+    # ⚠️ 这一对页眉行是 check_entries 认「图鉴页」的判据（规范见 citation.md）。
+    #    总览页少写了它，第一次跑就被判「页眉缺失」—— 别省。
+    out.append(f"> 版本基线：{BASE_MONTH} ｜ {BASE_VER}（第一赛季 KORD BREACH）｜ 数据来源：tarkov.dev（二级）")
+    out.append("> 本页为**生成页**，数值随版本调整，引用时请附「以游戏内为准」。")
+    out.append("")
+    out.append('<a id="top"></a>')
+    out.append("")
+    out.append("## 📸 本页概览")
+    out.append("")
+    out.append("| 项目 | 说明 |")
+    out.append("|------|------|")
+    out.append(f"| **收录件数** | **{page['count']} 件**（全站物品图鉴共 {total_items} 件） |")
+    out.append(f"| **叶子分类** | {page['leaf_n']} 个官方分类，分 **{len(parts)}** 册列出 |")
+    out.append("| **为什么分册** | 整类一次列完是 **100+ 屏**，读者要滚很久、页内锚点也失去意义。"
+               "按叶子分类切成若干册后，每册约 **40** 屏以内，且**每册可单独分享** |")
+    out.append("| **数据来源** | `json.tarkov.dev` 的 `itemCategories` 树与 `items` 接口，二级来源 |")
+    out.append(f"| **抓取日期** | {FETCH_DATE} |")
+    out.append("")
+    out.append("---")
+    out.append("")
+    out.append("## 📚 分册")
+    out.append("")
+    out.append("| # | 范围 | 件数 |")
+    out.append("|---|------|------|")
+    for i, pt in enumerate(parts, 1):
+        out.append(f"| {i} | [{pt['title']}]({pt['slug']}.md) | {pt['count']} |")
+    out.append("")
+    out.append("---")
+    out.append("")
+    out.append("## 📚 相关页面")
+    out.append("")
+    out.append("- [物品图鉴总览](index.md) — 全站检索与筛选入口")
+    out.append("- [任务需求物品反查](../quests/item-lookup.md) — 某物品被哪些任务要求")
+    out.append("")
+    out.append('⬆️ **[回到顶部](#top)**')
+    out.append("")
+    out.append("**最后更新**: " + BASE_MONTH + " ｜ "
+               "**贡献者** [GTX950L](https://github.com/GTX950L) ｜ "
+               "**License**: CC BY-NC-SA 4.0")
+    out.append("")
+    return "\n".join(out)
+
+
 def page_markdown(page, leaves, buckets, total_items) -> str:
     rows = []
     for lid in page["leaves"]:
@@ -697,6 +881,13 @@ def page_markdown(page, leaves, buckets, total_items) -> str:
     out.append("| 项目 | 说明 |")
     out.append("|------|------|")
     out.append(f"| **收录件数** | **{page['count']} 件**（全站物品图鉴共 {total_items} 件） |")
+    # 拆出来的子页：**必须说清「这不是全部」以及其余在哪** ——
+    # 否则读者会以为这个大类只有这一页的内容。
+    if page.get("parts"):
+        w = page["whole"]
+        out.append(f"| **本页范围** | 第 **{page['part']}** / {page['parts']} 部分"
+                   f"（[{w['title']}]({w['slug']}.md) 整类共 {w['count']} 件、"
+                   f"{w['leaves']} 个官方分类） |")
     out.append(f"| **叶子分类** | {len(page['leaves'])} 个官方分类："
                + "、".join(
                    f"[{leaves[l][-1]}](#{leaf_anchor(leaves[l][-1])})"
@@ -1294,8 +1485,10 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     written = []
     anchor_errs = []
-    for p in plan:
-        md = page_markdown(p, leaves, buckets, items_total)
+    for p in expand_splits(plan, leaves, buckets):
+        # 被拆开的整页 → 总览页（只列分册，不含大表）
+        md = (hub_markdown(p, leaves, items_total) if p.get("hub")
+              else page_markdown(p, leaves, buckets, items_total))
         anchor_errs += check_anchors(md, p["slug"])
         f = OUT / f"{p['slug']}.md"
         f.write_bytes(md.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8"))
@@ -1305,6 +1498,17 @@ def main() -> int:
     anchor_errs += check_anchors(idx_md, "index")
     idx.write_bytes(idx_md.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8"))
     written.append(idx)
+
+    # ── 清掉**上一轮留下、这一轮不再产出**的页面 ────────────────────────────
+    # 必须做，否则拆分后会残留旧的整页（mods-body.md 与 mods-body-1..5 并存）：
+    # 那些文件既进不了 nav、又会被 check_entries 当成「有 md 但不在 nav 里」，
+    # 而且**它们的内容是过期的**，谁点进去都会看到旧数。
+    # 判据用「这一轮的产出表」而不是通配符删除 —— 只删自己疆域内的东西。
+    keep = {f.name for f in written} | {"item.md"}   # item.md 由另一段逻辑写，别误删
+    for old in sorted(OUT.glob("*.md")):
+        if old.name not in keep:
+            old.unlink()
+            print(f"  清理过期页面：{old.relative_to(ROOT)}")
     if anchor_errs:
         print("\n锚点自检未通过：", file=sys.stderr)
         for e in anchor_errs:

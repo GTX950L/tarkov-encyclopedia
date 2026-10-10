@@ -80,7 +80,7 @@ tags:
 | 41 | IOTV Gen4 防弹衣（高机动型，复合迷彩） | `iotv-gen4-body-armor-high-mobility-kit-multicam` | 7.88 千克 | 防护等级 5 级；材质 重型；耐久 320；防护区域 14 处；钝伤防护 26%（共 9 项） | — | 41,644 卢布（5 家最高） |
 | 42 | FORT Redut-T5（堡垒-T5）防弹衣（烟雾迷彩） | `fort-redut-t5-body-armor-smog` | 8.1 千克 | 防护等级 6 级；材质 重型；耐久 504；防护区域 16 处；钝伤防护 24%（共 9 项） | — | 53,432 卢布（5 家最高） |
 | 43 | IOTV Gen4 防弹衣（突击型，复合迷彩） | `iotv-gen4-body-armor-assault-kit-multicam` | 8.18 千克 | 防护等级 5 级；材质 重型；耐久 362；防护区域 14 处；钝伤防护 26%（共 9 项） | — | 43,340 卢布（5 家最高） |
-| 44 | MF-UNTAR防弹背心 | `mf-untar-body-armor` | 8.5 千克 | 防护等级 3 级；材质 轻型；耐久 100；防护区域 6 处；钝伤防护 24%（共 9 项） | 49,158 卢布，需 Peacekeeper 2 级 | 13,112 卢布（5 家最高） |
+| 44 | MF-UNTAR防弹背心 | `mf-untar-body-armor` | 8.5 千克 | 防护等级 3 级；材质 轻型；耐久 100；防护区域 6 处；钝伤防护 24%（共 9 项） | 49,271 卢布，需 Peacekeeper 2 级 | 13,112 卢布（5 家最高） |
 | 45 | NFM THOR 一体式防弹护甲 | `nfm-thor-integrated-carrier-body-armor` | 8.5 千克 | 防护等级 6 级；材质 不适用；耐久 466；防护区域 15 处；钝伤防护 0%（共 9 项） | — | 64,751 卢布（5 家最高） |
 | 46 | IOTV Gen4 防弹衣（全面防护型，复合迷彩） | `iotv-gen4-body-armor-full-protection-kit-multicam` | 9.08 千克 | 防护等级 5 级；材质 重型；耐久 398；防护区域 16 处；钝伤防护 26%（共 9 项） | — | 50,241 卢布（5 家最高） |
 | 47 | 6B43 屏障-Sh 防弹衣（数码丛林迷彩） | `6b43-zabralo-sh-body-armor-emr` | 10.8 千克 | 防护等级 6 级；材质 重型；耐久 510；防护区域 15 处；钝伤防护 30%（共 9 项） | — | 56,523 卢布（5 家最高） |
@@ -138,7 +138,7 @@ Hexatac HPC 插板背心（复合迷彩）　Hexatac HPC 插板背心（黑系�
 | 29 | 圆框太阳镜（绿色镜片） | `round-frame-sunglasses-green-lenses` | 0.04 千克 | 防护等级 0 级；耐久 0；钝伤防护 0%；移速惩罚 0%；转身惩罚 0%（共 7 项） | — | 2,500 卢布（3 家最高） |
 | 30 | Dundukk 运动太阳镜（橙色镜片） | `dundukk-sport-sunglasses-orange-lenses` | 0.05 千克 | 防护等级 0 级；耐久 0；钝伤防护 0%；移速惩罚 0%；转身惩罚 0%（共 7 项） | — | 2,500 卢布（3 家最高） |
 | 31 | Dundukk运动太阳镜 | `dundukk-sport-sunglasses` | 0.05 千克 | 防护等级 0 级；耐久 0；钝伤防护 0%；移速惩罚 0%；转身惩罚 0%（共 7 项） | 2,819 卢布，需 Ragman 1 级 | 1,014 卢布（4 家最高） |
-| 32 | Oakley SI Batwolf 墨镜 | `oakley-si-batwolf-glasses` | 0.05 千克 | 防护等级 1 级；耐久 20；钝伤防护 22%；移速惩罚 0%；转身惩罚 0%（共 7 项） | 32,981 卢布，需 Peacekeeper 4 级 | 10,350 卢布（4 家最高） |
+| 32 | Oakley SI Batwolf 墨镜 | `oakley-si-batwolf-glasses` | 0.05 千克 | 防护等级 1 级；耐久 20；钝伤防护 22%；移速惩罚 0%；转身惩罚 0%（共 7 项） | 33,058 卢布，需 Peacekeeper 4 级 | 10,350 卢布（4 家最高） |
 | 33 | 战术目镜 | `tactical-glasses` | 0.05 千克 | 防护等级 0 级；耐久 0；钝伤防护 0%；移速惩罚 0%；转身惩罚 0%（共 7 项） | 2,320 卢布，需 Ragman 1 级 | 834 卢布（4 家最高） |
 | 34 | JohnB ”Liquid DNB”墨镜 | `johnb-liquid-dnb-glasses` | 0.06 千克 | 防护等级 0 级；耐久 0；钝伤防护 0%；移速惩罚 0%；转身惩罚 0%（共 7 项） | — | 6,000 卢布（4 家最高） |
 | 35 | 雷硼嬉皮太阳镜 | `raybench-hipster-reserve-sunglasses` | 0.08 千克 | 防护等级 0 级；耐久 0；钝伤防护 0%；移速惩罚 0%；转身惩罚 0%（共 7 项） | — | 1,790 卢布（4 家最高） |
@@ -170,16 +170,16 @@ Pyramex Proximity防护眼镜　反光太阳镜 (白色)　反光太阳镜 (绿�
 |---|------|--------|------|----------|--------------|--------------|
 | 1 | PRTCTR轻量化防弹插板 | `prtctr-lightweight-ballistic-plate` | 0.43 千克 | 防护等级 3 级；材质 轻型；耐久 35；防护区域 2 处；钝伤防护 26%（共 9 项） | — | 6,509 卢布（4 家最高） |
 | 2 | GAC 3s15m防弹插板 | `gac-3s15m-ballistic-plate` | 0.97 千克 | 防护等级 5 级；材质 轻型；耐久 45；防护区域 2 处；钝伤防护 26%（共 9 项） | — | 26,900 卢布（4 家最高） |
-| 3 | SSAPI III+ 级防弹插板（侧边） | `ssapi-level-iii-ballistic-plate-side` | 1 千克 | 防护等级 5 级；材质 重型；耐久 15；防护区域 4 处；钝伤防护 30%（共 9 项） | 16,503 卢布，需 Peacekeeper 3 级 | 4,402 卢布（4 家最高） |
+| 3 | SSAPI III+ 级防弹插板（侧边） | `ssapi-level-iii-ballistic-plate-side` | 1 千克 | 防护等级 5 级；材质 重型；耐久 15；防护区域 4 处；钝伤防护 30%（共 9 项） | 16,541 卢布，需 Peacekeeper 3 级 | 4,402 卢布（4 家最高） |
 | 4 | Tac-Kek SAPI Level III+ 防弹插板（仿制品） | `tac-kek-sapi-level-iii-ballistic-plate-replica` | 1.1 千克 | 防护等级 1 级；材质 轻型；耐久 90；防护区域 2 处；钝伤防护 33%（共 9 项） | — | 2,175 卢布（4 家最高） |
 | 5 | 刚玉-VM 防弹插板（侧边） | `korund-vm-ballistic-plate-side` | 1.1 千克 | 防护等级 5 级；材质 重型；耐久 25；防护区域 4 处；钝伤防护 18%（共 9 项） | 13,485 卢布，需 Prapor 4 级 | 3,813 卢布（4 家最高） |
 | 6 | ESBI IV 级防弹插板（侧边） | `esbi-level-iv-ballistic-plate-side` | 1.15 千克 | 防护等级 6 级；材质 重型；耐久 18；防护区域 4 处；钝伤防护 30%（共 9 项） | — | 8,060 卢布（4 家最高） |
 | 7 | Granit 防弹插板（侧边） | `granit-ballistic-plate-side` | 1.3 千克 | 防护等级 6 级；材质 重型；耐久 20；防护区域 4 处；钝伤防护 28%（共 9 项） | — | 7,260 卢布（4 家最高） |
-| 8 | Ops-Core SLAAP 附加防弹板（黄褐色） | `velocity-systems-slaap-plate-tan` | 1.3 千克 | 防护等级 5 级；材质 不适用；耐久 30；防护区域 1 处；钝伤防护 8%（共 9 项） | 188,312 卢布，需 Peacekeeper 4 级 | 55,812 卢布（4 家最高） |
+| 8 | Ops-Core SLAAP 附加防弹板（黄褐色） | `velocity-systems-slaap-plate-tan` | 1.3 千克 | 防护等级 5 级；材质 不适用；耐久 30；防护区域 1 处；钝伤防护 8%（共 9 项） | 188,749 卢布，需 Peacekeeper 4 级 | 55,812 卢布（4 家最高） |
 | 9 | Monoclete III 级 PE 防弹插板 | `monoclete-level-iii-pe-ballistic-plate` | 1.35 千克 | 防护等级 4 级；材质 轻型；耐久 40；防护区域 2 处；钝伤防护 26%（共 9 项） | — | 9,310 卢布（4 家最高） |
-| 10 | SPRTN Elaphros防弹插板 | `sprtn-elaphros-ballistic-plate` | 1.6 千克 | 防护等级 4 级；材质 重型；耐久 45；防护区域 2 处；钝伤防护 30%（共 9 项） | 38,162 卢布，需 Peacekeeper 3 级 | 8,627 卢布（4 家最高） |
+| 10 | SPRTN Elaphros防弹插板 | `sprtn-elaphros-ballistic-plate` | 1.6 千克 | 防护等级 4 级；材质 重型；耐久 45；防护区域 2 处；钝伤防护 30%（共 9 项） | 38,251 卢布，需 Peacekeeper 3 级 | 8,627 卢布（4 家最高） |
 | 11 | SAPI III+ 级防弹插板 | `sapi-level-iii-ballistic-plate` | 1.82 千克 | 防护等级 5 级；材质 重型；耐久 50；防护区域 2 处；钝伤防护 30%（共 9 项） | — | 18,542 卢布（4 家最高） |
-| 12 | NewSphereTech III 级防弹插板 | `newspheretech-level-iii-ballistic-plate` | 2.15 千克 | 防护等级 4 级；材质 轻型；耐久 45；防护区域 2 处；钝伤防护 27%（共 9 项） | 36,304 卢布，需 Peacekeeper 3 级 | 8,421 卢布（4 家最高） |
+| 12 | NewSphereTech III 级防弹插板 | `newspheretech-level-iii-ballistic-plate` | 2.15 千克 | 防护等级 4 级；材质 轻型；耐久 45；防护区域 2 处；钝伤防护 27%（共 9 项） | 36,388 卢布，需 Peacekeeper 3 级 | 8,421 卢布（4 家最高） |
 | 13 | Kiba Arms Titan防弹插板 | `kiba-arms-titan-ballistic-plate` | 2.25 千克 | 防护等级 4 级；材质 重型；耐久 55；防护区域 2 处；钝伤防护 14%（共 9 项） | — | 10,810 卢布（4 家最高） |
 | 14 | 刚玉-VM 防弹插板（背部） | `korund-vm-ballistic-plate-back` | 2.3 千克 | 防护等级 5 级；材质 重型；耐久 40；防护区域 1 处；钝伤防护 18%（共 9 项） | 48,724 卢布，需 Prapor 3 级 | 13,269 卢布（4 家最高） |
 | 15 | Zhuk-3防弹插板（前部） | `zhuk-3-ballistic-plate-front` | 2.4 千克 | 防护等级 3 级；材质 轻型；耐久 40；防护区域 1 处；钝伤防护 24%（共 9 项） | — | 5,092 卢布（4 家最高） |

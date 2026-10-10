@@ -113,7 +113,7 @@ SZ-1 炸药　SZ-1 炸药　Sudak-Tudak 船用维修工具包　武器维修套�
 | 4 | Digital secure DSP无线电收发器 | `digital-secure-dsp-radio-transmitter` | 0.17 千克 | — | — | — |
 | 5 | “明眼”迫击炮袭告警装置 | `the-eye-mortar-strike-signaling-device` | 0.2 千克 | — | — | — |
 | 6 | 信号干扰器 | `signal-jammer` | 0.3 千克 | — | 21,852 卢布，需 Mechanic 1 级 | 7,866 卢布（3 家最高） |
-| 7 | WIFI摄像头 | `wi-fi-camera` | 0.5 千克 | — | 63,204 卢布，需 Mechanic 1 级 | 15,791 卢布（3 家最高） |
+| 7 | WIFI摄像头 | `wi-fi-camera` | 0.5 千克 | — | 63,141 卢布，需 Mechanic 1 级 | 15,791 卢布（3 家最高） |
 | 8 | 无线电中继器 | `radio-repeater` | 0.5 千克 | — | — | 7,866 卢布（3 家最高） |
 | 9 | 黑色军团加固手提电脑 | `black-division-rugged-laptop` | 2.5 千克 | — | — | 49,500 卢布（3 家最高） |
 

@@ -52,7 +52,7 @@ tags:
 | 13 | Spiritus Systems Bank Robber 胸挂 | `spiritus-systems-bank-robber-chest-rig-multicam-black` | 0.7 千克 | 容量 8 格；移速惩罚 0%；转身惩罚 0%；人机工效惩罚 0% | 10,259 卢布，需 Ragman 1 级 | 4,100 卢布（4 家最高） |
 | 14 | Spiritus Systems Bank Robber 胸挂 (高原复合迷彩) | `spiritus-systems-bank-robber-chest-rig-multicam-alpine` | 0.7 千克 | 容量 8 格；移速惩罚 0%；转身惩罚 0%；人机工效惩罚 0% | 10,829 卢布，需 Ragman 1 级 | 4,100 卢布（4 家最高） |
 | 15 | CSA 胸挂（黑色） | `csa-chest-rig-black` | 0.75 千克 | 容量 10 格；移速惩罚 0%；转身惩罚 0%；人机工效惩罚 0% | 14,237 卢布，需 Ragman 1 级 | 5,121 卢布（4 家最高） |
-| 16 | SOE微型胸挂 | `soe-micro-rig-multicam` | 0.8 千克 | 容量 8 格；移速惩罚 0%；转身惩罚 0%；人机工效惩罚 0% | 17,995 卢布，需 Peacekeeper 2 级 | 4,800 卢布（4 家最高） |
+| 16 | SOE微型胸挂 | `soe-micro-rig-multicam` | 0.8 千克 | 容量 8 格；移速惩罚 0%；转身惩罚 0%；人机工效惩罚 0% | 18,036 卢布，需 Peacekeeper 2 级 | 4,800 卢布（4 家最高） |
 | 17 | Haley Strategic D3CRX 胸挂（丛林绿） | `haley-strategic-d3crx-chest-harness-ranger-green` | 0.9 千克 | 容量 16 格；移速惩罚 0%；转身惩罚 0%；人机工效惩罚 0% | 43,924 卢布，需 Ragman 2 级 | 15,800 卢布（4 家最高） |
 | 18 | Haley Strategic D3CRX 胸挂（黑色） | `haley-strategic-d3crx-chest-harness-black` | 0.9 千克 | 容量 16 格；移速惩罚 0%；转身惩罚 0%；人机工效惩罚 0% | — | 15,800 卢布（4 家最高） |
 | 19 | Gear Craft GC-BSS-MK1 胸挂 (A-TACS 橄榄绿迷彩) | `gear-craft-gc-bss-mk1-chest-rig-a-tacs-fg` | 1 千克 | 容量 16 格；移速惩罚 0%；转身惩罚 0%；人机工效惩罚 0% | 33,377 卢布，需 Ragman 2 级 | 15,007 卢布（4 家最高） |
@@ -165,7 +165,7 @@ IDEA DIY胸挂　Scav背心　保安背心　Zulu Nylon Gear M4 低特征胸挂�
 |---|------|--------|------|----------|--------------|--------------|
 | 1 | Vertx Ready Pack背包（红色） | `vertx-ready-pack-backpack-red` | 0.453 千克 | 容量 16 格；移速惩罚 1%；转身惩罚 0%；人机工效惩罚 1% | — | 6,076 卢布（3 家最高） |
 | 2 | 战术挎包 | `tactical-sling-bag-khaki` | 0.48 千克 | 容量 6 格；移速惩罚 0%；转身惩罚 0%；人机工效惩罚 2% | 8,340 卢布，需 Ragman 1 级 | 3,000 卢布（3 家最高） |
-| 3 | LBT-8005A Day Pack 背包（黑系复合迷彩） | `lbt-8005a-day-pack-backpack-multicam-black` | 0.57 千克 | 容量 20 格；移速惩罚 1%；转身惩罚 1%；人机工效惩罚 2% | 42,364 卢布，需 Peacekeeper 2 级 | 11,300 卢布（3 家最高） |
+| 3 | LBT-8005A Day Pack 背包（黑系复合迷彩） | `lbt-8005a-day-pack-backpack-multicam-black` | 0.57 千克 | 容量 20 格；移速惩罚 1%；转身惩罚 1%；人机工效惩罚 2% | 42,462 卢布，需 Peacekeeper 2 级 | 11,300 卢布（3 家最高） |
 | 4 | Partizan的包 | `partisans-bag` | 0.7 千克 | 容量 20 格；移速惩罚 5%；转身惩罚 2%；人机工效惩罚 8% | — | 18,428 卢布（3 家最高） |
 | 5 | 邮差小挎包 | `transformer-bag` | 0.84 千克 | 容量 9 格；移速惩罚 0%；转身惩罚 0%；人机工效惩罚 2% | 14,387 卢布，需 Ragman 1 级 | 4,500 卢布（3 家最高） |
 | 6 | VKBO军用背包 | `vkbo-army-bag` | 0.96 千克 | 容量 8 格；移速惩罚 1%；转身惩罚 0%；人机工效惩罚 1% | 10,480 卢布，需 Jaeger 1 级 | 4,000 卢布（3 家最高） |
@@ -190,7 +190,7 @@ IDEA DIY胸挂　Scav背心　保安背心　Zulu Nylon Gear M4 低特征胸挂�
 | 25 | Hazard 4 Drawbridge 背包（黄褐色） | `hazard-4-drawbridge-backpack-coyote-tan` | 1.67 千克 | 容量 25 格；移速惩罚 2%；转身惩罚 0%；人机工效惩罚 2% | — | 15,000 卢布（3 家最高） |
 | 26 | LBT-2670 小型野战医物包 | `lbt-2670-slim-field-med-pack-black` | 1.92 千克 | 容量 48 格；移速惩罚 4%；转身惩罚 1%；人机工效惩罚 6% | — | 10,000 卢布（3 家最高） |
 | 27 | ANA Tactical Beta 2 战斗背包（橄榄绿） | `ana-tactical-beta-2-battle-backpack-olive-drab` | 2 千克 | 容量 30 格；移速惩罚 2%；转身惩罚 3%；人机工效惩罚 6% | 171,327 卢布，需 Ragman 3 级 | 34,238 卢布（3 家最高） |
-| 28 | 3V Gear Paratus 3 日干员战术背包（林地灰） | `3v-gear-paratus-3-day-operators-tactical-backpack-foliage-grey` | 2.01 千克 | 容量 35 格；移速惩罚 3%；转身惩罚 1%；人机工效惩罚 5% | 187,692 卢布，需 Peacekeeper 4 级 | 29,450 卢布（3 家最高） |
+| 28 | 3V Gear Paratus 3 日干员战术背包（林地灰） | `3v-gear-paratus-3-day-operators-tactical-backpack-foliage-grey` | 2.01 千克 | 容量 35 格；移速惩罚 3%；转身惩罚 1%；人机工效惩罚 5% | 188,125 卢布，需 Peacekeeper 4 级 | 29,450 卢布（3 家最高） |
 | 29 | Camelbak Tri-Zip 突击背包（叶绿色） | `camelbak-tri-zip-assault-backpack-foliage` | 2.2 千克 | 容量 30 格；移速惩罚 3%；转身惩罚 1%；人机工效惩罚 4% | 153,436 卢布，需 Ragman 3 级 | 30,662 卢布（3 家最高） |
 | 30 | Camelbak Tri-Zip 突击背包（复合迷彩） | `camelbak-tri-zip-assault-backpack-multicam` | 2.2 千克 | 容量 30 格；移速惩罚 3%；转身惩罚 1%；人机工效惩罚 4% | 76,718 卢布，需 Ragman 3 级 | 30,662 卢布（3 家最高） |
 | 31 | Mystery Ranch Terraframe 背包（橄榄绿） | `mystery-ranch-terraframe-backpack-olive-drab` | 2.2 千克 | 容量 30 格；移速惩罚 3%；转身惩罚 2%；人机工效惩罚 5% | — | 24,775 卢布（3 家最高） |
