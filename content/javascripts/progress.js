@@ -605,6 +605,48 @@
       return out;
     },
 
+    /* —— 日志同步：批量并入任务状态 ——
+
+       与 setTaskState 的分工：那个是「单条改、交互用」，这个是「整批并、
+       同步用」—— 一次 load / save / emit。逐条调 setTaskState 会对
+       localStorage 做上百次读写、并触发上百次全站重绘（实测明显卡）。
+
+       **只往强里改**：未标记 → 进行中 → 已完成。不会把已完成的降级 ——
+       日志是游戏侧的事实，可以补全、可以升级，但不能因为一次同步把读者
+       亲手标过的东西弄丢（与导入的「件数取较大值 / 剧情取较强状态」同一
+       精神）。值的形态与 setTaskState 一致（商人 slug，用于按商人汇总）。
+
+       dry = true 时只统计、不落盘 —— 给日志同步的「并入前预览」用：
+       预览与真正并入走**同一套规则**，不在调用方复制一份（复制必然漂）。 */
+    mergeTasks: function (entries, m, dry) {
+      var out = { done: 0, inhand: 0, kept: 0 };
+      if (!entries || !entries.length) return out;
+      var d = load();
+      var key = m || d.mode;
+      var md = d.modes[key];
+      if (!md) return out;
+      for (var i = 0; i < entries.length; i++) {
+        var e = entries[i];
+        if (!e || !e.id) continue;
+        var inDone = Object.prototype.hasOwnProperty.call(md.quests, e.id);
+        var inHand = Object.prototype.hasOwnProperty.call(md.inhand, e.id);
+        if (e.state === "done") {
+          if (inDone) { out.kept++; continue; }
+          if (!dry) {
+            delete md.inhand[e.id];
+            md.quests[e.id] = e.trader || "";
+          }
+          out.done++;
+        } else if (e.state === "inhand") {
+          if (inDone || inHand) { out.kept++; continue; }
+          if (!dry) md.inhand[e.id] = e.trader || "";
+          out.inhand++;
+        }
+      }
+      if (!dry) { save(d); emit(); }
+      return out;
+    },
+
     /* —— 通用 —— */
 
     /* track 省略 = 清空该模式的所有轨 */

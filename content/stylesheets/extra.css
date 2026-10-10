@@ -2389,6 +2389,73 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 .tk-board__share b { color: var(--tk-ink); }
 
+/* —— 51.15 从游戏日志同步（v1.100.0，结构见 progress-boards.js 的 renderOps
+   与 log-sync.js）——
+   独立成块：它与导出 / 导入不是一类（换数据来源，不是搬运文件），
+   所以做得比普通按钮重一档 —— 有标题、有说明、有进度条。 */
+.tk-board__logs {
+  margin-top: 1.2rem;
+  padding-top: .95rem;
+  border-top: 1px dashed var(--tk-line-3);
+}
+
+.tk-board__logs h4 {
+  margin: 0 0 .3rem;
+  font-size: .8rem;
+  color: var(--tk-ink);
+}
+
+.tk-board__lognote {
+  margin: 0 0 .6rem;
+  font-size: .72rem;
+  line-height: 1.8;
+  color: var(--tk-ink-2);
+}
+
+.tk-board__logbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem;
+}
+
+.tk-board__logline {
+  margin: .55rem 0 0;
+  font-size: .75rem;
+  line-height: 1.8;
+  color: var(--tk-ink-2);
+}
+
+.tk-board__logline.is-bad { color: var(--tk-red); }
+
+.tk-board__logprog {
+  margin-top: .5rem;
+  height: .28rem;
+  background: var(--tk-panel-2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.tk-board__logprog i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--tk-brand);
+  transition: width .12s linear;
+}
+
+.tk-board__logsum {
+  margin-top: .6rem;
+  font-size: .75rem;
+  line-height: 1.85;
+  color: var(--tk-ink-2);
+}
+
+.tk-board__logsum p { margin: 0 0 .25rem; }
+.tk-board__logsum b { color: var(--tk-ink); }
+
+.tk-board__logok { color: var(--tk-grn); }
+
 .tk-board__prep { margin-top: 1.2rem; }
 
 /* --------------------------------------------------------------------------

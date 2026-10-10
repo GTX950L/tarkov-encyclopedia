@@ -2155,6 +2155,69 @@
       + "两者都不经过服务器。导入时**任务取并集、件数与等级取较大值、剧情章节取较强状态**，"
       + "不会覆盖已有的进度。"));
 
+    /* --------------------------------------------------------------------
+       从游戏日志同步（v1.100.0）—— 与本板块其余功能的分工：
+       导出 / 导入是「把一份进度搬来搬去」，日志同步是**换一个数据来源**
+       （游戏自己写的事实）—— 所以它有独立成块的标题与说明，不做成导入的变体。
+
+       两个入口共用一个处理函数：目录（webkitdirectory）与多选文件。
+       目录入口是主用法（一次把 Logs 捞全）；文件入口给「只想读某几个会话」
+       与不支持目录选择的浏览器兜底。解析代码不在这里 —— 它在惰性模块
+       log-sync.js 里，第一次真正选文件时才注入（这一页其余读者不必背它）。 */
+    var logBox = el("div", "tk-board__logs");
+    logBox.appendChild(el("h4", null, "从游戏日志同步（可选）"));
+    logBox.appendChild(el("p", "tk-board__lognote",
+      "读你本机的塔科夫日志，把已经发生的「接取 / 完成」一次性补进账本 —— "
+      + "在**本页内存**里解析：不上传、不保存、不联网。藏身处、等级、目标级勾选与物品数量"
+      + "日志里没有，仍需手勾。日志位置：Steam 版 `…\\Escape from Tarkov\\build\\Logs`，独立版 `…\\EFT\\Logs`。"));
+
+    var logBar = el("div", "tk-board__logbar");
+    var logDirBtn = el("button", "tk-board__btn", "选择 Logs 文件夹");
+    logDirBtn.type = "button";
+    var logFileBtn = el("button", "tk-board__btn", "或选日志文件");
+    logFileBtn.type = "button";
+    var logCount = el("span", "tk-board__filtercount");
+    logBar.appendChild(logDirBtn);
+    logBar.appendChild(logFileBtn);
+    logBar.appendChild(logCount);
+    logBox.appendChild(logBar);
+
+    var dirInput = document.createElement("input");
+    dirInput.type = "file";
+    dirInput.multiple = true;
+    dirInput.setAttribute("webkitdirectory", "");
+    dirInput.setAttribute("data-logdir", "");      /* 与「导入进度」的 input 区分（端到端测试也用这个选择器） */
+    dirInput.hidden = true;
+    var pickInput = document.createElement("input");
+    pickInput.type = "file";
+    pickInput.multiple = true;
+    pickInput.setAttribute("data-logpick", "");
+    pickInput.hidden = true;
+    logBox.appendChild(dirInput);
+    logBox.appendChild(pickInput);
+
+    var logOut = el("div", "tk-board__logout");
+    logBox.appendChild(logOut);
+
+    function onLogFiles(list) {
+      var files = Array.prototype.slice.call(list || []);
+      if (!files.length) return;
+      logCount.textContent = "已选 " + files.length + " 个文件";
+      UI.loadScript("log-sync.js", ["TarkovLogSync"], function (ok) {
+        if (!ok || !window.TarkovLogSync) {
+          toast(host, "解析模块没有载入成功（可能是网络中断）—— 刷新一次再试。", false);
+          return;
+        }
+        window.TarkovLogSync.run(files, logOut);
+      });
+    }
+    dirInput.addEventListener("change", function () { onLogFiles(dirInput.files); dirInput.value = ""; });
+    pickInput.addEventListener("change", function () { onLogFiles(pickInput.files); pickInput.value = ""; });
+    logDirBtn.addEventListener("click", function () { dirInput.click(); });
+    logFileBtn.addEventListener("click", function () { pickInput.click(); });
+
+    host.appendChild(logBox);
+
     /* 别人分享的链接：问一句再导入，绝不自动改读者的数据 */
     var m = (location.hash || "").match(/#p=([A-Za-z0-9_-]+)/);
     if (m) {
@@ -2493,9 +2556,11 @@
   }
 
   /* 编解码同时挂出来，供端到端测试直接做往返验证 ——
-     否则测试只能靠「点按钮 + 刷新 + 看界面」间接推断，定位不到出错的那一步。 */
+     否则测试只能靠「点按钮 + 刷新 + 看界面」间接推断，定位不到出错的那一步。
+     ensureGraph 一并导出：log-sync.js 也要用它（判定 515 口径、取商人），
+     而它自带「多个等待者」的合并逻辑 —— 各写一份必然在加载时序上踩坑。 */
   window.TarkovProgressBoards = {
-    render: render, sync: sync,
+    render: render, sync: sync, ensureGraph: ensureGraph,
     _encode: encodeProgress, _decode: decodeProgress
   };
 })();
