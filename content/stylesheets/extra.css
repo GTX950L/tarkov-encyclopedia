@@ -2310,6 +2310,12 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 }
 
 .tk-board__segbtn:last-child { border-right-width: 1px; }
+
+/* 散按钮（不属任何分段组）：「门槛」与三个预设直接挂在工具条上，
+   上面那条 `border-right-width: 0` 是给拼接式分段组设计的 —— 组内靠右邻的
+   左边框补线，散按钮没有右邻，右边框会消失（2026-10-10 读者截图报）。
+   只命中工具条的直接子按钮，BEAR/USEC 分段组不受影响。 */
+.tk-board__filter > .tk-board__segbtn { border-right-width: 1px; }
 .tk-board__segbtn:hover { background: var(--tk-panel-2); color: var(--tk-ink); }
 
 .tk-board__segbtn.is-on {
