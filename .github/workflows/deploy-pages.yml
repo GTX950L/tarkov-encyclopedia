@@ -54,6 +54,14 @@ jobs:
       - name: Check item value consistency
         run: python scripts/check_catalog_consistency.py
 
+      # 生成物防漂移：重跑全部**离线可复现**的生成器，看产物有没有跟上源。
+      # 为什么需要它：`gen_*.py` 的产物是入库的，**改了源或生成器却忘了重跑**
+      # 不会让构建失败、也不会让上面任何一道门禁变红 —— 线上就一直留着旧产物。
+      # 实测（2026-10-11）：干净工作区重跑一遍，12 个文件与仓库不一致。
+      # ⚠️ 放在最后：它要重跑 17 支生成器（约 20 秒），且会改写产物文件。
+      - name: Check generator drift
+        run: python scripts/check_gen_drift.py
+
   deploy:
     needs: validate
     runs-on: ubuntu-latest

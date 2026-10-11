@@ -17,6 +17,10 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _baseline import baseline_label  # noqa: E402  站点基线的唯一来源（citation.md）
+
 CACHE = ROOT / "scripts" / "data" / "gear_values.json"
 API = "https://json.tarkov.dev/regular/"
 HEADERS = {
@@ -108,7 +112,7 @@ def fetch() -> dict:
 def header(title: str, fetched: str, read: str, warn: str) -> list[str]:
     return [
         f"## 📊 {title}", "",
-        f"> **口径**：{fetched} 抓取 ｜ 本站基线 1.1.5.1（第一赛季 KORD BREACH）"
+        f"> **口径**：{fetched} 抓取 ｜ 本站基线 {baseline_label()}"
         "｜ **来源**：二级（tarkov.dev 结构化数据端点 ＋ 中文译名字典）",
         ">", f"> **怎么读**：{read}", ">", f"> ⚠️ {warn}", "",
     ]

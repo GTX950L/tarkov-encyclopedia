@@ -15,6 +15,10 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _baseline import baseline_label  # noqa: E402  站点基线的唯一来源（citation.md）
+
 CACHE = ROOT / "scripts" / "data" / "medical_values.json"
 TARGET = ROOT / "content" / "entries" / "medical-catalog.md"
 API = "https://json.tarkov.dev/regular/"
@@ -118,7 +122,7 @@ def render(data: dict, fetched: str) -> str:
     out = [
         "## 📊 逐型号数值表",
         "",
-        f"> **口径**：{fetched} 抓取 ｜ 本站基线 1.1.5.1（第一赛季 KORD BREACH）"
+        f"> **口径**：{fetched} 抓取 ｜ 本站基线 {baseline_label()}"
         "｜ **来源**：二级（tarkov.dev 结构化数据端点 ＋ 中文译名字典）",
         ">",
         "> **怎么读**：**总治疗量**是耐久池，**单次治疗量**是一次动作的上限——两者不是一回事"

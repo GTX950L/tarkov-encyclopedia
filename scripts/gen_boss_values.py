@@ -19,6 +19,10 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _baseline import baseline_label  # noqa: E402  站点基线的唯一来源（citation.md）
+
 CACHE = ROOT / "scripts" / "data" / "boss_values.json"
 TARGET = ROOT / "content" / "entries" / "bosses.md"
 API = "https://json.tarkov.dev/regular/"
@@ -125,7 +129,7 @@ def render(data: dict, fetched: str) -> str:
     out = [
         "## 📊 Boss 血量与刷新率",
         "",
-        f"> **口径**：{fetched} 抓取 ｜ 本站基线 1.1.5.1（第一赛季 KORD BREACH）"
+        f"> **口径**：{fetched} 抓取 ｜ 本站基线 {baseline_label()}"
         "｜ **来源**：二级（tarkov.dev 结构化数据端点）",
         ">",
         "> **怎么读血量**：塔科夫按**部位**结算，**头是唯一能一枪定胜负的部位**——"

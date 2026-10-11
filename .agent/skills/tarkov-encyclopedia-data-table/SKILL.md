@@ -80,13 +80,15 @@ https://json.tarkov.dev/regular/tasks       # 任务（任务图鉴用，见 gen
 
 **表注必须写清三件事**：口径日期 ＋ 基线版本 ＋ 来源层级（二级）；列义（尤其"甲伤""钝伤穿透"这类）；**边界**（哪些没收录、哪些数值口径不同，如霰弹伤害是"每颗弹丸"）。
 
-## Step 4 — 交付前回归（四道门禁 + 三个易漏项）
+## Step 4 — 交付前回归（五道门禁 + 三个易漏项）
 
 ```bash
 python scripts/check_entries.py      # 含「中文正文不留直引号」「表格吞块」
 python scripts/check_icons.py        # 图标计数 —— 见下方坑 1
 python scripts/check_promises.py
 python scripts/skills_consistency.py
+python scripts/check_gen_drift.py    # 改了生成器 / 缓存后必跑：重跑 17 支离线生成器，
+                                     # 看**入库产物**有没有跟上（改了源忘了重跑不会让别的门禁变红）
 ```
 
 | 坑 | 表现 | 正确做法 |

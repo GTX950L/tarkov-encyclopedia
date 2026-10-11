@@ -18,6 +18,10 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _baseline import baseline_label  # noqa: E402  站点基线的唯一来源（citation.md）
+
 CACHE = ROOT / "scripts" / "data" / "armor_values.json"
 TARGET = ROOT / "content" / "entries" / "armor-catalog.md"
 API = "https://json.tarkov.dev/regular/"
@@ -126,7 +130,7 @@ def render(data: dict, fetched: str) -> str:
     out = [
         "## 📊 逐款护甲数值表",
         "",
-        f"> **口径**：{fetched} 抓取 ｜ 本站基线 1.1.5.1（第一赛季 KORD BREACH）"
+        f"> **口径**：{fetched} 抓取 ｜ 本站基线 {baseline_label()}"
         "｜ **来源**：二级（tarkov.dev 结构化数据端点 ＋ 中文译名字典）",
         ">",
         "> **怎么读**：**耐久**是上限值，**实际防护随耐久下降**（见[护甲修复与耐久](armor-repair.md)）；"

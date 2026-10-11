@@ -15,6 +15,10 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _baseline import baseline_label  # noqa: E402  站点基线的唯一来源（citation.md）
+
 CACHE = ROOT / "scripts" / "data" / "food_values.json"
 TARGET = ROOT / "content" / "entries" / "food-catalog.md"
 API = "https://json.tarkov.dev/regular/"
@@ -93,7 +97,7 @@ def render(rows: list[dict], fetched: str) -> str:
     out = [
         "## 📊 逐型号数值表",
         "",
-        f"> **口径**：{fetched} 抓取 ｜ 本站基线 1.1.5.1（第一赛季 KORD BREACH）"
+        f"> **口径**：{fetched} 抓取 ｜ 本站基线 {baseline_label()}"
         "｜ **来源**：二级（tarkov.dev 结构化数据端点 ＋ 中文译名字典）",
         ">",
         "> **怎么读**：**能量与水分可为负数**——负水分的食物会把你「喝干」，这正是本页第 2 节说的陷阱；"

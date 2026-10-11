@@ -46,3 +46,7 @@ jobs:
 
       - name: Check item value consistency
         run: python scripts/check_catalog_consistency.py
+
+      # 生成物防漂移：重跑全部离线生成器，看产物有没有跟上源（详见 deploy-pages.yml）
+      - name: Check generator drift
+        run: python scripts/check_gen_drift.py
