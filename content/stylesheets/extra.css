@@ -1918,6 +1918,30 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   color: var(--tk-ink-2);
 }
 
+/* 分区列表的「显示更多」—— 超过上限时的出路。
+   原先的写法是「只显示了前 80 个，其余用搜索框找」，但搜索框搜的是**任务名**，
+   「可接里第 81 个」根本搜不到 —— 那句话给的是个走不通的出口。 */
+.tk-board__more {
+  display: block;
+  width: 100%;
+  margin: .35rem 0 0;
+  padding: .3rem .5rem;
+  background: var(--tk-panel-2);
+  color: var(--tk-ink-2);
+  border: 1px dashed var(--tk-line-3);
+  font: inherit;
+  font-size: .7rem;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.tk-board__more:hover { background: var(--tk-panel); color: var(--tk-ink); }
+
+.tk-board__more:focus-visible {
+  outline: 2px solid var(--tk-fiord);
+  outline-offset: -2px;
+}
+
 /* 门槛面板里的「转生次数」「Fence 声望」两行。
    ⚠️ 这两项是 inline-flex，**不会自动换行** —— 窄屏下实测两项合计约 12.72rem，
    而面板可用宽度只有约 12.60rem，于是内容把**右边框顶出可视区**（读者报「边框右边看不见」）。
@@ -2037,9 +2061,20 @@ h3.tk-qdone { color: var(--tk-ink-2); }
      ② **缺口不醒目**——「还差 12 个」和「已齐」平铺在一起；
      ③ **FIR 与可采购混排**——读者会以为都能跳蚤市场买。
    新形态：按地图分块 → 块内先列缺口、FIR 单独成区。 */
-.tk-prep { display: grid; gap: .7rem; padding: .55rem .7rem .65rem; }
+/* ⚠️ 单列 grid 必须写明 `minmax(0, 1fr)`。
+   隐式列按 **min-content** 取宽，而下面 `.tk-prep__nm` 的 `min-width: 0`
+   只管 flex 收缩、**不参与 grid 的 min-content 计算** —— 于是一个长物品名
+   （实测 379px）会把整块撑开：386px 视口下面板 scrollWidth 465 / clientWidth 328，
+   面板里出现横向滚动条（2026-10-11 实测）。minmax(0,1fr) 把列下限钉成 0。 */
+.tk-prep {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: .7rem;
+  padding: .55rem .7rem .65rem;
+}
 
 .tk-prep__map {
+  min-width: 0;   /* 同上：grid item 默认 min-width:auto，长内容会顶破列宽 */
   border: 1px solid var(--tk-line-2);
   border-left: 3px solid var(--tk-fiord);
   background: var(--tk-panel);
@@ -2079,8 +2114,11 @@ h3.tk-qdone { color: var(--tk-ink-2); }
 
 .tk-prep__li {
   display: flex;
-  /* 窄屏让整行换行：长物品名不该把数量与「缺 N」推出框外 */
-  flex-wrap: wrap;
+  /* 宽屏**不换行**：长物品名截断（有 title），但数量与「缺 N」必须留在行尾 ——
+     一换行「缺 2」就单独占一行，在密集列表里看着像错行。
+     窄屏才允许换行（见下方 media：名字独占一行，数量落到第二行）。
+     ⚠️ 修好 grid 撑宽（minmax(0,1fr)）之后面板回到容器宽度，这条才显出来。 */
+  flex-wrap: nowrap;
   align-items: center;
   gap: .25rem .4rem;
   padding: .18rem .3rem .18rem .45rem;
@@ -2126,10 +2164,24 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   white-space: nowrap;
 }
 
+/* 跨图同名物品的交叉提示 ——「这张图之外还要」，其余地图名写在 title 里。
+   **不合并数字**：按图分块是这一块的设计意图（出门前先想「今晚去哪张图」），
+   合并会把「多图 / 未标注」也算进来，反而失真。 */
+.tk-prep__also {
+  flex: none;
+  font-style: normal;
+  font-family: var(--tk-mono);
+  font-size: .62rem;
+  color: var(--tk-khaki);
+  border: 1px dotted var(--tk-khaki);
+  padding: 0 .25rem;
+  white-space: nowrap;
+}
+
 /* 窄屏：物品名独占一行，数量与「缺 N」落到第二行并左对齐 ——
    否则它们会被推到行尾，看着像与右边框脱节。 */
 @media (max-width: 560px) {
-  .tk-prep__li { row-gap: .15rem; }
+  .tk-prep__li { flex-wrap: wrap; row-gap: .15rem; }
   .tk-prep__nm { flex-basis: 100%; order: 1; }
   .tk-cnt { order: 0; }
   .tk-prep__qty { order: 2; }
@@ -2220,7 +2272,7 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 .tk-chip b { font-family: var(--tk-mono); color: var(--tk-ink); }
 
 @media screen and (max-width: 44.9375em) {
-  .tk-qrow__main { flex-wrap: wrap; }
+  /* .tk-qrow__main 的 flex-wrap 已提到主规则里（宽屏也要），这里只管排序 */
   .tk-qrow__name { flex-basis: 100%; order: 2; }
   /* 分段按钮要**整行独占**：三个按钮约需 10.4rem，这里正文可用约 19rem，
      不让它换行就会把任务名挤到只剩十来个字。
@@ -2236,7 +2288,11 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 .tk-qrow__main {
   display: flex;
+  /* 长门槛标签（`.tk-qrow__gate` 是 nowrap）在宽屏也会把整行顶出去 ——
+     实测 1440px 下 642 > 635。允许换行：那几个任务行变两行，比横向溢出好读。 */
+  flex-wrap: wrap;
   align-items: center;
+  min-width: 0;
   gap: .5rem;
   padding: .22rem .3rem;
 }

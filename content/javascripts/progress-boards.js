@@ -1037,6 +1037,9 @@
        已完成折叠（最长、且是回顾性的）。 */
     var secCollapsed = { inhand: false, avail: false, done: true };
 
+    /* 三个分区各自的显示上限 —— 「显示更多」每次 +QROW_CAP，跨重画保留。 */
+    var caps = { inhand: QROW_CAP, avail: QROW_CAP, done: QROW_CAP };
+
     var openTasks = {};   // 哪些任务被展开了（跨重画保留）
     /* 预设按钮要在 sync() 内外都用：里面读状态、外面挂监听。
        声明在 sync() 里会让外面的循环拿到 undefined —— 实测抛
@@ -1240,21 +1243,47 @@
       });
       draw();
 
-      /* 纯文本清单 —— 出门前复制到手机 / 发群里用。行内带「已囤 / 需求 / 缺口」，
-         「需战局中带出」单独标出，与屏幕上的分区口径一致。 */
-      function prepText(groups) {
-        var out = ["【出发前准备】进行中任务 " + inIds.length + " 个"];
+      /* 货币不是「要囤的东西」—— 钱在仓库里，不缺也不囤。把它算进「还缺 N 项」
+         只会给出荒唐的数（清单里出现过「卢布 0 / 2,000,000，缺 2,000,000」）。
+         单独成组、不计入缺口统计。 */
+      var MONEY = ["卢布", "欧元", "美元"];
+      function isMoney(n) { return MONEY.indexOf(n) >= 0; }
+
+      /* 纯文本清单 —— 出门前复制到手机 / 发群里用。
+         分节与屏幕上的三个分组**同序同名**（必须战局中带出 / 可采购 / 资金）——
+         只给一张平铺的表，读者到了车库分不清「哪些买不到、哪些要带钱」。
+         followLack 与屏幕上的「只看缺口」同源，否则会出现
+         「屏上只显示 28 项、复制出来却是 29 项」的错位。 */
+      function prepText(groups, followLack) {
+        var out = ["【出发前准备】进行中任务 " + inIds.length + " 个"
+                   + (followLack ? "（只列缺口）" : "")];
         groups.forEach(function (g) {
-          if (!g.rows.length) return;
+          var rows0 = followLack ? g.lack : g.rows;
+          if (!rows0.length) return;
           out.push("");
           out.push("■ " + (g.map || "多图 / 未标注")
             + (g.lack.length ? "（还缺 " + g.lack.length + " 项）" : "（已齐）"));
-          g.rows.forEach(function (it) {
-            var have = TP.itemCount(it[0]) || 0;
-            var ok = have >= it[1];
-            out.push("  " + (ok ? "[√]" : "[ ]") + " " + it[0] + " ×" + it[1]
-              + "（已囤 " + have + (ok ? "" : "，缺 " + (it[1] - have)) + "）"
-              + (it[2] ? " · 需战局中带出" : ""));
+
+          var fir = [], buy = [], money = [];
+          rows0.forEach(function (it) {
+            if (isMoney(it[0])) money.push(it);
+            else (it[2] ? fir : buy).push(it);
+          });
+          [
+            ["必须战局中带出（买不到）", fir],
+            ["可采购（跳蚤市场 / 藏身处）", buy],
+            ["资金（按需携带）", money]
+          ].forEach(function (grp) {
+            if (!grp[1].length) return;
+            out.push("  ── " + grp[0] + "（" + grp[1].length + "）");
+            grp[1].forEach(function (it) {
+              var have = TP.itemCount(it[0]) || 0;
+              var ok = have >= it[1];
+              out.push("    " + (ok ? "[√]" : "[ ]") + " " + it[0] + " ×" + it[1]
+                + "（已囤 " + have
+                + (ok || isMoney(it[0]) ? "" : "，缺 " + (it[1] - have)) + "）"
+                + (it[2] ? " · 需战局中带出" : ""));
+            });
           });
         });
         return out.join("\n");
@@ -1307,19 +1336,41 @@
             else merged[items0[z][0]] = [items0[z][0], items0[z][1], items0[z][2]];
           }
           var rows = Object.keys(merged).map(function (k3) { return merged[k3]; });
+          /* 缺口只算「要囤的东西」—— 资金不参与（理由见上面 isMoney） */
           var lack = [];
           for (var r1 = 0; r1 < rows.length; r1++) {
+            if (isMoney(rows[r1][0])) continue;
             if ((TP.itemCount(rows[r1][0]) || 0) < rows[r1][1]) lack.push(rows[r1]);
           }
           rows.sort(function (a, b) {
-            var am = (TP.itemCount(a[0]) || 0) >= a[1] ? 1 : 0;
-            var bm = (TP.itemCount(b[0]) || 0) >= b[1] ? 1 : 0;
+            /* 资金按「不缺」处理 → 沉到下边，不占缺口区 */
+            var am = (isMoney(a[0]) || (TP.itemCount(a[0]) || 0) >= a[1]) ? 1 : 0;
+            var bm = (isMoney(b[0]) || (TP.itemCount(b[0]) || 0) >= b[1]) ? 1 : 0;
             if (am !== bm) return am - bm;            /* 缺的在前 */
             return (a[2] === b[2]) ? a[1] - b[1] : (a[2] ? -1 : 1);
           });
           any += rows.length;
           lackTotal += lack.length;
           groups.push({ map: mp, rows: rows, lack: lack });
+        });
+
+        /* 同名物品跨图索引 —— 出门前最常问的是「AFAK 到底要备几个」，
+           而它可能在好几张图上各要一次（实测 162 种物品里 20 种跨图）。 */
+        var elsewhere = {};
+        groups.forEach(function (g) {
+          var label = g.map || "多图 / 未标注";
+          g.rows.forEach(function (it) {
+            (elsewhere[it[0]] = elsewhere[it[0]] || []).push(label);
+          });
+        });
+
+        /* 地图块排序：缺口多的在前、已齐的沉底。
+           原先按「任务标记顺序」——11 张图 184 项时，最缺的那张可能排在最后，
+           而这一块的用途恰恰是「出门前照着看」。 */
+        groups.sort(function (a, b) {
+          if ((a.lack.length > 0) !== (b.lack.length > 0)) return a.lack.length > 0 ? -1 : 1;
+          if (a.lack.length !== b.lack.length) return b.lack.length - a.lack.length;
+          return b.rows.length - a.rows.length;
         });
 
         prepBox.appendChild(panelHead(
@@ -1356,11 +1407,14 @@
         onlyLbl.appendChild(ocb);
         onlyLbl.appendChild(document.createTextNode("只看缺口"));
         tools.appendChild(onlyLbl);
-        var copyBtn = el("button", "tk-board__segbtn", "复制清单");
+        var onlyLack = !!prepBox.__onlyLack;
+        var copyBtn = el("button", "tk-board__segbtn",
+          onlyLack ? "复制缺口清单" : "复制清单");
         copyBtn.type = "button";
         copyBtn.setAttribute("data-focus-key", "prep-copy");
+        copyBtn.title = "复制成纯文本，可直接粘到手机或群里";
         copyBtn.addEventListener("click", function () {
-          copyText(prepText(groups), function (ok) {
+          copyText(prepText(groups, onlyLack), function (ok) {
             toast(prepBox, ok ? "清单已复制，可直接粘贴到手机。" : "复制失败 —— 浏览器拒绝了剪贴板访问。", ok);
           });
         });
@@ -1368,40 +1422,63 @@
         prepBox.appendChild(tools);
 
         var wrapAll = el("div", "tk-prep");
-        var onlyLack = !!prepBox.__onlyLack;
         groups.forEach(function (g) {
           var rows0 = onlyLack ? g.lack : g.rows;
           if (!rows0.length) return;
+          var mapLabel = g.map || "多图 / 未标注";
           var g3 = el("section", "tk-prep__map");
           var h3 = el("div", "tk-prep__head");
-          h3.appendChild(el("b", null, g.map || "多图 / 未标注"));
+          h3.appendChild(el("b", null, mapLabel));
           h3.appendChild(el("em", null, g.lack.length
             ? ("还缺 " + g.lack.length + " 项")
             : ("已齐 " + g.rows.length + " 项")));
           g3.appendChild(h3);
 
-          var fir = [], buy = [];
-          for (var r2 = 0; r2 < rows0.length; r2++) (rows0[r2][2] ? fir : buy).push(rows0[r2]);
+          /* 三组：必须战局中带出 / 可采购 / 资金。
+             资金原本混在「可采购」里，和「5 个电线」并排 —— 但「带够 200 万卢布」
+             不是同一件事，而且它不该进缺口统计（见 isMoney）。 */
+          var fir = [], buy = [], money = [];
+          for (var r2 = 0; r2 < rows0.length; r2++) {
+            var it5 = rows0[r2];
+            if (isMoney(it5[0])) money.push(it5);
+            else (it5[2] ? fir : buy).push(it5);
+          }
           [
-            ["必须战局中带出 · 跳蚤市场买不到", fir, "fir"],
-            ["可采购 · 跳蚤市场或藏身处", buy, "buy"]
+            ["必须战局中带出 · 跳蚤市场买不到", fir, false],
+            ["可采购 · 跳蚤市场或藏身处", buy, false],
+            ["资金 · 按需携带（不计入缺口）", money, true]
           ].forEach(function (grp) {
             if (!grp[1].length) return;
+            var isCash = grp[2];
             var sec = el("div", "tk-prep__grp");
             sec.appendChild(el("h4", "tk-prep__grph", grp[0] + "（" + grp[1].length + "）"));
             var ul = el("ul", "tk-prep__ul");
             grp[1].forEach(function (it4) {
               var have0 = TP.itemCount(it4[0]) || 0;
               var ok0 = have0 >= it4[1];
-              var li0 = el("li", "tk-prep__li" + (ok0 ? " is-met" : ""));
+              var li0 = el("li", "tk-prep__li" + (ok0 || isCash ? " is-met" : ""));
               /* 不传 need：行尾已经有「已囤 / 需」，再挂一个「需 N」是同一件事说两遍 */
               var ctl0 = countCtl(it4[0]);
               li0.appendChild(ctl0.el);
               var nm2 = el("span", "tk-prep__nm", it4[0]);
+              /* 窄屏下物品名会被 ellipsis 截断（实测 379px 的名字只剩 227px 可见），
+                 补 title 让悬停能看到全名 */
+              nm2.title = it4[0];
               li0.appendChild(nm2);
+
+              /* 跨图同名：这张图之外也要。
+                 **不合并数字** —— 按图分块是这一块的设计意图（「今晚去哪张图」），
+                 合并会把「多图」也算进来。只给一句交叉提示，免得读成「列了两遍」。 */
+              var others = (elsewhere[it4[0]] || []).filter(function (m2) { return m2 !== mapLabel; });
+              if (others.length) {
+                var also = el("em", "tk-prep__also", "另 " + others.length + " 图");
+                also.title = "这张图之外也要：" + others.join("、");
+                li0.appendChild(also);
+              }
+
               li0.appendChild(el("span", "tk-prep__qty",
                 fmtNum(have0) + " / " + fmtNum(it4[1])));
-              if (!ok0) {
+              if (!ok0 && !isCash) {
                 li0.appendChild(el("em", "tk-prep__lack", "缺 " + fmtNum(it4[1] - have0)));
               }
               ul.appendChild(li0);
@@ -1553,41 +1630,70 @@
         var fAv = filtered(tree.avail).sort(byLevel);
         var fDn = filtered(doneIds).sort(byLevel);
 
-        var s1 = section("进行中", fIn.length + " 个" + (mapPick || Object.keys(presets).some(function (k) { return presets[k]; }) ? "（已筛）" : ""), "tk-qsec--inhand", "inhand");
-        if (!fIn.length) {
-          s1.box.appendChild(el("p", "tk-board__empty",
-            inIds.length ? "当前筛选下没有进行中任务。" : "还没标记任何任务。在下面「可接」里把状态改成「进行中」，或用搜索框找任务。"));
-        } else {
-          for (var a1 = 0; a1 < fIn.length && a1 < QROW_CAP; a1++) {
-            s1.box.appendChild(questRow(fIn[a1], graph.tasks[fIn[a1]], null, tree));
+        /* 分区列表的渲染，两件事在这里定：
+           ① **折叠的分区不建行** —— 收起时 body 是 display:none，建了也看不见。
+              实测「全部收起」前后节点数完全相同（1941 → 1941），纯浪费；
+              三个分区全展开时是 3505 个节点，其中大部分白建。
+           ② **超过上限给「显示更多」** —— 原先硬编码「只显示前 80 个，其余用搜索框找」，
+              但搜索框搜的是**任务名**，「可接里第 81 个」根本搜不到，等于没给出路。 */
+        function fillRows(box, key, ids, extraOf) {
+          var cap = caps[key] || QROW_CAP;
+          for (var i = 0; i < ids.length && i < cap; i++) {
+            box.appendChild(questRow(ids[i], graph.tasks[ids[i]],
+              extraOf ? extraOf(ids[i]) : null, tree));
+          }
+          if (ids.length > cap) {
+            var more = el("button", "tk-board__more",
+              "显示更多（还有 " + (ids.length - cap) + " 个）");
+            more.type = "button";
+            more.setAttribute("data-focus-key", "more-" + key);
+            more.addEventListener("click", function () {
+              caps[key] += QROW_CAP;
+              sync();
+            });
+            box.appendChild(more);
+          }
+        }
+
+        /* 「已筛」只在**真的筛过**时才写。⚠️ 只算 mapPick / kappa / lk ——
+           「出发前准备」也是 data-preset，但它**不筛选任务列表**（它是同一批任务的
+           另一视图），把它算进来会让人以为列表被过滤过（v1.104.0 的措辞 bug）。 */
+        var anyFilter = !!(mapPick || presets.kappa || presets.lk);
+        var s1 = section("进行中", fIn.length + " 个" + (anyFilter ? "（已筛）" : ""), "tk-qsec--inhand", "inhand");
+        if (!secCollapsed.inhand) {
+          if (!fIn.length) {
+            s1.box.appendChild(el("p", "tk-board__empty",
+              inIds.length ? "当前筛选下没有进行中任务。" : "还没标记任何任务。在下面「可接」里把状态改成「进行中」，或用搜索框找任务。"));
+          } else {
+            fillRows(s1.box, "inhand", fIn, null);
           }
         }
         body.appendChild(s1.sec);
 
         var s2 = section("可接（前置 + 等级 + 门槛都满足）", fAv.length + " 个", "tk-qsec--avail", "avail");
-        if (!fAv.length) {
-          s2.box.appendChild(el("p", "tk-board__empty", tree.avail.length
-            ? "可接的任务都在筛选之外。"
-            : (gates.level > 0 ? "没有满足条件的任务 —— 检查等级、门槛或前置。" : "先填「我的等级」，否则无法筛出可接的任务。")));
-        } else {
-          for (var a2 = 0; a2 < fAv.length && a2 < QROW_CAP; a2++) {
-            var q2 = fAv[a2];
-            var st2 = tree.stat[q2] || [0, 0];
-            s2.box.appendChild(questRow(q2, graph.tasks[q2], st2[1] ? "前置 " + st2[0] + "/" + st2[1] : "无前置", tree));
+        if (!secCollapsed.avail) {
+          if (!fAv.length) {
+            s2.box.appendChild(el("p", "tk-board__empty", tree.avail.length
+              ? "可接的任务都在筛选之外。"
+              : (gates.level > 0 ? "没有满足条件的任务 —— 检查等级、门槛或前置。" : "先填「我的等级」，否则无法筛出可接的任务。")));
+          } else {
+            fillRows(s2.box, "avail", fAv, function (qid) {
+              var st2 = tree.stat[qid] || [0, 0];
+              return st2[1] ? "前置 " + st2[0] + "/" + st2[1] : "无前置";
+            });
           }
-          if (fAv.length > QROW_CAP) s2.box.appendChild(el("p", "tk-board__note", "只显示了前 " + QROW_CAP + " 个（按等级升序），其余用搜索框找。"));
         }
         body.appendChild(s2.sec);
 
         var s3 = section("已完成", fDn.length + " 个（含 " + Object.keys(tree.inferred).length + " 个由前置推断）", "tk-qsec--done", "done");
-        if (!fDn.length) {
-          s3.box.appendChild(el("p", "tk-board__empty", "还没有已完成的任务。"));
-        } else {
-          for (var a3 = 0; a3 < fDn.length && a3 < QROW_CAP; a3++) {
-            var q3 = fDn[a3];
-            s3.box.appendChild(questRow(q3, graph.tasks[q3], tree.inferred[q3] ? "推断" : "手动", tree));
+        if (!secCollapsed.done) {
+          if (!fDn.length) {
+            s3.box.appendChild(el("p", "tk-board__empty", "还没有已完成的任务。"));
+          } else {
+            fillRows(s3.box, "done", fDn, function (qid) {
+              return tree.inferred[qid] ? "推断" : "手动";
+            });
           }
-          if (fDn.length > QROW_CAP) s3.box.appendChild(el("p", "tk-board__note", "只显示了前 " + QROW_CAP + " 个，其余用搜索框找。"));
         }
         body.appendChild(s3.sec);
 
@@ -1639,7 +1745,15 @@
       return { sec: sec, head: head, box: box };
     }
 
-    search.addEventListener("input", sync);
+    /* 搜索框：输入时合并 80ms 再重画。
+       每敲一个字都会遍历 515 个任务、重建最多三个分区的列表 ——
+       实测单键 1.6–5.6ms，一次不痛，但连打是线性叠加的。
+       80ms 的窗口对正常打字（间隔 >100ms）无感，只在快速输入 / 粘贴时省几次重画。 */
+    var searchTimer = 0;
+    search.addEventListener("input", function () {
+      if (searchTimer) clearTimeout(searchTimer);
+      searchTimer = setTimeout(sync, 80);
+    });
     mapSel.addEventListener("change", sync);
     for (var pb2 = 0; pb2 < pbtns.length; pb2++) {
       pbtns[pb2].addEventListener("click", function (e) {
