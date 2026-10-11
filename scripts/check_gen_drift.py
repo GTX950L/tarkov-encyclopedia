@@ -58,6 +58,18 @@ ROOT = Path(__file__).resolve().parent.parent
 # 归一化：日期一律视作同一个值（产物里的 `generated: today()` 每天都会变）
 DATE_RE = re.compile(rb"\d{4}-\d{2}-\d{2}")
 
+
+def _norm_bytes(b: bytes) -> bytes:
+    """比对用的归一化：**先拉平行尾符，再抹掉日期**。
+
+    ⚠️ 为什么要管行尾符：生成器一律用 `newline="\\n"` 写（LF），而 Windows 上
+    `git checkout` 若开了 `core.autocrlf`，**检出来的文件是 CRLF** —— 于是本地
+    干净树里「跑前 CRLF、跑后 LF」，46 个文件全部误报（2026-10-11 实测）。
+    CI 跑在 Linux 上不会遇到，但门禁在本地必须也有意义。
+    行尾符是**版本控制的职责**（.gitattributes / autocrlf），不该混进「内容漂移」。
+    """
+    return DATE_RE.sub(b"<DATE>", b.replace(b"\r\n", b"\n"))
+
 # 离线可复现的生成器，**按依赖顺序**（改了上游要跟着重跑下游）。
 #
 # ⚠️ 为什么排除这几支：
@@ -97,7 +109,7 @@ def norm_hash(p: Path) -> str | None:
         b = p.read_bytes()
     except OSError:
         return None
-    return hashlib.sha256(DATE_RE.sub(b"<DATE>", b)).hexdigest()
+    return hashlib.sha256(_norm_bytes(b)).hexdigest()
 
 
 def norm_text(p: Path) -> str | None:
@@ -106,7 +118,7 @@ def norm_text(p: Path) -> str | None:
         b = p.read_bytes()
     except OSError:
         return None
-    return DATE_RE.sub(b"<DATE>", b).decode("utf-8", "replace")
+    return _norm_bytes(b).decode("utf-8", "replace")
 
 
 def raw_hash(p: Path) -> str | None:
@@ -142,16 +154,27 @@ def main() -> int:
         print("  要真正检测漂移，去掉 --no-run。")
         return 0
 
-    print(f"重跑 {len(GENERATORS)} 支离线生成器（跟踪文件 {len(files)} 个做跑前跑后比对）…")
-    for i, cmd in enumerate(GENERATORS, 1):
-        r = run(cmd)
-        if r.returncode != 0:
-            print(f"\n[错误] 生成器退出码 {r.returncode}：{' '.join(cmd)}", file=sys.stderr)
-            tail = (r.stdout or "")[-1500:] + (r.stderr or "")[-1500:]
-            print(tail, file=sys.stderr)
-            print("\n生成器本身跑不通，无法判断漂移 —— 先修它。", file=sys.stderr)
-            return 1
-        print(f"  [{i:2}/{len(GENERATORS)}] {' '.join(cmd)}")
+    print(f"重跑 {len(GENERATORS)} 支离线生成器 ×2 遍（跟踪文件 {len(files)} 个做跑前跑后比对）…")
+    # ⚠️ **为什么要跑两遍**：`content/quests/index.md` 由 **3 个生成器**协作写入 ——
+    #    `gen_quests` 整页重建、另两个各写一块标记区；而 `gen_quests` 的
+    #    `carry_over_extras()` 会把**旧文件里的标记区整体搬过来**，于是
+    #    「从任意状态跑一遍」与「再跑一遍」之间可能差一处边界空行 ——
+    #    也就是**跑一遍不足以收敛**。
+    #    仓库里该存的是**收敛态**（稳定态），所以判定依据取第二遍：
+    #    第一遍负责收敛，第二遍才与「跑前记录的状态」比较。
+    for rnd in (1, 2):
+        quiet = rnd == 2
+        for i, cmd in enumerate(GENERATORS, 1):
+            r = run(cmd)
+            if r.returncode != 0:
+                print(f"\n[错误] 生成器退出码 {r.returncode}：{' '.join(cmd)}", file=sys.stderr)
+                tail = (r.stdout or "")[-1500:] + (r.stderr or "")[-1500:]
+                print(tail, file=sys.stderr)
+                print("\n生成器本身跑不通，无法判断漂移 —— 先修它。", file=sys.stderr)
+                return 1
+            if not quiet:
+                print(f"  [{i:2}/{len(GENERATORS)}] {' '.join(cmd)}")
+        print(f"  （第 {rnd} 遍完成）")
 
     changed: list[Path] = []
     only_date: list[Path] = []
