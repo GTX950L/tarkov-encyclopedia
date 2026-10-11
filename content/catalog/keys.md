@@ -17,9 +17,23 @@ tags:
 |------|------|
 | **收录件数** | **259 件**（全站物品图鉴共 4979 件） |
 | **叶子分类** | 2 个官方分类：[门禁卡](#门禁卡)、[机械钥匙](#机械钥匙) |
+| **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。本页 **40 / 259 件**有至少一条（商人出售 1 ｜ 以物换物 29 ｜ 制作 12）；`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— 那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|
+| **使用次数** | 取数据源的 `uses` 字段 —— 同价不同次是两笔不同的交易，买之前先看这一列。9 件的该字段为 0，本站留白，见下方「口径四条」 |
+| **官方简介** | 游戏内物品描述的中文本地化原文，**本页 259 件全覆盖**（平均 29 字）。它是判断「这把钥匙开什么门」最直接的一句 |
 | **数据来源** | `json.tarkov.dev` 的 `itemCategories` 树与 `items` 接口，二级来源 |
 | **抓取日期** | 2026-10-08 |
 | **配套页面** | [物品图鉴总览](index.md) ｜ [任务需求物品反查](../quests/item-lookup.md) ｜ [配方速查表](../docs/recipes.md) |
+| **按图带钥匙** | 全站 57 个任务需要 59 把钥匙，**按地图归拢**的表在[任务图鉴 §4](../quests/index.md)；本页**不逐件标注所属地图**，理由见下方「口径四条」 |
+
+> **口径四条，引用前先读**：
+>
+> ① **使用次数**取自数据源的 `uses` 字段（二级来源，直读游戏文件）。同价不同次是两笔不同的交易，**买之前先看这一列**。
+>
+> ② **留白的 9 件**（门禁卡 8 件、机械钥匙 1 件）该字段为 0，**本站不把它写成「0 次」**——那会被读成「已经用完了」。数据源未说明 0 的含义，请以游戏内的物品描述为准。
+>
+> ③ **本页不逐件标注「属于哪张图」**：能拿到的只有两类 —— 游戏数据里 `maps.accessKeys` 能对上本页的进图准入钥匙（**5 件**），以及任务侧反推出的「哪个任务在哪张图需要它」（**54 件**），两个来源互不重叠，合计 **59 / 259 = 23%**；更关键的是后者是**「任务所在地图」，不是「这把钥匙开哪张图的哪扇门」**，写成「所属地图」会指错。所以按图看钥匙请走[任务图鉴 §4「任务与钥匙」](../quests/index.md)。**表格里没有地图，不等于这把钥匙只有一张图能用。**
+>
+> ④ **官方简介是游戏内的原文**，不是本站的攻略解读 —— 它常直接点名地点（如「化工厂紧急出口的钥匙」），这是判断「它开什么门」最可靠的一句。
 
 ---
 
@@ -35,37 +49,37 @@ tags:
 
 <div data-search-exclude markdown>
 
-| # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
-|---|------|--------|------|----------|--------------|--------------|
-| 1 | 14-4 KORD 站点 K.Arshavin 钥匙卡 (修复) | `station-14-4-kord-arshavin-k-pass-restored` | 0.01 千克 | — | — | — |
-| 2 | Boreas 破冰船轮机舱钥匙卡 | `boreas-engine-room-keycard` | 0.01 千克 | — | — | 219,300 卢布（4 家最高） |
-| 3 | Boreas 破冰船载员舱钥匙卡 | `boreas-crew-quarters-keycard` | 0.01 千克 | — | — | 127,500 卢布（4 家最高） |
-| 4 | C-1 舱室钥匙卡 | `compartment-c-1-keycard` | 0.01 千克 | — | — | 382,500 卢布（4 家最高） |
-| 5 | C-3 舱室钥匙卡 | `compartment-c-3-keycard` | 0.01 千克 | — | — | 336,600 卢布（4 家最高） |
-| 6 | Labrys 访问钥匙卡 | `labrys-access-keycard` | 0.01 千克 | — | — | 61,573 卢布（4 家最高） |
-| 7 | Object #11SR 钥匙卡 | `object-11sr-keycard` | 0.01 千克 | — | — | 51,000 卢布（4 家最高） |
-| 8 | Object #21WS 钥匙卡 | `object-21ws-keycard` | 0.01 千克 | — | — | 25,500 卢布（4 家最高） |
-| 9 | TerraGroup 仓库钥匙卡 | `terragroup-storage-room-keycard` | 0.01 千克 | — | — | 433,500 卢布（4 家最高） |
-| 10 | TerraGroup 实验室生活区钥匙卡 | `terragroup-labs-residential-unit-keycard` | 0.01 千克 | — | — | 84,150 卢布（4 家最高） |
-| 11 | TerraGroup实验室访问钥匙卡 | `terragroup-labs-access-keycard` | 0.01 千克 | — | 208,500 卢布，需 Therapist 3 级 | 51,000 卢布（4 家最高） |
-| 12 | 以 Kerman 提供的哈希代码重新编码的钥匙卡 | `reprogrammed-rfid-keycard-with-mr-kermans-hash-codes` | 0.01 千克 | — | — | — |
-| 13 | 以 Prapor 提供的哈希代码重新编码的钥匙卡 | `reprogrammed-rfid-keycard-with-prapors-hash-codes` | 0.01 千克 | — | — | — |
-| 14 | 克鲁格洛夫保险箱里找到的钥匙卡 | `keycard-from-kruglovs-safe` | 0.01 千克 | — | — | 51,000 卢布（4 家最高） |
-| 15 | 克鲁格洛夫的钥匙卡 | `kruglovs-rfid-keycard` | 0.01 千克 | — | — | — |
-| 16 | 实验室钥匙卡·紫 | `terragroup-labs-keycard-violet` | 0.01 千克 | — | — | 306,000 卢布（4 家最高） |
-| 17 | 实验室钥匙卡·红 | `terragroup-labs-keycard-red` | 0.01 千克 | — | — | 841,500 卢布（4 家最高） |
-| 18 | 实验室钥匙卡·绿 | `terragroup-labs-keycard-green` | 0.01 千克 | — | — | 890,511 卢布（4 家最高） |
-| 19 | 实验室钥匙卡·蓝 | `terragroup-labs-keycard-blue` | 0.01 千克 | — | — | 459,000 卢布（4 家最高） |
-| 20 | 实验室钥匙卡·黄 | `terragroup-labs-keycard-yellow` | 0.01 千克 | — | — | 178,500 卢布（4 家最高） |
-| 21 | 实验室钥匙卡·黑 | `terragroup-labs-keycard-black` | 0.01 千克 | — | — | 382,500 卢布（4 家最高） |
-| 22 | 已激活的克鲁格洛夫钥匙卡 | `activated-kruglovs-rfid-keycard` | 0.01 千克 | — | — | — |
-| 23 | 未知名称钥匙卡 | `rfid-keycard-with-unknown-name` | 0.01 千克 | — | — | — |
-| 24 | 空白 RFID 钥匙卡 | `blank-rfid-keycard` | 0.01 千克 | — | — | 357,000 卢布（4 家最高） |
-| 25 | 蓝色记号钥匙卡 | `keycard-with-a-blue-marking` | 0.01 千克 | — | — | 25,500 卢布（4 家最高） |
-| 26 | 重新编码后的 A.P. 公寓门锁钥匙卡 (红) | `reprogrammed-keycard-for-aps-apartment-lock-red` | 0.01 千克 | — | — | 306,000 卢布（4 家最高） |
-| 27 | 重新编码后的 A.P. 公寓门锁钥匙卡 (绿) | `reprogrammed-keycard-for-aps-apartment-lock-green` | 0.01 千克 | — | — | 306,000 卢布（4 家最高） |
-| 28 | 重新编码后的 A.P. 公寓门锁钥匙卡 (蓝) | `reprogrammed-keycard-for-aps-apartment-lock-blue` | 0.01 千克 | — | — | 306,000 卢布（4 家最高） |
-| 29 | 黑色军团钥匙卡 | `black-division-keycard` | 0.01 千克 | — | — | — |
+| # | 名称 | 英文名 | 重量 | 使用次数 | 官方简介 | 获取方式 | 商人最低售价 | 商人最高回收 |
+|---|------|--------|------|----------|----------|----------|--------------|--------------|
+| 1 | 14-4 KORD 站点 K.Arshavin 钥匙卡 (修复) | `station-14-4-kord-arshavin-k-pass-restored` | 0.01 千克 | — | 这张修复完成的钥匙卡应该能进入 14-4 KORD 站点。 | 制作 | — | — |
+| 2 | Boreas 破冰船轮机舱钥匙卡 | `boreas-engine-room-keycard` | 0.01 千克 | 10 次 | Paradigm 航运公司颁发给技术人员的钥匙卡，供船员在机械区域通行。也许能用来进入轮机舱。 | — | — | 219,300 卢布（4 家最高） |
+| 3 | Boreas 破冰船载员舱钥匙卡 | `boreas-crew-quarters-keycard` | 0.01 千克 | 10 次 | Paradigm 航运公司颁发给员工的钥匙卡，能够进入 Boreas 破冰船的载员舱。 | — | — | 127,500 卢布（4 家最高） |
+| 4 | C-1 舱室钥匙卡 | `compartment-c-1-keycard` | 0.01 千克 | 10 次 | 一张普通的钥匙卡，属于船长。有人用记号笔在上面写了“C-1 Boreas”的标记。 | — | — | 382,500 卢布（4 家最高） |
+| 5 | C-3 舱室钥匙卡 | `compartment-c-3-keycard` | 0.01 千克 | 1 次 | 标有 C-3 的 Paradigm 航运公司钥匙卡。也许能打开 Boreas 破冰船上其中一处封锁的舱室。 | — | — | 336,600 卢布（4 家最高） |
+| 6 | Labrys 访问钥匙卡 | `labrys-access-keycard` | 0.01 千克 | 1 次 | 解锁 Knossos 地下设施进入权限的钥匙卡。卡面图案明显参照了古希腊神话中的米诺陶（牛头人）形象，但奇怪的是，印象中塔科夫从来就没有过什么米诺陶主题乐园。 | 以物换物 | — | 61,573 卢布（4 家最高） |
+| 7 | Object #11SR 钥匙卡 | `object-11sr-keycard` | 0.01 千克 | 10 次 | 使用次数有限的电子钥匙卡，卡面上的标志显示这张钥匙卡属于 TerraGroup公司。“SR”可能代表安全屋。 | 制作 | — | 51,000 卢布（4 家最高） |
+| 8 | Object #21WS 钥匙卡 | `object-21ws-keycard` | 0.01 千克 | 10 次 | 使用次数有限的电子钥匙卡，卡面上的标志显示这张钥匙卡属于 TerraGroup公司。“WS”可能代表武器储藏处。 | — | — | 25,500 卢布（4 家最高） |
+| 9 | TerraGroup 仓库钥匙卡 | `terragroup-storage-room-keycard` | 0.01 千克 | 10 次 | 第 16 号化工厂内部 TerraGroup 秘密仓库的钥匙卡。 | — | — | 433,500 卢布（4 家最高） |
+| 10 | TerraGroup 实验室生活区钥匙卡 | `terragroup-labs-residential-unit-keycard` | 0.01 千克 | 2 次 | 解锁 TerraGroup 实验室隔离区域生活区进入权限的钥匙卡。 | — | — | 84,150 卢布（4 家最高） |
+| 11 | TerraGroup实验室访问钥匙卡 | `terragroup-labs-access-keycard` | 0.01 千克 | 1 次 | 一次性的 TerraGroup 实验室访问钥匙卡，由联合安保公司 (USEC) 配发。 | 商人出售 / 以物换物 / 制作 | 208,500 卢布，需 Therapist 3 级 | 51,000 卢布（4 家最高） |
+| 12 | 以 Kerman 提供的哈希代码重新编码的钥匙卡 | `reprogrammed-rfid-keycard-with-mr-kermans-hash-codes` | 0.01 千克 | — | 使用 Kerman 先生提供的哈希代码重新编码后的射频钥匙卡。理论上应该能开启港口终点站的通路，至少理论如此。 | 制作 | — | — |
+| 13 | 以 Prapor 提供的哈希代码重新编码的钥匙卡 | `reprogrammed-rfid-keycard-with-prapors-hash-codes` | 0.01 千克 | — | 使用 Prapor 提供的哈希代码重新编码后的射频钥匙卡。理论上应该能开启港口终点站的通路，至少理论如此。 | 制作 | — | — |
+| 14 | 克鲁格洛夫保险箱里找到的钥匙卡 | `keycard-from-kruglovs-safe` | 0.01 千克 | 10 次 | 在克鲁格洛夫保险箱里找到的一张钥匙卡。 | — | — | 51,000 卢布（4 家最高） |
+| 15 | 克鲁格洛夫的钥匙卡 | `kruglovs-rfid-keycard` | 0.01 千克 | — | 经过严密设计的定制钥匙卡，能够开启为受集团信任的高层人员专门预留的 TerraGroup 撤离点。 | — | — | — |
+| 16 | 实验室钥匙卡·紫 | `terragroup-labs-keycard-violet` | 0.01 千克 | 10 次 | 联合安保公司 (USEC) 配发的 TerraGroup 实验室钥匙卡，供实验室工作人员使用。 | 制作 | — | 306,000 卢布（4 家最高） |
+| 17 | 实验室钥匙卡·红 | `terragroup-labs-keycard-red` | 0.01 千克 | 10 次 | 联合安保公司 (USEC) 配发的 TerraGroup 实验室钥匙卡，供维护人员使用。 | 制作 | — | 841,500 卢布（4 家最高） |
+| 18 | 实验室钥匙卡·绿 | `terragroup-labs-keycard-green` | 0.01 千克 | 10 次 | 联合安保公司 (USEC) 配发的 TerraGroup 实验室钥匙卡，供管理人员使用，可解锁实验室绿色区域的通行权限。 | 制作 | — | 890,511 卢布（4 家最高） |
+| 19 | 实验室钥匙卡·蓝 | `terragroup-labs-keycard-blue` | 0.01 千克 | 10 次 | 联合安保公司 (USEC) 配发的 TerraGroup 实验室钥匙卡，供安保人员使用，可解锁实验室蓝色区域的通行权限。 | — | — | 459,000 卢布（4 家最高） |
+| 20 | 实验室钥匙卡·黄 | `terragroup-labs-keycard-yellow` | 0.01 千克 | 10 次 | 联合安保公司 (USEC) 配发的 TerraGroup 实验室钥匙卡，供技术人员使用，可解锁实验室黄色区域的通行权限。 | — | — | 178,500 卢布（4 家最高） |
+| 21 | 实验室钥匙卡·黑 | `terragroup-labs-keycard-black` | 0.01 千克 | 10 次 | 联合安保公司 (USEC) 配发的 TerraGroup 实验室钥匙卡，持有者拥有最高通行权限。 | 以物换物 | — | 382,500 卢布（4 家最高） |
+| 22 | 已激活的克鲁格洛夫钥匙卡 | `activated-kruglovs-rfid-keycard` | 0.01 千克 | — | 经过严密设计的定制钥匙卡，卡片现在已经激活，你可以尝试用它溜进港口了。 | 制作 | — | — |
+| 23 | 未知名称钥匙卡 | `rfid-keycard-with-unknown-name` | 0.01 千克 | — | 经过严密设计的定制钥匙卡，像是克鲁格洛夫钥匙卡的复制版本，但原主人的姓名被有意抹去了。能够开启为受集团信任的高层人员专门预留的 TerraGroup 撤离点。 | — | — | — |
+| 24 | 空白 RFID 钥匙卡 | `blank-rfid-keycard` | 0.01 千克 | — | 空白的模板钥匙卡，还没有写入任何东西，至少现在没有。 | — | — | 357,000 卢布（4 家最高） |
+| 25 | 蓝色记号钥匙卡 | `keycard-with-a-blue-marking` | 0.01 千克 | 1 次 | 一次性塑料钥匙卡，上面有一道古怪的蓝色记号，大概是钥匙卡的主人为了辨识而留下的。被记号遮挡的标志与 TerraGroup 实验室的很像。 | — | — | 25,500 卢布（4 家最高） |
+| 26 | 重新编码后的 A.P. 公寓门锁钥匙卡 (红) | `reprogrammed-keycard-for-aps-apartment-lock-red` | 0.01 千克 | 5 次 | 一张红色的 TerraGroup 实验室钥匙卡，使用从 A.P. 加密 U 盘中提取的数据进行的重新编码。理论上来说，A.P. 的公寓套房里应该有一处隐藏房间。 | 制作 | — | 306,000 卢布（4 家最高） |
+| 27 | 重新编码后的 A.P. 公寓门锁钥匙卡 (绿) | `reprogrammed-keycard-for-aps-apartment-lock-green` | 0.01 千克 | 5 次 | 一张绿色的 TerraGroup 实验室钥匙卡，使用从 A.P. 加密 U 盘中提取的数据进行的重新编码。理论上来说，A.P. 的公寓套房里应该有一处隐藏房间。 | 制作 | — | 306,000 卢布（4 家最高） |
+| 28 | 重新编码后的 A.P. 公寓门锁钥匙卡 (蓝) | `reprogrammed-keycard-for-aps-apartment-lock-blue` | 0.01 千克 | 5 次 | 一张蓝色的 TerraGroup 实验室钥匙卡，使用从 A.P. 加密 U 盘中提取的数据进行的重新编码。理论上来说，A.P. 的公寓套房里应该有一处隐藏房间。 | 制作 | — | 306,000 卢布（4 家最高） |
+| 29 | 黑色军团钥匙卡 | `black-division-keycard` | 0.01 千克 | — | 不知为何黑色军团部队成员提前准备好了这种钥匙卡，应该能用来打开港口区的门。 | — | — | — |
 
 </div>
 
@@ -85,238 +99,238 @@ tags:
 
 <div data-search-exclude markdown>
 
-| # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |
-|---|------|--------|------|----------|--------------|--------------|
-| 1 | Cardinal 公寓钥匙 | `cardinal-apartment-key` | 0.01 千克 | — | — | 153,000 卢布（3 家最高） |
-| 2 | Chekannaya 15号公寓钥匙 | `chekannaya-15-apartment-key` | 0.01 千克 | — | — | 765,000 卢布（3 家最高） |
-| 3 | Concordia 63号公寓钥匙 | `concordia-apartment-63-room-key` | 0.01 千克 | — | — | 15,007 卢布（3 家最高） |
-| 4 | Concordia 64号公寓办公室钥匙 | `concordia-apartment-64-office-room-key` | 0.01 千克 | — | — | 33,564 卢布（3 家最高） |
-| 5 | Concordia 64号公寓钥匙 | `concordia-apartment-64-key` | 0.01 千克 | — | — | 27,032 卢布（3 家最高） |
-| 6 | Concordia 8号公寓家庭影院钥匙 | `concordia-apartment-8-home-cinema-key` | 0.01 千克 | — | — | 17,606 卢布（3 家最高） |
-| 7 | Concordia 8号公寓钥匙 | `concordia-apartment-8-room-key` | 0.01 千克 | — | — | 6,239 卢布（3 家最高） |
-| 8 | Concordia 安保处钥匙 | `concordia-security-room-key` | 0.01 千克 | — | — | 36,934 卢布（3 家最高） |
-| 9 | Concordia34号公寓房间钥匙 | `concordia-apartment-34-room-key` | 0.01 千克 | — | — | 8,885 卢布（3 家最高） |
-| 10 | EMERCOM医疗区钥匙 | `emercom-medical-unit-key` | 0.01 千克 | — | — | 36,726 卢布（3 家最高） |
-| 11 | Goshan收银机钥匙 | `goshan-cash-register-key` | 0.01 千克 | — | — | 7,869 卢布（3 家最高） |
-| 12 | Grumpy的藏身处钥匙 | `grumpys-hideout-key` | 0.01 千克 | — | — | 382,500 卢布（3 家最高） |
-| 13 | Horse饭店厕所钥匙 | `horse-restaurant-toilet-key` | 0.01 千克 | — | — | 9,700 卢布（3 家最高） |
-| 14 | IDEA收银机钥匙 | `idea-cash-register-key` | 0.01 千克 | — | — | 7,344 卢布（3 家最高） |
-| 15 | Kiba 商店内侧格栅门钥匙 | `kiba-arms-inner-grate-door-key` | 0.01 千克 | — | — | 85,375 卢布（3 家最高） |
-| 16 | Kiba 商店外门钥匙 | `kiba-arms-outer-door-key` | 0.01 千克 | — | — | 77,530 卢布（3 家最高） |
-| 17 | Knossos LLC 设施钥匙 | `knossos-llc-facility-key` | 0.01 千克 | — | — | 62,885 卢布（3 家最高） |
-| 18 | Leon的藏身处钥匙 | `leons-hideout-key` | 0.01 千克 | — | — | 433,500 卢布（3 家最高） |
-| 19 | Merin小轿车后备箱钥匙 | `merin-car-trunk-key` | 0.01 千克 | — | — | 13,975 卢布（3 家最高） |
-| 20 | OLI收银机钥匙 | `oli-cash-register-key` | 0.01 千克 | — | — | 6,135 卢布（3 家最高） |
-| 21 | OLI物流部钥匙 | `oli-logistics-department-office-key` | 0.01 千克 | — | — | 39,281 卢布（3 家最高） |
-| 22 | OLI管理员办公室钥匙 | `oli-administration-office-key` | 0.01 千克 | — | — | 7,661 卢布（3 家最高） |
-| 23 | OLI超市杂物间钥匙 | `oli-outlet-utility-room-key` | 0.01 千克 | — | — | 1,661 卢布（3 家最高） |
-| 24 | Primorsky 46-48号天桥钥匙 | `primorsky-46-48-skybridge-key` | 0.01 千克 | — | — | 2,619 卢布（3 家最高） |
-| 25 | Primorsky 48 公寓钥匙 | `primorsky-48-apartment-key` | 0.01 千克 | — | — | 9,865 卢布（3 家最高） |
-| 26 | Primorsky大道公寓钥匙 | `primorsky-ave-apartment-key` | 0.01 千克 | — | — | 2,550 卢布（3 家最高） |
-| 27 | RB-AK钥匙 | `rb-ak-key` | 0.01 千克 | — | — | 1,669 卢布（3 家最高） |
-| 28 | RB-AM钥匙 | `rb-am-key` | 0.01 千克 | — | — | 13,361 卢布（3 家最高） |
-| 29 | RB-AO钥匙 | `rb-ao-key` | 0.01 千克 | — | — | 10,763 卢布（3 家最高） |
-| 30 | RB-BK 符号钥匙 | `rb-bk-marked-key` | 0.01 千克 | — | — | 127,500 卢布（3 家最高） |
-| 31 | RB-GN钥匙 | `rb-gn-key` | 0.01 千克 | — | — | 2,688 卢布（3 家最高） |
-| 32 | RB-KORL钥匙 | `rb-korl-key` | 0.01 千克 | — | — | 5,011 卢布（3 家最高） |
-| 33 | RB-KPRL钥匙 | `rb-kprl-key` | 0.01 千克 | — | — | 41,830 卢布（3 家最高） |
-| 34 | RB-KSM钥匙 | `rb-ksm-key` | 0.01 千克 | — | — | 12,857 卢布（3 家最高） |
-| 35 | RB-MP11钥匙 | `rb-mp11-key` | 0.01 千克 | — | — | 8,216 卢布（3 家最高） |
-| 36 | RB-MP12钥匙 | `rb-mp12-key` | 0.01 千克 | — | — | 11,347 卢布（3 家最高） |
-| 37 | RB-MP13钥匙 | `rb-mp13-key` | 0.01 千克 | — | — | 9,307 卢布（3 家最高） |
-| 38 | RB-MP21钥匙 | `rb-mp21-key` | 0.01 千克 | — | — | 12,797 卢布（3 家最高） |
-| 39 | RB-MP22钥匙 | `rb-mp22-key` | 0.01 千克 | — | — | 14,800 卢布（3 家最高） |
-| 40 | RB-OB钥匙 | `rb-ob-key` | 0.01 千克 | — | — | 9,725 卢布（3 家最高） |
-| 41 | RB-OP钥匙 | `rb-op-key` | 0.01 千克 | — | — | 2,296 卢布（3 家最高） |
-| 42 | RB-ORB1钥匙 | `rb-orb1-key` | 0.01 千克 | — | — | 9,848 卢布（3 家最高） |
-| 43 | RB-ORB2钥匙 | `rb-orb2-key` | 0.01 千克 | — | — | 9,537 卢布（3 家最高） |
-| 44 | RB-ORB3钥匙 | `rb-orb3-key` | 0.01 千克 | — | — | 10,256 卢布（3 家最高） |
-| 45 | RB-PKPM 符号钥匙 | `rb-pkpm-marked-key` | 0.01 千克 | — | — | 127,500 卢布（3 家最高） |
-| 46 | RB-PP钥匙 | `rb-pp-key` | 0.01 千克 | — | — | 2,550 卢布（3 家最高） |
-| 47 | RB-PSP1钥匙 | `rb-psp1-key` | 0.01 千克 | — | — | 12,805 卢布（3 家最高） |
-| 48 | RB-PSP2钥匙 | `rb-psp2-key` | 0.01 千克 | — | — | 14,846 卢布（3 家最高） |
-| 49 | RB-PSV1钥匙 | `rb-psv1-key` | 0.01 千克 | — | — | 14,902 卢布（3 家最高） |
-| 50 | RB-PSV2钥匙 | `rb-psv2-key` | 0.01 千克 | — | — | 14,786 卢布（3 家最高） |
-| 51 | RB-RH钥匙 | `rb-rh-key` | 0.01 千克 | — | — | 4,616 卢布（3 家最高） |
-| 52 | RB-RLSA 钥匙 | `rb-rlsa-key` | 0.01 千克 | — | — | 39,270 卢布（3 家最高） |
-| 53 | RB-RS钥匙 | `rb-rs-key` | 0.01 千克 | — | — | 6,145 卢布（3 家最高） |
-| 54 | RB-SMP钥匙 | `rb-smp-key` | 0.01 千克 | — | — | 36,827 卢布（3 家最高） |
-| 55 | RB-ST钥匙 | `rb-st-key` | 0.01 千克 | — | — | 48,460 卢布（3 家最高） |
-| 56 | RB-TB钥匙 | `rb-tb-key` | 0.01 千克 | — | — | 7,660 卢布（3 家最高） |
-| 57 | RB-VO 符号钥匙 | `rb-vo-marked-key` | 0.01 千克 | — | — | 127,500 卢布（3 家最高） |
-| 58 | SMW车钥匙 | `smw-car-key` | 0.01 千克 | — | — | 4,302 卢布（3 家最高） |
-| 59 | Shatun的藏身处钥匙 | `shatuns-hideout-key` | 0.01 千克 | — | — | 357,000 卢布（3 家最高） |
-| 60 | Shturman 的储物箱钥匙 | `shturmans-stash-key` | 0.01 千克 | — | — | 77,230 卢布（3 家最高） |
-| 61 | TerraGroup 实验室军械库钥匙 | `terragroup-labs-arsenal-storage-room-key` | 0.01 千克 | — | — | 45,900 卢布（3 家最高） |
-| 62 | TerraGroup 实验室武器测试区域钥匙 | `terragroup-labs-weapon-testing-area-key` | 0.01 千克 | — | — | 30,600 卢布（3 家最高） |
-| 63 | TerraGroup 实验室经理办公室钥匙 | `terragroup-labs-managers-office-room-key` | 0.01 千克 | — | — | 25,500 卢布（3 家最高） |
-| 64 | TerraGroup 集团公寓钥匙 | `terragroup-corporate-apartment-key` | 0.01 千克 | — | — | 61,200 卢布（3 家最高） |
-| 65 | TerraGroup会议室钥匙 | `terragroup-meeting-room-key` | 0.01 千克 | — | — | 21,476 卢布（3 家最高） |
-| 66 | TerraGroup军械库钥匙 | `terragroup-security-armory-key` | 0.01 千克 | — | — | 44,229 卢布（3 家最高） |
-| 67 | TerraGroup科学家办公室钥匙 | `terragroup-science-office-key` | 0.01 千克 | — | — | 9,700 卢布（3 家最高） |
-| 68 | ULTRA 医疗仓库钥匙 | `ultra-medical-storage-key` | 0.01 千克 | — | — | 80,601 卢布（3 家最高） |
-| 69 | USEC 仓库钥匙 | `usec-stash-key` | 0.01 千克 | — | — | 42,947 卢布（3 家最高） |
-| 70 | USEC小屋房间钥匙 | `usec-cottage-room-key` | 0.01 千克 | — | — | 9,700 卢布（3 家最高） |
-| 71 | USEC灯塔一号保险箱钥匙 | `usec-cottage-first-safe-key` | 0.01 千克 | — | — | 14,027 卢布（3 家最高） |
-| 72 | USEC灯塔二号保险箱钥匙 | `usec-cottage-second-safe-key` | 0.01 千克 | — | — | 14,079 卢布（3 家最高） |
-| 73 | Unity Credit银行档案室钥匙 | `unity-credit-bank-archive-room-key` | 0.01 千克 | — | — | 9,700 卢布（3 家最高） |
-| 74 | Unity Credit银行现金收纳机钥匙 | `unity-credit-bank-cash-register-key` | 0.01 千克 | — | — | 6,002 卢布（3 家最高） |
-| 75 | VAZ 车钥匙 | `vaz-car-key` | 0.01 千克 | — | — | 979 卢布（3 家最高） |
-| 76 | Voron的藏身处钥匙 | `vorons-hideout-key` | 0.01 千克 | — | — | 408,000 卢布（3 家最高） |
-| 77 | X光检查室钥匙 | `x-ray-room-key` | 0.01 千克 | — | — | 35,457 卢布（3 家最高） |
-| 78 | Yotota车钥匙 | `yotota-car-key` | 0.01 千克 | — | — | 614 卢布（3 家最高） |
-| 79 | ZB-014钥匙 | `zb-014-key` | 0.01 千克 | — | — | 7,463 卢布（3 家最高） |
-| 80 | ZB-1013 钥匙 | `zb-1013-key` | 0.01 千克 | — | — | 32,362 卢布（3 家最高） |
-| 81 | Zmeevsky 3公寓8号钥匙 | `zmeisky-3-apartment-8-key` | 0.01 千克 | — | — | 7,308 卢布（3 家最高） |
-| 82 | Zmeevsky 5公寓20号钥匙 | `zmeisky-5-apartment-20-key` | 0.01 千克 | — | — | 7,605 卢布（3 家最高） |
-| 83 | “白鲸”餐厅经理办公室钥匙 | `beluga-restaurant-director-key` | 0.01 千克 | — | — | 21,634 卢布（3 家最高） |
-| 84 | ”Aspect”公司办公区钥匙 | `aspect-company-office-key` | 0.01 千克 | — | — | 17,608 卢布（3 家最高） |
-| 85 | ”调解室”钥匙 | `negotiation-room-key` | 0.01 千克 | — | — | 7,996 卢布（3 家最高） |
-| 86 | 一号房钥匙 | `key-01` | 0.01 千克 | — | — | — |
-| 87 | 三号房钥匙 | `key-03` | 0.01 千克 | — | — | — |
-| 88 | 不动产管理处办公室钥匙 | `real-estate-agency-office-room-key` | 0.01 千克 | — | — | 9,700 卢布（3 家最高） |
-| 89 | 二号房钥匙 | `key-02` | 0.01 千克 | — | — | — |
-| 90 | 休息室钥匙 | `relaxation-room-key` | 0.01 千克 | — | — | 25,436 卢布（3 家最高） |
-| 91 | 会议室钥匙 | `conference-room-key` | 0.01 千克 | — | — | 29,070 卢布（3 家最高） |
-| 92 | 体育教师办公室钥匙 | `pe-teachers-office-key` | 0.01 千克 | — | — | 3,734 卢布（3 家最高） |
-| 93 | 供应部门主管办公室钥匙 | `supply-department-directors-office-key` | 0.01 千克 | — | — | 4,813 卢布（3 家最高） |
-| 94 | 停尸房钥匙 | `corpse-room-key` | 0.01 千克 | — | — | 3,399 卢布（3 家最高） |
-| 95 | 公司主管办公室钥匙 | `company-directors-room-key` | 0.01 千克 | — | — | 22,195 卢布（3 家最高） |
-| 96 | 公寓上锁房间保险箱钥匙 | `apartment-locked-room-safe-key` | 0.01 千克 | — | — | 10,200 卢布（3 家最高） |
-| 97 | 公寓管理员钥匙 | `dorm-overseer-key` | 0.01 千克 | — | — | 27,030 卢布（3 家最高） |
-| 98 | 内务部学院门厅警卫室钥匙 | `mvd-academy-entrance-hall-guard-room-key` | 0.01 千克 | — | — | 15,939 卢布（3 家最高） |
-| 99 | 军事基地检查站钥匙 | `military-checkpoint-key` | 0.01 千克 | — | — | 12,779 卢布（3 家最高） |
-| 100 | 冷库钥匙 | `cold-storage-room-key` | 0.01 千克 | — | — | 19,380 卢布（3 家最高） |
-| 101 | 别墅保险箱钥匙 | `cottage-safe-key` | 0.01 千克 | — | — | 11,296 卢布（3 家最高） |
-| 102 | 别墅后门钥匙 | `cottage-back-door-key` | 0.01 千克 | — | — | 27,091 卢布（3 家最高） |
-| 103 | 加油站保险箱钥匙 | `gas-station-safe-key` | 0.01 千克 | — | — | 2,652 卢布（3 家最高） |
-| 104 | 加油站储藏室钥匙 | `gas-station-storage-room-key` | 0.01 千克 | — | — | 6,579 卢布（3 家最高） |
-| 105 | 变电站杂物间钥匙 | `power-substation-utility-cabin-key` | 0.01 千克 | — | — | 826 卢布（3 家最高） |
-| 106 | 变电站符号钥匙 | `substation-marked-key` | 0.01 千克 | — | — | 127,500 卢布（3 家最高） |
-| 107 | 叛乱USEC仓库钥匙 | `rogue-usec-stash-key` | 0.01 千克 | — | — | 17,544 卢布（3 家最高） |
-| 108 | 叛乱USEC工作间钥匙 | `rogue-usec-workshop-key` | 0.01 千克 | — | — | 14,025 卢布（3 家最高） |
-| 109 | 叛乱USEC营房钥匙 | `rogue-usec-barrack-key` | 0.01 千克 | — | — | 10,818 卢布（3 家最高） |
-| 110 | 商店保险箱钥匙 | `store-safe-key` | 0.01 千克 | — | — | 1,581 卢布（3 家最高） |
-| 111 | 商店经理钥匙 | `store-managers-key` | 0.01 千克 | — | — | 9,744 卢布（3 家最高） |
-| 112 | 四号房钥匙 | `key-04` | 0.01 千克 | — | — | — |
-| 113 | 地下停车场杂物间钥匙 | `underground-parking-utility-room-key` | 0.01 千克 | — | — | 4,485 卢布（3 家最高） |
-| 114 | 塔科夫银行现金区钥匙 | `tarbank-cash-register-department-key` | 0.01 千克 | — | — | 28,315 卢布（3 家最高） |
-| 115 | 备用藏身处钥匙 | `backup-hideout-key` | 0.01 千克 | — | — | 868 卢布（3 家最高） |
-| 116 | 宿舍103房间钥匙 | `dorm-room-103-key` | 0.01 千克 | — | — | 1,893 卢布（3 家最高） |
-| 117 | 宿舍104房间钥匙 | `dorm-room-104-key` | 0.01 千克 | — | — | 2,102 卢布（3 家最高） |
-| 118 | 宿舍105房间钥匙 | `dorm-room-105-key` | 0.01 千克 | — | — | 7,892 卢布（3 家最高） |
-| 119 | 宿舍108房间钥匙 | `dorm-room-108-key` | 0.01 千克 | — | — | 3,071 卢布（3 家最高） |
-| 120 | 宿舍110房间钥匙 | `dorm-room-110-key` | 0.01 千克 | — | — | 8,314 卢布（3 家最高） |
-| 121 | 宿舍114房间钥匙 | `dorm-room-114-key` | 0.01 千克 | — | — | 10,735 卢布（3 家最高） |
-| 122 | 宿舍118房间钥匙 | `dorm-room-118-key` | 0.01 千克 | — | — | 2,733 卢布（3 家最高） |
-| 123 | 宿舍203房间钥匙 | `dorm-room-203-key` | 0.01 千克 | — | — | 1,820 卢布（3 家最高） |
-| 124 | 宿舍204房间钥匙 | `dorm-room-204-key` | 0.01 千克 | — | — | 10,055 卢布（3 家最高） |
-| 125 | 宿舍206房间钥匙 | `dorm-room-206-key` | 0.01 千克 | — | — | 884 卢布（3 家最高） |
-| 126 | 宿舍214房间钥匙 | `dorm-room-214-key` | 0.01 千克 | — | — | 13,597 卢布（3 家最高） |
-| 127 | 宿舍218房间钥匙 | `dorm-room-218-key` | 0.01 千克 | — | — | 3,905 卢布（3 家最高） |
-| 128 | 宿舍220房间钥匙 | `dorm-room-220-key` | 0.01 千克 | — | — | 5,661 卢布（3 家最高） |
-| 129 | 宿舍303房间钥匙 | `dorm-room-303-key` | 0.01 千克 | — | — | 3,787 卢布（3 家最高） |
-| 130 | 宿舍306房间钥匙 | `dorm-room-306-key` | 0.01 千克 | — | — | 3,115 卢布（3 家最高） |
-| 131 | 宿舍308房间钥匙 | `dorm-room-308-key` | 0.01 千克 | — | — | 1,785 卢布（3 家最高） |
-| 132 | 宿舍315房间钥匙 | `dorm-room-315-key` | 0.01 千克 | — | — | 1,288 卢布（3 家最高） |
-| 133 | 宿舍楼 314 房间符号钥匙 | `dorm-room-314-marked-key` | 0.01 千克 | — | — | 765,000 卢布（3 家最高） |
-| 134 | 宿舍门卫室钥匙 | `dorm-guard-desk-key` | 0.01 千克 | — | — | 7,242 卢布（3 家最高） |
-| 135 | 山边小屋钥匙 | `hillside-house-key` | 0.01 千克 | — | — | 12,334 卢布（3 家最高） |
-| 136 | 工厂紧急出口钥匙 | `factory-emergency-exit-key` | 0.01 千克 | — | — | 26,066 卢布（3 家最高） |
-| 137 | 废弃工厂符号钥匙 | `abandoned-factory-marked-key` | 0.01 千克 | — | — | 510,000 卢布（3 家最高） |
-| 138 | 建筑工地工棚钥匙 | `construction-site-bunkhouse-key` | 0.01 千克 | — | — | 6,696 卢布（3 家最高） |
-| 139 | 房屋管理处一楼保险箱钥匙 | `housing-office-first-floor-safe-key` | 0.01 千克 | — | — | 10,200 卢布（3 家最高） |
-| 140 | 房屋管理处二楼保险箱钥匙 | `housing-office-second-floor-safe-key` | 0.01 千克 | — | — | 10,200 卢布（3 家最高） |
-| 141 | 手术室钥匙 | `operating-room-key` | 0.01 千克 | — | — | 49,470 卢布（3 家最高） |
-| 142 | 折叠车钥匙 | `folding-car-key` | 0.01 千克 | — | — | 51 卢布（3 家最高） |
-| 143 | 折叠车钥匙 | `folding-car-key-1` | 0.01 千克 | — | — | 765 卢布（3 家最高） |
-| 144 | 拖车停车场工棚钥匙 | `trailer-park-portable-cabin-key` | 0.01 千克 | — | — | 3,369 卢布（3 家最高） |
-| 145 | 旧屋厕所钥匙 | `old-house-toilet-key` | 0.01 千克 | — | — | 357,000 卢布（3 家最高） |
-| 146 | 旧屋钥匙 | `old-house-room-key` | 0.01 千克 | — | — | 38,560 卢布（3 家最高） |
-| 147 | 未知钥匙 | `unknown-key` | 0.01 千克 | — | — | 818 卢布（3 家最高） |
-| 148 | 机械钥匙 | `machinery-key` | 0.01 千克 | — | — | 1,027 卢布（3 家最高） |
-| 149 | 档案室钥匙 | `archive-room-key` | 0.01 千克 | — | — | 10,311 卢布（3 家最高） |
-| 150 | 检查哨站钥匙 | `security-post-key` | 0.01 千克 | — | — | 6,862 卢布（3 家最高） |
-| 151 | 楼梯间钥匙 | `stair-landing-key` | 0.01 千克 | — | — | 4,984 卢布（3 家最高） |
-| 152 | 武器保险柜钥匙 | `weapon-safe-key` | 0.01 千克 | — | — | 592 卢布（3 家最高） |
-| 153 | 气象站保险箱钥匙 | `weather-station-safe-key` | 0.01 千克 | — | — | 9,742 卢布（3 家最高） |
-| 154 | 水电站仓库钥匙 | `hep-station-storage-room-key` | 0.01 千克 | — | — | 20,400 卢布（3 家最高） |
-| 155 | 污水处理厂储藏室钥匙 | `water-treatment-plant-storage-room-key` | 0.01 千克 | — | — | 10,745 卢布（3 家最高） |
-| 156 | 泵站前门钥匙 | `pumping-station-front-door-key` | 0.01 千克 | — | — | 2,688 卢布（3 家最高） |
-| 157 | 泵站后门钥匙 | `pumping-station-back-door-key` | 0.01 千克 | — | — | 2,615 卢布（3 家最高） |
-| 158 | 海关 Tarcone 主管办公室钥匙 | `tarcone-directors-office-key` | 0.01 千克 | — | — | 10,764 卢布（3 家最高） |
-| 159 | 灯塔便利店储藏室 | `convenience-store-storage-room-key` | 0.01 千克 | — | — | 8,008 卢布（3 家最高） |
-| 160 | 灯塔岛藏匿点钥匙 | `lighthouse-island-stash-key` | 0.01 千克 | — | — | 510 卢布（3 家最高） |
-| 161 | 灯塔警用卡车驾驶室钥匙 | `police-truck-cabin-key` | 0.01 千克 | — | — | 12,495 卢布（3 家最高） |
-| 162 | 生锈的带血钥匙 | `rusted-bloody-key` | 0.01 千克 | — | — | 3,399 卢布（3 家最高） |
-| 163 | 疗养院东楼 107 办公室钥匙 | `health-resort-east-wing-office-room-107-key` | 0.01 千克 | — | — | 31,706 卢布（3 家最高） |
-| 164 | 疗养院东楼 108 办公室钥匙 | `health-resort-east-wing-office-room-108-key` | 0.01 千克 | — | — | 1,638 卢布（3 家最高） |
-| 165 | 疗养院东楼 205 房间钥匙 | `health-resort-east-wing-room-205-key` | 0.01 千克 | — | — | 21,452 卢布（3 家最高） |
-| 166 | 疗养院东楼 206 房间钥匙 | `health-resort-east-wing-room-206-key` | 0.01 千克 | — | — | 30,702 卢布（3 家最高） |
-| 167 | 疗养院东楼 209 房间钥匙 | `health-resort-east-wing-room-209-key` | 0.01 千克 | — | — | 12,546 卢布（3 家最高） |
-| 168 | 疗养院东楼 213 房间钥匙 | `health-resort-east-wing-room-213-key` | 0.01 千克 | — | — | 3,060 卢布（3 家最高） |
-| 169 | 疗养院东楼 216 房间钥匙 | `health-resort-east-wing-room-216-key` | 0.01 千克 | — | — | 2,397 卢布（3 家最高） |
-| 170 | 疗养院东楼 222 房间钥匙 | `health-resort-east-wing-room-222-key` | 0.01 千克 | — | — | 39,800 卢布（3 家最高） |
-| 171 | 疗养院东楼 226 房间钥匙 | `health-resort-east-wing-room-226-key` | 0.01 千克 | — | — | 39,933 卢布（3 家最高） |
-| 172 | 疗养院东楼 306 房间钥匙 | `health-resort-east-wing-room-306-key` | 0.01 千克 | — | — | 28,060 卢布（3 家最高） |
-| 173 | 疗养院东楼 308 房间钥匙 | `health-resort-east-wing-room-308-key` | 0.01 千克 | — | — | 28,060 卢布（3 家最高） |
-| 174 | 疗养院东楼 310 房间钥匙 | `health-resort-east-wing-room-310-key` | 0.01 千克 | — | — | 35,190 卢布（3 家最高） |
-| 175 | 疗养院东楼 313 房间钥匙 | `health-resort-east-wing-room-313-key` | 0.01 千克 | — | — | 26,892 卢布（3 家最高） |
-| 176 | 疗养院东楼 314 房间钥匙 | `health-resort-east-wing-room-314-key` | 0.01 千克 | — | — | 25,673 卢布（3 家最高） |
-| 177 | 疗养院东楼 316 房间钥匙 | `health-resort-east-wing-room-316-key` | 0.01 千克 | — | — | 14,384 卢布（3 家最高） |
-| 178 | 疗养院东楼 322 房间钥匙 | `health-resort-east-wing-room-322-key` | 0.01 千克 | — | — | 3,876 卢布（3 家最高） |
-| 179 | 疗养院东楼 328 房间钥匙 | `health-resort-east-wing-room-328-key` | 0.01 千克 | — | — | 33,660 卢布（3 家最高） |
-| 180 | 疗养院仓库保险箱钥匙 | `health-resort-management-warehouse-safe-key` | 0.01 千克 | — | — | 9,793 卢布（3 家最高） |
-| 181 | 疗养院杂物间钥匙 | `health-resort-universal-utility-room-key` | 0.01 千克 | — | — | 13,770 卢布（3 家最高） |
-| 182 | 疗养院经理办公室保险箱钥匙 | `health-resort-management-office-safe-key` | 0.01 千克 | — | — | 9,794 卢布（3 家最高） |
-| 183 | 疗养院西楼 104 办公室钥匙 | `health-resort-west-wing-office-room-104-key` | 0.01 千克 | — | — | 48,450 卢布（3 家最高） |
-| 184 | 疗养院西楼 112 办公室钥匙 | `health-resort-west-wing-office-room-112-key` | 0.01 千克 | — | — | 38,260 卢布（3 家最高） |
-| 185 | 疗养院西楼 203 房间钥匙 | `health-resort-west-wing-room-203-key` | 0.01 千克 | — | — | 49,587 卢布（3 家最高） |
-| 186 | 疗养院西楼 205 房间钥匙 | `health-resort-west-wing-room-205-key` | 0.01 千克 | — | — | 49,587 卢布（3 家最高） |
-| 187 | 疗养院西楼 207 房间钥匙 | `health-resort-west-wing-room-207-key` | 0.01 千克 | — | — | 3,824 卢布（3 家最高） |
-| 188 | 疗养院西楼 216 房间钥匙 | `health-resort-west-wing-room-216-key` | 0.01 千克 | — | — | 43,095 卢布（3 家最高） |
-| 189 | 疗养院西楼 218 房间钥匙 | `health-resort-west-wing-room-218-key` | 0.01 千克 | — | — | 45,900 卢布（3 家最高） |
-| 190 | 疗养院西楼 219 房间钥匙 | `health-resort-west-wing-room-219-key` | 0.01 千克 | — | — | 12,760 卢布（3 家最高） |
-| 191 | 疗养院西楼 220 房间钥匙 | `health-resort-west-wing-room-220-key` | 0.01 千克 | — | — | 26,520 卢布（3 家最高） |
-| 192 | 疗养院西楼 221 房间钥匙 | `health-resort-west-wing-room-221-key` | 0.01 千克 | — | — | 45,900 卢布（3 家最高） |
-| 193 | 疗养院西楼 222 房间钥匙 | `health-resort-west-wing-room-222-key` | 0.01 千克 | — | — | 45,900 卢布（3 家最高） |
-| 194 | 疗养院西楼 301 房间钥匙 | `health-resort-west-wing-room-301-key` | 0.01 千克 | — | — | 44,370 卢布（3 家最高） |
-| 195 | 疗养院西楼 303 房间钥匙 | `health-resort-west-wing-room-303-key` | 0.01 千克 | — | — | 4,131 卢布（3 家最高） |
-| 196 | 疗养院西楼 306 房间钥匙 | `health-resort-west-wing-room-306-key` | 0.01 千克 | — | — | 14,392 卢布（3 家最高） |
-| 197 | 疗养院西楼 309 房间钥匙 | `health-resort-west-wing-room-309-key` | 0.01 千克 | — | — | 3,468 卢布（3 家最高） |
-| 198 | 疗养院西楼 321 房间保险箱钥匙 | `health-resort-west-wing-room-321-safe-key` | 0.01 千克 | — | — | 9,333 卢布（3 家最高） |
-| 199 | 疗养院西楼 323 房间钥匙 | `health-resort-west-wing-room-323-key` | 0.01 千克 | — | — | 3,876 卢布（3 家最高） |
-| 200 | 疗养院西楼 325 房间钥匙 | `health-resort-west-wing-room-325-key` | 0.01 千克 | — | — | 2,142 卢布（3 家最高） |
-| 201 | 码头大门钥匙 | `pier-door-key` | 0.01 千克 | — | — | — |
-| 202 | 神秘房间符号钥匙 | `mysterious-room-marked-key` | 0.01 千克 | — | — | 765,000 卢布（3 家最高） |
-| 203 | 简易工棚钥匙 | `portable-bunkhouse-key` | 0.01 千克 | — | — | 1,712 卢布（3 家最高） |
-| 204 | 管理员钥匙 | `admins-key` | 0.01 千克 | — | — | 63,750 卢布（3 家最高） |
-| 205 | 粘有胶带的疗养院办公室钥匙 | `health-resort-office-key-with-a-blue-tape` | 0.01 千克 | — | — | 62,885 卢布（3 家最高） |
-| 206 | 药房钥匙 | `necruspharm-pharmacy-key` | 0.01 千克 | — | — | 41,515 卢布（3 家最高） |
-| 207 | 行刑室钥匙 | `torture-room-key` | 0.01 千克 | — | — | 62,885 卢布（3 家最高） |
-| 208 | 观察室钥匙 | `observation-room-key` | 0.01 千克 | — | — | 62,885 卢布（3 家最高） |
-| 209 | 货物网格门钥匙 | `cargo-container-mesh-door-key` | 0.01 千克 | — | — | 10,630 卢布（3 家最高） |
-| 210 | 车行封闭区域钥匙 | `car-dealership-closed-section-key` | 0.01 千克 | — | — | 463,980 卢布（3 家最高） |
-| 211 | 车行负责人办公室钥匙 | `car-dealership-directors-office-room-key` | 0.01 千克 | — | — | 38,301 卢布（3 家最高） |
-| 212 | 迷宫钥匙 | `labyrinth-key` | 0.01 千克 | — | — | 62,885 卢布（3 家最高） |
-| 213 | 酒店206房间钥匙 | `pinewood-hotel-room-206-key` | 0.01 千克 | — | — | 10,992 卢布（3 家最高） |
-| 214 | 酒店215房间钥匙 | `pinewood-hotel-room-215-key` | 0.01 千克 | — | — | 8,759 卢布（3 家最高） |
-| 215 | 金融办公室小房间钥匙 | `financial-institution-small-office-key` | 0.01 千克 | — | — | 9,748 卢布（3 家最高） |
-| 216 | 金融办公室钥匙 | `financial-institution-office-key` | 0.01 千克 | — | — | 9,700 卢布（3 家最高） |
-| 217 | 铁门钥匙 | `iron-gate-key` | 0.01 千克 | — | — | 19,963 卢布（3 家最高） |
-| 218 | 阿里阿德涅之线钥匙 | `ariadne-symbol-key` | 0.01 千克 | — | — | — |
-| 219 | 隔间钥匙 | `gas-station-office-key` | 0.01 千克 | — | — | 3,955 卢布（3 家最高） |
-| 220 | 集装箱宿舍钥匙 | `portable-cabin-key` | 0.01 千克 | — | — | 2,907 卢布（3 家最高） |
-| 221 | 雷达站指挥室钥匙 | `radar-station-commandant-room-key` | 0.01 千克 | — | — | 132,600 卢布（3 家最高） |
-| 222 | Elektronik 的钥匙 | `elektroniks-key` | 0.12 千克 | — | — | 15,300 卢布（3 家最高） |
-| 223 | Missam叉车钥匙 | `missam-forklift-key` | 0.12 千克 | — | — | 15,300 卢布（3 家最高） |
-| 224 | RB-PKPTS 钥匙 | `rb-pkpts-key` | 0.12 千克 | — | — | 76,500 卢布（3 家最高） |
-| 225 | Reshala 窝棚钥匙 | `reshalas-bunkhouse-key` | 0.12 千克 | — | — | 61,439 卢布（3 家最高） |
-| 226 | Zmeisky 巷 3 号公寓钥匙 | `zmeisky-3-apartment-key` | 0.12 千克 | — | — | 15,300 卢布（3 家最高） |
-| 227 | 俄罗斯邮政快递车钥匙 | `rus-post-car-key` | 0.12 千克 | — | — | 21,736 卢布（3 家最高） |
-| 228 | 邪教受害者公寓钥匙 | `cult-victims-apartment-key` | 0.12 千克 | — | — | 15,300 卢布（3 家最高） |
-| 229 | BBQ-S43 喷枪 | `bbq-s43-gas-torch` | 0.5 千克 | — | — | — |
-| 230 | 阀门手轮 | `valve-handwheel` | 0.5 千克 | — | — | — |
+| # | 名称 | 英文名 | 重量 | 使用次数 | 官方简介 | 获取方式 | 商人最低售价 | 商人最高回收 |
+|---|------|--------|------|----------|----------|----------|--------------|--------------|
+| 1 | Cardinal 公寓钥匙 | `cardinal-apartment-key` | 0.01 千克 | 20 次 | 奢华公寓楼内公寓套件的钥匙，这些高级公寓曾经是 TerraGroup 高管们的临时住所。 | — | — | 153,000 卢布（3 家最高） |
+| 2 | Chekannaya 15号公寓钥匙 | `chekannaya-15-apartment-key` | 0.01 千克 | 20 次 | Chekannaya 15号公寓的钥匙。 | — | — | 765,000 卢布（3 家最高） |
+| 3 | Concordia 63号公寓钥匙 | `concordia-apartment-63-room-key` | 0.01 千克 | 40 次 | Concordia建筑内63号公寓中某个房间的钥匙。 | — | — | 15,007 卢布（3 家最高） |
+| 4 | Concordia 64号公寓办公室钥匙 | `concordia-apartment-64-office-room-key` | 0.01 千克 | 40 次 | Concordia建筑内高级公寓办公室的钥匙 | — | — | 33,564 卢布（3 家最高） |
+| 5 | Concordia 64号公寓钥匙 | `concordia-apartment-64-key` | 0.01 千克 | 40 次 | Concordia建筑内高级公寓的钥匙 | — | — | 27,032 卢布（3 家最高） |
+| 6 | Concordia 8号公寓家庭影院钥匙 | `concordia-apartment-8-home-cinema-key` | 0.01 千克 | 40 次 | Concordia建筑内8号公寓中家庭影院的钥匙。 | — | — | 17,606 卢布（3 家最高） |
+| 7 | Concordia 8号公寓钥匙 | `concordia-apartment-8-room-key` | 0.01 千克 | 40 次 | Concordia建筑内8号公寓中某个房间的钥匙。 | — | — | 6,239 卢布（3 家最高） |
+| 8 | Concordia 安保处钥匙 | `concordia-security-room-key` | 0.01 千克 | 40 次 | Concordia 公寓地下车库内安保中心的钥匙。 | — | — | 36,934 卢布（3 家最高） |
+| 9 | Concordia34号公寓房间钥匙 | `concordia-apartment-34-room-key` | 0.01 千克 | 40 次 | Concordia建筑内34号公寓中某个房间的钥匙。 | — | — | 8,885 卢布（3 家最高） |
+| 10 | EMERCOM医疗区钥匙 | `emercom-medical-unit-key` | 0.01 千克 | 40 次 | 位于 ULTRA 商场内的紧急状态部 (EMERCOM) 医疗仓钥匙。 | 以物换物 | — | 36,726 卢布（3 家最高） |
+| 11 | Goshan收银机钥匙 | `goshan-cash-register-key` | 0.01 千克 | 40 次 | Ultra商场里的Goshan收银机钥匙。 | 以物换物 | — | 7,869 卢布（3 家最高） |
+| 12 | Grumpy的藏身处钥匙 | `grumpys-hideout-key` | 0.01 千克 | 5 次 | ULTRA商场附近发电站中某个房间的钥匙。属于一位名为“Grumpy”的竞技场角斗士。 | 以物换物 | — | 382,500 卢布（3 家最高） |
+| 13 | Horse饭店厕所钥匙 | `horse-restaurant-toilet-key` | 0.01 千克 | 40 次 | 市中心Horse饭店的一间厕所的钥匙。 | — | — | 9,700 卢布（3 家最高） |
+| 14 | IDEA收银机钥匙 | `idea-cash-register-key` | 0.01 千克 | 40 次 | Ultra商场里的IDEA收银机钥匙。 | — | — | 7,344 卢布（3 家最高） |
+| 15 | Kiba 商店内侧格栅门钥匙 | `kiba-arms-inner-grate-door-key` | 0.01 千克 | 40 次 | 位于 Ultra 商场内的 KIBA 国际装备公司展示门店内侧格栅门钥匙。 | — | — | 85,375 卢布（3 家最高） |
+| 16 | Kiba 商店外门钥匙 | `kiba-arms-outer-door-key` | 0.01 千克 | 40 次 | 位于 Ultra 商场内的 KIBA 国际装备公司展示门店外部防盗门钥匙。 | 以物换物 | — | 77,530 卢布（3 家最高） |
+| 17 | Knossos LLC 设施钥匙 | `knossos-llc-facility-key` | 0.01 千克 | 10 次 | 老旧的办公室门钥匙，上面标着“Knossos LLC”字样。大概是用来进入杂物间或者其他 Knossos 附属设施的钥匙。 | — | — | 62,885 卢布（3 家最高） |
+| 18 | Leon的藏身处钥匙 | `leons-hideout-key` | 0.01 千克 | 5 次 | 通往污水处理厂的桥旁边的一座大房子中某个房间的钥匙。属于一位名为“Leon”的竞技场角斗士。 | 以物换物 | — | 433,500 卢布（3 家最高） |
+| 19 | Merin小轿车后备箱钥匙 | `merin-car-trunk-key` | 0.01 千克 | 40 次 | 一把能够打开灯塔某处Merin运动车后备箱的钥匙。 | — | — | 13,975 卢布（3 家最高） |
+| 20 | OLI收银机钥匙 | `oli-cash-register-key` | 0.01 千克 | 40 次 | Ultra商场里的OLI超市收银机钥匙。 | — | — | 6,135 卢布（3 家最高） |
+| 21 | OLI物流部钥匙 | `oli-logistics-department-office-key` | 0.01 千克 | 40 次 | Ultra商场里的OLI物流部钥匙。 | 以物换物 | — | 39,281 卢布（3 家最高） |
+| 22 | OLI管理员办公室钥匙 | `oli-administration-office-key` | 0.01 千克 | 40 次 | Ultra商场里的OLI管理员办公室钥匙。 | — | — | 7,661 卢布（3 家最高） |
+| 23 | OLI超市杂物间钥匙 | `oli-outlet-utility-room-key` | 0.01 千克 | 40 次 | Ultra商场里的OLI超市杂物间钥匙。 | — | — | 1,661 卢布（3 家最高） |
+| 24 | Primorsky 46-48号天桥钥匙 | `primorsky-46-48-skybridge-key` | 0.01 千克 | 1 次 | 连接Primorsky 46至48号的天桥的钥匙，这座天桥通往芭蕾舞者的公寓。 | — | — | 2,619 卢布（3 家最高） |
+| 25 | Primorsky 48 公寓钥匙 | `primorsky-48-apartment-key` | 0.01 千克 | 40 次 | 贯穿街区的主干道 Primorsky 大道 48 号某间公寓的钥匙。 | — | — | 9,865 卢布（3 家最高） |
+| 26 | Primorsky大道公寓钥匙 | `primorsky-ave-apartment-key` | 0.01 千克 | 1 次 | Primorsky 48号编舞室钥匙 | — | — | 2,550 卢布（3 家最高） |
+| 27 | RB-AK钥匙 | `rb-ak-key` | 0.01 千克 | 40 次 | 联邦储备基地教学楼二层储藏室的钥匙。 | 以物换物 | — | 1,669 卢布（3 家最高） |
+| 28 | RB-AM钥匙 | `rb-am-key` | 0.01 千克 | 40 次 | 联邦储备基地教学楼一楼工具间的钥匙。 | — | — | 13,361 卢布（3 家最高） |
+| 29 | RB-AO钥匙 | `rb-ao-key` | 0.01 千克 | 40 次 | 联邦储备基地外围安保人员宿舍军械库的钥匙。 | — | — | 10,763 卢布（3 家最高） |
+| 30 | RB-BK 符号钥匙 | `rb-bk-marked-key` | 0.01 千克 | 10 次 | 位于联邦储备基地兵营东楼地下一层金属加工室的钥匙，原本该标着房间号的地方刻满了奇怪的符号。这把钥匙上沾满了血污，显然被粗暴地使用过很多次，至多再用几次就会断掉。 | — | — | 127,500 卢布（3 家最高） |
+| 31 | RB-GN钥匙 | `rb-gn-key` | 0.01 千克 | 40 次 | 联邦州立储备基地内空域管理中心地堡发电机房的钥匙。 | — | — | 2,688 卢布（3 家最高） |
+| 32 | RB-KORL钥匙 | `rb-korl-key` | 0.01 千克 | 40 次 | 联邦储备基地雷达站指挥官办公室钥匙。 | — | — | 5,011 卢布（3 家最高） |
+| 33 | RB-KPRL钥匙 | `rb-kprl-key` | 0.01 千克 | 40 次 | 联邦储备基地雷达站门卫房钥匙。 | — | — | 41,830 卢布（3 家最高） |
+| 34 | RB-KSM钥匙 | `rb-ksm-key` | 0.01 千克 | 40 次 | 联邦储备基地军医院医生办公室的钥匙。 | — | — | 12,857 卢布（3 家最高） |
+| 35 | RB-MP11钥匙 | `rb-mp11-key` | 0.01 千克 | 40 次 | 联邦储备基地后勤与维修中心工具间钥匙。 | — | — | 8,216 卢布（3 家最高） |
+| 36 | RB-MP12钥匙 | `rb-mp12-key` | 0.01 千克 | 40 次 | 联邦储备基地后勤与维修中心工具间钥匙。 | — | — | 11,347 卢布（3 家最高） |
+| 37 | RB-MP13钥匙 | `rb-mp13-key` | 0.01 千克 | 40 次 | 联邦储备基地后勤与维修中心工具间钥匙。 | — | — | 9,307 卢布（3 家最高） |
+| 38 | RB-MP21钥匙 | `rb-mp21-key` | 0.01 千克 | 40 次 | 联邦储备基地后勤与维修中心工具间钥匙。 | — | — | 12,797 卢布（3 家最高） |
+| 39 | RB-MP22钥匙 | `rb-mp22-key` | 0.01 千克 | 40 次 | 联邦储备基地后勤与维修中心工具间钥匙。 | — | — | 14,800 卢布（3 家最高） |
+| 40 | RB-OB钥匙 | `rb-ob-key` | 0.01 千克 | 40 次 | 联邦储备基地兵营东楼三层值班军官办公室的钥匙。 | — | — | 9,725 卢布（3 家最高） |
+| 41 | RB-OP钥匙 | `rb-op-key` | 0.01 千克 | 40 次 | 联邦州立储备基地内空域管理处所属的地下指挥中心办公室钥匙。 | — | — | 2,296 卢布（3 家最高） |
+| 42 | RB-ORB1钥匙 | `rb-orb1-key` | 0.01 千克 | 40 次 | 联邦储备基地兵营南楼四层军械库的钥匙。 | — | — | 9,848 卢布（3 家最高） |
+| 43 | RB-ORB2钥匙 | `rb-orb2-key` | 0.01 千克 | 40 次 | 联邦储备基地兵营南楼二层军械库的钥匙。 | — | — | 9,537 卢布（3 家最高） |
+| 44 | RB-ORB3钥匙 | `rb-orb3-key` | 0.01 千克 | 40 次 | 联邦储备基地兵营东楼二层军械库的钥匙。 | — | — | 10,256 卢布（3 家最高） |
+| 45 | RB-PKPM 符号钥匙 | `rb-pkpm-marked-key` | 0.01 千克 | 10 次 | 位于联邦储备基地指挥地堡内办公室的钥匙，原本该标着房间号的地方刻满了奇怪的符号。这把钥匙上沾满了血污，显然被粗暴地使用过很多次，至多再用几次就会断掉。 | — | — | 127,500 卢布（3 家最高） |
+| 46 | RB-PP钥匙 | `rb-pp-key` | 0.01 千克 | 40 次 | 联邦储备基地防空地堡内某间房间的钥匙。似乎找不到哪扇门能用这把钥匙打开，至少目前是这样。 | 以物换物 | — | 2,550 卢布（3 家最高） |
+| 47 | RB-PSP1钥匙 | `rb-psp1-key` | 0.01 千克 | 40 次 | 联邦储备基地地下仓库内某扇金属格栅门的钥匙。 | — | — | 12,805 卢布（3 家最高） |
+| 48 | RB-PSP2钥匙 | `rb-psp2-key` | 0.01 千克 | 40 次 | 联邦储备基地地下仓库内某扇金属格栅门的钥匙。 | 以物换物 | — | 14,846 卢布（3 家最高） |
+| 49 | RB-PSV1钥匙 | `rb-psv1-key` | 0.01 千克 | 40 次 | 联邦储备基地地下仓库内某扇金属格栅门的钥匙。 | — | — | 14,902 卢布（3 家最高） |
+| 50 | RB-PSV2钥匙 | `rb-psv2-key` | 0.01 千克 | 40 次 | 联邦储备基地地下仓库内某扇金属格栅门的钥匙。 | — | — | 14,786 卢布（3 家最高） |
+| 51 | RB-RH钥匙 | `rb-rh-key` | 0.01 千克 | 40 次 | 联邦州立储备基地内空域管理中心所属安保处的钥匙。 | — | — | 4,616 卢布（3 家最高） |
+| 52 | RB-RLSA 钥匙 | `rb-rlsa-key` | 0.01 千克 | 40 次 | 联邦储备基地雷达站档案室钥匙。 | — | — | 39,270 卢布（3 家最高） |
+| 53 | RB-RS钥匙 | `rb-rs-key` | 0.01 千克 | 40 次 | 联邦储备基地雷达站服务器机房钥匙。 | — | — | 6,145 卢布（3 家最高） |
+| 54 | RB-SMP钥匙 | `rb-smp-key` | 0.01 千克 | 40 次 | 联邦储备基地军医院药品储藏室的钥匙。 | — | — | 36,827 卢布（3 家最高） |
+| 55 | RB-ST钥匙 | `rb-st-key` | 0.01 千克 | 40 次 | 联邦储备基地军用车辆与装备检修中心的铁门钥匙。 | — | — | 48,460 卢布（3 家最高） |
+| 56 | RB-TB钥匙 | `rb-tb-key` | 0.01 千克 | 40 次 | 联邦储备基地东部营房地下靶场的钥匙。 | — | — | 7,660 卢布（3 家最高） |
+| 57 | RB-VO 符号钥匙 | `rb-vo-marked-key` | 0.01 千克 | 10 次 | 位于联邦储备基地外围安保人员宿舍的钥匙，原本该标着房间号的地方刻满了奇怪的符号。这把钥匙上沾满了血污，显然被粗暴地使用过很多次，至多再用几次就会断掉。 | — | — | 127,500 卢布（3 家最高） |
+| 58 | SMW车钥匙 | `smw-car-key` | 0.01 千克 | 40 次 | 可折叠的SMW车钥匙。 | — | — | 4,302 卢布（3 家最高） |
+| 59 | Shatun的藏身处钥匙 | `shatuns-hideout-key` | 0.01 千克 | 5 次 | Priozersk自然保护区中一处农庄小屋中某个房间的钥匙。属于一位名为“Shatun”的竞技场角斗士。 | 以物换物 | — | 357,000 卢布（3 家最高） |
+| 60 | Shturman 的储物箱钥匙 | `shturmans-stash-key` | 0.01 千克 | 1 次 | Svetloozersk 帮派共用储物箱的钥匙，一般由Shturman随身携带。它看起来非常脆弱，使用一次就会坏掉。 | — | — | 77,230 卢布（3 家最高） |
+| 61 | TerraGroup 实验室军械库钥匙 | `terragroup-labs-arsenal-storage-room-key` | 0.01 千克 | 40 次 | TerraGroup 实验室安保部门军械库的钥匙。 | — | — | 45,900 卢布（3 家最高） |
+| 62 | TerraGroup 实验室武器测试区域钥匙 | `terragroup-labs-weapon-testing-area-key` | 0.01 千克 | 40 次 | TerraGroup 实验室武器测试区域的钥匙。 | — | — | 30,600 卢布（3 家最高） |
+| 63 | TerraGroup 实验室经理办公室钥匙 | `terragroup-labs-managers-office-room-key` | 0.01 千克 | 40 次 | TerraGroup 实验室中央大厅经理办公室的钥匙。 | — | — | 25,500 卢布（3 家最高） |
+| 64 | TerraGroup 集团公寓钥匙 | `terragroup-corporate-apartment-key` | 0.01 千克 | 20 次 | 在 A.P. 的房间里找到的钥匙，也许能够打开某间公司附属公寓的门。 | — | — | 61,200 卢布（3 家最高） |
+| 65 | TerraGroup会议室钥匙 | `terragroup-meeting-room-key` | 0.01 千克 | 40 次 | TerraGroup办公区会议室的钥匙。 | — | — | 21,476 卢布（3 家最高） |
+| 66 | TerraGroup军械库钥匙 | `terragroup-security-armory-key` | 0.01 千克 | 40 次 | TerraGroup办公区保安军械库的钥匙。 | — | — | 44,229 卢布（3 家最高） |
+| 67 | TerraGroup科学家办公室钥匙 | `terragroup-science-office-key` | 0.01 千克 | 1 次 | 市中心TerraGroup主大楼中科学家办公室的钥匙。 | — | — | 9,700 卢布（3 家最高） |
+| 68 | ULTRA 医疗仓库钥匙 | `ultra-medical-storage-key` | 0.01 千克 | 40 次 | ULTRA 超级市场医疗仓库的钥匙。 | — | — | 80,601 卢布（3 家最高） |
+| 69 | USEC 仓库钥匙 | `usec-stash-key` | 0.01 千克 | 40 次 | 位于海关区域USEC仓库的钥匙。 | — | — | 42,947 卢布（3 家最高） |
+| 70 | USEC小屋房间钥匙 | `usec-cottage-room-key` | 0.01 千克 | 40 次 | 一名前USEC行动人员家中某个房间的钥匙。 | — | — | 9,700 卢布（3 家最高） |
+| 71 | USEC灯塔一号保险箱钥匙 | `usec-cottage-first-safe-key` | 0.01 千克 | 40 次 | 能够打开灯塔小屋区域里某个曾经属于一名USEC干员的保险柜的钥匙。 | — | — | 14,027 卢布（3 家最高） |
+| 72 | USEC灯塔二号保险箱钥匙 | `usec-cottage-second-safe-key` | 0.01 千克 | 40 次 | 能够打开灯塔小屋区域里某个曾经属于一名USEC干员的保险柜的钥匙。 | — | — | 14,079 卢布（3 家最高） |
+| 73 | Unity Credit银行档案室钥匙 | `unity-credit-bank-archive-room-key` | 0.01 千克 | 40 次 | Unity Credit支行中档案室的钥匙。 | — | — | 9,700 卢布（3 家最高） |
+| 74 | Unity Credit银行现金收纳机钥匙 | `unity-credit-bank-cash-register-key` | 0.01 千克 | 40 次 | Unity Credit支行中现金收纳机的钥匙。 | — | — | 6,002 卢布（3 家最高） |
+| 75 | VAZ 车钥匙 | `vaz-car-key` | 0.01 千克 | 40 次 | 某辆 VAZ 小轿车的钥匙，同款拉达-2106 又被称为“VAZ 6 型”(俄语 Shesterka) | — | — | 979 卢布（3 家最高） |
+| 76 | Voron的藏身处钥匙 | `vorons-hideout-key` | 0.01 千克 | 5 次 | 疗养院附近某个房间的钥匙。属于一位名为“Voron”的竞技场角斗士。 | 以物换物 | — | 408,000 卢布（3 家最高） |
+| 77 | X光检查室钥匙 | `x-ray-room-key` | 0.01 千克 | 40 次 | 69号儿童综合诊所里放射性诊断控制室的钥匙。 | — | — | 35,457 卢布（3 家最高） |
+| 78 | Yotota车钥匙 | `yotota-car-key` | 0.01 千克 | 40 次 | 可折叠的Yotota汽车钥匙。 | — | — | 614 卢布（3 家最高） |
+| 79 | ZB-014钥匙 | `zb-014-key` | 0.01 千克 | 40 次 | 一把不寻常的门钥匙，上面刻着“ZB-014”字样。 | — | — | 7,463 卢布（3 家最高） |
+| 80 | ZB-1013 钥匙 | `zb-1013-key` | 0.01 千克 | 40 次 | 一把刻有“ZB-013”字样的钥匙，能够打开海关工业区巨大建筑工地中地下层的铁门——尽管原本预定建造的仓库是建不成了，但本地人还是用自己的方式把整个地方打造成了一座货真价实的“堡垒”。 | — | — | 32,362 卢布（3 家最高） |
+| 81 | Zmeevsky 3公寓8号钥匙 | `zmeisky-3-apartment-8-key` | 0.01 千克 | 40 次 | Zmeevsky 3公寓的钥匙。 | — | — | 7,308 卢布（3 家最高） |
+| 82 | Zmeevsky 5公寓20号钥匙 | `zmeisky-5-apartment-20-key` | 0.01 千克 | 40 次 | Zmeevsky 5公寓的钥匙。 | — | — | 7,605 卢布（3 家最高） |
+| 83 | “白鲸”餐厅经理办公室钥匙 | `beluga-restaurant-director-key` | 0.01 千克 | 40 次 | “白鲸”餐厅经理办公室的钥匙。 | — | — | 21,634 卢布（3 家最高） |
+| 84 | ”Aspect”公司办公区钥匙 | `aspect-company-office-key` | 0.01 千克 | 1 次 | ”Aspect”有限责任公司办公区外门钥匙，这家公司位于贯穿整个街区的主干道 Primorsky 大街的 56 号。 | — | — | 17,608 卢布（3 家最高） |
+| 85 | ”调解室”钥匙 | `negotiation-room-key` | 0.01 千克 | 40 次 | 市中心写字楼中一间重要会议室的钥匙。 | — | — | 7,996 卢布（3 家最高） |
+| 86 | 一号房钥匙 | `key-01` | 0.01 千克 | 1 次 | 一把旧钥匙，上面的铭文都磨灭不清了。想要逃离迷宫的话，这把钥匙可能会有点用。 | — | — | — |
+| 87 | 三号房钥匙 | `key-03` | 0.01 千克 | 1 次 | 金属钥匙表面布满划痕，看不出上面的数字是什么。想要逃离迷宫的话，这把钥匙可能会有点用。 | — | — | — |
+| 88 | 不动产管理处办公室钥匙 | `real-estate-agency-office-room-key` | 0.01 千克 | 40 次 | 城市不动产管理处办公室的钥匙。 | — | — | 9,700 卢布（3 家最高） |
+| 89 | 二号房钥匙 | `key-02` | 0.01 千克 | 1 次 | 这把钥匙大概是用来打开某种很旧的锁的。刻在上面的数字被有意磨去了。想要逃离迷宫的话，这把钥匙可能会有点用。 | — | — | — |
+| 90 | 休息室钥匙 | `relaxation-room-key` | 0.01 千克 | 2 次 | 市中心写字楼里一间休息室的钥匙。 | — | — | 25,436 卢布（3 家最高） |
+| 91 | 会议室钥匙 | `conference-room-key` | 0.01 千克 | 40 次 | 能打开灯塔所在岛屿上某处会议室的钥匙。 | — | — | 29,070 卢布（3 家最高） |
+| 92 | 体育教师办公室钥匙 | `pe-teachers-office-key` | 0.01 千克 | 40 次 | 第30中学体育教师办公室的钥匙。 | — | — | 3,734 卢布（3 家最高） |
+| 93 | 供应部门主管办公室钥匙 | `supply-department-directors-office-key` | 0.01 千克 | 40 次 | ”Aspect”有限责任公司大楼内某个办公室的钥匙。 | — | — | 4,813 卢布（3 家最高） |
+| 94 | 停尸房钥匙 | `corpse-room-key` | 0.01 千克 | 1 次 | 一把旧钥匙，带有浓烈的死亡气息。也许通往太平间或者存放尸体的停尸房。 | — | — | 3,399 卢布（3 家最高） |
+| 95 | 公司主管办公室钥匙 | `company-directors-room-key` | 0.01 千克 | 10 次 | 这把钥匙应该能用来打开海关办公区某个办公室的门。 | — | — | 22,195 卢布（3 家最高） |
+| 96 | 公寓上锁房间保险箱钥匙 | `apartment-locked-room-safe-key` | 0.01 千克 | 40 次 | 城市中某一个公寓中上锁房间里保险箱的钥匙。 | — | — | 10,200 卢布（3 家最高） |
+| 97 | 公寓管理员钥匙 | `dorm-overseer-key` | 0.01 千克 | 2 次 | 三层宿舍楼的钥匙，印有“管理员”字样。看起来特别脆弱，可能用一两次就散架了。 | — | — | 27,030 卢布（3 家最高） |
+| 98 | 内务部学院门厅警卫室钥匙 | `mvd-academy-entrance-hall-guard-room-key` | 0.01 千克 | 40 次 | 内务部学院的警卫室钥匙。 | — | — | 15,939 卢布（3 家最高） |
+| 99 | 军事基地检查站钥匙 | `military-checkpoint-key` | 0.01 千克 | 40 次 | 一把可以打开军事检查站门房的钥匙。 | 以物换物 | — | 12,779 卢布（3 家最高） |
+| 100 | 冷库钥匙 | `cold-storage-room-key` | 0.01 千克 | 40 次 | 一把能用于进入药品冷冻仓库的钥匙，仓库位于灯塔小屋区域的某个地方。 | — | — | 19,380 卢布（3 家最高） |
+| 101 | 别墅保险箱钥匙 | `cottage-safe-key` | 0.01 千克 | 40 次 | 海岸线别墅内保险箱的钥匙。 | — | — | 11,296 卢布（3 家最高） |
+| 102 | 别墅后门钥匙 | `cottage-back-door-key` | 0.01 千克 | 40 次 | 海岸线别墅后门的钥匙。 | 以物换物 | — | 27,091 卢布（3 家最高） |
+| 103 | 加油站保险箱钥匙 | `gas-station-safe-key` | 0.01 千克 | 40 次 | 海岸线加油站保险箱的钥匙。 | — | — | 2,652 卢布（3 家最高） |
+| 104 | 加油站储藏室钥匙 | `gas-station-storage-room-key` | 0.01 千克 | 40 次 | 加油站里一间小储藏室的钥匙。 | — | — | 6,579 卢布（3 家最高） |
+| 105 | 变电站杂物间钥匙 | `power-substation-utility-cabin-key` | 0.01 千克 | 40 次 | Ultra商场附近的变电站杂物间钥匙。 | — | — | 826 卢布（3 家最高） |
+| 106 | 变电站符号钥匙 | `substation-marked-key` | 0.01 千克 | 10 次 | 刻着一些奇怪符号的钥匙，似乎可以用来打开灯塔周边污水处理厂的变电站。 | — | — | 127,500 卢布（3 家最高） |
+| 107 | 叛乱USEC仓库钥匙 | `rogue-usec-stash-key` | 0.01 千克 | 40 次 | 一把用于进入叛乱USEC仓库的钥匙，仓库位于污水处理厂的某处。 | — | — | 17,544 卢布（3 家最高） |
+| 108 | 叛乱USEC工作间钥匙 | `rogue-usec-workshop-key` | 0.01 千克 | 40 次 | 能够进入污水处理厂区某座车间的钥匙，这里曾经是前 USEC 的行动基地，后来成为了游荡者们的老巢。 | — | — | 14,025 卢布（3 家最高） |
+| 109 | 叛乱USEC营房钥匙 | `rogue-usec-barrack-key` | 0.01 千克 | 40 次 | 能打开灯塔污水处理厂中游荡者临时营房之一的钥匙。 | — | — | 10,818 卢布（3 家最高） |
+| 110 | 商店保险箱钥匙 | `store-safe-key` | 0.01 千克 | 40 次 | 海岸线商店保险箱的钥匙。 | — | — | 1,581 卢布（3 家最高） |
+| 111 | 商店经理钥匙 | `store-managers-key` | 0.01 千克 | 40 次 | 城市里一家商店的经理办公室的钥匙。 | — | — | 9,744 卢布（3 家最高） |
+| 112 | 四号房钥匙 | `key-04` | 0.01 千克 | 1 次 | 金属钥匙表面布满划痕，上面的数字要么是 4，要么是俄文 Ч。想要逃离迷宫的话，这把钥匙可能会有点用。 | — | — | — |
+| 113 | 地下停车场杂物间钥匙 | `underground-parking-utility-room-key` | 0.01 千克 | 40 次 | 市中心地下停车场杂物间的钥匙。 | — | — | 4,485 卢布（3 家最高） |
+| 114 | 塔科夫银行现金区钥匙 | `tarbank-cash-register-department-key` | 0.01 千克 | 40 次 | 塔科夫银行在当地分行的现金区收银柜钥匙。 | — | — | 28,315 卢布（3 家最高） |
+| 115 | 备用藏身处钥匙 | `backup-hideout-key` | 0.01 千克 | 1 次 | 线人第二个藏身处的钥匙 | — | — | 868 卢布（3 家最高） |
+| 116 | 宿舍103房间钥匙 | `dorm-room-103-key` | 0.01 千克 | 40 次 | 标有“103”的三层宿舍楼房间钥匙。 | — | — | 1,893 卢布（3 家最高） |
+| 117 | 宿舍104房间钥匙 | `dorm-room-104-key` | 0.01 千克 | 40 次 | 标有“104”的双层宿舍楼房间钥匙。 | — | — | 2,102 卢布（3 家最高） |
+| 118 | 宿舍105房间钥匙 | `dorm-room-105-key` | 0.01 千克 | 40 次 | 标有“105”的双层宿舍楼房间钥匙。 | — | — | 7,892 卢布（3 家最高） |
+| 119 | 宿舍108房间钥匙 | `dorm-room-108-key` | 0.01 千克 | 40 次 | 标有“108”的三层宿舍楼房间钥匙。 | — | — | 3,071 卢布（3 家最高） |
+| 120 | 宿舍110房间钥匙 | `dorm-room-110-key` | 0.01 千克 | 40 次 | 标有“110”的双层宿舍楼房间钥匙。 | — | — | 8,314 卢布（3 家最高） |
+| 121 | 宿舍114房间钥匙 | `dorm-room-114-key` | 0.01 千克 | 40 次 | 标有“114”的双层宿舍楼房间钥匙。 | 以物换物 | — | 10,735 卢布（3 家最高） |
+| 122 | 宿舍118房间钥匙 | `dorm-room-118-key` | 0.01 千克 | 40 次 | 标有“118”的三层宿舍楼房间钥匙。 | — | — | 2,733 卢布（3 家最高） |
+| 123 | 宿舍203房间钥匙 | `dorm-room-203-key` | 0.01 千克 | 40 次 | 标有“203”的三层宿舍楼房间钥匙。 | — | — | 1,820 卢布（3 家最高） |
+| 124 | 宿舍204房间钥匙 | `dorm-room-204-key` | 0.01 千克 | 40 次 | 标有“204”的三层宿舍楼房间钥匙。 | — | — | 10,055 卢布（3 家最高） |
+| 125 | 宿舍206房间钥匙 | `dorm-room-206-key` | 0.01 千克 | 40 次 | 标有“206”的双层宿舍楼房间钥匙。 | 以物换物 | — | 884 卢布（3 家最高） |
+| 126 | 宿舍214房间钥匙 | `dorm-room-214-key` | 0.01 千克 | 40 次 | 标有“214”的三层宿舍楼房间钥匙。 | — | — | 13,597 卢布（3 家最高） |
+| 127 | 宿舍218房间钥匙 | `dorm-room-218-key` | 0.01 千克 | 40 次 | 标有“218”的三层宿舍楼房间钥匙。 | — | — | 3,905 卢布（3 家最高） |
+| 128 | 宿舍220房间钥匙 | `dorm-room-220-key` | 0.01 千克 | 40 次 | 标有“220”的三层宿舍楼房间钥匙。 | 以物换物 | — | 5,661 卢布（3 家最高） |
+| 129 | 宿舍303房间钥匙 | `dorm-room-303-key` | 0.01 千克 | 40 次 | 标有“303”的三层宿舍楼房间钥匙。 | 以物换物 | — | 3,787 卢布（3 家最高） |
+| 130 | 宿舍306房间钥匙 | `dorm-room-306-key` | 0.01 千克 | 40 次 | 标有“306”的三层宿舍楼房间钥匙。 | — | — | 3,115 卢布（3 家最高） |
+| 131 | 宿舍308房间钥匙 | `dorm-room-308-key` | 0.01 千克 | 40 次 | 标有“308”的三层宿舍楼房间钥匙。 | — | — | 1,785 卢布（3 家最高） |
+| 132 | 宿舍315房间钥匙 | `dorm-room-315-key` | 0.01 千克 | 40 次 | 标有“315”的三层宿舍楼房间钥匙。 | — | — | 1,288 卢布（3 家最高） |
+| 133 | 宿舍楼 314 房间符号钥匙 | `dorm-room-314-marked-key` | 0.01 千克 | 10 次 | 宿舍楼 314 房间钥匙，原本标有房间号的地方刻满了奇怪的符号。这把钥匙锈蚀得很厉害，至多再使用几次就会断掉。 | 以物换物 | — | 765,000 卢布（3 家最高） |
+| 134 | 宿舍门卫室钥匙 | `dorm-guard-desk-key` | 0.01 千克 | 40 次 | 双层宿舍楼入口处门卫室的钥匙。 | — | — | 7,242 卢布（3 家最高） |
+| 135 | 山边小屋钥匙 | `hillside-house-key` | 0.01 千克 | 40 次 | 灯塔旧村某一栋小屋的钥匙。 | — | — | 12,334 卢布（3 家最高） |
+| 136 | 工厂紧急出口钥匙 | `factory-emergency-exit-key` | 0.01 千克 | 20 次 | 化工厂紧急出口的钥匙。 | 以物换物 | — | 26,066 卢布（3 家最高） |
+| 137 | 废弃工厂符号钥匙 | `abandoned-factory-marked-key` | 0.01 千克 | 10 次 | 城市废弃工厂里某一扇门的神秘钥匙。上面有着奇怪的符号。 | — | — | 510,000 卢布（3 家最高） |
+| 138 | 建筑工地工棚钥匙 | `construction-site-bunkhouse-key` | 0.01 千克 | 40 次 | 城市里建筑工地的工棚钥匙 | — | — | 6,696 卢布（3 家最高） |
+| 139 | 房屋管理处一楼保险箱钥匙 | `housing-office-first-floor-safe-key` | 0.01 千克 | 40 次 | 用于打开城市房屋管理处一楼保险箱的钥匙。 | — | — | 10,200 卢布（3 家最高） |
+| 140 | 房屋管理处二楼保险箱钥匙 | `housing-office-second-floor-safe-key` | 0.01 千克 | 40 次 | 用于打开城市房屋管理处二楼保险箱的钥匙。 | — | — | 10,200 卢布（3 家最高） |
+| 141 | 手术室钥匙 | `operating-room-key` | 0.01 千克 | 40 次 | 通往灯塔污水处理厂中某处血腥直播现场的手术室钥匙。 | — | — | 49,470 卢布（3 家最高） |
+| 142 | 折叠车钥匙 | `folding-car-key` | 0.01 千克 | 40 次 | 一把可折叠的车钥匙。 | — | — | 51 卢布（3 家最高） |
+| 143 | 折叠车钥匙 | `folding-car-key-1` | 0.01 千克 | 40 次 | 可折叠车钥匙 | — | — | 765 卢布（3 家最高） |
+| 144 | 拖车停车场工棚钥匙 | `trailer-park-portable-cabin-key` | 0.01 千克 | 40 次 | 海关关口拖车停车场内简易工棚的钥匙，也许是停车场看门人值班的地方。 | — | — | 3,369 卢布（3 家最高） |
+| 145 | 旧屋厕所钥匙 | `old-house-toilet-key` | 0.01 千克 | 1 次 | 一把可以打开 Priozersk 自然保护区边缘地带某座老宅房间的钥匙。看起来已经用过很多次了，至于这座小屋为什么被锁上，里面又藏了什么秘密，没有人知道。 | — | — | 357,000 卢布（3 家最高） |
+| 146 | 旧屋钥匙 | `old-house-room-key` | 0.01 千克 | 10 次 | 一把可以打开 Priozersk 自然保护区边缘地带某座老宅房间的钥匙。据说有一位外号 Ogryzok 的人曾经在那座屋子里做生意，他出售各类稀有物资，甚至能稳定供应坦克电池。然而 Ogryzok 已久无音讯，没有人知道他最终消失在什么地方。 | — | — | 38,560 卢布（3 家最高） |
+| 147 | 未知钥匙 | `unknown-key` | 0.01 千克 | 1 次 | 这把钥匙是从尸体上找到的，但还不知道这到底能用来开什么。 | — | — | 818 卢布（3 家最高） |
+| 148 | 机械钥匙 | `machinery-key` | 0.01 千克 | 5 次 | 一把特殊机械使用的钥匙——卡车、翻斗车、筑路机械等。 | — | — | 1,027 卢布（3 家最高） |
+| 149 | 档案室钥匙 | `archive-room-key` | 0.01 千克 | 40 次 | 市中心建筑里档案室的钥匙。 | — | — | 10,311 卢布（3 家最高） |
+| 150 | 检查哨站钥匙 | `security-post-key` | 0.01 千克 | 40 次 | 位于海关工业区主路旁检查哨站的钥匙，和加油站遥相呼应。 | — | — | 6,862 卢布（3 家最高） |
+| 151 | 楼梯间钥匙 | `stair-landing-key` | 0.01 千克 | 40 次 | Chekannaya大街15号公寓内某个单元楼梯间的钥匙。 | — | — | 4,984 卢布（3 家最高） |
+| 152 | 武器保险柜钥匙 | `weapon-safe-key` | 0.01 千克 | 40 次 | 一把某处武器保险柜的钥匙。 | — | — | 592 卢布（3 家最高） |
+| 153 | 气象站保险箱钥匙 | `weather-station-safe-key` | 0.01 千克 | 40 次 | 海岸线气象站保险箱的钥匙。 | — | — | 9,742 卢布（3 家最高） |
+| 154 | 水电站仓库钥匙 | `hep-station-storage-room-key` | 0.01 千克 | 40 次 | 海岸线水电站二楼 USEC 仓库钥匙。 | — | — | 20,400 卢布（3 家最高） |
+| 155 | 污水处理厂储藏室钥匙 | `water-treatment-plant-storage-room-key` | 0.01 千克 | 40 次 | 能打开灯塔污水处理厂中储藏室的钥匙。 | — | — | 10,745 卢布（3 家最高） |
+| 156 | 泵站前门钥匙 | `pumping-station-front-door-key` | 0.01 千克 | 40 次 | 苏联制造的老钥匙，上面标有“泵站”。 | — | — | 2,688 卢布（3 家最高） |
+| 157 | 泵站后门钥匙 | `pumping-station-back-door-key` | 0.01 千克 | 40 次 | 明显是苏联制造的老钥匙，上面标有“泵站”。 | — | — | 2,615 卢布（3 家最高） |
+| 158 | 海关 Tarcone 主管办公室钥匙 | `tarcone-directors-office-key` | 0.01 千克 | 40 次 | 塔科夫物流公司 (Tarcone) 主管办公室的钥匙，办公室位于海关河岸一侧的大型红色仓库内。 | 以物换物 | — | 10,764 卢布（3 家最高） |
+| 159 | 灯塔便利店储藏室 | `convenience-store-storage-room-key` | 0.01 千克 | 40 次 | 一把能进入路边便利店储物间的钥匙，便利店位于灯塔村庄的某处。 | — | — | 8,008 卢布（3 家最高） |
+| 160 | 灯塔岛藏匿点钥匙 | `lighthouse-island-stash-key` | 0.01 千克 | 1 次 | 一把钥匙，能够打开灯塔岛上某座屋子里的 Lightkeeper 秘密藏匿点。 | — | — | 510 卢布（3 家最高） |
+| 161 | 灯塔警用卡车驾驶室钥匙 | `police-truck-cabin-key` | 0.01 千克 | 40 次 | 这把钥匙能够打开被遗弃在灯塔主路上某辆警用卡车的驾驶室。 | — | — | 12,495 卢布（3 家最高） |
+| 162 | 生锈的带血钥匙 | `rusted-bloody-key` | 0.01 千克 | 1 次 | 一把生锈且带血的钥匙。上面刻有“持有钥匙的人将永远漂泊”的字样。 | — | — | 3,399 卢布（3 家最高） |
+| 163 | 疗养院东楼 107 办公室钥匙 | `health-resort-east-wing-office-room-107-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 107 办公室的钥匙。 | — | — | 31,706 卢布（3 家最高） |
+| 164 | 疗养院东楼 108 办公室钥匙 | `health-resort-east-wing-office-room-108-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 108 办公室的钥匙。 | — | — | 1,638 卢布（3 家最高） |
+| 165 | 疗养院东楼 205 房间钥匙 | `health-resort-east-wing-room-205-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 205 房间的钥匙。 | — | — | 21,452 卢布（3 家最高） |
+| 166 | 疗养院东楼 206 房间钥匙 | `health-resort-east-wing-room-206-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 206 房间的钥匙。 | — | — | 30,702 卢布（3 家最高） |
+| 167 | 疗养院东楼 209 房间钥匙 | `health-resort-east-wing-room-209-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 209 房间的钥匙。 | — | — | 12,546 卢布（3 家最高） |
+| 168 | 疗养院东楼 213 房间钥匙 | `health-resort-east-wing-room-213-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 213 房间的钥匙。 | — | — | 3,060 卢布（3 家最高） |
+| 169 | 疗养院东楼 216 房间钥匙 | `health-resort-east-wing-room-216-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 216 房间的钥匙。 | — | — | 2,397 卢布（3 家最高） |
+| 170 | 疗养院东楼 222 房间钥匙 | `health-resort-east-wing-room-222-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 222 房间的钥匙。 | — | — | 39,800 卢布（3 家最高） |
+| 171 | 疗养院东楼 226 房间钥匙 | `health-resort-east-wing-room-226-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 226 房间的钥匙。 | — | — | 39,933 卢布（3 家最高） |
+| 172 | 疗养院东楼 306 房间钥匙 | `health-resort-east-wing-room-306-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 306 房间的钥匙。 | 以物换物 | — | 28,060 卢布（3 家最高） |
+| 173 | 疗养院东楼 308 房间钥匙 | `health-resort-east-wing-room-308-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 308 房间的钥匙。 | — | — | 28,060 卢布（3 家最高） |
+| 174 | 疗养院东楼 310 房间钥匙 | `health-resort-east-wing-room-310-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 310 房间的钥匙。 | — | — | 35,190 卢布（3 家最高） |
+| 175 | 疗养院东楼 313 房间钥匙 | `health-resort-east-wing-room-313-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 313 房间的钥匙。 | — | — | 26,892 卢布（3 家最高） |
+| 176 | 疗养院东楼 314 房间钥匙 | `health-resort-east-wing-room-314-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 314 房间的钥匙。 | — | — | 25,673 卢布（3 家最高） |
+| 177 | 疗养院东楼 316 房间钥匙 | `health-resort-east-wing-room-316-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 316 房间的钥匙。 | — | — | 14,384 卢布（3 家最高） |
+| 178 | 疗养院东楼 322 房间钥匙 | `health-resort-east-wing-room-322-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 322 房间的钥匙。 | — | — | 3,876 卢布（3 家最高） |
+| 179 | 疗养院东楼 328 房间钥匙 | `health-resort-east-wing-room-328-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院东楼 328 房间的钥匙。 | 以物换物 | — | 33,660 卢布（3 家最高） |
+| 180 | 疗养院仓库保险箱钥匙 | `health-resort-management-warehouse-safe-key` | 0.01 千克 | 40 次 | 海岸线疗养院仓库保险箱的钥匙。 | — | — | 9,793 卢布（3 家最高） |
+| 181 | 疗养院杂物间钥匙 | `health-resort-universal-utility-room-key` | 0.01 千克 | 40 次 | 疗养院杂物间的钥匙。 | — | — | 13,770 卢布（3 家最高） |
+| 182 | 疗养院经理办公室保险箱钥匙 | `health-resort-management-office-safe-key` | 0.01 千克 | 40 次 | 海岸线疗养院经理办公室保险箱的钥匙。 | — | — | 9,794 卢布（3 家最高） |
+| 183 | 疗养院西楼 104 办公室钥匙 | `health-resort-west-wing-office-room-104-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 104 办公室的钥匙。 | — | — | 48,450 卢布（3 家最高） |
+| 184 | 疗养院西楼 112 办公室钥匙 | `health-resort-west-wing-office-room-112-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 112 办公室的钥匙。 | 以物换物 | — | 38,260 卢布（3 家最高） |
+| 185 | 疗养院西楼 203 房间钥匙 | `health-resort-west-wing-room-203-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 203 房间的钥匙。 | — | — | 49,587 卢布（3 家最高） |
+| 186 | 疗养院西楼 205 房间钥匙 | `health-resort-west-wing-room-205-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 205 房间的钥匙。 | — | — | 49,587 卢布（3 家最高） |
+| 187 | 疗养院西楼 207 房间钥匙 | `health-resort-west-wing-room-207-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 207 房间的钥匙。 | — | — | 3,824 卢布（3 家最高） |
+| 188 | 疗养院西楼 216 房间钥匙 | `health-resort-west-wing-room-216-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 216 房间的钥匙。 | — | — | 43,095 卢布（3 家最高） |
+| 189 | 疗养院西楼 218 房间钥匙 | `health-resort-west-wing-room-218-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 218 房间的钥匙。 | — | — | 45,900 卢布（3 家最高） |
+| 190 | 疗养院西楼 219 房间钥匙 | `health-resort-west-wing-room-219-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 219 房间的钥匙。 | — | — | 12,760 卢布（3 家最高） |
+| 191 | 疗养院西楼 220 房间钥匙 | `health-resort-west-wing-room-220-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 220 房间的钥匙。 | — | — | 26,520 卢布（3 家最高） |
+| 192 | 疗养院西楼 221 房间钥匙 | `health-resort-west-wing-room-221-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 221 房间的钥匙。 | 以物换物 | — | 45,900 卢布（3 家最高） |
+| 193 | 疗养院西楼 222 房间钥匙 | `health-resort-west-wing-room-222-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 222 房间的钥匙。 | — | — | 45,900 卢布（3 家最高） |
+| 194 | 疗养院西楼 301 房间钥匙 | `health-resort-west-wing-room-301-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 301 房间的钥匙。 | — | — | 44,370 卢布（3 家最高） |
+| 195 | 疗养院西楼 303 房间钥匙 | `health-resort-west-wing-room-303-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 303 房间的钥匙。 | — | — | 4,131 卢布（3 家最高） |
+| 196 | 疗养院西楼 306 房间钥匙 | `health-resort-west-wing-room-306-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 306 房间的钥匙。 | — | — | 14,392 卢布（3 家最高） |
+| 197 | 疗养院西楼 309 房间钥匙 | `health-resort-west-wing-room-309-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 309 房间的钥匙。 | — | — | 3,468 卢布（3 家最高） |
+| 198 | 疗养院西楼 321 房间保险箱钥匙 | `health-resort-west-wing-room-321-safe-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 321 房间保险箱的钥匙。 | — | — | 9,333 卢布（3 家最高） |
+| 199 | 疗养院西楼 323 房间钥匙 | `health-resort-west-wing-room-323-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 323 房间的钥匙。 | — | — | 3,876 卢布（3 家最高） |
+| 200 | 疗养院西楼 325 房间钥匙 | `health-resort-west-wing-room-325-key` | 0.01 千克 | 40 次 | “蔚蓝海岸”疗养院西楼 325 房间的钥匙。 | — | — | 2,142 卢布（3 家最高） |
+| 201 | 码头大门钥匙 | `pier-door-key` | 0.01 千克 | — | 这把钥匙应该能打开通往撤离区域码头的大门。 | — | — | — |
+| 202 | 神秘房间符号钥匙 | `mysterious-room-marked-key` | 0.01 千克 | 10 次 | 一把神秘的钥匙，据说可以打开Chekannaya大街13号公寓中的某一扇门。钥匙上刻有一个奇怪的图案。 | — | — | 765,000 卢布（3 家最高） |
+| 203 | 简易工棚钥匙 | `portable-bunkhouse-key` | 0.01 千克 | 40 次 | 集装箱简易工棚的钥匙，也许就在海关工厂区的某处建筑工地周围。 | 以物换物 | — | 1,712 卢布（3 家最高） |
+| 204 | 管理员钥匙 | `admins-key` | 0.01 千克 | 1 次 | 一把机械钥匙，可用于开启一间设备间或其中一间系统管理员办公室。 | — | — | 63,750 卢布（3 家最高） |
+| 205 | 粘有胶带的疗养院办公室钥匙 | `health-resort-office-key-with-a-blue-tape` | 0.01 千克 | 40 次 | 疗养院内某间办公室的钥匙，用蓝色胶带做了标记。 | — | — | 62,885 卢布（3 家最高） |
+| 206 | 药房钥匙 | `necruspharm-pharmacy-key` | 0.01 千克 | 40 次 | Ultra商场药房的钥匙。 | — | — | 41,515 卢布（3 家最高） |
+| 207 | 行刑室钥匙 | `torture-room-key` | 0.01 千克 | 5 次 | 一把旧钥匙，与其指望用它来打开现代化的门锁，不如先用栅栏门上的破锁试试。 | — | — | 62,885 卢布（3 家最高） |
+| 208 | 观察室钥匙 | `observation-room-key` | 0.01 千克 | 5 次 | 一把用来开启“迷宫”中个人工作室的钥匙，这个房间可能和迷宫中进行的研究有关。 | — | — | 62,885 卢布（3 家最高） |
+| 209 | 货物网格门钥匙 | `cargo-container-mesh-door-key` | 0.01 千克 | 20 次 | 被护送的货物的网格门钥匙。 | — | — | 10,630 卢布（3 家最高） |
+| 210 | 车行封闭区域钥匙 | `car-dealership-closed-section-key` | 0.01 千克 | 1 次 | LexOs车行二楼封闭区域的钥匙。 | — | — | 463,980 卢布（3 家最高） |
+| 211 | 车行负责人办公室钥匙 | `car-dealership-directors-office-room-key` | 0.01 千克 | 20 次 | LexOs车行的一间办公室的钥匙。 | — | — | 38,301 卢布（3 家最高） |
+| 212 | 迷宫钥匙 | `labyrinth-key` | 0.01 千克 | 5 次 | 解锁迷宫中某个房间所需要的钥匙，至于房间里究竟有什么目前还不得而知。 | — | — | 62,885 卢布（3 家最高） |
+| 213 | 酒店206房间钥匙 | `pinewood-hotel-room-206-key` | 0.01 千克 | 40 次 | Pinewood酒店206房间的钥匙 | — | — | 10,992 卢布（3 家最高） |
+| 214 | 酒店215房间钥匙 | `pinewood-hotel-room-215-key` | 0.01 千克 | 40 次 | Pinewood酒店215房间的钥匙 | — | — | 8,759 卢布（3 家最高） |
+| 215 | 金融办公室小房间钥匙 | `financial-institution-small-office-key` | 0.01 千克 | 40 次 | 城市金融机构办公室小房间的钥匙 | — | — | 9,748 卢布（3 家最高） |
+| 216 | 金融办公室钥匙 | `financial-institution-office-key` | 0.01 千克 | 40 次 | 城市金融机构办公室的钥匙 | — | — | 9,700 卢布（3 家最高） |
+| 217 | 铁门钥匙 | `iron-gate-key` | 0.01 千克 | 40 次 | 某扇铁门的钥匙 | — | — | 19,963 卢布（3 家最高） |
+| 218 | 阿里阿德涅之线钥匙 | `ariadne-symbol-key` | 0.01 千克 | 1 次 | 有人在这把钥匙上刻了一个隐约可见的标记，看起来像是某种线团。当然，也有可能是纯粹的巧合。 | — | — | — |
+| 219 | 隔间钥匙 | `gas-station-office-key` | 0.01 千克 | 40 次 | 加油站经理办公室的钥匙。 | — | — | 3,955 卢布（3 家最高） |
+| 220 | 集装箱宿舍钥匙 | `portable-cabin-key` | 0.01 千克 | 40 次 | 海关外围区域集装箱简易宿舍的钥匙，也许是拖车停车场保安睡觉的地方。 | — | — | 2,907 卢布（3 家最高） |
+| 221 | 雷达站指挥室钥匙 | `radar-station-commandant-room-key` | 0.01 千克 | 40 次 | 能打开灯塔所在岛屿上某处雷达站指挥室的钥匙。 | — | — | 132,600 卢布（3 家最高） |
+| 222 | Elektronik 的钥匙 | `elektroniks-key` | 0.12 千克 | 20 次 | 一把寻常的钥匙，唯一的特征是挂着一个 Mechanic 钥匙扣。看样子 Elektronik 的幽默感还不错，甚至能搞到 Tarko 玩偶小人。 | 以物换物 | — | 15,300 卢布（3 家最高） |
+| 223 | Missam叉车钥匙 | `missam-forklift-key` | 0.12 千克 | 40 次 | 一把Missam叉车钥匙。前主人的名字被写在了带子上。 | — | — | 15,300 卢布（3 家最高） |
+| 224 | RB-PKPTS 钥匙 | `rb-pkpts-key` | 0.12 千克 | 20 次 | 联邦储备基地指挥地堡技术储藏室钥匙，现在要做的只剩下找到这个房间就行了。 | — | — | 76,500 卢布（3 家最高） |
+| 225 | Reshala 窝棚钥匙 | `reshalas-bunkhouse-key` | 0.12 千克 | 20 次 | 这把钥匙到底是哪座工棚的还不清楚，但应该会在海关的什么角落里。 | — | — | 61,439 卢布（3 家最高） |
+| 226 | Zmeisky 巷 3 号公寓钥匙 | `zmeisky-3-apartment-key` | 0.12 千克 | 20 次 | Zmeisky 巷子 3 号公寓楼里某套公寓的钥匙。 | — | — | 15,300 卢布（3 家最高） |
+| 227 | 俄罗斯邮政快递车钥匙 | `rus-post-car-key` | 0.12 千克 | 20 次 | 一把俄罗斯邮政所属车辆的钥匙，可能是一辆卡车的钥匙。 | — | — | 21,736 卢布（3 家最高） |
+| 228 | 邪教受害者公寓钥匙 | `cult-victims-apartment-key` | 0.12 千克 | 20 次 | 老旧公寓楼房间钥匙，看样子是邪教徒们在折磨被害人的时候拿到的，以备之后进入这座房子。 | — | — | 15,300 卢布（3 家最高） |
+| 229 | BBQ-S43 喷枪 | `bbq-s43-gas-torch` | 0.5 千克 | 1 次 | 便携式喷枪，只不过燃料有限。虽然这个狠家伙没法直接在墙上熔出一个大洞来让你逃出生天，用来熔化小小的金属门锁还是可以办到的。 | — | — | — |
+| 230 | 阀门手轮 | `valve-handwheel` | 0.5 千克 | 1 次 | 从某种阀门设备上拆下来的巨大手轮，这玩意之前应该是用来开关 Knossos 地下设施的供水或供汽闸门的。 | — | — | — |
 
 </div>
 

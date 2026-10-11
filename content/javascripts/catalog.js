@@ -176,6 +176,79 @@ function siteRoot() {
     return e;
   }
 
+  /* ---------------------------------------------------------------- 列规格
+
+     列**不再写死在这里**。生成器把「这一页有哪些列」随数据一起下发
+     （catalog-data.js 的 index[slug].cols），每项是 [字段名, 表头, 语义类, 行内下标]。
+     理由有两条，都是实测出来的：
+
+       · 同一页**开 JS / 不开 JS 必须看到同一批列**（Markdown 表由生成器生成）。
+         两处各写死一份列名，迟早漂 —— 而且漂了以后两边都「看起来正常」。
+       · 「钥匙与门禁」页与其余 15 页**列的构成不同**（多「使用次数」「官方简介」，
+         没有「关键属性」），写死就没法表达。
+
+     ⚠️ 下标由生成器给，前端**不要自己算** —— 表外字段（uses / desc）只为用到它
+        的页面追加，下标会随页面变。
+     ⚠️ 总览页（#tk-catalog-all）把所有分块拼在一起、跨多个分类，没有单一列规格，
+        走 `COLS_FALLBACK`（＝生成器的默认规格）。键盘「关键属性」栏在钥匙行会显示
+        「使用次数 N 次」，信息不丢。
+  -------------------------------------------------------------------------- */
+  var COLS_FALLBACK = [
+    ["name", "名称", "tk-col-name", 1],
+    ["en", "英文名", "tk-col-nowrap", 2],
+    ["weight", "重量", "tk-col-num", 3],
+    ["props", "关键属性", "tk-col-desc", 4],
+    /* 下标 9 是生成器的 `EXTRA_ALWAYS`（每页都有、全站同一个下标）——
+       总览页把各分块拼在一起共用这一份规格，只有固定下标的字段能出现在这里。 */
+    ["acq", "获取方式", "tk-col-nowrap", 9],
+    ["buy", "商人最低售价", "tk-col-nowrap", 5],
+    ["sell", "最高回收", "tk-col-nowrap", 6]
+  ];
+
+  function colsFor(d, slug) {
+    var meta = (d && d.index && slug) ? d.index[slug] : null;
+    if (meta && meta.cols && meta.cols.length) return meta.cols;
+    return COLS_FALLBACK;
+  }
+
+  /* 列格式器 —— 与 scripts/gen_items_catalog.py 的 `cell_md()` 是**一对**：
+     同一个字段在两处的呈现必须一致（Markdown 里 `` `slug` `` 那种包法搬不进 DOM，
+     所以 JS 侧从原始值再格式化一遍）。**改这里要想一下那边。**
+     每个格式器收 (行数据, 该字段的下标)，返回 <td>。 */
+  var FMT = {
+    name: function (r, i) {
+      var td = el("td", "tk-col-name");
+      var b = el("button", "tk-cat__name", r[i]);
+      b.type = "button";
+      b.title = "查看完整属性";
+      td.appendChild(b);
+      return td;
+    },
+    en: function (r, i) {
+      var td = el("td", "tk-col-nowrap");
+      td.appendChild(el("code", null, r[i] || ""));
+      return td;
+    },
+    weight: function (r, i) {
+      return el("td", "tk-col-num",
+        typeof r[i] === "number" ? r[i] + " 千克" : "—");
+    },
+    props: function (r, i) { return el("td", "tk-col-desc", r[i] || "—"); },
+    buy: function (r, i) { return el("td", "tk-col-nowrap", r[i] || "—"); },
+    sell: function (r, i) { return el("td", "tk-col-nowrap", r[i] || "—"); },
+    /* 使用次数：0 / 缺失一律留白，**不写「0 次」**（会被读成「已经用完了」）——
+       与生成器 cell_md() 同一口径，页面上的「口径四条」是这个数字的说明。 */
+    uses: function (r, i) {
+      var u = r[i];
+      return el("td", "tk-col-num",
+        (typeof u === "number" && u > 0) ? u + " 次" : "—");
+    },
+    desc: function (r, i) { return el("td", "tk-col-desc", r[i] || "—"); },
+    /* 获取方式：生成器压好的短标签串（`商人出售 / 以物换物 / 制作`），`—` = 站内未收录。
+       **不要在 JS 侧重算** —— 静态表与 JS 表必须显示同一个串，两处各算就迟早不一致。 */
+    acq: function (r, i) { return el("td", "tk-col-nowrap", r[i] || "—"); }
+  };
+
   function panel(d) {
     var wrap = el("div", "tk-cat");
 
@@ -250,35 +323,28 @@ function siteRoot() {
 
          列宽与对齐改用**挂在 th/td 上的语义类**（.tk-col-*）——
          子元素带 class 不影响 `table:not([class])` 的匹配，两套规则互不干扰。 */
+      var cols = colsFor(d, slugOfPage());
       var tb = document.createElement("table");
       var thead = document.createElement("thead");
       var hr = document.createElement("tr");
-      [["名称", "tk-col-name"], ["英文名", "tk-col-nowrap"], ["重量", "tk-col-num"],
-       ["关键属性", "tk-col-desc"], ["商人最低售价", "tk-col-nowrap"],
-       ["最高回收", "tk-col-nowrap"], ["单格价值 ₽/格", "tk-col-num"]
-      ].forEach(function (p) {
-        hr.appendChild(el("th", p[1], p[0]));
+      cols.forEach(function (c) {
+        hr.appendChild(el("th", c[2], c[1]));
       });
+      /* 「单格价值」是**前端现算**的列（最高回收 ÷ 占地格数），不在数据里，
+         所以不进列规格，按原来的位置追加在最后。 */
+      hr.appendChild(el("th", "tk-col-num", "单格价值 ₽/格"));
       thead.appendChild(hr);
       tb.appendChild(thead);
 
       var tbody = document.createElement("tbody");
       rows.slice(0, shown).forEach(function (r) {
         var tr = document.createElement("tr");
-        var td0 = el("td", "tk-col-name");
-        var b = el("button", "tk-cat__name", r[1]);
-        b.type = "button";
-        b.title = "查看完整属性";
-        td0.appendChild(b);
-        tr.appendChild(td0);
-        var tdEn = el("td", "tk-col-nowrap");
-        tdEn.appendChild(el("code", null, r[2]));
-        tr.appendChild(tdEn);
-        tr.appendChild(el("td", "tk-col-num",
-          typeof r[3] === "number" ? r[3] + " 千克" : "—"));
-        tr.appendChild(el("td", "tk-col-desc", r[4] || "—"));
-        tr.appendChild(el("td", "tk-col-nowrap", r[5] || "—"));
-        tr.appendChild(el("td", "tk-col-nowrap", r[6] || "—"));
+        cols.forEach(function (c) {
+          /* 未知字段名不静默吞掉 —— 缺一格会让整行串位，而串位看起来「有内容」。
+             生成器与前端只有这一份字段名清单，落到兜底就是有一边改了没同步。 */
+          var f = FMT[c[0]];
+          tr.appendChild(f ? f(r, c[3]) : el("td", "tk-col-desc", r[c[3]] == null ? "—" : r[c[3]]));
+        });
         var sv = slotValue(r);
         tr.appendChild(el("td", "tk-col-num", sv == null ? "—" : fmtNum(sv)));
         tbody.appendChild(tr);

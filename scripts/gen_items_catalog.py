@@ -28,6 +28,18 @@
 * 页面清单 ＝ nav 实际存在的 md 文件；
 * 每页表格行数 ＝ 该页声明的件数。
 
+列规格（`COL_SPECS`）—— 静态表与 JS 表共用一份
+------------------------------------------------
+列**不再写死在两处**（`page_markdown()` 的 Markdown 表头 + `catalog.js` 的 JS 表头），
+而是由本文件产出、随 `catalog-data.js` 的 `index[slug].cols` 下发给前端。理由与
+唯一一个「逐页不同列」的用例（钥匙页）见 `COL_SPECS` 的注释。
+
+**加列时的动作清单**：① 改 `COL_SPECS` 的 `cols` 与 `header`/`sep`；② 若用的是表外字段，
+写进 `EXTRA_ALWAYS`（每页都有、下标固定）或 `EXTRA_OPTIONAL`（只为用到的页面追加），
+并在 `collect()` 或 `annotate_acquisition()` 里给它赋值；③ 在 `cell_md()` 与
+`content/javascripts/catalog.js` 的 `FMT` 里各写一个格式器（两处是一对）。
+`assert_md_header()` 会拦住「只改了表头没改规格」这类静默错误。
+
 ⚠️ **生成页写盘一律用 ``write_bytes``，不要用 ``write_text``。**
 
 Windows 上 ``write_text`` 开文本模式，会把已经存在的换行再转一次。先手动
@@ -356,6 +368,112 @@ PROP_ORDER = [
     "repairCost", "stackMaxSize", "weight", "tracerColor",
 ]
 
+# ---------------------------------------------------------------------------
+# 表格列规格 —— **静态 Markdown 表**与**JS 检索表**共用一份
+# ---------------------------------------------------------------------------
+# 为什么要建这套规格：列原本是**写死在两处**的 —— `page_markdown()` 里一份
+# Markdown 表头、`content/javascripts/catalog.js` 里一份 JS 表头。两处各自为政
+# 必然漂移，而**同一页「开 JS」与「不开 JS」两种读法必须看到同一批列**。
+# 现在列规格由生成器统一产出（写进 `catalog-data.js` 的 `index[slug].cols`，
+# 含字段名与数据下标），JS 侧只按规格渲染，不再自己写死列名。
+#
+# 数据下标不在规格里手写：`ROW_BASE` 定位置、`EXTRA_ALWAYS` / `EXTRA_OPTIONAL` 追加。
+# **加字段一律走这三个常量，别在下标上打补丁。**
+ROW_BASE = ["id", "name", "en", "weight", "props", "buy", "sell", "type", "size"]
+# 表外字段，分两档：
+#   · `EXTRA_ALWAYS`   —— **每一页都要**，下标在全站固定。
+#     `acq`（获取方式）是唯一一个：它短（最多 15 字），而且 15 个图鉴页全都有这一列。
+#     固定下标还有一个用处：总览页（#tk-catalog-all）把各分块拼在一起用一份列规格，
+#     只有「每页都有、且下标相同」的字段才能出现在那里（见 catalog.js 的 COLS_FALLBACK）。
+#   · `EXTRA_OPTIONAL` —— **只为用到它的页面追加**。
+#     `desc`（官方简介）全站 4979 件合计 145 KB，不该给 14 个不需要它的页面一起背。
+EXTRA_ALWAYS = ["acq"]
+EXTRA_OPTIONAL = ["uses", "desc"]
+
+# 「获取方式」短标签。**只收站内收录的固定渠道**，口径与 load_routes() 的注释一致：
+#   ① 商人出售 —— 数据源的 `buyFromTrader`；
+#   ② 以物换物 / ③ 藏身处制作 —— 来自 recipes.json。
+# **刻意不含「哪张图能刷到」**（散落刷新数据只覆盖 6.2% 的物品，给了多半会误导）。
+# 所以 `—` 的含义是「**站内没有收录它的固定渠道**」，**不是「拿不到」** ——
+# 这句话必须落在页面上（见 page_markdown 的「本页概览」那一行），否则 `—` 会被读成「无解」。
+ACQ_LABEL = {"buy": "商人出售", "barter": "以物换物", "craft": "制作"}
+# 多渠道时的排列顺序固定，避免同一件物品在不同页面/不同版本里顺序漂。
+ACQ_ORDER = ["buy", "barter", "craft"]
+
+# 单个规格 = 表头行 / 分隔行 / 列三元组 (字段名, JS 表头, 语义类)。
+#
+# ⚠️ **表头行与分隔行写成常量，不靠列名推导**：分隔行的宽度是手写的、推不出来。
+#    防漂移由 `assert_md_header()` 兜底 —— 表头单元格数对不上列规格就报错。
+COL_SPECS = {
+    "default": {
+        "header": "| # | 名称 | 英文名 | 重量 | 关键属性 | 获取方式 | 商人最低售价 | 商人最高回收 |",
+        "sep": "|---|------|--------|------|----------|----------|--------------|--------------|",
+        "cols": [
+            ("name", "名称", "tk-col-name"),
+            ("en", "英文名", "tk-col-nowrap"),
+            ("weight", "重量", "tk-col-num"),
+            ("props", "关键属性", "tk-col-desc"),
+            # 插在「属性」与「价格」之间：读者的问题是「这东西怎么弄到」，
+            # 接着才是「值多少钱」—— 顺序本身是内容。
+            ("acq", "获取方式", "tk-col-nowrap"),
+            ("buy", "商人最低售价", "tk-col-nowrap"),
+            ("sell", "最高回收", "tk-col-nowrap"),
+        ],
+    },
+    # 钥匙与门禁专页：**加两列、去一列**。
+    #
+    # 实测（2026-10-11，抓取日 2026-10-08 的快照）为什么必须单独给一列：
+    #   · 钥匙的 `properties` **只有** `{propertiesType: ItemPropertiesKey, uses: N}`，
+    #     而 `uses` 不在 `PROP_LABEL` 里 → 「关键属性」栏 **258/258 全空**，
+    #     而同类页面（食物 / 护甲）是 0% 空。这不是设计，是漏字段。
+    #   · 「使用次数」恰恰是买钥匙**唯一要看的数** —— 同价不同次是两笔不同的交易，
+    #     站内条目自己就写着「钥匙的成本从来不在重量上，在次数上」。
+    #     259 件里 250 件有值（档位：40 次 ×177、1 次 ×24、10 次 ×23、20 次 ×12、
+    #     5 次 ×11、2 次 ×3；另有 9 件为 0，见页面表注）。
+    #   · 「官方简介」= 游戏内物品描述的中文本地化原文，**259 件 100% 有**
+    #     （平均 29 字、最长 121 字），原本只在 JS 详情面板里能看到，
+    #     静态表与 JS 表都读不到 —— 读者扫表时看到的就是「名字 + 价格」。
+    #   · 去掉「关键属性」：钥匙在该字段上没有任何别的属性可放，留着就是一整列 `—`。
+    #
+    # ⚠️ 列名用「使用次数」而不是「耐久」：数据源字段就叫 `uses`，
+    #    实测与四个「直读游戏文件」的来源一致（20 / 10 次等，见 CHANGELOG v1.103.0）；
+    #    社区里流传的「耐久度」是一套没有数值依据的说法，不采用。
+    "keys": {
+        "header": "| # | 名称 | 英文名 | 重量 | 使用次数 | 官方简介 | 获取方式 | 商人最低售价 | 商人最高回收 |",
+        "sep": "|---|------|--------|------|----------|----------|----------|--------------|--------------|",
+        "cols": [
+            ("name", "名称", "tk-col-name"),
+            ("en", "英文名", "tk-col-nowrap"),
+            ("weight", "重量", "tk-col-num"),
+            ("uses", "使用次数", "tk-col-num"),
+            ("desc", "官方简介", "tk-col-desc"),
+            ("acq", "获取方式", "tk-col-nowrap"),
+            ("buy", "商人最低售价", "tk-col-nowrap"),
+            ("sell", "最高回收", "tk-col-nowrap"),
+        ],
+    },
+}
+
+
+def col_spec(slug):
+    return COL_SPECS.get(slug, COL_SPECS["default"])
+
+
+def assert_md_header(slug):
+    """表头行的单元格数必须 = 列规格 + 1（那个 1 是 `#` 序号列）。
+
+    判据同 `check_anchors()`：**能在写盘前发现的错，就别留给渲染**。
+    这两处（表头常量 / 列规格）是手工维护的一对，加列时只改一处就会渲染出
+    列数不齐的表 —— 而 Markdown 不报错，只会静默串列或整表退化。
+    """
+    spec = col_spec(slug)
+    n = len([c for c in spec["header"].strip().strip("|").split("|")])
+    want = len(spec["cols"]) + 1
+    if n != want:
+        return [f"[错误] {slug}: Markdown 表头 {n} 列 ≠ 列规格 {want} 列（含序号列）"]
+    return []
+
+
 # 枚举值归一化：数据源给的是内部代号（Caliber556x45NATO），读者看不懂。
 # 只收「读者会拿它做判断」的枚举；未列出的值原样输出（不猜、不编）。
 ENUM_ZH = {
@@ -453,6 +571,39 @@ def fmt_num(x, suffix="", digits=None):
     return clean(str(x))
 
 
+def cell_md(it, field) -> str:
+    """按列规格取一个 Markdown 单元格的值。
+
+    ⚠️ 这里的口径与 `content/javascripts/catalog.js` 的格式器是**一对**：
+       同一个字段在两处的呈现必须一致（JS 侧从原始值再格式化一遍，因为
+       Markdown 的 `` `反引号` `` 包裹不能直接搬进 DOM）。改这里要想一下那边。
+    """
+    if field == "name":
+        return it["name"]
+    if field == "en":
+        return f"`{it['en']}`"
+    if field == "weight":
+        return (fmt_num(it["weight"], " 千克", 3)
+                if isinstance(it["weight"], (int, float)) else "—")
+    if field == "props":
+        return it["props"]
+    if field == "buy":
+        return it["buy"]
+    if field == "sell":
+        return it["sell"]
+    if field == "uses":
+        # 与 prop_cells 同一口径：0 / 缺失一律留白（含义数据源未说明，见表注）
+        u = it.get("uses")
+        return f"{u} 次" if isinstance(u, int) and u > 0 else "—"
+    if field == "desc":
+        return it["desc"] or "—"
+    if field == "acq":
+        # 由 annotate_acquisition() 预先算好写进每一行 —— 静态表与 JS 表**共用同一个串**，
+        # 免得两处各算一遍（那正是「同一件事两种叫法」的来源）。
+        return it.get("acq") or "—"
+    return "—"
+
+
 def build_tree(cats: dict, zh: dict) -> dict:
     """返回 {leaf_id: (中文路径, 叶子名)}，并记录全部叶子 id。"""
     def name(cid):
@@ -493,7 +644,28 @@ def prop_cells(props: dict) -> tuple[str, float]:
     bits = []
     numeric = []
     for k in sorted(props, key=lambda x: (rank.get(x, 999), x)):
-        if k == "propertiesType" or k not in PROP_LABEL:
+        if k == "propertiesType":
+            continue
+        # 使用次数：**只对钥匙渲染**。
+        #
+        # 别的物品栏里也有 `uses`（实测 16 件：药品 8 / 止痛药 6 / 手术包 2，
+        # 另有 provisions / injectors / specialSlot 若干），若一并渲染就会改到
+        # **另外 14 个图鉴页**的「关键属性」栏 —— 本批刻意不碰它们，所以按
+        # `propertiesType` 卡死。判据：`ItemPropertiesKey` 是钥匙的专属属性类型
+        # （实测 259 / 259 件钥匙全是它）。
+        #
+        # 值为 0 时**不写**：写成「使用次数 0 次」会被读成「已经用完了」。
+        # 实测 9 件为 0（多为剧情 / 任务类钥匙卡），含义数据源未说明 ——
+        # 钥匙页的表注里单独交代，不在这里替它下结论。
+        if k == "uses":
+            if props.get("propertiesType") != "ItemPropertiesKey":
+                continue
+            u = props.get("uses")
+            if not isinstance(u, int) or u <= 0:
+                continue
+            bits.append(f"使用次数 {u} 次")
+            continue
+        if k not in PROP_LABEL:
             continue
         v = props[k]
         txt, suf, dg, pct, absolute = PROP_LABEL[k]
@@ -626,12 +798,24 @@ def collect(items, zh, leaves, cats, leaf_ids):
             "size": size,
             "types": it.get("types") or [],
             "props": summary,
+            # 使用次数：**只有钥匙类有**（实测 259 件钥匙，propertiesType 全是
+            # ItemPropertiesKey）。其余物品的 properties 里没有这个键 → 为 None。
+            # 键的规格 `keys` 会把它渲染成一列（见 COL_SPECS 的说明）。
+            "uses": props.get("uses"),
             "buy": price_cell(it.get("buyFromTrader"), "buy"),
             "sell": price_cell(it.get("sellToTrader"), "sell"),
-            # 官方介绍（游戏内物品描述的中文本地化原文）与官方 Wiki 外链 —— 只有详情页用。
+            # 官方介绍（游戏内物品描述的中文本地化原文）与官方 Wiki 外链 —— 详情页与
+            # 钥匙页的「官方简介」栏都用它。
             # `zh` 字典的键是 "<物品id> Description"；实测 4964 / 4979 件有中文，
             # 其余 15 件官方未提供中文本地化，取值会是 None → 统一落成空串。
-            "desc": (zh.get(it.get("description") or "") or "").strip(),
+            #
+            # ⚠️ **必须过 `clean()`**：原文里含半角直引号（如「"Aspect"有限责任公司…」），
+            #    直接落盘会被 `check_entries.py` 第 6 项判为「中文行残留直引号」。
+            #    实测踩到：机械钥匙表里 2 行（aspect-company-office-key 与
+            #    supply-department-directors-office-key）。
+            #    口径与物品名一致（`clean()` 把 `"` 统一成 `”`）—— 于是同一行里
+            #    名字列与简介列的引号样式相同。**两边用同一把尺子，比各自更漂亮重要。**
+            "desc": clean(zh.get(it.get("description") or "") or ""),
             "wiki": it.get("wikiLink") or "",
             "_num": numeric,
         })
@@ -856,11 +1040,52 @@ def hub_markdown(page, leaves, total_items) -> str:
     return "\n".join(out)
 
 
+def annotate_acquisition(plan, buckets, routes):
+    """给每一行写一个「获取方式」短标签；返回全站统计（供打印核对）。
+
+    回答读者的问题：**「这些东西我去哪弄？」** —— 图鉴的表格原本只有价格，
+    而价格是「值多少」、不是「怎么来」。实测（2026-10-11）：删掉价格列后，
+    不开 JS 的读者从图鉴页**完全看不出**一件物品怎么弄到 —— 2433 件商人出售
+    与 767 件配方（以物换物 / 制作）一个都没写出来。
+
+    ⚠️ **口径只有三条**（见 `ACQ_LABEL` 与 `load_routes()` 的注释）：
+       商人出售 / 以物换物 / 藏身处制作。**不含「哪张图能刷到」。**
+       `—` = 站内没收录它的固定渠道，**不等于拿不到**。
+
+    ⚠️ 判「有商人出售」用的是 **buy 单元格非空**（`price_cell` 取不到 priceRUB 时会返回 `—`），
+       与 `content/javascripts/catalog.js` 的 `bought` 判定**同一把尺子**。
+       别另拿 `buyFromTrader` 判 —— 两处口径一分叉，就会出现「表里有列、详情里说没有」。
+    """
+    stat = {"items": 0, "buy": 0, "barter": 0, "craft": 0, "any": 0, "none": 0}
+    for p in plan:
+        for lid in p["leaves"]:
+            for it in buckets.get(lid, []):
+                ks = set()
+                if it["buy"] != "—":
+                    ks.add("buy")
+                for r in routes.get(it["id"]) or []:
+                    ks.add(r["k"])
+                it["acq"] = " / ".join(ACQ_LABEL[k] for k in ACQ_ORDER if k in ks) or "—"
+                stat["items"] += 1
+                if "buy" in ks:
+                    stat["buy"] += 1
+                if "barter" in ks:
+                    stat["barter"] += 1
+                if "craft" in ks:
+                    stat["craft"] += 1
+                if ks:
+                    stat["any"] += 1
+                else:
+                    stat["none"] += 1
+    return stat
+
+
 def page_markdown(page, leaves, buckets, total_items) -> str:
     rows = []
     for lid in page["leaves"]:
         path = leaves[lid]
         rows.append((lid, path, buckets.get(lid, [])))
+    spec = col_spec(page["slug"])
 
     out = []
     out.append("---")
@@ -892,11 +1117,69 @@ def page_markdown(page, leaves, buckets, total_items) -> str:
                + "、".join(
                    f"[{leaves[l][-1]}](#{leaf_anchor(leaves[l][-1])})"
                    for l in page["leaves"]) + " |")
+    # 「获取方式」的覆盖数**必须从本页自己的行里数出来**（不另取常量表）——
+    # 与 check_catalog_consistency 的纪律同源：判断集要来自被检查的对象。
+    acq = {"all": 0, "buy": 0, "barter": 0, "craft": 0, "any": 0}
+    for _lid, _path, items in rows:
+        for it in items:
+            s = it.get("acq") or "—"
+            acq["all"] += 1
+            if s == "—":
+                continue
+            acq["any"] += 1
+            for k in ("buy", "barter", "craft"):
+                if ACQ_LABEL[k] in s:
+                    acq[k] += 1
+    out.append(
+        "| **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。"
+        f"本页 **{acq['any']} / {acq['all']} 件**有至少一条"
+        f"（商人出售 {acq['buy']} ｜ 以物换物 {acq['barter']} ｜ 制作 {acq['craft']}）；"
+        "`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— "
+        "那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|")
+    # 只在用得到这一列时写：**逐页声明列口径，别让读者自己去猜哪一列是什么来源**。
+    if page["slug"] == "keys":
+        out.append("| **使用次数** | 取数据源的 `uses` 字段 —— 同价不同次是两笔不同的交易，"
+                   "买之前先看这一列。9 件的该字段为 0，本站留白，见下方「口径四条」 |")
+        out.append("| **官方简介** | 游戏内物品描述的中文本地化原文，**本页 259 件全覆盖**"
+                   "（平均 29 字）。它是判断「这把钥匙开什么门」最直接的一句 |")
     out.append("| **数据来源** | `json.tarkov.dev` 的 `itemCategories` 树与 `items` 接口，二级来源 |")
     out.append(f"| **抓取日期** | {FETCH_DATE} |")
     out.append("| **配套页面** | [物品图鉴总览](index.md) ｜ "
                "[任务需求物品反查](../quests/item-lookup.md) ｜ [配方速查表](../docs/recipes.md) |")
+    if page["slug"] == "keys":
+        out.append("| **按图带钥匙** | 全站 57 个任务需要 59 把钥匙，"
+                   "**按地图归拢**的表在[任务图鉴 §4](../quests/index.md)；"
+                   "本页**不逐件标注所属地图**，理由见下方「口径四条」 |")
     out.append("")
+    if page["slug"] == "keys":
+        # 口径说明放在**概览表正下方**，不放检索面板后面 ——
+        # 实测（2026-10-11 截图核对）放在面板后时，读者看到的顺序变成
+        # 「概览 → 检索面板（里面就有使用次数列）→ 口径」，而口径恰恰是解释那一列的。
+        # 顺序本身是内容的一部分：**先给口径，再让读者看到数字。**
+        # 页内有两个分类表，所以口径只写一次（逐表重复等于让读者读两遍）。
+        out.append("> **口径四条，引用前先读**：")
+        out.append(">")
+        out.append("> ① **使用次数**取自数据源的 `uses` 字段（二级来源，直读游戏文件）。"
+                   "同价不同次是两笔不同的交易，**买之前先看这一列**。")
+        out.append(">")
+        out.append("> ② **留白的 9 件**（门禁卡 8 件、机械钥匙 1 件）该字段为 0，"
+                   "**本站不把它写成「0 次」**——那会被读成「已经用完了」。"
+                   "数据源未说明 0 的含义，请以游戏内的物品描述为准。")
+        out.append(">")
+        out.append("> ③ **本页不逐件标注「属于哪张图」**：能拿到的只有两类 —— "
+                   "游戏数据里 `maps.accessKeys` 能对上本页的进图准入钥匙（**5 件**），"
+                   "以及任务侧反推出的「哪个任务在哪张图需要它」（**54 件**），"
+                   "两个来源互不重叠，合计 **59 / 259 = 23%**；"
+                   "更关键的是后者是"
+                   "**「任务所在地图」，不是「这把钥匙开哪张图的哪扇门」**，"
+                   "写成「所属地图」会指错。所以按图看钥匙请走"
+                   "[任务图鉴 §4「任务与钥匙」](../quests/index.md)。"
+                   "**表格里没有地图，不等于这把钥匙只有一张图能用。**")
+        out.append(">")
+        out.append("> ④ **官方简介是游戏内的原文**，不是本站的攻略解读 —— "
+                   "它常直接点名地点（如「化工厂紧急出口的钥匙」），"
+                   "这是判断「它开什么门」最可靠的一句。")
+        out.append("")
     out.append("---")
     out.append("")
     out.append("## 🔎 检索与筛选")
@@ -938,14 +1221,11 @@ def page_markdown(page, leaves, buckets, total_items) -> str:
         #   ② `data-search-exclude` —— 索引器认这个属性（已实测，两种写法都生效）。
         out.append('<div data-search-exclude markdown>')
         out.append("")
-        out.append("| # | 名称 | 英文名 | 重量 | 关键属性 | 商人最低售价 | 商人最高回收 |")
-        out.append("|---|------|--------|------|----------|--------------|--------------|")
+        out.append(spec["header"])
+        out.append(spec["sep"])
         for n, it in enumerate(items, 1):
-            w = fmt_num(it["weight"], " 千克", 3) if isinstance(it["weight"], (int, float)) else "—"
-            out.append(
-                f"| {n} | {it['name']} | `{it['en']}` | {w} | {it['props']} "
-                f"| {it['buy']} | {it['sell']} |"
-            )
+            out.append("| " + " | ".join(
+                [str(n)] + [cell_md(it, c[0]) for c in spec["cols"]]) + " |")
         out.append("")
         out.append("</div>")
         out.append("")
@@ -1166,23 +1446,43 @@ def write_js(plan, buckets, leaves, total_items, routes, quests, item_of_name):
     """
     chunks = {}
     pages = {}
-    # 每行按**位置**索引读出，前端 catalog.js 也是按位置读的 ——
-    # 改动这里的列序，必须同步改 content/javascripts/catalog.js 里的下标。
-    #   [0]id  [1]中文名  [2]英文归一名  [3]重量kg  [4]属性摘要
-    #   [5]商人最低售价  [6]商人最高回收  [7]types[0]  [8]占地格数
+    # 每行按**位置**索引读出，前端 catalog.js 也是按位置读的。
+    # 基点顺序由 `ROW_BASE` 定（[0]id [1]中文名 [2]英文归一名 [3]重量kg
+    # [4]属性摘要 [5]商人最低售价 [6]商人最高回收 [7]types[0] [8]占地格数），
+    # 表外字段按 `EXTRA_FIELDS` 依次追加。
+    #
+    # ⚠️ **前端不再硬编码下标** —— 它按下面 `index[slug].cols` 里给的
+    #    `[字段名, 表头, 语义类, 下标]` 逐列渲染。所以这里改了基点顺序、
+    #    或者某页多带了字段，前端会自动跟着走；**唯一要同步的是两侧的格式器
+    #    （这里的 `cell_md` / 那边的 FMT）**。
+    base = {f: i for i, f in enumerate(ROW_BASE)}
+    idx = {}
     for p in plan:
+        slug = p["slug"]
+        spec = col_spec(slug)
+        fields = [c[0] for c in spec["cols"]]
+        # 两档表外字段（见 EXTRA_ALWAYS / EXTRA_OPTIONAL 的注释）：
+        #   always   —— 每页都有、下标全站固定；总览页把各分块拼起来共用一份列规格，
+        #               只有这一档能出现在那里。
+        #   optional —— 只为用到它的页面追加（`desc` 全站 145 KB，不该人人背）。
+        extras = list(EXTRA_ALWAYS) + [f for f in EXTRA_OPTIONAL if f in fields]
+        fmap = dict(base)
+        for k, f in enumerate(extras):
+            fmap[f] = len(ROW_BASE) + k
         arr = []
         for lid in p["leaves"]:
             for it in buckets.get(lid, []):
-                arr.append([it["id"], it["name"], it["en"], it["weight"], it["props"],
-                            it["buy"], it["sell"], it["types"][0] if it["types"] else "",
-                            it["size"]])
-                pages[it["id"]] = p["slug"]
-        chunks[p["slug"]] = arr
-    idx = {p["slug"]: {"title": p["title"], "count": p["count"],
-                       "leaves": [{"path": leaves[l], "n": len(buckets.get(l, []))}
-                                  for l in p["leaves"] if buckets.get(l)]}
-           for p in plan}
+                row = [it["id"], it["name"], it["en"], it["weight"], it["props"],
+                       it["buy"], it["sell"], it["types"][0] if it["types"] else "",
+                       it["size"]]
+                row.extend(it.get(f) for f in extras)
+                arr.append(row)
+                pages[it["id"]] = slug
+        chunks[slug] = arr
+        idx[slug] = {"title": p["title"], "count": p["count"],
+                     "cols": [[c[0], c[1], c[2], fmap[c[0]]] for c in spec["cols"]],
+                     "leaves": [{"path": leaves[l], "n": len(buckets.get(l, []))}
+                                for l in p["leaves"] if buckets.get(l)]}
 
     # 「任务需求」按中文名索引，这里翻成按 id 索引，前端才查得到。
     quests_by_id = {}
@@ -1479,12 +1779,30 @@ def main() -> int:
     print("\n对账通过（七道）：叶子集合闭合 / 前缀全部命中 / 引用有效 / 件数之和相等 / "
           "无未归类物品 / 每页件数一致 / slug 唯一")
 
+    # 「获取方式」标签：**必须在写页面之前算好** —— 静态表与 JS 表都从 `it["acq"]` 读，
+    # 而 `acq` 要同时看 `buyFromTrader`（已在 collect 落成 buy 单元格）与 recipes.json。
+    # 原先 load_routes() 排在写盘**之后**（那时只有 JS 侧用得到它），本批静态表也要用，
+    # 所以整体前移到这里。**别再把它挪回去** —— 挪回去的后果是静态表整列 `—` 而不报错。
+    routes, recipe_names, recipe_meta = load_routes()
+    acq_stat = annotate_acquisition(plan, buckets, routes)
+
     if args.check:
         return 0
 
     OUT.mkdir(parents=True, exist_ok=True)
     written = []
     anchor_errs = []
+    # 列规格与表头常量是手工维护的一对 —— 加列时只改一处会渲染出列数不齐的表，
+    # 而 Markdown 不报错（要么静默串列、要么整表退化成裸竖线段落）。所以先自检。
+    spec_errs = []
+    for p in expand_splits(plan, leaves, buckets):
+        if not p.get("hub"):
+            spec_errs += assert_md_header(p["slug"])
+    if spec_errs:
+        print("\n列规格自检未通过：", file=sys.stderr)
+        for e in spec_errs:
+            print("  " + e, file=sys.stderr)
+        return 1
     for p in expand_splits(plan, leaves, buckets):
         # 被拆开的整页 → 总览页（只列分册，不含大表）
         md = (hub_markdown(p, leaves, items_total) if p.get("hub")
@@ -1514,7 +1832,7 @@ def main() -> int:
         for e in anchor_errs:
             print("  " + e, file=sys.stderr)
         return 1
-    routes, recipe_names, recipe_meta = load_routes()
+    # 注：`routes` 已在写页面前加载（见上方「获取方式」那一段），这里不重复读。
     quests, quest_n = load_quest_needs(leaf_ids)
 
     # 中文名 → 图鉴位置。任务侧的数据是**按名字**索引的，所以这份映射也得按名字出。
@@ -1566,6 +1884,11 @@ def main() -> int:
     print(f"  ⚠️ 口径：recipes 里共 {len(routes)} 种产物，这里只报"
           f"**收进图鉴的 {rstat['items']} 种**（差额是任务专属道具等不在图鉴里的物品）"
           f" —— 打印值必须等于产物里的值，否则文档引用的数字会与页面不符")
+    # 页面「本页概览」的获取方式那一行，数字是本页自己数的；这里打全站合计用于核对。
+    print(f"获取方式：全站 {acq_stat['items']} 件中 **{acq_stat['any']} 件**有至少一条固定渠道"
+          f"（{acq_stat['any'] * 100 // max(acq_stat['items'], 1)}%）"
+          f"　商人出售 {acq_stat['buy']} ｜ 以物换物 {acq_stat['barter']} ｜ 制作 {acq_stat['craft']}"
+          f"　｜ **{acq_stat['none']} 件为 `—`**（站内没收录固定渠道，不等于拿不到）")
     print(f"任务需求：任务侧 {quest_n} 种 → 桥上 {quest_n - len(unmatched_q)} 种，"
           f"未桥上 {len(unmatched_q)} 种（任务专属道具，不在 items 端点里）")
     if unmatched_q:
