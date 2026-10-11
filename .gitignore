@@ -22,6 +22,14 @@ content/javascripts/catalog-data.js
 # 与 catalog-data.js 同理，不入仓；CI 在 build 前会重新生成。
 content/javascripts/catalog-item-*.js
 
+# 任务详情页的分片（quest-detail-00.js … quest-detail-NN.js）：同样是纯生成物 ——
+# `gen_quests.py` 每次先 `glob("quest-detail-*.js")` 全部删掉再重写，
+# 所以文件名本身就是生成器内部约定（分片数变了旧文件就没人引用）。
+# ⚠️ 原有规则漏了它（2026-10-11 实测：32 个文件一直以「未跟踪」状态躺在工作区，
+#    每次 `git status` 都报，也会被生成物一致性检查当成「新增文件」）。
+# ⚠️ 注意别与**入仓**的 quests-detail-*.js（复数 quests、按商人分块的 11 份）混淆。
+content/javascripts/quest-detail-*.js
+
 # IDE
 .vscode/
 .idea/
