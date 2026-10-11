@@ -27,6 +27,11 @@
   · 不受**工作区脏不脏**影响：本地已经重跑过、只是没提交，不会被误报；
   · 只需比对两次，不依赖任何版本控制状态。
 
+⚠️ **只比入仓文件。** `.gitignore` 覆盖的产物（`terms-data.js` / `catalog-data.js` 等）
+   不参与判定 —— 它们由构建流程负责、本来就不在仓库里，报「漂移」没有意义。
+   实测（2026-10-11）：CI 的 validate job 不跑 `build_glossary`，`terms-data.js`
+   在本步之前不存在，被本步生成器「新产出」后误报成漂移。
+
 ⚠️ **行尾符与日期都要归一化**（`_norm_bytes`）。生成器一律写 LF，而 Windows 上
    `git checkout` 若开了 `core.autocrlf`，工作区里是 CRLF —— 不归一化会在本机
    把干净树报出几十个假漂移。日期同理：产物里有 `generated: today()`。
@@ -124,9 +129,33 @@ GENERATORS: list[list[str]] = [
 IGNORE: set[str] = {"content/quests/index.md"}
 
 
+def ignored_paths(paths: list[str]) -> set[str]:
+    """这批路径里，哪些被 `.gitignore` 覆盖 —— 快照要跳过它们。
+
+    ⚠️ 为什么必须跳过：**未入仓的产物不构成「漂移」**。它们的正确性由构建流程负责
+    （CI 的 deploy job 会重新生成），而本门禁问的是「**仓库里的那份**有没有跟上源」。
+    不跳过就会误报 —— 实测（2026-10-11）：CI 的 validate job 不跑 `build_glossary`，
+    于是 `terms-data.js` 在本步之前根本不存在、被本步的生成器「新产出」，
+    门禁当场把它报成漂移，CI 红。
+
+    ⚠️ 用 `git check-ignore --stdin` 逐条问，而不是 `ls-files -ci`：
+    后者只列**已跟踪**的忽略文件，漏掉 `terms-data.js` 这种「未跟踪 + 被忽略」的
+    —— 而 CI 里正是这一类不存在。一次调用、结果精确。
+    """
+    if not paths:
+        return set()
+    payload = "\0".join(paths).encode("utf-8")
+    r = subprocess.run(["git", "check-ignore", "--stdin", "-z"],
+                       cwd=ROOT, input=payload, capture_output=True)
+    # 退出码 0 = 有命中；1 = 一个都没命中（不是错误）；其它 = git 不可用，退回不过滤
+    if r.returncode not in (0, 1):
+        return set()
+    return {x.decode("utf-8").replace("\\", "/") for x in r.stdout.split(b"\0") if x}
+
+
 def snapshot() -> dict[str, bytes]:
-    """给全部文本产物拍快照（归一化后），用于跑前跑后比对。"""
-    out: dict[str, bytes] = {}
+    """给全部**入仓的**文本产物拍快照（归一化后），用于跑前跑后比对。"""
+    cands: list[tuple[str, Path]] = []
     for base in SNAP_ROOTS:
         root = ROOT / base
         if not root.exists():
@@ -137,10 +166,19 @@ def snapshot() -> dict[str, bytes]:
             try:
                 if p.stat().st_size > SNAP_MAX_BYTES:
                     continue
-                out[str(p.relative_to(ROOT)).replace("\\", "/")] = _norm_bytes(
-                    p.read_bytes())
             except OSError:
                 continue
+            cands.append((str(p.relative_to(ROOT)).replace("\\", "/"), p))
+
+    skip = ignored_paths([rel for rel, _ in cands])
+    out: dict[str, bytes] = {}
+    for rel, p in cands:
+        if rel in skip:
+            continue
+        try:
+            out[rel] = _norm_bytes(p.read_bytes())
+        except OSError:
+            continue
     return out
 
 
