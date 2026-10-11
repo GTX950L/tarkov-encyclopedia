@@ -234,6 +234,16 @@ STATUS_FLAG = {"complete": "c", "active": "a", "failed": "f"}
 PREP_TYPES = {"giveItem", "findItem", "findQuestItem", "giveQuestItem",
               "plantItem", "plantQuestItem", "useItem"}
 
+# 同一件物品的需求量**不是把每个目标的数量直接相加**（2026-10-11 修）。
+#   · 消耗型（交 / 放 / 用）：各自独立消耗，求和；
+#   · 获取型（找）：找到的东西正是要交上去的那批 —— 与消耗型**不叠加**。
+# 反例：目标「找到 15 个香烟」+「上交 15 个香烟」，玩家实际只需凑 15 个
+# （找到后原样交上去），相加会写成 30。实测 278 条受此影响（香烟 / CPU 风扇 /
+# 电线 / 狗牌等），数量系统性翻倍。
+# 口径：取 max(消耗总和, 获取总和) —— 找 3 交 5 需要 5，找 3 交 3 需要 3。
+CONSUME_TYPES = {"giveItem", "giveQuestItem", "plantItem", "plantQuestItem", "useItem"}
+FIND_TYPES = {"findItem", "findQuestItem"}
+
 
 def _other_req_text(r: dict) -> str:
     """把 otherReqs 的条目写成一句人能读的中文。
@@ -339,21 +349,27 @@ def build_graph(tasks: list[dict]) -> int:
             if oid:
                 obj_detail.append([oid, o.get("text") or "",
                                    o.get("count") or 0, 1 if o.get("fir") else 0])
-            if (o.get("type") or "") in PREP_TYPES:
+            ty = o.get("type") or ""
+            if ty in PREP_TYPES:
                 n = o.get("count") or 1
+                is_find = ty in FIND_TYPES
                 for nm in (o.get("items") or []):
                     if not nm:
                         continue
+                    # [名字, 消耗量, 战局中, 获取量] —— 出场时取 max(消耗, 获取)
                     cur = prep_map.get(nm)
-                    if cur:
-                        cur[1] += n
-                        cur[2] = cur[2] or bool(o.get("fir"))
+                    if not cur:
+                        cur = [nm, 0, False, 0]
+                        prep_map[nm] = cur
+                    if is_find:
+                        cur[3] += n
                     else:
-                        prep_map[nm] = [nm, n, bool(o.get("fir"))]
+                        cur[1] += n
+                    cur[2] = cur[2] or bool(o.get("fir"))
             for nm in (o.get("keys") or []):
                 if nm and nm not in prep_map:
-                    prep_map[nm] = [nm, 1, False]
-        prep = [prep_map[k] for k in prep_map]
+                    prep_map[nm] = [nm, 1, False, 0]
+        prep = [[k[0], max(k[1], k[3]), k[2]] for k in prep_map.values()]
         prep.sort(key=lambda x: (not x[2], -x[1], x[0]))
 
         # 紧凑数组而不是对象：515 条 × 8 个字段，对象写法会白白多背一半体积

@@ -59,6 +59,28 @@
     setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
   }
 
+  /* 复制纯文本 —— 站内没有剪贴板封装，这里给「出发前准备」用一次。
+     navigator.clipboard 只在安全上下文（https / localhost）可用；直接双击打开
+     本地 html 时是 file://，所以保留 execCommand 兜底。 */
+  function copyText(text, cb) {
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.top = "-1000px";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      cb(ok);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { cb(true); }, fallback);
+    } else fallback();
+  }
+
   /* 重画一段 DOM 前后保住键盘焦点 —— 重画会替换掉正在聚焦的元素。 */
   function keepFocus(scope, fn) {
     var a = document.activeElement;
@@ -951,13 +973,45 @@
     chipbar.appendChild(mapSel);
 
     var presetWrap = el("span", "tk-board__seg");
-    [["kappa", "Kappa 线"], ["lk", "Lightkeeper 线"], ["prep", "出发前准备"]].forEach(function (pf) {
+    [["kappa", "Kappa 线"], ["lk", "Lightkeeper 线"]].forEach(function (pf) {
       var b = el("button", "tk-board__segbtn", pf[1]);
       b.type = "button";
       b.setAttribute("data-focus-key", "preset-" + pf[0]);
       b.setAttribute("data-preset", pf[0]);
-      chipbar.appendChild(b);
+      presetWrap.appendChild(b);
     });
+    chipbar.appendChild(presetWrap);
+
+    /* 「出发前准备」**从上面这组里独立出来**（2026-10-11）。
+       原因：Kappa / Lightkeeper 是**任务筛选** —— 点了只改变下面三个列表的内容；
+       而「出发前准备」不筛任务，它把**进行中任务的物品需求**聚成一张出门清单。
+       行为完全不同、却长得一模一样，读者找不到它（反馈「按钮不够醒目」）。
+       现在它是工具条上的实心主色按钮，右侧带缺口徽标。 */
+    var prepBtn = el("button", "tk-board__prepbtn");
+    prepBtn.type = "button";
+    prepBtn.setAttribute("data-focus-key", "preset-prep");
+    prepBtn.setAttribute("data-preset", "prep");
+    prepBtn.appendChild(el("span", "tk-board__prepbtn-ico", "🎒"));
+    prepBtn.appendChild(el("span", "tk-board__prepbtn-tx", "出发前准备"));
+    var prepBadge = el("span", "tk-board__prepbtn-n");
+    prepBtn.appendChild(prepBadge);
+    chipbar.appendChild(prepBtn);
+
+    /* 三个分区的整体开合。分区各自的折叠按钮在天关上，
+       但「三个都太长」时一个一个点很烦 —— 这个一次全按。
+       文字在 sync() 里跟着状态走（全开着显示「全部收起」）。 */
+    var foldBtn = el("button", "tk-board__segbtn", "全部收起");
+    foldBtn.type = "button";
+    foldBtn.setAttribute("data-focus-key", "fold-all");
+    foldBtn.addEventListener("click", function () {
+      var anyOpen = !secCollapsed.inhand || !secCollapsed.avail || !secCollapsed.done;
+      secCollapsed.inhand = anyOpen;
+      secCollapsed.avail = anyOpen;
+      secCollapsed.done = anyOpen;
+      sync();
+    });
+    chipbar.appendChild(foldBtn);
+
     var cnt2 = el("span", "tk-board__filtercount");
     chipbar.appendChild(cnt2);
     host.appendChild(chipbar);
@@ -966,20 +1020,30 @@
       "只填你**现在就知道**的：等级、门槛、以及任务列表里手上正拿着的那些。"
       + "它们的**前置会被自动算作已完成**，你不用回忆过去做过什么。"));
 
-    var body = el("div", "tk-board__qbody");
-    host.appendChild(body);
-
+    /* 出发前准备清单 —— 放在**工具栏正下方**（原先在三个分区之后，
+       读者要滚过最多 240 行任务才看得到，反馈「太靠下了」）。
+       未打开时它是空的、不占高度。 */
     var prepBox = el("div", "tk-board__prep");
     host.appendChild(prepBox);
+
+    var body = el("div", "tk-board__qbody");
+    host.appendChild(body);
 
     var summary = el("div", "tk-board__chips");
     host.appendChild(summary);
 
+    /* 三个分区的折叠状态 —— 必须活到 sync() 之外：sync 每次都重建 body，
+       存在 DOM 上会被一起清掉。默认：进行中 / 可接 展开（出门前要看的），
+       已完成折叠（最长、且是回顾性的）。 */
+    var secCollapsed = { inhand: false, avail: false, done: true };
+
     var openTasks = {};   // 哪些任务被展开了（跨重画保留）
     /* 预设按钮要在 sync() 内外都用：里面读状态、外面挂监听。
        声明在 sync() 里会让外面的循环拿到 undefined —— 实测抛
-       ReferenceError，把后面的任务树加载一起带崩。 */
-    var pbtns = chipbar.querySelectorAll(".tk-board__segbtn");
+       ReferenceError，把后面的任务树加载一起带崩。
+       ⚠️ 用 [data-preset] 而不是 .tk-board__segbtn 选取 —— 「出发前准备」已经是
+       另一种按钮（.tk-board__prepbtn），但同样是预设，必须一起收进来。 */
+    var pbtns = chipbar.querySelectorAll("[data-preset]");
 
     /* —— 单行 —— */
     function questRow(qid, node, extra, tree) {
@@ -1138,8 +1202,30 @@
         prepBox.__stamp = "";
         return;
       }
+
+      /* 面板头：主色条 + 标题 + 一行说明 + 收起按钮。
+         空态与正常态共用一份 —— 免得两处写法漂开。 */
+      function panelHead(sub) {
+        var h = el("div", "tk-prep__panelhead");
+        h.appendChild(el("b", null, "出发前准备清单"));
+        h.appendChild(el("em", null, sub));
+        var close = el("button", "tk-prep__close", "收起");
+        close.type = "button";
+        close.setAttribute("aria-label", "收起准备清单");
+        close.addEventListener("click", function () {
+          prepBtn.classList.remove("is-on");
+          sync();
+        });
+        h.appendChild(close);
+        return h;
+      }
+
       if (!inIds.length) {
-        prepBox.appendChild(el("p", "tk-board__note", "「出发前准备」来自**进行中任务**。先标记几个进行中任务。"));
+        prepBox.__stamp = "";
+        prepBox.textContent = "";
+        prepBox.appendChild(panelHead("0 个进行中任务"));
+        prepBox.appendChild(el("p", "tk-board__empty",
+          "清单来自「进行中任务」—— 先在下面把几个任务标成「进行中」。"));
         return;
       }
       var slugs = {};
@@ -1154,6 +1240,26 @@
       });
       draw();
 
+      /* 纯文本清单 —— 出门前复制到手机 / 发群里用。行内带「已囤 / 需求 / 缺口」，
+         「需战局中带出」单独标出，与屏幕上的分区口径一致。 */
+      function prepText(groups) {
+        var out = ["【出发前准备】进行中任务 " + inIds.length + " 个"];
+        groups.forEach(function (g) {
+          if (!g.rows.length) return;
+          out.push("");
+          out.push("■ " + (g.map || "多图 / 未标注")
+            + (g.lack.length ? "（还缺 " + g.lack.length + " 项）" : "（已齐）"));
+          g.rows.forEach(function (it) {
+            var have = TP.itemCount(it[0]) || 0;
+            var ok = have >= it[1];
+            out.push("  " + (ok ? "[√]" : "[ ]") + " " + it[0] + " ×" + it[1]
+              + "（已囤 " + have + (ok ? "" : "，缺 " + (it[1] - have)) + "）"
+              + (it[2] ? " · 需战局中带出" : ""));
+          });
+        });
+        return out.join("\n");
+      }
+
       function draw() {
         /* ⚠️ 还有分块没到位时**必须直接返回、不能写缓存戳** ——
            否则第一次画出来的是不完整的清单，而戳已经记下，
@@ -1162,25 +1268,6 @@
         if (prepBox.__stamp === inIds.join(",") + "|" + failed) return;
         prepBox.__stamp = inIds.join(",") + "|" + failed;
         prepBox.textContent = "";   // ← 清空在缓存判断之后
-        /* 先算一遍「有没有任何准备项」，用于空态提示；
-           真正的渲染在下面按地图分组时再做一次（同源，不引入第二套口径）。 */
-        var any = 0;
-        for (var j = 0; j < inIds.length; j++) {
-          var det = detailOf(inIds[j]);
-          if (det && det.p && det.p.length) any += det.p.length;
-        }
-        var head = el("div", "tk-qsec__head");
-        head.appendChild(el("b", null, "出发前准备"));
-        head.appendChild(el("em", null, inIds.length + " 个进行中任务 · " + any + " 项"));
-        prepBox.appendChild(head);
-        if (failed) {
-          prepBox.appendChild(el("p", "tk-board__note",
-            "有 " + failed + " 个商人的任务明细没载入，下面的清单不完整。"));
-        }
-        if (!any) {
-          prepBox.appendChild(el("p", "tk-board__empty", "这几个任务的数据里没有「要带 / 要找」的条目。"));
-          return;
-        }
 
         /* 2026-10-07 重做（读者反馈「根据地图和任务推荐带的物品的提示也做得不好」）。
            原先是一张四列表格，把「必须战局中带出」和「可采购」混在一起平铺，
@@ -1206,7 +1293,9 @@
           }
         }
 
-        var wrapAll = el("div", "tk-prep");
+        /* 先把各地图块合并、排序算完 —— 面板头的缺口总数要读同一份结果，
+           否则「还缺 N 项」会和下面的清单两套口径。 */
+        var groups = [], any = 0, lackTotal = 0;
         mapOrder.forEach(function (mp) {
           var items0 = byMap[mp];
           if (!items0.length) return;
@@ -1228,17 +1317,71 @@
             if (am !== bm) return am - bm;            /* 缺的在前 */
             return (a[2] === b[2]) ? a[1] - b[1] : (a[2] ? -1 : 1);
           });
+          any += rows.length;
+          lackTotal += lack.length;
+          groups.push({ map: mp, rows: rows, lack: lack });
+        });
 
+        prepBox.appendChild(panelHead(
+          inIds.length + " 个进行中任务 · " + any + " 项"
+          + (lackTotal ? "，还缺 " + lackTotal + " 项" : "，已齐")));
+
+        /* 工具条上的徽标：不打开清单也知道要不要准备 */
+        prepBadge.textContent = any ? (lackTotal ? "缺 " + lackTotal : "已齐") : "";
+        prepBadge.className = "tk-board__prepbtn-n"
+          + (lackTotal ? " is-lack" : (any ? " is-ok" : ""));
+
+        if (failed) {
+          prepBox.appendChild(el("p", "tk-board__note",
+            "有 " + failed + " 个商人的任务明细没载入，下面的清单不完整。"));
+        }
+        if (!any) {
+          prepBox.appendChild(el("p", "tk-board__empty",
+            "这几个任务的数据里没有「要带 / 要找」的条目。"));
+          return;
+        }
+
+        /* 工具行：只看缺口 + 复制清单 */
+        var tools = el("div", "tk-prep__tools");
+        var onlyLbl = el("label", "tk-board__check");
+        var ocb = document.createElement("input");
+        ocb.type = "checkbox";
+        ocb.checked = !!prepBox.__onlyLack;
+        ocb.setAttribute("data-focus-key", "prep-onlylack");
+        ocb.addEventListener("change", function () {
+          prepBox.__onlyLack = ocb.checked;
+          prepBox.__stamp = "";
+          draw();
+        });
+        onlyLbl.appendChild(ocb);
+        onlyLbl.appendChild(document.createTextNode("只看缺口"));
+        tools.appendChild(onlyLbl);
+        var copyBtn = el("button", "tk-board__segbtn", "复制清单");
+        copyBtn.type = "button";
+        copyBtn.setAttribute("data-focus-key", "prep-copy");
+        copyBtn.addEventListener("click", function () {
+          copyText(prepText(groups), function (ok) {
+            toast(prepBox, ok ? "清单已复制，可直接粘贴到手机。" : "复制失败 —— 浏览器拒绝了剪贴板访问。", ok);
+          });
+        });
+        tools.appendChild(copyBtn);
+        prepBox.appendChild(tools);
+
+        var wrapAll = el("div", "tk-prep");
+        var onlyLack = !!prepBox.__onlyLack;
+        groups.forEach(function (g) {
+          var rows0 = onlyLack ? g.lack : g.rows;
+          if (!rows0.length) return;
           var g3 = el("section", "tk-prep__map");
           var h3 = el("div", "tk-prep__head");
-          h3.appendChild(el("b", null, mp || "多图 / 未标注"));
-          h3.appendChild(el("em", null, lack.length
-            ? ("还缺 " + lack.length + " 项")
-            : ("已齐 " + rows.length + " 项")));
+          h3.appendChild(el("b", null, g.map || "多图 / 未标注"));
+          h3.appendChild(el("em", null, g.lack.length
+            ? ("还缺 " + g.lack.length + " 项")
+            : ("已齐 " + g.rows.length + " 项")));
           g3.appendChild(h3);
 
           var fir = [], buy = [];
-          for (var r2 = 0; r2 < rows.length; r2++) (rows[r2][2] ? fir : buy).push(rows[r2]);
+          for (var r2 = 0; r2 < rows0.length; r2++) (rows0[r2][2] ? fir : buy).push(rows0[r2]);
           [
             ["必须战局中带出 · 跳蚤市场买不到", fir, "fir"],
             ["可采购 · 跳蚤市场或藏身处", buy, "buy"]
@@ -1251,7 +1394,8 @@
               var have0 = TP.itemCount(it4[0]) || 0;
               var ok0 = have0 >= it4[1];
               var li0 = el("li", "tk-prep__li" + (ok0 ? " is-met" : ""));
-              var ctl0 = countCtl(it4[0], it4[1]);
+              /* 不传 need：行尾已经有「已囤 / 需」，再挂一个「需 N」是同一件事说两遍 */
+              var ctl0 = countCtl(it4[0]);
               li0.appendChild(ctl0.el);
               var nm2 = el("span", "tk-prep__nm", it4[0]);
               li0.appendChild(nm2);
@@ -1355,6 +1499,16 @@
       cards.refs["其中由前置推断"].textContent = String(Object.keys(tree.inferred).length);
       cards.refs["可接（条件满足）"].textContent = String(tree.avail.length);
 
+      /* 分区整体开合按钮的文字跟着状态走 */
+      var anyOpen = !secCollapsed.inhand || !secCollapsed.avail || !secCollapsed.done;
+      foldBtn.textContent = anyOpen ? "全部收起" : "全部展开";
+      /* 「出发前准备」没打开时清掉徽标 —— 缺口数要加载全部明细才算得出，
+         没打开就不给数字，免得显示一个过期值。 */
+      if (!presets.prep) {
+        prepBadge.textContent = "";
+        prepBadge.className = "tk-board__prepbtn-n";
+      }
+
       function byLevel(a, b) {
         return (graph.tasks[a][N_LEVEL] - graph.tasks[b][N_LEVEL]) ||
                (graph.tasks[a][N_NAME] < graph.tasks[b][N_NAME] ? -1 : 1);
@@ -1371,7 +1525,8 @@
             if (hay.indexOf(qtext) >= 0 && passPreset(id)) hits.push(id);
           }
           hits.sort(byLevel);
-          var s0 = section("搜索结果", hits.length + " 个任务匹配「" + search.value.trim() + "」");
+          var s0 = section("搜索结果", hits.length + " 个任务匹配「" + search.value.trim() + "」",
+                            "tk-qsec--search", "search");
           for (var i0 = 0; i0 < hits.length && i0 < 100; i0++) {
             s0.box.appendChild(questRow(hits[i0], graph.tasks[hits[i0]], null, tree));
           }
@@ -1398,7 +1553,7 @@
         var fAv = filtered(tree.avail).sort(byLevel);
         var fDn = filtered(doneIds).sort(byLevel);
 
-        var s1 = section("进行中", fIn.length + " 个" + (mapPick || Object.keys(presets).some(function (k) { return presets[k]; }) ? "（已筛）" : ""), "tk-qsec--inhand");
+        var s1 = section("进行中", fIn.length + " 个" + (mapPick || Object.keys(presets).some(function (k) { return presets[k]; }) ? "（已筛）" : ""), "tk-qsec--inhand", "inhand");
         if (!fIn.length) {
           s1.box.appendChild(el("p", "tk-board__empty",
             inIds.length ? "当前筛选下没有进行中任务。" : "还没标记任何任务。在下面「可接」里把状态改成「进行中」，或用搜索框找任务。"));
@@ -1409,7 +1564,7 @@
         }
         body.appendChild(s1.sec);
 
-        var s2 = section("可接（前置 + 等级 + 门槛都满足）", fAv.length + " 个", "tk-qsec--avail");
+        var s2 = section("可接（前置 + 等级 + 门槛都满足）", fAv.length + " 个", "tk-qsec--avail", "avail");
         if (!fAv.length) {
           s2.box.appendChild(el("p", "tk-board__empty", tree.avail.length
             ? "可接的任务都在筛选之外。"
@@ -1424,7 +1579,7 @@
         }
         body.appendChild(s2.sec);
 
-        var s3 = section("已完成", fDn.length + " 个（含 " + Object.keys(tree.inferred).length + " 个由前置推断）", "tk-qsec--done");
+        var s3 = section("已完成", fDn.length + " 个（含 " + Object.keys(tree.inferred).length + " 个由前置推断）", "tk-qsec--done", "done");
         if (!fDn.length) {
           s3.box.appendChild(el("p", "tk-board__empty", "还没有已完成的任务。"));
         } else {
@@ -1459,11 +1614,25 @@
       summary.appendChild(chips);
     }
 
-    function section(title, sub, cls) {
+    /* 分区（可折叠）。三个分区的列表都可能很长（每段上限 80 行），
+       头部改成一枚可点的按钮：折叠后仍能看到「有多少个」，展开点一下就回。
+       状态存 secCollapsed（在 sync 之外），跨重画保留。 */
+    function section(title, sub, cls, key) {
       var sec = el("div", "tk-qsec " + (cls || ""));
-      var head = el("div", "tk-qsec__head");
+      var collapsed = !!secCollapsed[key];
+      if (collapsed) sec.className += " is-collapsed";
+      var head = el("button", "tk-qsec__head");
+      head.type = "button";
+      head.setAttribute("data-focus-key", "sec-" + key);
+      head.setAttribute("aria-expanded", collapsed ? "false" : "true");
+      head.appendChild(el("span", "tk-qsec__caret", collapsed ? "▸" : "▾"));
       head.appendChild(el("b", null, title));
       head.appendChild(el("em", null, sub));
+      head.appendChild(el("span", "tk-qsec__toggle", collapsed ? "展开" : "收起"));
+      head.addEventListener("click", function () {
+        secCollapsed[key] = !secCollapsed[key];
+        sync();
+      });
       sec.appendChild(head);
       var box = el("div", "tk-qsec__body");
       sec.appendChild(box);
@@ -1474,8 +1643,15 @@
     mapSel.addEventListener("change", sync);
     for (var pb2 = 0; pb2 < pbtns.length; pb2++) {
       pbtns[pb2].addEventListener("click", function (e) {
-        e.currentTarget.classList.toggle("is-on");
+        var b = e.currentTarget;
+        b.classList.toggle("is-on");
         sync();
+        /* 打开准备清单时把它滚进视野 —— 面板在工具栏正下方；读者若正停在
+           页面下方，只渲染不滚动会让人以为「点了没反应」。 */
+        if (b.getAttribute("data-preset") === "prep" && b.classList.contains("is-on")
+            && prepBox.scrollIntoView) {
+          prepBox.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       });
     }
     host.__tkSync = sync;

@@ -1963,14 +1963,42 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   border: 1px solid var(--tk-line-2);
 }
 
+/* —— 分区头 = 折叠开关（2026-10-11）——
+   三个分区的列表各上限 80 行，三段叠起来最多 240 行，「都太长」（读者反馈）。
+   头改成 <button>：可点、可 Tab、带 aria-expanded；收起后**头仍然在**，
+   所以「有多少个」这个信息不会跟着列表一起消失。 */
 .tk-qsec__head {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: .6rem;
+  gap: .5rem;
+  width: 100%;
+  margin: 0;
   padding: .45rem .7rem;
   background: var(--tk-panel);
+  border: 0;
   border-bottom: 1px solid var(--tk-line-2);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.tk-qsec__head:hover { background: var(--tk-panel-2); }
+
+.tk-qsec__head:focus-visible {
+  outline: 2px solid var(--tk-fiord);
+  outline-offset: -3px;
+}
+
+.tk-qsec__caret {
+  flex: none;
+  width: .8rem;
+  /* 三角本身很小，字号小了会糊成一个点 —— 实测 .72rem 下读不出是箭头 */
+  font-size: .86rem;
+  line-height: 1.45;
+  color: var(--tk-brand);
 }
 
 .tk-qsec__head b { font-size: .8rem; color: var(--tk-brand); }
@@ -1982,10 +2010,23 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   color: var(--tk-ink-2);
 }
 
+/* 「展开 / 收起」提示，靠右；虚线下划线暗示可点 */
+.tk-qsec__toggle {
+  margin-left: auto;
+  font-family: var(--tk-mono);
+  font-size: .66rem;
+  color: var(--tk-ink-2);
+  border-bottom: 1px dotted currentColor;
+}
+
+.tk-qsec.is-collapsed { margin-top: .7rem; }
+.tk-qsec.is-collapsed .tk-qsec__body { display: none; }
+
 /* 三个分区各给一道色脊，和站内「已完成 / 待办」的既有语义一致 */
 .tk-qsec--inhand { border-left: 4px solid var(--tk-amber); }
 .tk-qsec--avail { border-left: 4px solid var(--tk-fiord); }
 .tk-qsec--done { border-left: 4px solid var(--tk-grn); }
+.tk-qsec--search { border-left: 4px solid var(--tk-olive); }
 
 .tk-qsec__body { padding: .3rem .5rem .45rem; }
 
@@ -1996,7 +2037,7 @@ h3.tk-qdone { color: var(--tk-ink-2); }
      ② **缺口不醒目**——「还差 12 个」和「已齐」平铺在一起；
      ③ **FIR 与可采购混排**——读者会以为都能跳蚤市场买。
    新形态：按地图分块 → 块内先列缺口、FIR 单独成区。 */
-.tk-prep { display: grid; gap: .7rem; }
+.tk-prep { display: grid; gap: .7rem; padding: .55rem .7rem .65rem; }
 
 .tk-prep__map {
   border: 1px solid var(--tk-line-2);
@@ -2325,6 +2366,70 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   font-weight: 600;
 }
 
+/* —— 「出发前准备」：工具条上的行动按钮（2026-10-11）——
+   它原本混在 Kappa / Lightkeeper 那组描边预设里，长得一样，读者找不到
+   （反馈「按钮不够醒目」）。但两者不是一回事：那两个是**任务筛选**，
+   这个是把进行中任务的物品需求聚成一张出门清单。所以给它实心主色 +
+   背包图标 + 右侧缺口徽标 —— 一眼能从工具条里挑出来。 */
+.tk-board__prepbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .24rem .7rem;
+  background: var(--tk-fiord);
+  color: #FFFFFF;
+  border: 1px solid var(--tk-brand-dark);
+  font: inherit;
+  font-size: .72rem;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: .02em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tk-board__prepbtn:hover { filter: brightness(.88); }
+
+.tk-board__prepbtn:focus-visible {
+  outline: 2px solid var(--tk-brand-dark);
+  outline-offset: 2px;
+}
+
+/* 打开时压深一档 + 内侧沙色描边：与「选中」的语义一致，又不同于预设的纯色块。
+   ⚠️ hover / 打开态都**不用** var(--tk-brand-dark) 当底色 —— 那个变量在暗色方案里
+   会翻成浅色（#C3CFDD），白字压上去就读不出来了。改用 filter 压暗，两种方案都成立。 */
+.tk-board__prepbtn.is-on {
+  filter: brightness(.82);
+  box-shadow: inset 0 0 0 2px var(--tk-sand);
+}
+
+.tk-board__prepbtn-ico { font-size: .82rem; line-height: 1; }
+
+/* 缺口徽标：不打开清单也知道要不要准备。
+   徽标底色在两种方案里会翻（红 #A32B2B ↔ #E08A8A），所以文字色取 --tk-paper
+   而不是纯白 —— 纸色跟着方案翻，压在任何一版红 / 绿上都能读。 */
+.tk-board__prepbtn-n {
+  font-family: var(--tk-mono);
+  font-size: .64rem;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 0 .3rem;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, .5);
+}
+
+.tk-board__prepbtn-n:empty { display: none; }
+
+.tk-board__prepbtn-n.is-lack,
+.tk-board__prepbtn-n.is-ok {
+  color: var(--tk-paper);
+  border-color: transparent;
+}
+
+.tk-board__prepbtn-n.is-lack { background: var(--tk-red); }
+
+.tk-board__prepbtn-n.is-ok { background: var(--tk-grn); }
+
 .tk-board__mapsel {
   padding: .18rem .35rem;
   background: transparent;
@@ -2468,7 +2573,93 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 .tk-board__logok { color: var(--tk-grn); }
 
-.tk-board__prep { margin-top: 1.2rem; }
+/* —— 出发前准备清单：面板（2026-10-11 从页面底部移到工具栏正下方）——
+   原先挂在三个分区**之后**，读者要先滚过最多 240 行任务才看得到
+   （反馈「窗口太靠下」）。现在它紧跟工具条 —— 点按钮，面板就在眼前，
+   脚本还会主动把它滚进视野。
+   面板限高 + 内部滚动：清单长了不该把下面的任务列表整块推出屏幕；
+   标题条 sticky 在容器顶部，滚清单时不会跟着滚走，随时能点「收起」。 */
+.tk-board__prep {
+  margin: .2rem 0 .9rem;
+  border: 1px solid var(--tk-line-2);
+  border-left: 4px solid var(--tk-fiord);
+  background: var(--tk-paper);
+  max-height: 78vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* 未打开时它是空的 —— 不留一道空框和一段空高度 */
+.tk-board__prep:empty { display: none; }
+
+.tk-prep__panelhead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .6rem;
+  padding: .5rem .7rem;
+  background: var(--tk-fiord);
+  color: #FFFFFF;
+}
+
+.tk-prep__panelhead b { font-size: .84rem; }
+
+.tk-prep__panelhead em {
+  font-style: normal;
+  font-family: var(--tk-mono);
+  font-size: .68rem;
+  opacity: .92;
+}
+
+.tk-prep__close {
+  margin-left: auto;
+  padding: .1rem .5rem;
+  background: transparent;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, .55);
+  font: inherit;
+  font-size: .68rem;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.tk-prep__close:hover { background: rgba(255, 255, 255, .18); }
+
+.tk-prep__close:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+/* 工具行：只看缺口 / 复制清单 */
+.tk-prep__tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem .9rem;
+  padding: .4rem .7rem;
+  background: var(--tk-panel-2);
+  border-bottom: 1px solid var(--tk-line-2);
+}
+
+.tk-prep__tools .tk-board__segbtn { border-right-width: 1px; }
+
+/* 面板内的独立提示（明细没载全 / 数据里没有条目）直接挂在面板下，
+   自身没有左右内距，会贴到边框上 —— 补一份跟内容区一致的内距 */
+.tk-board__prep > .tk-board__note,
+.tk-board__prep > .tk-board__empty {
+  margin: 0;
+  padding: .55rem .7rem;
+}
+
+@media screen and (max-width: 44.9375em) {
+  /* 窄屏：清单面板取消限高（本来就得滚着看），按钮独占一行更醒目 */
+  .tk-board__prep { max-height: none; }
+  .tk-board__prepbtn { width: 100%; justify-content: center; }
+  .tk-prep__panelhead { gap: .4rem; }
+}
 
 /* --------------------------------------------------------------------------
    52. 界面与结构升级（第一批）：入口体系
