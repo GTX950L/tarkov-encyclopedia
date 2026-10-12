@@ -31,6 +31,33 @@
        所以默认**不读**它；只有某会话缺 push-notifications 文件时才回退
        读它的 output（兜底，保留正确性）。
 
+   第二件事：地图与模式统计（v1.107.0 起）
+   --------------------------------------
+   同一个 `application_000.log` 里还有一行**每场战局都会写**的地图记录：
+
+       scene preset path:maps/customs_preset.bundle rcid:bigmap.scenespreset.asset
+
+   它比任务事件更早出现（地图加载时就写），所以**读文件时顺手就能拿到**，
+   不需要额外的文件读取，也不需要联网。
+
+   ⚠️ 为什么用这一行、而不是另外两种看起来更「正规」的候选（2026-10-12 实测
+      本机 54 个会话 / 550 MB 日志对比出来）：
+        · `[Transit] ... Locations:<名>` —— 只出现 **85** 次，而
+          `LocationLoaded` 出现 **106** 次。**它跟的是转场机制、不是每场战局**
+          （实测 15 场海关只记下 15 次里的少数），拿它统计会系统性少算。
+          注意 `Locations:` 里的值还可能是**别名**（如 `Interchange`），
+          与本行的 `rcid:` 不是同一个命名空间。
+        · 只有 `scene preset path` 出现 **111** 次，与 `LocationLoaded` 的
+          106 次基本对齐（多出的几条是转场时的再次加载）。
+     结论：**以 `scene preset path` 为准**，并把「转场会多记一条」写进界面说明。
+
+   统计的三条纪律：
+     · 只统计**日志覆盖到的范围**（游戏会清理旧会话），界面上必须写清这一点，
+       否则会被读成「我一共只打过这么多场」；
+     · 认不出的内部名**原样显示并照常计数**，不静默丢弃 —— 认不出的是映射表
+       的缺口，不是数据的问题；
+     · 与任务同步**共用一次文件读取**，不为了地图再读一遍磁盘。
+
    口径：任务表是**持久 PvP 口径的 515 条**。日常 / 周常与 PvE 专属任务
    不在其中 —— 那些事件**跳过并计数**，不硬塞（否则会污染分母）。
 
@@ -46,6 +73,10 @@
   var UI = TP._ui || {};
   var el = UI.el;
   var MODE_LABEL = TP.MODE_LABEL;
+  /* ⚠️ 站点根只能从 UI 借（progress.js 的 _ui.siteRoot），本文件自己没有 ——
+     写成裸 siteRoot() 会在运行时报 ReferenceError，而**只有在有地图记录时
+     才走到那一行**，所以读起来像「统计功能时灵时不灵」。 */
+  function siteRoot() { return UI.siteRoot ? UI.siteRoot() : ""; }
 
   /* --------------------------------------------------------------------------
      一、日志识别
@@ -72,6 +103,55 @@
   var HEX24_RE = /^([0-9a-f]{24})(?:\s|$)/;
   var MODE_RE = /Session mode: (\w+)/;
   var MODE_MAP = { pve: "pve", pvp: "pvp", regular: "pvp", season: "season" };
+
+  /* 地图加载行（见文件头「第二件事」）。取 `maps/<名>_preset.bundle` 而不是
+     `rcid:` —— 两者语义相同，但前者在实测里更稳定地存在（rcid 在个别会话
+     缺过），且 `_preset.bundle` 这个后缀本身就是这道判据的锚。 */
+  var SCENE_RE = /scene preset path:maps\/([A-Za-z0-9_]+)_preset\.bundle/;
+  /* 行首时间戳：`2026-10-11 23:07:53.321|1.2.0.0.47965|Info|application|…` */
+  var LINE_TS_RE = /^(\d{4})-(\d{2})-(\d{2}) (\d{2}:\d{2}):\d{2}/;
+
+  /* 内部场景名 → 站内地图条目。
+     · 已在本机日志实测到的（2026-10-12，54 个会话）：bigmap / sandbox /
+       sandbox_high / sandbox_start / Sandbox_SL / shoreline / woods /
+       Shopping_Mall / factory_day / city / laboratory；
+     · 其余按社区口径列入（储备站、灯塔、终点站、破冰船、迷宫等）——
+       本机日志里没出现过，所以**没有实测证据**，但名字是通行的。
+     · **认不出的原样显示并照常计数**（见 renderRaidStats），不静默丢弃。 */
+  var MAP_NAMES = {
+    bigmap: ["海关", "customs"],
+    Woods: ["森林", "woods"],
+    Shoreline: ["海岸线", "shoreline"],
+    Shopping_Mall: ["立交桥", "interchange"],
+    Interchange: ["立交桥", "interchange"],
+    city: ["街区", "streets"],
+    TarkovStreets: ["街区", "streets"],
+    RezervBase: ["储备站", "reserve"],
+    Lighthouse: ["灯塔", "lighthouse"],
+    laboratory: ["实验室", "labs"],
+    Laboratory: ["实验室", "labs"],
+    factory_day: ["工厂（白天）", "factory"],
+    factory_night: ["工厂（夜间）", "factory"],
+    factory4_day: ["工厂（白天）", "factory"],
+    factory4_night: ["工厂（夜间）", "factory"],
+    /* 中心区有四个场景变体（含 _SL 变体），归到同一篇 */
+    sandbox: ["中心区", "ground-zero"],
+    sandbox_high: ["中心区", "ground-zero"],
+    sandbox_start: ["中心区", "ground-zero"],
+    Sandbox_SL: ["中心区", "ground-zero"],
+    labyrinth: ["迷宫", "labyrinth"],
+    Labyrinth: ["迷宫", "labyrinth"],
+    terminal: ["终点站", "terminal"],
+    Terminal: ["终点站", "terminal"],
+    icebreaker: ["破冰船", "icebreaker"],
+    Icebreaker: ["破冰船", "icebreaker"]
+  };
+
+  function mapOf(key) {
+    var m = MAP_NAMES[key];
+    return m ? { zh: m[0], slug: m[1], known: true }
+             : { zh: key, slug: "", known: false };
+  }
 
   /* --------------------------------------------------------------------------
      二、解析（纯函数，测试可直接调 _scanText）
@@ -131,6 +211,145 @@
     var bucket = sink.modes[sink.mode] || (sink.modes[sink.mode] = { done: {}, inhand: {} });
     if (type === 12) bucket.done[qid] = sink.traderOf(qid);
     else bucket.inhand[qid] = sink.traderOf(qid);
+  }
+
+  /* --------------------------------------------------------------------------
+     二·b、地图记录（纯函数，测试可直接调 _collectRaids）
+     -------------------------------------------------------------------------- */
+
+  /* 从 application 日志里抽「地图加载」记录，推进 out.list。 */
+  function collectRaids(text, session, out) {
+    if (text.indexOf("scene preset path") < 0) return;   // 快速剔除
+    var lines = text.split("\n");
+    for (var i = 0; i < lines.length; i++) {
+      var m = SCENE_RE.exec(lines[i]);
+      if (!m) continue;
+      var t = LINE_TS_RE.exec(lines[i]);
+      var date = t ? (t[1] + "-" + t[2] + "-" + t[3]) : "";
+      var time = t ? (t[4] + ":" + t[5]) : "";
+      /* 去重键 = 会话 + 秒级时刻 + 场景。同一次加载偶尔被写两遍。
+         ⚠️ **不要**跨会话去重（不同会话的同一时刻是两场），也不要按图去重
+         （同一张图会打很多场）—— 这两种去重都会把统计压小。 */
+      var dedup = session + "|" + date + " " + time + "|" + m[1];
+      if (out.seen[dedup]) continue;
+      out.seen[dedup] = 1;
+      out.list.push({ session: session, key: m[1], date: date, time: time });
+    }
+  }
+
+  /* 一张小表 —— 与站内其余运行时建表同一条约定：必须自己套
+     .md-typeset__table（extra.css 第 3 节写明它是全站唯一的表格滚动容器）。 */
+  function miniTable(headers, rows) {
+    var tb = document.createElement("table");
+    var thead = document.createElement("thead");
+    var hr = document.createElement("tr");
+    for (var i = 0; i < headers.length; i++) {
+      hr.appendChild(el("th", i === 0 ? null : "tk-col-num", headers[i]));
+    }
+    thead.appendChild(hr);
+    tb.appendChild(thead);
+    var tbody = document.createElement("tbody");
+    for (var j = 0; j < rows.length; j++) {
+      var tr = document.createElement("tr");
+      for (var k = 0; k < rows[j].length; k++) {
+        var cell = rows[j][k];
+        var td = el("td", k === 0 ? null : "tk-col-num", null);
+        /* 单元格允许是 DOM 节点（地图名要能点进条目），也可以是纯文本。 */
+        if (cell && cell.nodeType) td.appendChild(cell);
+        else td.textContent = cell == null ? "" : String(cell);
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    }
+    tb.appendChild(tbody);
+    var wrap = document.createElement("div");
+    wrap.className = "md-typeset__table";
+    wrap.appendChild(tb);
+    return wrap;
+  }
+
+  function renderRaidStats(host, raids, modeOf) {
+    var list = raids.list;
+    if (!list.length) return;
+
+    var byMap = {}, byMode = {}, i, k;
+    for (i = 0; i < list.length; i++) {
+      var r = list[i];
+      var mp = mapOf(r.key);
+      /* 认不出的内部名**原样显示并照常计数** —— 认不出是映射表的缺口，
+         不是数据的问题；静默丢弃会让「地图分布」少掉一整块。 */
+      var mk = mp.known ? mp.zh : r.key;
+      if (!byMap[mk]) byMap[mk] = { n: 0, slug: mp.slug, known: mp.known, raw: [] };
+      byMap[mk].n++;
+      if (byMap[mk].raw.indexOf(r.key) < 0) byMap[mk].raw.push(r.key);
+      var mode = modeOf[r.session] || "pvp";
+      byMode[mode] = (byMode[mode] || 0) + 1;
+    }
+
+    var box = el("div", "tk-board__maps");
+
+    /* —— 地图分布 —— */
+    var mapRows = Object.keys(byMap)
+      .map(function (name) { return [name, byMap[name]]; })
+      .sort(function (a, b) { return b[1].n - a[1].n; })
+      .map(function (p) {
+        var name = p[0], rec = p[1];
+        var first;
+        if (rec.known && rec.slug) {
+          /* 能对上站内条目就给一条路：这个统计的价值有一半在「接着去哪读」 */
+          var a = el("a", null, name);
+          a.href = siteRoot() + "entries/" + rec.slug + "/";
+          first = a;
+        } else {
+          first = el("span", null, name);
+        }
+        var cells = [first, String(rec.n),
+          Math.round(rec.n / list.length * 100) + "%"];
+        /* 归到同一篇的几个内部名（如中心区的 4 个变体）在这里列出原名，
+           让读者能自己核对我们有没有归错。 */
+        if (rec.raw.length > 1) cells.push(rec.raw.join(" / "));
+        return cells;
+      });
+    var headers = ["地图", "场次", "占比"];
+    if (mapRows.some(function (r) { return r.length > 3; })) headers.push("日志里的内部名");
+    box.appendChild(el("h5", null, "打过哪些图"));
+    box.appendChild(miniTable(headers, mapRows));
+
+    /* —— 模式分布 —— */
+    var modeRows = Object.keys(byMode)
+      .sort(function (a, b) { return byMode[b] - byMode[a]; })
+      .map(function (m) {
+        return [MODE_LABEL[m] || m, String(byMode[m]),
+          Math.round(byMode[m] / list.length * 100) + "%"];
+      });
+    box.appendChild(el("h5", null, "在哪个模式打的"));
+    box.appendChild(miniTable(["模式", "场次", "占比"], modeRows));
+
+    /* —— 最近 10 场 —— */
+    var recent = list.slice().sort(function (a, b) {
+      var ka = a.date + " " + a.time, kb = b.date + " " + b.time;
+      return ka < kb ? 1 : (ka > kb ? -1 : 0);
+    }).slice(0, 10);
+    box.appendChild(el("h5", null, "最近 " + recent.length + " 场（新 → 旧）"));
+    box.appendChild(miniTable(["时间", "地图", "模式"], recent.map(function (r) {
+      var mp = mapOf(r.key);
+      return [
+        (r.date || "—") + " " + (r.time || ""),
+        mp.known ? mp.zh : r.key,
+        MODE_LABEL[modeOf[r.session] || "pvp"] || "PVP"
+      ];
+    })));
+
+    /* —— 口径（必须写，否则会被读成「我一共只打过这么多场」）—— */
+    box.appendChild(el("p", "tk-board__mapnote",
+      "口径：以上只统计**这份日志覆盖到的范围** —— 游戏会清理旧会话，"
+      + "所以这里的场次不等于你的总场次。地图按日志里的场景加载记录计，"
+      + "**一次转场会各记一条**（实测 111 条加载 vs 106 次 LocationLoaded），"
+      + "所以场次可能略多于实际战局数。地图名由场景名映射到站内条目，"
+      + "没有列进映射表的会原样显示。与任务进度一样：解析只在本页内存里完成，"
+      + "不上传、不保存、不联网。"));
+
+    host.appendChild(box);
   }
 
   /* --------------------------------------------------------------------------
@@ -224,6 +443,8 @@
       }
 
       var modeOf = {};
+      /* 地图记录与任务事件**共用这一趟文件读取** —— 不为地图再读一遍磁盘。 */
+      var raids = { list: [], seen: {} };
       var sink = {
         seen: {}, modes: {}, events: 0, outside: 0, fails: 0, mode: "pvp",
         isTask: function (qid) { return !!tasks[qid]; },
@@ -243,6 +464,8 @@
             var m = MODE_RE.exec(text);
             var mapped = m ? MODE_MAP[String(m[1]).toLowerCase()] : "";
             if (mapped) modeOf[item[1]] = mapped;
+            /* 同一份文本里顺手抽地图加载记录（见文件头「第二件事」）。 */
+            collectRaids(text, item[1], raids);
           } else {
             sink.mode = modeOf[item[1]] || "pvp";   // 判不出模式时按 PVP 处理，并在摘要里说明
             scanText(text, sink);
@@ -273,11 +496,21 @@
           + (sink.outside ? "，其中 " + sink.outside + " 条不在 515 任务表（日常 / 周常等），已跳过" : "")
           + (sink.fails ? "；另有 " + sink.fails + " 条失败事件（本站没有失败轨）" : "")
           + (fallbackOut ? "；" + fallbackOut + " 个会话缺通知文件，已回退读 output" : "")
-          + (noApp ? "；" + noApp + " 个会话没有模式记录，按 PVP 计" : "");
+          + (noApp ? "；" + noApp + " 个会话没有模式记录，按 PVP 计" : "")
+          + (raids.list.length ? "；另读到 " + raids.list.length + " 条地图加载记录" : "");
+
+        /* ⚠️ 地图统计**放在「有没有任务事件」这个分支之前**：
+           它的数据来源与任务事件无关（地图行每场都写，任务事件可能一场都没有）。
+           放在分支后面，读者会得到「这份日志什么都没有」的错觉 ——
+           而实际上他可能只是那段时间没做任务。 */
+        renderRaidStats(box, raids, modeOf);
 
         if (!plans.length) {
-          box.appendChild(el("p", "tk-board__logline is-bad",
-            "没有可并入的任务状态 —— 可能这份日志里本来就没有任务事件，或选的不是塔科夫日志。"));
+          box.appendChild(el("p", "tk-board__logline" + (raids.list.length ? "" : " is-bad"),
+            raids.list.length
+              ? "没有可并入的任务状态 —— 这段时间的日志里没有任务接取 / 完成事件"
+                + "（上面的地图统计不受影响）。"
+              : "没有可并入的任务状态 —— 可能这份日志里本来就没有任务事件，或选的不是塔科夫日志。"));
           return;
         }
 
@@ -338,7 +571,13 @@
     });
   }
 
-  /* 编解码/解析同时挂出来：端到端测试直接调 _scanText / _roleOf 做往返与
-     规则验证 —— 只靠「点按钮 + 看界面」定位不到出错的那一步。 */
-  window.TarkovLogSync = { run: run, _scanText: scanText, _roleOf: roleOf };
+  /* 编解码/解析同时挂出来：端到端测试直接调 _scanText / _roleOf / _collectRaids
+     做往返与规则验证 —— 只靠「点按钮 + 看界面」定位不到出错的那一步。 */
+  window.TarkovLogSync = {
+    run: run,
+    _scanText: scanText,
+    _roleOf: roleOf,
+    _collectRaids: collectRaids,
+    _mapOf: mapOf
+  };
 })();

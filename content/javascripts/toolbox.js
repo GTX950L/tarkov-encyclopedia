@@ -8,6 +8,8 @@
      · 「物品图鉴」：4,979 件全量物品，检索 / 筛选 / 商人价
      · 「配方速查」：214 条制作 + 855 条交换配方
      · 「术语速查」：全称 / 缩写 / 社区俗称三向可查
+     · 「护甲穿透计算器」：穿深 × 甲等 × 耐久 → 穿透概率与临界耐久（页内）
+     · 「跳蚤手续费计算器」：手续费、到手价与费率最低点（页内）
    但这些工具此前**只在自己那一页出现** —— 首页只提了其中三个，其余一百多页
    更是没有任何入口。也就是说：工具是有的，但事实上被埋住了。
 
@@ -62,7 +64,11 @@
     { slug: "catalog/", name: "物品图鉴", desc: "全站物品检索、属性与商人价" },
     { slug: "docs/recipes/", name: "配方速查", desc: "制作与交换配方查询" },
     { slug: "docs/glossary/", name: "术语与黑话", desc: "全称 / 缩写 / 社区俗称三向查" },
-    { slug: "docs/mechanics/", name: "机制速查表", desc: "一页看懂所有核心规则" }
+    { slug: "docs/mechanics/", name: "机制速查表", desc: "一页看懂所有核心规则" },
+    /* 两个计算器是**页内工具**（挂在条目里，不是独立页），所以这里带锚点 ——
+       带锚点进页面会自动滚到工具那一段，不必让读者再找一遍。 */
+    { slug: "entries/ballistics/#pen-calc", name: "护甲穿透计算器", desc: "穿深 × 甲等 × 耐久 → 穿透概率与临界耐久" },
+    { slug: "entries/flea-pricing/#flea-calc", name: "跳蚤手续费计算器", desc: "手续费、到手价与费率最低点" }
   ];
 
 function siteRoot() {
@@ -175,7 +181,7 @@ function siteRoot() {
     btn.setAttribute("aria-haspopup", "true");
     btn.setAttribute("aria-expanded", "false");
     btn.setAttribute("aria-controls", MENU + "-panel");
-    btn.setAttribute("aria-label", "工具箱：我的进度、任务图鉴、模拟器、配方与术语速查");
+    btn.setAttribute("aria-label", "工具箱：我的进度、任务图鉴、模拟器、图鉴、配方、术语与两个计算器");
     btn.title = "工具箱（本地保存，无需登录）";
 
     var ic = document.createElement("span");
@@ -312,6 +318,8 @@ function siteRoot() {
           · 配方速查表（docs/recipes 页）
           · 物品图鉴（catalog/ 下的 16 页）
           · 任务筛选器（quests/index 页）
+          · 护甲穿透计算器（entries/ballistics 页）
+          · 跳蚤手续费计算器（entries/flea-pricing 页）
         instant 换页回到这些页面时，本体脚本已在内，它们自己的 document$
         订阅会负责重新挂载。
 
@@ -334,6 +342,8 @@ function siteRoot() {
   var catalogInjected = false;
   var itemPageInjected = false;
   var questPageInjected = false;
+  var ballisticsCalcInjected = false;
+  var fleaCalcInjected = false;
 
   /* ⚠️ **「注入脚本」与「换页后重新挂载」是两件事，不能混为一谈。**
      injectScript 是异步的（新建 <script> 再 appendChild）；而 Material 的
@@ -357,6 +367,18 @@ function siteRoot() {
     if (itemPageInjected && document.getElementById("tk-item-page")
         && typeof window.__tkBootItem === "function") {
       window.__tkBootItem();
+    }
+    /* 两个计算器同理：注入是异步的，而 instant 换页会多次换入内容 ——
+       注入的时机可能落在两次换入的间隙里，那一刻挂载点还不在 DOM 中。
+       两个 boot 都是幂等的（挂载点上的 data-ready 标记挡重复渲染），
+       所以每次换页叫一次没有副作用。 */
+    if (ballisticsCalcInjected && document.getElementById("tk-ballistics-calc")
+        && typeof window.__tkBootBallistics === "function") {
+      window.__tkBootBallistics();
+    }
+    if (fleaCalcInjected && document.getElementById("tk-flea-calc")
+        && typeof window.__tkBootFleaFee === "function") {
+      window.__tkBootFleaFee();
     }
   }
 
@@ -402,6 +424,16 @@ function siteRoot() {
     if (!questPageInjected && document.getElementById("tk-quest-page")) {
       questPageInjected = true;
       injectScript("quest-detail.js");
+    }
+    /* 两个计算器都是**自包含**的（无数据文件、无网络），所以只注入本体，
+       不像图鉴那样要先注入一份数据。体量都在 10 KB 上下。 */
+    if (!ballisticsCalcInjected && document.getElementById("tk-ballistics-calc")) {
+      ballisticsCalcInjected = true;
+      injectScript("ballistics-calc.js");
+    }
+    if (!fleaCalcInjected && document.getElementById("tk-flea-calc")) {
+      fleaCalcInjected = true;
+      injectScript("flea-fee-calc.js");
     }
 
     /* ⚠️ **必须放在最后** —— 上面是「第一次见到就注入」，这里是「每次换页

@@ -4939,3 +4939,276 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 [data-md-color-scheme="slate"] #tk-item-page dl { background: #2A2825; border-color: #4A473F; }
 [data-md-color-scheme="slate"] #tk-item-page dt { color: #A8A399; }
 [data-md-color-scheme="slate"] #tk-quest-page li.tk-quest-sub { color: #A8A399; }
+
+/* ==========================================================================
+   60. 计算器：护甲穿透概率 / 跳蚤手续费（javascripts/ballistics-calc.js
+      与 flea-fee-calc.js 的共用样式）
+   --------------------------------------------------------------------------
+   两个工具是**同一类东西**（页内、纯本地、无网络、无图片），所以共用一套
+   `.tk-calc*` 类，不各写一遍 —— 观感一致，改一处两页同时生效。
+
+   视觉沿用法季节特质模拟器（第 53 节）的框架：Fiord 顶边 + 浅面板底。
+   数值一律走 --tk-mono，与全站「读数是读数」的排版一致。
+   -------------------------------------------------------------------------- */
+
+.tk-calc {
+  margin: 1.2em 0;
+  padding: .9em 1em;
+  border: 1px solid var(--tk-line-2);
+  border-top: 3px solid var(--tk-fiord);
+  border-radius: 2px;
+  background: var(--tk-panel);
+}
+
+.tk-calc__form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: .55em .9em;
+  padding-bottom: .8em;
+  margin-bottom: .8em;
+  border-bottom: 1px solid var(--tk-line);
+}
+
+.tk-calc__field {
+  display: grid;
+  gap: .2em;
+  align-content: start;
+}
+
+.tk-calc__label {
+  font-size: .74rem;
+  font-weight: 600;
+  color: var(--tk-ink-2);
+}
+
+.tk-calc__input {
+  width: 100%;
+  padding: .3em .5em;
+  border: 1px solid var(--tk-line-3);
+  border-radius: 2px;
+  background: var(--tk-paper);
+  color: var(--tk-ink);
+  font: inherit;
+  font-size: .82rem;
+}
+
+.tk-calc__input:focus {
+  outline: 2px solid var(--tk-fiord-lt);
+  outline-offset: 1px;
+}
+
+.tk-calc__hint {
+  font-size: .68rem;
+  line-height: 1.6;
+  color: var(--tk-ink-2);
+}
+
+.tk-calc__out {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .4em 1em;
+  margin-bottom: .6em;
+}
+
+.tk-calc__big {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .4em;
+  font-family: var(--tk-mono);
+}
+
+.tk-calc__big-num {
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+
+.tk-calc__big-lbl {
+  font-size: .72rem;
+  color: var(--tk-ink-2);
+}
+
+/* 四档语义色 —— 与图标语义表的分工对齐：
+   绿=安全 / 深蓝=稳 / 琥珀=注意 / 红=危险 */
+.tk-calc__big.is-always .tk-calc__big-num { color: var(--tk-grn); }
+.tk-calc__big.is-likely .tk-calc__big-num { color: var(--tk-brand-dark); }
+.tk-calc__big.is-chance .tk-calc__big-num { color: var(--tk-amber); }
+.tk-calc__big.is-none   .tk-calc__big-num { color: var(--tk-red); }
+
+.tk-calc__verdict {
+  flex: 1 1 16rem;
+  margin: 0;
+  font-size: .76rem;
+  line-height: 1.7;
+  color: var(--tk-ink-2);
+}
+
+.tk-calc__verdict.is-always { color: var(--tk-grn); }
+.tk-calc__verdict.is-likely { color: var(--tk-brand-dark); }
+.tk-calc__verdict.is-chance { color: var(--tk-amber); }
+.tk-calc__verdict.is-none   { color: var(--tk-red); }
+
+/* 数值表：两列网格、标签淡、值醒目 —— 与 .tk-cat-detail__dl 及第 59 节的
+   #tk-item-page dl 同一套观感（`dl` 全站没有基础样式，必须显式给网格）。 */
+.tk-calc__facts {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, auto) 1fr;
+  gap: 2px 14px;
+  margin: 0 0 .9em;
+  font-size: .78rem;
+}
+
+.tk-calc__facts dt { color: var(--tk-ink-2); }
+.tk-calc__facts dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+
+.tk-calc__tablebox { margin-top: .9em; }
+
+.tk-calc__caption {
+  margin: .5em 0 .4em;
+  font-size: .72rem;
+  line-height: 1.75;
+  color: var(--tk-ink-2);
+}
+
+/* 运行时建的表都在 .md-typeset__table 里（全站唯一的滚动容器，见第 3 节）。
+   这两个工具的表格**不需要**分类页那套 min-width —— 列少、内容短；
+   强加 min-width 反而会在窄屏白白撑宽。只补对齐。 */
+.tk-calc .tk-col-num { text-align: right; white-space: nowrap; }
+
+/* 当前输入那一行加左缘标记条，与代码块的行高亮同一种语言 */
+.tk-calc tr.is-current { background: var(--tk-zebra); }
+.tk-calc tr.is-current td:first-child {
+  box-shadow: inset 2px 0 0 var(--tk-fiord);
+  font-weight: 600;
+}
+
+/* 表格里的判定列（穿透页） */
+.tk-calc__vd { font-size: .72rem; }
+.tk-calc__vd.is-always { color: var(--tk-grn); }
+.tk-calc__vd.is-likely { color: var(--tk-brand-dark); }
+.tk-calc__vd.is-chance { color: var(--tk-amber); }
+.tk-calc__vd.is-none   { color: var(--tk-red); }
+
+.tk-calc__note {
+  margin: .9em 0 0;
+  padding-top: .7em;
+  border-top: 1px solid var(--tk-line);
+  font-size: .7rem;
+  line-height: 1.8;
+  color: var(--tk-ink-2);
+}
+
+/* ==========================================================================
+   61. 物品悬停预览卡（javascripts/catalog.js 的 .tk-cat-hover）
+   --------------------------------------------------------------------------
+   定位：**点击的补充，不是替代**。「点名称看详情」一直都在，这张卡只是让
+   扫货时少点几下。
+
+   ⚠️ 三个必须成立的条件（对应 catalog.js 里的三条实现约束）：
+     ① position: fixed —— 表格外套着 .md-typeset__table（overflow-x: auto），
+        absolute 会被那一层裁掉；
+     ② pointer-events: none —— 卡片绝不截走鼠标，否则鼠标一移到卡上就
+        触发了自己引起的 mouseout（闪一下就没）；
+     ③ 触屏不渲染（由 JS 判断），这里只负责观感。
+   -------------------------------------------------------------------------- */
+
+.tk-cat-hover {
+  position: fixed;
+  z-index: 60;                 /* 高于 .tk-cat-detail；低于主题的搜索浮层 */
+  width: 15rem;
+  padding: .6em .75em;
+  border: 1px solid var(--tk-line-3);
+  border-top: 3px solid var(--tk-fiord);
+  border-radius: 2px;
+  background: var(--tk-paper);
+  box-shadow: 0 6px 20px rgba(28, 26, 23, .16);
+  pointer-events: none;        /* 见上面第 ② 条 */
+  font-size: .76rem;
+}
+
+.tk-cat-hover__name {
+  margin: 0;
+  font-weight: 700;
+  font-size: .82rem;
+  line-height: 1.45;
+  color: var(--tk-ink);
+}
+
+.tk-cat-hover__en {
+  margin: .1em 0 .5em;
+  font-family: var(--tk-mono);
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+  overflow-wrap: anywhere;
+}
+
+.tk-cat-hover__dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1px 10px;
+  margin: 0;
+  padding-top: .5em;
+  border-top: 1px solid var(--tk-line);
+}
+
+.tk-cat-hover__dl dt {
+  font-size: .72rem;
+  color: var(--tk-ink-2);
+  white-space: nowrap;
+}
+
+.tk-cat-hover__dl dd {
+  margin: 0;
+  font-size: .74rem;
+  font-weight: 600;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.tk-cat-hover__hint {
+  margin: .5em 0 0;
+  font-size: .66rem;
+  color: var(--tk-ink-2);
+}
+
+/* ==========================================================================
+   62. 日志地图与模式统计（javascripts/log-sync.js 的 renderRaidStats）
+   --------------------------------------------------------------------------
+   落在「我的进度 → 进度管理 → 从游戏日志同步」那一块里，所以沿用
+   `.tk-board__*` 前缀，与同板块的 logline / logsum 是一家人。
+   -------------------------------------------------------------------------- */
+
+.tk-board__maps {
+  margin-top: .7rem;
+  padding-top: .6rem;
+  border-top: 1px dashed var(--tk-line-2);
+}
+
+/* ⚠️ h5 必须显式定字号：主题默认 h5 比正文小得多，而这一块的层级
+   只在「日志同步」之下，不该视觉倒挂（与第 59 节 h4 同一条教训）。 */
+.tk-board__maps h5 {
+  margin: .7em 0 .3em;
+  font-size: .8rem;
+  color: var(--tk-fiord);
+}
+
+.tk-board__maps h5:first-child { margin-top: 0; }
+
+.tk-board__maps .tk-col-num { text-align: right; white-space: nowrap; }
+
+.tk-board__maps .md-typeset__table { margin-bottom: .6rem; }
+
+.tk-board__mapnote {
+  margin: .5rem 0 0;
+  font-size: .7rem;
+  line-height: 1.8;
+  color: var(--tk-ink-2);
+}
+
+/* —— 暗色兜底：与第 8 节同一策略，只覆盖本节点里写死的颜色 —— */
+[data-md-color-scheme="slate"] .tk-cat-hover {
+  border-color: #4A473F;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .5);
+}
+[data-md-color-scheme="slate"] .tk-board__maps h5 { color: #C6D2DE; }

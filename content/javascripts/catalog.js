@@ -25,6 +25,16 @@
 
    ⚠️ 挂载要注册两个入口（subscribe + 立即执行一次）。由 toolbox.js 注入的
    脚本可能晚于 document$ 首次发出，只写 subscribe 会永远收不到首次事件。
+
+   两个「单位价值」指标的分工（v1.107.0 起）
+   ----------------------------------------
+     · **单格价值** = 商人最高回收 ÷ 占地格数（slotValue）—— 背包按格数计价，
+       回答「一格装什么最值钱」；总览页的 💎 单格价值榜就是它。
+     · **每公斤价值** = 商人最高回收 ÷ 重量（weightValue）—— 回答「同样的负重
+       背什么最值钱」；格数还够、负重先满时看的是这一个。
+   两者**不可互相替代**，也不合成「综合分」；口径同取商人回收价（站内不联网、
+   不收实时价）。四处落点（表格列 / 排序 / 榜单 / 悬停卡与详情面板）共用这两个
+   函数，严禁各算一遍 —— 那是数字漂移的入口。
    ========================================================================== */
 
 (function () {
@@ -99,6 +109,23 @@ function siteRoot() {
     var s = (typeof r[8] === "number" && r[8] > 0) ? r[8] : null;
     if (s == null) return null;
     return p / s;
+  }
+
+  /* 每公斤价值 = 商人最高回收 ÷ 重量（千克）。
+
+     ⚠️ **与单格价值是两个指标，不要互相替代**，也不要合并成「综合分」：
+         · 单格价值回答「背包里的一格装什么最值钱」（背包按格数计价）；
+         · 每公斤价值回答「同样的负重，背什么最值钱」——
+           它对应的是本页之外的《背包与容器系统》与《搜刮效率与战利品取舍》
+           两篇里的负重取舍，**格数够但负重先满**时看的是这一个。
+     口径同样取商人回收价（站内不联网、不收实时价），缺重量或缺回收价 → null
+     （算不出就不显示，不用默认值凑 —— 与 slotValue 同一条纪律）。 */
+  function weightValue(r) {
+    var p = parseNum(r[6]);
+    if (p == null) return null;
+    var w = (typeof r[3] === "number" && r[3] > 0) ? r[3] : null;
+    if (w == null) return null;
+    return p / w;
   }
 
   function hay(r) {
@@ -387,6 +414,7 @@ function siteRoot() {
         var idx = Array.prototype.indexOf.call(tr.parentNode.children, tr);
         detail(rows[idx][0]);
       });
+      attachHoverCard(tbody, rows);
     }
 
     input.addEventListener("input", function () { state.q = input.value; page = 1; draw(); });
@@ -529,6 +557,7 @@ function siteRoot() {
       var idx = Array.prototype.indexOf.call(tr.parentNode.children, tr);
       openDetail(top[idx], d);
     });
+    attachHoverCard(tbody, top);
 
     var foot = el("p", null, "以上为前 " + TOP + " 名。全部 " + ranked.length
       + " 件可算物品的完整排序，用上方检索区的「排序方式 → 按单格价值降序」。");
@@ -552,6 +581,105 @@ function siteRoot() {
     return a;
   }
 
+  /* -------------------------------------------------------------- 悬停预览卡
+     在表格里扫货时，看数值要先点名称才展开 openDetail —— 那一步对「快速比价」
+     太重。这张卡把同一批数字挪到鼠标旁边，**不用点**。
+
+     ⚠️ 三条实现约束（都是踩过才知道的）：
+       ① **卡片必须挂 document.body 并用 position: fixed**。表格外面套着
+          .md-typeset__table（overflow-x: auto），absolute 定位的卡片会被那一层
+          裁掉 —— 表现为「靠近表格边缘时卡片缺一块」。
+       ② **触屏不挂**。靠 hover 才出现的内容在触屏上等于不存在；而「点名称看
+          详情」那条路一直都在，所以直接跳过（matchMedia('(hover: hover)')）。
+       ③ **只读、不复制计算**。卡里每个数字都调 slotValue / weightValue，
+          不在这里重算 —— 与「表格列 / 排序 / 榜单走同一个函数」同一条纪律。
+  -------------------------------------------------------------------------- */
+
+  var hoverCardEl = null;
+  var hoverGlobalInstalled = false;
+
+  function ensureHoverCard() {
+    if (hoverCardEl && hoverCardEl.parentNode) return hoverCardEl;
+    var c = el("div", "tk-cat-hover");
+    c.setAttribute("role", "tooltip");
+    c.hidden = true;
+    document.body.appendChild(c);
+    hoverCardEl = c;
+    return c;
+  }
+
+  function hideHoverCard() {
+    if (hoverCardEl && !hoverCardEl.hidden) hoverCardEl.hidden = true;
+  }
+
+  function showHoverCard(r, anchor) {
+    var c = ensureHoverCard();
+    c.textContent = "";
+    c.appendChild(el("p", "tk-cat-hover__name", r[1]));
+    if (r[2]) c.appendChild(el("p", "tk-cat-hover__en", r[2]));
+
+    var sv = slotValue(r), wv = weightValue(r);
+    var dl = document.createElement("dl");
+    dl.className = "tk-cat-hover__dl";
+    [["重量", typeof r[3] === "number" ? r[3] + " 千克" : "—"],
+     ["占地", (typeof r[8] === "number" && r[8] > 0) ? r[8] + " 格" : "—"],
+     ["商人最低售价", r[5] || "—"],
+     ["最高回收", r[6] || "—"],
+     ["单格价值", sv == null ? "—" : fmtNum(sv) + " ₽/格"],
+     ["每公斤价值", wv == null ? "—" : fmtNum(wv) + " ₽/千克"]
+    ].forEach(function (p) {
+      dl.appendChild(el("dt", null, p[0]));
+      dl.appendChild(el("dd", null, p[1]));
+    });
+    c.appendChild(dl);
+    c.appendChild(el("p", "tk-cat-hover__hint", "点名称看完整属性 · 卡内容不联网"));
+
+    c.hidden = false;
+    /* 先显示再量尺寸：卡片宽度由内容决定，预算不出像素。 */
+    var b = anchor.getBoundingClientRect();
+    var cw = c.offsetWidth, ch = c.offsetHeight;
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var left = b.left + b.width / 2 - cw / 2;
+    if (left < 8) left = 8;
+    if (left + cw > vw - 8) left = Math.max(8, vw - 8 - cw);
+    var top = b.bottom + 8;
+    if (top + ch > vh - 8) {
+      var above = b.top - 8 - ch;
+      top = above >= 8 ? above : Math.max(8, vh - 8 - ch);
+    }
+    c.style.left = Math.round(left) + "px";
+    c.style.top = Math.round(top) + "px";
+  }
+
+  function attachHoverCard(tbody, rows) {
+    /* 触屏 / 不支持 hover 的设备不挂 —— 见上面第 ② 条。 */
+    if (window.matchMedia && !window.matchMedia("(hover: hover)").matches) return;
+
+    /* ⚠️ 全局监听**只装一次**：attachHoverCard 每次 draw() 都会被调，
+       装在这里就会随每次筛选/翻页叠加一层（滚一下触发 N 次）。
+       tbody 自己在每次 draw() 里被重建，所以它的监听随旧节点一起丢弃，不必去重。 */
+    if (!hoverGlobalInstalled) {
+      hoverGlobalInstalled = true;
+      window.addEventListener("scroll", hideHoverCard, { passive: true });
+      window.addEventListener("resize", hideHoverCard);
+    }
+
+    tbody.addEventListener("mouseover", function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest(".tk-cat__name") : null;
+      if (!btn) return;
+      var tr = btn.closest("tr");
+      if (!tr) return;
+      var idx = Array.prototype.indexOf.call(tr.parentNode.children, tr);
+      var r = rows[idx];
+      if (!r) return;
+      showHoverCard(r, btn);
+    });
+    tbody.addEventListener("mouseout", function (e) {
+      if (e.relatedTarget && hoverCardEl && hoverCardEl.contains(e.relatedTarget)) return;
+      hideHoverCard();
+    });
+  }
+
   /* ------------------------------------------------------------ 详情面板 */
 
   function openDetail(r, d) {
@@ -573,10 +701,13 @@ function siteRoot() {
     var dl = document.createElement("dl");
     dl.className = "tk-cat-detail__dl";
     var sv = slotValue(r);
+    var wv = weightValue(r);
     [["英文名", r[2]], ["物品 ID", r[0]], ["重量", typeof r[3] === "number" ? r[3] + " 千克" : "—"],
      ["占地", (typeof r[8] === "number" && r[8] > 0) ? r[8] + " 格" : "—"],
      ["商人最低售价", r[5] || "—"], ["商人最高回收", r[6] || "—"],
-     ["单格价值", sv == null ? "—（缺回收价或格数）" : fmtNum(sv) + " 卢布／格"]].forEach(function (p) {
+     ["单格价值", sv == null ? "—（缺回收价或格数）" : fmtNum(sv) + " 卢布／格"],
+     ["每公斤价值", wv == null ? "—（缺回收价或重量）" : fmtNum(wv) + " 卢布／千克"]
+    ].forEach(function (p) {
       dl.appendChild(el("dt", null, p[0]));
       dl.appendChild(el("dd", null, p[1]));
     });
