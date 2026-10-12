@@ -28,8 +28,9 @@
 | `content/README.md` | 项目首页（站点首页源文件） |
 | `content/{tags,template,CHANGELOG,CONTRIBUTING}.md` | 标签分类、条目模板、更新日志、贡献指南 |
 | `mkdocs.yml` | 站点配置（Material 主题 + 自定义样式） |
-| `stylesheets/extra.css` | 自定义样式（窄屏表格滚动、打印友好） |
-| `scripts/check_entries.py` | 一致性校验（只读，不改文件） |
+| `content/stylesheets/extra.css` | 自定义样式（窄屏表格滚动、打印友好） |
+| `scripts/build_all.py` | **本地验收入口**：七道校验 + 真实构建（改完内容必跑） |
+| `scripts/check_entries.py` | 内容一致性校验（只读，不改文件；七道之一） |
 | `.github/workflows/` | CI/CD 工作流（自动部署到 Pages + 条目校验） |
 
 ## 🧭 推荐学习路径
@@ -72,4 +73,4 @@
 ---
 
 **维护者**: [GTX950L](https://github.com/GTX950L)<br>
-**最后更新**: 2026年9月
+**最后更新**: 2026年10月
