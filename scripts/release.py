@@ -22,14 +22,25 @@ v1.77.0–v1.80.4 又漏了 8 个、v1.88.0–v1.98.1 再漏 18 个（都用
 它做三件事，且**每一步都先判「做过没有」，可重复执行**：
   1. 从 `content/CHANGELOG.md` 解析最新版本号与标题；
   2. 若 tag 不存在 → `git tag -a` + `git push origin <tag>`；
-  3. 若 Release 不存在 → `gh release create --verify-tag --notes-file`。
+  3. 若 Release 不存在 → `gh release create --verify-tag --notes-file`
+     （notes 里的**相对链接会先降级为纯文本**，见下）。
 
-⚠️ 两个已知的坑（都已绕开）
+⚠️ 四个已知的坑（都已绕开）
   · `gh release create --target <短SHA>` 会失败 —— GitHub 的 commitish
     只收**分支名或完整 SHA**，而报错信息会误导你去查 tag 名格式。
     所以这里是「先建 tag、再 `--verify-tag`」，不传 `--target`。
   · `gh release create` 首次可能返回 **HTTP 504**（notes 较长时更容易）——
     重试即成；本脚本内置一次重试。
+  · **Release notes 里的相对链接必须在发之前降级为纯文本**（2026-10-12 补）。
+    CHANGELOG 里的 `[弹道与穿透机制](entries/ballistics.md)` 是**内容目录**
+    的相对写法，而 Release 说明页的基址是仓库根 —— 带上去就是个 404。
+    实现复用 `backfill_releases.py` 的 `strip_relative_links`，不另写一份。
+  · **「查不到」不能当成「不存在」**（2026-10-12 补）。`gh` 的 keyring token
+    失效时 `gh release view` 会失败，失败被当成 False 会造成两层误导：
+    dry-run 在 Release 明明存在时印「未检查/不存在」；重跑会走到
+    `gh release create` 才失败、最后报「建 Release 失败」。
+    所以存在性检查是**三态**（`release_lookup`：True/False/None），失败时
+    用 git 凭据走 REST 兜底；兜底也拿不到就明说「未能确认」，不猜。
 
 用法
 ----
@@ -48,10 +59,19 @@ import re
 import subprocess
 import sys
 import tempfile
+import urllib.error
+import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CHANGELOG = ROOT / "content" / "CHANGELOG.md"
+
+# 相对链接降级**只有一处实现** —— 在 backfill_releases.py 里（它先有这个需求）。
+# ⚠️ 刻意 import 而不是复制一份正则：两处各写一遍必然漂，而漂的表现是
+#    「同一个版本，补建出来的 Release 与新发的 Release 说明不一致」——
+#    读者看不出来，机器也查不出来。缺依赖时让它直接抛，不静默降级。
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from backfill_releases import strip_relative_links  # noqa: E402
 
 # ## 2026-10（v1.86.0）— 首页顶部补「本站速览」…
 HEADING_RE = re.compile(r"^##\s+(?P<date>\d{4}-\d{2})（(?P<ver>v\d+\.\d+\.\d+)）\s*—?\s*(?P<title>.*)$")
@@ -90,9 +110,50 @@ def remote_tag_exists(tag: str) -> bool:
     return tag in out
 
 
-def release_exists(tag: str) -> bool:
+def repo_slug() -> str | None:
+    """从 origin 的 URL 取 `owner/repo`（兼容 https 与 ssh 两种写法）。"""
+    out = (sh(["git", "remote", "get-url", "origin"], check=False).stdout or "").strip()
+    m = re.search(r"github\.com[:/](?P<slug>[^/\s]+/[^/\s]+?)(?:\.git)?$", out)
+    return m.group("slug") if m else None
+
+
+def release_lookup(tag: str) -> bool | None:
+    """Release 是否存在：**True / False / None（未能确认）**三态。
+
+    ⚠️ 为什么不返回布尔：`gh` 的 keyring token 失效时 `gh release view` 会失败，
+       而**失败不等于问到了「不存在」**。第一版把 returncode != 0 一律当 False，
+       后果有两层（2026-10-12 实测）：
+         · dry-run 在 Release 明明存在时印「Release 未检查/不存在」，误导操作者；
+         · 重跑真发版会一路走到 `gh release create` 才失败，最后报「建 Release 失败」——
+           而它其实早就在了。
+       所以这里把「查不到」单列出来（None），由调用方**明说**未能确认，不猜。
+
+    判定顺序：先 `gh`（有权限时最省事）→ 失败再用 git 的凭据直接问 REST API。
+    两条路都拿不到 → None。**这个函数只读，不产生任何写动作**，dry-run 也能安全调。
+    """
     p = sh(["gh", "release", "view", tag, "--json", "tagName"], check=False)
-    return p.returncode == 0 and tag in (p.stdout or "")
+    if p.returncode == 0:
+        return tag in (p.stdout or "")
+
+    slug = repo_slug()
+    token = gh_token_from_git()
+    if not slug or not token:
+        return None
+    req = urllib.request.Request(
+        f"https://api.github.com/repos/{slug}/releases/tags/{tag}",
+        headers={
+            "Authorization": f"Bearer {token}",
+            "Accept": "application/vnd.github+json",
+            "User-Agent": "tarkov-encyclopedia-release-script",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            return resp.status == 200
+    except urllib.error.HTTPError as e:
+        return False if e.code == 404 else None
+    except Exception:
+        return None
 
 
 def gh_token_from_git() -> str | None:
@@ -131,11 +192,13 @@ def main() -> int:
     print("=" * 62)
 
     have_tag = tag_exists(ver)
-    have_rel = release_exists(ver) if not args.dry_run else False
+    rel = release_lookup(ver)          # True / False / None —— dry-run 也查（本函数只读）
 
-    print(f"\n现状：tag {'已存在' if have_tag else '不存在'} ｜ Release {'已存在' if have_rel else '未检查/不存在'}")
+    rel_text = {True: "已存在", False: "不存在",
+                None: "未能确认（gh 与 REST 两条路都查不到）"}[rel]
+    print(f"\n现状：tag {'已存在' if have_tag else '不存在'} ｜ Release {rel_text}")
 
-    if have_tag and have_rel and not args.dry_run:
+    if have_tag and rel is True:
         print("\n✓ 已经发过版，无需操作（幂等：不会重复建 Release）。")
         print(f"  核验：gh release list --limit 1  → 最新 Release 应为 {ver}")
         return 0
@@ -145,7 +208,13 @@ def main() -> int:
         if not have_tag:
             print(f"  · git tag -a {ver} -m \"{ver} —— {title}\"")
             print(f"  · git push origin {ver}")
-        print(f"  · gh release create {ver} --title \"{ver} —— {title}\" --notes-file <临时文件>")
+        if rel is True:
+            print("  · （Release 已存在 → 将跳过建 Release）")
+        else:
+            print(f"  · gh release create {ver} --title \"{ver} —— {title}\" --notes-file <临时文件>")
+        if rel is None:
+            print("\n  ⚠️ Release 的存在性**未能确认** —— 上面那步「建 Release」可能其实是跳过。")
+            print("     常见原因是 gh 的 token 失效；git 凭据可用时本脚本会自动走 REST 兜底。")
         print("\n（dry-run 结束，未做任何改动）")
         return 0
 
@@ -163,15 +232,20 @@ def main() -> int:
         print("  ✓ 已推送")
 
     # ② Release
-    if release_exists(ver):
+    if release_lookup(ver) is True:
         print(f"\n✓ Release {ver} 已存在，跳过。")
         return 0
 
     print(f"\n▶ 建 Release：{ver}")
+    # ⚠️ 相对链接**必须降级为纯文本**：CHANGELOG 里的 `[弹道与穿透机制](entries/ballistics.md)`
+    #    是**内容目录**的相对写法，而 Release 说明页的基址是仓库根 —— 原样带上去
+    #    就是个 404 链接（读者点开是「文件不存在」）。站内 backfill_releases.py
+    #    早就在做这件事，这里复用它的实现而不是另写一份正则。
+    body_for_notes = strip_relative_links(body)
     notes = (
         f"内容基线：本站以 **2026 年 10 月 / 1.2.0.0（第一赛季 KORD BREACH）** 的公开信息为准。\n"
         f"引用前请先读 [数据口径与引用说明](https://gtx950l.github.io/tarkov-encyclopedia/docs/citation/)。\n\n"
-        f"---\n\n{body}\n"
+        f"---\n\n{body_for_notes}\n"
     )
     with tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=".md", delete=False) as fh:
         fh.write(notes)
@@ -202,10 +276,21 @@ def main() -> int:
                     p = subprocess.run(cmd, cwd=str(ROOT), capture_output=True, text=True, env=env)
                     combined = (p.stdout or "") + (p.stderr or "")
                 if p.returncode != 0:
-                    print("  ✗ 建 Release 失败：\n" + combined)
-                    print("\n  提示：若报鉴权错误（keyring token invalid），"
-                          "需要交互式执行 `gh auth login` —— 智能体无法代做。")
-                    return 1
+                    # ⚠️ 「建失败」**不等于「没建成」**。最常见的一种是它**早就存在**
+                    #    （而恰巧 gh 的存在性检查也失效了）—— 这时 `gh release create`
+                    #    会被 GitHub 以「已存在」拒绝，报出来却是「建 Release 失败」，
+                    #    一次成功的幂等重跑被记成失败（2026-10-12 实测）。
+                    #    所以这里再用 REST 问一次存在性，是则按成功处理。
+                    if release_lookup(ver) is True:
+                        print("  ✓ Release 其实已存在（建的动作被拒是因为重复）—— 按成功处理。")
+                    else:
+                        print("  ✗ 建 Release 失败：\n" + combined)
+                        if release_lookup(ver) is None:
+                            print("\n  ⚠️ 而且存在性也**未能确认** —— 上面这条「失败」可能是假警报，")
+                            print("     请到仓库 Releases 页人工核一眼再决定要不要重跑。")
+                        print("\n  提示：若报鉴权错误（keyring token invalid），"
+                              "需要交互式执行 `gh auth login` —— 智能体无法代做。")
+                        return 1
         print("  ✓ Release 已建")
     finally:
         notes_file.unlink(missing_ok=True)

@@ -1214,6 +1214,46 @@ function siteRoot() {
     return n;
   }
 
+  /* --------------------------------------------------------------------------
+     行内强调渲染（`**重点**`）
+     --------------------------------------------------------------------------
+     背景：看板与日志同步的若干说明文案当初把 `**重点**` 直接写进了字符串、
+     交给 el() 的 textContent —— 而 **textContent 不解析 Markdown**，于是星号
+     原样显示在页面上（2026-10-12 全站实测 11 处；`progress-manifest.js` 里
+     生成的 `note` 也带着同样的标记）。
+
+     为什么不改用 innerHTML：**全站刻意不用 innerHTML**（progress-boards.js
+     里一个都没有，唯一例外是别处的 `textContent` 写法）。这里也不破例 ——
+     本函数只产「文本节点 + `<b>` 元素」，即便数据里混进 HTML，也只会被显示成
+     字面文字，**没有 XSS 面**。这一点是刻意保留的性质，不要为了少写几行改成 innerHTML。
+
+     ⚠️ 与 quest-detail.js 的 `rich()` **不是同一个东西，别合并**：
+        · `rich()` 多解析一层 `[[名字|id]]`（物品名 → 图鉴链接），只在任务详情页用；
+        · 本函数只认 `**`，供看板 / 日志同步这类纯文案场景用。
+        两者共有的只有「`**` = 粗体」这一条规则。
+
+     ⚠️ 标记数为奇数时（`a**b`）**不报错、按最朴素的方式降级**：最后一段照样
+        当粗体处理，星号被吃掉而不是留在页面上。宁可少一段粗体，也不要让星号露出来。
+     -------------------------------------------------------------------------- */
+  function richText(text) {
+    var frag = document.createDocumentFragment();
+    var parts = String(text === undefined || text === null ? "" : text).split("**");
+    for (var i = 0; i < parts.length; i++) {
+      if (!parts[i]) continue;
+      frag.appendChild(i % 2 === 1
+        ? el("b", null, parts[i])
+        : document.createTextNode(parts[i]));
+    }
+    return frag;
+  }
+
+  /* 建元素并塞入 richText 的内容 —— 等价于 `el(tag, cls, text)`，但会渲染 `**`。 */
+  function richEl(tag, cls, text) {
+    var n = el(tag, cls);
+    n.appendChild(richText(text));
+    return n;
+  }
+
   /* 某个外部脚本没载进来时给一句提示，而不是留一片空白。
      站点在搜索索引上已有同样的做法（见 search-ready.js），话术保持一致。 */
   function notReady(what) {
@@ -1363,6 +1403,8 @@ function siteRoot() {
      只是同一个脚本族之间的共享件（看板模块要用它们，但又不能各写一份）。 */
   api._ui = {
     el: el,
+    richText: richText,
+    richEl: richEl,
     notReady: notReady,
     loadScript: loadScript,
     makeStateSelect: makeStateSelect,

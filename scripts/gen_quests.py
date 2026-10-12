@@ -963,7 +963,24 @@ def carry_over_extras() -> list[str]:
     def grab(start: str, end: str) -> list[str]:
         if start in text and end in text:
             body = text.split(start, 1)[1].split(end, 1)[0]
-            return [start, *body.splitlines(), end]
+            lines = body.splitlines()
+            # ⚠️ 这里**必须把边界空行归一化**，不能让本函数对它做「透传」。
+            #    原因：`splitlines()` 与后续的 `"\n".join()` 对块首空行的计法不同 ——
+            #    块首 n 个空行经 `splitlines()` 会变成 n+1 个空元素（首元素与
+            #    紧跟的空串各占一个），join 回来就成了 n+1 个空行。
+            #    也就是**每跑一次本脚本就多加一行空行**，一直加到别的生成器重写
+            #    该块才回退 —— 这正是 content/quests/index.md 长期「边界空行振荡」
+            #    的根因（2026-10-12 实测到的循环：
+            #      (2,2) →gen_quests→ (3,3) →gen_quest_items→ (2,3)
+            #            →gen_quest_insights→ (2,2)，每个新行数都是「换行数」）。
+            #    归一化到「块首块尾各恰好一个空行」，与 gen_quest_items.py /
+            #    gen_quest_insights.py 写块的格式一致 —— 三者对齐后，
+            #    **任跑哪一个都保持不动点**，与执行顺序无关。
+            while lines and not lines[0].strip():
+                lines.pop(0)
+            while lines and not lines[-1].strip():
+                lines.pop()
+            return [start, "", *lines, "", end]
         return [start, "", end]
 
     blocks: list[str] = []

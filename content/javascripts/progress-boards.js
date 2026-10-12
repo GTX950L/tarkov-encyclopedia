@@ -23,7 +23,12 @@
   var el = UI.el, notReady = UI.notReady, loadScript = UI.loadScript,
       makeStateSelect = UI.makeStateSelect, makeChapterSelect = UI.makeChapterSelect,
       syncStateSeg = UI.syncStateSeg,
-      questUrl = UI.questUrl, siteRoot = UI.siteRoot;
+      questUrl = UI.questUrl, siteRoot = UI.siteRoot,
+      /* ⚠️ 凡文案里带 `**重点**` 的，一律用 richEl 而不是 el（见 progress.js 的
+         richText：el 走 textContent，不解析 Markdown，星号会原样显示在页面上）。
+         生成的 note 字段（progress-manifest 等）也带这个标记，所以消费他们时
+         同样要用 richEl。 */
+      richEl = UI.richEl;
   var MODE_LABEL = TP.MODE_LABEL, TRACKS = TP.TRACKS, TRACK_LABEL = TP.TRACK_LABEL;
 
   /* 图节点字段下标 —— 与生成器里的 cols 一致，改一处要改两处。 */
@@ -586,7 +591,7 @@
       /* 降级时的大数字说明：把「为什么按商人矩阵是 0」当场讲清，
          否则读者会以为自己的记录又丢了。 */
       if (!hasGraph) {
-        head.appendChild(el("p", "tk-board__note",
+        head.appendChild(richEl("p", "tk-board__note",
           "任务图没能载入，所以**「前置推断」与「按商人 / 长线 / 可接」这三块暂不可用**——"
           + "下面显示的完成数只包含你**手动标记过**的那些。刷新一次通常即可恢复。"));
       }
@@ -825,12 +830,25 @@
       }
       nSec.appendChild(nList);
 
-      nSec.appendChild(el("p", "tk-board__note",
+      var chapP = richEl("p", "tk-board__note",
         (hasGraph ? "任务数字含**由前置推断**的完成（推断 = 进行中任务的上游必然已完成）。"
                   : "⚠️ **任务图未载入**，所以「可接」与「长线还差几条」算不出来，上面只给了不依赖任务图的建议。")
         + "**剧情章节是纯手动记录**：官方任务数据里没有「章节」字段、也没有章节→任务的映射，"
-        + "所以这条轨只记你亲手标的状态、**不做任何推断** —— 在「剧情章节」分页记录；"
-        + "章节顺序与前置见 [剧情章节与主线任务](../entries/story-chapters.md)。"));
+        + "所以这条轨只记你亲手标的状态、**不做任何推断** —— 在「剧情章节」分页记录；");
+
+      /* ⚠️ 这一段末尾的链接**必须建真 <a>**，不能把 `[标签](路径)` 写进文案 ——
+         两个理由，都是实测出来的：
+           ① 本节点走 textContent，方括号与圆括号会原样显示在页面上；
+           ② 原先写的 `../entries/story-chapters.md` 是**Markdown 源目录**的相对
+              写法（content/quests/ 下才成立），而这一页在 /quests/progress/ ——
+              浏览器解析出来是 /quests/entries/…，**线上 404**。
+         站内既有做法就是用 siteRoot() 拼站根路径（见 catalog.js 的地图链接）。 */
+      chapP.appendChild(document.createTextNode("章节顺序与前置见 "));
+      var chapA = el("a", null, "剧情章节与主线任务");
+      chapA.href = siteRoot() + "entries/story-chapters/";
+      chapP.appendChild(chapA);
+      chapP.appendChild(document.createTextNode("。"));
+      nSec.appendChild(chapP);
 
       host.appendChild(nSec);
     });
@@ -955,7 +973,7 @@
     feWrap.appendChild(feIn);
     lvRow.appendChild(feWrap);
     gatePanel.appendChild(lvRow);
-    gatePanel.appendChild(el("p", "tk-board__note",
+    gatePanel.appendChild(richEl("p", "tk-board__note",
       "填了才能判准「可接」。**填「?」的商人不会被用作筛选**，"
       + "只在任务行上提示「需 XX LL2」—— 宁可不筛，也不猜。"
       + "**Fence 声望可填负数**（如亡羊补牢要求 ≤ −3）；留空则相关任务只提示、不计入可接。"));
@@ -1016,7 +1034,7 @@
     chipbar.appendChild(cnt2);
     host.appendChild(chipbar);
 
-    host.appendChild(el("p", "tk-board__hint",
+    host.appendChild(richEl("p", "tk-board__hint",
       "只填你**现在就知道**的：等级、门槛、以及任务列表里手上正拿着的那些。"
       + "它们的**前置会被自动算作已完成**，你不用回忆过去做过什么。"));
 
@@ -1830,7 +1848,7 @@
       tbody.appendChild(tr);
     }
     host.appendChild(wrapTable(["已囤 / 需", "物品", "任务数", "合计数量", "涉及商人"], tbody));
-    host.appendChild(el("p", "tk-board__note", (items.note || "") + " 达标 = 已囤件数 ≥ 合计数量。"));
+    host.appendChild(richEl("p", "tk-board__note", (items.note || "") + " 达标 = 已囤件数 ≥ 合计数量。"));
 
     function apply() {
       var q = (input.value || "").trim().toLowerCase();
@@ -1961,7 +1979,7 @@
       sec.appendChild(grid);
       host.appendChild(sec);
     }
-    host.appendChild(el("p", "tk-board__note",
+    host.appendChild(richEl("p", "tk-board__note",
       (hut.note || "") + " **「现在可升」＝ 前置设施已通 ＋ 材料已齐**；"
       + "「前置未通」的卡片会写明还缺哪个模块的几级。"
       + "**技能要求只提示不判定** —— 技能等级是游戏内状态，本站不记录。"));
@@ -2234,14 +2252,20 @@
       tr.appendChild(tdCtl);
       tr.appendChild(el("td", null, chLabel(ch)));
       tr.appendChild(el("td", "tk-board__num", String(ch.objectives)));
-      tr.appendChild(el("td", "tk-board__who", ch.note || "—"));
+      tr.appendChild(richEl("td", "tk-board__who", ch.note || "—"));
       rows.push({ tr: tr, ctl: ctl, ch: ch });
       tbody.appendChild(tr);
     }
     host.appendChild(wrapTable(["状态", "章节", "目标数", "在主线里的位置"], tbody));
-    host.appendChild(el("p", "tk-board__note",
-      (sl.note || "") + " 章节清单与前置见 [剧情章节与主线任务](../entries/story-chapters.md)，"
-      + "记录同时在剧情页那张「已收录的十章」表里可见（同一份数据）。"));
+    /* 同上：链接建真 <a>（`[标签](../entries/…)` 那套写法在这页既会露方括号、
+       也会因为相对写法不对而 404）。 */
+    var slP = richEl("p", "tk-board__note", (sl.note || "") + " 章节清单与前置见 ");
+    var slA = el("a", null, "剧情章节与主线任务");
+    slA.href = siteRoot() + "entries/story-chapters/";
+    slP.appendChild(slA);
+    slP.appendChild(document.createTextNode(
+      "，记录同时在剧情页那张「已收录的十章」表里可见（同一份数据）。"));
+    host.appendChild(slP);
 
     /* 增量回填：只改行状态与控件高亮，不重建行 —— 重建会把点击后的焦点
        丢掉，也会让「同一个控件两个调用点显示不一致」。 */
@@ -2552,7 +2576,7 @@
     ops.appendChild(btnAll);
 
     host.appendChild(ops);
-    host.appendChild(el("p", "tk-board__note",
+    host.appendChild(richEl("p", "tk-board__note",
       "导出 / 分享都是**纯本地**的：导出是一个 JSON 文件，分享是一条带进度数据的链接 —— "
       + "两者都不经过服务器。导入时**任务取并集、件数与等级取较大值、剧情章节取较强状态**，"
       + "不会覆盖已有的进度。"));
@@ -2568,7 +2592,7 @@
        log-sync.js 里，第一次真正选文件时才注入（这一页其余读者不必背它）。 */
     var logBox = el("div", "tk-board__logs");
     logBox.appendChild(el("h4", null, "从游戏日志同步（可选）"));
-    logBox.appendChild(el("p", "tk-board__lognote",
+    logBox.appendChild(richEl("p", "tk-board__lognote",
       "读你本机的塔科夫日志，把已经发生的「接取 / 完成」一次性补进账本 —— "
       + "在**本页内存**里解析：不上传、不保存、不联网。藏身处、等级、目标级勾选与物品数量"
       + "日志里没有，仍需手勾。日志位置：Steam 版 `…\\Escape from Tarkov\\build\\Logs`，独立版 `…\\EFT\\Logs`。"));

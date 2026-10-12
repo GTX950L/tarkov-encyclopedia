@@ -72,6 +72,10 @@
   if (!TP) return;
   var UI = TP._ui || {};
   var el = UI.el;
+  /* ⚠️ 文案里带 `**重点**` 的一律用 richEl（见 progress.js 的 richText）——
+     el 走 textContent，**不解析 Markdown**，星号会原样显示在页面上。
+     上一批本模块的口径说明就踩了这个坑（v1.107.0 上线后自查发现）。 */
+  var richEl = UI.richEl;
   var MODE_LABEL = TP.MODE_LABEL;
   /* ⚠️ 站点根只能从 UI 借（progress.js 的 _ui.siteRoot），本文件自己没有 ——
      写成裸 siteRoot() 会在运行时报 ReferenceError，而**只有在有地图记录时
@@ -341,7 +345,7 @@
     })));
 
     /* —— 口径（必须写，否则会被读成「我一共只打过这么多场」）—— */
-    box.appendChild(el("p", "tk-board__mapnote",
+    box.appendChild(richEl("p", "tk-board__mapnote",
       "口径：以上只统计**这份日志覆盖到的范围** —— 游戏会清理旧会话，"
       + "所以这里的场次不等于你的总场次。地图按日志里的场景加载记录计，"
       + "**一次转场会各记一条**（实测 111 条加载 vs 106 次 LocationLoaded），"
