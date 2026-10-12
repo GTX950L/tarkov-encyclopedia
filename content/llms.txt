@@ -1,6 +1,6 @@
 # 逃离塔科夫百科全书
 
-> 面向玩家与 AI 智能体的《逃离塔科夫》中文结构化资料库：87 个条目 + 参考页，分十一篇组织 —— **前八篇是条目主线**，后三篇是查阅型栏目（第九篇物品图鉴 4,979 件 / 第十篇任务图鉴 515 个 / 第十一篇参考区）。
+> 面向玩家与 AI 智能体的《逃离塔科夫》中文结构化资料库：88 个条目 + 参考页，分十一篇组织 —— **前八篇是条目主线**，后三篇是查阅型栏目（第九篇物品图鉴 4,979 件 / 第十篇任务图鉴 515 个 / 第十一篇参考区）。
 > 静态事实对照官方来源核验；动态数值标注实时口径；全站不使用任何配图，弱网环境可流畅阅读。
 
 版本基线：2026 年 9 月
@@ -13,7 +13,7 @@
 
 ## 篇目录
 
-- [百科条目总览](https://gtx950l.github.io/tarkov-encyclopedia/entries/)：全部 87 个条目的索引，含按标签浏览
+- [百科条目总览](https://gtx950l.github.io/tarkov-encyclopedia/entries/)：全部 88 个条目的索引，含按标签浏览
 - [第一篇 · 入门机制](https://gtx950l.github.io/tarkov-encyclopedia/entries/spawn-and-opening/)：开局与出生点、撤离机制与撤离点、生命与身体部位、食物与水分、医疗、保险、背包与容器、PMC 与 Scav
 - [第二篇 · 地图](https://gtx950l.github.io/tarkov-encyclopedia/entries/ground-zero/)：13 张地图逐图条目 + 转场与 BTR
 - [第三篇 · 装备与枪械](https://gtx950l.github.io/tarkov-encyclopedia/entries/ammo/)：弹药与穿深、弹道、护甲与头盔、载具、耳机、枪械改装与图鉴、钥匙

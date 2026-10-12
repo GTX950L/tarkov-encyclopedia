@@ -8,7 +8,7 @@
 <div class="tk-launch">
 <a class="tk-launch__card tk-launch--read" href="entries/spawn-and-opening.md">
 <span class="tk-launch__title">📖 读 · 从零上手</span>
-<span class="tk-launch__desc">87 个条目分十一篇：先懂规则，再看地图，最后吃透装备与经济。</span>
+<span class="tk-launch__desc">88 个条目分十一篇：先懂规则，再看地图，最后吃透装备与经济。</span>
 <ul class="tk-launch__list">
 <li><span class="tk-launch__row"><b>① 先活下来</b><i>撤离 · 保险 · 健康</i></span></li>
 <li><span class="tk-launch__row"><b>② 再认识地图</b><i>十四张图逐张讲</i></span></li>
@@ -37,7 +37,7 @@
 <div class="tk-stat__head">本站速览<i>数字由数据文件生成，随内容自动更新</i></div>
 <div class="tk-stat__grid">
 <a class="tk-stat__card" href="entries/index.md">
-<b class="tk-stat__n">87<em>篇</em></b>
+<b class="tk-stat__n">88<em>篇</em></b>
 <span class="tk-stat__l">百科条目</span>
 <span class="tk-stat__d">11 篇主线 · 逐篇可读</span>
 </a>
@@ -81,7 +81,7 @@
 
 <!-- AUTO-GEN:HOME-STATS:END -->
 
-《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **87 个**条目，分十一篇组织 —— **前八篇**是“从零上手”的主线，**第九篇 · [物品图鉴](catalog/index.md)** 收录 **4,979 件**物品的属性与商人价，**第十篇 · [任务图鉴](quests/index.md)** 把 **515 个任务**的要求、奖励与接取门槛逐条列全，**第十一篇 · [参考](docs/index.md)** 收齐速查表与站务工具页。
+《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **88 个**条目，分十一篇组织 —— **前八篇**是“从零上手”的主线，**第九篇 · [物品图鉴](catalog/index.md)** 收录 **4,979 件**物品的属性与商人价，**第十篇 · [任务图鉴](quests/index.md)** 把 **515 个任务**的要求、奖励与接取门槛逐条列全，**第十一篇 · [参考](docs/index.md)** 收齐速查表与站务工具页。
 
 > 💡 本站**全文不使用配图**，弱网环境可流畅阅读。所有数值描述以“机制原理”为主，具体数值随版本变动，请以游戏内为准。
 
@@ -98,7 +98,7 @@
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s3" href="entries/ammo.md"><b>第三篇</b><em>装备与枪械</em><i>14 篇</i></a>
 <span class="tk-arrow">→</span>
-<a class="tk-step tk-s4" href="entries/traders.md"><b>第四篇</b><em>经济与成长</em><i>18 篇</i></a>
+<a class="tk-step tk-s4" href="entries/traders.md"><b>第四篇</b><em>经济与成长</em><i>19 篇</i></a>
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s5" href="entries/stamina.md"><b>第五篇</b><em>进阶战斗机制</em><i>13 篇</i></a>
 <span class="tk-arrow">→</span>
@@ -308,7 +308,7 @@
 
 ---
 
-📖 [查看全部 87 个条目](entries/index.md)
+📖 [查看全部 88 个条目](entries/index.md)
 
 📋 [进入任务图鉴：515 个任务的逐条要求与奖励](quests/index.md)
 
