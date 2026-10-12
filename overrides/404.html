@@ -1,0 +1,43 @@
+{#-
+  自定义 404 页（模板覆盖，不是 Markdown 页面）
+
+  ⚠️ **为什么是模板而不是 `content/404.md`**：本项目的构建器是 Zensical，
+  它把 `404.html` 当作 MkDocs 的 `static_templates` 之一
+  （`zensical/config.py:510`），即**由主题模板渲染的静态页**——
+  `content/404.md` 只会被当成一篇普通文档，生成一个游离的 `/404/` 页面，
+  既不会成为错误页、也不在 nav 里。要定制只能用 `theme.custom_dir` 覆盖模板。
+
+  ⚠️ **链接必须用 `config.site_url` 拼绝对地址**：404 页是在**任意请求路径**下
+  被服务器吐出来的，相对链接会按那个（不存在的）路径解析，必然 404。
+  这是本文件与站内其它页面的最大区别。
+
+  ⚠️ **刻意不写「515 个任务 / 4,979 件物品」这类规模数字**：站内的规模数字
+  只有一个来源（scripts/gen_home_stats.py 生成 + check_entries.py 复算），
+  在这里再写一遍就等于造出第二份会漂的数字 —— 而这里**没有任何检查器在看**。
+  所以只陈述「会随版本增删」这件事本身。
+-#}
+{% extends "main.html" %}
+{% block content %}
+  <h1>找不到这个页面</h1>
+
+  <p>可能是<strong>链接过期了</strong>，或者<strong>对应的内容已经下线</strong>。</p>
+
+  <p>本站的任务与物品会随游戏版本增删 —— <strong>被版本移除的任务或物品，对应的页面就会失效</strong>。这类「内容确实不在了」的死链，不是本站挂了，而是游戏改了。</p>
+
+  <h2>几个去处</h2>
+
+  <ul>
+    <li>找一个<strong>任务</strong> → <a href="{{ config.site_url }}quests/">任务图鉴</a>：逐条要求与奖励，按商人分页</li>
+    <li>找一件<strong>物品</strong> → <a href="{{ config.site_url }}catalog/">物品图鉴</a>：全量物品，可按名称检索</li>
+    <li>查一条<strong>机制规则</strong> → <a href="{{ config.site_url }}docs/mechanics/">机制速查表</a>：一页看懂所有核心规则</li>
+    <li>查一个<strong>术语 / 黑话</strong> → <a href="{{ config.site_url }}docs/glossary/">术语与黑话速查</a>：全称、缩写与社区俗称三向可查</li>
+    <li>问<strong>「这个数是怎么来的」</strong> → <a href="{{ config.site_url }}docs/citation/">数据口径与引用说明</a></li>
+    <li>看<strong>站点全貌</strong> → <a href="{{ config.site_url }}">返回首页</a></li>
+  </ul>
+
+  <h2>如果这是个站内死链</h2>
+
+  <p>从站内某篇文章点过来却落到这里，那<strong>是我们的问题不是你的</strong>。方便的话欢迎到
+  <a href="https://github.com/GTX950L/tarkov-encyclopedia/issues" target="_blank" rel="noopener">Issues</a>
+  说一声是<em>哪个页面上的哪个链接</em> —— 这比任何自动化检查都准。</p>
+{% endblock %}

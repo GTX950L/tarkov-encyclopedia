@@ -10,6 +10,7 @@
      · 「术语速查」：全称 / 缩写 / 社区俗称三向可查
      · 「护甲穿透计算器」：穿深 × 甲等 × 耐久 → 穿透概率与临界耐久（页内）
      · 「跳蚤手续费计算器」：手续费、到手价与费率最低点（页内）
+     · 「比特币矿场计算器」：出币速率、日产与回本周期（页内）
    但这些工具此前**只在自己那一页出现** —— 首页只提了其中三个，其余一百多页
    更是没有任何入口。也就是说：工具是有的，但事实上被埋住了。
 
@@ -68,7 +69,8 @@
     /* 两个计算器是**页内工具**（挂在条目里，不是独立页），所以这里带锚点 ——
        带锚点进页面会自动滚到工具那一段，不必让读者再找一遍。 */
     { slug: "entries/ballistics/#pen-calc", name: "护甲穿透计算器", desc: "穿深 × 甲等 × 耐久 → 穿透概率与临界耐久" },
-    { slug: "entries/flea-pricing/#flea-calc", name: "跳蚤手续费计算器", desc: "手续费、到手价与费率最低点" }
+    { slug: "entries/flea-pricing/#flea-calc", name: "跳蚤手续费计算器", desc: "手续费、到手价与费率最低点" },
+    { slug: "entries/hideout-modules/#tk-mining-calc", name: "比特币矿场计算器", desc: "出币速率、日产与回本周期" }
   ];
 
 function siteRoot() {
@@ -181,7 +183,7 @@ function siteRoot() {
     btn.setAttribute("aria-haspopup", "true");
     btn.setAttribute("aria-expanded", "false");
     btn.setAttribute("aria-controls", MENU + "-panel");
-    btn.setAttribute("aria-label", "工具箱：我的进度、任务图鉴、模拟器、图鉴、配方、术语与两个计算器");
+    btn.setAttribute("aria-label", "工具箱：我的进度、任务图鉴、模拟器、图鉴、配方、术语与三个计算器");
     btn.title = "工具箱（本地保存，无需登录）";
 
     var ic = document.createElement("span");
@@ -320,6 +322,7 @@ function siteRoot() {
           · 任务筛选器（quests/index 页）
           · 护甲穿透计算器（entries/ballistics 页）
           · 跳蚤手续费计算器（entries/flea-pricing 页）
+          · 比特币矿场计算器（entries/hideout-modules 页）
         instant 换页回到这些页面时，本体脚本已在内，它们自己的 document$
         订阅会负责重新挂载。
 
@@ -344,6 +347,7 @@ function siteRoot() {
   var questPageInjected = false;
   var ballisticsCalcInjected = false;
   var fleaCalcInjected = false;
+  var miningCalcInjected = false;
 
   /* ⚠️ **「注入脚本」与「换页后重新挂载」是两件事，不能混为一谈。**
      injectScript 是异步的（新建 <script> 再 appendChild）；而 Material 的
@@ -379,6 +383,10 @@ function siteRoot() {
     if (fleaCalcInjected && document.getElementById("tk-flea-calc")
         && typeof window.__tkBootFleaFee === "function") {
       window.__tkBootFleaFee();
+    }
+    if (miningCalcInjected && document.getElementById("tk-mining-calc")
+        && typeof window.__tkBootMining === "function") {
+      window.__tkBootMining();
     }
   }
 
@@ -434,6 +442,11 @@ function siteRoot() {
     if (!fleaCalcInjected && document.getElementById("tk-flea-calc")) {
       fleaCalcInjected = true;
       injectScript("flea-fee-calc.js");
+    }
+    /* 比特币矿场计算器（藏身处模块详解页）：同样自包含、无数据文件。 */
+    if (!miningCalcInjected && document.getElementById("tk-mining-calc")) {
+      miningCalcInjected = true;
+      injectScript("hideout-mining-calc.js");
     }
 
     /* ⚠️ **必须放在最后** —— 上面是「第一次见到就注入」，这里是「每次换页

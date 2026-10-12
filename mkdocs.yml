@@ -11,6 +11,11 @@ copyright: >-
 
 theme:
   name: material
+  # 自定义 404 页只存在于这里（overrides/404.html）。
+  # ⚠️ 不能用 content/404.md —— Zensical 把 404.html 当主题的 static_template
+  #    （zensical/config.py:510），Markdown 版的 404.md 只会被当成一篇普通文档、
+  #    生成一个游离的 /404/ 页，既不是错误页也不在 nav 里。理由写在模板头部。
+  custom_dir: overrides
   language: zh
   favicon: assets/favicon.svg
   icon:
