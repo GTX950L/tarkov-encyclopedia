@@ -1177,12 +1177,10 @@ function siteRoot() {
      进度总览看板（`<div id="tk-progress-board">` 由 Markdown 提供挂载点）
      -------------------------------------------------------------------------- */
 
-  function el(tag, cls, text) {
-    var n = document.createElement(tag);
-    if (cls) n.className = cls;
-    if (text !== undefined && text !== null) n.textContent = text;
-    return n;
-  }
+  /* ⚠️ **`el()` 在全文件只定义一处** —— 在下面「小工具（核心与看板共用）」那一节。
+     这里原本还有一份**逐字相同**的副本（2026-10-12 删）：同一作用域里函数声明会
+     互相覆盖、**后定义者胜**，所以那份是死代码 —— 而它的害处不是多占几行，是
+     **改了它却不生效**。要加公共小工具请加到那一节，不要就地再定义一份。 */
 
   function download(name, text) {
     var blob = new Blob([text], { type: "application/json" });
