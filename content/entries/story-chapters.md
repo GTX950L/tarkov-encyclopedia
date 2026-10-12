@@ -271,6 +271,7 @@ Tour 是 Mechanic 线的剧情开头，**在工厂起步**。它的重要性不�
 
 - [灯塔](lighthouse.md) — Lightkeeper 的地理与访问链细则
 - [商人任务线图鉴](trader-questlines.md) — 与章节并行的另一套任务体系
+- [商人群像](trader-profiles.md) — 八位商人的动机画像，以及他们与四个结局的关系（§12）
 - [任务系统](quests.md) — 任务类型与 Kappa 门槛
 - [终点站](terminal.md) — 所有结局的收束地
 
