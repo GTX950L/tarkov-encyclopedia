@@ -47,4 +47,4 @@ tags:
 
 ⬆️ **[回到顶部](#top)**
 
-**最后更新**: 2026 年 9 月 ｜ **贡献者** [GTX950L](https://github.com/GTX950L) ｜ **License**: CC BY-NC-SA 4.0
+**最后更新**: 2026 年 10 月 ｜ **贡献者** [GTX950L](https://github.com/GTX950L) ｜ **License**: CC BY-NC-SA 4.0

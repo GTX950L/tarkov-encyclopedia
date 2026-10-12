@@ -204,6 +204,6 @@ NSPU-M 3.5x、Armasight Vulcan MG 3.5x Bravo 一类——**把夜视装到枪上
 
 ⬆️ **[回到顶部](#top)**
 
-**最后更新**: 2026年9月<br>
+**最后更新**: 2026年10月<br>
 **贡献者**: GTX950L<br>
 **License**: CC BY-NC-SA 4.0

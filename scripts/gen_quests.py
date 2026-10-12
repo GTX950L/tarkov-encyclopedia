@@ -923,7 +923,11 @@ FOOTER = [
     "",
     "---",
     "",
-    "**最后更新**: 2026年9月<br>",
+    # ⚠️ 口径（2026-10-13 定）：页脚「最后更新」写**该页内容的最后修改月**，
+    #    机械性改动（计数行、页眉基线、导航回链）不算 —— 判据见 CONTRIBUTING.md。
+    #    本栏目所有页面都由本脚本生成，所以这里的月份要**随内容批次手动抬**，
+    #    与 gen_items_catalog.py 用 BASE_MONTH / FETCH_DATE 是同一个道理。
+    "**最后更新**: 2026年10月<br>",
     "**贡献者**: GTX950L<br>",
     "**License**: CC BY-NC-SA 4.0",
 ]
@@ -1446,7 +1450,9 @@ def quest_page_markdown(total: int) -> str:
     out.append("")
     out.append('⬆️ **[回到顶部](#top)**')
     out.append("")
-    out.append("**最后更新**: 2026 年 9 月 ｜ "
+    # ⚠️ 本页页脚与其它 quests 页**格式不同**（单行式），是历史遗留；日期口径同 FOOTER
+    #    —— 写该页内容的最后修改月，随内容批次手动抬。
+    out.append("**最后更新**: 2026 年 10 月 ｜ "
                "**贡献者** [GTX950L](https://github.com/GTX950L) ｜ "
                "**License**: CC BY-NC-SA 4.0")
     out.append("")
