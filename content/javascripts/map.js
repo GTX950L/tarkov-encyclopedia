@@ -572,11 +572,27 @@
     }
 
     /* ── 图层开关（撤离点 / 上锁 / 危险区）──
-       与「任务筛选」是两回事：筛选管**看哪些**，开关管**看不看**。 */
+       与「任务筛选」是两回事：筛选管**看哪些**，开关管**看不看**。
+       按钮上带**条数**、悬停给出**细分** —— 参考 eftarkov 的做法：
+       它左栏那份清单（撤离点 28 → PMC 11 / SCAV 13 / 转移点 4）比
+       单纯的开关有用得多，读者一眼就知道「这图有多少、都是什么」。 */
+    function tally(list, key) {
+      var c = {};
+      list.forEach(function (x) {
+        var k = x[key] || "—";
+        c[k] = (c[k] || 0) + 1;
+      });
+      return Object.keys(c)
+        .map(function (k) {
+          return k + " " + c[k];
+        })
+        .join(" / ");
+    }
+
     var layerToggles = [
-      ["撤离点", exLayer],
-      ["上锁", lockLayer],
-      ["危险区", hazLayer],
+      ["撤离点", exLayer, (data.extracts || []).length, tally(data.extracts || [], "fzh")],
+      ["上锁", lockLayer, (data.locks || []).length, tally(data.locks || [], "tzh")],
+      ["危险区", hazLayer, (data.hazards || []).length, ""],
     ].filter(function (t) {
       return t[1] && t[1].children.length;
     });
@@ -589,7 +605,8 @@
       layerToggles.forEach(function (t) {
         var b = document.createElement("button");
         b.type = "button";
-        b.textContent = t[0];
+        b.textContent = t[2] ? t[0] + " " + t[2] : t[0];
+        b.title = t[0] + " " + t[2] + (t[3] ? "：" + t[3] : "") + "　（点击开关这一层）";
         b.classList.add("is-on"); // 三个图层默认都开
         b.addEventListener("click", function () {
           var on = !b.classList.contains("is-on");
@@ -628,6 +645,20 @@
       toggleRuler(on);
     });
     zoomSeg.appendChild(rulerBtn);
+
+    /* 全屏 —— 地图要看得清（参考项目也有这一项，成本极低） */
+    var fsBtn = document.createElement("button");
+    fsBtn.type = "button";
+    fsBtn.textContent = "全屏";
+    fsBtn.addEventListener("click", function () {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else if (host.requestFullscreen) {
+        host.requestFullscreen();
+      }
+    });
+    zoomSeg.appendChild(fsBtn);
+
     bar.appendChild(zoomSeg);
 
     rulerTip = document.createElement("span");
@@ -641,6 +672,85 @@
     cardHost.className = "tk-map__card";
     cardHost.style.display = "none";
     host.appendChild(cardHost);
+
+    /* ── 任务清单面板：这张图上有哪些任务 ──
+       参考 eftarkov.com 的地图工具（它右侧那栏「任务 / 剧情目标」）。
+       它的做法值得学：**先按名字在列表里找到任务，再回图上定位** ——
+       比「在一百多个方框里找一个」快得多，也解决了「不知道任务叫啥、只记得商人」的情况。
+       本站没有侧栏（正文区约 900px），所以放在**地图上方**、默认折叠：
+       地图才是主角，清单是入口。 */
+    var qlist = [];
+    var seenQ = {};
+    qzAll.forEach(function (z) {
+      if (!seenQ[z.q]) {
+        seenQ[z.q] = { q: z.q, n: z.n, tr: z.tr || "", t: z.t, nz: 0 };
+        qlist.push(seenQ[z.q]);
+      }
+      seenQ[z.q].nz++;
+    });
+    qlist.sort(function (a, b) {
+      if (a.tr !== b.tr) return a.tr < b.tr ? -1 : 1;
+      return a.n < b.n ? -1 : 1;
+    });
+
+    if (qlist.length) {
+      var panel = document.createElement("div");
+      panel.className = "tk-map__panel";
+
+      var phead = document.createElement("button");
+      phead.type = "button";
+      phead.className = "tk-map__panelhead";
+      phead.setAttribute("aria-expanded", "false");
+      var pt = document.createElement("b");
+      pt.textContent = "这张图上的任务 · " + qlist.length + " 个";
+      phead.appendChild(pt);
+      var pv = document.createElement("span");
+      pv.textContent = "展开清单";
+      phead.appendChild(pv);
+
+      var pbody = document.createElement("div");
+      pbody.className = "tk-map__panelbody";
+      pbody.hidden = true;
+
+      var curTrader = null;
+      qlist.forEach(function (it) {
+        if (it.tr && it.tr !== curTrader) {
+          curTrader = it.tr;
+          var g = document.createElement("div");
+          g.className = "tk-qp-grp";
+          g.textContent = curTrader;
+          pbody.appendChild(g);
+        }
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "tk-qp";
+        b.setAttribute("data-q", it.q);
+        var bn = document.createElement("b");
+        bn.textContent = it.n;
+        b.appendChild(bn);
+        var bi = document.createElement("i");
+        bi.textContent = it.t + " · " + it.nz + " 处";
+        b.appendChild(bi);
+        b.addEventListener("click", function () {
+          selectTask(it.q);
+          /* 选完就收起 —— 面板是入口，地图才是要看的东西 */
+          pbody.hidden = true;
+          phead.setAttribute("aria-expanded", "false");
+          pv.textContent = "展开清单";
+        });
+        pbody.appendChild(b);
+      });
+
+      phead.addEventListener("click", function () {
+        var open = pbody.hidden;
+        pbody.hidden = !open;
+        phead.setAttribute("aria-expanded", open ? "true" : "false");
+        pv.textContent = open ? "收起清单" : "展开清单";
+      });
+      panel.appendChild(phead);
+      panel.appendChild(pbody);
+      host.insertBefore(panel, canvas); // 放在地图**上方**
+    }
 
     /* ── 图例 ── */
     var legend = document.createElement("ul");

@@ -118,6 +118,22 @@ FACTION_ZH = {"pmc": "PMC", "scav": "Scav", "shared": "共用"}
 HAZARD_ZH = {"minefield": "雷区", "sniper": "狙击区", "deadly": "致命区"}
 LOCK_ZH = {"door": "门", "trunk": "后备箱", "container": "容器"}
 
+# 商人显示名 —— **沿用站内既有写法**（条目与任务图鉴里都用英文名），
+# 只有 BTR 司机例外（站内就叫「BTR 司机」）。改这里前先 grep 一下站内怎么写的。
+TRADER_NAME = {
+    "prapor": "Prapor",
+    "therapist": "Therapist",
+    "fence": "Fence",
+    "skier": "Skier",
+    "peacekeeper": "Peacekeeper",
+    "mechanic": "Mechanic",
+    "ragman": "Ragman",
+    "jaeger": "Jaeger",
+    "lightkeeper": "Lightkeeper",
+    "ref": "Ref",
+    "btr-driver": "BTR 司机",
+}
+
 HEADERS = {"User-Agent": "tarkov-encyclopedia-mapgen/1.0"}
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -501,6 +517,7 @@ def _quest_index() -> dict[str, dict]:
     return {
         t["id"]: {
             "name": t.get("name") or t.get("en") or t["id"],
+            "trader": TRADER_NAME.get(t.get("trader") or "", ""),
             "objs": t.get("objectives") or [],
         }
         for t in d.get("tasks") or []
@@ -587,6 +604,7 @@ def build_maps(data: list) -> dict:
             rec = {
                 "q": z["task"],
                 "n": q["name"],
+                "tr": q["trader"],                           # 商人：面板按它分组
                 "k": z["type"],                              # 英文类型：给 CSS 分类用
                 "t": OBJ_TYPE_ZH.get(z["type"], z["type"]),  # 中文标签：给人看
                 "x": round(min(X1, X2), 1),
