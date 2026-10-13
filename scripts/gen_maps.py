@@ -47,6 +47,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _baseline import baseline_label  # noqa: E402  站点基线的唯一来源（citation.md）
+from gen_quests import TYPE_LABEL as OBJ_TYPE_ZH  # noqa: E402  目标类型中文，**不另立一套**
 
 MAPS_SRC = (
     "https://raw.githubusercontent.com/the-hideout/tarkov-dev/main/src/data/maps.json"
@@ -56,6 +57,45 @@ CACHE = ROOT / "scripts" / "data" / "maps_source.json"
 RAW_DIR = ROOT / "scripts" / "data" / "maps_raw"
 SVG_DIR = ROOT / "content" / "assets" / "maps"
 OUT_JS = ROOT / "content" / "javascripts" / "maps-data.js"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 任务点位 —— 供「地图 ↔ 任务图鉴 ↔ 我的进度」联动
+#
+# ⚠️ **这是全站唯一一处把坐标入仓的数据**，依据是 citation.md 第六节的新口径：
+#    坐标不进条目正文，**集中收在交互地图**。它因此**与正文数据分开存放** ——
+#    正文侧的 `gen_quests.py:slim_objective()` 照旧丢弃坐标，一行没改；
+#    坐标走自己这条管线（本文件）。两边各有各的口径，互不污染。
+#
+# 两个「对不上」的地方，是**如实保留**而不是修平：
+#   ① 上游 tasks 端点 504 个任务，站内 515 个 —— 站内多出的是上游已下线的
+#      （限时/活动类）。它们自然没有点位，**不是漏抓**。
+#   ② 目标描述按**索引**从站内 `quests.json` 取。逐任务比对过：498/515 能对上、
+#      其中 **494 个 objective 数量完全一致**；剩下 21 个（4%）数量不同，
+#      **退回「任务名 + 目标类型」显示，不给描述** —— 宁可少给一层，不给错的那层。
+# ─────────────────────────────────────────────────────────────────────────────
+QUESTS_SRC = "https://json.tarkov.dev/regular/tasks"
+ZONES_CACHE = ROOT / "scripts" / "data" / "quest_zones.json"
+LOCAL_QUESTS = ROOT / "scripts" / "data" / "quests.json"
+
+# 上游地图 id → 本站 maps.json 的 key。
+# 三个「同一张图的变体」（工厂夜图 / 中心区两个版本）**归到同一把 key** ——
+# 点位落在同一个底图坐标系里，分开反而会让读者找不到。
+MAP_ID_TO_KEY: dict[str, str] = {
+    "56f40101d2720b2a4d8b45d6": "customs",
+    "5704e3c2d2720bac5b8b4567": "woods",
+    "5704e554d2720bac5b8b456e": "shoreline",
+    "5704e4dad2720bb55b8b4567": "lighthouse",
+    "5704e5fad2720bc05b8b4567": "reserve",
+    "5714dbc024597771384a510d": "interchange",
+    "5714dc692459777137212e12": "streets-of-tarkov",
+    "55f2d3fd4bdc2d5f408b4567": "factory",
+    "59fc81d786f774390775787e": "factory",
+    "5b0fc42d86f7744a585f9105": "the-lab",
+    "653e6760052c01c1c805532f": "ground-zero",
+    "65b8d6f5cdde2479cb2a3125": "ground-zero",
+    "68236e8153654e8c1200798a": "ground-zero",
+    "65cc8f81a9aac3e77d0cfd3e": "terminal",
+}
 
 HEADERS = {"User-Agent": "tarkov-encyclopedia-mapgen/1.0"}
 
@@ -216,6 +256,73 @@ def fetch() -> None:
         (RAW_DIR / name).write_bytes(blob)
         log(f"   → {name:<24} {len(blob) / 1024:7.1f} KB   {key}")
 
+    fetch_quest_zones()
+
+
+def _zone_box(z: dict) -> list[float] | None:
+    """取一个 zone 的世界坐标 bbox：优先 `outline`（多边形轮廓），退回 `position`（中心点）。"""
+    pts = z.get("outline") or []
+    if pts:
+        xs = [p["x"] for p in pts if "x" in p]
+        zs = [p["z"] for p in pts if "z" in p]
+        if xs and zs:
+            return [min(xs), min(zs), max(xs), max(zs)]
+    p = z.get("position") or {}
+    if "x" in p and "z" in p:
+        return [p["x"], p["z"], p["x"], p["z"]]
+    return None
+
+
+def fetch_quest_zones() -> None:
+    """抓 tasks 端点，把坐标区压成最小结构。
+
+    只留「哪个任务的第几个目标、在哪张图、世界坐标 bbox」——
+    **任务名与目标描述不从这里取**（那是 `quests.json` 的事，两条管线分开走）。
+    """
+    import datetime
+
+    log("③ 抓 tasks 端点（任务点位）…")
+    raw = http_get(QUESTS_SRC, timeout=120)
+    tasks = json.loads(raw.decode("utf-8"))["data"]["tasks"]
+
+    zones: list[dict] = []
+    objcount: dict[str, int] = {}      # {任务id: 上游 objective 数} —— 生成时用来判定「敢不敢按索引取描述」
+    skipped_map = 0
+    for tid, t in tasks.items():
+        objs = t.get("objectives") or []
+        objcount[tid] = len(objs)
+        for i, o in enumerate(objs):
+            for z in o.get("zones") or []:
+                mid = z.get("map")
+                if isinstance(mid, dict):
+                    mid = mid.get("id")
+                if mid not in MAP_ID_TO_KEY:
+                    skipped_map += 1          # 破冰船 / 迷宫等在暂不收录的图上
+                    continue
+                box = _zone_box(z)
+                if not box:
+                    continue
+                zones.append(
+                    {"task": tid, "oi": i, "type": o.get("type"), "map": mid, "box": box}
+                )
+
+    payload = {
+        "fetched": datetime.date.today().isoformat(),
+        "source": "json.tarkov.dev/regular/tasks",
+        "count": len(zones),
+        "objcount": objcount,
+        "zones": zones,
+    }
+    ZONES_CACHE.parent.mkdir(parents=True, exist_ok=True)
+    ZONES_CACHE.write_text(
+        json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n",
+        encoding="utf-8",
+    )
+    log(
+        f"   → {ZONES_CACHE.relative_to(ROOT)}：{len(zones)} 条坐标区"
+        f"（另有 {skipped_map} 条落在本站暂不收录的图上，已跳过）"
+    )
+
 
 def _svg_sources(data: list) -> list[tuple[str, str]]:
     """(map key, SVG 地址) —— 只取 maps.json 里给了 `svgPath` 的图。
@@ -268,6 +375,25 @@ VIEWBOX_RE = re.compile(r'viewBox="([\d.\s\-]+)"')
 LAYER_RE = re.compile(r'<g[^>]*\bid="([^"]+)"')
 
 
+def _quest_index() -> dict[str, dict]:
+    """站内任务索引：`{任务id: {name, objs}}`。
+
+    **任务名与目标描述只从这里取** —— 上游 tasks 端点返回的是英文，
+    而站内中文由 `gen_quests.py --fetch` 那条管线整理，两边各走各的、互不污染。
+    """
+    if not LOCAL_QUESTS.exists():
+        return {}
+    d = json.loads(LOCAL_QUESTS.read_text(encoding="utf-8"))
+    return {
+        t["id"]: {
+            "name": t.get("name") or t.get("en") or t["id"],
+            "objs": t.get("objectives") or [],
+        }
+        for t in d.get("tasks") or []
+        if t.get("id")
+    }
+
+
 def build_maps(data: list) -> dict:
     """把 maps.json + 换肤后的 SVG 合成站点用的数据结构。"""
     by_key = {}
@@ -275,6 +401,15 @@ def build_maps(data: list) -> dict:
         for m in group.get("maps", []):
             if m.get("svgPath"):
                 by_key.setdefault(m["key"], m)
+
+    # 任务坐标区（与正文数据分开存放的那一份；没抓过就空着跑）
+    zc = (
+        json.loads(ZONES_CACHE.read_text(encoding="utf-8"))
+        if ZONES_CACHE.exists()
+        else {"zones": [], "objcount": {}}
+    )
+    qidx = _quest_index()
+    zstat = {"desc": 0, "bytype": 0, "lost": 0}
 
     out: dict[str, dict] = {}
     for key, meta in sorted(by_key.items()):
@@ -316,6 +451,39 @@ def build_maps(data: list) -> dict:
                 }
             )
 
+        # ── 任务点位：把世界坐标 box 投影成像素矩形 ──
+        #    坐标↔像素的翻转与 labels 同一条公式；投影后要**重取 min/max**，
+        #    因为公式里 x 是反向的（x 大 → 像素 x 小），直接用原顺序会得到负宽度。
+        pmeta = {"bounds": meta["bounds"], "viewBox": view_box}
+        quest_zones: list[dict] = []
+        for z in zc["zones"]:
+            if MAP_ID_TO_KEY.get(z["map"]) != key:
+                continue
+            q = qidx.get(z["task"])
+            if not q:
+                zstat["lost"] += 1
+                continue
+            X1, Y1 = project(z["box"][0], z["box"][1], pmeta)
+            X2, Y2 = project(z["box"][2], z["box"][3], pmeta)
+            rec = {
+                "q": z["task"],
+                "n": q["name"],
+                "k": z["type"],                              # 英文类型：给 CSS 分类用
+                "t": OBJ_TYPE_ZH.get(z["type"], z["type"]),  # 中文标签：给人看
+                "x": round(min(X1, X2), 1),
+                "y": round(min(Y1, Y2), 1),
+                "w": round(abs(X2 - X1), 1),
+                "h": round(abs(Y2 - Y1), 1),
+            }
+            # 描述**只在「上游 objective 数与站内一致」时**给 —— 数量不同说明两边版本
+            # 不同，按索引取会张冠李戴。宁可只给「任务名 + 目标类型」这一层。
+            if zc["objcount"].get(z["task"]) == len(q["objs"]) and z["oi"] < len(q["objs"]):
+                rec["d"] = q["objs"][z["oi"]].get("text", "")
+                zstat["desc"] += 1
+            else:
+                zstat["bytype"] += 1
+            quest_zones.append(rec)
+
         out[key] = {
             "nameEn": meta.get("normalizedName") or key,
             "svg": raw_path.name,
@@ -323,11 +491,16 @@ def build_maps(data: list) -> dict:
             "floors": _floors(layers),
             "layers": layers,
             "labels": labels,
+            "questZones": quest_zones,
         }
         log(
             f"   ✓ {key:<18} {raw_path.name:<22} "
-            f"floors={len(_floors(layers)):<2} labels={len(labels)}"
+            f"floors={len(_floors(layers)):<2} labels={len(labels):<3} "
+            f"任务点位={len(quest_zones)}"
         )
+
+    if zstat["lost"]:
+        log(f"   （{zstat['lost']} 条点位找不到对应任务，已跳过）")
     return out
 
 
@@ -350,6 +523,13 @@ def write_js(maps: dict) -> None:
      floors    楼层图层（id + 中文名），页面做互斥显示的切换按钮
      layers    上游全部图层 id（含材质层与 `*-locked` 子层），备查
      labels    地名锚点；cn 为空表示站内暂无译名，页面退回英文（不自己编）
+     questZones 任务点位：q=任务id、n=任务名、t=目标类型、d=目标描述（可能为空，
+                上游与站内 objective 数量不一致时不给，避免张冠李戴）、
+                x/y/w/h = 投影后的像素矩形。
+
+   ⚠️ **questZones 的任务 id 与「我的进度」是同一套键**（localStorage
+      `tarkov_progress_v1` 里的 `modes.<mode>.quests`），所以地图能直接读进度
+      做「只看未完成」筛选 —— 不需要任何桥接表。
 
    点位坐标 = 由上游 labels 的世界坐标经 scripts/gen_maps.py:project() 投影而来，
    **不是手工放置的**。公式的锚点自检见 scripts/check_map_projection.py。
@@ -370,6 +550,9 @@ def main() -> int:
         if not args.fetch and not CACHE.exists():
             log("缓存不存在，自动走 --fetch")
         fetch()
+    elif not ZONES_CACHE.exists():
+        log("缺任务点位缓存，单独补抓（不重下 SVG）")
+        fetch_quest_zones()
 
     data = json.loads(CACHE.read_text(encoding="utf-8"))
     log(f"\n② 换肤并投影（{len(_svg_sources(data))} 张）…")

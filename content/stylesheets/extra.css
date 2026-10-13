@@ -5339,6 +5339,48 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   color: var(--tk-ink-2);
 }
 
+/* 「任务点位」的筛选计数 —— 数字要等宽，否则切换时控件条会抖 */
+.tk-map__count {
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+/* —— 任务目标区域（map.js 的 questZones）——
+   五种目标类型各一色，色相**只用来区分「做什么」**，不表示优先级：
+   到访（蓝）／放置（橙）／标记（紫）／击杀（红）／使用（青）。
+
+   ⚠️ **填充压得很低（.09）是有意的**：单图常有上百个区域（海关 116 个），
+   密集处会互相重叠——把填充当作「淡淡的底纹」、把信息交给**描边 + 悬停**，
+   否则整张图会被色块糊住、连底下的建筑都读不出来。 */
+.tk-zq {
+  fill: #2c6fb5;
+  fill-opacity: .09;
+  stroke: #2c6fb5;
+  stroke-width: 1.2;
+  stroke-opacity: .8;
+}
+
+.tk-zq--visit { fill: #2c6fb5; stroke: #2c6fb5; }
+.tk-zq--plantItem,
+.tk-zq--plantQuestItem { fill: #d97706; stroke: #d97706; }
+.tk-zq--mark { fill: #7c3aed; stroke: #7c3aed; }
+.tk-zq--shoot { fill: #dc2626; stroke: #dc2626; }
+.tk-zq--useItem { fill: #0e7490; stroke: #0e7490; }
+
+.tk-zq:hover { fill-opacity: .3; stroke-width: 2.6; stroke-opacity: 1; }
+
+/* 已完成的任务点位**弱化而不是隐藏** —— 读者往往需要回头确认「这里我做过了吗」 */
+.tk-zq.is-done { opacity: .22; }
+.tk-zq.is-done:hover { opacity: .7; }
+
+.tk-lg-task {
+  background: #2c6fb5;
+  opacity: .55;
+  border-radius: .1rem;
+  box-shadow: inset 0 0 0 1.5px #2c6fb5;
+}
+
 /* 打印：地图整块不要被切成两半 */
 @media print {
   .tk-map--ready { break-inside: avoid; }

@@ -30,6 +30,11 @@
 
   var NS = "http://www.w3.org/2000/svg";
 
+  /* 跨标签同步用：`liveFilter` 指向当前页面的筛选函数（instant 换页后会换人），
+     `storageBound` 保证监听器只装一次。 */
+  var liveFilter = null;
+  var storageBound = false;
+
   /* 站点根：从本脚本的 src 反推，末尾带 `/`。 */
   function siteRoot() {
     var s =
@@ -88,6 +93,89 @@
       });
     }
     if (floorGroups.length) showFloor(floorGroups[0].id);
+
+    /* ── 任务点位层（zones）──
+       放在地名点**之下**：任务区域是大面积半透明矩形，压在地名上会盖住字。
+       每个 zone 是一条「任务目标区域」，可能比一个点大得多（放置/到访类常是
+       一整栋楼的范围），所以画矩形而不是点。 */
+    var qzAll = data.questZones || [];
+    var qlayer = el("g", { class: "tk-map__qzones" });
+    qzAll.forEach(function (z) {
+      /* 单点点位（w/h 为 0）放大到能看见 —— 否则点不中也看不出在哪 */
+      var w = Math.max(z.w, 11);
+      var h = Math.max(z.h, 11);
+      var r = el("rect", {
+        x: (z.x - (w - z.w) / 2).toFixed(1),
+        y: (z.y - (h - z.h) / 2).toFixed(1),
+        width: w.toFixed(1),
+        height: h.toFixed(1),
+        class: "tk-zq tk-zq--" + (z.k || "other"),
+        "data-q": z.q,
+      });
+      var tip = z.n + "（" + z.t + "）";
+      if (z.d) tip += "\n" + z.d;
+      r.appendChild(el("title", {}, tip));
+      r.style.cursor = "pointer";
+      r.addEventListener("click", function () {
+        location.href = siteRoot() + "quests/quest/?id=" + encodeURIComponent(z.q);
+      });
+      qlayer.appendChild(r);
+    });
+    if (qzAll.length) svg.appendChild(qlayer);
+
+    /* ── 与「我的进度」联动 ──
+       站内进度存在 localStorage `tarkov_progress_v1`，**任务 id 与这里的
+       questZones 是同一套键**，所以不需要任何桥接表。
+       两条纪律照抄 progress.js 自己写的：
+         · 状态要用**「键存在与否」**判断，不能用值的真假（值可能是空字符串）；
+         · **不要**在循环里反复调 taskState()，那会做上百次 localStorage 读取
+           （progress.js 的注释专门警告过）—— 所以这里一次 data() 拿副本，
+           之后纯本地判断。 */
+    function progressSnap() {
+      var P = window.TarkovProgress;
+      if (!P || typeof P.data !== "function") return null;
+      try {
+        var d = P.data();
+        var md = (d.modes || {})[d.mode] || {};
+        return { quests: md.quests || {}, inhand: md.inhand || {} };
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function stateOf(snap, qid) {
+      if (!snap) return "";
+      if (Object.prototype.hasOwnProperty.call(snap.quests, qid)) return "done";
+      if (Object.prototype.hasOwnProperty.call(snap.inhand, qid)) return "inhand";
+      return "";
+    }
+
+    var qzFilter = "all"; // all（全部） | open（只看未完成） | inhand（只看进行中）
+
+    function applyQzFilter() {
+      if (!qzAll.length) return;
+      var snap = qzFilter === "all" ? null : progressSnap();
+      var shown = 0;
+      Array.prototype.forEach.call(qlayer.children, function (r) {
+        var st = snap ? stateOf(snap, r.getAttribute("data-q")) : "";
+        /* 「全部」模式不做过滤，但**把已完成的弱化** —— 这样即使不筛，
+           也能一眼看出哪些是回头任务 */
+        var ok =
+          qzFilter === "all" ||
+          (qzFilter === "open" && st !== "done") ||
+          (qzFilter === "inhand" && st === "inhand");
+        r.style.display = ok ? "" : "none";
+        r.classList.toggle("is-done", st === "done");
+        if (ok) shown++;
+      });
+      if (qzCount) {
+        qzCount.textContent =
+          qzFilter === "all"
+            ? qzAll.length + " 个目标区域"
+            : shown + " / " + qzAll.length + " 个目标区域";
+      }
+    }
+    var qzCount = null;
 
     /* ── 点位层 ── */
     var pins = el("g", { class: "tk-map__pins" });
@@ -158,6 +246,37 @@
       bar.appendChild(lb2);
     }
 
+    if (qzAll.length) {
+      var qzSeg = document.createElement("div");
+      qzSeg.className = "tk-map__seg";
+      qzSeg.setAttribute("role", "group");
+      qzSeg.setAttribute("aria-label", "任务点位");
+      [
+        ["全部任务", "all"],
+        ["只看未完成", "open"],
+        ["只看进行中", "inhand"],
+      ].forEach(function (pair, i) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.textContent = pair[0];
+        if (i === 0) b.classList.add("is-on");
+        b.addEventListener("click", function () {
+          qzFilter = pair[1];
+          applyQzFilter();
+          Array.prototype.forEach.call(qzSeg.children, function (c) {
+            c.classList.toggle("is-on", c === b);
+          });
+        });
+        qzSeg.appendChild(b);
+      });
+      bar.appendChild(qzSeg);
+
+      qzCount = document.createElement("span");
+      qzCount.className = "tk-map__count";
+      bar.appendChild(qzCount);
+      applyQzFilter(); // 初始化：同时把计数填上
+    }
+
     if (bar.children.length) host.appendChild(bar);
 
     /* ── 图例 ── */
@@ -165,6 +284,7 @@
     legend.className = "tk-map__legend";
     [
       ["tk-lg-pin", "地名锚点（上游 labels 投影）"],
+      ["tk-lg-task", "任务目标区域（悬停看任务，点击进任务详情）"],
       ["tk-lg-locked", "上锁房间 / 需要钥匙"],
       ["tk-lg-danger", "危险区（雷区等）"],
     ].forEach(function (pair) {
@@ -179,8 +299,21 @@
 
     var note = document.createElement("p");
     note.className = "tk-map__note";
-    note.textContent = "底图为矢量绘制，可缩放查看；点位坐标为上游数据投影所得，仅供参考。";
+    note.textContent =
+      "底图为矢量绘制，可缩放查看。任务点位是目标区域（不是精确站姿点位），" +
+      "坐标为上游数据投影所得，仅供参考；精确位置以游戏内为准。";
     host.appendChild(note);
+
+    /* 别处（另一个标签页）改了进度 → 地图跟着更新。
+       零成本、且不需要读者手动刷新。**监听器只装一次**，指向当前的
+       `liveFilter` —— instant 换页会重放本脚本，不挡住会越装越多。 */
+    liveFilter = applyQzFilter;
+    if (!storageBound) {
+      storageBound = true;
+      window.addEventListener("storage", function (e) {
+        if (e.key === "tarkov_progress_v1" && liveFilter) liveFilter();
+      });
+    }
   }
 
   /* 数据按需加载：maps-data.js 约 20 KB，只有带挂载点的页面才需要，
