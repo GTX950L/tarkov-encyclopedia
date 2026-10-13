@@ -49,6 +49,10 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _baseline import baseline_label  # noqa: E402  站点基线的唯一来源（citation.md）
 from gen_quests import TYPE_LABEL as OBJ_TYPE_ZH  # noqa: E402  目标类型中文，**不另立一套**
+# 地名 / 撤离点的中文译名（人工核对过的，独立成表见该模块说明）
+from data.map_labels_zh import (  # noqa: E402
+    EXTRACT_BY_KEY, GLOBAL_LABELS_ZH, LABEL_EN_BY_KEY, LABELS_ZH, norm_key,
+)
 
 MAPS_SRC = (
     "https://raw.githubusercontent.com/the-hideout/tarkov-dev/main/src/data/maps.json"
@@ -159,43 +163,40 @@ LOCK_ZH = {"door": "门", "trunk": "后备箱", "container": "容器"}
 # **拿不准的宁可不翻** —— 一个错的撤离点名，比一个英文名更糟。
 # 想扩词表时：先 grep 站内 `entries/extraction-points.md` 与各图条目怎么写的。
 # ─────────────────────────────────────────────────────────────────────────────
-EXTRACT_ZH = {
-    "gasstation": "加油站",
-    "crossroads": "十字路口",
-    "boiler": "锅炉房",
-    "admin": "行政楼",
-    "trailerpark": "拖车停车场",
-    "rail_milbase": "铁路军事基地",
-    "rail_port": "铁路口岸",
-    "rail_tarkov": "铁路（往塔科夫）",
-    "rail": "铁路",
-    "milbase_cp": "军事基地检查站",
-    "medgate": "医疗门",
-    "flare": "信号弹撤离点",
-    "auto": "付费车辆撤离点",
-    "zb1011": "ZB-1011",
-    "zb1013": "ZB-013",
-    "bunker": "地堡",
-    "boat": "船",
-    "voron_boat": "渡鸦号船",
-    "voron_bunker": "渡鸦地堡",
-}
 
 # `ex_customs_scav_gasstation` → 剥掉 `ex_customs_`；再剥掉阵营 / secret 前缀
-_EX_MAIN_RE = re.compile(r"^ex_[a-z0-9]+_", re.I)
+# 剥 `ex_<图>_` 前缀。**用惰性匹配 + 前瞻锚定阵营前缀**，而不是 `[a-z0-9]+` ——
+# 后者在 `ex_ground_zero_scav_coop_exit` 上只吃到 `ground` 就停了，
+# 剩下的 `zero_scav_coop_exit` 查不着任何词表项。
+_EX_MAIN_RE = re.compile(r"^ex_.*?(?=(?:pmc|scav|coop|shared|secret)_|$)", re.I)
 _EX_SUB_RE = re.compile(r"^(?:pmc|scav|coop|shared|secret)_", re.I)
 
 
 def humanize_extract(name: str) -> str:
-    """上游撤离点名 → 可读名（规则见上方说明）。"""
+    """上游撤离点名 → 可读名。
+
+    接两条来源：
+      · `ex_<图>_<阵营?>_<核心>` → 剥前缀后查 `EXTRACT_ZH`
+      · 上游直接给的可读英文名（`Old Road Gate`）→ 查 `LABEL_EN_ZH`
+
+    查表用 `norm_key()` 归一化 —— 上游写法很杂（`Gate m` 带空格、`EXFIL_Train`
+    大写下划线、`Shorl_V-Ex` 带连字符），按原样字符串查必然漏掉大半。
+    **两处都查不到就保留原文**，不硬翻（一个错的撤离点名比英文名更糟）。
+    """
     raw = (name or "").strip()
-    if not raw or not raw.lower().startswith("ex_"):
-        return raw  # 本来就是英文名，照抄
-    core = _EX_MAIN_RE.sub("", raw)
-    core = _EX_SUB_RE.sub("", core)
-    if not core:
+    if not raw:
         return raw
-    return EXTRACT_ZH.get(core, core.replace("_", " ").title())
+    core = raw
+    if raw.lower().startswith("ex_"):
+        core = _EX_SUB_RE.sub("", _EX_MAIN_RE.sub("", raw))
+    for table in (LABEL_EN_BY_KEY, EXTRACT_BY_KEY):
+        hit = table.get(norm_key(core)) or table.get(norm_key(raw))
+        if hit:
+            return hit
+    if core != raw:
+        # 没命中词表：剥掉前缀后的英文按「下划线转空格 + 首字母大写」呈现
+        return core.replace("_", " ").title() if core else raw
+    return raw
 
 # 商人显示名 —— **沿用站内既有写法**（条目与任务图鉴里都用英文名），
 # 只有 BTR 司机例外（站内就叫「BTR 司机」）。改这里前先 grep 一下站内怎么写的。
@@ -249,37 +250,8 @@ LIGHT_STYLE = """.trees{fill:#b7d1b0}
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 地名中文译名 —— **只收站内已确立或有明确对应的**（纪律同 gen_ammo_values.py：
-# 译名一律不自己编，查不到就退回英文名）。第一版只覆盖海关；其余图沿用英文名，
-# 待逐图核对后增补（增加条目即改此表，重跑生成器即可）。
+
 # ─────────────────────────────────────────────────────────────────────────────
-LABELS_ZH: dict[str, dict[str, str]] = {
-    "customs": {
-        "Big Red": "大红砖",
-        "Dorms": "宿舍区",
-        "New Gas": "新加油站",
-        "Old Gas": "老煤气站",
-        "Fortress": "堡垒",
-        "Crackhouse": "制毒屋",
-        "Streamer House": "主播屋",
-        "Main Bridge": "主桥",
-        "Sniper Hill": "狙击山",
-        "Storage": "仓库区",
-        "Trailer Park": "拖车公园",
-        "Junk Bridge": "废桥",
-        "Repair Shop": "修理厂",
-        "Sniper Ridge": "狙击岭",
-        "Old Construction": "老工地",
-        "Skeleton": "骨架楼",
-        "Warehouse 3": "3 号库",
-        "Warehouse 4": "4 号库",
-        "Warehouse 7": "7 号库",
-        "Warehouse 17": "17 号库",
-        "Depot": "货场",
-        "Military Checkpoint": "军事检查站",
-        "Bus Station": "公交站",
-        "Powerline Tower": "电塔",
-    },
-}
 
 # 楼层图层：上游用 `<g id="...">` 给每一层分组，切换显示即可换层。
 # **注意区分 `Ground`（地面材质层，class="land"）与 `Ground_Level`（楼层容器）** ——
@@ -476,8 +448,7 @@ def fetch_map_layers() -> None:
                 continue
             rec["extracts"].append(
                 {
-                    "n": e.get("name") or "",
-                    "nzh": humanize_extract(e.get("name")),
+                    "n": e.get("name") or "",  # 译名在生成阶段算，见 build_maps
                     "f": e.get("faction") or "",
                     "x": round(p["x"], 1),
                     "z": round(p["z"], 1),
@@ -518,8 +489,7 @@ def fetch_map_layers() -> None:
                 tgt = tgt.get("id")
             rec["transits"].append(
                 {
-                    "n": tr.get("name") or "",
-                    "nzh": humanize_extract(tr.get("name")),
+                    "n": tr.get("name") or "",  # 译名在生成阶段算
                     "to": MAP_ID_TO_KEY.get(tgt, ""),
                     "x": round(p["x"], 1),
                     "z": round(p["z"], 1),
@@ -762,7 +732,8 @@ def build_maps(data: list) -> dict:
             SVG_DIR.mkdir(parents=True, exist_ok=True)
             (SVG_DIR / raw_path.name).write_text(styled, encoding="utf-8")
 
-        zh = LABELS_ZH.get(key, {})
+        # 按图查；查不到再查全局品牌表（品牌跨图出现，不该逐图登记）
+        zh = {**GLOBAL_LABELS_ZH, **LABELS_ZH.get(key, {})}
         labels = []
         for lb in meta.get("labels") or []:
             en = lb["text"]
@@ -823,7 +794,11 @@ def build_maps(data: list) -> dict:
         extracts = [
             {
                 "n": e["n"],
-                "nzh": e.get("nzh") or e["n"],  # 可读名（见 humanize_extract）
+                # ⚠️ **译名在生成阶段现算，不用缓存里的值。**
+                # 早先是抓取时算好存进 map_layers.json 的，结果「改了词表却不生效」——
+                # 缓存没失效，数据自然没变。译名属于**展示口径**，与坐标缓存是两回事，
+                # 必须解耦：坐标缓存一次抓、长期用；译名每次生成时按当前词表算。
+                "nzh": humanize_extract(e["n"]),
                 "f": e["f"],
                 "fzh": FACTION_ZH.get(e["f"], e["f"] or "—"),
                 "p": pt(e["x"], e["z"]),
@@ -850,8 +825,7 @@ def build_maps(data: list) -> dict:
             {
                 # 上游的 transits 只有目标图 id、**没有名字** —— 名字由目标图推出来。
                 # 推不出来的（目标图不在本站收录范围）退回「其他地图」，不编造具体图名。
-                "nzh": tr.get("nzh")
-                or ("前往" + MAP_ZH.get(tr.get("to"), "其他地图"))
+                "nzh": ("前往" + MAP_ZH.get(tr.get("to"), "其他地图"))
                 if tr.get("to")
                 else "转场点",
                 "to": tr.get("to") or "",  # 目标图的本站 key（供页面做「去看那张图」）
