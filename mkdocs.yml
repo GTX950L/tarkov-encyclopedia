@@ -103,6 +103,7 @@ extra_javascript:
   - javascripts/nav-top.js
   - javascripts/progress-manifest.js
   - javascripts/progress.js
+  - javascripts/map.js
   - javascripts/toolbox.js
 
 nav:
@@ -278,3 +279,5 @@ nav:
           - 更新日志: CHANGELOG.md
           - 贡献指南: CONTRIBUTING.md
           - 待收录清单: docs/roadmap.md
+      - 第十二篇 · 交互地图:
+          - 地图工具与海关: maps/index.md

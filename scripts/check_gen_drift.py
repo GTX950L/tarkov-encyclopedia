@@ -114,6 +114,7 @@ GENERATORS: list[list[str]] = [
     ["scripts/gen_medical_values.py"],
     ["scripts/gen_boss_values.py"],
     ["scripts/gen_achievements.py"],      # ⑩ 成就全表
+    ["scripts/gen_maps.py"],              # ⑪ 交互地图：底图换肤 + 点位投影（独立，不依赖其他生成器）
 ]
 
 # 豁免清单：这些文件**不用「重跑比对」来判定**。

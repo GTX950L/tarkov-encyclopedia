@@ -1,6 +1,6 @@
 # 逃离塔科夫百科全书
 
-> 面向玩家与 AI 智能体的《逃离塔科夫》中文结构化资料库：88 个条目 + 参考页，分十一篇组织 —— **前八篇是条目主线**，后三篇是查阅型栏目（第九篇物品图鉴 4,979 件 / 第十篇任务图鉴 515 个 / 第十一篇参考区）。
+> 面向玩家与 AI 智能体的《逃离塔科夫》中文结构化资料库：88 个条目 + 参考页，分十二篇组织 —— **前八篇是条目主线**，后四篇是查阅型栏目（第九篇物品图鉴 4,979 件 / 第十篇任务图鉴 515 个 / 第十一篇参考区 / 第十二篇交互地图）。
 > 静态事实对照官方来源核验；动态数值标注实时口径；全站不使用任何配图，弱网环境可流畅阅读。
 
 版本基线：2026 年 9 月
@@ -55,7 +55,8 @@
 - [术语与黑话速查](https://gtx950l.github.io/tarkov-encyclopedia/docs/glossary/)：全称、缩写、社区俗称与名称溯源双向可查
 - [新手成长路线](https://gtx950l.github.io/tarkov-encyclopedia/docs/progression/)：按阶段该做什么
 - [新手开局检查清单](https://gtx950l.github.io/tarkov-encyclopedia/docs/starter-checklist/)：可打印的每局勾选表（进图前 / 撤离前照着勾）
-- [地图对照速查](https://gtx950l.github.io/tarkov-encyclopedia/docs/map-guide/)：逐图的交战风格、资源类型、风险与适合阶段（不列坐标）
+- [交互地图](https://gtx950l.github.io/tarkov-encyclopedia/maps/)：矢量底图 + 撤离点 / 钥匙房 / 雷区图层（海关先行）
+- [地图对照速查](https://gtx950l.github.io/tarkov-encyclopedia/docs/map-guide/)：逐图的交战风格、资源类型、风险与适合阶段（本页不列坐标，点位在交互地图）
 - [配方速查表（制作与交换）](https://gtx950l.github.io/tarkov-encyclopedia/docs/recipes/)：藏身处制作 214 条 + 商人交换 855 条；可按设施 / 商人 / 材料反查，**不含价格与利润**（实时数据）
 - [购买指南（地区与版本）](https://gtx950l.github.io/tarkov-encyclopedia/docs/buying-guide/)
 - [配置与性能](https://gtx950l.github.io/tarkov-encyclopedia/docs/performance/)

@@ -5212,3 +5212,143 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   box-shadow: 0 6px 20px rgba(0, 0, 0, .5);
 }
 [data-md-color-scheme="slate"] .tk-board__maps h5 { color: #C6D2DE; }
+
+/* ==========================================================================
+   63. 交互地图（第十二篇 · javascripts/map.js）
+   --------------------------------------------------------------------------
+   挂载点 `<div id="tk-map" data-map="customs">`。脚本把底图 SVG **内联**进来，
+   再叠一层点位。三条约束：
+
+     · **必须内联，不能用 <img>** —— 点位坐标系要跟底图落在同一个 SVG 里
+       才能对齐（点位坐标是投影算的，不是画在图上导入的）。
+     · **点位文字要自带描边**：底图有浅绿地面、灰建筑、蓝水面多种底色，
+       单靠一种字色在任何一处都会在某些区域读不清。用 `paint-order: stroke`
+       先描白边再填字，这一招在三种底色上都成立。
+     · **`--ready` 之前不占位**：无脚本或取数失败时，页面里留的是 <div> 里那句
+       静态降级文案，不该被留出一块空白。
+
+   ⚠️ **深色模式不反色**：底图由生成器统一换成浅色（见 scripts/gen_maps.py 的
+   LIGHT_STYLE），深色下它就当一张「浅色的纸」贴在那儿。**不套 filter: invert** ——
+   那会连 `.locked` 的红、`.danger` 的斜纹一起翻转，把语义色改掉。
+   -------------------------------------------------------------------------- */
+
+.tk-map--ready { margin: 1rem 0 .4rem; }
+
+.tk-map__canvas {
+  background: #e0e7d9;            /* 与生成器 LIGHT_STYLE 的 .land 同色，边缘不留白 */
+  border: 1px solid var(--tk-line);
+  border-radius: .2rem;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.tk-map__canvas svg { width: 100%; height: auto; display: block; }
+
+/* 点位：红点 + 白环；文字带白描边（paint-order 让描边在字之下） */
+.tk-map__pin circle {
+  fill: #d0021b;
+  stroke: #fff;
+  stroke-width: 1.8;
+}
+
+.tk-map__pin text {
+  font-weight: 700;
+  fill: #8a1410;
+  stroke: #fff;
+  stroke-width: 3;
+  paint-order: stroke;
+  user-select: none;
+  pointer-events: none;
+}
+
+.tk-map__pin:hover circle { stroke-width: 3.4; }
+
+/* 控件条：楼层 / 标注 */
+.tk-map__bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.1rem;
+  align-items: center;
+  margin: .7rem 0 0;
+}
+
+.tk-map__seg {
+  display: inline-flex;
+  border: 1px solid var(--tk-line);
+  border-radius: .2rem;
+  overflow: hidden;
+}
+
+.tk-map__seg button {
+  appearance: none;
+  border: 0;
+  border-right: 1px solid var(--tk-line);
+  background: var(--tk-panel);
+  color: var(--tk-ink-2);
+  font: inherit;
+  font-size: .7rem;
+  line-height: 1.6;
+  padding: .28rem .7rem;
+  cursor: pointer;
+}
+
+.tk-map__seg button:last-child { border-right: 0; }
+.tk-map__seg button:hover { background: #E7E3DA; }
+
+.tk-map__seg button.is-on {
+  background: var(--tk-brand);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* 图例 */
+.tk-map__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem 1.2rem;
+  margin: .6rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: .7rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-map__legend li { display: inline-flex; align-items: center; gap: .35rem; }
+.tk-map__legend li::before { content: none; }        /* 压掉主题给 li 的符号 */
+
+.tk-map__legend i {
+  display: inline-block;
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
+  flex: none;
+}
+
+.tk-lg-pin { background: #d0021b; box-shadow: inset 0 0 0 1.5px #fff, 0 0 0 1px #d0021b; }
+.tk-lg-locked { background: #efa39b; border-radius: .1rem; box-shadow: inset 0 0 0 1px #b56a63; }
+.tk-lg-danger {
+  background: repeating-linear-gradient(45deg, #dd5a52, #dd5a52 3px, #f6cfcb 3px, #f6cfcb 6px);
+  border-radius: .1rem;
+  box-shadow: inset 0 0 0 1px #c0392b;
+}
+
+.tk-map__note {
+  margin: .5rem 0 0;
+  font-size: .66rem;
+  line-height: 1.8;
+  color: var(--tk-ink-2);
+}
+
+/* 打印：地图整块不要被切成两半 */
+@media print {
+  .tk-map--ready { break-inside: avoid; }
+  .tk-map__bar { display: none; }        /* 楼层/标注按钮在纸面上没有意义 */
+}
+
+/* —— 暗色兜底：底图仍是浅色（有意，见上方说明），只把外围控件压深 —— */
+[data-md-color-scheme="slate"] .tk-map__canvas { border-color: #4A473F; }
+[data-md-color-scheme="slate"] .tk-map__seg button { background: #2B3133; color: #C6D2DE; border-color: #4A473F; }
+[data-md-color-scheme="slate"] .tk-map__seg button:hover { background: #38403F; }
+[data-md-color-scheme="slate"] .tk-map__pin circle { stroke: #22282A; }
+[data-md-color-scheme="slate"] .tk-map__pin text { stroke: #22282A; fill: #FFC4BE; }
+
