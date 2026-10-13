@@ -78,6 +78,101 @@
     svg.setAttribute("aria-label", "交互地图底图");
     host.appendChild(canvas);
 
+    /* ── 视图控制：滚轮缩放 + 拖拽平移 ──
+       直接操作 SVG 的 `viewBox`，**不套 CSS transform** —— 点位、任务区域、地名
+       全都画在同一个 viewBox 坐标系里，改 viewBox 就是三者一起动，不会错位。
+       缩放以**指针位置为锚点**（不是左上角），否则每滚一下图就往外跑。
+       ⚠️ 标注字号要按放大倍数**反向缩**（`--tk-k`），否则放大后字比楼还大；
+       这也是竞品地图的共同做法：底图放大、标注保持屏幕大小。 */
+    var vb0 = (data.viewBox || [0, 0, 1000, 600]).slice();
+    var cur = vb0.slice();
+    var K_MIN = 1, K_MAX = 12; // 相对原始 viewBox 的放大上限（K_MIN=1 即不缩小，避免图缩成一小块）
+
+    function applyVB() {
+      svg.setAttribute(
+        "viewBox",
+        cur[0].toFixed(2) + " " + cur[1].toFixed(2) + " " + cur[2].toFixed(2) + " " + cur[3].toFixed(2)
+      );
+      svg.style.setProperty("--tk-k", (vb0[2] / cur[2]).toFixed(3));
+    }
+
+    function zoomAt(clientX, clientY, k) {
+      /* `k` 是**放大倍数**（>1 = 放大）：视野的宽高除以 k。
+         ⚠️ 这里曾经把 k 乘上去，表现为「滚轮往上滚反而缩小」。
+         锚点公式与宽高**必须用同一个方向**，否则缩放中心也会跟着错。 */
+      var nw = cur[2] / k;
+      var nh = cur[3] / k;
+      if (nw > vb0[2] || nw < vb0[2] / K_MAX) return; // 夹在 [原尺寸, 12×] 之间
+      var r = svg.getBoundingClientRect();
+      /* 屏幕坐标 → 当前 viewBox 内的用户坐标 */
+      var ux = cur[0] + ((clientX - r.left) / r.width) * cur[2];
+      var uy = cur[1] + ((clientY - r.top) / r.height) * cur[3];
+      /* 让这个点缩放前后停在原地：新左上角 = 锚点 −（锚点到旧左上角的距离 ÷ k） */
+      cur = [ux - (ux - cur[0]) / k, uy - (uy - cur[1]) / k, nw, nh];
+      applyVB();
+    }
+
+    function resetView() {
+      cur = vb0.slice();
+      applyVB();
+    }
+
+    /* 以**画布中心**为锚点的缩放 —— 给按钮用（滚轮那条走指针位置） */
+    function zoomCenter(k) {
+      var r = svg.getBoundingClientRect();
+      zoomAt(r.left + r.width / 2, r.top + r.height / 2, k);
+    }
+
+    svg.addEventListener(
+      "wheel",
+      function (e) {
+        e.preventDefault(); // 否则页面会跟着滚，地图永远停在原地
+        zoomAt(e.clientX, e.clientY, e.deltaY > 0 ? 1 / 1.18 : 1.18);
+      },
+      { passive: false }
+    );
+
+    /* 拖拽平移。用 pointer 事件（鼠标与触摸一套代码）。
+       点在任务区域上**不拖拽** —— 那一下是「选中这个任务」。 */
+    var drag = null;
+    svg.addEventListener("pointerdown", function (e) {
+      if (e.target.classList && e.target.classList.contains("tk-zq")) return;
+      drag = { x: e.clientX, y: e.clientY, vb: cur.slice() };
+      canvas.classList.add("is-dragging");
+      try {
+        svg.setPointerCapture(e.pointerId);
+      } catch (err) {
+        /* 忽略：某些浏览器对已释放的 pointer 会抛 */
+      }
+    });
+    svg.addEventListener("pointermove", function (e) {
+      if (!drag) return;
+      var r = svg.getBoundingClientRect();
+      var dx = ((e.clientX - drag.x) / r.width) * drag.vb[2];
+      var dy = ((e.clientY - drag.y) / r.height) * drag.vb[3];
+      cur = [drag.vb[0] - dx, drag.vb[1] - dy, drag.vb[2], drag.vb[3]];
+      applyVB();
+    });
+    function endDrag(e) {
+      if (!drag) return;
+      drag = null;
+      canvas.classList.remove("is-dragging");
+      try {
+        svg.releasePointerCapture(e.pointerId);
+      } catch (err) {
+        /* 同上 */
+      }
+    }
+    svg.addEventListener("pointerup", endDrag);
+    svg.addEventListener("pointercancel", endDrag);
+
+    /* 点空白处 = 取消选中（点任务区域时会被 stopPropagation 挡掉） */
+    svg.addEventListener("click", function (e) {
+      if (e.target === svg) selectTask(null);
+    });
+
+    applyVB();
+
     /* 楼层互斥：先只留第一层，避免所有楼层叠在一起 */
     var floorGroups = (data.floors || [])
       .map(function (f) {
@@ -114,9 +209,13 @@
       });
       var tip = z.n + "（" + z.t + "）";
       if (z.d) tip += "\n" + z.d;
+      tip += "\n单击=只看这个任务，双击=打开任务详情";
       r.appendChild(el("title", {}, tip));
-      r.style.cursor = "pointer";
-      r.addEventListener("click", function () {
+      r.addEventListener("click", function (e) {
+        e.stopPropagation(); // 别让「点空白处取消选中」把它一起清掉
+        selectTask(z.q);
+      });
+      r.addEventListener("dblclick", function () {
         location.href = siteRoot() + "quests/quest/?id=" + encodeURIComponent(z.q);
       });
       qlayer.appendChild(r);
@@ -151,31 +250,102 @@
     }
 
     var qzFilter = "all"; // all（全部） | open（只看未完成） | inhand（只看进行中）
+    var selected = null; // 选中的任务 id；一非空就切到「只看这一个」
+    var qzCount = null; // 控件条上的计数元素，建控件时才赋值
 
     function applyQzFilter() {
       if (!qzAll.length) return;
-      var snap = qzFilter === "all" ? null : progressSnap();
+      /* ⚠️ 「全部」模式**也要**取进度快照 —— 它要用来把已完成的任务区域标淡。
+         早先那版在 all 模式下把快照置空，于是「已完成自动变淡」这个设计**根本没生效**，
+         只有切到筛选时才看得出差别。 */
+      var snap = progressSnap();
       var shown = 0;
       Array.prototype.forEach.call(qlayer.children, function (r) {
-        var st = snap ? stateOf(snap, r.getAttribute("data-q")) : "";
-        /* 「全部」模式不做过滤，但**把已完成的弱化** —— 这样即使不筛，
-           也能一眼看出哪些是回头任务 */
-        var ok =
-          qzFilter === "all" ||
-          (qzFilter === "open" && st !== "done") ||
-          (qzFilter === "inhand" && st === "inhand");
-        r.style.display = ok ? "" : "none";
+        var q = r.getAttribute("data-q");
+        var st = stateOf(snap, q);
         r.classList.toggle("is-done", st === "done");
+        r.classList.toggle("is-sel", selected === q);
+        /* 选中时筛选退居其次：读者点某个区域，意图是「看这个」，
+           不是「在这个基础上再筛一层」 */
+        var ok = selected
+          ? q === selected
+          : qzFilter === "all" ||
+            (qzFilter === "open" && st !== "done") ||
+            (qzFilter === "inhand" && st === "inhand");
+        r.style.display = ok ? "" : "none";
         if (ok) shown++;
       });
       if (qzCount) {
-        qzCount.textContent =
-          qzFilter === "all"
+        qzCount.textContent = selected
+          ? "只看选中的这 1 个任务"
+          : qzFilter === "all"
             ? qzAll.length + " 个目标区域"
             : shown + " / " + qzAll.length + " 个目标区域";
       }
     }
-    var qzCount = null;
+
+    /* ── 选中某个任务：只显示它 + 出一张信息卡 ── */
+    var cardHost = null;
+
+    function selectTask(qid) {
+      selected = qid || null;
+      applyQzFilter();
+      renderCard();
+    }
+
+    function renderCard() {
+      if (!cardHost) return;
+      cardHost.innerHTML = "";
+      if (!selected) {
+        cardHost.style.display = "none";
+        return;
+      }
+      cardHost.style.display = "";
+      var zs = qzAll.filter(function (z) {
+        return z.q === selected;
+      });
+      var head = zs[0] || {};
+
+      var nameEl = document.createElement("b");
+      nameEl.textContent = head.n || selected;
+      cardHost.appendChild(nameEl);
+
+      var badges = [
+        [head.t || "", ""],
+        [zs.length + " 处区域", "--dim"],
+      ];
+      var st = stateOf(progressSnap(), selected);
+      if (st) badges.push([st === "done" ? "已完成" : "进行中", "--" + st]);
+      badges.forEach(function (pair) {
+        if (!pair[0]) return;
+        var s = document.createElement("span");
+        s.className = "tk-map__badge" + (pair[1] ? " tk-map__badge" + pair[1] : "");
+        s.textContent = pair[0];
+        cardHost.appendChild(s);
+      });
+
+      if (head.d) {
+        var p = document.createElement("p");
+        p.className = "tk-map__carddesc";
+        p.textContent = head.d;
+        cardHost.appendChild(p);
+      }
+
+      var a = document.createElement("a");
+      a.className = "tk-map__cardlink";
+      a.href = siteRoot() + "quests/quest/?id=" + encodeURIComponent(selected);
+      a.textContent = "打开任务详情 →";
+      cardHost.appendChild(a);
+
+      var clear = document.createElement("button");
+      clear.type = "button";
+      clear.className = "tk-map__cardclear";
+      clear.textContent = "取消选中";
+      clear.addEventListener("click", function () {
+        selectTask(null);
+      });
+      cardHost.appendChild(clear);
+    }
 
     /* ── 点位层 ── */
     var pins = el("g", { class: "tk-map__pins" });
@@ -274,10 +444,35 @@
       qzCount = document.createElement("span");
       qzCount.className = "tk-map__count";
       bar.appendChild(qzCount);
-      applyQzFilter(); // 初始化：同时把计数填上
+      applyQzFilter(); // 初始化：同时把计数与「已完成」标记填上
     }
 
+    /* 缩放按钮：滚轮之外给一个**显式入口** —— 触屏、以及不习惯滚轮的读者都用得上。
+       「重置」另外兼任「迷路之后找回全图」。 */
+    var zoomSeg = document.createElement("div");
+    zoomSeg.className = "tk-map__seg";
+    zoomSeg.setAttribute("role", "group");
+    zoomSeg.setAttribute("aria-label", "缩放");
+    [
+      ["放大", function () { zoomCenter(1.4); }],
+      ["缩小", function () { zoomCenter(1 / 1.4); }],
+      ["重置", resetView],
+    ].forEach(function (pair) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.textContent = pair[0];
+      b.addEventListener("click", pair[1]);
+      zoomSeg.appendChild(b);
+    });
+    bar.appendChild(zoomSeg);
+
     if (bar.children.length) host.appendChild(bar);
+
+    /* 任务信息卡：选中某个任务后出现 */
+    cardHost = document.createElement("div");
+    cardHost.className = "tk-map__card";
+    cardHost.style.display = "none";
+    host.appendChild(cardHost);
 
     /* ── 图例 ── */
     var legend = document.createElement("ul");

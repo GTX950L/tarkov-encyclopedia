@@ -5365,13 +5365,18 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
    ⚠️ **填充压得很低（.09）是有意的**：单图常有上百个区域（海关 116 个），
    密集处会互相重叠——把填充当作「淡淡的底纹」、把信息交给**描边 + 悬停**，
-   否则整张图会被色块糊住、连底下的建筑都读不出来。 */
+   否则整张图会被色块糊住、连底下的建筑都读不出来。
+
+   ⚠️ **所有描边与字号都要除以 `--tk-k`**（map.js 在缩放时写入的放大倍数）：
+   底图放大时标注若跟着一起放，字会比楼还大。竞品地图都是「底图放大、标注保持
+   屏幕大小」，这里用同一个做法。 */
 .tk-zq {
   fill: #2c6fb5;
   fill-opacity: .09;
   stroke: #2c6fb5;
-  stroke-width: 1.2;
+  stroke-width: calc(1.2px / var(--tk-k, 1));
   stroke-opacity: .8;
+  cursor: pointer;
 }
 
 .tk-zq--visit { fill: #2c6fb5; stroke: #2c6fb5; }
@@ -5381,11 +5386,85 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 .tk-zq--shoot { fill: #dc2626; stroke: #dc2626; }
 .tk-zq--useItem { fill: #0e7490; stroke: #0e7490; }
 
-.tk-zq:hover { fill-opacity: .3; stroke-width: 2.6; stroke-opacity: 1; }
+.tk-zq:hover {
+  fill-opacity: .3;
+  stroke-width: calc(2.6px / var(--tk-k, 1));
+  stroke-opacity: 1;
+}
 
 /* 已完成的任务点位**弱化而不是隐藏** —— 读者往往需要回头确认「这里我做过了吗」 */
 .tk-zq.is-done { opacity: .22; }
 .tk-zq.is-done:hover { opacity: .7; }
+
+/* 选中的那个任务：**不换色相**（色相承载「做什么」这一层信息），
+   只提高填充浓度与描边粗细 —— 于是「选中」与「是什么类型」两件事同时读得出来。 */
+.tk-zq.is-sel,
+.tk-zq.is-done.is-sel {
+  fill-opacity: .45;
+  stroke-opacity: 1;
+  stroke-width: calc(3px / var(--tk-k, 1));
+  opacity: 1;
+}
+
+/* —— 拖拽与缩放（map.js 的视图控制）—— */
+.tk-map__canvas svg { cursor: grab; }
+.tk-map__canvas.is-dragging svg { cursor: grabbing; }
+/* 拖拽过程中禁止选中文字，否则整页会被拖成一片蓝 */
+.tk-map__canvas.is-dragging { user-select: none; }
+
+/* 标注随缩放反向补偿：底图放大多少，字与圆点就缩回多少 */
+.tk-map__pin circle { r: calc(5px / var(--tk-k, 1)); }
+.tk-map__pin circle { stroke-width: calc(1.8px / var(--tk-k, 1)); }
+.tk-map__pin text {
+  font-size: calc(13.5px / var(--tk-k, 1));
+  stroke-width: calc(3px / var(--tk-k, 1));
+}
+
+/* —— 任务信息卡（单击某个任务区域后出现）—— */
+.tk-map__card {
+  margin: .7rem 0 0;
+  padding: .7rem .9rem;
+  border: 1px solid var(--tk-line);
+  border-left: 3px solid var(--tk-brand);
+  border-radius: .2rem;
+  background: #fff;
+  font-size: .76rem;
+  line-height: 1.85;
+}
+
+.tk-map__card b { font-size: .85rem; color: var(--tk-ink); }
+
+.tk-map__badge {
+  display: inline-block;
+  margin-left: .5rem;
+  padding: .05rem .45rem;
+  border-radius: .6rem;
+  font-size: .66rem;
+  background: var(--tk-panel);
+  color: var(--tk-ink-2);
+  vertical-align: 1px;
+}
+
+.tk-map__badge--done { background: #E4F1EA; color: #1B6B44; }
+.tk-map__badge--inhand { background: #FBF0DD; color: #9A5C10; }
+
+.tk-map__carddesc { margin: .45rem 0 .3rem; color: var(--tk-ink-2); }
+
+.tk-map__cardlink { font-weight: 700; }
+
+.tk-map__cardclear {
+  margin-left: .9rem;
+  border: 1px solid var(--tk-line);
+  border-radius: .2rem;
+  background: var(--tk-panel);
+  color: var(--tk-ink-2);
+  font: inherit;
+  font-size: .7rem;
+  padding: .12rem .6rem;
+  cursor: pointer;
+}
+
+.tk-map__cardclear:hover { background: #E7E3DA; }
 
 .tk-lg-task {
   background: #2c6fb5;
