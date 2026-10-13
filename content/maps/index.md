@@ -33,7 +33,7 @@ tags:
 
 <a id="customs"></a>
 
-<div id="tk-map" data-map="customs">**交互地图需要 JavaScript 才能显示。** 本页其余说明不需要脚本；海关的定性判断（地形分区、任务密度、Boss、常见错误）见海关条目。<br><br>地图取不到时，点位信息仍可这样获取：① 进图按 <kbd>O</kbd> 键看官方地图；② 站内[撤离点详解](../entries/extraction-points.md) 给了各图的撤离条件；③ [地图对照速查](../docs/map-guide.md) 给了选图与预期的判断依据。</div>
+<div id="tk-map" data-map="customs">交互地图加载中…（底图约 190 KB，弱网下会稍慢）<noscript>　当前浏览器未启用 JavaScript，交互地图无法显示。本页下方的文字说明仍然可读；也可直接进游戏按 O 键查看官方地图。</noscript></div>
 
 ### 🧭 怎么看这张图
 

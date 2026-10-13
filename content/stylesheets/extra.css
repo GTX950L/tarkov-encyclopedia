@@ -5234,6 +5234,19 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 .tk-map--ready { margin: 1rem 0 .4rem; }
 
+/* 取数失败时的提示块 —— **失败必须看得见**。
+   挂载点里那句「加载中…」在失败时会被替换成这里的文字（map.js 的 catch 分支）。 */
+.tk-map--fail {
+  margin: 1rem 0 .4rem;
+  padding: .85rem 1rem;
+  border: 1px dashed var(--tk-line);
+  border-radius: .2rem;
+  background: var(--tk-panel);
+  font-size: .76rem;
+  line-height: 1.8;
+  color: var(--tk-ink-2);
+}
+
 .tk-map__canvas {
   background: #e0e7d9;            /* 与生成器 LIGHT_STYLE 的 .land 同色，边缘不留白 */
   border: 1px solid var(--tk-line);

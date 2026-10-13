@@ -343,8 +343,10 @@
     ensureData(function (maps) {
       var data = maps && maps[key];
       if (!data) {
-        /* 保留静态降级文案：不清空、不报错 */
+        /* 点位数据没取到：同样给明确提示，不让「加载中…」一直挂着 */
         host.dataset.tkMapBusy = "0";
+        host.textContent = "地图数据没能加载出来（可能是网络问题）。本页下方的文字说明不受影响。";
+        host.classList.add("tk-map--fail");
         return;
       }
       fetch(siteRoot() + "assets/maps/" + data.svg)
@@ -358,6 +360,15 @@
         })
         .catch(function () {
           host.dataset.tkMapBusy = "0";
+          /* 取不到底图时给**明确**的失败提示。
+             ⚠️ 不能让页面里那句「加载中…」一直挂着 —— 挂着会让读者以为还在等，
+             实际已经失败了。**「静默等待」是最坏的一种失败表现形式。** */
+          if (host.dataset.tkMounted !== "1") {
+            host.textContent =
+              "底图没能加载出来（可能是网络问题，或资源被浏览器扩展拦了）。" +
+              "本页下方的文字说明不受影响；也可直接进游戏按 O 键查看官方地图。";
+            host.classList.add("tk-map--fail");
+          }
         });
     });
   }
