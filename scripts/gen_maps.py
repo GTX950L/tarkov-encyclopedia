@@ -114,9 +114,79 @@ MAP_ID_TO_KEY: dict[str, str] = {
 MAPS_API = "https://json.tarkov.dev/regular/maps"
 LAYERS_CACHE = ROOT / "scripts" / "data" / "map_layers.json"
 
+# 地图中文名 —— **与站内条目写法一致**（entries/index.md 的篇目名）。
+# 转场点要显示「前往 XX」，而上游的 transits 不带名字（只有目标图 id），只能这样补。
+MAP_ZH = {
+    "customs": "海关",
+    "factory": "工厂",
+    "woods": "森林",
+    "interchange": "立交桥",
+    "reserve": "储备站",
+    "shoreline": "海岸线",
+    "lighthouse": "灯塔",
+    "streets-of-tarkov": "街区",
+    "ground-zero": "中心区",
+    "the-lab": "实验室",
+    "terminal": "终点站",
+}
+
 FACTION_ZH = {"pmc": "PMC", "scav": "Scav", "shared": "共用"}
 HAZARD_ZH = {"minefield": "雷区", "sniper": "狙击区", "deadly": "致命区"}
 LOCK_ZH = {"door": "门", "trunk": "后备箱", "container": "容器"}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 撤离点名字的可读化
+#
+# 上游的 `extracts[].name` 有两种格式：
+#   ① 内部 id：`ex_customs_scav_gasstation`、`ex_customs_pmc_rail_milbase`（多数）
+#   ② 本来就是英文名：`Old Road Gate`、`RUAF Roadblock`（少数）
+# 直接显示 ① 对读者毫无意义 —— 参考的三个站（小喵塔科夫 / eftarkov / 缇尔蒂助手）
+# 全都显示可读名，这是它们做得比本站好的一处。
+#
+# 分两层，**都不编造**：
+#   · 第一层是机械的：剥掉 `ex_<图>_` 与阵营/secret 前缀、下划线转空格、首字母大写；
+#   · 第二层是词表：只填**能可靠对应**的常见词，词表里没有就显示英文。
+#
+# **拿不准的宁可不翻** —— 一个错的撤离点名，比一个英文名更糟。
+# 想扩词表时：先 grep 站内 `entries/extraction-points.md` 与各图条目怎么写的。
+# ─────────────────────────────────────────────────────────────────────────────
+EXTRACT_ZH = {
+    "gasstation": "加油站",
+    "crossroads": "十字路口",
+    "boiler": "锅炉房",
+    "admin": "行政楼",
+    "trailerpark": "拖车停车场",
+    "rail_milbase": "铁路军事基地",
+    "rail_port": "铁路口岸",
+    "rail_tarkov": "铁路（往塔科夫）",
+    "rail": "铁路",
+    "milbase_cp": "军事基地检查站",
+    "medgate": "医疗门",
+    "flare": "信号弹撤离点",
+    "auto": "付费车辆撤离点",
+    "zb1011": "ZB-1011",
+    "zb1013": "ZB-013",
+    "bunker": "地堡",
+    "boat": "船",
+    "voron_boat": "渡鸦号船",
+    "voron_bunker": "渡鸦地堡",
+}
+
+# `ex_customs_scav_gasstation` → 剥掉 `ex_customs_`；再剥掉阵营 / secret 前缀
+_EX_MAIN_RE = re.compile(r"^ex_[a-z0-9]+_", re.I)
+_EX_SUB_RE = re.compile(r"^(?:pmc|scav|coop|shared|secret)_", re.I)
+
+
+def humanize_extract(name: str) -> str:
+    """上游撤离点名 → 可读名（规则见上方说明）。"""
+    raw = (name or "").strip()
+    if not raw or not raw.lower().startswith("ex_"):
+        return raw  # 本来就是英文名，照抄
+    core = _EX_MAIN_RE.sub("", raw)
+    core = _EX_SUB_RE.sub("", core)
+    if not core:
+        return raw
+    return EXTRACT_ZH.get(core, core.replace("_", " ").title())
 
 # 商人显示名 —— **沿用站内既有写法**（条目与任务图鉴里都用英文名），
 # 只有 BTR 司机例外（站内就叫「BTR 司机」）。改这里前先 grep 一下站内怎么写的。
@@ -377,12 +447,12 @@ def fetch_map_layers() -> None:
     items = list(maps.values()) if isinstance(maps, dict) else maps
 
     out: dict[str, dict] = {}
-    tot = {"extracts": 0, "locks": 0, "hazards": 0}
+    tot = {"extracts": 0, "locks": 0, "hazards": 0, "transits": 0}
     for m in items:
         mid = m.get("id")
         if mid not in MAP_ID_TO_KEY:
             continue
-        rec: dict[str, list] = {"extracts": [], "locks": [], "hazards": []}
+        rec: dict[str, list] = {"extracts": [], "locks": [], "hazards": [], "transits": []}
 
         for e in m.get("extracts") or []:
             p = e.get("position") or {}
@@ -391,6 +461,7 @@ def fetch_map_layers() -> None:
             rec["extracts"].append(
                 {
                     "n": e.get("name") or "",
+                    "nzh": humanize_extract(e.get("name")),
                     "f": e.get("faction") or "",
                     "x": round(p["x"], 1),
                     "z": round(p["z"], 1),
@@ -422,13 +493,30 @@ def fetch_map_layers() -> None:
                 }
             )
 
+        for tr in m.get("transits") or []:
+            p = tr.get("position") or {}
+            if "x" not in p or "z" not in p:
+                continue
+            tgt = tr.get("map")
+            if isinstance(tgt, dict):
+                tgt = tgt.get("id")
+            rec["transits"].append(
+                {
+                    "n": tr.get("name") or "",
+                    "nzh": humanize_extract(tr.get("name")),
+                    "to": MAP_ID_TO_KEY.get(tgt, ""),
+                    "x": round(p["x"], 1),
+                    "z": round(p["z"], 1),
+                }
+            )
+
         if not any(rec.values()):
             continue
         # **按本站 key 归并**：同一张图有多个版本（工厂日/夜、中心区三个）会给重复条目 ——
         # 按内容签名去重，否则地图上会叠出两份一模一样的撤离点。
         key = MAP_ID_TO_KEY[mid]
-        dst = out.setdefault(key, {"extracts": [], "locks": [], "hazards": []})
-        for kind in ("extracts", "locks", "hazards"):
+        dst = out.setdefault(key, {"extracts": [], "locks": [], "hazards": [], "transits": []})
+        for kind in ("extracts", "locks", "hazards", "transits"):
             seen = {json.dumps(x, sort_keys=True, ensure_ascii=False) for x in dst[kind]}
             for x in rec[kind]:
                 sig = json.dumps(x, sort_keys=True, ensure_ascii=False)
@@ -450,7 +538,7 @@ def fetch_map_layers() -> None:
     )
     log(
         f"   → {LAYERS_CACHE.relative_to(ROOT)}：撤离点 {tot['extracts']} ｜ "
-        f"上锁 {tot['locks']} ｜ 危险区 {tot['hazards']}"
+        f"上锁 {tot['locks']} ｜ 危险区 {tot['hazards']} ｜ 转场点 {tot['transits']}"
     )
 
 
@@ -631,6 +719,7 @@ def build_maps(data: list) -> dict:
         extracts = [
             {
                 "n": e["n"],
+                "nzh": e.get("nzh") or e["n"],  # 可读名（见 humanize_extract）
                 "f": e["f"],
                 "fzh": FACTION_ZH.get(e["f"], e["f"] or "—"),
                 "p": pt(e["x"], e["z"]),
@@ -653,6 +742,19 @@ def build_maps(data: list) -> dict:
             }
             for h in lm.get("hazards") or []
         ]
+        transits = [
+            {
+                # 上游的 transits 只有目标图 id、**没有名字** —— 名字由目标图推出来。
+                # 推不出来的（目标图不在本站收录范围）退回「其他地图」，不编造具体图名。
+                "nzh": tr.get("nzh")
+                or ("前往" + MAP_ZH.get(tr.get("to"), "其他地图"))
+                if tr.get("to")
+                else "转场点",
+                "to": tr.get("to") or "",  # 目标图的本站 key（供页面做「去看那张图」）
+                "p": pt(tr["x"], tr["z"]),
+            }
+            for tr in lm.get("transits") or []
+        ]
 
         out[key] = {
             "nameEn": meta.get("normalizedName") or key,
@@ -672,11 +774,12 @@ def build_maps(data: list) -> dict:
             "extracts": extracts,
             "locks": locks,
             "hazards": hazards,
+            "transits": transits,
         }
         log(
             f"   ✓ {key:<18} {raw_path.name:<20} labels={len(labels):<3} "
             f"任务点位={len(quest_zones):<4} 撤离点={len(extracts):<3} "
-            f"上锁={len(locks):<3} 危险区={len(hazards)}"
+            f"上锁={len(locks):<3} 危险区={len(hazards):<3} 转场={len(transits)}"
         )
 
     if zstat["lost"]:

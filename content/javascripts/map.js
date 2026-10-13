@@ -418,9 +418,11 @@
     });
     if (lockLayer.children.length) svg.appendChild(lockLayer);
 
-    /* ── 撤离点：方块 + 按阵营分色 ──
-       上游的 faction 只有 pmc / scav / shared 三种，**照实呈现**，
-       不在这里推断「PMC 到底能不能用」—— 那要看站内撤离点条目的条件表。 */
+    /* ── 撤离点：方块 + 阵营色 + **可读名** ──
+       名字这件事是参考小喵塔科夫与 eftarkov 补上的：它们都显示「铁路通道」「加油站」，
+       而本站此前只有方块 —— 上游给的名字是 `ex_customs_scav_gasstation` 这种内部 id，
+       不转一遍等于没写（转换规则见 scripts/gen_maps.py 的 humanize_extract）。
+       ⚠️ 阵营色来自上游的 `faction` 字段，**不代表「谁能用」**。 */
     var exLayer = el("g", { class: "tk-map__extracts" });
     (data.extracts || []).forEach(function (e) {
       var g = el("g", {
@@ -428,10 +430,29 @@
         transform: "translate(" + e.p[0] + "," + e.p[1] + ")",
       });
       g.appendChild(el("rect", { x: -5, y: -5, width: 10, height: 10, rx: 1.2 }));
-      g.appendChild(el("title", {}, e.fzh + " 撤离点\n" + e.n));
+      g.appendChild(el("text", { x: 8, y: 4, class: "tk-ex__lbl" }, e.nzh || e.fzh));
+      g.appendChild(
+        el("title", {}, e.fzh + " 撤离点：" + (e.nzh || e.n) + "\n（上游名：" + e.n + "）")
+      );
       exLayer.appendChild(g);
     });
     if (exLayer.children.length) svg.appendChild(exLayer);
+
+    /* ── 转场点：三角 + 「前往 XX」──
+       转场＝不结束战局直接换图（站内有[转场与 BTR](../entries/transit.md)）。
+       上游的 transits 只有目标图 id、没有名字，名字由生成器按目标图推出来。 */
+    var trLayer = el("g", { class: "tk-map__transits" });
+    (data.transits || []).forEach(function (tr) {
+      var g = el("g", {
+        class: "tk-tr",
+        transform: "translate(" + tr.p[0] + "," + tr.p[1] + ")",
+      });
+      g.appendChild(el("polygon", { points: "0,-6.5 6.5,5 -6.5,5" }));
+      g.appendChild(el("text", { x: 9, y: 4, class: "tk-tr__lbl" }, tr.nzh));
+      g.appendChild(el("title", {}, tr.nzh + "（转场：不结束战局直接换图）"));
+      trLayer.appendChild(g);
+    });
+    if (trLayer.children.length) svg.appendChild(trLayer);
 
     /* ── 控件 ── */
     var bar = document.createElement("div");
@@ -591,6 +612,7 @@
 
     var layerToggles = [
       ["撤离点", exLayer, (data.extracts || []).length, tally(data.extracts || [], "fzh")],
+      ["转场点", trLayer, (data.transits || []).length, ""],
       ["上锁", lockLayer, (data.locks || []).length, tally(data.locks || [], "tzh")],
       ["危险区", hazLayer, (data.hazards || []).length, ""],
     ].filter(function (t) {
@@ -757,7 +779,8 @@
     legend.className = "tk-map__legend";
     [
       ["tk-lg-pin", "地名锚点"],
-      ["tk-lg-ex", "撤离点（按阵营分色）"],
+      ["tk-lg-ex", "撤离点（带名字，按阵营分色）"],
+      ["tk-lg-tr", "转场点 —— 不结束战局直接换图"],
       ["tk-lg-lock", "上锁 —— 点击查需要哪把钥匙"],
       ["tk-lg-hz", "危险区（雷区等）"],
       ["tk-lg-task", "任务目标区域 —— 单击只看它、双击进详情"],

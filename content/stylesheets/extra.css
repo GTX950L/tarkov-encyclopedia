@@ -5593,6 +5593,43 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 .tk-ex--shared rect { fill: #7c3aed; }
 .tk-ex:hover rect { stroke-width: calc(2.4px / var(--tk-k, 1)); }
 
+/* 撤离点 / 转场点的名字标签 —— 学参考站：**光有方块，读者不知道是哪个出口**。
+   上游给的是 `ex_customs_scav_gasstation` 这种内部 id，转成可读名才敢显示
+   （转换规则见 scripts/gen_maps.py 的 humanize_extract）。 */
+.tk-ex__lbl {
+  font-size: calc(10.5px / var(--tk-k, 1));
+  font-weight: 600;
+  fill: #7A4A06;
+  stroke: #fff;
+  stroke-width: calc(2.6px / var(--tk-k, 1));
+  paint-order: stroke;
+  pointer-events: none;
+}
+
+/* 转场点：**三角** —— 与撤离点的方块刻意区分（形状差异在黑白与色弱下同样成立） */
+.tk-tr polygon {
+  fill: #0E7490;
+  stroke: #fff;
+  stroke-width: calc(1.2px / var(--tk-k, 1));
+}
+
+.tk-tr:hover polygon { fill: #155E75; }
+
+.tk-tr__lbl {
+  font-size: calc(10.5px / var(--tk-k, 1));
+  font-weight: 600;
+  fill: #0B5566;
+  stroke: #fff;
+  stroke-width: calc(2.6px / var(--tk-k, 1));
+  paint-order: stroke;
+  pointer-events: none;
+}
+
+.tk-lg-tr {
+  background: #0E7490;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
 /* —— 测距 —— */
 .tk-rl-dot {
   fill: #111;
