@@ -1,0 +1,75 @@
+---
+tags:
+  - 地图
+  - 速查
+---
+# 立交桥 · 交互地图
+
+> 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH） ｜ 底图来源：社区开源项目 the-hideout/tarkov-dev-svg-maps（作者 Shebuka，[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)，与本站正文同许可）
+
+<a id="top"></a>
+
+> 商场内部近战 + 外围开阔，产出与风险都集中。定性分析与打法见[立交桥](../entries/interchange.md)。
+
+<div id="tk-map" data-map="interchange">交互地图加载中…（首次打开需要下载底图）<noscript>当前浏览器未启用 JavaScript，交互地图无法显示 —— 但下面那张「这张图上的任务」表是完整的，不开脚本也能读。</noscript></div>
+
+## 📊 这张图的数据
+
+| 项 | 数量 |
+|----|------|
+| 地名锚点 | 77 |
+| 任务目标区域 | 31 |
+| 涉及任务 | 10 |
+| 撤离点 | 9 |
+| 转场点 | 2 |
+| 上锁位置 | 15 |
+| 危险区 | 25 |
+| 楼层 | 3 |
+
+## 🎯 这张图上的任务（10 个）
+
+> **交互地图里可以「只看未完成」**——它读的是你[我的进度](../quests/progress.md)里的记录。下面这张表是给不开脚本、或地图没加载出来时用的。
+
+| 商人 | 任务 | 目标类型 | 区域数 | 目标 |
+|------|------|----------|--------|------|
+| [Lightkeeper](../quests/lightkeeper.md) | 挑衅 | 击杀／射击 | 6 | — |
+| [Mechanic](../quests/mechanic.md) | 大海捞针 | 到访 | 2 | 在立交桥调查卡丁车场 |
+| [Ragman](../quests/ragman.md) | 大甩卖 | 到访 | 5 | 检查AVOKADO商店 |
+| [Ragman](../quests/ragman.md) | 微型客车 | 标记 | 3 | 在立交桥找到第一辆黄色微型客车，并使用MS2000指示器标记 |
+| [Ragman](../quests/ragman.md) | 探路者 | 到访 | 3 | 在立交桥查看铁路撤离点 |
+| [Ragman](../quests/ragman.md) | 火线速递 | 放置物品 | 3 | 在立交桥的指定位置藏匿 ComTac II 耳机 |
+| [Ragman](../quests/ragman.md) | 燃油危机 | 标记 | 4 | 在立交桥使用 MS2000 指示器标记发电站周边的任意一辆油罐车 |
+| [Ragman](../quests/ragman.md) | 财务总监 | 放置物品 | 3 | 在立交桥将 Goshan 收银机钥匙藏匿在 BIZARRO 商店的试衣间内 |
+| [Skier](../quests/skier.md) | 情报就是力量 | 放置物品 | 1 | 在立交桥安装无线摄像头以监视Kiba武器商店大门 |
+| [Skier](../quests/skier.md) | 禁止打劫 | 击杀／射击 | 1 | 在海岸线或立交桥走私者营地范围内消灭任意目标 |
+
+## 🧭 怎么用这张图
+
+| 操作 | 结果 |
+|------|------|
+| 滚轮 / 放大缩小按钮 | 缩放（以指针位置为中心）；按住拖动平移 |
+| 单击任务区域 | 只显示这一个任务，下方弹出信息卡 |
+| 双击任务区域 | 打开任务详情 |
+| 图层按钮 | 撤离点 / 转场点 / 上锁 / 危险区，各自可开关 |
+| 测距 | 点两个点量**直线**距离（米） |
+| 全屏 | 铺满屏幕看细节 |
+
+> 完整说明（图例、数据来源、许可与边界）见[交互地图总览](index.md)。
+
+## 🔗 相关条目
+
+- [立交桥](../entries/interchange.md) — 本页底图对应的定性条目
+- [撤离点详解](../entries/extraction-points.md) — 各图撤离条件
+- [地图对照速查](../docs/map-guide.md) — 13 张图的横向对照
+- [交互地图总览](index.md) — 回到总览与图例
+
+## 📚 所有条目
+
+📖 [查看全部 88 个条目](../entries/index.md)
+
+⬆️ **[回到顶部](#top)**
+
+**最后更新**: 2026年10月<br>
+**贡献者**: GTX950L<br>
+**底图署名**: Shebuka / the-hideout/tarkov-dev-svg-maps（CC BY-NC-SA 4.0）<br>
+**License**: CC BY-NC-SA 4.0

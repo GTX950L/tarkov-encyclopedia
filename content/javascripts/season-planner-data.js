@@ -3,7 +3,7 @@
    用途：赛季特质模拟器（javascripts/season-planner.js）的只读数据。
    重跑时机：改动 season-modifiers.md 的卡表或互斥表之后。 */
 window.TARKOV_SEASON_PLANNER = {
- "generated": "2026-10-13",
+ "generated": "2026-10-14",
  "source": "content/entries/season-modifiers.md",
  "positive": [
   {

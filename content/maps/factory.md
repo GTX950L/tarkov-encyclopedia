@@ -1,0 +1,78 @@
+---
+tags:
+  - 地图
+  - 速查
+---
+# 工厂 · 交互地图
+
+> 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH） ｜ 底图来源：社区开源项目 the-hideout/tarkov-dev-svg-maps（作者 Shebuka，[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)，与本站正文同许可）
+
+<a id="top"></a>
+
+> 体量最小、节奏最快的一张图，20 分钟一局。定性分析与打法见[工厂](../entries/factory.md)。
+
+<div id="tk-map" data-map="factory">交互地图加载中…（首次打开需要下载底图）<noscript>当前浏览器未启用 JavaScript，交互地图无法显示 —— 但下面那张「这张图上的任务」表是完整的，不开脚本也能读。</noscript></div>
+
+## 📊 这张图的数据
+
+| 项 | 数量 |
+|----|------|
+| 地名锚点 | 27 |
+| 任务目标区域 | 71 |
+| 涉及任务 | 14 |
+| 撤离点 | 19 |
+| 转场点 | 6 |
+| 上锁位置 | 4 |
+| 楼层 | 2 |
+
+## 🎯 这张图上的任务（14 个）
+
+> **交互地图里可以「只看未完成」**——它读的是你[我的进度](../quests/progress.md)里的记录。下面这张表是给不开脚本、或地图没加载出来时用的。
+
+| 商人 | 任务 | 目标类型 | 区域数 | 目标 |
+|------|------|----------|--------|------|
+| [Fence](../quests/fence.md) | 这是什么梗？ | 放置物品 | 14 | 在工厂消防员烧书取乐处安装WI-FI摄像头 |
+| [Jaeger](../quests/jaeger.md) | 幽闭恐惧症 | 击杀／射击 | 9 | 在工厂的老旧地下通道内消灭任意目标 |
+| [Jaeger](../quests/jaeger.md) | 猎人必修课 | 到访 | 2 | 在工厂需要破门的位置找到合适的绊线布设点位 |
+| [Mechanic](../quests/mechanic.md) | 侦查 | 到访 | 8 | 找到第一个工厂撤离点 |
+| [Mechanic](../quests/mechanic.md) | 化工厂的秘密 | 放置任务物品 | 2 | 在工厂的实验室储藏间藏匿精密工具 |
+| [Mechanic](../quests/mechanic.md) | 投机第一步 | 放置物品 | 8 | 在工厂使用一套工具修复第一块控制面板 |
+| [Mechanic](../quests/mechanic.md) | 黑天鹅计划 | 标记 | 6 | 在工厂使用 MS2000 指示器标记任意一个热交换器 |
+| [Prapor](../quests/prapor.md) | 往事速递 | 放置任务物品 | 2 | 将包裹藏匿在工厂 3 号门旁的二层铁皮休息室内 |
+| [Prapor](../quests/prapor.md) | 忠实观众 | 放置物品 | 1 | 在工厂的办公区走廊处安装WI-FI摄像头 |
+| [Prapor](../quests/prapor.md) | 罪证 | 到访 | 2 | 设法进入工厂办公区三楼的上锁房间 |
+| [Skier](../quests/skier.md) | 一报还一报 | 放置物品 | 1 | 在工厂 Prapor 安放 WI-FI 摄像头的地点藏匿金公鸡雕像 |
+| [Skier](../quests/skier.md) | 隔墙有“眼” | 放置物品 | 6 | 在工厂的第一个起重机驾驶室内安装WI-FI摄像头 |
+| [Therapist](../quests/therapist.md) | 医疗隐私 - 5 | 到访 | 8 | 在夜间工厂找到交货点 |
+| [Therapist](../quests/therapist.md) | 卫生标准 | 放置物品 | 2 | 在日间工厂的医学实验室内藏匿气体分析仪 |
+
+## 🧭 怎么用这张图
+
+| 操作 | 结果 |
+|------|------|
+| 滚轮 / 放大缩小按钮 | 缩放（以指针位置为中心）；按住拖动平移 |
+| 单击任务区域 | 只显示这一个任务，下方弹出信息卡 |
+| 双击任务区域 | 打开任务详情 |
+| 图层按钮 | 撤离点 / 转场点 / 上锁 / 危险区，各自可开关 |
+| 测距 | 点两个点量**直线**距离（米） |
+| 全屏 | 铺满屏幕看细节 |
+
+> 完整说明（图例、数据来源、许可与边界）见[交互地图总览](index.md)。
+
+## 🔗 相关条目
+
+- [工厂](../entries/factory.md) — 本页底图对应的定性条目
+- [撤离点详解](../entries/extraction-points.md) — 各图撤离条件
+- [地图对照速查](../docs/map-guide.md) — 13 张图的横向对照
+- [交互地图总览](index.md) — 回到总览与图例
+
+## 📚 所有条目
+
+📖 [查看全部 88 个条目](../entries/index.md)
+
+⬆️ **[回到顶部](#top)**
+
+**最后更新**: 2026年10月<br>
+**贡献者**: GTX950L<br>
+**底图署名**: Shebuka / the-hideout/tarkov-dev-svg-maps（CC BY-NC-SA 4.0）<br>
+**License**: CC BY-NC-SA 4.0

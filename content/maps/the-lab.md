@@ -1,0 +1,68 @@
+---
+tags:
+  - 地图
+  - 速查
+---
+# 实验室 · 交互地图
+
+> 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH） ｜ 底图来源：社区开源项目 the-hideout/tarkov-dev-svg-maps（作者 Shebuka，[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)，与本站正文同许可）
+
+<a id="top"></a>
+
+> 高投入高回报，入场要钥匙卡，Boss 密度全站最高。定性分析与打法见[实验室](../entries/labs.md)。
+
+<div id="tk-map" data-map="the-lab">交互地图加载中…（首次打开需要下载底图）<noscript>当前浏览器未启用 JavaScript，交互地图无法显示 —— 但下面那张「这张图上的任务」表是完整的，不开脚本也能读。</noscript></div>
+
+## 📊 这张图的数据
+
+| 项 | 数量 |
+|----|------|
+| 地名锚点 | 31 |
+| 任务目标区域 | 9 |
+| 涉及任务 | 4 |
+| 撤离点 | 7 |
+| 转场点 | 1 |
+| 上锁位置 | 17 |
+| 楼层 | 2 |
+
+## 🎯 这张图上的任务（4 个）
+
+> **交互地图里可以「只看未完成」**——它读的是你[我的进度](../quests/progress.md)里的记录。下面这张表是给不开脚本、或地图没加载出来时用的。
+
+| 商人 | 任务 | 目标类型 | 区域数 | 目标 |
+|------|------|----------|--------|------|
+| [Lightkeeper](../quests/lightkeeper.md) | 按图索骥 | 到访 | 2 | 搜索实验室的武器测试区域 |
+| [Peacekeeper](../quests/peacekeeper.md) | TerraGroup 雇员 | 到访 | 1 | 在实验室找到 Sanitar 的工作室 |
+| [Therapist](../quests/therapist.md) | 医疗隐私 - 6 | 放置任务物品 | 2 | 在实验室将血液样本藏匿在 Sanitar 的办公室里 |
+| [Therapist](../quests/therapist.md) | 街区之下 | 到访 | 4 | 在同场战局中侦查实验室的服务器机房 |
+
+## 🧭 怎么用这张图
+
+| 操作 | 结果 |
+|------|------|
+| 滚轮 / 放大缩小按钮 | 缩放（以指针位置为中心）；按住拖动平移 |
+| 单击任务区域 | 只显示这一个任务，下方弹出信息卡 |
+| 双击任务区域 | 打开任务详情 |
+| 图层按钮 | 撤离点 / 转场点 / 上锁 / 危险区，各自可开关 |
+| 测距 | 点两个点量**直线**距离（米） |
+| 全屏 | 铺满屏幕看细节 |
+
+> 完整说明（图例、数据来源、许可与边界）见[交互地图总览](index.md)。
+
+## 🔗 相关条目
+
+- [实验室](../entries/labs.md) — 本页底图对应的定性条目
+- [撤离点详解](../entries/extraction-points.md) — 各图撤离条件
+- [地图对照速查](../docs/map-guide.md) — 13 张图的横向对照
+- [交互地图总览](index.md) — 回到总览与图例
+
+## 📚 所有条目
+
+📖 [查看全部 88 个条目](../entries/index.md)
+
+⬆️ **[回到顶部](#top)**
+
+**最后更新**: 2026年10月<br>
+**贡献者**: GTX950L<br>
+**底图署名**: Shebuka / the-hideout/tarkov-dev-svg-maps（CC BY-NC-SA 4.0）<br>
+**License**: CC BY-NC-SA 4.0

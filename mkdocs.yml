@@ -280,4 +280,17 @@ nav:
           - 贡献指南: CONTRIBUTING.md
           - 待收录清单: docs/roadmap.md
       - 第十二篇 · 交互地图:
-          - 地图工具与海关: maps/index.md
+          - 总览与用法: maps/index.md
+          - 海关: maps/customs.md
+          - 工厂: maps/factory.md
+          - 中心区: maps/ground-zero.md
+          - 森林: maps/woods.md
+          - 立交桥: maps/interchange.md
+          - 储备站: maps/reserve.md
+          - 海岸线: maps/shoreline.md
+          - 灯塔: maps/lighthouse.md
+          - 街区: maps/streets-of-tarkov.md
+          - 终点站: maps/terminal.md
+          - 破冰船: maps/icebreaker.md
+          - 实验室: maps/the-lab.md
+          - 迷宫: maps/the-labyrinth.md

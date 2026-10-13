@@ -1,0 +1,87 @@
+---
+tags:
+  - 地图
+  - 速查
+---
+# 灯塔 · 交互地图
+
+> 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH） ｜ 底图来源：社区开源项目 the-hideout/tarkov-dev-svg-maps（作者 Shebuka，[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)，与本站正文同许可）
+
+<a id="top"></a>
+
+> 水资源与军用设施并存，Boss 机制特殊。定性分析与打法见[灯塔](../entries/lighthouse.md)。
+
+<div id="tk-map" data-map="lighthouse">交互地图加载中…（首次打开需要下载底图）<noscript>当前浏览器未启用 JavaScript，交互地图无法显示 —— 但下面那张「这张图上的任务」表是完整的，不开脚本也能读。</noscript></div>
+
+## 📊 这张图的数据
+
+| 项 | 数量 |
+|----|------|
+| 地名锚点 | 22 |
+| 任务目标区域 | 44 |
+| 涉及任务 | 22 |
+| 撤离点 | 12 |
+| 转场点 | 4 |
+| 上锁位置 | 26 |
+| 危险区 | 116 |
+| 楼层 | 1 |
+
+## 🎯 这张图上的任务（22 个）
+
+> **交互地图里可以「只看未完成」**——它读的是你[我的进度](../quests/progress.md)里的记录。下面这张表是给不开脚本、或地图没加载出来时用的。
+
+| 商人 | 任务 | 目标类型 | 区域数 | 目标 |
+|------|------|----------|--------|------|
+| [BTR 司机](../quests/btr-driver.md) | 投石问路 | 标记 | 4 | 在灯塔找到峭壁通路的第一段，并使用 MS2000 指示器标记 |
+| [BTR 司机](../quests/btr-driver.md) | 拯救大兵罗曼 | 标记 | 1 | 在灯塔使用 MS2000 指示器标记前往森林的转移点 |
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 使用物品 | 2 | 在灯塔火车站仓库发射一枚黄色信号弹 |
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 使用物品 | 2 | 在灯塔火车站仓库发射一枚黄色信号弹 |
+| [Fence](../quests/fence.md) | 这是什么梗？ | 放置物品 | 4 | 在灯塔你的朋友 Wilson 处安装 WI-FI 摄像头 |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 管理者 | 使用物品 | 2 | 在灯塔火车站发射一枚黄色信号弹 |
+| [Jaeger](../quests/jaeger.md) | 隐士 | 到访 | 1 | 在灯塔找到Jaeger朋友的藏身处 |
+| [Mechanic](../quests/mechanic.md) | 直播 - 1 | 到访 | 2 | 在灯塔找到隐蔽的录制室 |
+| [Mechanic](../quests/mechanic.md) | 能源危机 | 标记 | 4 | 在灯塔找到一组油罐，并使用MS2000指示器标记 |
+| [Peacekeeper](../quests/peacekeeper.md) | 人口过剩 | 击杀／射击 | 1 | 在灯塔度假村区域消灭任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 无中生有 - 灯塔 | 标记 | 4 | 在灯塔找到第一辆BRDM装甲车，并使用MS2000指示器标记 |
+| [Peacekeeper](../quests/peacekeeper.md) | 来自塔科夫的礼物 | 标记 | 1 | 在灯塔的海边找到TerraGroup的货物 |
+| [Prapor](../quests/prapor.md) | 小菜一碟 | 到访 | 3 | 在灯塔的污水处理厂找到直升机 |
+| [Prapor](../quests/prapor.md) | 小菜一碟 - 2 | 击杀／射击 | 1 | 消灭灯塔污水处理厂直升机周围的任意敌人 |
+| [Prapor](../quests/prapor.md) | 踩点行动 | 到访 | 1 | 前往灯塔，调查污水处理厂任意一座厂房建筑的屋顶 |
+| [Skier](../quests/skier.md) | 一派胡言 | 放置物品 | 3 | 将 AXMC 狙击步枪藏匿在灯塔度假村网球场的垃圾堆内 |
+| [Skier](../quests/skier.md) | 失踪货物 | 到访 | 1 | 在灯塔找到失事的直升机 |
+| [Skier](../quests/skier.md) | 头号机密 | 到访 | 1 | 在灯塔找到雷达站指挥员的办公室 |
+| [Skier](../quests/skier.md) | 转口贸易 | 放置物品 | 2 | 将 Virtex 可编程处理器藏匿在灯塔简易实验室内 |
+| [Skier](../quests/skier.md) | 长路漫漫 | 击杀／射击 | 1 | 消灭灯塔或海岸线海边与主路上的 Scav |
+| [Therapist](../quests/therapist.md) | 消失的线人 | 到访 | 1 | 在灯塔度假村区域找到失踪的小队 |
+| [Therapist](../quests/therapist.md) | 缉毒行动 | 到访 | 2 | 在灯塔找到隐蔽的毒品实验室 |
+
+## 🧭 怎么用这张图
+
+| 操作 | 结果 |
+|------|------|
+| 滚轮 / 放大缩小按钮 | 缩放（以指针位置为中心）；按住拖动平移 |
+| 单击任务区域 | 只显示这一个任务，下方弹出信息卡 |
+| 双击任务区域 | 打开任务详情 |
+| 图层按钮 | 撤离点 / 转场点 / 上锁 / 危险区，各自可开关 |
+| 测距 | 点两个点量**直线**距离（米） |
+| 全屏 | 铺满屏幕看细节 |
+
+> 完整说明（图例、数据来源、许可与边界）见[交互地图总览](index.md)。
+
+## 🔗 相关条目
+
+- [灯塔](../entries/lighthouse.md) — 本页底图对应的定性条目
+- [撤离点详解](../entries/extraction-points.md) — 各图撤离条件
+- [地图对照速查](../docs/map-guide.md) — 13 张图的横向对照
+- [交互地图总览](index.md) — 回到总览与图例
+
+## 📚 所有条目
+
+📖 [查看全部 88 个条目](../entries/index.md)
+
+⬆️ **[回到顶部](#top)**
+
+**最后更新**: 2026年10月<br>
+**贡献者**: GTX950L<br>
+**底图署名**: Shebuka / the-hideout/tarkov-dev-svg-maps（CC BY-NC-SA 4.0）<br>
+**License**: CC BY-NC-SA 4.0

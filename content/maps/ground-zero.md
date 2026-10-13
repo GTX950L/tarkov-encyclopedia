@@ -1,0 +1,75 @@
+---
+tags:
+  - 地图
+  - 速查
+---
+# 中心区 · 交互地图
+
+> 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH） ｜ 底图来源：社区开源项目 the-hideout/tarkov-dev-svg-maps（作者 Shebuka，[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)，与本站正文同许可）
+
+<a id="top"></a>
+
+> 新手图，但终盘有高等级刷怪区。定性分析与打法见[中心区](../entries/ground-zero.md)。
+
+<div id="tk-map" data-map="ground-zero">交互地图加载中…（首次打开需要下载底图）<noscript>当前浏览器未启用 JavaScript，交互地图无法显示 —— 但下面那张「这张图上的任务」表是完整的，不开脚本也能读。</noscript></div>
+
+## 📊 这张图的数据
+
+| 项 | 数量 |
+|----|------|
+| 地名锚点 | 13 |
+| 任务目标区域 | 33 |
+| 涉及任务 | 10 |
+| 撤离点 | 15 |
+| 转场点 | 2 |
+| 上锁位置 | 8 |
+| 危险区 | 18 |
+| 楼层 | 5 |
+
+## 🎯 这张图上的任务（10 个）
+
+> **交互地图里可以「只看未完成」**——它读的是你[我的进度](../quests/progress.md)里的记录。下面这张表是给不开脚本、或地图没加载出来时用的。
+
+| 商人 | 任务 | 目标类型 | 区域数 | 目标 |
+|------|------|----------|--------|------|
+| [Fence](../quests/fence.md) | 这是什么梗？ | 放置物品 | 6 | 在中心区虎胆龙威一展身手处安装 WI-FI 摄像头 |
+| [Jaeger](../quests/jaeger.md) | 危机四伏塔科夫 | 到访 | 2 | 在中心区找到阔剑地雷 |
+| [Mechanic](../quests/mechanic.md) | 大海捞针 | 到访 | 2 | 在中心区调查调查 TerraGroup 总部门前的公园 |
+| [Mechanic](../quests/mechanic.md) | 影子雇员 | 到访 | 2 | 在中心区找到 Knossos LLC 高级经理的轿车 |
+| [Mechanic](../quests/mechanic.md) | 救援行动 | 到访 | 6 | 获得钥匙并进入科学家办公室 |
+| [Peacekeeper](../quests/peacekeeper.md) | 新路线，新机遇 | 到访 | 4 | 在同场战局中侦察中心区 Mira 大道和高架路的交汇路口 |
+| [Prapor](../quests/prapor.md) | 奢靡人生 | 到访 | 3 | 在中心区找到酒商店 |
+| [Prapor](../quests/prapor.md) | 打靶训练 | 到访 | 4 | 在中心区找到 KORD Utyos 机枪 |
+| [Ref](../quests/ref.md) | 声东击西 - 1（PVP） | 放置物品 | 2 | 在中心区区域的咖啡馆二楼安放TP-200 砖型TNT |
+| [Therapist](../quests/therapist.md) | 新手上路 | 到访 | 2 | 在中心区找到 Emercom 站点 |
+
+## 🧭 怎么用这张图
+
+| 操作 | 结果 |
+|------|------|
+| 滚轮 / 放大缩小按钮 | 缩放（以指针位置为中心）；按住拖动平移 |
+| 单击任务区域 | 只显示这一个任务，下方弹出信息卡 |
+| 双击任务区域 | 打开任务详情 |
+| 图层按钮 | 撤离点 / 转场点 / 上锁 / 危险区，各自可开关 |
+| 测距 | 点两个点量**直线**距离（米） |
+| 全屏 | 铺满屏幕看细节 |
+
+> 完整说明（图例、数据来源、许可与边界）见[交互地图总览](index.md)。
+
+## 🔗 相关条目
+
+- [中心区](../entries/ground-zero.md) — 本页底图对应的定性条目
+- [撤离点详解](../entries/extraction-points.md) — 各图撤离条件
+- [地图对照速查](../docs/map-guide.md) — 13 张图的横向对照
+- [交互地图总览](index.md) — 回到总览与图例
+
+## 📚 所有条目
+
+📖 [查看全部 88 个条目](../entries/index.md)
+
+⬆️ **[回到顶部](#top)**
+
+**最后更新**: 2026年10月<br>
+**贡献者**: GTX950L<br>
+**底图署名**: Shebuka / the-hideout/tarkov-dev-svg-maps（CC BY-NC-SA 4.0）<br>
+**License**: CC BY-NC-SA 4.0

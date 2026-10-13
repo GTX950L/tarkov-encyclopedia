@@ -38,6 +38,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 import sys
 import urllib.request
@@ -75,6 +76,8 @@ OUT_JS = ROOT / "content" / "javascripts" / "maps-data.js"
 # ─────────────────────────────────────────────────────────────────────────────
 QUESTS_SRC = "https://json.tarkov.dev/regular/tasks"
 ZONES_CACHE = ROOT / "scripts" / "data" / "quest_zones.json"
+# 瓦片拼合图的产物描述（由 build_tile_maps.py 写）
+TILE_CACHE = ROOT / "scripts" / "data" / "tile_maps.json"
 LOCAL_QUESTS = ROOT / "scripts" / "data" / "quests.json"
 
 # 上游地图 id → 本站 maps.json 的 key。
@@ -95,6 +98,9 @@ MAP_ID_TO_KEY: dict[str, str] = {
     "65b8d6f5cdde2479cb2a3125": "ground-zero",
     "68236e8153654e8c1200798a": "ground-zero",
     "65cc8f81a9aac3e77d0cfd3e": "terminal",
+    "69af492a4819ea4ba10a69c5": "icebreaker",   # 瓦片拼合
+    "6733700029c367a3d40b02af": "the-labyrinth",  # 瓦片拼合
+
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -128,6 +134,9 @@ MAP_ZH = {
     "ground-zero": "中心区",
     "the-lab": "实验室",
     "terminal": "终点站",
+    "icebreaker": "破冰船",
+    "the-labyrinth": "迷宫",
+
 }
 
 FACTION_ZH = {"pmc": "PMC", "scav": "Scav", "shared": "共用"}
@@ -276,6 +285,10 @@ LABELS_ZH: dict[str, dict[str, str]] = {
 # **注意区分 `Ground`（地面材质层，class="land"）与 `Ground_Level`（楼层容器）** ——
 # 前者不是楼层，加进这个表会让「地面」按钮把地形整个关掉。
 FLOOR_ZH: dict[str, str] = {
+    # 瓦片拼合图的层（实验室两层）—— 由 build_tile_maps.py 写在包装 SVG 的 <g id>
+    "1st": "1 层",
+    "2nd": "2 层",
+
     "Ground_Level": "地面",
     "Underground_Level": "地下",
     "First_Floor": "1 层",
@@ -306,6 +319,9 @@ ENTRY_OF: dict[str, str] = {
     "streets-of-tarkov": "entries/streets.md",
     "the-lab": "entries/labs.md",
     "terminal": "entries/terminal.md",
+    "icebreaker": "entries/icebreaker.md",
+    "the-labyrinth": "entries/labyrinth.md",
+
 }
 
 
@@ -581,12 +597,76 @@ def restyle(svg_text: str, key: str) -> str:
 # #Gas_Station 两个具名图层做锚点反推验证：偏差 1.5–3.4%，方向一致（属边界留白的
 # 系统性偏差）。**改动此公式前必须重跑锚点自检**，见 scripts/check_map_projection.py。
 def project(x: float, z: float, meta: dict) -> tuple[float, float]:
+    """世界 (x, z) → 底图像素（SVG 或拼合后的瓦片图，同一套公式）。
+
+    **这是全站唯一一处坐标换算，改动前必读。**
+
+    来自上游 `src/pages/map/index.jsx` 的 Leaflet CRS：旋转是**绕原点**做的，
+    之后才是 `L.Transformation` 的缩放平移：
+
+        rotatedX = x·cosθ − z·sinθ
+        rotatedY = x·sinθ + z·cosθ
+        layerX   = a·rotatedX + b        a = transform[0], b = transform[1]
+        layerY   = c'·rotatedY + d       c' = −transform[2], d = transform[3]
+
+    把 bounds 四角换算成 layer 点取包围盒，再归一化到 [0,1]，最后铺到 viewBox 上。
+
+    ⚠️ **一个曾长期存在的错误**：本站早先用的是「x 取反、z 不取反」的简化公式。
+    它对 `rotation = 180` 的图恰好等价（因为 180° 正好把两轴同时翻转），
+    但 **rotation = 90 时轴是互换的** —— 于是**工厂图的标注一直是错的**
+    （2026-10-14 用「底图宽高比 vs 变换框宽高比」判据查出来的：
+    通用公式给出 0.926，与 Factory.svg 的宽高比精确相等；旧公式给出 1.080）。
+    90/270 的图（工厂、实验室、迷宫）必须走通用公式。
+    """
     bounds = meta["bounds"]
-    vb = meta["viewBox"]  # [minX, minY, w, h]
-    x_max, z_min = bounds[0][0], bounds[0][1]
-    span_x = bounds[0][0] - bounds[1][0]
-    span_z = bounds[1][1] - bounds[0][1]
-    return ((x_max - x) / span_x * vb[2], (z - z_min) / span_z * vb[3])
+    vb = meta["viewBox"]                     # [x0, y0, w, h]
+    tf = meta["transform"]
+    rot = math.radians(meta.get("coordinateRotation") or 0)
+    a, b, c, d = tf[0], tf[1], -(tf[2]), tf[3]
+    xmax, zmin = bounds[0][0], bounds[0][1]
+    xmin, zmax = bounds[1][0], bounds[1][1]
+
+    def layer_pt(wx: float, wz: float) -> tuple[float, float]:
+        rx = wx * math.cos(rot) - wz * math.sin(rot)
+        ry = wx * math.sin(rot) + wz * math.cos(rot)
+        return (a * rx + b, c * ry + d)
+
+    cs = [layer_pt(wx, wz) for wx in (xmin, xmax) for wz in (zmin, zmax)]
+    mnx, mxx = min(p[0] for p in cs), max(p[0] for p in cs)
+    mny, mxy = min(p[1] for p in cs), max(p[1] for p in cs)
+    px, py = layer_pt(x, z)
+    u = (px - mnx) / (mxx - mnx)
+    v = (py - mny) / (mxy - mny)
+    return (vb[0] + u * vb[2], vb[1] + v * vb[3])
+
+
+def mpp_of(meta: dict, view_box: list[float], grid: int | None = None) -> list[float]:
+    """每像素代表多少世界单位（底图的 u / v 两个方向）—— 测距用。
+
+    像素轴就是 layer 轴（旋转是正交变换、保长），所以「一格像素跨多少 layer 单位」
+    除以变换比例即得。**两个方向分开算、不取平均** —— bounds 与底图的宽高比本就
+    有微差（就是锚点自检里那 1.5–3.4% 的来源），取平均会让测距在两个方向各偏一点。
+
+    `grid`：瓦片拼合图的网格边长（像素）；SVG 图传 None（用 viewBox 宽度）。
+    """
+    b = meta["bounds"]
+    tf = meta["transform"]
+    rot = math.radians(meta.get("coordinateRotation") or 0)
+    a, c = abs(tf[0]), abs(tf[2])
+    xmax, zmin = b[0][0], b[0][1]
+    xmin, zmax = b[1][0], b[1][1]
+
+    def layer_pt(wx, wz):
+        rx = wx * math.cos(rot) - wz * math.sin(rot)
+        ry = wx * math.sin(rot) + wz * math.cos(rot)
+        return (tf[0] * rx + tf[1], -(tf[2]) * ry + tf[3])
+
+    cs = [layer_pt(wx, wz) for wx in (xmin, xmax) for wz in (zmin, zmax)]
+    span_u = max(p[0] for p in cs) - min(p[0] for p in cs)
+    span_v = max(p[1] for p in cs) - min(p[1] for p in cs)
+    px_u = grid if grid else view_box[2]
+    px_v = grid if grid else view_box[3]
+    return [round(span_u / (a * px_u), 6), round(span_v / (c * px_v), 6)]
 
 
 VIEWBOX_RE = re.compile(r'viewBox="([\d.\s\-]+)"')
@@ -635,15 +715,36 @@ def build_maps(data: list) -> dict:
         else {"maps": {}}
     )
 
-    out: dict[str, dict] = {}
+    # 瓦片拼合图（破冰船 / 实验室 / 迷宫）：底图由 build_tile_maps.py 产出，
+    # **不进换肤流程** —— 色彩在拼合时已按浅色主题处理过了。
+    tile_cfg = (
+        json.loads(TILE_CACHE.read_text(encoding="utf-8")) if TILE_CACHE.exists() else {}
+    )
+    jobs: list[tuple[str, dict, str, str | None]] = []
     for key, meta in sorted(by_key.items()):
-        raw_path = RAW_DIR / Path(meta["svgPath"]).name
-        if not raw_path.exists():
-            raise SystemExit(
-                f"[错误] 缺原始 SVG：{raw_path.relative_to(ROOT)} —— 先跑 --fetch"
-            )
-        raw_text = raw_path.read_text(encoding="utf-8")
-        styled = restyle(raw_text, key)
+        jobs.append((key, meta, "svg", None))
+    for key, tinfo in sorted(tile_cfg.items()):
+        meta = by_key.get(key) or next(
+            (m for g in data for m in g.get("maps", []) if m.get("key") == key), {}
+        )
+        if meta:
+            jobs.append((key, meta, "tile", tinfo["svg"]))
+
+    out: dict[str, dict] = {}
+    for key, meta, kind, tile_svg in jobs:
+        grid_px: int | None = None
+        if kind == "tile":
+            styled = (SVG_DIR / tile_svg).read_text(encoding="utf-8")
+            raw_path = Path(tile_svg)
+            grid_px = tile_cfg[key]["grid"]
+        else:
+            raw_path = RAW_DIR / Path(meta["svgPath"]).name
+            if not raw_path.exists():
+                raise SystemExit(
+                    f"[错误] 缺原始 SVG：{raw_path.relative_to(ROOT)} —— 先跑 --fetch"
+                )
+            raw_text = raw_path.read_text(encoding="utf-8")
+            styled = restyle(raw_text, key)
 
         vb = VIEWBOX_RE.search(styled)
         if not vb:
@@ -657,15 +758,16 @@ def build_maps(data: list) -> dict:
         # 图层：只留上游 <g id="..."> 里的顶层结构名（楼层 / 语义层）
         layers = LAYER_RE.findall(styled)
 
-        SVG_DIR.mkdir(parents=True, exist_ok=True)
-        (SVG_DIR / raw_path.name).write_text(styled, encoding="utf-8")
+        if kind == "svg":
+            SVG_DIR.mkdir(parents=True, exist_ok=True)
+            (SVG_DIR / raw_path.name).write_text(styled, encoding="utf-8")
 
         zh = LABELS_ZH.get(key, {})
         labels = []
         for lb in meta.get("labels") or []:
             en = lb["text"]
             pos = lb["position"]
-            x, y = project(pos[0], pos[1], {"bounds": meta["bounds"], "viewBox": view_box})
+            x, y = project(pos[0], pos[1], {**meta, "viewBox": view_box})
             labels.append(
                 {
                     "en": en,
@@ -678,7 +780,9 @@ def build_maps(data: list) -> dict:
         # ── 任务点位：把世界坐标 box 投影成像素矩形 ──
         #    坐标↔像素的翻转与 labels 同一条公式；投影后要**重取 min/max**，
         #    因为公式里 x 是反向的（x 大 → 像素 x 小），直接用原顺序会得到负宽度。
-        pmeta = {"bounds": meta["bounds"], "viewBox": view_box}
+        # 投影要用到 bounds / transform / rotation 三件，**不能只传 bounds** ——
+        # 旋转感知的公式需要后两者（见 project() 的说明）。
+        pmeta = {**meta, "viewBox": view_box}
         quest_zones: list[dict] = []
         for z in zc["zones"]:
             if MAP_ID_TO_KEY.get(z["map"]) != key:
@@ -758,15 +862,14 @@ def build_maps(data: list) -> dict:
 
         out[key] = {
             "nameEn": meta.get("normalizedName") or key,
+            "kind": kind,
             "svg": raw_path.name,
             "viewBox": [round(v, 2) for v in view_box],
-            # 每像素代表多少米（x / z 各一个）—— 测距用。
-            # 注意 x 与 z 的比例尺**不相等**（bounds 与 viewBox 的宽高比有微差，
-            # 就是锚点自检里那 1.5–3.4% 的来源），所以两个都存，别取平均。
-            "mpp": [
-                round((meta["bounds"][0][0] - meta["bounds"][1][0]) / view_box[2], 5),
-                round((meta["bounds"][1][1] - meta["bounds"][0][1]) / view_box[3], 5),
-            ],
+            # 每像素代表多少世界单位（底图的 u / v 两个方向）—— 测距用。
+            # 通用算法：像素轴就是 layer 轴（旋转是正交的，保长），
+            # 所以「一个像素跨多少 layer 单位」÷「变换比例」即得。
+            # **不取平均**：两个方向的尺度本就不等（bounds 与 viewBox 的宽高比有微差）。
+            "mpp": mpp_of(meta, view_box, grid_px),
             "floors": _floors(layers),
             "layers": layers,
             "labels": labels,

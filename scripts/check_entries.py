@@ -46,7 +46,11 @@ REQUIRED_SECTIONS = [
     "[回到顶部](#top)",
 ]
 
-LINK_RE = re.compile(r"\[[^\]]*\]\(([^)#]+?)(?:#[^)]*)?\)")
+# 链接目标：截到 # 或 ? 为止 —— **带 query 的链接也算合法**。
+# 站内有一类页面是「一个页面按 id 渲染」（`/quests/quest/?id=…`、`/catalog/item/?id=…`），
+# 校验器原先只认 `#`，于是把这批链接全判成断链。**带 query 的链接指向的是同一个文件**，
+# 路径能不能解析与 query 无关 —— 所以这里把 `?` 也作为截断符。
+LINK_RE = re.compile(r"\[[^\]]*\]\(([^)#?]+?)(?:[#?][^)]*)?\)")
 COUNT_RE = re.compile(r"查看全部 (\d+) 个条目")
 CN_CHAR = re.compile(r"[\u4e00-\u9fff]")
 TAG_LINE = re.compile(r"^\s*-\s*(.+?)\s*$")

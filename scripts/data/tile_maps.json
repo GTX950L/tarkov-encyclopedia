@@ -1,0 +1,133 @@
+{
+ "icebreaker": {
+  "out": "Icebreaker.webp",
+  "svg": "Icebreaker.svg",
+  "floors": [
+   "06_infirmary"
+  ],
+  "files": [
+   "Icebreaker.webp"
+  ],
+  "grid": 4096,
+  "zoom": 4,
+  "crop": [
+   1636,
+   223,
+   2460,
+   4091
+  ],
+  "size": [
+   824,
+   3868
+  ],
+  "bounds": [
+   [
+    77,
+    -64.5
+   ],
+   [
+    -65.5,
+    67.4
+   ]
+  ],
+  "transform": [
+   2.0,
+   125.0,
+   3.5,
+   91.0
+  ],
+  "rotation": 180,
+  "mpp": [
+   0.03125,
+   0.017857
+  ]
+ },
+ "the-lab": {
+  "out": "Labs.webp",
+  "svg": "Labs.svg",
+  "floors": [
+   "1st",
+   "2nd"
+  ],
+  "files": [
+   "Labs.webp",
+   "Labs_2nd.webp"
+  ],
+  "grid": 4096,
+  "zoom": 4,
+  "crop": [
+   141,
+   721,
+   3930,
+   3444
+  ],
+  "size": [
+   3789,
+   2723
+  ],
+  "bounds": [
+   [
+    -80,
+    -477
+   ],
+   [
+    -287,
+    -193
+   ]
+  ],
+  "transform": [
+   0.575,
+   281.2,
+   0.575,
+   193.7
+  ],
+  "rotation": 270,
+  "mpp": [
+   0.108696,
+   0.108696
+  ]
+ },
+ "the-labyrinth": {
+  "out": "Labyrinth.webp",
+  "svg": "Labyrinth.svg",
+  "floors": [
+   "main"
+  ],
+  "files": [
+   "Labyrinth.webp"
+  ],
+  "grid": 2048,
+  "zoom": 3,
+  "crop": [
+   66,
+   152,
+   1961,
+   1908
+  ],
+  "size": [
+   1895,
+   1756
+  ],
+  "bounds": [
+   [
+    -52,
+    -37
+   ],
+   [
+    53,
+    76
+   ]
+  ],
+  "transform": [
+   2.115,
+   85.5,
+   2.115,
+   128.0
+  ],
+  "rotation": 270,
+  "mpp": [
+   0.059102,
+   0.059102
+  ]
+ }
+}
