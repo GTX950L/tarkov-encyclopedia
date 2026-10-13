@@ -166,8 +166,13 @@
     svg.addEventListener("pointerup", endDrag);
     svg.addEventListener("pointercancel", endDrag);
 
-    /* 点空白处 = 取消选中（点任务区域时会被 stopPropagation 挡掉） */
+    /* 点空白处 = 取消选中；**测距模式下则记一个点**（点任务区域时会被 stopPropagation 挡掉） */
     svg.addEventListener("click", function (e) {
+      if (rulerOn) {
+        var p = svgPoint(e);
+        addRulerPt(p[0], p[1]);
+        return;
+      }
       if (e.target === svg) selectTask(null);
     });
 
@@ -188,6 +193,22 @@
       });
     }
     if (floorGroups.length) showFloor(floorGroups[0].id);
+
+    /* ── 危险区（**最底层**：它是大面积多边形，画在任何东西下面都最合适）── */
+    var hazLayer = el("g", { class: "tk-map__hazards" });
+    (data.hazards || []).forEach(function (h) {
+      var poly = el("polygon", {
+        points: h.pts
+          .map(function (q) {
+            return q[0] + "," + q[1];
+          })
+          .join(" "),
+        class: "tk-hz",
+      });
+      poly.appendChild(el("title", {}, h.tzh));
+      hazLayer.appendChild(poly);
+    });
+    if (hazLayer.children.length) svg.appendChild(hazLayer);
 
     /* ── 任务点位层（zones）──
        放在地名点**之下**：任务区域是大面积半透明矩形，压在地名上会盖住字。
@@ -212,6 +233,9 @@
       tip += "\n单击=只看这个任务，双击=打开任务详情";
       r.appendChild(el("title", {}, tip));
       r.addEventListener("click", function (e) {
+        /* 测距模式下点在任务区域上也算「取一个点」—— 否则盖在区域上的目标量不了。
+           这里**不** stopPropagation，让事件冒到 svg 由测距逻辑接住。 */
+        if (rulerOn) return;
         e.stopPropagation(); // 别让「点空白处取消选中」把它一起清掉
         selectTask(z.q);
       });
@@ -370,6 +394,45 @@
     });
     svg.appendChild(pins);
 
+    /* ── 上锁：方块 + 点击查钥匙 ──
+       钥匙 id 是 tarkov.dev 的物品 id，**与站内物品图鉴同一套键** —— 直接链过去，
+       不另建映射。这条链接是这一层真正的价值：它把「这里有扇门」接到「要哪把钥匙」。 */
+    var lockLayer = el("g", { class: "tk-map__locks" });
+    (data.locks || []).forEach(function (lk) {
+      var g = el("g", {
+        class: "tk-lk",
+        transform: "translate(" + lk.p[0] + "," + lk.p[1] + ")",
+      });
+      g.appendChild(el("rect", { x: -4.2, y: -4.2, width: 8.4, height: 8.4, rx: 1.6 }));
+      var tip = lk.tzh + (lk.pw ? "（需要供电）" : "");
+      tip += lk.k ? "\n需要钥匙 —— 点击查看这件钥匙" : "\n无需钥匙";
+      g.appendChild(el("title", {}, tip));
+      if (lk.k) {
+        g.style.cursor = "pointer";
+        g.addEventListener("click", function (e) {
+          e.stopPropagation();
+          location.href = siteRoot() + "catalog/item/?id=" + encodeURIComponent(lk.k);
+        });
+      }
+      lockLayer.appendChild(g);
+    });
+    if (lockLayer.children.length) svg.appendChild(lockLayer);
+
+    /* ── 撤离点：方块 + 按阵营分色 ──
+       上游的 faction 只有 pmc / scav / shared 三种，**照实呈现**，
+       不在这里推断「PMC 到底能不能用」—— 那要看站内撤离点条目的条件表。 */
+    var exLayer = el("g", { class: "tk-map__extracts" });
+    (data.extracts || []).forEach(function (e) {
+      var g = el("g", {
+        class: "tk-ex tk-ex--" + (e.f || "shared"),
+        transform: "translate(" + e.p[0] + "," + e.p[1] + ")",
+      });
+      g.appendChild(el("rect", { x: -5, y: -5, width: 10, height: 10, rx: 1.2 }));
+      g.appendChild(el("title", {}, e.fzh + " 撤离点\n" + e.n));
+      exLayer.appendChild(g);
+    });
+    if (exLayer.children.length) svg.appendChild(exLayer);
+
     /* ── 控件 ── */
     var bar = document.createElement("div");
     bar.className = "tk-map__bar";
@@ -447,6 +510,97 @@
       applyQzFilter(); // 初始化：同时把计数与「已完成」标记填上
     }
 
+    /* ── 测距：点两点量直线距离 ──
+       距离用**世界坐标**算：像素差 × 每像素米数（`mpp`，生成器按 bounds 与
+       viewBox 算出）。x 与 z 的比例尺**不同**，所以两个方向分别乘、不能取平均。
+       ⚠️ 标的是**直线距离**，不是走路距离 —— 站内没有路网数据，
+       说「走过去 200 米」是不诚实的。 */
+    var rulerOn = false;
+    var rulerPts = [];
+    var rulerTip = null; // 控件条上的提示文字（建控件时赋值）
+    var rulerG = el("g", { class: "tk-map__ruler" });
+    svg.appendChild(rulerG);
+
+    /* 屏幕坐标 → 当前 viewBox 内的用户坐标（缩放平移之后也要准，所以用 cur 现算） */
+    function svgPoint(e) {
+      var r = svg.getBoundingClientRect();
+      return [
+        cur[0] + ((e.clientX - r.left) / r.width) * cur[2],
+        cur[1] + ((e.clientY - r.top) / r.height) * cur[3],
+      ];
+    }
+
+    function clearRuler() {
+      rulerPts = [];
+      while (rulerG.firstChild) rulerG.removeChild(rulerG.firstChild);
+      if (rulerTip) rulerTip.textContent = rulerOn ? "点两个点量距离" : "";
+    }
+
+    function addRulerPt(x, y) {
+      if (rulerPts.length >= 2) clearRuler(); // 第三次点击 = 重新开始
+      rulerPts.push([x, y]);
+      rulerG.appendChild(el("circle", { cx: x, cy: y, r: 4.5, class: "tk-rl-dot" }));
+      if (rulerPts.length !== 2) {
+        if (rulerTip) rulerTip.textContent = "再点第二个点";
+        return;
+      }
+      var a = rulerPts[0];
+      var b = rulerPts[1];
+      rulerG.appendChild(
+        el("line", { x1: a[0], y1: a[1], x2: b[0], y2: b[1], class: "tk-rl-line" })
+      );
+      var mpp = data.mpp || [1, 1];
+      var dx = (b[0] - a[0]) * mpp[0];
+      var dy = (b[1] - a[1]) * mpp[1];
+      var meters = Math.round(Math.sqrt(dx * dx + dy * dy));
+      var t = el("text", {
+        x: (a[0] + b[0]) / 2,
+        y: (a[1] + b[1]) / 2 - 7,
+        "text-anchor": "middle",
+        class: "tk-rl-txt",
+      });
+      t.textContent = meters + " 米";
+      rulerG.appendChild(t);
+      if (rulerTip) rulerTip.textContent = "直线距离约 " + meters + " 米（再点一次可重画）";
+    }
+
+    function toggleRuler(on) {
+      rulerOn = on;
+      canvas.classList.toggle("is-ruling", on);
+      clearRuler();
+      if (rulerTip) rulerTip.textContent = on ? "点两个点量距离" : "";
+    }
+
+    /* ── 图层开关（撤离点 / 上锁 / 危险区）──
+       与「任务筛选」是两回事：筛选管**看哪些**，开关管**看不看**。 */
+    var layerToggles = [
+      ["撤离点", exLayer],
+      ["上锁", lockLayer],
+      ["危险区", hazLayer],
+    ].filter(function (t) {
+      return t[1] && t[1].children.length;
+    });
+
+    if (layerToggles.length) {
+      var lySeg = document.createElement("div");
+      lySeg.className = "tk-map__seg";
+      lySeg.setAttribute("role", "group");
+      lySeg.setAttribute("aria-label", "图层");
+      layerToggles.forEach(function (t) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.textContent = t[0];
+        b.classList.add("is-on"); // 三个图层默认都开
+        b.addEventListener("click", function () {
+          var on = !b.classList.contains("is-on");
+          b.classList.toggle("is-on", on);
+          t[1].style.display = on ? "" : "none";
+        });
+        lySeg.appendChild(b);
+      });
+      bar.appendChild(lySeg);
+    }
+
     /* 缩放按钮：滚轮之外给一个**显式入口** —— 触屏、以及不习惯滚轮的读者都用得上。
        「重置」另外兼任「迷路之后找回全图」。 */
     var zoomSeg = document.createElement("div");
@@ -464,7 +618,21 @@
       b.addEventListener("click", pair[1]);
       zoomSeg.appendChild(b);
     });
+    /* 测距是 toggle，单独建按钮（前三个都是「一按就动」） */
+    var rulerBtn = document.createElement("button");
+    rulerBtn.type = "button";
+    rulerBtn.textContent = "测距";
+    rulerBtn.addEventListener("click", function () {
+      var on = !rulerBtn.classList.contains("is-on");
+      rulerBtn.classList.toggle("is-on", on);
+      toggleRuler(on);
+    });
+    zoomSeg.appendChild(rulerBtn);
     bar.appendChild(zoomSeg);
+
+    rulerTip = document.createElement("span");
+    rulerTip.className = "tk-map__count";
+    bar.appendChild(rulerTip);
 
     if (bar.children.length) host.appendChild(bar);
 
@@ -478,10 +646,11 @@
     var legend = document.createElement("ul");
     legend.className = "tk-map__legend";
     [
-      ["tk-lg-pin", "地名锚点（上游 labels 投影）"],
-      ["tk-lg-task", "任务目标区域（悬停看任务，点击进任务详情）"],
-      ["tk-lg-locked", "上锁房间 / 需要钥匙"],
-      ["tk-lg-danger", "危险区（雷区等）"],
+      ["tk-lg-pin", "地名锚点"],
+      ["tk-lg-ex", "撤离点（按阵营分色）"],
+      ["tk-lg-lock", "上锁 —— 点击查需要哪把钥匙"],
+      ["tk-lg-hz", "危险区（雷区等）"],
+      ["tk-lg-task", "任务目标区域 —— 单击只看它、双击进详情"],
     ].forEach(function (pair) {
       var li = document.createElement("li");
       var sw = document.createElement("i");

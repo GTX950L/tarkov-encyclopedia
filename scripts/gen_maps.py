@@ -97,6 +97,27 @@ MAP_ID_TO_KEY: dict[str, str] = {
     "65cc8f81a9aac3e77d0cfd3e": "terminal",
 }
 
+# ─────────────────────────────────────────────────────────────────────────────
+# 图层数据（撤离点 / 上锁 / 危险区）
+#
+# 起因：对标开源项目 tiltysola/tarkov-tilty-frontend-opensource 的 InteractiveMap。
+# **两边同源** —— 它的 `src/data/interactive_maps.ts` 与本文件用的 maps.json 是
+# 同一份数据（tarkov.dev 的 interactive maps，作者都是 Shebuka）。差别只在
+# 「它把图层做全了，本站此前只做了任务点位」。
+#
+# **只取语义完整的三个图层，不取容器**：上游的 `lootContainers`（海关 551 条）
+# **只给位置、不给容器类型**（`lootContainer` 是游戏内的 LootContainer 模板 id，
+# 不在 tarkov.dev 的 items 端点里，查不到名字）。551 个彼此无区别的点画上去，
+# 只会把地图糊住、换不来任何判断 —— **数据缺语义时，宁可不画**。
+# 出生点同理（278 个），且站内已把「出生点密度」登记为未决项 B7。
+# ─────────────────────────────────────────────────────────────────────────────
+MAPS_API = "https://json.tarkov.dev/regular/maps"
+LAYERS_CACHE = ROOT / "scripts" / "data" / "map_layers.json"
+
+FACTION_ZH = {"pmc": "PMC", "scav": "Scav", "shared": "共用"}
+HAZARD_ZH = {"minefield": "雷区", "sniper": "狙击区", "deadly": "致命区"}
+LOCK_ZH = {"door": "门", "trunk": "后备箱", "container": "容器"}
+
 HEADERS = {"User-Agent": "tarkov-encyclopedia-mapgen/1.0"}
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -323,6 +344,99 @@ def fetch_quest_zones() -> None:
         f"（另有 {skipped_map} 条落在本站暂不收录的图上，已跳过）"
     )
 
+    fetch_map_layers()
+
+
+def fetch_map_layers() -> None:
+    """抓 maps 端点，只留撤离点 / 上锁 / 危险区三个图层（理由见模块头部）。
+
+    坐标一律**只存世界坐标**，投影留给生成阶段 —— 与任务点位同一条路数，
+    这样换底图或改公式时，缓存不用重抓。
+    """
+    import datetime
+
+    log("④ 抓 maps 端点（撤离点 / 上锁 / 危险区）…")
+    raw = http_get(MAPS_API, timeout=240)
+    maps = json.loads(raw.decode("utf-8"))["data"]["maps"]
+    items = list(maps.values()) if isinstance(maps, dict) else maps
+
+    out: dict[str, dict] = {}
+    tot = {"extracts": 0, "locks": 0, "hazards": 0}
+    for m in items:
+        mid = m.get("id")
+        if mid not in MAP_ID_TO_KEY:
+            continue
+        rec: dict[str, list] = {"extracts": [], "locks": [], "hazards": []}
+
+        for e in m.get("extracts") or []:
+            p = e.get("position") or {}
+            if "x" not in p or "z" not in p:
+                continue
+            rec["extracts"].append(
+                {
+                    "n": e.get("name") or "",
+                    "f": e.get("faction") or "",
+                    "x": round(p["x"], 1),
+                    "z": round(p["z"], 1),
+                }
+            )
+
+        for lk in m.get("locks") or []:
+            p = lk.get("position") or {}
+            if "x" not in p or "z" not in p:
+                continue
+            rec["locks"].append(
+                {
+                    "t": lk.get("lockType") or "",
+                    "k": lk.get("key") or "",  # 钥匙的物品 id —— 页面链到站内图鉴
+                    "pw": bool(lk.get("needsPower")),
+                    "x": round(p["x"], 1),
+                    "z": round(p["z"], 1),
+                }
+            )
+
+        for h in m.get("hazards") or []:
+            pts = [q for q in (h.get("outline") or []) if "x" in q and "z" in q]
+            if len(pts) < 3:
+                continue
+            rec["hazards"].append(
+                {
+                    "t": h.get("hazardType") or "",
+                    "pts": [[round(q["x"], 1), round(q["z"], 1)] for q in pts],
+                }
+            )
+
+        if not any(rec.values()):
+            continue
+        # **按本站 key 归并**：同一张图有多个版本（工厂日/夜、中心区三个）会给重复条目 ——
+        # 按内容签名去重，否则地图上会叠出两份一模一样的撤离点。
+        key = MAP_ID_TO_KEY[mid]
+        dst = out.setdefault(key, {"extracts": [], "locks": [], "hazards": []})
+        for kind in ("extracts", "locks", "hazards"):
+            seen = {json.dumps(x, sort_keys=True, ensure_ascii=False) for x in dst[kind]}
+            for x in rec[kind]:
+                sig = json.dumps(x, sort_keys=True, ensure_ascii=False)
+                if sig in seen:
+                    continue
+                seen.add(sig)
+                dst[kind].append(x)
+                tot[kind] += 1
+
+    payload = {
+        "fetched": datetime.date.today().isoformat(),
+        "source": "json.tarkov.dev/regular/maps",
+        "count": tot,
+        "maps": out,
+    }
+    LAYERS_CACHE.write_text(
+        json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n",
+        encoding="utf-8",
+    )
+    log(
+        f"   → {LAYERS_CACHE.relative_to(ROOT)}：撤离点 {tot['extracts']} ｜ "
+        f"上锁 {tot['locks']} ｜ 危险区 {tot['hazards']}"
+    )
+
 
 def _svg_sources(data: list) -> list[tuple[str, str]]:
     """(map key, SVG 地址) —— 只取 maps.json 里给了 `svgPath` 的图。
@@ -410,6 +524,11 @@ def build_maps(data: list) -> dict:
     )
     qidx = _quest_index()
     zstat = {"desc": 0, "bytype": 0, "lost": 0}
+    lz = (
+        json.loads(LAYERS_CACHE.read_text(encoding="utf-8"))
+        if LAYERS_CACHE.exists()
+        else {"maps": {}}
+    )
 
     out: dict[str, dict] = {}
     for key, meta in sorted(by_key.items()):
@@ -484,19 +603,62 @@ def build_maps(data: list) -> dict:
                 zstat["bytype"] += 1
             quest_zones.append(rec)
 
+        # ── 图层：撤离点 / 上锁 / 危险区 ──
+        lm = lz["maps"].get(key) or {}
+
+        def pt(x, z):
+            X, Y = project(x, z, pmeta)
+            return [round(X, 1), round(Y, 1)]
+
+        extracts = [
+            {
+                "n": e["n"],
+                "f": e["f"],
+                "fzh": FACTION_ZH.get(e["f"], e["f"] or "—"),
+                "p": pt(e["x"], e["z"]),
+            }
+            for e in lm.get("extracts") or []
+        ]
+        locks = [
+            {
+                "tzh": LOCK_ZH.get(lk["t"], lk["t"] or "锁"),
+                "k": lk["k"],  # 钥匙物品 id（页面链到站内物品图鉴）
+                "pw": lk["pw"],
+                "p": pt(lk["x"], lk["z"]),
+            }
+            for lk in lm.get("locks") or []
+        ]
+        hazards = [
+            {
+                "tzh": HAZARD_ZH.get(h["t"], h["t"] or "危险区"),
+                "pts": [pt(x, z) for x, z in h["pts"]],
+            }
+            for h in lm.get("hazards") or []
+        ]
+
         out[key] = {
             "nameEn": meta.get("normalizedName") or key,
             "svg": raw_path.name,
             "viewBox": [round(v, 2) for v in view_box],
+            # 每像素代表多少米（x / z 各一个）—— 测距用。
+            # 注意 x 与 z 的比例尺**不相等**（bounds 与 viewBox 的宽高比有微差，
+            # 就是锚点自检里那 1.5–3.4% 的来源），所以两个都存，别取平均。
+            "mpp": [
+                round((meta["bounds"][0][0] - meta["bounds"][1][0]) / view_box[2], 5),
+                round((meta["bounds"][1][1] - meta["bounds"][0][1]) / view_box[3], 5),
+            ],
             "floors": _floors(layers),
             "layers": layers,
             "labels": labels,
             "questZones": quest_zones,
+            "extracts": extracts,
+            "locks": locks,
+            "hazards": hazards,
         }
         log(
-            f"   ✓ {key:<18} {raw_path.name:<22} "
-            f"floors={len(_floors(layers)):<2} labels={len(labels):<3} "
-            f"任务点位={len(quest_zones)}"
+            f"   ✓ {key:<18} {raw_path.name:<20} labels={len(labels):<3} "
+            f"任务点位={len(quest_zones):<4} 撤离点={len(extracts):<3} "
+            f"上锁={len(locks):<3} 危险区={len(hazards)}"
         )
 
     if zstat["lost"]:
@@ -550,9 +712,13 @@ def main() -> int:
         if not args.fetch and not CACHE.exists():
             log("缓存不存在，自动走 --fetch")
         fetch()
-    elif not ZONES_CACHE.exists():
-        log("缺任务点位缓存，单独补抓（不重下 SVG）")
-        fetch_quest_zones()
+    else:
+        if not ZONES_CACHE.exists():
+            log("缺任务点位缓存，单独补抓（不重下 SVG）")
+            fetch_quest_zones()
+        if not LAYERS_CACHE.exists():
+            log("缺图层缓存，单独补抓（不重下 SVG）")
+            fetch_map_layers()
 
     data = json.loads(CACHE.read_text(encoding="utf-8"))
     log(f"\n② 换肤并投影（{len(_svg_sources(data))} 张）…")
