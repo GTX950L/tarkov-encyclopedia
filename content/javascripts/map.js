@@ -76,17 +76,6 @@
     svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
     svg.setAttribute("role", "img");
     svg.setAttribute("aria-label", "交互地图底图");
-    /* 瓦片拼合图的外链要在**内联之后**补站点根：SVG 一旦被内联进页面，
-       里面的相对地址就按**页面 URL** 解析了 —— 而各图页面在 `/maps/<图>/` 下，
-       直接写 `Labs.webp` 会去找 `/maps/中心区/Labs.webp`（404）。 */
-    Array.prototype.forEach.call(svg.querySelectorAll("image"), function (im) {
-      var href = im.getAttribute("href") || im.getAttribute("xlink:href") || "";
-      if (href && !/^(https?:|data:|\/)/.test(href)) {
-        var fixed = siteRoot() + "assets/maps/" + href.replace(/^.*\//, "");
-        im.setAttribute("href", fixed);
-        im.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", fixed);
-      }
-    });
     host.appendChild(canvas);
 
     /* ── 视图控制：滚轮缩放 + 拖拽平移 ──
