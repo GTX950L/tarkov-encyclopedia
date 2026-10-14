@@ -678,7 +678,7 @@ def build_maps(data: list) -> dict:
         else {"zones": [], "objcount": {}}
     )
     qidx = _quest_index()
-    zstat = {"desc": 0, "bytype": 0, "lost": 0}
+    zstat = {"desc": 0, "bytype": 0, "lost": 0, "clipped": 0, "offscreen": 0}
     lz = (
         json.loads(LAYERS_CACHE.read_text(encoding="utf-8"))
         if LAYERS_CACHE.exists()
@@ -764,16 +764,43 @@ def build_maps(data: list) -> dict:
                 continue
             X1, Y1 = project(z["box"][0], z["box"][1], pmeta)
             X2, Y2 = project(z["box"][2], z["box"][3], pmeta)
+
+            # ── 裁到画布内 ──
+            # 上游有 2% 的 zone 边角越出地图范围（最极端的一条面积是画布的 3.4 倍）。
+            # 不裁会怎样：框画到画布外、被 viewBox 隐式剪掉，**但描边与命中区仍在**，
+            # 于是「看不见的地方也能点到」，读者会莫名其妙地选中一个任务。
+            bx, by = min(X1, X2), min(Y1, Y2)
+            bw, bh = abs(X2 - X1), abs(Y2 - Y1)
+            # 单点点位（宽高为 0）先撑成一个可见的小方块，否则裁完就没了
+            if bw < 0.5 and bh < 0.5:
+                bw = bh = 1.0
+            cx0, cy0 = max(0.0, bx), max(0.0, by)
+            cx1, cy1 = min(view_box[2], bx + bw), min(view_box[3], by + bh)
+            if cx1 - cx0 < 0.5 or cy1 - cy0 < 0.5:
+                zstat["offscreen"] += 1        # 整条都在画布外（上游坐标问题），不画
+                continue
+            if (cx0, cy0, cx1, cy1) != (bx, by, bx + bw, by + bh):
+                zstat["clipped"] += 1
+
+            # ── 按面积分档 ──
+            # 语义上就该有大框：`shoot`（在图里击杀 N 个）中位面积就有画布的 9.6%，
+            # 而 `plantItem`（在某处放东西）中位只有 0.001% —— 一个是区域、一个是点。
+            # 分档只影响**视觉权重**（大框退到背景、小框突出），不改坐标。
+            area_ratio = ((cx1 - cx0) * (cy1 - cy0)) / (view_box[2] * view_box[3])
+            size = "l" if area_ratio > 0.20 else ("m" if area_ratio > 0.02 else "s")
+
             rec = {
                 "q": z["task"],
                 "n": q["name"],
                 "tr": q["trader"],                           # 商人：面板按它分组
                 "k": z["type"],                              # 英文类型：给 CSS 分类用
                 "t": OBJ_TYPE_ZH.get(z["type"], z["type"]),  # 中文标签：给人看
-                "x": round(min(X1, X2), 1),
-                "y": round(min(Y1, Y2), 1),
-                "w": round(abs(X2 - X1), 1),
-                "h": round(abs(Y2 - Y1), 1),
+                "x": round(cx0, 1),
+                "y": round(cy0, 1),
+                "w": round(cx1 - cx0, 1),
+                "h": round(cy1 - cy0, 1),
+                "sz": size,          # 面积档：s / m / l（仅影响视觉权重）
+                "px": round(area_ratio * 100, 3),   # 占画布面积的百分比（页面提示用）
             }
             # 描述**只在「上游 objective 数与站内一致」时**给 —— 数量不同说明两边版本
             # 不同，按索引取会张冠李戴。宁可只给「任务名 + 目标类型」这一层。
@@ -861,6 +888,11 @@ def build_maps(data: list) -> dict:
 
     if zstat["lost"]:
         log(f"   （{zstat['lost']} 条点位找不到对应任务，已跳过）")
+    if zstat["clipped"] or zstat["offscreen"]:
+        log(
+            f"   （越界处理：{zstat['clipped']} 条裁到画布内、"
+            f"{zstat['offscreen']} 条整条在画布外已跳过）"
+        )
     return out
 
 

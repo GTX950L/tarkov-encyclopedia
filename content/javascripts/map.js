@@ -30,10 +30,12 @@
 
   var NS = "http://www.w3.org/2000/svg";
 
-  /* 跨标签同步用：`liveFilter` 指向当前页面的筛选函数（instant 换页后会换人），
-     `storageBound` 保证监听器只装一次。 */
+  /* 跨标签同步与全局快捷键用：这几个指针指向**当前页面**的函数
+     （instant 换页后会换人），配套的布尔量保证监听器只装一次。 */
   var liveFilter = null;
   var storageBound = false;
+  var liveHidePicker = null;
+  var escBound = false;
 
   /* 站点根：从本脚本的 src 反推，末尾带 `/`。 */
   function siteRoot() {
@@ -166,14 +168,43 @@
     svg.addEventListener("pointerup", endDrag);
     svg.addEventListener("pointercancel", endDrag);
 
-    /* 点空白处 = 取消选中；**测距模式下则记一个点**（点任务区域时会被 stopPropagation 挡掉） */
+    /* ── 点击：**统一在这里判定选中谁** ──
+       为什么不用每个 rect 自己的 click 处理器：SVG 的命中测试只认**最上层**那一个元素。
+       任务区域重叠是常态 —— 海关最密处一个点能压着四五个框。只认最上层就意味着
+       「下面那几个任务永远点不到」，而这恰恰是读者最需要点准的地方。
+
+       改用 `document.elementsFromPoint()`：它返回该点下的**整叠元素**（不管谁盖着谁），
+       于是能把重叠的任务全收集起来：
+         · 只压着一个 → 直接选中（保持原有的轻快手感）
+         · 压着多个   → 弹一个选择列表，让读者挑（像图形软件里的图层选择）
+
+       另外 `elementsFromPoint` 用的是**屏幕坐标**，缩放平移都不影响 ——
+       比「自己拿 viewBox 反算命中区」简单且不会算错。 */
     svg.addEventListener("click", function (e) {
       if (rulerOn) {
         var p = svgPoint(e);
         addRulerPt(p[0], p[1]);
         return;
       }
-      if (e.target === svg) selectTask(null);
+      var hits = zonesAt(e.clientX, e.clientY);
+      if (!hits.length) {
+        selectTask(null); // 点空白 = 取消选中
+        return;
+      }
+      if (hits.length === 1) {
+        selectTask(hits[0]);
+        return;
+      }
+      showZonePicker(hits, e.clientX, e.clientY);
+    });
+
+    /* 双击 = 打开任务详情。同样走 elementsFromPoint，取最上层那个任务。 */
+    svg.addEventListener("dblclick", function (e) {
+      if (rulerOn) return;
+      var hits = zonesAt(e.clientX, e.clientY);
+      if (hits.length) {
+        location.href = siteRoot() + "quests/quest/?id=" + encodeURIComponent(hits[0]);
+      }
     });
 
     applyVB();
@@ -212,39 +243,168 @@
 
     /* ── 任务点位层（zones）──
        放在地名点**之下**：任务区域是大面积半透明矩形，压在地名上会盖住字。
-       每个 zone 是一条「任务目标区域」，可能比一个点大得多（放置/到访类常是
-       一整栋楼的范围），所以画矩形而不是点。 */
+
+       **绘制顺序 = 命中优先级**：SVG 没有 z-index，后画的在上层、点击时先被命中。
+       所以这里**按面积从大到小画** —— 大框在底、小框在顶。反过来的话，
+       一个覆盖半张图的击杀区会把下面几十个小框全挡住，那些任务就点不到了。
+       （这也是各家地图的共同做法：区域级图层垫底、点级图层在上。）
+
+       尺寸的三处处理，都是实测出来的：
+         · **最小可见尺寸按画布比例**，不写死像素 —— 固定 11px 在 1895×1756 的迷宫上
+           是 0.6%、在 131×141 的工厂上是 8%，同一个像素值在两种画布上完全不是一回事；
+         · **面积分档**（`sz`：s/m/l）交给 CSS：大框退到背景，不跟点级目标抢视线；
+         · **超大框本身是语义**，不是坐标错 —— `shoot` 类（「在图里击杀 N 个」）
+           中位面积就有画布的 9.6%，而 `plantItem` 只有 0.001%。一个是区域、一个是点。 */
     var qzAll = data.questZones || [];
+    var vbw = (data.viewBox || [0, 0, 1000, 600])[2];
+    var MIN_PX = Math.max(9, vbw * 0.008); // 画布的 0.8%，但不小于 9px
     var qlayer = el("g", { class: "tk-map__qzones" });
-    qzAll.forEach(function (z) {
-      /* 单点点位（w/h 为 0）放大到能看见 —— 否则点不中也看不出在哪 */
-      var w = Math.max(z.w, 11);
-      var h = Math.max(z.h, 11);
-      var r = el("rect", {
-        x: (z.x - (w - z.w) / 2).toFixed(1),
-        y: (z.y - (h - z.h) / 2).toFixed(1),
-        width: w.toFixed(1),
-        height: h.toFixed(1),
-        class: "tk-zq tk-zq--" + (z.k || "other"),
-        "data-q": z.q,
+    /* 排序按**显示尺寸**（放大后的），不是原始尺寸 —— 两者会不一致：
+       点状目标（w=h=0）原始面积 0、排到最后（最上层，这是对的），
+       但放大到 MIN_PX 之后它的显示面积可能超过某个真实的小框；
+       若按原始尺寸排，就会出现「看着大、却在上面」的逆序。 */
+    function dispArea(z) {
+      return Math.max(z.w, MIN_PX) * Math.max(z.h, MIN_PX);
+    }
+    qzAll
+      .slice()
+      .sort(function (a, b) {
+        return dispArea(b) - dispArea(a); // 大 → 小（大先画，落在下层）
+      })
+      .forEach(function (z) {
+        var w = Math.max(z.w, MIN_PX);
+        var h = Math.max(z.h, MIN_PX);
+        var r = el("rect", {
+          x: (z.x - (w - z.w) / 2).toFixed(1),
+          y: (z.y - (h - z.h) / 2).toFixed(1),
+          width: w.toFixed(1),
+          height: h.toFixed(1),
+          class: "tk-zq tk-zq--" + (z.k || "other") + (z.sz ? " tk-zq-" + z.sz : ""),
+          "data-q": z.q,
+        });
+        var tip = z.n + "（" + z.t + "）";
+        if (z.px >= 20) {
+          /* 区域级目标要说明白 —— 否则读者会以为「这个任务就在这一小块」 */
+          tip += "\n⚠ 这是**区域级**目标，占本图约 " + z.px + "% 的面积";
+        }
+        if (z.d) tip += "\n" + z.d;
+        tip += "\n单击=只看这个任务，双击=打开任务详情";
+        r.appendChild(el("title", {}, tip));
+        qlayer.appendChild(r);
       });
-      var tip = z.n + "（" + z.t + "）";
-      if (z.d) tip += "\n" + z.d;
-      tip += "\n单击=只看这个任务，双击=打开任务详情";
-      r.appendChild(el("title", {}, tip));
-      r.addEventListener("click", function (e) {
-        /* 测距模式下点在任务区域上也算「取一个点」—— 否则盖在区域上的目标量不了。
-           这里**不** stopPropagation，让事件冒到 svg 由测距逻辑接住。 */
-        if (rulerOn) return;
-        e.stopPropagation(); // 别让「点空白处取消选中」把它一起清掉
-        selectTask(z.q);
-      });
-      r.addEventListener("dblclick", function () {
-        location.href = siteRoot() + "quests/quest/?id=" + encodeURIComponent(z.q);
-      });
-      qlayer.appendChild(r);
-    });
     if (qzAll.length) svg.appendChild(qlayer);
+
+    /* 任务 id → {n 名, tr 商人, t 类型, nz 几处区域}。清单与重叠点选共用。 */
+    var zoneByQ = {};
+    qzAll.forEach(function (z) {
+      if (!zoneByQ[z.q]) {
+        zoneByQ[z.q] = { q: z.q, n: z.n, tr: z.tr || "", t: z.t || "", nz: 0, px: 0 };
+      }
+      zoneByQ[z.q].nz++;
+      zoneByQ[z.q].px = Math.max(zoneByQ[z.q].px, z.px || 0);
+    });
+
+    /* 屏幕某点下压着哪些任务（**按最上层在前**，同任务的只留一次）。 */
+    function zonesAt(cx, cy) {
+      if (!document.elementsFromPoint) return [];
+      var els = document.elementsFromPoint(cx, cy);
+      var out = [];
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        if (!el.classList || !el.classList.contains("tk-zq")) continue;
+        var q = el.getAttribute("data-q");
+        if (q && out.indexOf(q) < 0) out.push(q);
+      }
+      return out;
+    }
+
+    /* 重叠时的选择列表。
+       只在**真的叠了多个**时才出现 —— 单一命中的情况保持原有的「点一下就选中」，不加步骤。 */
+    var pickerEl = null;
+
+    function hideZonePicker() {
+      if (!pickerEl) return;
+      if (pickerEl.parentNode) pickerEl.parentNode.removeChild(pickerEl);
+      pickerEl = null;
+      document.removeEventListener("pointerdown", pickerOutside, true);
+    }
+
+    function pickerOutside(e) {
+      if (pickerEl && !pickerEl.contains(e.target)) hideZonePicker();
+    }
+
+    function showZonePicker(qids, cx, cy) {
+      hideZonePicker();
+      var box = document.createElement("div");
+      box.className = "tk-map__picker";
+      box.setAttribute("role", "dialog");
+      box.setAttribute("aria-label", "重叠的任务");
+
+      var head = document.createElement("div");
+      head.className = "tk-map__pickerhead";
+      head.textContent = "这里叠着 " + qids.length + " 个任务";
+      box.appendChild(head);
+
+      qids.forEach(function (q) {
+        var it = zoneByQ[q] || { n: q, t: "", nz: 1, px: 0 };
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "tk-qp";
+        var nm = document.createElement("b");
+        nm.textContent = it.n;
+        b.appendChild(nm);
+        var ii = document.createElement("i");
+        ii.textContent =
+          (it.tr ? it.tr + " · " : "") +
+          it.t +
+          (it.nz > 1 ? " · " + it.nz + " 处" : "") +
+          (it.px >= 20 ? " · 区域级" : "");
+        b.appendChild(ii);
+        if (it.px >= 20) b.classList.add("is-huge");
+        b.addEventListener("click", function (ev) {
+          ev.stopPropagation();
+          hideZonePicker();
+          selectTask(q);
+        });
+        box.appendChild(b);
+      });
+
+      var foot = document.createElement("div");
+      foot.className = "tk-map__pickerfoot";
+      foot.textContent = "Esc 或点别处关闭";
+      box.appendChild(foot);
+
+      box.style.position = "fixed";
+      box.style.visibility = "hidden";
+      document.body.appendChild(box);
+      pickerEl = box;
+
+      /* 定位：默认落在指针右下；贴边时翻到另一侧，不盖住点击处。 */
+      var pad = 10;
+      var bw = box.offsetWidth,
+        bh = box.offsetHeight;
+      var left = cx + 12,
+        top = cy + 12;
+      if (left + bw > window.innerWidth - pad) left = Math.max(pad, cx - bw - 12);
+      if (top + bh > window.innerHeight - pad) top = Math.max(pad, cy - bh - 12);
+      box.style.left = left + "px";
+      box.style.top = top + "px";
+      box.style.visibility = "";
+
+      setTimeout(function () {
+        document.addEventListener("pointerdown", pickerOutside, true);
+      }, 0);
+    }
+
+    /* Esc 关掉选择列表。**监听器只装一次** —— instant 换页会重放本脚本，
+       不挡住的话每进一次地图页就多挂一个回调。 */
+    if (!escBound) {
+      escBound = true;
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && liveHidePicker) liveHidePicker();
+      });
+    }
+    liveHidePicker = hideZonePicker;
 
     /* ── 与「我的进度」联动 ──
        站内进度存在 localStorage `tarkov_progress_v1`，**任务 id 与这里的
@@ -312,6 +472,7 @@
     var cardHost = null;
 
     function selectTask(qid) {
+      hideZonePicker();
       selected = qid || null;
       applyQzFilter();
       renderCard();
@@ -701,14 +862,10 @@
        比「在一百多个方框里找一个」快得多，也解决了「不知道任务叫啥、只记得商人」的情况。
        本站没有侧栏（正文区约 900px），所以放在**地图上方**、默认折叠：
        地图才是主角，清单是入口。 */
-    var qlist = [];
-    var seenQ = {};
-    qzAll.forEach(function (z) {
-      if (!seenQ[z.q]) {
-        seenQ[z.q] = { q: z.q, n: z.n, tr: z.tr || "", t: z.t, nz: 0 };
-        qlist.push(seenQ[z.q]);
-      }
-      seenQ[z.q].nz++;
+    /* 任务索引（点位层已在上方建好，这里只做排序）——
+       `zoneByQ` 同时给「任务清单」「重叠点选」两处用，避免各建一份。 */
+    var qlist = Object.keys(zoneByQ).map(function (q) {
+      return zoneByQ[q];
     });
     qlist.sort(function (a, b) {
       if (a.tr !== b.tr) return a.tr < b.tr ? -1 : 1;
