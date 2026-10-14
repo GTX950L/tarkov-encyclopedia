@@ -83,6 +83,29 @@ ZONES_CACHE = ROOT / "scripts" / "data" / "quest_zones.json"
 # 瓦片拼合图的产物描述（由 build_tile_maps.py 写）
 TILE_CACHE = ROOT / "scripts" / "data" / "tile_maps.json"
 LOCAL_QUESTS = ROOT / "scripts" / "data" / "quests.json"
+# 「需自备物品」的 curated 表（gen_quest_carrier.py 的产物）—— 地图侧只要
+# pack 一个标记（行前提示用），与 gen_quests.py 的 CARRIER_IDX 同一份文件。
+CARRIER_CACHE = ROOT / "scripts" / "data" / "quests_carrier.json"
+
+# 地图 key → 站内条目文件名（content/entries/<slug>.md）。
+# 用途：地图上点地名锚点弹小卡时的「查看条目」链接。
+# ⚠️ 与 scripts/gen_map_pages.py 的 META 第三列**各存一份** —— 改任何一处
+#     记得改另一处（那里驱动地图页「相关条目」，这里驱动 JS 跳转）。
+MAP_ENTRY: dict[str, str] = {
+    "customs": "customs",
+    "factory": "factory",
+    "ground-zero": "ground-zero",
+    "woods": "woods",
+    "interchange": "interchange",
+    "reserve": "reserve",
+    "shoreline": "shoreline",
+    "lighthouse": "lighthouse",
+    "streets-of-tarkov": "streets",
+    "terminal": "terminal",
+    "icebreaker": "icebreaker",
+    "the-lab": "labs",
+    "the-labyrinth": "labyrinth",
+}
 
 # 上游地图 id → 本站 maps.json 的 key。
 # 三个「同一张图的变体」（工厂夜图 / 中心区两个版本）**归到同一把 key** ——
@@ -747,10 +770,12 @@ LAYER_RE = re.compile(r'<g[^>]*\bid="([^"]+)"')
 
 
 def _quest_index() -> dict[str, dict]:
-    """站内任务索引：`{任务id: {name, objs}}`。
+    """站内任务索引：`{任务id: {name, en, k, objs}}`。
 
-    **任务名与目标描述只从这里取** —— 上游 tasks 端点返回的是英文，
+    **任务名、英文名与目标描述只从这里取** —— 上游 tasks 端点返回的是英文，
     而站内中文由 `gen_quests.py --fetch` 那条管线整理，两边各走各的、互不污染。
+    `k` = 钥匙数（quests.json 的 keys，与任务图鉴「需钥匙」标记同源）——
+    地图页的**行前提示**用：清单行与信息卡显示「钥匙 N」。
     """
     if not LOCAL_QUESTS.exists():
         return {}
@@ -761,11 +786,28 @@ def _quest_index() -> dict[str, dict]:
             # 英文名随中文一起进索引 —— 地图页的任务搜索框**中英都能搜**
             # （与任务图鉴总览「中文名与英文名都能搜」同一口径）。
             "en": t.get("en") or "",
+            "k": len(t.get("keys") or []),
             "trader": TRADER_NAME.get(t.get("trader") or "", ""),
             "objs": t.get("objectives") or [],
         }
         for t in d.get("tasks") or []
         if t.get("id")
+    }
+
+
+def _carrier_index() -> dict[str, bool]:
+    """「需自备物品」索引：任务 id → 要不要从仓库带东西进图。
+
+    与 gen_quests.py 的 CARRIER_IDX 读同一份 quests_carrier.json，但那边要
+    整条记录、这边只要一个布尔 —— 地图侧拿来给清单行加「自备」徽章。
+    """
+    if not CARRIER_CACHE.exists():
+        return {}
+    d = json.loads(CARRIER_CACHE.read_text(encoding="utf-8"))
+    return {
+        c["id"]: bool(c.get("pack"))
+        for c in d.get("carriers") or []
+        if c.get("id")
     }
 
 
@@ -784,6 +826,7 @@ def build_maps(data: list) -> dict:
         else {"zones": [], "objcount": {}}
     )
     qidx = _quest_index()
+    carr = _carrier_index()
     zstat = {"desc": 0, "bytype": 0, "lost": 0, "clipped": 0, "offscreen": 0}
     layer_dropped: dict[str, int] = {}   # 画布外被丢掉的图层点数（按图记）
     lz = (
@@ -935,6 +978,8 @@ def build_maps(data: list) -> dict:
                 "q": z["task"],
                 "n": q["name"],
                 "en": q.get("en") or "",                   # 英文名：搜索用（见 _quest_index）
+                "kn": q.get("k") or 0,                     # 钥匙数：行前提示（信息卡/清单行）
+                "pk": 1 if carr.get(z["task"]) else 0,     # 需自备物品：同上
                 "tr": q["trader"],                           # 商人：面板按它分组
                 "k": z["type"],                              # 英文类型：给 CSS 分类用
                 "t": OBJ_TYPE_ZH.get(z["type"], z["type"]),  # 中文标签：给人看
@@ -1088,6 +1133,7 @@ def build_maps(data: list) -> dict:
             "nameEn": meta.get("normalizedName") or key,
             "kind": kind,
             "svg": raw_path.name,
+            "entry": MAP_ENTRY.get(key, ""),   # 站内条目文件名：标记点击弹卡的跳转目标
             "viewBox": [round(v, 2) for v in view_box],
             # 每像素代表多少世界单位（底图的 u / v 两个方向）—— 测距用。
             # 通用算法：像素轴就是 layer 轴（旋转是正交的，保长），
@@ -1141,7 +1187,9 @@ def write_js(maps: dict) -> None:
      floors    楼层图层（id + 中文名），页面做互斥显示的切换按钮
      layers    上游全部图层 id（含材质层与 `*-locked` 子层），备查
      labels    地名锚点；cn 为空表示站内暂无译名，页面退回英文（不自己编）
-     questZones 任务点位：q=任务id、n=任务名、en=英文名（地图页搜索用）、t=目标类型、
+     questZones 任务点位：q=任务id、n=任务名、en=英文名（地图页搜索用）、
+                kn=钥匙数、pk=需自备物品（两者都是**行前提示**，见 _quest_index）、
+                t=目标类型、k=目标类型英文名（CSS 分类用）、
                 d=目标描述（可能为空，上游与站内 objective 数量不一致时不给，
                 避免张冠李戴）、x/y/w/h = 投影后的像素矩形。
 

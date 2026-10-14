@@ -850,6 +850,102 @@
       chapP.appendChild(document.createTextNode("。"));
       nSec.appendChild(chapP);
 
+      /* ── 五b、最划算的可接任务 · 前 5（P1-1）──
+         上面的 steps 是**汇总建议**（几条轨各一句）；这一块回答竞品
+         tarkovtracker.org 首页那个问题：「具体做哪一个」。
+         数据全是现成的：可接集合来自本页的 tree.avail（同一份判定），
+         解锁数来自 quests-index-data.js 的 cUnlock（与任务图鉴总览
+         「解锁收益」同一口径 —— **不另算一套**，防止两处数字打架）。
+         每行给一句理由（为什么是它），并给「在地图上看」深链：
+         map.js 认 ?q=<任务id>，落地即选中 + 定位。 */
+      var pickHost = el("div", "tk-ov__picks");
+      nSec.appendChild(pickHost);
+
+      /* 中文地图名 → 地图页 key（quests.json 的 map 字段值 → /maps/<key>/）。
+         「夜间工厂」归到 factory：站点那张图本就含日/夜两个版本的撤离点。 */
+      var MAP_KEY = {
+        "海关": "customs", "工厂": "factory", "夜间工厂": "factory",
+        "中心区": "ground-zero", "森林": "woods", "立交桥": "interchange",
+        "储备站": "reserve", "海岸线": "shoreline", "灯塔": "lighthouse",
+        "塔科夫街区": "streets-of-tarkov", "终点站": "terminal",
+        "破冰船": "icebreaker", "实验室": "the-lab", "迷宫": "the-labyrinth",
+      };
+
+      function pickReason(r) {
+        var bits = [];
+        if (r[13]) bits.push("沿前置链共放开 " + r[13] + " 个任务");
+        if (r[9]) bits.push("有接取延迟 —— 先接上再去做别的");
+        if ((r[7] || "").indexOf("k") >= 0) bits.push("Kappa 收藏家前置");
+        if ((r[7] || "").indexOf("l") >= 0) bits.push("Lightkeeper 解锁链");
+        if (r[5] && r[5].length) bits.push("要带 " + r[5].length + " 把钥匙");
+        if (!bits.length) {
+          bits.push(r[13] === 0 ? "不阻塞其它任务（链尾或支线）—— 随缘做" : "前置已清空");
+        }
+        return bits.join("；");
+      }
+
+      pickHost.appendChild(el("p", "tk-ov__picks-load", "正在按解锁收益排可接任务…"));
+      loadScript("quests-index-data.js", ["TARKOV_QUEST_INDEX"], function (ok) {
+        pickHost.textContent = "";
+        var idx = ok ? window.TARKOV_QUEST_INDEX : null;
+        var rows = idx && idx.tasks ? idx.tasks : [];
+        if (!rows.length || !tree.avail.length) {
+          pickHost.appendChild(el("p", "tk-ov__picks-none",
+            "任务索引数据没能载入，或当前没有可接任务 —— 上面的汇总建议不受影响。"));
+          return;
+        }
+        /* 列序与 quests-filter.js 的 C_* 常量一致（cols 见文件头）；
+           这里按名字引用索引，避免两处各写一套魔术数字后打架。 */
+        var C = {};
+        (idx.cols || []).forEach(function (name, i) { C[name] = i; });
+        var byId = {};
+        for (var i = 0; i < rows.length; i++) byId[rows[i][C.id]] = rows[i];
+        var cands = [];
+        for (var ai = 0; ai < tree.avail.length; ai++) {
+          var r = byId[tree.avail[ai]];
+          if (r) cands.push(r);
+        }
+        if (!cands.length) {
+          pickHost.appendChild(el("p", "tk-ov__picks-none",
+            "可接任务都没能对上索引数据（不该发生）—— 上面的汇总建议不受影响。"));
+          return;
+        }
+        cands.sort(function (a, b) {
+          return (b[C.cUnlock] || 0) - (a[C.cUnlock] || 0);
+        });
+        var top = cands.slice(0, 5);
+        pickHost.appendChild(el("p", "tk-ov__picks-head",
+          "最划算的可接任务 · 前 " + top.length + " 个（按沿链解锁数排）"));
+        top.forEach(function (r, rank) {
+          var row = el("div", "tk-ov__pick");
+          var no = el("i", "tk-ov__pickno", String(rank + 1));
+          row.appendChild(no);
+          var main = el("div", "tk-ov__pickmain");
+          var nameLine = el("div", "tk-ov__pickname");
+          nameLine.appendChild(el("b", null, r[C.name]));
+          var meta = (r[C.trader] || "—")
+            + (r[C.level] ? " · Lv" + r[C.level] : "")
+            + (r[C.map] ? " · " + r[C.map] : "");
+          nameLine.appendChild(el("span", "tk-ov__pickmeta", meta));
+          main.appendChild(nameLine);
+          main.appendChild(el("span", "tk-ov__pickwhy", pickReason(r)));
+          row.appendChild(main);
+          /* 有地图归属 → 地图深链（落地选中+定位）；没有 → 任务详情页。
+             263/515 个任务带地图字段，其余走详情，不硬指。 */
+          var mk = MAP_KEY[r[C.map]];
+          var a = el("a", "tk-ov__picklink",
+            mk ? "在地图上看 →" : "任务详情 →");
+          a.href = mk
+            ? siteRoot() + "maps/" + mk + "/?q=" + encodeURIComponent(r[C.id])
+            : siteRoot() + "quests/quest/?id=" + encodeURIComponent(r[C.id]);
+          row.appendChild(a);
+          pickHost.appendChild(row);
+        });
+        pickHost.appendChild(el("p", "tk-ov__picks-foot",
+          "「放开 N 个」是本站按前置链算出的解锁收益（只算状态为「完成」的边）；"
+          + "能不能接已过前置、等级与门槛判定 —— 但忠诚度与声望若填了「?」，相关任务只会提示、不计入。"));
+      });
+
       host.appendChild(nSec);
     });
   }

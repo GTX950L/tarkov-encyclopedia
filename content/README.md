@@ -20,6 +20,7 @@
 <div class="tk-launch__card tk-launch--tools">
 <span class="tk-launch__head"><span class="tk-launch__title">🧰 用 · 工具箱</span><span class="tk-launch__badge">离线可用 · 无需登录</span></span>
 <ul class="tk-launch__list">
+<li><a href="maps/index.md"><b>交互地图</b><i>13 张图 · 589 个任务区域 · 进度联动</i></a></li>
 <li><a href="quests/progress.md"><b>我的进度</b><i data-tk-toolstat>任务 · 剧情 · 物品 · 藏身处</i></a></li>
 <li><a href="quests/index.md"><b>任务图鉴</b><i>逐条要求与奖励 · 可筛选</i></a></li>
 <li><a href="entries/season-modifiers.md"><b>赛季特质模拟器</b><i>点选构筑 · 互斥校验</i></a></li>
@@ -40,6 +41,11 @@
 <b class="tk-stat__n">88<em>篇</em></b>
 <span class="tk-stat__l">百科条目</span>
 <span class="tk-stat__d">12 篇主线 · 逐篇可读</span>
+</a>
+<a class="tk-stat__card" href="maps/index.md">
+<b class="tk-stat__n">13<em>张</em></b>
+<span class="tk-stat__l">交互地图</span>
+<span class="tk-stat__d">589 个任务区域 · 可筛进度</span>
 </a>
 <a class="tk-stat__card" href="quests/index.md">
 <b class="tk-stat__n">515<em>个</em></b>

@@ -39,11 +39,12 @@ def _quests() -> list[dict]:
 def counts() -> dict[str, int]:
     """所有要在首页展示的数字 —— **这是唯一的一份实现**。"""
     import json
+    import re as _re
 
     entries = [p for p in (CONTENT / "entries").glob("*.md") if p.name != "index.md"]
     # 篇数：nav 里「第 X 篇」的分组数（与 check_entries 的篇数口径同源）
     nav = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
-    n_groups = len(re.findall(r"第[一二三四五六七八九十]+篇", nav))
+    n_groups = len(_re.findall(r"第[一二三四五六七八九十]+篇", nav))
 
     tasks = _quests()
     obj_n = sum(len(t.get("objectives") or []) for t in tasks)
@@ -62,6 +63,14 @@ def counts() -> dict[str, int]:
     ammo = json.loads((ROOT / "scripts/data/ammo_values.json").read_text(encoding="utf-8"))
     hideout = json.loads((ROOT / "scripts/data/hideout.json").read_text(encoding="utf-8"))
 
+    # 交互地图：张数 = maps-data.js 的顶层 key 数；任务区域 = 各图 questZones 合计。
+    # 读**产物**而不是数页面文件 —— 数字与地图页「这张图的数据」表同源。
+    maps_js = (CONTENT / "javascripts" / "maps-data.js").read_text(encoding="utf-8")
+    m = _re.search(r"window\.TARKOV_MAPS\s*=\s*(\{.*\});", maps_js, _re.S)
+    maps_data = json.loads(m.group(1)) if m else {}
+    n_maps = len(maps_data)
+    n_zones = sum(len(mp.get("questZones") or []) for mp in maps_data.values())
+
     # 成就：数**已生成页面**的分组表行 —— 读的是产物，所以两处必然一致（不会各算一套）
     ach_txt = (CONTENT / "entries" / "achievements.md").read_text(encoding="utf-8")
     ach_start, ach_end = "<!-- AUTO-GEN:ACHIEVEMENTS:START -->", "<!-- AUTO-GEN:ACHIEVEMENTS:END -->"
@@ -78,6 +87,8 @@ def counts() -> dict[str, int]:
         "groups": n_groups,
         "tasks": len(tasks),
         "objectives": obj_n,
+        "maps": n_maps,
+        "mapzones": n_zones,
         "achievements": ach_n,
         "ach_hidden": ach_hidden,
         "ammo": ammo.get("count") or len(ammo.get("rows") or []),
@@ -91,6 +102,9 @@ def counts() -> dict[str, int]:
 CARDS = [
     # (数字键, 单位, 标签, 说明, 链接)
     ("entries", "篇", "百科条目", "{groups} 篇主线 · 逐篇可读", "entries/index.md"),
+    # 交互地图放在第二位：它是本站的旗舰工具，此前只在条目里间接出现，
+    # 读者反馈「藏的有点深」—— 首页速览给它一个直接入口（2026-10-14）。
+    ("maps", "张", "交互地图", "{mapzones} 个任务区域 · 可筛进度", "maps/index.md"),
     ("tasks", "个", "任务逐条", "要求 / 奖励 / 门槛 / 前置", "quests/index.md"),
     ("objectives", "条", "任务目标", "可勾选，进度按前置反推", "quests/progress.md"),
     ("achievements", "个", "成就", "含 {ach_hidden} 个隐藏成就", "entries/achievements.md"),

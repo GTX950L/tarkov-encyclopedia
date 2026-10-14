@@ -7,18 +7,24 @@
      · 点位 / 楼层 / 图层  → javascripts/maps-data.js（scripts/gen_maps.py）
      · 底图 SVG            → assets/maps/<Name>.svg（同一支生成器换肤后入库）
 
-   五件事在这里做：
+   七件事在这里做：
 
      1. **内联 SVG**（用 fetch 取回后插进 DOM）—— 不内联就没法控制图层、
         也没法把点位叠在同一坐标系里。
      2. **点位叠加**：坐标来自生成器的投影结果，**本文件不做任何坐标计算**。
      3. **楼层互斥显示**：上游用 `<g id="Ground_Level">` 一类分组，切换 display 即可。
-     4. **任务搜索与定位**：控件条里的搜索框按中／英名过滤，选中后地图只剩该
-        任务、弹出信息卡，并把视图移到它的区域上 —— 「知道名字 → 看到它在哪」
-        一步到位，不用在上百个方框里翻。
+     4. **任务搜索与定位**：控件条里的搜索框按中／英名过滤（地名锚点也行），
+        选中后地图只剩该任务、弹出信息卡，并把视图移到它的区域上 ——
+        「知道名字 → 看到它在哪」一步到位，不用在上百个方框里翻。
      5. **任务清单（地图下方的控制台）**：这张图的任务按商人分组列出，带
-        **进度三态**（未标记／进行中／已完成，与「我的进度」同一份本机存储），
-        可按进度筛；点一行，上面地图就只剩它并自动定位。
+        **进度三态**（未标记／进行中／已完成，与「我的进度」同一份本机存储）、
+        组内完成度细条、**行前提示**（钥匙／自备）与进度筛选；点一行，
+        上面地图就只剩它并自动定位。
+     6. **出击规划**：清单行左侧的「+」把任务加进出击清单（可多选），
+        汇总条给出区域数与钥匙数，「只看这些」让地图同时显示这几个任务的区域 ——
+        一次 raid 推进几个任务时，这是比「单选」更贴战的看法。
+     7. **标记小卡**：点地名／撤离点／转场点弹「这是什么 + 去哪读」，
+        条目链接是稳定地址（不用位置式锚点，防错位）。
 
    三条边界（与站内其他脚本一致）：
 
@@ -41,6 +47,7 @@
   var liveFilter = null;
   var storageBound = false;
   var liveHidePicker = null;
+  var liveHidePop = null;
   var escBound = false;
 
   /* 站点根：从本脚本的 src 反推，末尾带 `/`。 */
@@ -185,6 +192,21 @@
       applyVB();
     }
 
+    /* 视图移到某个**点**（地名锚点）上 —— 搜索地名、点小卡定位用。
+       与 focusZone 的分工：那个按任务的所有区域取包围盒，这个按单点取景；
+       取景宽度用画布的三分之一（点级目标不需要 12× 那么近）。 */
+    function focusPoint(x, y) {
+      var w = Math.min(Math.max(vb0[2] / 3, vb0[2] / K_MAX), vb0[2]);
+      var h = w * (vb0[3] / vb0[2]); // 保持画布宽高比，避免 letterbox
+      cur = [
+        Math.max(vb0[0], Math.min(x - w / 2, vb0[0] + vb0[2] - w)),
+        Math.max(vb0[1], Math.min(y - h / 2, vb0[1] + vb0[3] - h)),
+        w,
+        h,
+      ];
+      applyVB();
+    }
+
     svg.addEventListener(
       "wheel",
       function (e) {
@@ -246,6 +268,7 @@
         addRulerPt(p[0], p[1]);
         return;
       }
+      hideMarkerPop(); // 点地图任何空白处都收小卡
       var hits = zonesAt(e.clientX, e.clientY);
       if (!hits.length) {
         selectTask(null); // 点空白 = 取消选中
@@ -360,11 +383,22 @@
       });
     if (qzAll.length) svg.appendChild(qlayer);
 
-    /* 任务 id → {n 名, en 英文名, tr 商人, t 类型, nz 几处区域}。清单、重叠点选与搜索共用。 */
+    /* 任务 id → {n 名, en 英文名, kn 钥匙数, pk 需自备, tr 商人, t 类型, nz 几处区域}。
+       清单、重叠点选、搜索与出击清单共用。 */
     var zoneByQ = {};
     qzAll.forEach(function (z) {
       if (!zoneByQ[z.q]) {
-        zoneByQ[z.q] = { q: z.q, n: z.n, en: z.en || "", tr: z.tr || "", t: z.t || "", nz: 0, px: 0 };
+        zoneByQ[z.q] = {
+          q: z.q,
+          n: z.n,
+          en: z.en || "",
+          kn: z.kn || 0, // 钥匙数（任务级，同一任务的区共用）
+          pk: z.pk || 0, // 需自备物品
+          tr: z.tr || "",
+          t: z.t || "",
+          nz: 0,
+          px: 0,
+        };
       }
       zoneByQ[z.q].nz++;
       zoneByQ[z.q].px = Math.max(zoneByQ[z.q].px, z.px || 0);
@@ -477,10 +511,77 @@
     if (!escBound) {
       escBound = true;
       document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && liveHidePicker) liveHidePicker();
+        if (e.key !== "Escape") return;
+        if (liveHidePicker) liveHidePicker();
+        if (liveHidePop) liveHidePop();
       });
     }
     liveHidePicker = hideZonePicker;
+
+    /* ── 标记小卡：点地名 / 撤离点 / 转场点弹出「这是什么 + 去哪读」──
+       为什么不直接跳转：条目页的标题锚点是**位置式**的（_1/_2……加一个标题
+       就全体错位），而误点一次就翻页走、地图状态全丢，比多看一步更糟。
+       所以学 the-hideout.io：点标记 → 小卡 → 卡里给**稳定**的条目链接。
+       与重叠点选列表共用一套定位逻辑（指针右下、贴边翻转）。 */
+    var popEl = null;
+
+    function hideMarkerPop() {
+      if (!popEl) return;
+      if (popEl.parentNode) popEl.parentNode.removeChild(popEl);
+      popEl = null;
+      document.removeEventListener("pointerdown", popOutside, true);
+    }
+
+    function popOutside(e) {
+      if (popEl && !popEl.contains(e.target)) hideMarkerPop();
+    }
+
+    function showMarkerPop(title, lines, links, cx, cy) {
+      hideMarkerPop();
+      var box = document.createElement("div");
+      box.className = "tk-map__pop";
+      box.setAttribute("role", "dialog");
+      var h = document.createElement("b");
+      h.textContent = title;
+      box.appendChild(h);
+      lines.forEach(function (t) {
+        if (!t) return;
+        var p = document.createElement("p");
+        p.textContent = t;
+        box.appendChild(p);
+      });
+      links.forEach(function (lk) {
+        var a = document.createElement("a");
+        a.href = lk.href;
+        a.textContent = lk.text;
+        box.appendChild(a);
+      });
+      var foot = document.createElement("div");
+      foot.className = "tk-map__popfoot";
+      foot.textContent = "Esc 或点别处关闭";
+      box.appendChild(foot);
+
+      box.style.position = "fixed";
+      box.style.visibility = "hidden";
+      document.body.appendChild(box);
+      popEl = box;
+
+      var pad = 10;
+      var bw = box.offsetWidth,
+        bh = box.offsetHeight;
+      var left = cx + 12,
+        top = cy + 12;
+      if (left + bw > window.innerWidth - pad) left = Math.max(pad, cx - bw - 12);
+      if (top + bh > window.innerHeight - pad) top = Math.max(pad, cy - bh - 12);
+      box.style.left = left + "px";
+      box.style.top = top + "px";
+      box.style.visibility = "";
+
+      setTimeout(function () {
+        document.addEventListener("pointerdown", popOutside, true);
+      }, 0);
+    }
+    liveHidePop = hideMarkerPop;
 
     /* ── 与「我的进度」联动 ──
        站内进度存在 localStorage `tarkov_progress_v1`，**任务 id 与这里的
@@ -513,6 +614,15 @@
     var selected = null; // 选中的任务 id；一非空就切到「只看这一个」
     var qzCount = null; // 控件条上的计数元素，建控件时才赋值
 
+    /* ── 出击清单（多任务同图）──
+       planSet 是「这局要做的任务」集合，planOnly 是「图上只画这些」的开关。
+       与 selected 的分工：selected 回答「我在看哪一个」，planSet 回答
+       「这局要干哪几票」—— 一次 raid 同时推进几个任务时，前者不够用。
+       planOnly 优先于 selected：规划视图里点单个区域只是看信息卡，
+       不打断全图视野；点清单行 / 搜索结果则退出规划视图（意图是「看这一个」）。 */
+    var planSet = {};
+    var planOnly = false;
+
     function applyQzFilter() {
       if (!qzAll.length) return;
       /* ⚠️ 「全部」模式**也要**取进度快照 —— 它要用来把已完成的任务区域标淡。
@@ -524,23 +634,28 @@
         var q = r.getAttribute("data-q");
         var st = stateOf(snap, q);
         r.classList.toggle("is-done", st === "done");
-        r.classList.toggle("is-sel", selected === q);
+        r.classList.toggle("is-sel", !planOnly && selected === q);
+        r.classList.toggle("is-plan", planOnly && !!planSet[q]);
         /* 选中时筛选退居其次：读者点某个区域，意图是「看这个」，
            不是「在这个基础上再筛一层」 */
-        var ok = selected
-          ? q === selected
-          : qzFilter === "all" ||
-            (qzFilter === "open" && st !== "done") ||
-            (qzFilter === "inhand" && st === "inhand");
+        var ok = planOnly
+          ? !!planSet[q]
+          : selected
+            ? q === selected
+            : qzFilter === "all" ||
+              (qzFilter === "open" && st !== "done") ||
+              (qzFilter === "inhand" && st === "inhand");
         r.style.display = ok ? "" : "none";
         if (ok) shown++;
       });
       if (qzCount) {
-        qzCount.textContent = selected
-          ? "只看选中的这 1 个任务"
-          : qzFilter === "all"
-            ? qzAll.length + " 个目标区域"
-            : shown + " / " + qzAll.length + " 个目标区域";
+        qzCount.textContent = planOnly
+          ? "只看出击清单的 " + Object.keys(planSet).length + " 个任务"
+          : selected
+            ? "只看选中的这 1 个任务"
+            : qzFilter === "all"
+              ? qzAll.length + " 个目标区域"
+              : shown + " / " + qzAll.length + " 个目标区域";
       }
       /* 进度快照这里已经取了一份，顺手把下方清单的三态徽章、组内完成度与
          筛选条计数一起刷掉 —— 别处（另一个标签页）改进度时走的也是这条路。 */
@@ -557,6 +672,32 @@
        直接调会 ReferenceError，所以用指针绕一手。 */
     var refreshPanelStates = null;
     var applyPanelFilter = null;
+    var refreshPlanUI = null; // 出击清单的行勾选与汇总条（建面板时赋值）
+
+    /* 出击清单三个操作。都走 applyQzFilter + refreshPlanUI 两条刷新路，
+       和 selectTask 一个模式 —— 状态改完，图与清单必须同时跟上。 */
+    function planToggle(qid) {
+      if (planSet[qid]) delete planSet[qid];
+      else planSet[qid] = true;
+      /* 清空了就自动退出「只看这些」—— 不然图上会一片空白 */
+      if (!Object.keys(planSet).length) planOnly = false;
+      applyQzFilter();
+      if (refreshPlanUI) refreshPlanUI();
+    }
+
+    function planSetOnly(on) {
+      if (!Object.keys(planSet).length) return;
+      planOnly = on;
+      applyQzFilter();
+      if (refreshPlanUI) refreshPlanUI();
+    }
+
+    function planClear() {
+      planSet = {};
+      planOnly = false;
+      applyQzFilter();
+      if (refreshPlanUI) refreshPlanUI();
+    }
 
     function selectTask(qid) {
       hideZonePicker();
@@ -592,6 +733,10 @@
       ];
       var st = stateOf(progressSnap(), selected);
       if (st) badges.push([st === "done" ? "已完成" : "进行中", "--" + st]);
+      /* 行前提示：钥匙与自备物品 —— 与清单行同一套数据（questZones 的 kn/pk） */
+      if (head.kn) badges.push(["钥匙 " + head.kn, "--key"]);
+      if (head.pk) badges.push(["需自备物品", "--pack"]);
+      if (planSet[selected]) badges.push(["在出击清单中", "--plan"]);
       badges.forEach(function (pair) {
         if (!pair[0]) return;
         var s = document.createElement("span");
@@ -621,6 +766,19 @@
         selectTask(null);
       });
       cardHost.appendChild(clear);
+
+      /* 在出击清单里时，卡片上给一个直接移除的口子 ——
+         「不选它了」不该逼读者回清单里找那一行 */
+      if (planSet[selected]) {
+        var rm = document.createElement("button");
+        rm.type = "button";
+        rm.className = "tk-map__cardclear";
+        rm.textContent = "从出击清单移除";
+        rm.addEventListener("click", function () {
+          planToggle(selected);
+        });
+        cardHost.appendChild(rm);
+      }
     }
 
     /* ── 点位层 ── */
@@ -641,7 +799,31 @@
         )
       );
       var title = el("title", {}, lb.cn ? lb.cn + "（" + lb.en + "）" : lb.en);
+      title.appendChild(
+        document.createTextNode("\n点击查看本地图的百科条目")
+      );
       g.appendChild(title);
+      /* 点击弹小卡（见 showMarkerPop）：给一个稳定的条目入口。
+         条目链接用 maps-data 的 entry 字段（gen_maps.py 的 MAP_ENTRY）。
+         **不取消当前选中** —— 选中态是「我在看哪个任务」，与「看这个地方」
+         是两件事；硬清掉会让图突然从「只剩一个任务」炸回全部区域。 */
+      g.style.cursor = "pointer";
+      g.addEventListener("click", function (e) {
+        e.stopPropagation();
+        hideMarkerPop();
+        focusPoint(lb.x, lb.y);
+        var lines = [];
+        if (lb.cn) lines.push("英文名 " + lb.en);
+        else lines.push("上游名 " + lb.en);
+        var links = [];
+        if (data.entry) {
+          links.push({
+            href: siteRoot() + "entries/" + data.entry + "/",
+            text: "查看本地图条目 →",
+          });
+        }
+        showMarkerPop(lb.cn || lb.en, lines, links, e.clientX, e.clientY);
+      });
       pins.appendChild(g);
     });
     svg.appendChild(pins);
@@ -699,7 +881,26 @@
         }
       }
       etip += "\n（上游名：" + e.n + "）";
+      etip += "\n点击查看撤离条件详解";
       g.appendChild(el("title", {}, etip));
+      /* 点击弹小卡 → 链到撤离点详解（跨图的统一入口，不做每图锚点） */
+      g.style.cursor = "pointer";
+      g.addEventListener("click", function (ev) {
+        ev.stopPropagation();
+        hideMarkerPop();
+        focusPoint(e.p[0], e.p[1]);
+        var lines = [e.fzh + " 撤离点：" + (e.nzh || e.n)];
+        if (e.vzh) lines.push("⚠ " + e.vzh + (e.vmiss ? "，缺 " + e.vmiss : ""));
+        if (e.pay) {
+          var pzh2 = e.pay.zh || "特定物品";
+          lines.push("需缴纳 " + fmtNum(e.pay.n) + " " + pzh2
+            + (e.pay.pve ? "　⚠ PvE 模式只需 " + fmtNum(e.pay.pve) + " " + pzh2 : ""));
+        }
+        showMarkerPop(e.nzh || e.fzh, lines, [{
+          href: siteRoot() + "entries/extraction-points/",
+          text: "撤离点详解 →",
+        }], ev.clientX, ev.clientY);
+      });
       exLayer.appendChild(g);
     });
     if (exLayer.children.length) svg.appendChild(exLayer);
@@ -715,7 +916,18 @@
       });
       g.appendChild(el("polygon", { points: "0,-6.5 6.5,5 -6.5,5" }));
       g.appendChild(el("text", { x: 9, y: 4, class: "tk-tr__lbl" }, tr.nzh));
-      g.appendChild(el("title", {}, tr.nzh + "（转场：不结束战局直接换图）"));
+      var ttip = tr.nzh + "（转场：不结束战局直接换图）\n点击查看转场说明";
+      g.appendChild(el("title", {}, ttip));
+      g.style.cursor = "pointer";
+      g.addEventListener("click", function (ev) {
+        ev.stopPropagation();
+        hideMarkerPop();
+        focusPoint(tr.p[0], tr.p[1]);
+        showMarkerPop("前往 " + tr.nzh, ["转场点：不结束战局直接换图"], [{
+          href: siteRoot() + "entries/transit/",
+          text: "转场与 BTR →",
+        }], ev.clientX, ev.clientY);
+      });
       trLayer.appendChild(g);
     });
     if (trLayer.children.length) svg.appendChild(trLayer);
@@ -802,7 +1014,10 @@
        此前只能靠肉眼在上百个方框里翻，或者展开任务清单逐行扫。
        搜索框把这条路缩成「输入名字 → 选一下 → 只剩它 + 信息卡 + 视图过去」。
        中英都能搜（questZones 带 en 字段，与任务图鉴总览同一口径）；
-       商人名也参与匹配 —— 只记得「Mechanic 给的」时同样能列出他的任务。 */
+       商人名也参与匹配 —— 只记得「Mechanic 给的」时同样能列出他的任务。
+       2026-10-14 起**地名锚点也进同一个框**（P2-3）：搜「宿舍」直接定位到那片区域，
+       不必先去任务清单里碰运气。物品搜索没有做 —— 上游容器数据只给位置不给类型，
+       做了就是「画得出来不等于值得画」的反面（总览页有说明）。 */
     if (qlist.length) {
       var sWrap = document.createElement("div");
       sWrap.className = "tk-map__seg tk-map__seg--search";
@@ -810,9 +1025,9 @@
       var sInput = document.createElement("input");
       sInput.type = "search";
       sInput.className = "tk-map__sq";
-      sInput.placeholder = "搜任务名…";
+      sInput.placeholder = "搜任务名 / 地名…";
       sInput.autocomplete = "off";
-      sInput.setAttribute("aria-label", "搜索这张图上的任务（中文或英文名）");
+      sInput.setAttribute("aria-label", "搜索这张图上的任务（中文或英文名）或地名");
       sWrap.appendChild(sInput);
 
       var sDrop = document.createElement("div");
@@ -822,7 +1037,8 @@
       sWrap.appendChild(sDrop);
       bar.appendChild(sWrap);
 
-      var S_MAX = 10; // 下拉最多列几条 —— 再多就该继续输入，不是继续翻
+      var S_MAX = 10; // 任务下拉最多列几条 —— 再多就该继续输入，不是继续翻
+      var L_MAX = 5;  // 地名同理，且地名是辅助入口，更短
 
       function questMatches(kw) {
         kw = kw.trim().toLowerCase();
@@ -833,6 +1049,20 @@
           if ((it.n + " " + it.en + " " + it.tr).toLowerCase().indexOf(kw) >= 0) {
             out.push(it);
             if (out.length >= S_MAX) break;
+          }
+        }
+        return out;
+      }
+
+      function labelMatches(kw) {
+        kw = kw.trim().toLowerCase();
+        if (!kw) return [];
+        var out = [];
+        var lbs = data.labels || [];
+        for (var i = 0; i < lbs.length; i++) {
+          if ((lbs[i].cn + " " + lbs[i].en).toLowerCase().indexOf(kw) >= 0) {
+            out.push(lbs[i]);
+            if (out.length >= L_MAX) break;
           }
         }
         return out;
@@ -850,64 +1080,137 @@
           return;
         }
         var ms = questMatches(sInput.value);
-        if (!ms.length) {
+        var ls = labelMatches(sInput.value);
+        if (!ms.length && !ls.length) {
           var none = document.createElement("div");
           none.className = "tk-map__sdrop-empty";
-          none.textContent = "没有匹配的任务";
+          none.textContent = "没有匹配的任务或地名";
           sDrop.appendChild(none);
         } else {
-          ms.forEach(function (it) {
-            var b = document.createElement("button");
-            b.type = "button";
-            b.className = "tk-qp";
-            b.setAttribute("role", "option");
-            var bn = document.createElement("b");
-            bn.textContent = it.n;
-            b.appendChild(bn);
-            /* 搜索结果也带进度徽章 —— 与下方清单同一套三态 */
-            var bst = document.createElement("span");
-            bst.className = "tk-qp__st";
-            var st = stateOf(progressSnap(), it.q) || "none";
-            bst.textContent = st === "done" ? "已完成" : st === "inhand" ? "进行中" : "未标记";
-            bst.classList.add("tk-qp__st--" + st);
-            b.appendChild(bst);
-            var bi = document.createElement("i");
-            bi.textContent =
-              (it.tr ? it.tr + " · " : "") +
-              it.t +
-              (it.nz > 1 ? " · " + it.nz + " 处" : "");
-            b.appendChild(bi);
-            b.addEventListener("click", function () {
-              pickQuest(it.q);
+          /* 两组结果（任务 / 地名）各带组头 —— 混在一起会分不清
+             「点它是选中任务」还是「点它定位地方」 */
+          if (ms.length) {
+            var gh = document.createElement("div");
+            gh.className = "tk-map__sdrop-grp";
+            gh.textContent = "任务";
+            sDrop.appendChild(gh);
+            ms.forEach(function (it) {
+              var b = document.createElement("button");
+              b.type = "button";
+              b.className = "tk-qp";
+              b.setAttribute("role", "option");
+              var bn = document.createElement("b");
+              bn.textContent = it.n;
+              b.appendChild(bn);
+              /* 搜索结果也带进度徽章 —— 与下方清单同一套三态 */
+              var bst = document.createElement("span");
+              bst.className = "tk-qp__st";
+              var st = stateOf(progressSnap(), it.q) || "none";
+              bst.textContent = st === "done" ? "已完成" : st === "inhand" ? "进行中" : "未标记";
+              bst.classList.add("tk-qp__st--" + st);
+              b.appendChild(bst);
+              /* 行前提示：钥匙 / 自备（P0-1 与清单行、信息卡同源） */
+              if (it.kn) {
+                var kb = document.createElement("span");
+                kb.className = "tk-qp__key";
+                kb.textContent = "钥匙 " + it.kn;
+                b.appendChild(kb);
+              }
+              if (it.pk) {
+                var pb2 = document.createElement("span");
+                pb2.className = "tk-qp__pack";
+                pb2.textContent = "自备";
+                b.appendChild(pb2);
+              }
+              var bi = document.createElement("i");
+              bi.textContent =
+                (it.tr ? it.tr + " · " : "") +
+                it.t +
+                (it.nz > 1 ? " · " + it.nz + " 处" : "");
+              b.appendChild(bi);
+              b.addEventListener("click", function () {
+                pickQuest(it.q);
+              });
+              sDrop.appendChild(b);
             });
-            sDrop.appendChild(b);
-          });
-          if (ms.length >= S_MAX) {
-            var more = document.createElement("div");
-            more.className = "tk-map__sdrop-foot";
-            more.textContent = "仅显示前 " + S_MAX + " 条 —— 继续输入可缩小范围";
-            sDrop.appendChild(more);
+            if (ms.length >= S_MAX) {
+              var more = document.createElement("div");
+              more.className = "tk-map__sdrop-foot";
+              more.textContent = "仅显示前 " + S_MAX + " 条 —— 继续输入可缩小范围";
+              sDrop.appendChild(more);
+            }
+          }
+          if (ls.length) {
+            var lh = document.createElement("div");
+            lh.className = "tk-map__sdrop-grp";
+            lh.textContent = "地名";
+            sDrop.appendChild(lh);
+            ls.forEach(function (lb) {
+              var b2 = document.createElement("button");
+              b2.type = "button";
+              b2.className = "tk-qp";
+              b2.setAttribute("role", "option");
+              var bn2 = document.createElement("b");
+              bn2.textContent = lb.cn || lb.en;
+              b2.appendChild(bn2);
+              var bi2 = document.createElement("i");
+              bi2.textContent = lb.cn ? lb.en : "上游地名";
+              b2.appendChild(bi2);
+              b2.addEventListener("click", function () {
+                pickLabel(lb);
+              });
+              sDrop.appendChild(b2);
+            });
           }
         }
         sDrop.hidden = false;
       }
 
-      /* 选中：只剩它 + 信息卡 + 视图过去 —— 一次搜索的完整收尾 */
+      /* 选中任务：只剩它 + 信息卡 + 视图过去 —— 一次搜索的完整收尾。
+         同时退出规划视图：搜索的意图是「看这一个」，不是「在规划里翻」。 */
       function pickQuest(qid) {
         hideSDrop();
         sInput.value = "";
+        planOnly = false;
         selectTask(qid);
         focusZone(qid);
+        if (refreshPlanUI) refreshPlanUI();
+      }
+
+      /* 选地名：视图过去 + 小卡（给条目入口）。不选中任何任务 ——
+         「看地方」与「看任务」是两条线，别把任务筛选状态改掉。 */
+      function pickLabel(lb) {
+        hideSDrop();
+        sInput.value = "";
+        hideMarkerPop();
+        focusPoint(lb.x, lb.y);
+        var links = [];
+        if (data.entry) {
+          links.push({
+            href: siteRoot() + "entries/" + data.entry + "/",
+            text: "查看本地图条目 →",
+          });
+        }
+        var b = sInput.getBoundingClientRect();
+        showMarkerPop(lb.cn || lb.en, [lb.cn ? "英文名 " + lb.en : "上游名 " + lb.en],
+          links, b.left, b.bottom);
       }
 
       sInput.addEventListener("input", renderSDrop);
       sInput.addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
-          /* 回车取第一条：唯一命中时零操作，多个命中时先给最相关的那个 */
+          /* 回车取第一条：唯一命中时零操作，多个命中时先给最相关的那个。
+             任务优先于地名 —— 「回车定位」的主路径是任务。 */
           var ms = questMatches(sInput.value);
           if (ms.length) {
             e.preventDefault();
             pickQuest(ms[0].q);
+          } else {
+            var ls = labelMatches(sInput.value);
+            if (ls.length) {
+              e.preventDefault();
+              pickLabel(ls[0]);
+            }
           }
         } else if (e.key === "Escape") {
           sInput.value = "";
@@ -1111,9 +1414,46 @@
       var pt = document.createElement("b");
       pt.textContent = "这张图上的任务 · " + qlist.length + " 个";
       phead.appendChild(pt);
+      /* 本图完成度：细条 + 「已完成 n / 总数」。**个人数据只能 JS 画** ——
+         静态数据表是生成物，放不了它；放头上是因为「这张图清了百分之几」
+         是打开面板第一眼想看到的事。 */
+      var progWrap = document.createElement("span");
+      progWrap.className = "tk-map__panelprog";
+      var progBar = document.createElement("i");
+      var progFill = document.createElement("i");
+      progBar.appendChild(progFill);
+      var progN = document.createElement("em");
+      progWrap.appendChild(progBar);
+      progWrap.appendChild(progN);
+      phead.appendChild(progWrap);
       var pv = document.createElement("span");
       pv.textContent = "收起清单";
       phead.appendChild(pv);
+
+      /* ── 出击清单汇总条 ──
+         **钉在筛选条上方、不随列表滚动**；面板收起时也**保持可见** ——
+         它是「当前有规划」的常驻提醒，收了清单不该连状态一起看不见。
+         没有规划时整条隐藏，不占地方。 */
+      var planStrip = document.createElement("div");
+      planStrip.className = "tk-map__plan";
+      planStrip.hidden = true;
+      var psTitle = document.createElement("b");
+      planStrip.appendChild(psTitle);
+      var psCount = document.createElement("span");
+      planStrip.appendChild(psCount);
+      var psOnly = document.createElement("button");
+      psOnly.type = "button";
+      psOnly.className = "tk-map__planbtn tk-map__planbtn--primary";
+      psOnly.addEventListener("click", function () {
+        planSetOnly(!planOnly);
+      });
+      planStrip.appendChild(psOnly);
+      var psClear = document.createElement("button");
+      psClear.type = "button";
+      psClear.className = "tk-map__planbtn";
+      psClear.textContent = "清空";
+      psClear.addEventListener("click", planClear);
+      planStrip.appendChild(psClear);
 
       /* 进度筛选条：**钉在清单顶部、不随列表滚动**（放在滚动容器外面）。
          与控件条那组「任务点位」筛选是两回事：那组管**图上画哪些区域**，
@@ -1165,10 +1505,36 @@
           curTrader = it.tr;
           var g = document.createElement("div");
           g.className = "tk-qp-grp";
+          var gName = document.createElement("span");
+          gName.textContent = curTrader;
+          var gBar = document.createElement("i");
+          gBar.className = "tk-qp-grp__bar";
+          var gFill = document.createElement("i");
+          gBar.appendChild(gFill);
+          var gN = document.createElement("em");
+          g.appendChild(gName);
+          g.appendChild(gBar);
+          g.appendChild(gN);
           pbody.appendChild(g);
-          grpRefs.push({ el: g, name: curTrader });
+          grpRefs.push({ el: g, name: curTrader, n: gN, bar: gFill });
           curGrpIdx = grpRefs.length - 1;
         }
+        /* 行 = 勾选钮 + 任务钮。分成两个按钮而不是行内嵌复选框：
+           <button> 里嵌交互控件是非法 HTML，且点错一次就选中任务会很烦。 */
+        var rowWrap = document.createElement("div");
+        rowWrap.className = "tk-qp-row";
+        var planBtn = document.createElement("button");
+        planBtn.type = "button";
+        planBtn.className = "tk-qp__plan";
+        planBtn.setAttribute("aria-pressed", "false");
+        planBtn.title = "加入出击清单（可多选，地图上同时显示）";
+        planBtn.textContent = "+";
+        planBtn.addEventListener("click", function (ev) {
+          ev.stopPropagation();
+          planToggle(it.q);
+        });
+        rowWrap.appendChild(planBtn);
+
         var b = document.createElement("button");
         b.type = "button";
         b.className = "tk-qp";
@@ -1179,19 +1545,39 @@
         var bst = document.createElement("span");
         bst.className = "tk-qp__st";
         b.appendChild(bst);
+        /* 行前提示（P0-1）：钥匙 / 自备。多数任务两样都没有，行保持干净 */
+        if (it.kn) {
+          var kb = document.createElement("span");
+          kb.className = "tk-qp__key";
+          kb.textContent = "钥匙 " + it.kn;
+          kb.title = "需要 " + it.kn + " 把钥匙（逐条列在任务详情里）";
+          b.appendChild(kb);
+        }
+        if (it.pk) {
+          var pb = document.createElement("span");
+          pb.className = "tk-qp__pack";
+          pb.textContent = "自备";
+          pb.title = "需要从仓库带进图 —— 漏带等于白跑一趟";
+          b.appendChild(pb);
+        }
         var bi = document.createElement("i");
         bi.textContent = it.t + " · " + it.nz + " 处";
         b.appendChild(bi);
         b.addEventListener("click", function () {
+          /* 点行 = 「看这一个」：退出规划视图再选中。规划视图仍在
+             「只看这些」按钮上等着，不丢。 */
+          planOnly = false;
           selectTask(it.q);
           focusZone(it.q);
+          if (refreshPlanUI) refreshPlanUI();
           /* 地图在上方 —— 点完把它带回视口（只在看不见时才滚，不抢滚动位置） */
           if (canvas.scrollIntoView) {
             canvas.scrollIntoView({ block: "nearest", behavior: "smooth" });
           }
         });
-        pbody.appendChild(b);
-        rowEls.push({ q: it.q, el: b, grp: curGrpIdx });
+        rowWrap.appendChild(b);
+        pbody.appendChild(rowWrap);
+        rowEls.push({ q: it.q, el: b, planBtn: planBtn, grp: curGrpIdx });
       });
 
       /* 页脚：把「只读」这条边界写在离操作最近的地方 */
@@ -1247,10 +1633,15 @@
           badge.textContent = st === "done" ? "已完成" : st === "inhand" ? "进行中" : "未标记";
           badge.className = "tk-qp__st tk-qp__st--" + st;
         });
+        /* 组头：完成度细条 + n/N（P2-2）。条与数字都来自同一份 grpStat */
         grpRefs.forEach(function (g, gi) {
           var gs = grpStat[gi] || { done: 0, total: 0 };
-          g.el.textContent = g.name + " · 已完成 " + gs.done + " / " + gs.total;
+          g.n.textContent = gs.done + " / " + gs.total;
+          g.bar.style.width = gs.total ? Math.round((gs.done / gs.total) * 100) + "%" : "0%";
         });
+        /* 面板头：本图完成度 */
+        progFill.style.width = qlist.length ? Math.round((cnt.done / qlist.length) * 100) + "%" : "0%";
+        progN.textContent = cnt.done + " / " + qlist.length + " 已完成";
         chipEls.all.textContent = "全部 " + qlist.length;
         chipEls.none.textContent = "未标记 " + cnt.none;
         chipEls.inhand.textContent = "进行中 " + cnt.inhand;
@@ -1258,28 +1649,56 @@
         applyPanelFilter(snap);
       };
 
+      /* 出击清单的 UI 刷新：汇总条文案 + 行勾选态。
+         与 refreshPanelStates 分开 —— 一个由**进度**驱动，一个由**规划**驱动，
+         两条刷新路互不依赖（进度变化不该动勾选，勾选不该动三态徽章）。 */
+      refreshPlanUI = function () {
+        var ids = Object.keys(planSet);
+        var zones = 0,
+          keys = 0;
+        ids.forEach(function (q) {
+          var it = zoneByQ[q];
+          if (!it) return;
+          zones += it.nz;
+          keys += it.kn || 0;
+        });
+        planStrip.hidden = ids.length === 0;
+        psTitle.textContent = "出击清单 · " + ids.length + " 个任务";
+        psCount.textContent = "区域 " + zones + " 处" + (keys ? " · 钥匙 " + keys + " 把" : "");
+        psOnly.textContent = planOnly ? "看全部任务" : "只看这些";
+        rowEls.forEach(function (r) {
+          var on = !!planSet[r.q];
+          r.planBtn.setAttribute("aria-pressed", on ? "true" : "false");
+          r.planBtn.textContent = on ? "✓" : "+";
+          r.el.classList.toggle("is-plan", on);
+        });
+      };
+
       phead.addEventListener("click", function () {
         var open = pbody.hidden;
         pbody.hidden = !open;
         pchips.hidden = !open; // 筛选条跟着一起收
+        /* 出击清单汇总条**不跟着收** —— 它是「当前有规划」的常驻提醒 */
         phead.setAttribute("aria-expanded", open ? "true" : "false");
         pv.textContent = open ? "收起清单" : "展开清单";
       });
 
       panel.appendChild(phead);
+      panel.appendChild(planStrip);
       panel.appendChild(pchips);
       panel.appendChild(pbody);
       host.appendChild(panel); // 放在地图**下方**（信息卡之后、图例之前）
 
-      refreshPanelStates(); // 初始化：徽章、组头完成度、筛选条计数
+      refreshPanelStates(); // 初始化：徽章、组头完成度、筛选条计数、面板头完成度
+      refreshPlanUI();      // 初始化：汇总条（空计划时隐藏）
     }
 
     /* ── 图例 ── */
     var legend = document.createElement("ul");
     legend.className = "tk-map__legend";
     [
-      ["tk-lg-pin", "地名锚点"],
-      ["tk-lg-ex", "撤离点（带名字，按阵营分色）"],
+      ["tk-lg-pin", "地名锚点 —— 点击查看条目"],
+      ["tk-lg-ex", "撤离点（带名字，按阵营分色）—— 点击看条件"],
       ["tk-lg-tr", "转场点 —— 不结束战局直接换图"],
       ["tk-lg-lock", "上锁 —— 点击查需要哪把钥匙"],
       ["tk-lg-hz", "危险区（雷区等）"],
@@ -1300,6 +1719,21 @@
       "底图为矢量绘制，可缩放查看。任务点位是目标区域（不是精确站姿点位），" +
       "坐标为上游数据投影所得，仅供参考；精确位置以游戏内为准。";
     host.appendChild(note);
+
+    /* ── 深链：?q=<任务id> 直接把地图开到某个任务上 ──
+       「我的下一步」推荐卡与任务详情页都用它落地（选中 + 定位 + 清单行高亮）。
+       id 不在本图上时静默忽略 —— 链接方按任务的地图归属生成，理论不会错；
+       错了也不该在地图页报错刷屏。 */
+    var q0 = null;
+    try {
+      q0 = new URLSearchParams(location.search).get("q");
+    } catch (err) {
+      q0 = null;
+    }
+    if (q0 && zoneByQ[q0]) {
+      selectTask(q0);
+      focusZone(q0);
+    }
 
     /* 别处（另一个标签页）改了进度 → 地图跟着更新。
        零成本、且不需要读者手动刷新。**监听器只装一次**，指向当前的

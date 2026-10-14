@@ -3643,6 +3643,88 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 .tk-ov__next .tk-board__note { margin-top: .6em; }
 
+/* ── 五b、最划算的可接任务 top 5（P1-1）──
+   嵌在「下一步」琥珀块里，所以用白底卡片把推荐行从汇总建议里分出来 —
+   — 汇总是一眼扫的，推荐是要逐条读的，两种密度不该混在一起。 */
+.tk-ov__picks { margin-top: .6em; }
+
+.tk-ov__picks-load,
+.tk-ov__picks-none {
+  margin: 0;
+  font-size: .7rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-ov__picks-head {
+  margin: 0 0 .35em;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--tk-amber);
+}
+
+.tk-ov__pick {
+  display: flex;
+  align-items: baseline;
+  gap: .6rem;
+  margin: .3em 0;
+  padding: .4em .6em;
+  border: 1px solid var(--tk-line);
+  border-radius: .25rem;
+  background: #fff;
+  font-size: .74rem;
+}
+
+.tk-ov__pickno {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+  border-radius: 50%;
+  background: var(--tk-amber-bg);
+  color: var(--tk-amber);
+  font-style: normal;
+  font-size: .66rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.25em;
+}
+
+.tk-ov__pickmain { flex: 1; min-width: 0; }
+
+.tk-ov__pickname {
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+.tk-ov__pickname b { font-weight: 700; color: var(--tk-ink); }
+
+.tk-ov__pickmeta {
+  font-size: .66rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-ov__pickwhy {
+  display: block;
+  margin-top: .1em;
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-ov__picklink {
+  flex: none;
+  font-size: .72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tk-ov__picks-foot {
+  margin: .45em 0 0;
+  font-size: .66rem;
+  line-height: 1.7;
+  color: var(--tk-ink-2);
+}
+
 /* —— 55.1 暗色覆盖 —— */
 
 [data-md-color-scheme="slate"] .tk-ov__big b { color: var(--tk-brand-dark); }
@@ -5483,6 +5565,16 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 /* 选中的那个任务：**不换色相**（色相承载「做什么」这一层信息），
    只提高填充浓度与描边粗细 —— 于是「选中」与「是什么类型」两件事同时读得出来。 */
+/* 出击清单内的任务（planOnly 视图）：中等强调，让多个任务同时可读；
+   **必须排在 is-sel 之前** —— 规划视图里点中的那个仍要最突出。 */
+.tk-zq.is-plan,
+.tk-zq.is-done.is-plan {
+  fill-opacity: .16;
+  stroke-opacity: .95;
+  stroke-width: calc(2px / var(--tk-k, 1));
+  opacity: 1;
+}
+
 .tk-zq.is-sel,
 .tk-zq.is-done.is-sel {
   fill-opacity: .45;
@@ -5607,6 +5699,12 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 .tk-map__badge--done { background: #E4F1EA; color: #1B6B44; }
 .tk-map__badge--inhand { background: #FBF0DD; color: #9A5C10; }
 
+/* 行前提示徽章：钥匙（琥珀）/ 自备（中性）/ 在清单中（品牌蓝）——
+   配色与清单行的 tk-qp__key / tk-qp__pack 一一对应 */
+.tk-map__badge--key { background: #FBF0DD; color: #9A5C10; }
+.tk-map__badge--pack { background: var(--tk-panel); color: var(--tk-ink-2); }
+.tk-map__badge--plan { background: #EAF2FB; color: var(--tk-brand); }
+
 .tk-map__carddesc { margin: .45rem 0 .3rem; color: var(--tk-ink-2); }
 
 .tk-map__cardlink { font-weight: 700; }
@@ -5710,13 +5808,226 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   color: var(--tk-ink-2);
 }
 
+/* ── 面板头：本图完成度（P2-2）──
+   细条 + 「已完成 n / 总数」。条用品牌蓝、轨道用分隔线灰 ——
+   个人进度数据，只有 JS 能画（静态数据表是生成物）。 */
+.tk-map__panelprog {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.tk-map__panelprog i {
+  display: block;
+  width: 5.5rem;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--tk-line);
+  overflow: hidden;
+}
+
+.tk-map__panelprog i i {
+  width: 0;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--tk-brand);
+  transition: width .25s;
+}
+
+.tk-map__panelprog em { font-style: normal; white-space: nowrap; }
+
+/* ── 出击清单汇总条（P0-2）──
+   蓝底一条，钉在筛选条上方；面板收起时也留着（「当前有规划」的常驻提醒）。
+   主按钮（只看这些）用实底品牌蓝，次按钮（清空）用白底描边。 */
+.tk-map__plan {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .35rem .8rem;
+  padding: .45rem .9rem;
+  border-top: 1px solid var(--tk-line);
+  background: #EAF2FB;
+  font-size: .72rem;
+}
+
+.tk-map__plan b { color: var(--tk-brand-2); font-weight: 700; white-space: nowrap; }
+
+.tk-map__plan span {
+  color: var(--tk-ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.tk-map__planbtn {
+  appearance: none;
+  border: 1px solid var(--tk-line);
+  border-radius: .2rem;
+  background: #fff;
+  color: var(--tk-ink-2);
+  font: inherit;
+  font-size: .68rem;
+  padding: .12rem .6rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tk-map__planbtn:hover { border-color: var(--tk-line-3); color: var(--tk-ink); }
+
+.tk-map__planbtn--primary {
+  background: var(--tk-brand);
+  border-color: var(--tk-brand);
+  color: #fff;
+  font-weight: 700;
+}
+
+.tk-map__planbtn--primary:hover { background: var(--tk-brand-2); color: #fff; }
+
+/* 清单行 = 勾选钮 + 任务钮（两个独立按钮，不嵌套） */
+.tk-qp-row {
+  display: flex;
+  align-items: stretch;
+  gap: .3rem;
+}
+
+.tk-qp__plan {
+  flex: none;
+  width: 1.55rem;
+  border: 1px solid var(--tk-line);
+  border-radius: .15rem;
+  background: var(--tk-panel);
+  color: var(--tk-ink-2);
+  font: inherit;
+  font-size: .78rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.tk-qp__plan:hover { border-color: var(--tk-brand); color: var(--tk-brand); }
+
+.tk-qp__plan[aria-pressed="true"] {
+  background: var(--tk-brand);
+  border-color: var(--tk-brand);
+  color: #fff;
+}
+
+/* 行内行前提示：钥匙（琥珀，出发前最容易忘）/ 自备（中性灰） */
+.tk-qp__key {
+  flex: none;
+  padding: 0 .4rem;
+  border-radius: .6rem;
+  font-size: .6rem;
+  line-height: 1.55;
+  white-space: nowrap;
+  background: var(--tk-amber-bg);
+  color: var(--tk-amber);
+}
+
+.tk-qp__pack {
+  flex: none;
+  padding: 0 .4rem;
+  border-radius: .6rem;
+  font-size: .6rem;
+  line-height: 1.55;
+  white-space: nowrap;
+  background: var(--tk-panel);
+  color: var(--tk-ink-2);
+}
+
+/* 计划内的行：左侧一道品牌蓝（与勾选钮同色，远看也认得出） */
+.tk-qp.is-plan { box-shadow: inset 3px 0 0 var(--tk-brand); }
+
+/* 组头：商人名 + 完成度细条 + n/N（P2-2） */
 .tk-qp-grp {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
   margin: .6rem 0 .25rem;
   padding: 0 .45rem;
   font-size: .68rem;
   font-weight: 700;
   color: var(--tk-ink-2);
   letter-spacing: .04em;
+}
+
+.tk-qp-grp__bar {
+  display: block;
+  flex: none;
+  width: 4.5rem;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--tk-line);
+  overflow: hidden;
+}
+
+.tk-qp-grp__bar i {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--tk-brand);
+  transition: width .25s;
+}
+
+.tk-qp-grp em {
+  font-style: normal;
+  font-weight: 400;
+  font-size: .64rem;
+  color: var(--tk-ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 搜索下拉的组头（任务 / 地名） */
+.tk-map__sdrop-grp {
+  padding: .35rem .45rem .2rem;
+  font-size: .64rem;
+  font-weight: 700;
+  color: var(--tk-ink-3);
+  letter-spacing: .06em;
+}
+
+/* ── 标记小卡（点地名/撤离点/转场点）──
+   与重叠点选列表同一套定位规则（指针右下、贴边翻转）。 */
+.tk-map__pop {
+  z-index: 9999;
+  min-width: 12rem;
+  max-width: 20rem;
+  padding: .5rem .65rem .45rem;
+  border: 1px solid var(--tk-line);
+  border-radius: .25rem;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .16);
+  font-size: .74rem;
+  line-height: 1.7;
+}
+
+.tk-map__pop b {
+  display: block;
+  font-size: .84rem;
+  font-weight: 700;
+  color: var(--tk-ink);
+}
+
+.tk-map__pop p {
+  margin: .15rem 0 0;
+  font-size: .7rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-map__pop a {
+  display: inline-block;
+  margin-top: .4rem;
+  font-size: .74rem;
+  font-weight: 700;
+}
+
+.tk-map__popfoot {
+  margin-top: .35rem;
+  padding-top: .3rem;
+  border-top: 1px solid var(--tk-line);
+  font-size: .62rem;
+  color: var(--tk-ink-3);
 }
 
 .tk-qp {
