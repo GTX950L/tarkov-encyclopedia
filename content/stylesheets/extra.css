@@ -5853,7 +5853,7 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   font-size: .72rem;
 }
 
-.tk-map__plan b { color: var(--tk-brand-2); font-weight: 700; white-space: nowrap; }
+.tk-map__plan b { color: var(--tk-brand-dark); font-weight: 700; white-space: nowrap; }
 
 .tk-map__plan span {
   color: var(--tk-ink-2);
@@ -5882,7 +5882,7 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   font-weight: 700;
 }
 
-.tk-map__planbtn--primary:hover { background: var(--tk-brand-2); color: #fff; }
+.tk-map__planbtn--primary:hover { background: var(--tk-brand-dark); color: #fff; }
 
 /* 清单行 = 勾选钮 + 任务钮（两个独立按钮，不嵌套） */
 .tk-qp-row {
@@ -5983,7 +5983,7 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   padding: .35rem .45rem .2rem;
   font-size: .64rem;
   font-weight: 700;
-  color: var(--tk-ink-3);
+  color: var(--tk-ink-2);
   letter-spacing: .06em;
 }
 
@@ -6027,7 +6027,7 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   padding-top: .3rem;
   border-top: 1px solid var(--tk-line);
   font-size: .62rem;
-  color: var(--tk-ink-3);
+  color: var(--tk-ink-2);
 }
 
 .tk-qp {
