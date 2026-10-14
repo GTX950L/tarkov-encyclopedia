@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3789 2723" width="3789" height="2723">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="141 721 3789 2723" width="3789" height="2723">
   <!-- 由 scripts/build_tile_maps.py 生成：瓦片拼合图的 SVG 包装。不要手改。 -->
-  <g id="1st"><image href="Labs.webp" x="0" y="0" width="3789" height="2723" preserveAspectRatio="none"/></g>
-  <g id="2nd" style="display:none"><image href="Labs_2nd.webp" x="0" y="0" width="3789" height="2723" preserveAspectRatio="none"/></g>
+  <g id="1st"><image href="Labs.webp" x="141" y="721" width="3789" height="2723" preserveAspectRatio="none"/></g>
+  <g id="2nd" style="display:none"><image href="Labs_2nd.webp" x="141" y="721" width="3789" height="2723" preserveAspectRatio="none"/></g>
 </svg>

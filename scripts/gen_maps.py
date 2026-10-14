@@ -144,6 +144,19 @@ MAP_ZH = {
 }
 
 FACTION_ZH = {"pmc": "PMC", "scav": "Scav", "shared": "共用"}
+
+# 上游有**多版本**的图：同一张图在数据里是多个 map 条目（工厂日/夜、中心区低等级/高难），
+# 各自的撤离点列表不同。合并时必须**按版本标注**，否则读者看不出差异。
+#
+# 实测（2026-10-14）：不标注时最明显的后果是**同一撤离点被列两遍** ——
+# 中心区 15 条（9 实 + 6 重）、工厂 19 条（10 实 + 9 重），且重复那份阵营为空、显示成「—」。
+VERSION_ZH: dict[str, str] = {
+    "factory4_day": "日间版",
+    "factory4_night": "夜间版",
+    "Sandbox": "低等级版（1–20 级）",
+    "Sandbox_high": "高难版（21 级起）",
+    "Sandbox_start": "新手引导版",
+}
 HAZARD_ZH = {"minefield": "雷区", "sniper": "狙击区", "deadly": "致命区"}
 LOCK_ZH = {"door": "门", "trunk": "后备箱", "container": "容器"}
 
@@ -450,6 +463,7 @@ def fetch_map_layers() -> None:
                 {
                     "n": e.get("name") or "",  # 译名在生成阶段算，见 build_maps
                     "f": e.get("faction") or "",
+                    "v": m.get("nameId") or "",   # 来源版本，供合并与标注
                     "x": round(p["x"], 1),
                     "z": round(p["z"], 1),
                 }
@@ -501,8 +515,32 @@ def fetch_map_layers() -> None:
         # **按本站 key 归并**：同一张图有多个版本（工厂日/夜、中心区三个）会给重复条目 ——
         # 按内容签名去重，否则地图上会叠出两份一模一样的撤离点。
         key = MAP_ID_TO_KEY[mid]
-        dst = out.setdefault(key, {"extracts": [], "locks": [], "hazards": [], "transits": []})
-        for kind in ("extracts", "locks", "hazards", "transits"):
+        dst = out.setdefault(
+            key,
+            {"extracts": [], "locks": [], "hazards": [], "transits": [], "versions": []},
+        )
+        if (m.get("nameId") or "") not in dst["versions"]:
+            dst["versions"].append(m.get("nameId") or "")
+        # 撤离点**按「名字 + 位置」合并**，而不是按整条记录的签名 ——
+        # 多版本图的同一个撤离点，各版本的 faction 字段完整度不同（一版有值、一版为空），
+        # 照签名去重会把它们当成两个不同的点，页面上就是**同一个出口画了两遍**。
+        # 合并规则：阵营取有值的那份；版本记成并集（页面据此标注「仅 XX 版有」）。
+        exidx = {(x["n"], x["x"], x["z"]): x for x in dst["extracts"]}
+        for x in rec["extracts"]:
+            k = (x["n"], x["x"], x["z"])
+            cur = exidx.get(k)
+            if cur is None:
+                x["v"] = [x["v"]] if x["v"] else []
+                exidx[k] = x
+                dst["extracts"].append(x)
+                tot["extracts"] += 1
+            else:
+                if not cur.get("f") and x.get("f"):
+                    cur["f"] = x["f"]
+                if x["v"] and x["v"] not in cur["v"]:
+                    cur["v"].append(x["v"])
+
+        for kind in ("locks", "hazards", "transits"):
             seen = {json.dumps(x, sort_keys=True, ensure_ascii=False) for x in dst[kind]}
             for x in rec[kind]:
                 sig = json.dumps(x, sort_keys=True, ensure_ascii=False)
@@ -679,6 +717,7 @@ def build_maps(data: list) -> dict:
     )
     qidx = _quest_index()
     zstat = {"desc": 0, "bytype": 0, "lost": 0, "clipped": 0, "offscreen": 0}
+    layer_dropped: dict[str, int] = {}   # 画布外被丢掉的图层点数（按图记）
     lz = (
         json.loads(LAYERS_CACHE.read_text(encoding="utf-8"))
         if LAYERS_CACHE.exists()
@@ -753,7 +792,17 @@ def build_maps(data: list) -> dict:
         #    因为公式里 x 是反向的（x 大 → 像素 x 小），直接用原顺序会得到负宽度。
         # 投影要用到 bounds / transform / rotation 三件，**不能只传 bounds** ——
         # 旋转感知的公式需要后两者（见 project() 的说明）。
-        pmeta = {**meta, "viewBox": view_box}
+        #
+        # ⚠️ **瓦片拼合图的投影帧是「整幅网格」，不是底图那个裁剪框**：
+        # 世界坐标经公式算出的是**网格像素**，而底图（及页面上的 viewBox）
+        # 只是网格的一个裁剪窗口。两者混用会让所有叠加点整体偏移 ——
+        # 实测破冰船的裁剪框偏离网格中心 40%，偏得最厉害。
+        # 包装 SVG 的 viewBox 已经写成「裁剪框在网格中的坐标」，所以这里
+        # 投影用 [0,0,grid,grid]，显示仍用解析出来的 view_box。
+        proj_frame = (
+            [0.0, 0.0, float(grid_px), float(grid_px)] if grid_px else view_box
+        )
+        pmeta = {**meta, "viewBox": proj_frame}
         quest_zones: list[dict] = []
         for z in zc["zones"]:
             if MAP_ID_TO_KEY.get(z["map"]) != key:
@@ -774,8 +823,12 @@ def build_maps(data: list) -> dict:
             # 单点点位（宽高为 0）先撑成一个可见的小方块，否则裁完就没了
             if bw < 0.5 and bh < 0.5:
                 bw = bh = 1.0
-            cx0, cy0 = max(0.0, bx), max(0.0, by)
-            cx1, cy1 = min(view_box[2], bx + bw), min(view_box[3], by + bh)
+            # 裁剪边界用**显示框**（view_box），不是投影帧 —— 投影帧是整个网格，
+            # 按它裁等于没裁。
+            fx0, fy0 = view_box[0], view_box[1]
+            fx1, fy1 = view_box[0] + view_box[2], view_box[1] + view_box[3]
+            cx0, cy0 = max(fx0, bx), max(fy0, by)
+            cx1, cy1 = min(fx1, bx + bw), min(fy1, by + bh)
             if cx1 - cx0 < 0.5 or cy1 - cy0 < 0.5:
                 zstat["offscreen"] += 1        # 整条都在画布外（上游坐标问题），不画
                 continue
@@ -786,7 +839,7 @@ def build_maps(data: list) -> dict:
             # 语义上就该有大框：`shoot`（在图里击杀 N 个）中位面积就有画布的 9.6%，
             # 而 `plantItem`（在某处放东西）中位只有 0.001% —— 一个是区域、一个是点。
             # 分档只影响**视觉权重**（大框退到背景、小框突出），不改坐标。
-            area_ratio = ((cx1 - cx0) * (cy1 - cy0)) / (view_box[2] * view_box[3])
+            area_ratio = ((cx1 - cx0) * (cy1 - cy0)) / (view_box[2] * view_box[3])  # 分母=显示框
             size = "l" if area_ratio > 0.20 else ("m" if area_ratio > 0.02 else "s")
 
             rec = {
@@ -818,6 +871,41 @@ def build_maps(data: list) -> dict:
             X, Y = project(x, z, pmeta)
             return [round(X, 1), round(Y, 1)]
 
+        # ── 画布外的点一律不画 ──
+        # 实测（2026-10-14）有两类「在图外」的点：
+        #   ① **上游把别的图的撤离点混进来了** —— 中心区的 `UN Roadblock` / `East Gate` /
+        #      `Exit_E10_coop` 三条，坐标与森林、街区的同名点几乎相同，但本图范围内查无此地；
+        #   ② **上游瓦片没覆盖到** —— 实验室有 5 个点（含「主电梯」）落在瓦片为空的区域。
+        # 两类都不该出现在图上：画出来会被 viewBox 剪掉、看不见，**却照样算进总数**，
+        # 图例上的数字就成了假的。所以按显示框过滤，并把条数报出来。
+        def in_box(px: float, py: float) -> bool:
+            return (
+                view_box[0] - 12 <= px <= view_box[0] + view_box[2] + 12
+                and view_box[1] - 24 <= py <= view_box[1] + view_box[3] + 24
+            )
+
+        def keep(seq: list[dict], getp, bbox=None) -> list[dict]:
+            """按显示框过滤。`getp` 给单点；`bbox` 给多边形的取包围盒函数（危险区用）。
+
+            ⚠️ **危险区必须按包围盒判，不能只判首个顶点** ——
+            多边形常常首顶点在图外、整体却与地图相交（实测 11 张图共误伤 23 个真实雷区）。
+            点状图层（撤离点 / 上锁 / 转场）用单点判定即可。
+            """
+            x0, y0 = view_box[0], view_box[1]
+            x1, y1 = x0 + view_box[2], y0 + view_box[3]
+            out_ = []
+            for it in seq:
+                if bbox is not None:
+                    bx0, by0, bx1, by1 = bbox(it)
+                    hit = not (bx1 < x0 - 12 or bx0 > x1 + 12 or by1 < y0 - 24 or by0 > y1 + 24)
+                else:
+                    hit = in_box(*getp(it))
+                if hit:
+                    out_.append(it)
+                else:
+                    layer_dropped[key] = layer_dropped.get(key, 0) + 1
+            return out_
+
         extracts = [
             {
                 "n": e["n"],
@@ -832,6 +920,20 @@ def build_maps(data: list) -> dict:
             }
             for e in lm.get("extracts") or []
         ]
+        # 版本标注：**只标「不在所有版本里出现」的点** ——
+        # 两个版本都有的出口不必标（那是常态），只有「进了高难版就用不了」这类才需要提醒。
+        # 实测：工厂的「2 号门」只在日间版，正是靠这条才浮出来。
+        allver = [v for v in (lm.get("versions") or []) if v in VERSION_ZH]
+        exver = {e["n"]: (e.get("v") or []) for e in (lm.get("extracts") or [])}
+        for e in extracts:
+            vs = [v for v in (exver.get(e["n"]) or []) if v in VERSION_ZH]
+            if len(allver) > 1 and len(vs) < len(allver):
+                miss = [v for v in allver if v not in vs]
+                e["vzh"] = "仅 " + "、".join(VERSION_ZH.get(v, v) for v in vs) + " 有" if vs else ""
+                e["vmiss"] = "、".join(VERSION_ZH.get(v, v) for v in miss)
+            else:
+                e["vzh"] = ""
+        extracts = keep(extracts, lambda x: x["p"])
         locks = [
             {
                 "tzh": LOCK_ZH.get(lk["t"], lk["t"] or "锁"),
@@ -841,6 +943,7 @@ def build_maps(data: list) -> dict:
             }
             for lk in lm.get("locks") or []
         ]
+        locks = keep(locks, lambda x: x["p"])
         hazards = [
             {
                 "tzh": HAZARD_ZH.get(h["t"], h["t"] or "危险区"),
@@ -848,6 +951,14 @@ def build_maps(data: list) -> dict:
             }
             for h in lm.get("hazards") or []
         ]
+        hazards = keep(
+            hazards,
+            None,
+            lambda x: (
+                min(q[0] for q in x["pts"]), min(q[1] for q in x["pts"]),
+                max(q[0] for q in x["pts"]), max(q[1] for q in x["pts"]),
+            ),
+        )
         transits = [
             {
                 # 上游的 transits 只有目标图 id、**没有名字** —— 名字由目标图推出来。
@@ -860,6 +971,7 @@ def build_maps(data: list) -> dict:
             }
             for tr in lm.get("transits") or []
         ]
+        transits = keep(transits, lambda x: x["p"])
 
         out[key] = {
             "nameEn": meta.get("normalizedName") or key,
@@ -888,6 +1000,9 @@ def build_maps(data: list) -> dict:
 
     if zstat["lost"]:
         log(f"   （{zstat['lost']} 条点位找不到对应任务，已跳过）")
+    if layer_dropped:
+        log("   （画布外的图层点已跳过：" + "、".join(
+            f"{k} {v} 个" for k, v in sorted(layer_dropped.items())) + "）")
     if zstat["clipped"] or zstat["offscreen"]:
         log(
             f"   （越界处理：{zstat['clipped']} 条裁到画布内、"

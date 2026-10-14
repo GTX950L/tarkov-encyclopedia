@@ -248,15 +248,20 @@ def build_one(key: str, meta: dict, fetch: bool) -> dict | None:
     for i, (lname, im) in enumerate(layers.items()):
         fname = out_paths[i][0]
         cls = "" if i == 0 else ' style="display:none"'
+        # ⚠️ image 的 x/y 用**裁剪框在整幅网格中的偏移**，viewBox 也用同一个坐标系。
+        # 视觉结果与「x=0 + viewBox 从 0 开始」完全一样，但**坐标空间变成了整幅网格** ——
+        # 页面侧的投影（世界 → 网格像素）才落得进来。
+        # 不这么写会怎样：裁剪把坐标系挪了，而投影仍按整幅网格算，
+        # **所有叠加点整体偏移**（实测破冰船偏得最厉害，因为它的裁剪框偏离中心 40%）。
         gs.append(
-            f'<g id="{lname}"{cls}><image href="{fname}" x="0" y="0" '
+            f'<g id="{lname}"{cls}><image href="{fname}" x="{box[0]}" y="{box[1]}" '
             f'width="{box_w}" height="{box_h}" preserveAspectRatio="none"/></g>'
         )
         floor_names.append(lname)
     wrapper = (
         '<svg xmlns="http://www.w3.org/2000/svg" '
         'xmlns:xlink="http://www.w3.org/1999/xlink" '
-        f'viewBox="0 0 {box_w} {box_h}" width="{box_w}" height="{box_h}">' + NL
+        f'viewBox="{box[0]} {box[1]} {box_w} {box_h}" width="{box_w}" height="{box_h}">' + NL
         + "  <!-- 由 scripts/build_tile_maps.py 生成：瓦片拼合图的 SVG 包装。不要手改。 -->" + NL + "  "
         + (NL + "  ").join(gs)
         + NL + "</svg>" + NL

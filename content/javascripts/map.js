@@ -592,9 +592,13 @@
       });
       g.appendChild(el("rect", { x: -5, y: -5, width: 10, height: 10, rx: 1.2 }));
       g.appendChild(el("text", { x: 8, y: 4, class: "tk-ex__lbl" }, e.nzh || e.fzh));
-      g.appendChild(
-        el("title", {}, e.fzh + " 撤离点：" + (e.nzh || e.n) + "\n（上游名：" + e.n + "）")
-      );
+      var etip = e.fzh + " 撤离点：" + (e.nzh || e.n);
+      /* 多版本图（工厂日/夜、中心区低等级/高难）各版本的撤离点列表不同。
+         只标「不是两个版本都有」的那些 —— 标注出来，读者才知道
+         「这个出口在我进的那个版本里到底有没有」。实测工厂的「2 号门」只在日间版。 */
+      if (e.vzh) etip += "\n⚠ " + e.vzh + (e.vmiss ? "，缺 " + e.vmiss : "");
+      etip += "\n（上游名：" + e.n + "）";
+      g.appendChild(el("title", {}, etip));
       exLayer.appendChild(g);
     });
     if (exLayer.children.length) svg.appendChild(exLayer);

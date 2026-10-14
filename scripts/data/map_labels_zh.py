@@ -305,6 +305,17 @@ EXTRACT_ZH: dict[str, str] = {
     "boat": "船",
     "voron_boat": "渡鸦号船",
     "voron_bunker": "渡鸦地堡",
+
+    # ── 关于 `_free_exit` 这类后缀（2026-10-14 修正）──
+    # 撤：原先译作「XX 免费出口」，**两处不准**：
+    #   ① `_free_exit` 是**游戏内部标识**，不是显示名的一部分 ——
+    #      中文维基把同一后缀的 `Nakatani_stairs_free_exit` 写作「Nakatani 地下室楼梯」，不带「免费」；
+    #   ② **"free" 在这里是「无条件」的意思，不是「不花钱」** ——
+    #      而中心区恰好有个**要缴 5000 卢布**的 V-Exit（`Sandbox_VExit`），
+    #      两个标签并排（「免费出口」vs「付费车辆出口」）会把区别误导到「钱」上。
+    # 改为：**地名 + 出口**；没有地名可用的（`shorl_free`）才写「无条件出口」。
+    # 与站内其他图的处理也就一致了 —— 海关的 `ex_customs_scav_gasstation` 一直译作「加油站」，
+    # 同样没有把类型后缀译进去。
     # 工厂（Gate 系列是编号门，社区就叫「3 号门」）
     "gate_0": "0 号门",
     "gate_2": "2 号门",
@@ -317,13 +328,13 @@ EXTRACT_ZH: dict[str, str] = {
     "camera_bunker": "摄像地堡",
     "factory_secret_ark": "秘密出口（ARK）",
     # 中心区
-    "nakatani_stairs_free_exit": "中谷楼梯免费出口",
+    "nakatani_stairs_free_exit": "Nakatani 楼梯出口",
     "scav_coop_exit": "Scav 合作出口",
     "groundzero_secret_adaptation": "秘密出口（适应）",
     "exit_e10_coop": "E10 合作出口",
     "sniper_exit": "狙击手出口",
     "un_roadblock": "联合国检查站",
-    "unity_free_exit": "Unity 免费出口",
+    "unity_free_exit": "Unity 银行出口",
     "east_gate": "东门",
     "sandbox_vexit": "付费车辆出口",
     "sniper": "狙击手出口",
@@ -336,7 +347,7 @@ EXTRACT_ZH: dict[str, str] = {
     "exfil_train": "火车撤离",
     "coastal_south_road": "南滨海路",
     "scav_coastal_south": "Scav · 南滨海路",
-    "shorl_free_scav": "Scav 免费出口",
+    "shorl_free_scav": "Scav 出口",
     "alpinist_light": "登山者（轻装）",
     "lighthouse_secret_minefield": "秘密出口（雷区）",
     "nothern_checkpoint": "北检查站",
@@ -344,7 +355,7 @@ EXTRACT_ZH: dict[str, str] = {
     "scav_hideout_at_the_grotto": "Scav 岩洞藏身处",
     "scav_industrial_zone": "Scav 工业区",
     "tunnel_shared": "隧道（共用）",
-    "shorl_free": "免费出口",
+    "shorl_free": "无条件出口",
     # 储备站
     "exit1": "1 号出口",
     "exit2": "2 号出口",

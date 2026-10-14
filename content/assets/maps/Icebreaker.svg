@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 824 3868" width="824" height="3868">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="1636 223 824 3868" width="824" height="3868">
   <!-- 由 scripts/build_tile_maps.py 生成：瓦片拼合图的 SVG 包装。不要手改。 -->
-  <g id="06_infirmary"><image href="Icebreaker.webp" x="0" y="0" width="824" height="3868" preserveAspectRatio="none"/></g>
+  <g id="06_infirmary"><image href="Icebreaker.webp" x="1636" y="223" width="824" height="3868" preserveAspectRatio="none"/></g>
 </svg>
