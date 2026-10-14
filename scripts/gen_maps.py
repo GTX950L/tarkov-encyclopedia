@@ -122,6 +122,23 @@ MAP_ID_TO_KEY: dict[str, str] = {
 # 出生点同理（278 个），且站内已把「出生点密度」登记为未决项 B7。
 # ─────────────────────────────────────────────────────────────────────────────
 MAPS_API = "https://json.tarkov.dev/regular/maps"
+
+# ── PvE / PvP 差异 ──
+# 上游对 PvE 有**独立端点**（`/pve/maps`、`/pve/tasks`），两边确实是两份数据。
+# 逐条比对（2026-10-14，17 个地图条目 × 19 个字段）的结论：
+#   · 底图、投影参数、地名锚点、上锁、危险区、转场、战利品容器、固定武器、开关 —— **完全相同**
+#   · 撤离点的**位置 / 名字 / 阵营** —— **完全相同**
+#   · 只有**车辆撤离要缴的卢布数额**不同（其余字段的差异都在本站没画的图层上，如 Boss 刷新）
+# 所以这里**只取缴费信息**，不为这几百字节把整个 PvE 数据也入库。
+PVE_MAPS_API = "https://json.tarkov.dev/pve/maps"
+PAY_CACHE = ROOT / "scripts" / "data" / "extract_pay_pve.json"
+
+# 已知的通货 id —— **游戏内固定 id，不随版本变**，可以安全硬编码。
+# 上游的 name 字段当前是占位符（`<id> Name`），查不到名字，所以只认这两个。
+PAY_ITEM_ZH = {
+    "5449016a4bdc2d6f028b456f": "卢布",
+    "569668774bdc2da2298b4568": "欧元",
+}
 LAYERS_CACHE = ROOT / "scripts" / "data" / "map_layers.json"
 
 # 地图中文名 —— **与站内条目写法一致**（entries/index.md 的篇目名）。
@@ -432,6 +449,48 @@ def fetch_quest_zones() -> None:
     )
 
     fetch_map_layers()
+    fetch_pve_extract_pay()
+
+
+def fetch_pve_extract_pay() -> None:
+    """抓 PvE 端点的撤离点缴费信息（只留「要缴物品」的那些）。
+
+    **只抓这一项**的理由见模块头部：PvE 与 PvP 的地图数据逐条比对后，
+    只有车辆撤离的数额不同 —— 没必要把整份 PvE 数据也存下来。
+    """
+    import datetime
+
+    log("⑤ 抓 PvE 端点的撤离点缴费（其余字段两模式一致，不重复入库）…")
+    raw = http_get(PVE_MAPS_API, timeout=240)
+    maps = json.loads(raw.decode("utf-8"))["data"]["maps"]
+    items = list(maps.values()) if isinstance(maps, dict) else maps
+
+    out: dict[str, dict] = {}
+    n = 0
+    for m in items:
+        mid = m.get("id")
+        if mid not in MAP_ID_TO_KEY:
+            continue
+        for e in m.get("extracts") or []:
+            ti = e.get("transferItem") or {}
+            if not ti.get("item"):
+                continue
+            out.setdefault(mid, {})[e.get("name") or ""] = {
+                "n": ti.get("count"),
+                "i": ti.get("item"),
+            }
+            n += 1
+
+    PAY_CACHE.write_text(
+        json.dumps(
+            {"fetched": datetime.date.today().isoformat(), "source": PVE_MAPS_API, "count": n, "maps": out},
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+        + chr(10),
+        encoding="utf-8",
+    )
+    log(f"   → {PAY_CACHE.relative_to(ROOT)}：{n} 个缴费撤离点（PvE 侧）")
 
 
 def fetch_map_layers() -> None:
@@ -464,6 +523,12 @@ def fetch_map_layers() -> None:
                     "n": e.get("name") or "",  # 译名在生成阶段算，见 build_maps
                     "f": e.get("faction") or "",
                     "v": m.get("nameId") or "",   # 来源版本，供合并与标注
+                    # 缴费要求（车辆撤离要卢布、部分秘密出口要钥匙）。
+                    # 存下来是为了与 PvE 侧比对 —— 实测有些数额两模式不同。
+                    "pay": (e.get("transferItem") or {}).get("item") and {
+                        "n": (e.get("transferItem") or {}).get("count"),
+                        "i": (e.get("transferItem") or {}).get("item"),
+                    } or None,
                     "x": round(p["x"], 1),
                     "z": round(p["z"], 1),
                 }
@@ -723,24 +788,45 @@ def build_maps(data: list) -> dict:
         if LAYERS_CACHE.exists()
         else {"maps": {}}
     )
+    # PvE 缴费缓存按**上游地图 id** 索引；站内要按 key 用，所以先翻过来。
+    # ⚠️ 不能指望 maps_source.json 里有 id —— 那份缓存早先精简过，不含 id。
+    _pay_raw = (
+        json.loads(PAY_CACHE.read_text(encoding="utf-8"))["maps"]
+        if PAY_CACHE.exists()
+        else {}
+    )
+    pay_pve: dict[str, dict] = {}
+    for _mid, _d in _pay_raw.items():
+        _k = MAP_ID_TO_KEY.get(_mid)
+        if _k:
+            pay_pve.setdefault(_k, {}).update(_d)
 
     # 瓦片拼合图（破冰船 / 实验室 / 迷宫）：底图由 build_tile_maps.py 产出，
     # **不进换肤流程** —— 色彩在拼合时已按浅色主题处理过了。
     tile_cfg = (
         json.loads(TILE_CACHE.read_text(encoding="utf-8")) if TILE_CACHE.exists() else {}
     )
-    jobs: list[tuple[str, dict, str, str | None]] = []
+    # jobs 的第 5 项是**上游地图 id** —— 缴费信息要按它去 PvE 侧对号入座。
+    # 一个 key 可能对应多个上游 id（工厂日/夜、中心区两版），这里取第一个
+    # —— 它们的缴费数额一致（已比对）。
+    jobs: list[tuple[str, dict, str, str | None, str]] = []
+    _id_of: dict[str, str] = {}
+    for g in data:
+        for m in g.get("maps", []):
+            k = m.get("key")
+            if k and k not in _id_of and m.get("id"):
+                _id_of[k] = m["id"]
     for key, meta in sorted(by_key.items()):
-        jobs.append((key, meta, "svg", None))
+        jobs.append((key, meta, "svg", None, _id_of.get(key, "")))
     for key, tinfo in sorted(tile_cfg.items()):
         meta = by_key.get(key) or next(
             (m for g in data for m in g.get("maps", []) if m.get("key") == key), {}
         )
         if meta:
-            jobs.append((key, meta, "tile", tinfo["svg"]))
+            jobs.append((key, meta, "tile", tinfo["svg"], _id_of.get(key, "")))
 
     out: dict[str, dict] = {}
-    for key, meta, kind, tile_svg in jobs:
+    for key, meta, kind, tile_svg, z_mid in jobs:
         grid_px: int | None = None
         if kind == "tile":
             styled = (SVG_DIR / tile_svg).read_text(encoding="utf-8")
@@ -934,6 +1020,27 @@ def build_maps(data: list) -> dict:
             else:
                 e["vzh"] = ""
         extracts = keep(extracts, lambda x: x["p"])
+
+        # ── 缴费信息 + PvE 差异 ──
+        # 实测（2026-10-14）：两模式的撤离点**位置/名字/阵营完全相同**，
+        # 唯一的实体差异是**车辆撤离要缴的卢布数额** —— 而且**不是所有图都不同**：
+        # 中心区 / 海岸线 / 街区 / 森林 是 PvE 5,000、PvP 20,000；
+        # 而海关与立交桥的两个 V-Exit **两边都是 20,000**。
+        # 所以不能笼统写「PvE 更便宜」，必须逐点标。
+        for e in extracts:
+            src = None
+            for x in lm.get("extracts") or []:
+                if x.get("n") == e["n"] and x.get("pay"):
+                    src = x["pay"]
+                    break
+            if not src:
+                continue
+            zh = PAY_ITEM_ZH.get(src["i"], "")
+            pay = {"n": src["n"], "zh": zh}
+            pv = (pay_pve.get(key) or {}).get(e["n"])
+            if pv and pv.get("n") != src["n"]:
+                pay["pve"] = pv["n"]
+            e["pay"] = pay
         locks = [
             {
                 "tzh": LOCK_ZH.get(lk["t"], lk["t"] or "锁"),
@@ -1064,6 +1171,9 @@ def main() -> int:
         if not LAYERS_CACHE.exists():
             log("缺图层缓存，单独补抓（不重下 SVG）")
             fetch_map_layers()
+        if not PAY_CACHE.exists():
+            log("缺 PvE 缴费缓存，单独补抓")
+            fetch_pve_extract_pay()
 
     data = json.loads(CACHE.read_text(encoding="utf-8"))
     log(f"\n② 换肤并投影（{len(_svg_sources(data))} 张）…")

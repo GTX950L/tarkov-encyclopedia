@@ -258,6 +258,12 @@
     var qzAll = data.questZones || [];
     var vbw = (data.viewBox || [0, 0, 1000, 600])[2];
     var MIN_PX = Math.max(9, vbw * 0.008); // 画布的 0.8%，但不小于 9px
+    /** 千分位。自己算而不用 toLocaleString —— 后者的输出取决于浏览器语言设置，
+     *  本站是中文站，固定用「,」比跟随系统更可预期。 */
+    function fmtNum(n) {
+      var s = String(n == null ? "" : n);
+      return s.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     var qlayer = el("g", { class: "tk-map__qzones" });
     /* 排序按**显示尺寸**（放大后的），不是原始尺寸 —— 两者会不一致：
        点状目标（w=h=0）原始面积 0、排到最后（最上层，这是对的），
@@ -597,6 +603,16 @@
          只标「不是两个版本都有」的那些 —— 标注出来，读者才知道
          「这个出口在我进的那个版本里到底有没有」。实测工厂的「2 号门」只在日间版。 */
       if (e.vzh) etip += "\n⚠ " + e.vzh + (e.vmiss ? "，缺 " + e.vmiss : "");
+      /* 缴费要求：车辆撤离要卢布、部分秘密出口要特定物品。
+         **PvE 与 PvP 的车辆撤离费用不同**（实测 4 张图：PvE 5,000 / PvP 20,000），
+         而海关与立交桥的两个 V-Exit 两边都是 20,000 —— 所以**逐个标，不做全局结论**。 */
+      if (e.pay) {
+        var pzh = e.pay.zh || "特定物品";
+        etip += "\n需缴纳 " + fmtNum(e.pay.n) + " " + pzh;
+        if (e.pay.pve) {
+          etip += "　⚠ PvE 模式只需 " + fmtNum(e.pay.pve) + " " + pzh;
+        }
+      }
       etip += "\n（上游名：" + e.n + "）";
       g.appendChild(el("title", {}, etip));
       exLayer.appendChild(g);
