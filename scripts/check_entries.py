@@ -285,6 +285,41 @@ def main() -> int:
     if n_groups == 0:
         errors.append("mkdocs.yml 未解析到任何「第X篇」分组")
 
+    # 1c. 地图页 ↔ 条目页 的双向链接。
+    #
+    # ⚠️ 这条检查是**踩过坑才加的**（2026-10-14）：给地图加「从条目页进去」的入口时，
+    # 只在海关条目页加了一处，**其余 12 个条目页全漏了** —— 而当时所有门禁都是绿的：
+    # 断链检查查的是「链接指向的文件存不存在」，查不出「本该有的链接根本不存在」。
+    #
+    # 做法：**从地图页反推**它对应的条目页（地图页的「相关条目」里有那一条），
+    # 再确认该条目页链回了地图页。这样不依赖生成器里的映射常量 ——
+    # 校验应当校验**产物**，而不是去读源码里的表（那种检查会随源码漂移而失效）。
+    map_pages = sorted((CONTENT / "maps").glob("*.md"))
+    map_pairs = 0
+    for mp in map_pages:
+        if mp.stem == "index":
+            continue
+        mtext = mp.read_text(encoding="utf-8")
+        # 地图页 → 条目页（取「相关条目」里的第一条 entries/ 链接）
+        m = re.search(r"\]\(\.\./entries/([a-z0-9-]+)\.md\)", mtext)
+        if not m:
+            errors.append(f"地图页 {mp.name} 没有链回任何条目页（相关条目节缺失）")
+            continue
+        ent_slug = m.group(1)
+        ep = CONTENT / "entries" / f"{ent_slug}.md"
+        if not ep.exists():
+            errors.append(f"地图页 {mp.name} 指向的条目页不存在: entries/{ent_slug}.md")
+            continue
+        map_pairs += 1
+        etext = ep.read_text(encoding="utf-8")
+        if f"../maps/{mp.name}" not in etext:
+            errors.append(
+                f"条目页 entries/{ent_slug}.md 没有链到它对应的地图页 maps/{mp.name} "
+                "—— 读者从条目页找不到地图入口"
+            )
+    if map_pairs == 0:
+        warnings.append("未发现「地图页 ↔ 条目页」的配对（地图栏目为空？）")
+
     # 2. content 内相对链接解析（排除代码块，模板占位符不受影响）
     md_files = sorted(CONTENT.rglob("*.md"))
     link_count = 0
