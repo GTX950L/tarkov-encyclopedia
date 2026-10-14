@@ -7,7 +7,7 @@
      · 点位 / 楼层 / 图层  → javascripts/maps-data.js（scripts/gen_maps.py）
      · 底图 SVG            → assets/maps/<Name>.svg（同一支生成器换肤后入库）
 
-   七件事在这里做：
+   八件事在这里做：
 
      1. **内联 SVG**（用 fetch 取回后插进 DOM）—— 不内联就没法控制图层、
         也没法把点位叠在同一坐标系里。
@@ -23,8 +23,14 @@
      6. **出击规划**：清单行左侧的「+」把任务加进出击清单（可多选），
         汇总条给出区域数与钥匙数，「只看这些」让地图同时显示这几个任务的区域 ——
         一次 raid 推进几个任务时，这是比「单选」更贴战的看法。
-     7. **标记小卡**：点地名／撤离点／转场点弹「这是什么 + 去哪读」，
-        条目链接是稳定地址（不用位置式锚点，防错位）。
+    7. **标记小卡**：点地名／撤离点／转场点弹「这是什么 + 去哪读」，
+       条目链接是稳定地址（不用位置式锚点，防错位）。
+     8. **标注屏幕锚定与避让（2026-10-15 重做）**：所有标注尺寸写
+        `calc(Npx / var(--tk-k))`，`--tk-k` = 画布宽 ÷ 视野宽（每用户单位的
+        屏幕像素），于是标注在任何图、任何缩放下都是恒定屏幕像素 —— 修掉了
+        「工厂巨字糊死全图、街区蚂蚁字看不见」的坐标系 bug；文字位置每帧
+        在屏幕空间做**贪心避让**，放不下的先藏字留记号，放大自然浮现；
+        另有与测距同源的**比例尺**（左下角，随缩放换档）与**任务区域图层开关**。
 
    三条边界（与站内其他脚本一致）：
 
@@ -49,6 +55,7 @@
   var liveHidePicker = null;
   var liveHidePop = null;
   var escBound = false;
+  var liveResizeBound = null; // resize/全屏监听随换页换人，先摘旧的再挂新的（防累积）
 
   /* 站点根：从本脚本的 src 反推，末尾带 `/`。 */
   function siteRoot() {
@@ -86,6 +93,20 @@
       host.classList.remove("tk-map--ready");
       return;
     }
+    /* 瓦片拼合图（实验室 / 迷宫 / 破冰船）的底图是 `<image href="Labs.webp">`，
+       href 按**文件名**写（build_tile_maps.py 的约束：内联后相对地址会按页面
+       URL 解析）。内联进 `/maps/<key>/` 后 `Labs.webp` 会解析成
+       `/maps/<key>/Labs.webp` → 404，位图从未显示过（页面只剩画布底色，
+       2026-10-15 重绘时实测确认）。这里统一补上站点根；矢量 SVG 没有
+       <image>，这次遍历零成本。 */
+    Array.prototype.forEach.call(svg.querySelectorAll("image[href], image[xlink\\:href]"), function (im) {
+      ["href", "xlink:href"].forEach(function (attr) {
+        var h = im.getAttribute(attr);
+        if (h && !/^(https?:|data:|\/)/.test(h)) {
+          im.setAttribute(attr, siteRoot() + "assets/maps/" + h);
+        }
+      });
+    });
     svg.removeAttribute("width");
     svg.removeAttribute("height");
     svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
@@ -108,7 +129,9 @@
         "viewBox",
         cur[0].toFixed(2) + " " + cur[1].toFixed(2) + " " + cur[2].toFixed(2) + " " + cur[3].toFixed(2)
       );
-      svg.style.setProperty("--tk-k", (vb0[2] / cur[2]).toFixed(3));
+      /* `--tk-k` 与全部标注布局都挪进 rAF（layoutLabels）里做：
+         getBoundingClientRect 会强制 reflow，滚轮缩放的高频路径上不能每次都读。 */
+      scheduleLayout();
     }
 
     function zoomAt(clientX, clientY, k) {
@@ -781,11 +804,156 @@
       }
     }
 
+    /* ── 标注避让（declutter）：字放不下就先藏，记号永远在 ──
+       痛点：地名、撤离点、转场点的文字都画在记号旁边，而工厂这类小图
+       一屏塞下 27 个地名 + 19 个撤离点，默认视图里文字互相压住，谁也读不了。
+       做法（标准地图行为）：
+       · 文字相对记号的偏移按**屏幕像素**钉死（12px / 8px），任何图、任何缩放一致
+         —— 偏移量 = px ÷ --tk-k（--tk-k 现在就是「每用户单位多少屏幕像素」）；
+       · 每次视图变化后在屏幕空间做**贪心避让**：优先级高的先占位，
+         放不下的文字先隐藏、只留记号；放大后空间够了自然浮现；
+       · 记号（圆点 / 方块 / 三角）**永远显示** —— 点位重叠是数据事实，
+         隐藏记号就是说谎；被避让的只是字；
+       · 优先级：撤离点 > 转场点 > 地名（行动信息优先于地形信息），
+         同级按上游数据顺序（稳定、可复现）；
+       · 搜索 / 点击定位的那个标签**强制显示**一次（_force），不被避让挤掉。 */
+    var labelItems = []; // {t, ax, ay, kind, text, fs, dx, dy, _force}
+    var labelIndex = new Map(); // 数据对象（lb / extract / transit）→ item
+
+    /* 屏幕宽估算：CJK 全宽、ASCII 半宽。不用 getBBox/getClientRect ——
+       每帧对上百个 text 调它太贵，估算够避让用了（盒还额外留 10% 余量）。 */
+    function estTextW(s, fs) {
+      var w = 0;
+      for (var i = 0; i < s.length; i++) {
+        w += s.charCodeAt(i) > 0x2e7f ? fs : fs * 0.58;
+      }
+      return w;
+    }
+
+    function regLabel(dataObj, t, ax, ay, kind, dx, dy) {
+      var it = {
+        t: t,
+        ax: ax,
+        ay: ay,
+        kind: kind,
+        text: t.textContent,
+        fs: kind === "label" ? 13.5 : 10.5,
+        dx: dx,
+        dy: dy,
+      };
+      it.w = estTextW(it.text, it.fs);
+      labelItems.push(it);
+      if (dataObj) labelIndex.set(dataObj, it);
+      return it;
+    }
+
+    var PRIO = { extract: 0, transit: 1, label: 2 };
+
+    var layoutPending = false;
+    function scheduleLayout() {
+      if (layoutPending) return;
+      layoutPending = true;
+      requestAnimationFrame(function () {
+        layoutPending = false;
+        layoutLabels();
+      });
+    }
+
+    function layoutLabels() {
+      var r = svg.getBoundingClientRect();
+      if (!r.width) return;
+      /* `--tk-k` = 当前每 SVG 用户单位对应多少屏幕像素（画布宽 ÷ 视野宽）。
+         CSS 里所有标注尺寸都写 `calc(Npx / var(--tk-k))`，两相抵消后
+         标注恒等于 N **屏幕像素** —— 与「哪张图」「缩到多深」都无关。
+         ⚠️ 旧语义（相对初始视野的放大倍数）是个 bug：工厂 viewBox 宽仅 130、
+         街区宽 3000+，同一个 `calc(13.5px / k)` 在工厂渲染成约 90px 的巨字
+         （标签糊死整张图）、在街区只有约 4px（蚂蚁字）。屏幕锚定后两边一致。 */
+      var k = r.width / cur[2]; // 每用户单位多少屏幕像素
+      svg.style.setProperty("--tk-k", k.toFixed(3));
+      if (!labelItems.length) {
+        updateScalebar(r, k);
+        return;
+      }
+      var placed = [];
+      var PAD = 2;
+      var order = labelItems.slice().sort(function (a, b) {
+        return PRIO[a.kind] - PRIO[b.kind];
+      });
+      order.forEach(function (it) {
+        var sx = ((it.ax - cur[0]) / cur[2]) * r.width;
+        var sy = ((it.ay - cur[1]) / cur[3]) * r.height;
+        /* 视口外的字直接藏（记号反正也被 viewBox 剪掉了） */
+        if (
+          sx < -80 || sx > r.width + 80 ||
+          sy < -60 || sy > r.height + 60
+        ) {
+          it.t.setAttribute("display", "none");
+          return;
+        }
+        /* 文字定位：偏移换算成用户单位（px ÷ k），任何缩放下都是恒定屏幕偏移 */
+        it.t.setAttribute("x", (it.ax + (it.dx / k)).toFixed(2));
+        it.t.setAttribute("y", (it.ay + (it.dy / k)).toFixed(2));
+        /* 文字屏幕盒：地名以 (dx,dy) 为中心（text-anchor=middle），
+           撤离/转场以它为左基线（SVG text 默认对齐） */
+        var w = it.w + PAD * 2;
+        var h = it.fs * 1.25 + PAD * 2;
+        var bx = it.kind === "label" ? sx + it.dx - w / 2 : sx + it.dx - PAD;
+        var by = it.kind === "label" ? sy + it.dy - h / 2 : sy + it.dy - it.fs - PAD;
+        var hit = it._force;
+        if (!hit) {
+          for (var i = 0; i < placed.length; i++) {
+            var p = placed[i];
+            if (bx < p[0] + p[2] && bx + w > p[0] && by < p[1] + p[3] && by + h > p[1]) {
+              hit = true;
+              break;
+            }
+          }
+        }
+        if (hit) {
+          it.t.setAttribute("display", "none");
+        } else {
+          it.t.removeAttribute("display");
+          placed.push([bx, by, w, h]);
+        }
+      });
+      /* _force 是「定位时保显一次」：这次布局用完即清，不长期霸位 */
+      labelItems.forEach(function (it) {
+        it._force = false;
+      });
+      updateScalebar(r, k);
+    }
+
+    /* ── 比例尺 ──
+       与测距同源（同一份 mpp：每用户单位多少米，x/z 方向分别给出），
+       尺子取横向（x 方向）。刻度选「好看的整数」：在 50–160px 里挑最长的
+       那档（20/50/100/200/500/1000/2000/5000 m），随缩放实时换档。 */
+    var scalebar = null;
+    var SB_CAND = [20, 50, 100, 200, 500, 1000, 2000, 5000];
+    function updateScalebar(r, k) {
+      if (!scalebar) return;
+      var mpp = (data.mpp || [1, 1])[0]; // 米 / 用户单位（横向）
+      if (!mpp || mpp <= 0) return;
+      var best = SB_CAND[0];
+      for (var i = 0; i < SB_CAND.length; i++) {
+        var px = (SB_CAND[i] / mpp) * k;
+        if (px <= 160) best = SB_CAND[i];
+      }
+      var pxW = Math.round((best / mpp) * k);
+      if (pxW < 8) {
+        scalebar.style.display = "none";
+        return;
+      }
+      scalebar.style.display = "";
+      scalebar.style.width = pxW + "px";
+      scalebar.textContent = best >= 1000 ? best / 1000 + " km" : best + " m";
+    }
+
     /* ── 点位层 ── */
     var pins = el("g", { class: "tk-map__pins" });
     (data.labels || []).forEach(function (lb) {
       var g = el("g", { class: "tk-map__pin" });
       g.appendChild(el("circle", { cx: lb.x, cy: lb.y, r: 5 }));
+      /* 文字的 x/y 由避让布局每帧按屏幕偏移换算设置（这里只是首帧兜底） */
       g.appendChild(
         el(
           "text",
@@ -798,6 +966,8 @@
           lb.cn || lb.en
         )
       );
+      var lbText = g.querySelector("text");
+      regLabel(lb, lbText, lb.x, lb.y, "label", 0, -12);
       var title = el("title", {}, lb.cn ? lb.cn + "（" + lb.en + "）" : lb.en);
       title.appendChild(
         document.createTextNode("\n点击查看本地图的百科条目")
@@ -811,6 +981,8 @@
       g.addEventListener("click", function (e) {
         e.stopPropagation();
         hideMarkerPop();
+        var it = labelIndex.get(lb);
+        if (it) it._force = true; // 定位到的标签这次保显，不被避让挤掉
         focusPoint(lb.x, lb.y);
         var lines = [];
         if (lb.cn) lines.push("英文名 " + lb.en);
@@ -865,6 +1037,8 @@
       });
       g.appendChild(el("rect", { x: -5, y: -5, width: 10, height: 10, rx: 1.2 }));
       g.appendChild(el("text", { x: 8, y: 4, class: "tk-ex__lbl" }, e.nzh || e.fzh));
+      /* 名字文字进避让池：撤离点是行动信息，优先级最高（见 PRIO） */
+      regLabel(e, g.querySelector("text"), e.p[0], e.p[1], "extract", 8, 4);
       var etip = e.fzh + " 撤离点：" + (e.nzh || e.n);
       /* 多版本图（工厂日/夜、中心区低等级/高难）各版本的撤离点列表不同。
          只标「不是两个版本都有」的那些 —— 标注出来，读者才知道
@@ -888,6 +1062,8 @@
       g.addEventListener("click", function (ev) {
         ev.stopPropagation();
         hideMarkerPop();
+        var it = labelIndex.get(e);
+        if (it) it._force = true;
         focusPoint(e.p[0], e.p[1]);
         var lines = [e.fzh + " 撤离点：" + (e.nzh || e.n)];
         if (e.vzh) lines.push("⚠ " + e.vzh + (e.vmiss ? "，缺 " + e.vmiss : ""));
@@ -916,12 +1092,15 @@
       });
       g.appendChild(el("polygon", { points: "0,-6.5 6.5,5 -6.5,5" }));
       g.appendChild(el("text", { x: 9, y: 4, class: "tk-tr__lbl" }, tr.nzh));
+      regLabel(tr, g.querySelector("text"), tr.p[0], tr.p[1], "transit", 9, 4);
       var ttip = tr.nzh + "（转场：不结束战局直接换图）\n点击查看转场说明";
       g.appendChild(el("title", {}, ttip));
       g.style.cursor = "pointer";
       g.addEventListener("click", function (ev) {
         ev.stopPropagation();
         hideMarkerPop();
+        var it = labelIndex.get(tr);
+        if (it) it._force = true;
         focusPoint(tr.p[0], tr.p[1]);
         showMarkerPop("前往 " + tr.nzh, ["转场点：不结束战局直接换图"], [{
           href: siteRoot() + "entries/transit/",
@@ -1183,6 +1362,8 @@
         hideSDrop();
         sInput.value = "";
         hideMarkerPop();
+        var it = labelIndex.get(lb);
+        if (it) it._force = true; // 搜到的地名保显一次，不被避让挤掉
         focusPoint(lb.x, lb.y);
         var links = [];
         if (data.entry) {
@@ -1305,6 +1486,9 @@
     }
 
     var layerToggles = [
+      /* 任务区域也是一层：想纯看地形时整个关掉 ——
+         「百来个彩色方框全开」是默认视图糊成一片的另一半原因。 */
+      ["任务区域", qlayer, qzAll.length, ""],
       ["撤离点", exLayer, (data.extracts || []).length, tally(data.extracts || [], "fzh")],
       ["转场点", trLayer, (data.transits || []).length, ""],
       ["上锁", lockLayer, (data.locks || []).length, tally(data.locks || [], "tzh")],
@@ -1712,6 +1896,29 @@
       legend.appendChild(li);
     });
     host.appendChild(legend);
+
+    /* ── 比例尺（画布左下角）──
+       数据与测距同源（mpp），缩放时由 layoutLabels 一并换档；
+       全屏 / 窗口尺寸变化会改画布宽度，也要重算。 */
+    scalebar = document.createElement("div");
+    scalebar.className = "tk-map__scalebar";
+    scalebar.setAttribute("aria-hidden", "true");
+    canvas.appendChild(scalebar);
+
+    var layoutTick = null;
+    function scheduleLayoutOnResize() {
+      if (layoutTick) clearTimeout(layoutTick);
+      layoutTick = setTimeout(scheduleLayout, 120); // 连续 resize 防抖
+    }
+    /* instant 换页会重放脚本：window/document 级监听先摘旧再挂新，
+       不做的话每换一次页就多挂一份（旧闭包虽无害但会累积）。 */
+    if (liveResizeBound) {
+      window.removeEventListener("resize", liveResizeBound);
+      document.removeEventListener("fullscreenchange", liveResizeBound);
+    }
+    liveResizeBound = scheduleLayoutOnResize;
+    window.addEventListener("resize", scheduleLayoutOnResize);
+    document.addEventListener("fullscreenchange", scheduleLayoutOnResize);
 
     var note = document.createElement("p");
     note.className = "tk-map__note";

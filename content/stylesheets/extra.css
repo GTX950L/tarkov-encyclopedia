@@ -5357,7 +5357,7 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 }
 
 .tk-map__canvas {
-  background: #e0e7d9;            /* 与生成器 LIGHT_STYLE 的 .land 同色，边缘不留白 */
+  background: #e9ecdc;            /* 与生成器 LIGHT_STYLE 的 .land 同色，边缘不留白 */
   border: 1px solid var(--tk-line);
   border-radius: .2rem;
   overflow: hidden;
@@ -5534,9 +5534,13 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
    密集处会互相重叠——把填充当作「淡淡的底纹」、把信息交给**描边 + 悬停**，
    否则整张图会被色块糊住、连底下的建筑都读不出来。
 
-   ⚠️ **所有描边与字号都要除以 `--tk-k`**（map.js 在缩放时写入的放大倍数）：
-   底图放大时标注若跟着一起放，字会比楼还大。竞品地图都是「底图放大、标注保持
-   屏幕大小」，这里用同一个做法。 */
+   ⚠️ **所有描边与字号都要除以 `--tk-k`**（map.js 在布局时写入的
+   「每用户单位多少屏幕像素」）：底图放大时标注若跟着一起放，字会比楼还大。
+   竞品地图都是「底图放大、标注保持屏幕大小」，这里用同一个做法。
+   ⚠️ `--tk-k` 的语义是**屏幕锚定**的（画布宽 ÷ 视野宽）：calc 结果与
+   「哪张图」「缩到多深」都无关，恒等于 N 屏幕像素 —— 旧语义（相对初始
+   视野的倍数）在工厂（viewBox 宽 130）上渲染出约 90px 巨字、在街区
+   （viewBox 宽 3000+）只有约 4px，是 2026-10-15 重绘修掉的坐标系 bug。 */
 .tk-zq {
   fill: #2c6fb5;
   fill-opacity: .09;
@@ -5663,12 +5667,59 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 /* 拖拽过程中禁止选中文字，否则整页会被拖成一片蓝 */
 .tk-map__canvas.is-dragging { user-select: none; }
 
-/* 标注随缩放反向补偿：底图放大多少，字与圆点就缩回多少 */
+/* 标注随缩放反向补偿：底图放大多少，字与圆点就缩回多少。
+   `--tk-k` 现在是「每用户单位多少屏幕像素」（屏幕锚定，map.js 布局时写入），
+   calc(Npx / k) 恒等于 N 屏幕像素 —— 工厂与街区的地名一样大。 */
 .tk-map__pin circle { r: calc(5px / var(--tk-k, 1)); }
 .tk-map__pin circle { stroke-width: calc(1.8px / var(--tk-k, 1)); }
 .tk-map__pin text {
   font-size: calc(13.5px / var(--tk-k, 1));
   stroke-width: calc(3px / var(--tk-k, 1));
+}
+
+/* —— 撤离点 / 转场点 / 上锁的记号几何也按 k 补偿 ——
+   方块的 x/y/宽高原本写死成用户单位：工厂（viewBox 130）上是约 60px 的大块，
+   街区（viewBox 3000+）上不足 2px。SVG 几何属性支持 CSS（Chromium 81+），
+   直接在 CSS 里 calc，与字号同一套纪律。
+   文字的 x/y 偏移由 map.js 的避让布局每帧写入（它们是逐标签不同的属性）。 */
+.tk-ex rect {
+  x: calc(-5px / var(--tk-k, 1));
+  y: calc(-5px / var(--tk-k, 1));
+  width: calc(10px / var(--tk-k, 1));
+  height: calc(10px / var(--tk-k, 1));
+  rx: calc(1.2px / var(--tk-k, 1));
+}
+
+.tk-lk rect {
+  x: calc(-4.2px / var(--tk-k, 1));
+  y: calc(-4.2px / var(--tk-k, 1));
+  width: calc(8.4px / var(--tk-k, 1));
+  height: calc(8.4px / var(--tk-k, 1));
+  rx: calc(1.6px / var(--tk-k, 1));
+}
+
+/* 三角形的 points 不是 CSS 属性，用 scale 补偿（本地原点=点位中心，
+   scale 同步缩描边，视觉等效屏幕恒定） */
+.tk-tr polygon { transform: scale(calc(1 / var(--tk-k, 1))); }
+
+/* —— 比例尺（画布左下角，数据与测距同源）—— */
+.tk-map__canvas { position: relative; }
+
+.tk-map__scalebar {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  height: 1.5em;
+  padding: 0 .45em 0 .5em;
+  border: 1px solid rgba(60, 66, 60, .55);
+  border-top: none;
+  border-radius: 0 0 .2rem .2rem;
+  background: rgba(255, 255, 255, .82);
+  font-size: .68rem;
+  line-height: 1.5em;
+  color: #3c423c;
+  letter-spacing: .02em;
+  pointer-events: none;
 }
 
 /* —— 任务信息卡（单击某个任务区域后出现）—— */
@@ -6150,13 +6201,17 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 .tk-rl-dot {
   fill: #111;
   stroke: #fff;
+  r: calc(4.5px / var(--tk-k, 1));
   stroke-width: calc(1.4px / var(--tk-k, 1));
 }
 
 .tk-rl-line {
   stroke: #111;
-  stroke-width: calc(1.8px / var(--tk-k, 1));
+  /* non-scaling-stroke：线宽与虚线齿都按**屏幕像素**解释（dasharray 不支持
+     calc，这是让虚线齿跨图/跨缩放恒定的正解），替代逐项 calc(--tk-k)。 */
+  stroke-width: 1.8px;
   stroke-dasharray: 6 4;
+  vector-effect: non-scaling-stroke;
 }
 
 .tk-rl-txt {

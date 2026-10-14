@@ -270,34 +270,42 @@ TRADER_NAME = {
 HEADERS = {"User-Agent": "tarkov-encyclopedia-mapgen/1.0"}
 
 # ─────────────────────────────────────────────────────────────────────────────
-# 浅色色板 —— 本站「军用档案纸」取向。上游默认是深色（.land #1f5054 一类），
+# 浅色色板 v2 —— 本站「军用档案纸」取向。上游默认是深色（.land #1f5054 一类），
 # 本站全文浅色，故整表替换。**类是上游定义的 24 个，不是自造**；
 # 上游新增类名时这里要跟着补（缺的类会退回浏览器默认填充，表现为一块黑）。
+#
+# v2（2026-10-15 地图重绘）相对 v1 的调整思路是**拉开图-底层次**，不改取向：
+#   · 地表底色更亮更中性（.land）—— 让建筑、道路、水域这些「内容」浮上来；
+#   · 建筑加深（.building）—— 建筑是玩家找路的头号锚点，与地面的对比是第一层次；
+#   · 水域加岸线描边（.water 带 stroke）—— 岸线是第二锚点，此前水面糊进草地；
+#   · 主路加深（.road_tarmac）—— 三级路宽原本只差几个像素，颜色再不分层就白分了；
+#   · 危险区压淡（.danger）—— 底图的雷区与页面层的红色击杀区共用「红」，
+#     底图这层退半步，页面的任务红才不混淆。
 # ─────────────────────────────────────────────────────────────────────────────
-LIGHT_STYLE = """.trees{fill:#b7d1b0}
-.cement{fill:#e8e8e2}
-.land{fill:#e0e7d9}
-.rock{fill:#e2d9c2}
-.water{fill:#abd0ec}
-.wood{fill:#d8c7a8}
-.tarmac{fill:#ccd2d4}
-.gravel{fill:#dccdb0}
-.building{fill:#9fabb6}
-.floor{fill:#e2e7e9}
-.locked{fill:#efa39b}
-.map_border{fill:none;stroke:#8b9c8f;stroke-width:2}
-.fence{fill:none;stroke:#7d8f80;stroke-width:1}
-.road_tarmac{fill:none;stroke:#8e9aa3}
-.road_gravel{fill:none;stroke:#b8a482}
-.road_small{stroke-width:5}
-.road_medium{stroke-width:8}
-.road_large{stroke-width:12}
-.railroad{fill:none;stroke:#9c8b7a;stroke-dasharray:6;stroke-width:3}
-.powerline{fill:none;stroke:#f0c14b;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:6,6}
-.danger{fill:#dd5a52;fill-opacity:.5;stroke:#c0392b;stroke-dasharray:4,2;stroke-width:2}
-.danger_small{fill:#dd5a52;fill-opacity:.5;stroke:#c0392b;stroke-dasharray:2,1;stroke-width:1}
+LIGHT_STYLE = """.trees{fill:#bccfae}
+.cement{fill:#e6e6df}
+.land{fill:#e9ecdc}
+.rock{fill:#ded4bc}
+.water{fill:#9ec9e8;stroke:#79aed4;stroke-width:.4}
+.wood{fill:#d2c19e}
+.tarmac{fill:#cdd3d6}
+.gravel{fill:#d9c9a8}
+.building{fill:#8f9ba8}
+.floor{fill:#e5eaec}
+.locked{fill:#f0a49b}
+.map_border{fill:none;stroke:#93a396;stroke-width:2}
+.fence{fill:none;stroke:#6d8072;stroke-width:1}
+.road_tarmac{fill:none;stroke:#7f8a94}
+.road_gravel{fill:none;stroke:#ab9770}
+.road_small{stroke-width:4.5}
+.road_medium{stroke-width:7.5}
+.road_large{stroke-width:11}
+.railroad{fill:none;stroke:#8a7a69;stroke-dasharray:6;stroke-width:3}
+.powerline{fill:none;stroke:#d9a93f;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:6,6}
+.danger{fill:#e0655c;fill-opacity:.38;stroke:#b03a30;stroke-dasharray:4,2;stroke-width:2}
+.danger_small{fill:#e0655c;fill-opacity:.38;stroke:#b03a30;stroke-dasharray:2,1;stroke-width:1}
 .task{fill:#2c6fb5}
-.stairs{fill:#c9a227}
+.stairs{fill:#c39a1f}
 .shadow{filter:drop-shadow(0 0 1px rgba(0,0,0,.2))}
 """
 

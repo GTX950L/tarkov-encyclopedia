@@ -26,15 +26,24 @@
 色彩
 ----
 实验室与迷宫是**深色底图**（中位亮度 30–60），与本站的浅色档案纸主题冲突；
-破冰船是中灰（峰值在 128–160），偏暗。三种处理：
+破冰船是中灰（峰值在 128–160），偏暗。统一走两步：
 
-  · `invert`  —— 亮度反转（保色相）：深色底 → 浅色底，彩色要素不变色
-  · `lift`    —— 色阶拉伸：把背景抬到接近纸白，线条仍深
-  · `keep`    —— 原样
+  · `invert`  —— 亮度反转（保色相）：深色底 → 浅色底；再把饱和度乘 0.55
+                （深色科技图的底带着蓝紫色调，抬亮后不压会显得脏）
+  · `lift`    —— 原样进入下一步（背景已是中灰，无需反转）
+  · 然后**都做百分位对比度拉伸**（p2–p98 → 0–255）
+
+**v2 为什么要加拉伸**：深色游戏底图的「底 vs 线」亮度差往往只有三四十个灰阶
+—— 实测实验室反转后底 ≈ 220、线 ≈ 195，差 10%，直接反转的产物是一片洗白
+的浅灰、线稿根本立不起来（v1 上线后实验室页就是这种「白茫茫」效果）。
+拉伸把暗端（线）压向 0、亮端（底）推到纸白，线稿才重新可读。
 
 **为什么反转亮度而不是三通道**：这三张图 70–91% 的像素是低饱和的，
 但仍有彩色要素（红/黄标记）。直接反转 RGB 会把红色变青，语义就错了。
 只反转 HSV 里的 V，色相与饱和度原样保留。
+
+**为什么统计要带 alpha 掩膜**：瓦片没覆盖的区域是透明的，转 RGB 后是纯黑，
+不掩膜的话直方图在 0 处全是透明像素，p2 被钉死在 0、拉伸失效。
 
 用法
 ----
@@ -146,33 +155,54 @@ def proj_uv(meta: dict):
 
 
 def tone_adjust(img, mode: str):
-    """色彩处理（见模块头部）。只动 HSV 的 V，色相与饱和度保留。"""
+    """色彩处理（见模块头部「色彩」一节）。
+
+    `img` 是 RGBA（调用方不再先 convert("RGB")—— 直方图统计需要 alpha 掩膜），
+    返回 RGBA。只动 HSV 的 V（与 invert 模式下的 S），色相保留。"""
     from PIL import Image
 
     if mode == "keep":
         return img
+    alpha = img.getchannel("A")
+    # 瓦片边缘的**半透明抗锯齿像素**（alpha 1–15）转 RGB 后是脏色，
+    # 反转+拉伸后会变成边缘噪声条纹（v2 上线当天实测）。低于阈值的直接清成透明：
+    # 底图本来就是「有墙/没墙」的二元世界，抖不掉这半档。
+    alpha = alpha.point(lambda a: 0 if a < 16 else a)
+    # 透明区不参与统计（见模块头部「为什么统计要带 alpha 掩膜」）
+    mask = alpha.point(lambda a: 255 if a > 8 else 0)
     hsv = img.convert("RGB").convert("HSV")
     h, s, v = hsv.split()
     if mode == "invert":
         v = Image.eval(v, lambda x: 255 - x)
-    elif mode == "lift":
-        # 背景（V 峰值）抬到接近纸白；线条仍是深色。
-        hist = v.histogram()
-        total = sum(hist)
-        acc = 0
-        peak = 128
-        for i in range(255, -1, -1):
-            acc += hist[i]
-            if acc >= total * 0.35:   # 取较亮侧的 35% 分位当背景
-                peak = max(i, 1)
-                break
-        k = 245.0 / peak
-        v = Image.eval(v, lambda x: min(255, int(x * k)))
-    else:
+        s = s.point(lambda x: int(x * 0.55))
+    elif mode != "lift":
         return img
-    from PIL import Image as _I
-
-    return _I.merge("HSV", (h, s, v)).convert("RGB")
+    # ── 百分位对比度拉伸：[p2, p98] → [0, 255] ──
+    # 端点取自**不透明像素**的直方图累计；离群像素（纯黑/纯白的零星点）
+    # 不许顶住端点，否则拉伸幅度被吃掉。
+    hist = v.histogram(mask)
+    total = sum(hist) or 1
+    acc = 0
+    lo = 0
+    for i in range(256):
+        acc += hist[i]
+        if acc >= total * 0.02:
+            lo = i
+            break
+    acc = 0
+    hi = 255
+    for i in range(255, -1, -1):
+        acc += hist[i]
+        if acc >= total * 0.02:
+            hi = i
+            break
+    if hi > lo:
+        scale = 255.0 / (hi - lo)
+        lut = [max(0, min(255, int((i - lo) * scale + 0.5))) for i in range(256)]
+        v = v.point(lut)
+    out = Image.merge("HSV", (h, s, v)).convert("RGB")
+    out.putalpha(alpha)
+    return out
 
 
 def build_one(key: str, meta: dict, fetch: bool) -> dict | None:
@@ -221,10 +251,8 @@ def build_one(key: str, meta: dict, fetch: bool) -> dict | None:
 
     out_paths = []
     for lname, im in layers.items():
-        # 深色底图反转后，透明区仍是透明
-        rgba = im
-        adj = tone_adjust(im.convert("RGB"), cfg["tone"]).convert("RGBA")
-        adj.putalpha(im.getchannel("A"))
+        # 深色底图反转后，透明区仍是透明（tone_adjust 全程带着 alpha）
+        adj = tone_adjust(im, cfg["tone"])
         crop = adj.crop(box)
         name = cfg["out"] if lname in ("1st", "main", "06_infirmary") else cfg["out"].replace(".webp", f"{cfg['layers'][lname]}.webp")
         dst = OUT_DIR / name
