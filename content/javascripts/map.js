@@ -7,7 +7,7 @@
      · 点位 / 楼层 / 图层  → javascripts/maps-data.js（scripts/gen_maps.py）
      · 底图 SVG            → assets/maps/<Name>.svg（同一支生成器换肤后入库）
 
-   三件事在这里做：
+   五件事在这里做：
 
      1. **内联 SVG**（用 fetch 取回后插进 DOM）—— 不内联就没法控制图层、
         也没法把点位叠在同一坐标系里。
@@ -16,6 +16,9 @@
      4. **任务搜索与定位**：控件条里的搜索框按中／英名过滤，选中后地图只剩该
         任务、弹出信息卡，并把视图移到它的区域上 —— 「知道名字 → 看到它在哪」
         一步到位，不用在上百个方框里翻。
+     5. **任务清单（地图下方的控制台）**：这张图的任务按商人分组列出，带
+        **进度三态**（未标记／进行中／已完成，与「我的进度」同一份本机存储），
+        可按进度筛；点一行，上面地图就只剩它并自动定位。
 
    三条边界（与站内其他脚本一致）：
 
@@ -539,16 +542,31 @@
             ? qzAll.length + " 个目标区域"
             : shown + " / " + qzAll.length + " 个目标区域";
       }
+      /* 进度快照这里已经取了一份，顺手把下方清单的三态徽章、组内完成度与
+         筛选条计数一起刷掉 —— 别处（另一个标签页）改进度时走的也是这条路。 */
+      if (pbody && refreshPanelStates) refreshPanelStates();
     }
 
     /* ── 选中某个任务：只显示它 + 出一张信息卡 ── */
     var cardHost = null;
+    var rowEls = [];   // 下方清单的行引用（{q, el, grp}），建清单时填充
+    var grpRefs = [];  // 组头引用（{el, name}）
+    var pbody = null;  // 清单面板 body（未建时为 null，applyQzFilter 靠它判存在）
+    /* 清单的刷新函数**建好时才赋值** —— 本文件顶层的 liveFilter 同一套写法：
+       "use strict" 下块内 function 声明是块级作用域，applyQzFilter（render 作用域）
+       直接调会 ReferenceError，所以用指针绕一手。 */
+    var refreshPanelStates = null;
+    var applyPanelFilter = null;
 
     function selectTask(qid) {
       hideZonePicker();
       selected = qid || null;
       applyQzFilter();
       renderCard();
+      /* 清单里那把选中的行标出来 —— 图上只剩它，清单里也要能找到它 */
+      rowEls.forEach(function (r) {
+        r.el.classList.toggle("is-sel", selected === r.q);
+      });
     }
 
     function renderCard() {
@@ -846,6 +864,13 @@
             var bn = document.createElement("b");
             bn.textContent = it.n;
             b.appendChild(bn);
+            /* 搜索结果也带进度徽章 —— 与下方清单同一套三态 */
+            var bst = document.createElement("span");
+            bst.className = "tk-qp__st";
+            var st = stateOf(progressSnap(), it.q) || "none";
+            bst.textContent = st === "done" ? "已完成" : st === "inhand" ? "进行中" : "未标记";
+            bst.classList.add("tk-qp__st--" + st);
+            b.appendChild(bst);
             var bi = document.createElement("i");
             bi.textContent =
               (it.tr ? it.tr + " · " : "") +
@@ -1061,12 +1086,20 @@
     cardHost.style.display = "none";
     host.appendChild(cardHost);
 
-    /* ── 任务清单面板：这张图上有哪些任务 ──
-       参考 eftarkov.com 的地图工具（它右侧那栏「任务 / 剧情目标」）。
-       它的做法值得学：**先按名字在列表里找到任务，再回图上定位** ——
-       比「在一百多个方框里找一个」快得多，也解决了「不知道任务叫啥、只记得商人」的情况。
-       本站没有侧栏（正文区约 900px），所以放在**地图上方**、默认折叠：
-       地图才是主角，清单是入口。 */
+    /* ── 任务清单面板：地图下方的「控制台」 ──
+       参考 eftarkov.com 的地图工具（它右侧那栏「任务 / 剧情目标」）：
+       **先在列表里按名字找到任务，再回图上定位**，比在百来个方框里找快得多。
+       本站没有侧栏（正文区约 900px），所以放在**地图下方**。
+
+       2026-10-14 起它从「入口」升级为「控制台」：
+         · **默认展开** —— 选任务是主操作，不该藏在一次点击后面；
+         · 带**进度三态**（未标记／进行中／已完成）与商人组内的完成度，
+           数据就是「我的进度」那份 localStorage（questZones 与进度页同一套任务 id），
+           「这张图我还剩什么没清」一眼可读；
+         · 点一行 → 上面地图只剩它 + 视图自动定位；**不再自动收起** ——
+           连挑几个任务是常见动作，每点一次就收起没法用；
+         · 进度仍是**只读**的：勾选与取消在「我的进度」页做（两页实时同步），
+           这条边界写在总览页，不在这里破。 */
     if (qlist.length) {
       var panel = document.createElement("div");
       panel.className = "tk-map__panel";
@@ -1074,26 +1107,67 @@
       var phead = document.createElement("button");
       phead.type = "button";
       phead.className = "tk-map__panelhead";
-      phead.setAttribute("aria-expanded", "false");
+      phead.setAttribute("aria-expanded", "true");
       var pt = document.createElement("b");
       pt.textContent = "这张图上的任务 · " + qlist.length + " 个";
       phead.appendChild(pt);
       var pv = document.createElement("span");
-      pv.textContent = "展开清单";
+      pv.textContent = "收起清单";
       phead.appendChild(pv);
 
-      var pbody = document.createElement("div");
+      /* 进度筛选条：**钉在清单顶部、不随列表滚动**（放在滚动容器外面）。
+         与控件条那组「任务点位」筛选是两回事：那组管**图上画哪些区域**，
+         这组管**清单列哪些行**。按钮沿用「我的进度」页的 tk-qseg，
+         三态配色也一致（未标记灰／进行中琥珀／已完成绿）。 */
+      var pchips = document.createElement("div");
+      pchips.className = "tk-map__panelchips";
+      pchips.setAttribute("role", "group");
+      pchips.setAttribute("aria-label", "按进度筛选清单");
+
+      pbody = document.createElement("div");
       pbody.className = "tk-map__panelbody";
-      pbody.hidden = true;
+      pbody.hidden = false; // 默认展开：它现在是主操作面，不是入口
+
+      var plFilter = "all"; // all | none | inhand | done
+      var chipEls = {};
+      [
+        ["all", "全部"],
+        ["none", "未标记"],
+        ["inhand", "进行中"],
+        ["done", "已完成"],
+      ].forEach(function (pair) {
+        var c = document.createElement("button");
+        c.type = "button";
+        c.className = "tk-qseg tk-qseg--" + pair[0];
+        c.setAttribute("aria-pressed", pair[0] === "all" ? "true" : "false");
+        c.addEventListener("click", function () {
+          plFilter = pair[0];
+          Object.keys(chipEls).forEach(function (k) {
+            chipEls[k].setAttribute("aria-pressed", k === plFilter ? "true" : "false");
+          });
+          applyPanelFilter(progressSnap());
+        });
+        chipEls[pair[0]] = c;
+        pchips.appendChild(c);
+      });
+
+      /* 空结果提示：筛到某个进度下没有任务时要说一句，别留一片空白 */
+      var pempty = document.createElement("div");
+      pempty.className = "tk-map__pempty";
+      pempty.hidden = true;
+      pbody.appendChild(pempty);
 
       var curTrader = null;
+      var curGrpIdx = -1; // 行记**组的序号**、不记元素 —— 元素当对象键会被
+                          // 统一转成 "[object HTMLDivElement]"，所有组累计到同一键下
       qlist.forEach(function (it) {
         if (it.tr && it.tr !== curTrader) {
           curTrader = it.tr;
           var g = document.createElement("div");
           g.className = "tk-qp-grp";
-          g.textContent = curTrader;
           pbody.appendChild(g);
+          grpRefs.push({ el: g, name: curTrader });
+          curGrpIdx = grpRefs.length - 1;
         }
         var b = document.createElement("button");
         b.type = "button";
@@ -1102,28 +1176,102 @@
         var bn = document.createElement("b");
         bn.textContent = it.n;
         b.appendChild(bn);
+        var bst = document.createElement("span");
+        bst.className = "tk-qp__st";
+        b.appendChild(bst);
         var bi = document.createElement("i");
         bi.textContent = it.t + " · " + it.nz + " 处";
         b.appendChild(bi);
         b.addEventListener("click", function () {
           selectTask(it.q);
-          /* 选完就收起 —— 面板是入口，地图才是要看的东西 */
-          pbody.hidden = true;
-          phead.setAttribute("aria-expanded", "false");
-          pv.textContent = "展开清单";
+          focusZone(it.q);
+          /* 地图在上方 —— 点完把它带回视口（只在看不见时才滚，不抢滚动位置） */
+          if (canvas.scrollIntoView) {
+            canvas.scrollIntoView({ block: "nearest", behavior: "smooth" });
+          }
         });
         pbody.appendChild(b);
+        rowEls.push({ q: it.q, el: b, grp: curGrpIdx });
       });
+
+      /* 页脚：把「只读」这条边界写在离操作最近的地方 */
+      var pfoot = document.createElement("div");
+      pfoot.className = "tk-map__panelfoot";
+      pfoot.appendChild(document.createTextNode("进度三态与「我的进度」页实时同步（本机存储）—— 勾选与取消在那边的页面做："));
+      var plink = document.createElement("a");
+      plink.href = siteRoot() + "quests/progress/";
+      plink.textContent = "我的进度 →";
+      pfoot.appendChild(plink);
+      pbody.appendChild(pfoot);
+
+      /* —— 三态徽章 / 组内完成度 / 筛选条计数 ——
+         progressSnap() 一次取副本，之后纯本地判断（progress.js 的纪律：
+         不在循环里反复读 localStorage）。
+         ⚠️ 写成**函数表达式赋给 render 作用域的指针**，不用块内 function 声明 ——
+         "use strict" 下后者是块级作用域，applyQzFilter 从外面调不到。 */
+      applyPanelFilter = function (snap) {
+        snap = snap || progressSnap();
+        var visible = 0;
+        var visByGrp = {}; // 组序号 → 可见行数
+        rowEls.forEach(function (r) {
+          var st = stateOf(snap, r.q) || "none";
+          var ok = plFilter === "all" || plFilter === st;
+          r.el.style.display = ok ? "" : "none";
+          if (ok) {
+            visible++;
+            visByGrp[r.grp] = (visByGrp[r.grp] || 0) + 1;
+          }
+        });
+        grpRefs.forEach(function (g, gi) {
+          g.el.style.display = visByGrp[gi] ? "" : "none";
+        });
+        pempty.hidden = visible > 0;
+        pempty.textContent =
+          plFilter === "done" ? "这张图上还没有已完成的任务。"
+          : plFilter === "inhand" ? "这张图上没有进行中的任务。"
+          : plFilter === "none" ? "这张图上的任务都动过了。"
+          : "";
+      };
+
+      refreshPanelStates = function () {
+        var snap = progressSnap();
+        var cnt = { none: 0, inhand: 0, done: 0 };
+        var grpStat = {}; // 组序号 → {done, total}
+        rowEls.forEach(function (r) {
+          var st = stateOf(snap, r.q) || "none";
+          cnt[st]++;
+          var gs = (grpStat[r.grp] = grpStat[r.grp] || { done: 0, total: 0 });
+          gs.total++;
+          if (st === "done") gs.done++;
+          var badge = r.el.querySelector(".tk-qp__st");
+          badge.textContent = st === "done" ? "已完成" : st === "inhand" ? "进行中" : "未标记";
+          badge.className = "tk-qp__st tk-qp__st--" + st;
+        });
+        grpRefs.forEach(function (g, gi) {
+          var gs = grpStat[gi] || { done: 0, total: 0 };
+          g.el.textContent = g.name + " · 已完成 " + gs.done + " / " + gs.total;
+        });
+        chipEls.all.textContent = "全部 " + qlist.length;
+        chipEls.none.textContent = "未标记 " + cnt.none;
+        chipEls.inhand.textContent = "进行中 " + cnt.inhand;
+        chipEls.done.textContent = "已完成 " + cnt.done;
+        applyPanelFilter(snap);
+      };
 
       phead.addEventListener("click", function () {
         var open = pbody.hidden;
         pbody.hidden = !open;
+        pchips.hidden = !open; // 筛选条跟着一起收
         phead.setAttribute("aria-expanded", open ? "true" : "false");
         pv.textContent = open ? "收起清单" : "展开清单";
       });
+
       panel.appendChild(phead);
+      panel.appendChild(pchips);
       panel.appendChild(pbody);
-      host.insertBefore(panel, canvas); // 放在地图**上方**
+      host.appendChild(panel); // 放在地图**下方**（信息卡之后、图例之前）
+
+      refreshPanelStates(); // 初始化：徽章、组头完成度、筛选条计数
     }
 
     /* ── 图例 ── */

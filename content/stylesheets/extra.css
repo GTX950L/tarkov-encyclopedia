@@ -5625,10 +5625,10 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 .tk-map__cardclear:hover { background: #E7E3DA; }
 
-/* —— 任务清单面板（学 eftarkov.com 地图工具的右侧「任务 / 剧情目标」栏）——
-   它的做法：**先在列表里按名字找到任务，再回图上定位**，比在百来个方框里找快得多。
-   本站正文区只有约 900px、没有侧栏可用，所以放在**地图上方并默认折叠** ——
-   面板是「入口」，地图是「主角」，入口不抢位置。 */
+/* —— 任务清单面板（地图下方的「控制台」）——
+   2026-10-14 起从「地图上方、默认折叠的入口」改为「地图下方、默认展开的控制台」：
+   带进度三态与筛选，点一行上面地图就只剩它。位置变了、定位没变 ——
+   清单服务地图，不抢地图的位置；收起来依旧只占一行。 */
 .tk-map__panel {
   margin: 1rem 0 0;
   border: 1px solid var(--tk-line);
@@ -5639,9 +5639,10 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 .tk-map__panelhead {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: .3rem 1rem;
   width: 100%;
   padding: .5rem .9rem;
   border: 0;
@@ -5657,12 +5658,56 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 .tk-map__panelhead span { font-size: .7rem; color: var(--tk-brand); white-space: nowrap; }
 .tk-map__panelhead:hover { background: #E7E3DA; }
 
+/* 进度筛选条：**钉在清单顶部、不随列表滚动**，所以住在滚动容器外面，
+   分隔线也从 panelbody 挪到它这里（原来在 body 上，会画在筛选条与列表之间）。 */
+.tk-map__panelchips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem;
+  padding: .45rem .9rem .5rem;
+  border-top: 1px solid var(--tk-line);
+  background: var(--tk-panel);
+}
+
 .tk-map__panelbody {
   max-height: 22rem;
   overflow-y: auto;
   padding: .3rem .5rem .6rem;
-  border-top: 1px solid var(--tk-line);
   background: #fff;
+}
+
+/* 进度三态徽章：配色与「我的进度」页的分段控件一致
+   （未标记灰／进行中琥珀／已完成绿）—— 同一个概念在全站一个色。 */
+.tk-qp__st {
+  flex: none;
+  padding: 0 .4rem;
+  border-radius: .6rem;
+  font-size: .6rem;
+  line-height: 1.55;
+  white-space: nowrap;
+  background: var(--tk-panel);
+  color: var(--tk-ink-2);
+}
+
+.tk-qp__st--inhand { background: var(--tk-amber-bg); color: var(--tk-amber); }
+.tk-qp__st--done { background: var(--tk-grn-bg); color: var(--tk-grn); }
+
+/* 选中的行：与图上 .tk-zq.is-sel 同一套品牌蓝，图上图上、清单里对得上 */
+.tk-qp.is-sel { background: #EEF3FD; }
+.tk-qp.is-sel b { color: var(--tk-brand); }
+
+.tk-map__pempty {
+  padding: .5rem .45rem;
+  font-size: .68rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-map__panelfoot {
+  margin-top: .5rem;
+  padding: .45rem .45rem .2rem;
+  border-top: 1px solid var(--tk-line);
+  font-size: .66rem;
+  color: var(--tk-ink-2);
 }
 
 .tk-qp-grp {
@@ -5676,9 +5721,10 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 .tk-qp {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
-  gap: .8rem;
+  gap: .25rem .8rem;
   width: 100%;
   padding: .28rem .45rem;
   border: 0;
