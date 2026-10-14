@@ -758,6 +758,9 @@ def _quest_index() -> dict[str, dict]:
     return {
         t["id"]: {
             "name": t.get("name") or t.get("en") or t["id"],
+            # 英文名随中文一起进索引 —— 地图页的任务搜索框**中英都能搜**
+            # （与任务图鉴总览「中文名与英文名都能搜」同一口径）。
+            "en": t.get("en") or "",
             "trader": TRADER_NAME.get(t.get("trader") or "", ""),
             "objs": t.get("objectives") or [],
         }
@@ -931,6 +934,7 @@ def build_maps(data: list) -> dict:
             rec = {
                 "q": z["task"],
                 "n": q["name"],
+                "en": q.get("en") or "",                   # 英文名：搜索用（见 _quest_index）
                 "tr": q["trader"],                           # 商人：面板按它分组
                 "k": z["type"],                              # 英文类型：给 CSS 分类用
                 "t": OBJ_TYPE_ZH.get(z["type"], z["type"]),  # 中文标签：给人看
@@ -1137,9 +1141,9 @@ def write_js(maps: dict) -> None:
      floors    楼层图层（id + 中文名），页面做互斥显示的切换按钮
      layers    上游全部图层 id（含材质层与 `*-locked` 子层），备查
      labels    地名锚点；cn 为空表示站内暂无译名，页面退回英文（不自己编）
-     questZones 任务点位：q=任务id、n=任务名、t=目标类型、d=目标描述（可能为空，
-                上游与站内 objective 数量不一致时不给，避免张冠李戴）、
-                x/y/w/h = 投影后的像素矩形。
+     questZones 任务点位：q=任务id、n=任务名、en=英文名（地图页搜索用）、t=目标类型、
+                d=目标描述（可能为空，上游与站内 objective 数量不一致时不给，
+                避免张冠李戴）、x/y/w/h = 投影后的像素矩形。
 
    ⚠️ **questZones 的任务 id 与「我的进度」是同一套键**（localStorage
       `tarkov_progress_v1` 里的 `modes.<mode>.quests`），所以地图能直接读进度

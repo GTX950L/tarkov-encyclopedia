@@ -3793,6 +3793,33 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   font-family: var(--tk-mono);
 }
 
+/* 汇总行：计数在左、折叠按钮在右 —— 515 行的表要能一键收起 */
+.tk-qs__statrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .5rem;
+  margin-bottom: .5em;
+}
+
+.tk-qs__statrow .tk-qs__stat { margin-bottom: 0; }
+
+.tk-qs__fold {
+  appearance: none;
+  border: 1px solid var(--tk-line);
+  border-radius: .2rem;
+  background: var(--tk-panel);
+  color: var(--tk-ink-2);
+  font: inherit;
+  font-size: .68rem;
+  padding: .18rem .7rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tk-qs__fold:hover { border-color: var(--tk-line-3); color: var(--tk-ink); }
+
 /* —— 表内元素（表格本体走站内样式） —— */
 
 .tk-qs__en {
@@ -5312,6 +5339,64 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   background: var(--tk-brand);
   color: #fff;
   font-weight: 700;
+}
+
+/* —— 任务搜索框（控件条内）——
+   **常驻可见**：任务是地图搜索的第一入口，藏进折叠面板里等于没有。
+   下拉挂在输入框下方（absolute），所以这一格要把 .tk-map__seg 默认的
+   `overflow: hidden` 放开，否则结果会被裁掉。 */
+.tk-map__seg--search { position: relative; overflow: visible; }
+
+.tk-map__sq {
+  appearance: none;
+  border: 0;
+  background: var(--tk-panel);
+  color: var(--tk-ink);
+  font: inherit;
+  font-size: .7rem;
+  line-height: 1.6;
+  padding: .28rem .65rem;
+  width: 9.5rem;
+}
+
+.tk-map__sq::placeholder { color: var(--tk-ink-2); opacity: .75; }
+
+.tk-map__sq:focus-visible {
+  outline: 2px solid var(--tk-brand);
+  outline-offset: -2px;
+}
+
+/* 去掉 type=search 自带的清除钮 —— 与「Esc 清空」重复，且各浏览器样式压不掉 */
+.tk-map__sq::-webkit-search-cancel-button { appearance: none; }
+
+.tk-map__sdrop {
+  position: absolute;
+  top: calc(100% + .3rem);
+  left: 0;
+  z-index: 60;
+  min-width: 100%;
+  max-width: 21rem;
+  max-height: 18rem;
+  overflow-y: auto;
+  padding: .3rem;
+  border: 1px solid var(--tk-line);
+  border-radius: .25rem;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .16);
+}
+
+.tk-map__sdrop .tk-qp { border-radius: .15rem; }
+
+.tk-map__sdrop-empty,
+.tk-map__sdrop-foot {
+  padding: .3rem .45rem;
+  font-size: .66rem;
+  color: var(--tk-ink-2);
+}
+
+.tk-map__sdrop-foot {
+  margin-top: .2rem;
+  border-top: 1px solid var(--tk-line);
 }
 
 /* 图例 */

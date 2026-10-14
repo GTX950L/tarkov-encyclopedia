@@ -130,7 +130,8 @@ function siteRoot() {
     var intro = el("p", "tk-qs__intro",
       "从 " + data.total + " 个任务里按条件筛。「解锁」一列是本站算出来的 —— "
       + "它表示做完这个任务之后，沿前置链一共能放开多少后续任务；"
-      + "想「先做哪个最划算」就把排序切成「解锁收益」。");
+      + "想「先做哪个最划算」就把排序切成「解锁收益」。"
+      + "结果表太长时可以点右侧「收起表格」折起来 —— 折叠着改条件也照常筛选，展开即是新结果。");
     root.appendChild(intro);
 
     /* —— 工具栏第 1 行：搜索 / 商人 / 地图 / 等级 / 排序 —— */
@@ -207,13 +208,31 @@ function siteRoot() {
     }
     root.appendChild(chips);
 
-    /* —— 汇总 —— */
+    /* —— 汇总行：计数 + 折叠按钮 ——
+       515 行的表不折叠时，光这一节就占掉小二十屏。折叠是**纯显示层**的：
+       筛选器照常工作（折叠着改条件，展开即是新结果），打印时也不受影响
+       （hidden 只隐藏屏幕显示）。 */
+    var statRow = el("div", "tk-qs__statrow");
     var stat = el("p", "tk-qs__stat");
-    root.appendChild(stat);
+    statRow.appendChild(stat);
+    var tableFolded = false;
+    var fold = el("button", "tk-qs__fold", "收起表格");
+    fold.type = "button";
+    fold.setAttribute("aria-expanded", "true");
+    fold.setAttribute("aria-controls", "tk-qs-tablewrap");
+    fold.addEventListener("click", function () {
+      tableFolded = !tableFolded;
+      wrapOuter.hidden = tableFolded;
+      fold.textContent = tableFolded ? "展开表格" : "收起表格";
+      fold.setAttribute("aria-expanded", tableFolded ? "false" : "true");
+    });
+    statRow.appendChild(fold);
+    root.appendChild(statRow);
 
     /* —— 表格（自己套滚动容器：站内约定 .md-typeset__table 是唯一滚动容器；
        表格**不加 class**，这样才能命中站内的 `table:not([class])` 样式） —— */
     var wrapOuter = el("div", "md-typeset__table tk-qs__wrap");
+    wrapOuter.id = "tk-qs-tablewrap";
     var table = document.createElement("table");
     table.id = "tk-qs-table";            /* 只给 id、不给 class */
     var thead = document.createElement("thead");
@@ -356,7 +375,9 @@ function siteRoot() {
       stat.textContent = "显示 " + rows.length + " / " + all.length + " 个任务"
         + (hidden ? "（已筛掉 " + hidden + " 个）" : "");
       empty.hidden = rows.length > 0;
-      wrapOuter.hidden = rows.length === 0;
+      /* 折叠状态跨 repaint 保持 —— 否则「折叠着改个筛选条件」会把表又展开，
+         折叠按钮名不副实。无结果时 empty 提示接管，表必须让位。 */
+      wrapOuter.hidden = tableFolded || rows.length === 0;
     }
 
     thead.innerHTML = '<tr><th title="点任务名跳到对应商人页的明细">任务</th>'

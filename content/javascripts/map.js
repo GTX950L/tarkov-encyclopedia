@@ -13,6 +13,9 @@
         也没法把点位叠在同一坐标系里。
      2. **点位叠加**：坐标来自生成器的投影结果，**本文件不做任何坐标计算**。
      3. **楼层互斥显示**：上游用 `<g id="Ground_Level">` 一类分组，切换 display 即可。
+     4. **任务搜索与定位**：控件条里的搜索框按中／英名过滤，选中后地图只剩该
+        任务、弹出信息卡，并把视图移到它的区域上 —— 「知道名字 → 看到它在哪」
+        一步到位，不用在上百个方框里翻。
 
    三条边界（与站内其他脚本一致）：
 
@@ -123,6 +126,60 @@
     function zoomCenter(k) {
       var r = svg.getBoundingClientRect();
       zoomAt(r.left + r.width / 2, r.top + r.height / 2, k);
+    }
+
+    /* 视图移到某个任务的所有区域上（搜索选中后调用）。
+       「知道名字 → 看到它在哪」是一次搜索的完整收尾 —— 不移视图的话，
+       选中的任务可能缩在地图另一个角落：信息卡有了，人仍得自己找。
+       宽高比保持与画布一致（SVG 是 xMidYMid meet，比例不符会出黑边），
+       放大倍数夹在滚轮同款的 [原尺寸, K_MAX] 里，不打破既有缩放纪律。 */
+    function focusZone(qid) {
+      var zs = qzAll.filter(function (z) {
+        return z.q === qid;
+      });
+      if (!zs.length) return;
+      var x0 = Infinity,
+        y0 = Infinity,
+        x1 = -Infinity,
+        y1 = -Infinity;
+      zs.forEach(function (z) {
+        var w = Math.max(z.w, MIN_PX),
+          h = Math.max(z.h, MIN_PX);
+        var zx = z.x - (w - z.w) / 2,
+          zy = z.y - (h - z.h) / 2;
+        if (zx < x0) x0 = zx;
+        if (zy < y0) y0 = zy;
+        if (zx + w > x1) x1 = zx + w;
+        if (zy + h > y1) y1 = zy + h;
+      });
+      /* 四周留 25% 余量 —— 贴边看不全目标，也看不出它周围是什么 */
+      var w = (x1 - x0) * 1.5,
+        h = (y1 - y0) * 1.5;
+      var ar = vb0[2] / vb0[3];
+      if (w / h < ar) w = h * ar;
+      else h = w / ar;
+      var minW = vb0[2] / K_MAX,
+        minH = vb0[3] / K_MAX;
+      if (w < minW) {
+        w = minW;
+        h = minW / ar;
+      }
+      if (h < minH) {
+        h = minH;
+        w = minH * ar;
+      }
+      /* 夹回画布内：宁可少留余量，也不把视图拉到图外看空白 */
+      w = Math.min(w, vb0[2]);
+      h = Math.min(h, vb0[3]);
+      var cx = (x0 + x1) / 2,
+        cy = (y0 + y1) / 2;
+      cur = [
+        Math.max(vb0[0], Math.min(cx - w / 2, vb0[0] + vb0[2] - w)),
+        Math.max(vb0[1], Math.min(cy - h / 2, vb0[1] + vb0[3] - h)),
+        w,
+        h,
+      ];
+      applyVB();
     }
 
     svg.addEventListener(
@@ -300,14 +357,24 @@
       });
     if (qzAll.length) svg.appendChild(qlayer);
 
-    /* 任务 id → {n 名, tr 商人, t 类型, nz 几处区域}。清单与重叠点选共用。 */
+    /* 任务 id → {n 名, en 英文名, tr 商人, t 类型, nz 几处区域}。清单、重叠点选与搜索共用。 */
     var zoneByQ = {};
     qzAll.forEach(function (z) {
       if (!zoneByQ[z.q]) {
-        zoneByQ[z.q] = { q: z.q, n: z.n, tr: z.tr || "", t: z.t || "", nz: 0, px: 0 };
+        zoneByQ[z.q] = { q: z.q, n: z.n, en: z.en || "", tr: z.tr || "", t: z.t || "", nz: 0, px: 0 };
       }
       zoneByQ[z.q].nz++;
       zoneByQ[z.q].px = Math.max(zoneByQ[z.q].px, z.px || 0);
+    });
+
+    /* 任务索引（按商人分组、组内按名字）—— 「任务清单面板」「搜索框」两处共用，
+       避免各建一份。定义点在这里（zoneByQ 之后）：控件条在下方才用到它。 */
+    var qlist = Object.keys(zoneByQ).map(function (q) {
+      return zoneByQ[q];
+    });
+    qlist.sort(function (a, b) {
+      if (a.tr !== b.tr) return a.tr < b.tr ? -1 : 1;
+      return a.n < b.n ? -1 : 1;
     });
 
     /* 屏幕某点下压着哪些任务（**按最上层在前**，同任务的只留一次）。 */
@@ -712,6 +779,124 @@
       applyQzFilter(); // 初始化：同时把计数与「已完成」标记填上
     }
 
+    /* ── 任务搜索：按名字找到 → 直接在地图上只看它 ──
+       解决的具体问题：海关一张图有 116 个任务区域，「知道任务名、想在图上找它」
+       此前只能靠肉眼在上百个方框里翻，或者展开任务清单逐行扫。
+       搜索框把这条路缩成「输入名字 → 选一下 → 只剩它 + 信息卡 + 视图过去」。
+       中英都能搜（questZones 带 en 字段，与任务图鉴总览同一口径）；
+       商人名也参与匹配 —— 只记得「Mechanic 给的」时同样能列出他的任务。 */
+    if (qlist.length) {
+      var sWrap = document.createElement("div");
+      sWrap.className = "tk-map__seg tk-map__seg--search";
+
+      var sInput = document.createElement("input");
+      sInput.type = "search";
+      sInput.className = "tk-map__sq";
+      sInput.placeholder = "搜任务名…";
+      sInput.autocomplete = "off";
+      sInput.setAttribute("aria-label", "搜索这张图上的任务（中文或英文名）");
+      sWrap.appendChild(sInput);
+
+      var sDrop = document.createElement("div");
+      sDrop.className = "tk-map__sdrop";
+      sDrop.setAttribute("role", "listbox");
+      sDrop.hidden = true;
+      sWrap.appendChild(sDrop);
+      bar.appendChild(sWrap);
+
+      var S_MAX = 10; // 下拉最多列几条 —— 再多就该继续输入，不是继续翻
+
+      function questMatches(kw) {
+        kw = kw.trim().toLowerCase();
+        if (!kw) return [];
+        var out = [];
+        for (var i = 0; i < qlist.length; i++) {
+          var it = qlist[i];
+          if ((it.n + " " + it.en + " " + it.tr).toLowerCase().indexOf(kw) >= 0) {
+            out.push(it);
+            if (out.length >= S_MAX) break;
+          }
+        }
+        return out;
+      }
+
+      function hideSDrop() {
+        sDrop.hidden = true;
+        sDrop.innerHTML = "";
+      }
+
+      function renderSDrop() {
+        sDrop.innerHTML = "";
+        if (!sInput.value.trim()) {
+          hideSDrop();
+          return;
+        }
+        var ms = questMatches(sInput.value);
+        if (!ms.length) {
+          var none = document.createElement("div");
+          none.className = "tk-map__sdrop-empty";
+          none.textContent = "没有匹配的任务";
+          sDrop.appendChild(none);
+        } else {
+          ms.forEach(function (it) {
+            var b = document.createElement("button");
+            b.type = "button";
+            b.className = "tk-qp";
+            b.setAttribute("role", "option");
+            var bn = document.createElement("b");
+            bn.textContent = it.n;
+            b.appendChild(bn);
+            var bi = document.createElement("i");
+            bi.textContent =
+              (it.tr ? it.tr + " · " : "") +
+              it.t +
+              (it.nz > 1 ? " · " + it.nz + " 处" : "");
+            b.appendChild(bi);
+            b.addEventListener("click", function () {
+              pickQuest(it.q);
+            });
+            sDrop.appendChild(b);
+          });
+          if (ms.length >= S_MAX) {
+            var more = document.createElement("div");
+            more.className = "tk-map__sdrop-foot";
+            more.textContent = "仅显示前 " + S_MAX + " 条 —— 继续输入可缩小范围";
+            sDrop.appendChild(more);
+          }
+        }
+        sDrop.hidden = false;
+      }
+
+      /* 选中：只剩它 + 信息卡 + 视图过去 —— 一次搜索的完整收尾 */
+      function pickQuest(qid) {
+        hideSDrop();
+        sInput.value = "";
+        selectTask(qid);
+        focusZone(qid);
+      }
+
+      sInput.addEventListener("input", renderSDrop);
+      sInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          /* 回车取第一条：唯一命中时零操作，多个命中时先给最相关的那个 */
+          var ms = questMatches(sInput.value);
+          if (ms.length) {
+            e.preventDefault();
+            pickQuest(ms[0].q);
+          }
+        } else if (e.key === "Escape") {
+          sInput.value = "";
+          hideSDrop();
+        }
+      });
+      /* 焦点离开就收下拉。用 blur + 延时而不是 document 捕获：点下拉项的
+         瞬间会先 blur，延时 150ms 足够让 click 落到按钮上（item 自己的
+         pickQuest 会顺手清空输入框）。 */
+      sInput.addEventListener("blur", function () {
+        setTimeout(hideSDrop, 150);
+      });
+    }
+
     /* ── 测距：点两点量直线距离 ──
        距离用**世界坐标**算：像素差 × 每像素米数（`mpp`，生成器按 bounds 与
        viewBox 算出）。x 与 z 的比例尺**不同**，所以两个方向分别乘、不能取平均。
@@ -882,16 +1067,6 @@
        比「在一百多个方框里找一个」快得多，也解决了「不知道任务叫啥、只记得商人」的情况。
        本站没有侧栏（正文区约 900px），所以放在**地图上方**、默认折叠：
        地图才是主角，清单是入口。 */
-    /* 任务索引（点位层已在上方建好，这里只做排序）——
-       `zoneByQ` 同时给「任务清单」「重叠点选」两处用，避免各建一份。 */
-    var qlist = Object.keys(zoneByQ).map(function (q) {
-      return zoneByQ[q];
-    });
-    qlist.sort(function (a, b) {
-      if (a.tr !== b.tr) return a.tr < b.tr ? -1 : 1;
-      return a.n < b.n ? -1 : 1;
-    });
-
     if (qlist.length) {
       var panel = document.createElement("div");
       panel.className = "tk-map__panel";
