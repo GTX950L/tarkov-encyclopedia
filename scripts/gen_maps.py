@@ -246,6 +246,18 @@ def humanize_extract(name: str) -> str:
         hit = table.get(norm_key(core)) or table.get(norm_key(raw))
         if hit:
             return hit
+    # 内部 id 的形态是「阵营_短代号」（scav_e7 一类）→ 转成「Scav · E7」。
+    # 查表漏掉的内部 id 直露（页面上写 scav_e7）不友好 —— 复查报告 P2；
+    # 与「词表外保持英文」口径不冲突：那条管的是英文名（Old Road Gate），
+    # 不是上游的内部 id。
+    m = re.match(r"^(scav|pmc|coop|shared)_([A-Za-z]\d{1,2})$", raw)
+    if m:
+        return {
+            "scav": "Scav",
+            "pmc": "PMC",
+            "coop": "合作",
+            "shared": "共用",
+        }[m.group(1)] + " · " + m.group(2).upper()
     if core != raw:
         # 没命中词表：剥掉前缀后的英文按「下划线转空格 + 首字母大写」呈现
         return core.replace("_", " ").title() if core else raw
@@ -682,9 +694,43 @@ STYLE_BLOCK_RE = re.compile(
     r'(<style id="style_common">)(.*?)(</style>)', re.S
 )
 
+# 上游各图还有自己的 per-map 样式块（<style id="style_<key>">），里面的深色 fill
+# **不在 24 个公共色类里**，上面的整表替换管不到 —— 复查（2026-10-15）实测：
+# 立交桥的商场主体被 .structure{fill:#4b4b4b} 涂成一整片深黑灰，把浅色主题下
+# 的楼层细节全部吞掉，是 13 张图风格不统一的头号实例。
+# 这里逐类**显式**替换（白名单可审计）；没列进来的保持原样 ——
+# Factory .wall #000 是 0.2 宽的细墙线、Reserve .chopper #000 是小载具元素，
+# 黑色但面积小且有语义，刻意不动（复查报告 P3）。
+PER_MAP_FILL: dict[tuple[str, str], str] = {
+    ("interchange", ".structure"): "#c9ced6",  # 商场主体楼板：浅灰蓝 + 原描边
+}
+
+PER_MAP_STYLE_RE = re.compile(r'(<style id="style_[^"]+">)(.*?)(</style>)', re.S)
+
+
+def restyle_per_map(svg_text: str, key: str) -> tuple[str, int]:
+    """按白名单把 per-map 样式块里的深色 fill 换成浅色。返回 (新文本, 替换数)。"""
+    total = 0
+
+    def sub_block(m: re.Match) -> str:
+        nonlocal total
+        body = m.group(2)
+        for (k, cls), color in PER_MAP_FILL.items():
+            if k != key:
+                continue
+            pat = re.compile(
+                r"(" + re.escape(cls) + r"\s*\{[^}]*?)\bfill\s*:\s*#[0-9a-fA-F]{3,6}"
+            )
+            body, n = pat.subn(lambda mm: mm.group(1) + "fill:" + color, body)
+            total += n
+        return m.group(1) + body + m.group(3)
+
+    return PER_MAP_STYLE_RE.sub(sub_block, svg_text), total
+
 
 def restyle(svg_text: str, key: str) -> str:
-    """把 <style id="style_common"> 的内容换成浅色板。矢量数据不动。"""
+    """把 <style id="style_common"> 的内容换成浅色板，再浅色化 per-map 深色类。
+    矢量数据（路径与结构）不动。"""
     if "style_common" not in svg_text:
         raise SystemExit(f"[错误] {key}: SVG 里找不到 <style id=\"style_common\">，上游结构变了")
     new, n = STYLE_BLOCK_RE.subn(
@@ -692,6 +738,12 @@ def restyle(svg_text: str, key: str) -> str:
     )
     if n != 1:
         raise SystemExit(f"[错误] {key}: style_common 块匹配到 {n} 处，预期 1 处")
+    new, n2 = restyle_per_map(new, key)
+    expect = sum(1 for (k, _) in PER_MAP_FILL if k == key)
+    if n2 != expect:
+        raise SystemExit(
+            f"[错误] {key}: per-map 浅色化预期替换 {expect} 处，实际 {n2} 处 —— 上游样式类名变了，改 PER_MAP_FILL"
+        )
     return new
 
 
@@ -1126,16 +1178,40 @@ def build_maps(data: list) -> dict:
         transits = [
             {
                 # 上游的 transits 只有目标图 id、**没有名字** —— 名字由目标图推出来。
-                # 推不出来的（目标图不在本站收录范围）退回「其他地图」，不编造具体图名。
+                # to 不在收录范围 → 「前往其他地图」；to 缺失（上游没给）→
+                # 「去向未标明的转场点」—— 明说没有，不糊一个「前往 转场点」。
                 "nzh": ("前往" + MAP_ZH.get(tr.get("to"), "其他地图"))
                 if tr.get("to")
-                else "转场点",
+                else "去向未标明的转场点",
                 "to": tr.get("to") or "",  # 目标图的本站 key（供页面做「去看那张图」）
                 "p": pt(tr["x"], tr["z"]),
             }
             for tr in lm.get("transits") or []
         ]
-        transits = keep(transits, lambda x: x["p"])
+        # ── 转场点按「同名 + 位置近」去重 ──
+        # 多版本图 / PvP-PvE 双实例会把同一转场点列两遍（实测工厂「前往森林」
+        # 与「前往海关」各 ×2，位置差约 1%）。撤离点有同口径合并，转场此前
+        # 没有 —— 页面上同名三角出现两个，读者会以为是两个不同的口。
+        # 合并取位置均值；名字不同或位置远的保留。
+        merged_transits: list[dict] = []
+        for tr in transits:
+            hit = None
+            for m in merged_transits:
+                if m["nzh"] != tr["nzh"]:
+                    continue
+                dx = (m["p"][0] - tr["p"][0]) / view_box[2]
+                dy = (m["p"][1] - tr["p"][1]) / view_box[3]
+                if math.hypot(dx, dy) < 0.02:  # 归一化距离 < 2% 视为同一点
+                    hit = m
+                    break
+            if hit:
+                hit["p"] = [
+                    (hit["p"][0] + tr["p"][0]) / 2,
+                    (hit["p"][1] + tr["p"][1]) / 2,
+                ]
+            else:
+                merged_transits.append(tr)
+        transits = keep(merged_transits, lambda x: x["p"])
 
         out[key] = {
             "nameEn": meta.get("normalizedName") or key,

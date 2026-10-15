@@ -97,16 +97,35 @@
        href 按**文件名**写（build_tile_maps.py 的约束：内联后相对地址会按页面
        URL 解析）。内联进 `/maps/<key>/` 后 `Labs.webp` 会解析成
        `/maps/<key>/Labs.webp` → 404，位图从未显示过（页面只剩画布底色，
-       2026-10-15 重绘时实测确认）。这里统一补上站点根；矢量 SVG 没有
-       <image>，这次遍历零成本。 */
-    Array.prototype.forEach.call(svg.querySelectorAll("image[href], image[xlink\\:href]"), function (im) {
+       2026-10-15 重绘时实测确认）。这里统一补上站点根。
+       ⚠️ **隐藏楼层里的位图不补 href（懒加载）**：display:none 的 &lt;image&gt;
+       照样会被浏览器预下载（规格如此），拦下载只能不给 href —— 实验室两层
+       共 1.85MB，不切「2 层」的读者此前白下 634KB。隐藏层的待补 href 记进
+       lazyImages，showFloor 切到那层时才补。矢量 SVG 没有 &lt;image&gt;，零成本。 */
+    var lazyImages = []; // {im, attr, file}：隐藏楼层里待加载的位图
+    Array.prototype.forEach.call(svg.querySelectorAll("image"), function (im) {
       ["href", "xlink:href"].forEach(function (attr) {
         var h = im.getAttribute(attr);
-        if (h && !/^(https?:|data:|\/)/.test(h)) {
+        if (!h || /^(https?:|data:|\/)/.test(h)) return;
+        var pg = im.parentNode;
+        var hidden =
+          pg && pg.nodeType === 1 && /display\s*:\s*none/.test(pg.getAttribute("style") || "");
+        if (hidden) {
+          im.removeAttribute(attr);
+          im.setAttribute("data-lazy-" + attr, h); // 暂存，切层时用
+          lazyImages.push({ im: im, attr: attr, file: h });
+        } else {
           im.setAttribute(attr, siteRoot() + "assets/maps/" + h);
         }
       });
     });
+    function loadLazyImages(scope) {
+      lazyImages = lazyImages.filter(function (it) {
+        if (it.im.parentNode !== scope) return true; // 别的层，继续等
+        it.im.setAttribute(it.attr, siteRoot() + "assets/maps/" + it.file);
+        return false; // 已补，出队
+      });
+    }
     svg.removeAttribute("width");
     svg.removeAttribute("height");
     svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
@@ -326,7 +345,9 @@
 
     function showFloor(id) {
       floorGroups.forEach(function (f) {
-        f.el.style.display = f.id === id ? "" : "none";
+        var show = f.id === id;
+        f.el.style.display = show ? "" : "none";
+        if (show) loadLazyImages(f.el); // 切到哪层，哪层的位图才开始下载
       });
     }
     if (floorGroups.length) showFloor(floorGroups[0].id);
@@ -1102,7 +1123,9 @@
         var it = labelIndex.get(tr);
         if (it) it._force = true;
         focusPoint(tr.p[0], tr.p[1]);
-        showMarkerPop("前往 " + tr.nzh, ["转场点：不结束战局直接换图"], [{
+        /* to 为空 = 上游没标明去向：不写「前往 XX」，明说没有 */
+        var trTitle = tr.to ? "前往 " + tr.nzh : tr.nzh;
+        showMarkerPop(trTitle, ["转场点：不结束战局直接换图"], [{
           href: siteRoot() + "entries/transit/",
           text: "转场与 BTR →",
         }], ev.clientX, ev.clientY);
@@ -1877,17 +1900,20 @@
       refreshPlanUI();      // 初始化：汇总条（空计划时隐藏）
     }
 
-    /* ── 图例 ── */
+    /* ── 图例 ──
+       按**本图实际有的要素**裁剪：破冰船 / 终点站 / 迷宫没有地名锚点，
+       图例再列「地名锚点」就是空话 —— 列了没画的东西比不列更糟。 */
     var legend = document.createElement("ul");
     legend.className = "tk-map__legend";
     [
-      ["tk-lg-pin", "地名锚点 —— 点击查看条目"],
-      ["tk-lg-ex", "撤离点（带名字，按阵营分色）—— 点击看条件"],
-      ["tk-lg-tr", "转场点 —— 不结束战局直接换图"],
-      ["tk-lg-lock", "上锁 —— 点击查需要哪把钥匙"],
-      ["tk-lg-hz", "危险区（雷区等）"],
-      ["tk-lg-task", "任务目标区域 —— 单击只看它、双击进详情"],
+      ["tk-lg-pin", "地名锚点 —— 点击查看条目", (data.labels || []).length],
+      ["tk-lg-ex", "撤离点（带名字，按阵营分色）—— 点击看条件", (data.extracts || []).length],
+      ["tk-lg-tr", "转场点 —— 不结束战局直接换图", (data.transits || []).length],
+      ["tk-lg-lock", "上锁 —— 点击查需要哪把钥匙", (data.locks || []).length],
+      ["tk-lg-hz", "危险区（雷区等）", (data.hazards || []).length],
+      ["tk-lg-task", "任务目标区域 —— 单击只看它、双击进详情", qzAll.length],
     ].forEach(function (pair) {
+      if (!pair[2]) return; // 本图没有这一层，图例不列
       var li = document.createElement("li");
       var sw = document.createElement("i");
       sw.className = pair[0];
