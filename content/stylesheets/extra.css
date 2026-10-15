@@ -6140,6 +6140,36 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 .tk-qp:hover { background: #EEF3FD; }
 .tk-qp:hover b { color: var(--tk-brand); }
 
+/* —— 任务清单行：宽屏排布修正（2026-10-15，v1.127.1）——
+   病因（实测 1920 屏，v1.127.0 加宽后）：清单行原本 justify-content:space-between
+   是按旧正文列 757px 调的 —— 行宽变 1175px 后，行内 3~5 个子项（任务名 / 状态
+   徽章 / 钥匙 / 自备 / 尾部「类型 · N 处」）被等距拉散，相邻间隔实测 279 / 292 /
+   278 / 370px，最窄的任务名只有 49px 宽、孤悬行首，状态徽章悬在行中央 ——
+   「挤」变成了「散」。面板头同病：完成度条悬在行 60% 处。
+
+   改法：内容聚拢 + 备注钉边。任务名与各徽章按序靠左成组（列间距仍 .8rem），
+   只有尾部信息 margin-left:auto 钉在行右缘；面板头的完成度条同样 margin-left:auto，
+   与「收起清单」靠右成组。搜索下拉 / 重叠点选复用 .tk-qp 的行一并受益 ——
+   两子项的行在窄容器里与原 space-between 视觉相同，行为无回归。 */
+.tk-qp { justify-content: flex-start; }
+.tk-qp > i { margin-left: auto; }
+.tk-map__panelhead .tk-map__panelprog { margin-left: auto; }
+
+/* 超宽屏（视口 ≥1760px，即正文列满 1175px 的区间）任务清单改双栏：
+   组头横跨双栏，任务行按 DOM 顺序左右成对，滚动长度约省一半。
+   阈值取 1760px 而不是 1600px：1600–1760px 区间正文列约 1001–1158px，
+   双栏列宽 490–565px，最长行（名字 + 三徽章 + 尾部 ≈ 539px）会折行 —— 得不偿失；
+   ≥1760px 列宽 560px 才放得下。窄屏维持单栏，行为不变。 */
+@media screen and (min-width: 110em) {
+  .tk-map__panelbody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.4rem;
+    align-items: start;
+  }
+  .tk-qp-grp { grid-column: 1 / -1; }
+}
+
 /* 全屏：铺满屏幕时给个纸色底，免得四周露白 */
 .tk-map:fullscreen,
 .tk-map:-webkit-full-screen {
