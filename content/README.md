@@ -32,6 +32,8 @@
 </div>
 </div>
 
+> 🎮 **完全新手？** 先打印[新手开局检查清单](docs/starter-checklist.md) 贴着勾——进图前、撤离前各过一遍；或照[新手成长路线](docs/progression.md) 的「**前 10 局脚本**」走，**每局只练一件事**。
+
 <!-- AUTO-GEN:HOME-STATS:START -->
 
 <div class="tk-stat">

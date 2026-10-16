@@ -257,6 +257,28 @@ function siteRoot() {
     });
     host.appendChild(tagLine);
 
+    /* ---- 「在地图上看」深链 ----
+       任务在数据里有地图归属（it.m）时，给一条通往交互地图的入口：
+       map.js 认 ?q=<任务id>，落地即选中 + 定位 + 高亮地图下方清单行。
+       ⚠️ 中文地图名 → 地图页 key 的映射与 progress-boards.js 各写一份
+          （两份都很短；地图 key 改名时两处一起改，否则这里会静默给 404 页）。 */
+    var MAP_KEY = {
+      "海关": "customs", "工厂": "factory", "夜间工厂": "factory",
+      "中心区": "ground-zero", "森林": "woods", "立交桥": "interchange",
+      "储备站": "reserve", "海岸线": "shoreline", "灯塔": "lighthouse",
+      "塔科夫街区": "streets-of-tarkov", "终点站": "terminal",
+      "破冰船": "icebreaker", "实验室": "the-lab", "迷宫": "the-labyrinth",
+    };
+    if (it.m && MAP_KEY[it.m]) {
+      var mapLine = el("p");
+      mapLine.appendChild(document.createTextNode("🗺️ "));
+      var mapLink = el("a", null, "在地图上看 →");
+      mapLink.href = siteRoot() + "maps/" + MAP_KEY[it.m] + "/?q=" + encodeURIComponent(id);
+      mapLink.title = "打开交互地图，定位本任务的目标区域";
+      mapLine.appendChild(mapLink);
+      host.appendChild(mapLine);
+    }
+
     /* ---- 商人台词（接取时）----
        ⚠️ 放在「接取门槛」**之前** —— 这是商人开口说的第一段话，读一个任务
           本来就该先看到它。数据来自三级来源，见生成器的 DIALOGUE 说明。 */

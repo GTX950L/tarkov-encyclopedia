@@ -27,7 +27,7 @@ python scripts/check_gen_drift.py    # ⑦ 生成物防漂移（硬错误，CI �
 | `scripts/check-freshness.py` | **哪些内容该回头核了** —— 版本敏感但页脚早于基线、久未更新、页脚缺失 | 巡检（定时 job 调用，不阻断部署） |
 | `scripts/check_drift.py` | **站内缓存的数据跟上游还一样吗** —— items / tasks / crafts / barters 的计数差异（需联网，只报告） | 巡检（定时 job 调用，不阻断部署） |
 | `scripts/check_entries.py` | **有没有硬错误** —— 断链、计数漂移、骨架缺失、直引号残留、表格吞块 | 是（CI 部署前置） |
-| `scripts/check_icons.py` | **图标有没有各写各的** —— 内容里用了表外的 emoji、表里有悬空项、template.md 的统计数字过期 | 是（CI 部署前置） |
+| `scripts/check_icons.py` | **图标有没有各写各的** —— 内容里用了表外的 emoji、表里有悬空项、template.md 的统计数字过期、**同一标题在全站用了不同图标**（2026-10-16 起的第 4 项） | 是（CI 部署前置） |
 | `scripts/check_promises.py` | **《引用说明》第三节的承诺还算不算数** —— 每条未决项的「现行处理方式」在正文里是否真的落实（含「不得出现某数字」的阴性断言） | 是（CI 部署前置） |
 | `scripts/skills_consistency.py` | **这套手册自己有没有过期** —— 引用的路径是否还在、声称的 CI 门禁是否属实 | 是（CI 部署前置） |
 | `scripts/check_gen_drift.py` | **产物有没有跟上源** —— 重跑 17 支离线生成器，看**入库**产物是否与生成器输出一致。改了源数据或生成器却忘了重跑，构建与其它门禁**都不会红** | 是（CI 部署前置） |

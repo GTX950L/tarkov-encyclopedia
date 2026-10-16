@@ -48,7 +48,7 @@ tags:
 | **Alpha 安全箱** | **2×2** | **4** | 标准版 / Left Behind 版自带；Peacekeeper 处也可获得 |
 | **Beta 安全箱** | **3×2** | **6** | Prepare for Escape 版自带；**Peacekeeper 交换获得** |
 | **Epsilon 安全箱** | **4×2** | **8** | 完成 Prapor 任务线 **「惩罚者 · 第 6 部分」** |
-| **Gamma 安全箱** | **3×3** | **9** | **Edge of Darkness**（已停售）/ **The Unheard** 版自带 |
+| **Gamma 安全箱** | **3×3** | **9** | **Edge of Darkness**（已停售）/ **The Unheard** 版自带 / **PvE 转生专属奖励**（1.2.0.0 起，**全模式通用**） |
 | **Theta 安全箱** | **10 格（非矩形）** | **10** | 经 **Ref 的任务链 / Arena 冠军路线**解锁 |
 | **Kappa 安全箱** | **3×4** | **12** | 完成 Fence 任务 **「收藏家（Collector）」** |
 
@@ -150,6 +150,6 @@ tags:
 
 ⬆️ **[回到顶部](#top)**
 
-**最后更新**: 2026年9月<br>
+**最后更新**: 2026年10月<br>
 **贡献者**: GTX950L<br>
 **License**: CC BY-NC-SA 4.0

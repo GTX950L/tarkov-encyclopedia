@@ -7,13 +7,19 @@
 到底用了什么，于是下一批写作又会各写各的（本站踩过：📖 / 📚 / 🔗 / 💬 四者
 混用）。这个脚本把那张表从「写了」变成「机器对账」。
 
-做两件事：
+做三件事：
 
 1. **对账**（第 1–2 项）：扫 `content/` 全部 md，报出
    「内容里有、表里没有」（错误）与「表里有、内容里没有」（表写错 / 内容被删）。
 2. **复算**（第 3 项）：按 template.md 写死的口径重算四项数字与框线字符数，
    与 template.md 正文里写的数字比对，不符即报错。
    template.md 自己写着「凡引用这组数字，请用同一口径复算」——那就让机器来算。
+3. **位置一致性**（第 4 项，2026-10-16 新增）：同一标题（`## `/`### ` 行、带图标）
+   在全站必须用**同一个图标** —— 前两项只管「表内有没有」，管不到
+   「同一个章节名在不同页用了不同图标」（实测踩过：recipes 的「相关条目」用 🧭、
+   其余 111 处用 🔗；quests 总览的「数据口径」用 📸、其余用 📐）。只统计
+   **带图标**的标题：不带图标的同名标题（如 tags.md 的分组名）不算冲突，
+   不为形式强行给它们加图标。
 
    ⚠️ **这四项数字只断言 template.md 一处**。其它页面（roadmap / CHANGELOG）**不要复述
    这组数字**，只指路即可 —— 复述一次就多一处要手工维护的数字。**其它页面的
@@ -60,6 +66,8 @@ BOX_CHARS = "─├│└"
 FENCE_RE = re.compile(r"^\s*(```|~~~)")
 INLINE_CODE_RE = re.compile(r"`[^`\n]*`")
 TABLE_ICON_ROW_RE = re.compile(r"^\|\s*(\S+)\s*\|")
+# 「## 图标 标题」/「### 图标 标题」——只认 2–3 级（站内 4 级标题从未用过图标）
+HEADING_RE = re.compile(r"^(#{2,3})\s+(\S)\s*(.+?)\s*$")
 
 
 def is_icon(ch: str) -> bool:
@@ -137,6 +145,36 @@ def scan_content():
             box_total += sum(line.count(c) for c in BOX_CHARS)
             icons_in_code += sum(1 for ch in line if is_icon(ch))
     return counter, first_at, files, box_total, icons_in_code
+
+
+def scan_heading_icons():
+    """扫「## / ### + 图标 + 标题」的组合，找「同一标题多个图标」的冲突。
+
+    返回 [(title, Counter[icon], [(icon, [定位…]), …]), …]，按标题排序。
+    ⚠️ 只统计带图标的标题；与不带图标的同名标题（tags.md 的分组名之类）不算冲突。
+    """
+    by_title: dict[str, Counter[str]] = {}
+    locs: dict[tuple[str, str], list[str]] = {}
+    for path in sorted(CONTENT.rglob("*.md")):
+        if any(part.startswith(".") for part in path.relative_to(CONTENT).parts):
+            continue
+        rel = path.relative_to(ROOT).as_posix()
+        prose, _ = split_fences(path.read_text(encoding="utf-8"))
+        for i, line in enumerate(prose, 1):
+            m = HEADING_RE.match(line)
+            if not m:
+                continue
+            icon, title = m.group(2), m.group(3)
+            if not is_icon(icon):
+                continue
+            by_title.setdefault(title, Counter())[icon] += 1
+            locs.setdefault((title, icon), []).append(f"{rel}:{i}")
+    violations = []
+    for title, cnt in sorted(by_title.items()):
+        if len(cnt) > 1:
+            detail = [(ic, locs[(title, ic)]) for ic in sorted(cnt)]
+            violations.append((title, cnt, detail))
+    return violations
 
 
 def parse_documented(text: str):
@@ -255,6 +293,23 @@ def main() -> int:
         )
         errors += [f"数字「{k}」与实际不符（文档 {doc.get(k)} / 实算 {actual[k]}）" for k in mismatched]
 
+    # ── 【D】位置一致性：同一标题必须用同一个图标 ─────────────────────────
+    head_viol = scan_heading_icons()
+    if head_viol:
+        print("\n【D】同一标题用了多个图标 —— 挑一个统一（先查 template.md 的语义表）")
+        for title, cnt, detail in head_viol:
+            icons = "、".join(f"{ic}×{n}" for ic, n in sorted(cnt.items()))
+            print(f"  · 「{title}」: {icons}")
+            for ic, ls in detail:
+                for l in ls[:4]:
+                    print(f"      {ic}  {l}")
+        errors += [
+            "标题「" + title + "」用了多个图标（" + "、".join(sorted(cnt)) + "），需统一"
+            for title, cnt, _ in head_viol
+        ]
+    else:
+        print("\n【D】同一标题的图标全站一致 —— 0 处冲突")
+
     print("\n" + "=" * 68)
     if errors:
         print(f"校验失败，共 {len(errors)} 个问题：")
@@ -263,7 +318,7 @@ def main() -> int:
         return 1
     print(
         f"✅ 校验通过：{sum(counter.values())} 处图标、{len(counter)} 种全部在图标语义表内，"
-        "表内无悬空项，四项数字与文档一致。"
+        "表内无悬空项，四项数字与文档一致，同标题图标 0 处冲突。"
     )
     return 0
 
