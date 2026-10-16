@@ -4341,6 +4341,34 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   min-width: 0;
 }
 
+/* —— 页头横向分配修正（2026-10-17）——
+   主题给 .md-header__title 的是 flex-grow:1 —— 页头里**所有**多余空间都被
+   标题盒吃掉，它右边的一串（主题切换 → 顶部导航 → 工具箱 → 搜索 → 仓库徽标）
+   只能顺着排。61rem 时代看不出来；v1.127.0 加宽到 80rem 后，1920 屏标题盒
+   实测从约 194px 涨到 610px，顶部导航被推到画面 42% 处，与「品牌 → 导航」
+   的阅读顺序脱节（读者反馈：「页面顶部的工具栏偏向了右侧」）。
+
+   改法两条：
+   ① 标题盒改成「按需宽」并给一个下限 —— **下限不能省**：标题里两个 topic 是
+      Material 的绝对定位结构（ellipsis 宽 100%），没有 min-width 时盒子宽度
+      会塌到 0、标题被 overflow:hidden 整段裁没（2026-10-17 实测）。
+      11em 在下限里放得下站名：实测两种根字号下盒宽 158px / 218px，
+      「逃离塔科夫百科全书」需要约 144px / 198px；
+   ② 顶部导航的 margin-right 改 auto，吸走剩余空间 —— 导航贴住站名一侧，
+      工具箱 / 搜索 / 徽标仍在最右（与 §52、§53 把那一簇当「右侧簇」的定位一致）。
+
+   ⚠️ 只在导航可见的宽度生效（≥76.25em，与 nav-top.js 挂载断点、上方
+      「窄屏不挂」的隐藏断点同一组值）：更窄时导航本就隐藏，保持主题原行为。 */
+@media screen and (min-width: 76.25em) {
+  .md-header__title {
+    flex: 0 1 auto;
+    min-width: 11em;
+  }
+  .tk-topnav {
+    margin-right: auto;
+  }
+}
+
 .tk-topnav__group { position: relative; }
 
 .tk-topnav__btn {
@@ -5041,6 +5069,10 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 /* 标识行（英文名 / 物品 ID / 任务 ID）压暗，不抢标题 */
 #tk-item-page > p:first-of-type,
 #tk-quest-page > p:first-of-type { color: var(--tk-ink-2); }
+
+/* 「在地图上看」不可用时的一行说明（任务无上游坐标，见 quest-detail.js）——
+   与链接行同位置，但压暗、**不是链接**：它不承诺任何可点的东西。 */
+#tk-quest-page p.tk-qd-nomap { color: var(--tk-ink-2); }
 
 /* 数值表：两列网格、标签淡、值醒目 —— 与 .tk-cat-detail__dl 同一套观感，
    只是详情页版面更宽，加个面板底把小节圈起来。（任务详情页不用 dl。） */

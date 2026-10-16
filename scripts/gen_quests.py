@@ -36,6 +36,11 @@ DATA_FILE = ROOT / "scripts" / "data" / "quests.json"
 CARRIER_FILE = ROOT / "scripts" / "data" / "quests_carrier.json"
 OUT_DIR = ROOT / "content" / "quests"
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+# 「在地图上看」可用性判定（中文地图名 → key + 图上有没有可画的坐标）。
+# 唯一来源在 _map_links.py，与 gen_quest_insights / gen_maps 共用同一份口径。
+from _map_links import linkable_ids  # noqa: E402
+
 # 任务 id → 携带清单。由 gen_quest_carrier.py 生成，**缺失时整块功能降级**：
 # 没有这个文件就当「所有任务都不需要自备物品」，页面照常生成，
 # 只是不出现「出发前必带」那一栏 —— **绝不能因为辅助数据缺失就让整页生成失败**。
@@ -1535,6 +1540,10 @@ def write_quest_detail(tasks: list[dict]) -> None:
         return [name, "" if name in dup else id_of_name.get(name, "")]
 
     rows: dict[int, dict] = defaultdict(dict)
+    # 「在地图上可定位」的任务集合 —— 任务详情页据此决定给「🗺️ 在地图上看 →」
+    # 还是给一行「无坐标」说明（2026-10-17，读者反馈：点进去看不到位置）。
+    # 116/263 个带地图归属的任务在上游没有坐标区，给它们一条死链不如把话说清。
+    linkable = linkable_ids(tasks)
     for t in tasks:
         qid = t["id"]
         car = CARRIER_IDX.get(qid) or {}
@@ -1549,6 +1558,11 @@ def write_quest_detail(tasks: list[dict]) -> None:
             "t": TRADER_LABEL.get(t["trader"], t["trader"]),
             "lv": t.get("level") or 0, "xp": t.get("exp") or 0,
             "m": t.get("map") or "", "f": t.get("faction") or "",
+            # mz：1 = 在地图上有可画的目标区域（详情页给「在地图上看 →」）；
+            # 0 = 有地图归属但上游没给坐标（详情页给一行说明，不给死链）。
+            # ⚠️ 前端对**缺这个字段**的旧分片按 1 处理（维持旧行为）——
+            #    见 quest-detail.js；所以这里必须显式写 0，不能只在为真时写。
+            "mz": 1 if qid in linkable else 0,
             "pr": t.get("prestige") or 0,
             "k": bool(t.get("kappa")), "lk": bool(t.get("lightkeeper")),
             "rs": bool(t.get("restartable")), "d": t.get("delay") or 0,
@@ -1591,6 +1605,7 @@ def write_quest_detail(tasks: list[dict]) -> None:
     (OUT_DIR / "quest.md").write_bytes(
         md.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8"))
     print(f"任务详情：{len(rows)} 个分片 ｜ {len(tasks)} 个任务 ｜ "
+          f"可定位 {len(linkable)} 个（其余带地图归属的记 mz=0）｜ "
           f"合计 {total_bytes / 1024:.0f} KB（单次只下 1 片，"
           f"约 {total_bytes / max(len(rows), 1) / 1024:.0f} KB）")
 

@@ -931,8 +931,13 @@
           main.appendChild(el("span", "tk-ov__pickwhy", pickReason(r)));
           row.appendChild(main);
           /* 有地图归属 → 地图深链（落地选中+定位）；没有 → 任务详情页。
-             263/515 个任务带地图字段，其余走详情，不硬指。 */
+             263/515 个任务带地图字段，其余走详情，不硬指。
+             ⚠️ 另要 mz（地图上有没有可画的坐标，quests-index-data 末列）：
+                带地图归属但无坐标的任务（116 条）给地图深链会落空 ——
+                退回「任务详情 →」，与 quest-detail.js 同一判定（同源见
+                scripts/_map_links.py）。mz 缺字段（旧缓存）按可定位处理。 */
           var mk = MAP_KEY[r[C.map]];
+          if (mk && r[C.mz] === 0) mk = "";
           var a = el("a", "tk-ov__picklink",
             mk ? "在地图上看 →" : "任务详情 →");
           a.href = mk

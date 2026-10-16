@@ -108,27 +108,10 @@ MAP_ENTRY: dict[str, str] = {
 }
 
 # 上游地图 id → 本站 maps.json 的 key。
-# 三个「同一张图的变体」（工厂夜图 / 中心区两个版本）**归到同一把 key** ——
-# 点位落在同一个底图坐标系里，分开反而会让读者找不到。
-MAP_ID_TO_KEY: dict[str, str] = {
-    "56f40101d2720b2a4d8b45d6": "customs",
-    "5704e3c2d2720bac5b8b4567": "woods",
-    "5704e554d2720bac5b8b456e": "shoreline",
-    "5704e4dad2720bb55b8b4567": "lighthouse",
-    "5704e5fad2720bc05b8b4567": "reserve",
-    "5714dbc024597771384a510d": "interchange",
-    "5714dc692459777137212e12": "streets-of-tarkov",
-    "55f2d3fd4bdc2d5f408b4567": "factory",
-    "59fc81d786f774390775787e": "factory",
-    "5b0fc42d86f7744a585f9105": "the-lab",
-    "653e6760052c01c1c805532f": "ground-zero",
-    "65b8d6f5cdde2479cb2a3125": "ground-zero",
-    "68236e8153654e8c1200798a": "ground-zero",
-    "65cc8f81a9aac3e77d0cfd3e": "terminal",
-    "69af492a4819ea4ba10a69c5": "icebreaker",   # 瓦片拼合
-    "6733700029c367a3d40b02af": "the-labyrinth",  # 瓦片拼合
-
-}
+# **定义搬到了 `_map_links.py`**（2026-10-17）—— 任务侧（gen_quests / gen_quest_insights）
+# 判定「图上有没有可画的坐标」也要用它，而 gen_maps 已经 import gen_quests（取目标类型
+# 中文表），字典留在这里会形成 import 环。**唯一来源见 `_map_links.MAP_ID_TO_KEY`。**
+from _map_links import MAP_ID_TO_KEY  # noqa: E402
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 图层数据（撤离点 / 上锁 / 危险区）

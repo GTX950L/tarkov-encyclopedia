@@ -655,6 +655,23 @@
     }
 
     var qzFilter = "all"; // all（全部） | open（只看未完成） | inhand（只看进行中）
+    /* 默认进度筛选（2026-10-17，读者反馈「打开地图没先看到我进行中的任务」）：
+       有进行中的任务时，默认切到「只看进行中」—— 打开一张图先看到的是
+       「我手上这几票在哪」，而不是上百个方框。没有进行中的任务（没记过进度、
+       或这张图上恰好没有）就保持「全部」，新读者仍然看到完整的一张图。
+       只在**首次挂载**算一次：之后读者手选过筛选、或另一个标签页改进度触发
+       liveFilter 时都不再改 —— 不把视图从读者脚下抽走。
+       deep link（?q=）不受影响：selected 的显示优先级本来就高于 qzFilter。 */
+    (function () {
+      var snapInit = progressSnap();
+      if (!snapInit) return;
+      for (var iInit = 0; iInit < qlist.length; iInit++) {
+        if (stateOf(snapInit, qlist[iInit].q) === "inhand") {
+          qzFilter = "inhand";
+          return;
+        }
+      }
+    })();
     var selected = null; // 选中的任务 id；一非空就切到「只看这一个」
     var qzCount = null; // 控件条上的计数元素，建控件时才赋值
 
@@ -1189,11 +1206,14 @@
         ["全部任务", "all"],
         ["只看未完成", "open"],
         ["只看进行中", "inhand"],
-      ].forEach(function (pair, i) {
+      ].forEach(function (pair) {
         var b = document.createElement("button");
         b.type = "button";
         b.textContent = pair[0];
-        if (i === 0) b.classList.add("is-on");
+        /* 初始高亮跟随**实际的** qzFilter —— 有进行中的任务时它可能
+           不是 "all"（见上面的「默认进度筛选」），写死 i===0 会让按钮
+           状态和图上画的东西对不上。 */
+        if (pair[1] === qzFilter) b.classList.add("is-on");
         b.addEventListener("click", function () {
           qzFilter = pair[1];
           applyQzFilter();
@@ -1955,10 +1975,12 @@
 
     /* ── 深链：?q=<任务id> 直接把地图开到某个任务上 ──
        「我的下一步」推荐卡与任务详情页都用它落地（选中 + 定位 + 清单行高亮）。
-       id 不在本图上时**不再完全静默**：给一条轻提示（任务有地图归属但上游没给
-       坐标，或链接方写错了图）—— 提示不拦路，地图与清单照常可用。
-       ⚠️ 三个链接方都按任务的地图归属生成链接，理论上不会错到别的图上；
-          错了也不该报错刷屏，所以提示只是一行说明。 */
+       ⚠️ 2026-10-17 起两个链接方都**只对图上有坐标的任务给链接**（判定见
+       scripts/_map_links.py 的 mz），所以这里正常不该再落空；保底分支留给
+       旧书签、手工拼的地址、以及数据两端短暂不同步的情况。
+       落空时**不再完全静默**，也不再只留一行说明：给出「为什么 + 去哪看」
+       —— 一行说明 + 直达任务详情的链接（读者反馈：点了链接看不到位置时，
+       最需要的是一条出路）。 */
     var q0 = null;
     try {
       q0 = new URLSearchParams(location.search).get("q");
@@ -1971,9 +1993,13 @@
     } else if (q0) {
       var miss = document.createElement("p");
       miss.className = "tk-map__note";
-      miss.textContent =
-        "已按链接打开本图，但该任务在图上没有画出的目标区域（上游未给坐标）。" +
-        "地图与下方任务清单不受影响。";
+      miss.appendChild(document.createTextNode(
+        "已按链接打开本图，但该任务在图上没有画出的目标区域（上游未提供坐标）—— " +
+        "地图与下方清单照常可用；想知道它的具体地点："));
+      var missLink = document.createElement("a");
+      missLink.href = siteRoot() + "quests/quest/?id=" + encodeURIComponent(q0);
+      missLink.textContent = "看任务详情 →";
+      miss.appendChild(missLink);
       host.appendChild(miss);
     }
 

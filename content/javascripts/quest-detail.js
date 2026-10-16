@@ -260,8 +260,13 @@ function siteRoot() {
     /* ---- 「在地图上看」深链 ----
        任务在数据里有地图归属（it.m）时，给一条通往交互地图的入口：
        map.js 认 ?q=<任务id>，落地即选中 + 定位 + 高亮地图下方清单行。
+       ⚠️ 只有**图上真画得出来**的任务（it.mz=1）才给链接：263 条带地图归属的
+          任务里，116 条上游没给坐标区（判定见 scripts/_map_links.py）—— 给链接
+          就是白点一次（读者反馈 2026-10-17）。这些任务改为一行**非链接**说明，
+          把「地图上没有它」的话说在前面。
        ⚠️ 中文地图名 → 地图页 key 的映射与 progress-boards.js 各写一份
-          （两份都很短；地图 key 改名时两处一起改，否则这里会静默给 404 页）。 */
+          （两份都很短；地图 key 改名时两处一起改，否则这里会静默给 404 页）。
+       ⚠️ mz 缺字段 = 旧分片未更新，按 1 处理（维持旧行为，宁可暂给链接）。 */
     var MAP_KEY = {
       "海关": "customs", "工厂": "factory", "夜间工厂": "factory",
       "中心区": "ground-zero", "森林": "woods", "立交桥": "interchange",
@@ -272,10 +277,16 @@ function siteRoot() {
     if (it.m && MAP_KEY[it.m]) {
       var mapLine = el("p");
       mapLine.appendChild(document.createTextNode("🗺️ "));
-      var mapLink = el("a", null, "在地图上看 →");
-      mapLink.href = siteRoot() + "maps/" + MAP_KEY[it.m] + "/?q=" + encodeURIComponent(id);
-      mapLink.title = "打开交互地图，定位本任务的目标区域";
-      mapLine.appendChild(mapLink);
+      if (it.mz === 0) {
+        mapLine.className = "tk-qd-nomap";
+        mapLine.appendChild(document.createTextNode(
+          "目标坐标上游未提供，地图上无法定位（具体地点见「📋 任务目标」）"));
+      } else {
+        var mapLink = el("a", null, "在地图上看 →");
+        mapLink.href = siteRoot() + "maps/" + MAP_KEY[it.m] + "/?q=" + encodeURIComponent(id);
+        mapLink.title = "打开交互地图，定位本任务的目标区域";
+        mapLine.appendChild(mapLink);
+      }
       host.appendChild(mapLine);
     }
 

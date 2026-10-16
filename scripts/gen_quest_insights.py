@@ -44,6 +44,11 @@ GSRC = ROOT / "scripts" / "data" / "quest-graph.json"
 TARGET = ROOT / "content" / "quests" / "index.md"
 JS_OUT = ROOT / "content" / "javascripts" / "quests-index-data.js"
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+# 「在地图上看」可用性（唯一来源，与 gen_quests 共用）——进度页推荐卡据此选链：
+# 可定位 → 地图深链；否则退回任务详情（读者反馈：深链落空 = 白点一次）。
+from _map_links import linkable_ids  # noqa: E402
+
 START = "<!-- AUTO-GEN:QUEST-INSIGHTS:START -->"
 END = "<!-- AUTO-GEN:QUEST-INSIGHTS:END -->"
 
@@ -334,6 +339,9 @@ def main() -> int:
         link_of[t["id"]] = f"{key}#q{seq[key]:02d}"
 
     rows = []
+    # 「在地图上可定位」集合（同 gen_quests.py 的 mz 字段判定，同一份来源）。
+    # 推荐卡的链接选择要用：不可定位的任务退回「任务详情 →」，不给落空的地图深链。
+    linkable = linkable_ids(tasks)
     for t in tasks:
         rows.append([
             t["name"],
@@ -356,6 +364,9 @@ def main() -> int:
             # 这个数组是按下标读的（quests-filter.js 的 C_* 常量），
             # 插在中间会把后面所有列错位。
             t["id"],
+            # mz：地图归属下的「图上有没有可画的坐标」（1/0）——
+            # 进度页「最划算的可接」推荐卡据此选链（在最后继续追加，同上规则）。
+            1 if t["id"] in linkable else 0,
         ])
     rows.sort(key=lambda r: (r[2], -r[13], r[0]))
 
@@ -367,7 +378,11 @@ def main() -> int:
         "edgeCount": all_edges,
         "completeEdgeCount": complete_edges,
         "cols": ["name", "en", "trader", "level", "map", "keys", "faction", "flags",
-                 "fail", "delay", "restart", "exp", "dUnlock", "cUnlock", "link", "id"],
+                 "fail", "delay", "restart", "exp", "dUnlock", "cUnlock", "link", "id",
+                 # mz 是 2026-10-17 追加的末列（地图深链可用性）——
+                 # quests-filter.js 只按下标读前 16 列，追加不影响它；
+                 # progress-boards.js 按 cols 名字取列，天然兼容。
+                 "mz"],
         "tasks": rows,
     }
     JS_OUT.write_text(
