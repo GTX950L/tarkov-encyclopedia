@@ -11,6 +11,12 @@ search:
 
 本文件记录面向用户的条目内容变更。历史条目一经发布，只做修订不做改写。
 
+## 2026-10（v1.131.1）— LICENSE 标题对齐 SPDX 全称
+
+`LICENSE` 首行改为 `Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International`（与 SPDX 全称一致），正文保持 CC 官方 legalcode 原文，只补了标题前缀与末尾空行；**不改变任何授权条款**。
+
+**说明**：GitHub 的 license 检测仍报 `NOASSERTION / Other`。经查其模板库（choosealicense）只收 CC BY / CC BY-SA / CC0，**不含 CC BY-NC-SA** —— 这是平台限制，不是文件格式问题。授权范围以 `LICENSE` 原文与 `LICENSE-NOTICE.md` 为准。
+
 ## 2026-10（v1.131.0）— 图标上线 + 口径收口：803 件物品图标、4,983 件物品、25 个内容页
 
 **触发**：v1.130 之后接入第一批官方物品图标，同时做了一次全站审查。结论是「工程底座稳、但最新一批没同步」—— 图标上线后，身份声明、物品件数、版本记录三处仍是旧口径。本批把三处收口，并补上两条此前没有检查器在看的断言。
