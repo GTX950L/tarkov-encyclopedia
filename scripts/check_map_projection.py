@@ -46,12 +46,25 @@ def load_meta() -> dict[str, dict]:
     return out
 
 
+MODE = "pvp"
+
+
+def _mp(rel: str) -> Path:
+    """按模式取文件。pvp 保持**无后缀** —— 现有页面与默认门禁都按它找。"""
+    f = ROOT / rel
+    return f if MODE == "pvp" else f.with_name(f.stem + f"_{MODE}" + f.suffix)
+
+
 def load_site_data() -> dict:
-    js = (ROOT / "scripts" / "data" / "maps_site.json").read_text(encoding="utf-8")
-    return json.loads(js[js.index("{"):].rstrip().rstrip(";\n"))
+    return json.loads(_mp("scripts/data/maps_site.json").read_text(encoding="utf-8"))
 
 
 def main() -> int:
+    global MODE
+    if "--mode" in sys.argv:
+        MODE = sys.argv[sys.argv.index("--mode") + 1]
+    if MODE != "pvp":
+        print(f"[模式] {MODE}")
     metas = load_meta()
     data = load_site_data()
     problems: list[str] = []
@@ -104,11 +117,14 @@ def main() -> int:
     #   ③ 区域的 oid 不在该任务的目标 id 表里（目标级定位会落空）；
     #   ④ 目标 maps 出现未登记的地图别名（「提到本图」清单会漏）。
     try:
-        qj = json.loads((ROOT / "scripts" / "data" / "quests.json").read_text(encoding="utf-8"))
+        qj = json.loads(_mp("scripts/data/quests.json").read_text(encoding="utf-8"))
         tasks = {t["id"]: t for t in qj.get("tasks") or []}
-        zj = json.loads((ROOT / "scripts" / "data" / "quest_zones.json").read_text(encoding="utf-8"))
-        gj = json.loads((ROOT / "scripts" / "data" / "quest-graph.json").read_text(encoding="utf-8"))
-        graph_objs = gj.get("objectives") or {}
+        zj = json.loads(_mp("scripts/data/quest_zones.json").read_text(encoding="utf-8"))
+        # 目标 id 表从**本模式**的 quests 文件取，不共用 quest-graph.json ——
+        # 实测（2026-10-18）：两个模式下**同一个任务的目标 id 也不同**
+        # （任务 id 相同、objective id 各自独立），拿 PvP 的目标表校 PvE 会全报落空。
+        graph_objs = {tid: [o.get("id") for o in (t.get("objectives") or []) if o.get("id")]
+                      for tid, t in tasks.items()}
     except Exception as e:  # noqa: BLE001
         problems.append(f"接线校验读不到任务 / 区域 / 图数据：{e}")
         tasks, zj, graph_objs = {}, {"zones": []}, {}

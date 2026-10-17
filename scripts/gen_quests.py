@@ -35,6 +35,32 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 from _baseline import baseline_label, read_baseline  # noqa: E402  站点基线的唯一来源
+
+# 模式参数化（2026-10-18）：上游对 PvE 有一套**平行端点**（/pve/tasks 等），
+# 两边各自成库。实测 PvP 504 条 / PvE 500 条，其中 477 条共有、仅 PvE 23 条。
+#
+# ⚠️ **pve 模式只写数据、不写 md 页面**（DATA_ONLY）：作战台用 JS 数据读它；
+#    若同时生成 md 页面，nav 与现有 166 个页面都要动，回归面远大于收益。
+#    PvE 的「无脚本可读」留到作战台上线后单独评估。
+MODE = "pvp"
+DATA_ONLY = False
+MODE_LABEL = {"pvp": "持久 PvP", "pve": "PvE 剧情"}
+
+
+# ⚠️ **模式名 ≠ 端点名**：站内叫 pvp，上游端点是 regular（2026-10-18 实测踩过，
+#    直接拿 MODE 拼会打成 /pvp/tasks → 404，gen_achievements 之类的复用方全崩）。
+EP_NAME = {"pvp": "regular", "pve": "pve"}
+
+
+def api_base() -> str:
+    return f"https://json.tarkov.dev/{EP_NAME[MODE]}/"
+
+
+def data_file() -> Path:
+    return (ROOT / "scripts" / "data" / "quests.json" if MODE == "pvp"
+            else ROOT / "scripts" / "data" / f"quests_{MODE}.json")
+
+
 DATA_FILE = ROOT / "scripts" / "data" / "quests.json"
 CARRIER_FILE = ROOT / "scripts" / "data" / "quests_carrier.json"
 OUT_DIR = ROOT / "content" / "quests"
@@ -70,7 +96,7 @@ else:
     print("[提示] 找不到 quests_carrier.json —— 「出发前必带」一栏将不生成"
           "（先跑 python scripts/gen_quest_carrier.py）")
 
-API = "https://json.tarkov.dev/regular/"
+# 端点前缀由 api_base() 运行时给出（见 MODE）——**不要**再写死这一个常量。
 # 抓取日：**写盘用**。离线生成时由 generate() 从数据文件里的 fetched 回填，
 # 否则重跑一次页面就会把「抓取日期」改成今天（数据没变、日期却变了）。
 FETCH_DATE = date.today().isoformat()
@@ -145,7 +171,7 @@ PLACEHOLDER_NAME_RE = re.compile(r"^[0-9a-f]{24} name$")
 # ─────────────────────────────────────────────────────────────────────────────
 
 def get(endpoint: str) -> dict:
-    req = urllib.request.Request(API + endpoint, headers=HEADERS)
+    req = urllib.request.Request(api_base() + endpoint, headers=HEADERS)
     with urllib.request.urlopen(req, timeout=90) as r:
         return json.loads(r.read().decode("utf-8"))
 
@@ -634,10 +660,10 @@ def fetch() -> dict:
 
     records = []
     old_tasks: dict[str, dict] = {}
-    if DATA_FILE.exists():
+    if data_file().exists():
         try:
             old_tasks = {t["id"]: t for t in
-                         json.loads(DATA_FILE.read_text(encoding="utf-8"))["tasks"]}
+                         json.loads(data_file().read_text(encoding="utf-8"))["tasks"]}
         except Exception:
             old_tasks = {}
     skipped_placeholder: list[tuple[str, str]] = []
@@ -723,10 +749,11 @@ def fetch() -> dict:
         "skippedUnlocalized": [{"id": tid, "slug": slug} for tid, slug in skipped_placeholder],
         "tasks": records,
     }
-    DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
-    DATA_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False),
+    _df = data_file()
+    _df.parent.mkdir(parents=True, exist_ok=True)
+    _df.write_text(json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False),
                          encoding="utf-8")
-    print(f"已写 {DATA_FILE.relative_to(ROOT)}（{DATA_FILE.stat().st_size / 1024:.0f} KB，{len(records)} 条）")
+    print(f"已写 {_df.relative_to(ROOT)}（{_df.stat().st_size / 1024:.0f} KB，{len(records)} 条）")
     return payload
 
 
@@ -1480,6 +1507,12 @@ QUEST_DETAIL_SHARDS = 32
 QUEST_JS_DIR = ROOT / "content" / "javascripts"
 
 
+def _shard_prefix() -> str:
+    """分片文件名前缀：PvP 保持 ``quest-detail-NN.js``（前端按这个名字找），
+    PvE 用 ``quest-detail-pve-NN.js`` —— 两套并存，互不覆盖。"""
+    return "" if MODE == "pvp" else f"{MODE}-"
+
+
 def quest_shard_key(qid: str) -> int:
     """任务 id → 分片号（0 ~ QUEST_DETAIL_SHARDS-1）。
 
@@ -1701,20 +1734,22 @@ def write_quest_detail(tasks: list[dict]) -> None:
         for k in sorted(rows):
             body = json.dumps(rows[k], ensure_ascii=False, separators=(",", ":"))
             total_bytes += len(body.encode("utf-8"))
-            (tmp_dir / f"quest-detail-{k:02d}.js").write_bytes(
+            (tmp_dir / f"quest-detail-{_shard_prefix()}{k:02d}.js").write_bytes(
                 ("/* 由 scripts/gen_quests.py 生成 —— 勿手改。\n"
-                 f"   任务详情分片 #{k}（id 十六进制数字之和 % {QUEST_DETAIL_SHARDS} = {k}）。"
+                 f"   {MODE_LABEL[MODE]}任务详情分片 #{k}"
+                 f"（id 十六进制数字之和 % {QUEST_DETAIL_SHARDS} = {k}）。"
                  f"数据抓取于 {payload_fetched()}。 */\n"
                  "window.TARKOV_QUEST_DETAIL_ONE=" + body + ";\n").encode("utf-8"))
         # 全部写成功才落位；此后的替换是逐片原子的，不会再出现「删了没写回」
         for k in sorted(rows):
-            os.replace(tmp_dir / f"quest-detail-{k:02d}.js",
-                       QUEST_JS_DIR / f"quest-detail-{k:02d}.js")
+            os.replace(tmp_dir / f"quest-detail-{_shard_prefix()}{k:02d}.js",
+                       QUEST_JS_DIR / f"quest-detail-{_shard_prefix()}{k:02d}.js")
     finally:
         shutil.rmtree(tmp_dir, ignore_errors=True)
     # 片数变少时清掉多余分片 —— 只删**新一批不存在**的编号，不碰刚写好的
-    for old in QUEST_JS_DIR.glob("quest-detail-*.js"):
-        m = re.match(r"quest-detail-(\d+)\.js$", old.name)
+    _pfx = re.escape(_shard_prefix())
+    for old in QUEST_JS_DIR.glob(f"quest-detail-{_pfx}*.js"):
+        m = re.match(rf"quest-detail-{_pfx}(\d+)\.js$", old.name)
         if m and int(m.group(1)) not in rows:
             old.unlink()
 
@@ -1730,7 +1765,7 @@ def write_quest_detail(tasks: list[dict]) -> None:
 def payload_fetched() -> str:
     """数据抓取日期（写进分片文件头，方便肉眼核对线上是新是旧）。"""
     try:
-        return json.loads(DATA_FILE.read_text(encoding="utf-8")).get("fetched") or "—"
+        return json.loads(data_file().read_text(encoding="utf-8")).get("fetched") or "—"
     except Exception:
         return "—"
 
@@ -1839,9 +1874,23 @@ def linkify_items(text: str) -> str:
 
 def generate() -> None:
     global FETCH_DATE
-    payload = json.loads(DATA_FILE.read_text(encoding="utf-8"))
+    payload = json.loads(data_file().read_text(encoding="utf-8"))
     FETCH_DATE = payload.get("fetched") or FETCH_DATE
     tasks = payload["tasks"]
+
+    # 单个任务的详情分片（视图页 + 分片数据）。**两个模式都要写** ——
+    # 作战台直接读它，这是不生成 md 页面的模式下唯一的任务明细来源。
+    write_quest_detail(tasks)
+
+    if DATA_ONLY:
+        # PvE：只落数据，不碰 md 页面 / nav / 现有 166 页（回归面最小化）。
+        # 台词与携带清单仍读 PvP 的那份 —— PvE 的 23 条专属任务暂无台词数据，
+        # 缺就缺（页面上不显示），**绝不让辅助数据缺失拖垮整条管线**。
+        n_sh = len(list(QUEST_JS_DIR.glob(f"quest-detail-{_shard_prefix()}*.js")))
+        print(f"[{MODE_LABEL[MODE]}] 数据模式：已写 {n_sh} 个详情分片"
+              f"（+ {data_file().relative_to(ROOT)}），**未生成 md 页面**")
+        return
+
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     write_index(tasks)
     written = [OUT_DIR / "index.md"]
@@ -1851,8 +1900,6 @@ def generate() -> None:
             continue
         write_trader_page(key, rows)
         written.append(OUT_DIR / f"{key}.md")
-    # 单个任务的详情页（视图页 + 分片数据）
-    write_quest_detail(tasks)
     written.append(OUT_DIR / "quest.md")
     total = sum(p.stat().st_size for p in written)
     print(f"已生成 {len(written)} 个页面，共 {len(tasks)} 个任务，合计 {total / 1024:.0f} KB：")
@@ -1861,13 +1908,19 @@ def generate() -> None:
 
 
 def main() -> int:
+    global MODE, DATA_ONLY
     ap = argparse.ArgumentParser(description="任务图鉴数据层与页面生成器")
     ap.add_argument("--fetch", action="store_true", help="先从 json.tarkov.dev 抓取并精简数据")
+    ap.add_argument("--mode", choices=["pvp", "pve"], default="pvp",
+                    help="数据模式：pvp=持久 PvP（默认，出页面）；"
+                         "pve=PvE 剧情（只出数据，给作战台）")
     args = ap.parse_args()
+    MODE = args.mode
+    DATA_ONLY = (MODE != "pvp")
     if args.fetch:
         fetch()
-    if not DATA_FILE.exists():
-        print(f"[错误] 找不到 {DATA_FILE}，先跑一次 --fetch", file=sys.stderr)
+    if not data_file().exists():
+        print(f"[错误] 找不到 {data_file()}，先跑一次 --fetch --mode {MODE}", file=sys.stderr)
         return 1
     generate()
     return 0

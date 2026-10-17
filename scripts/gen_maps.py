@@ -58,10 +58,46 @@ MAPS_SRC = (
     "https://raw.githubusercontent.com/the-hideout/tarkov-dev/main/src/data/maps.json"
 )
 
+# 模式参数化（2026-10-18）：PvE 有平行端点（/pve/maps、/pve/tasks），
+# 撤离点 / 上锁 / 危险区 / 任务坐标**都和 PvP 不同** —— 这正是 PvE 优先的价值。
+# ⚠️ **底图 SVG 两模式共用**（同一张图同一份矢量），只有图层与点位分开。
+MODE = "pvp"
+MODE_LABEL = {"pvp": "持久 PvP", "pve": "PvE 剧情"}
+
+
+def apply_mode() -> None:
+    """把模式派生的常量重算一遍。
+
+    ⚠️ 这些常量是**模块级 f-string**，import 时就按当时的 MODE 求值了；
+    `--mode` 是在 main() 里才改的，所以改完必须再调一次本函数，
+    否则 PvE 模式会去请求 /regular 端点（实测：404 → KeyError）。
+    """
+    global QUESTS_SRC, MAPS_API, ZONES_CACHE, LOCAL_QUESTS, OUT_JSON
+    QUESTS_SRC = f"https://json.tarkov.dev/{EP_NAME[MODE]}/tasks"
+    MAPS_API = f"https://json.tarkov.dev/{EP_NAME[MODE]}/maps"
+    ZONES_CACHE = (ROOT / "scripts" / "data" / "quest_zones.json" if MODE == "pvp"
+                   else ROOT / "scripts" / "data" / f"quest_zones_{MODE}.json")
+    LOCAL_QUESTS = (ROOT / "scripts" / "data" / "quests.json" if MODE == "pvp"
+                    else ROOT / "scripts" / "data" / f"quests_{MODE}.json")
+    OUT_JSON = (ROOT / "scripts" / "data" / "maps_site.json" if MODE == "pvp"
+                else ROOT / "scripts" / "data" / f"maps_site_{MODE}.json")
+
+
+# 模式名 → 上游端点名（同 gen_quests.EP_NAME：站内 pvp = 上游 regular）
+EP_NAME = {"pvp": "regular", "pve": "pve"}
+
+
+def _sfx() -> str:
+    """产物文件名后缀。PvP 保持**不带后缀**（现有 13 个地图页与 map.js 按
+    maps-data-&lt;key&gt;.js 找，改名会全站 404），PvE 加 pve- 前缀。"""
+    return "" if MODE == "pvp" else f"{MODE}-"
+
+
 CACHE = ROOT / "scripts" / "data" / "maps_source.json"
 RAW_DIR = ROOT / "scripts" / "data" / "maps_raw"
 SVG_DIR = ROOT / "content" / "assets" / "maps"
-OUT_JSON = ROOT / "scripts" / "data" / "maps_site.json"
+OUT_JSON = (ROOT / "scripts" / "data" / "maps_site.json" if MODE == "pvp"
+            else ROOT / "scripts" / "data" / f"maps_site_{MODE}.json")
 OUT_JS_DIR = ROOT / "content" / "javascripts"
 # 旧的单体 content/javascripts/maps-data.js（2026-10-17 起拆分为每图一个文件）
 OLD_OUT_JS = ROOT / "content" / "javascripts" / "maps-data.js"
@@ -82,11 +118,13 @@ KEY_LOC_FILE = ROOT / "scripts" / "data" / "key_locations.json"
 #      若将来再出现数量差，**退回「任务名 + 目标类型」显示，不给描述** ——
 #      宁可少给一层，不给错的那层。
 # ─────────────────────────────────────────────────────────────────────────────
-QUESTS_SRC = "https://json.tarkov.dev/regular/tasks"
-ZONES_CACHE = ROOT / "scripts" / "data" / "quest_zones.json"
+QUESTS_SRC = f"https://json.tarkov.dev/{EP_NAME[MODE]}/tasks"
+ZONES_CACHE = (ROOT / "scripts" / "data" / "quest_zones.json" if MODE == "pvp"
+                else ROOT / "scripts" / "data" / f"quest_zones_{MODE}.json")
 # 瓦片拼合图的产物描述（由 build_tile_maps.py 写）
 TILE_CACHE = ROOT / "scripts" / "data" / "tile_maps.json"
-LOCAL_QUESTS = ROOT / "scripts" / "data" / "quests.json"
+LOCAL_QUESTS = (ROOT / "scripts" / "data" / "quests.json" if MODE == "pvp"
+                else ROOT / "scripts" / "data" / f"quests_{MODE}.json")
 # 「需自备物品」的 curated 表（gen_quest_carrier.py 的产物）—— 地图侧只要
 # pack 一个标记（行前提示用），与 gen_quests.py 的 CARRIER_IDX 同一份文件。
 CARRIER_CACHE = ROOT / "scripts" / "data" / "quests_carrier.json"
@@ -131,7 +169,7 @@ from _map_links import MAP_ID_TO_KEY  # noqa: E402
 # 只会把地图糊住、换不来任何判断 —— **数据缺语义时，宁可不画**。
 # 出生点同理（278 个），且站内已把「出生点密度」登记为未决项 B7。
 # ─────────────────────────────────────────────────────────────────────────────
-MAPS_API = "https://json.tarkov.dev/regular/maps"
+MAPS_API = f"https://json.tarkov.dev/{EP_NAME[MODE]}/maps"
 
 # ── PvE / PvP 差异 ──
 # 上游对 PvE 有**独立端点**（`/pve/maps`、`/pve/tasks`），两边确实是两份数据。
@@ -474,7 +512,7 @@ def fetch_quest_zones() -> None:
 
     payload = {
         "fetched": datetime.date.today().isoformat(),
-        "source": "json.tarkov.dev/regular/tasks",
+        "source": f"json.tarkov.dev/{EP_NAME[MODE]}/tasks",
         "count": len(zones),
         "objcount": objcount,
         "zones": zones,
@@ -658,7 +696,7 @@ def fetch_map_layers() -> None:
 
     payload = {
         "fetched": datetime.date.today().isoformat(),
-        "source": "json.tarkov.dev/regular/maps",
+        "source": f"json.tarkov.dev/{EP_NAME[MODE]}/maps",
         "count": tot,
         "maps": out,
     }
@@ -1294,7 +1332,8 @@ def write_dropped(maps: dict) -> None:
     这份文件是「有区域 ≠ 可定位」的唯一差额来源。
     """
     ids = sorted({q for d in maps.values() for q in d.get("dropped", [])})
-    out = ROOT / "scripts" / "data" / "map_dropped.json"
+    out = (ROOT / "scripts" / "data" / "map_dropped.json" if MODE == "pvp"
+           else ROOT / "scripts" / "data" / f"map_dropped_{MODE}.json")
     out.write_text(json.dumps({"tasks": ids}, ensure_ascii=False) + "\n",
                    encoding="utf-8")
     if ids:
@@ -1314,9 +1353,15 @@ def write_js(maps: dict) -> None:
         encoding="utf-8")
 
     OUT_JS_DIR.mkdir(parents=True, exist_ok=True)
-    # 清理旧分片（改名 / 删图时不留残骸）
+    # 清理**本模式**的旧分片（改名 / 删图时不留残骸）。
+    # ⚠️ 按「归属模式」判而不是按「别人的前缀」排除 —— pvp 的前缀是**空串**
+    #    （maps-data-customs.js 还在被 13 个地图页引用，pve- 那份是新增的），
+    #    用 startswith("pvp-") 排除会连 pvp 自己的分片一起删掉（2026-10-18 实测）。
     for old in OUT_JS_DIR.glob("maps-data-*.js"):
-        old.unlink()
+        stem = old.name[len("maps-data-"):]
+        owner = "pve" if stem.startswith("pve-") else "pvp"
+        if owner == MODE:
+            old.unlink()
     if OLD_OUT_JS.exists():
         OLD_OUT_JS.unlink()
 
@@ -1324,7 +1369,7 @@ def write_js(maps: dict) -> None:
     for key in sorted(maps):
         one = json.dumps({key: maps[key]}, ensure_ascii=False, separators=(",", ":"))
         js = f"""/* ==========================================================================
-   交互地图 · 数据（**生成物，不要手改**）· 本文件只含 **{key}**
+   交互地图 · 数据（**生成物，不要手改**）· 本文件只含 **{key}**（{MODE_LABEL[MODE]}）
    --------------------------------------------------------------------------
    生成：python scripts/gen_maps.py          （离线，用缓存）
          python scripts/gen_maps.py --fetch  （重新抓上游数据）
@@ -1335,7 +1380,7 @@ def write_js(maps: dict) -> None:
 window.TARKOV_MAPS = window.TARKOV_MAPS || {{}};
 window.TARKOV_MAPS[{json.dumps(key)}] = {one}["{key}"];
 """
-        (OUT_JS_DIR / f"maps-data-{key}.js").write_text(js, encoding="utf-8")
+        (OUT_JS_DIR / f"maps-data-{_sfx()}{key}.js").write_text(js, encoding="utf-8")
         total += len(js.encode("utf-8"))
     log("\n③ 写出 " + str(OUT_JS_DIR.relative_to(ROOT)) + "/maps-data-<key>.js"
         + f"（{len(maps)} 个分片，合计 {total / 1024:.1f} KB）"
@@ -1384,7 +1429,13 @@ def write_key_locations(maps: dict) -> None:
 def main() -> int:
     ap = argparse.ArgumentParser(description="生成交互地图底图与点位数据")
     ap.add_argument("--fetch", action="store_true", help="重新抓上游数据（联网）")
+    ap.add_argument("--mode", choices=["pvp", "pve"], default="pvp",
+                    help="数据模式：pvp=持久 PvP（默认，现有 13 个地图页）；"
+                         "pve=PvE 剧情（独立图层与坐标，给作战台）")
     args = ap.parse_args()
+    global MODE
+    MODE = args.mode
+    apply_mode()
 
     if args.fetch or not CACHE.exists():
         if not args.fetch and not CACHE.exists():
