@@ -47,15 +47,15 @@
 <a class="tk-stat__card" href="maps/index.md">
 <b class="tk-stat__n">13<em>张</em></b>
 <span class="tk-stat__l">交互地图</span>
-<span class="tk-stat__d">589 个任务区域 · 可筛进度</span>
+<span class="tk-stat__d">594 个任务区域 · 可筛进度</span>
 </a>
 <a class="tk-stat__card" href="quests/index.md">
-<b class="tk-stat__n">515<em>个</em></b>
+<b class="tk-stat__n">504<em>个</em></b>
 <span class="tk-stat__l">任务逐条</span>
 <span class="tk-stat__d">要求 / 奖励 / 门槛 / 前置</span>
 </a>
 <a class="tk-stat__card" href="quests/progress.md">
-<b class="tk-stat__n">1441<em>条</em></b>
+<b class="tk-stat__n">1418<em>条</em></b>
 <span class="tk-stat__l">任务目标</span>
 <span class="tk-stat__d">可勾选，进度按前置反推</span>
 </a>
@@ -75,7 +75,7 @@
 <span class="tk-stat__d">68 级 · 前置可判定</span>
 </a>
 <a class="tk-stat__card" href="quests/index.md">
-<b class="tk-stat__n">79<em>种</em></b>
+<b class="tk-stat__n">78<em>种</em></b>
 <span class="tk-stat__l">物品需求</span>
 <span class="tk-stat__d">被 3 个及以上任务需要</span>
 </a>
@@ -89,7 +89,7 @@
 
 <!-- AUTO-GEN:HOME-STATS:END -->
 
-《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **88 个**条目，分十二篇组织 —— **前八篇**是“从零上手”的主线，**第九篇 · [物品图鉴](catalog/index.md)** 收录 **4,983 件**物品的属性与商人价，**第十篇 · [任务图鉴](quests/index.md)** 把 **515 个任务**的要求、奖励与接取门槛逐条列全，**第十一篇 · [参考](docs/index.md)** 收齐速查表与站务工具页，**第十二篇 · [交互地图](maps/index.md)** 把点位信息从条目正文里接出来。
+《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **88 个**条目，分十二篇组织 —— **前八篇**是“从零上手”的主线，**第九篇 · [物品图鉴](catalog/index.md)** 收录 **4,983 件**物品的属性与商人价，**第十篇 · [任务图鉴](quests/index.md)** 把 **504 个任务**的要求、奖励与接取门槛逐条列全，**第十一篇 · [参考](docs/index.md)** 收齐速查表与站务工具页，**第十二篇 · [交互地图](maps/index.md)** 把点位信息从条目正文里接出来。
 
 > 💡 本站**以文字与表格为主体**（仅交互地图底图与任务/物品页图标为图形素材，权利边界见下方声明），弱网环境可流畅阅读。所有数值描述以“机制原理”为主，具体数值随版本变动，请以游戏内为准。
 
@@ -137,7 +137,7 @@
 
 ## 📋 任务图鉴（第十篇：随查随用）
 
-[**任务图鉴**](quests/index.md) 排在“从零上手”的主线之后，不属于前八篇那条学习顺序：它把持久 PvP 档案下的 **515 个任务**（共 **1441** 条目标）逐条列出**要求、完成奖励、接取门槛、前置任务、需要钥匙与失败条件**——数据取自官方任务定义的**结构化字段**（要求、奖励、门槛等），**不含坐标，也不写逐步攻略**。卡在某个任务上时从那里查。
+[**任务图鉴**](quests/index.md) 排在“从零上手”的主线之后，不属于前八篇那条学习顺序：它把持久 PvP 档案下的 **504 个任务**（共 **1418** 条目标）逐条列出**要求、完成奖励、接取门槛、前置任务、需要钥匙与失败条件**——数据取自官方任务定义的**结构化字段**（要求、奖励、门槛等），**不含坐标，也不写逐步攻略**。卡在某个任务上时从那里查。
 
 按商人分页（每页按等级门槛升序）：[Mechanic](quests/mechanic.md) · [Prapor](quests/prapor.md) · [Skier](quests/skier.md) · [Jaeger](quests/jaeger.md) · [Ragman](quests/ragman.md) · [Therapist](quests/therapist.md) · [Peacekeeper](quests/peacekeeper.md) · [Fence](quests/fence.md) · [Ref（竞技场裁判）](quests/ref.md) · [BTR 司机](quests/btr-driver.md) · [Lightkeeper](quests/lightkeeper.md)
 
@@ -288,7 +288,7 @@
 
 ## 📁 其他资源
 
-- [任务图鉴](quests/index.md) — **515 个任务**逐条列出要求、奖励、接取门槛与前置（不含坐标与攻略），卡任务时从这里查
+- [任务图鉴](quests/index.md) — **504 个任务**逐条列出要求、奖励、接取门槛与前置（不含坐标与攻略），卡任务时从这里查
 - [新手成长路线](docs/progression.md) — 1 级到满级该干什么，每阶段都有可验证的毕业标准
 - [新手开局检查清单](docs/starter-checklist.md) — 一张可打印的勾选表：每局进图前、撤离前照着勾一遍
 - [机制速查表](docs/mechanics.md) — 一页看懂所有核心规则
@@ -320,7 +320,7 @@
 
 📖 [查看全部 88 个条目](entries/index.md)
 
-📋 [进入任务图鉴：515 个任务的逐条要求与奖励](quests/index.md)
+📋 [进入任务图鉴：504 个任务的逐条要求与奖励](quests/index.md)
 
 ⬆️ **[回到顶部](#top)**
 

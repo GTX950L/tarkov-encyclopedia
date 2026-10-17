@@ -32,7 +32,7 @@ tags:
 
 | 商人 | 任务 | 目标类型 | 区域数 | 目标 |
 |------|------|----------|--------|------|
-| [Lightkeeper](../quests/lightkeeper.md) | 挑衅 | 击杀／射击 | 6 | — |
+| [Lightkeeper](../quests/lightkeeper.md) | 挑衅 | 击杀／射击 | 6 | 在立交桥 ULTRA 商场内使用 ASh-12 突击步枪消灭任意目标 |
 | [Mechanic](../quests/mechanic.md) | 大海捞针 | 到访 | 2 | 在立交桥调查卡丁车场 |
 | [Ragman](../quests/ragman.md) | 大甩卖 | 到访 | 5 | 检查AVOKADO商店 |
 | [Ragman](../quests/ragman.md) | 微型客车 | 标记 | 3 | 在立交桥找到第一辆黄色微型客车，并使用MS2000指示器标记 |

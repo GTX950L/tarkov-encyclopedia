@@ -27,6 +27,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import sys
 from collections import defaultdict
@@ -562,6 +563,55 @@ def main() -> int:
                         f"「不使用任何游戏美术资源/配图」，而仓库里已有 {len(icon_files)} 个物品图标"
                         f"（另有 13 张地图底图）"
                     )
+
+    # 4f. 任务计数：quests.json 是唯一事实源（2026-10-17 刷新后新增）
+    #     站点最显眼的三个规模数字里，任务数此前**没有任何检查器在看**：
+    #     2026-10-17 刷新前，正文 515 / 数据 515 只是碰巧一致；刷新后若漏改一处，
+    #     构建、其余门禁全绿，线上却会同时存在 504 与 515。
+    quests_file = ROOT / "scripts" / "data" / "quests.json"
+    if quests_file.exists():
+        qd = json.loads(quests_file.read_text(encoding="utf-8"))
+        q_tasks = qd.get("tasks") or []
+        n_tasks = len(q_tasks)
+        n_obj = sum(len(t.get("objectives") or []) for t in q_tasks)
+        decls = [
+            (CONTENT / "entries" / "index.md", r"\*\*(\d+) 个任务\*\*", 1, n_tasks, "任务数"),
+            (CONTENT / "README.md", r"\*\*(\d+) 个任务\*\*", 1, n_tasks, "任务数"),
+            (ROOT / "README.md", r"全部 (\d+) 个任务", 1, n_tasks, "任务数"),
+            (CONTENT / "llms.txt", r"任务图鉴 (\d+) 个", 1, n_tasks, "任务数"),
+            (CONTENT / "llms.txt", r"全部 (\d+) 个任务", 1, n_tasks, "任务数"),
+            (CONTENT / "quests" / "index.md", r"全部 (\d+) 个任务", 1, n_tasks, "任务数"),
+            (CONTENT / "quests" / "index.md", r"共 \*\*(\d+)\*\* 条任务目标", 1, n_obj, "目标数"),
+            (CONTENT / "quests" / "progress.md", r"全站 (\d+) 个目标", 1, n_obj, "目标数"),
+        ]
+        for path, pattern, group, expected, label in decls:
+            if not path.exists():
+                continue
+            text = path.read_text(encoding="utf-8")
+            hits = list(re.finditer(pattern, text))
+            if not hits:
+                errors.append(
+                    f"{label}声明缺失: {path.relative_to(ROOT)} 里找不到声明句（模式 {pattern}）"
+                )
+                continue
+            for hit in hits:
+                got = int(hit.group(group))
+                if got != expected:
+                    line_no = text[:hit.start()].count("\n") + 1
+                    errors.append(
+                        f"{label}不一致: {path.relative_to(ROOT)}:{line_no} 写的是 {got}，"
+                        f"quests.json 实际 {expected}"
+                    )
+        cit = (CONTENT / "docs" / "citation.md").read_text(encoding="utf-8")
+        m_cit = re.search(r"（(\d+) 个任务、(\d+) 条目标）", cit)
+        if not m_cit:
+            errors.append("任务口径声明缺失: content/docs/citation.md 里找不到「N 个任务、M 条目标」")
+        elif int(m_cit.group(1)) != n_tasks or int(m_cit.group(2)) != n_obj:
+            errors.append(
+                f"任务口径不一致: content/docs/citation.md 写的是 "
+                f"{m_cit.group(1)} 个任务 / {m_cit.group(2)} 条目标，"
+                f"quests.json 实际 {n_tasks} / {n_obj}"
+            )
 
     # 5. tags.md 与 frontmatter 实际统计是否一致
     tagmap: dict[str, set[str]] = defaultdict(set)

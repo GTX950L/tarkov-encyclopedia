@@ -6,7 +6,7 @@ tags:
 
 # Skier 的任务 (Quest Catalog)
 
-> 版本基线：2026 年 9 月 ｜ 1.1.5.1（第一赛季 KORD BREACH）｜ 数据来源：tarkov.dev（二级）
+> 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH） ｜ 数据来源：tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
 
 <a id="top"></a>
@@ -15,21 +15,21 @@ tags:
 
 | 项目 | 信息 |
 |------|------|
-| **任务数** | 66 |
+| **任务数** | 67 |
 | **等级跨度** | Lv0–Lv50 |
 | **排序** | 按**等级门槛升序**，同级按任务名 |
 | **分档** | 每 10 级一档（Lv0–9 …），与[总览](index.md)「按等级门槛」同口径 |
 | **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |
 | **💬 商人台词** | **每个任务都有** —— 点明细块里的「💬 台词与完整明细 →」，看商人接取时说的话与任务完成对话，另外还能顺着**前置／后续任务**（可点击）走任务链 |
-| **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-09-30 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md)；台词为**三级来源**（玩家维基），见[任务详情](quest.md) 的口径表 |
+| **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-10-17 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md)；台词为**三级来源**（玩家维基），见[任务详情](quest.md) 的口径表 |
 
 ---
 
-## 🔎 任务索引 ｜ 66 项
+## 🔎 任务索引 ｜ 67 项
 
 点任务名跳到下方明细。**每个明细块里都有「💬 台词与完整明细 →」**，点开是该任务的完整页面（商人台词 · 前置与后续 · 目标 · 奖励 · 出发前必带）。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
 
-<details markdown="1"><summary>📋 任务索引表（66 项）—— 点开浏览，点任务名跳到下方明细</summary>
+<details markdown="1"><summary>📋 任务索引表（67 项）—— 点开浏览，点任务名跳到下方明细</summary>
 
 | # | 任务 | 门槛 | 地图 | 标记 |
 |---|------|------|------|------|
@@ -41,15 +41,15 @@ tags:
 | 6 | <a href="#q06">借刀杀人</a> | Lv0 | 海关 | — |
 | 7 | <a href="#q07">偏离路线</a> | Lv0 | 塔科夫街区 | **需自备物品** · 有失败条件 |
 | 8 | <a href="#q08">关键伙伴</a> | Lv0 | — | 有失败条件 |
-| 9 | <a href="#q09">化学品 - 1</a> | Lv0 | 海关 | 需钥匙 · **Kappa** |
-| 10 | <a href="#q10">化学品 - 2</a> | Lv0 | 海关 | 需钥匙 · **Kappa** |
-| 11 | <a href="#q11">北国新秀</a> | Lv0 | — | — |
-| 12 | <a href="#q12">发财计划</a> | Lv0 | 塔科夫街区 | **需自备物品** |
-| 13 | <a href="#q13">后知后觉</a> | Lv0 | 森林 | **需自备物品** · 有失败条件 |
-| 14 | <a href="#q14">夜间扫荡</a> | Lv0 | — | — |
-| 15 | <a href="#q15">头号机密</a> | Lv0 | 灯塔 | 需钥匙 |
-| 16 | <a href="#q16">安全通道</a> | Lv0 | 储备站 | **必须战局内找到** |
-| 17 | <a href="#q17">安慰奖</a> | Lv0 | 实验室 | — |
+| 9 | <a href="#q09">刺激需求</a> | Lv0 | 灯塔 | — |
+| 10 | <a href="#q10">化学品 - 1</a> | Lv0 | 海关 | 需钥匙 · **Kappa** |
+| 11 | <a href="#q11">化学品 - 2</a> | Lv0 | 海关 | 需钥匙 · **Kappa** |
+| 12 | <a href="#q12">北国新秀</a> | Lv0 | — | — |
+| 13 | <a href="#q13">发财计划</a> | Lv0 | 塔科夫街区 | **需自备物品** |
+| 14 | <a href="#q14">后知后觉</a> | Lv0 | 森林 | **需自备物品** · 有失败条件 |
+| 15 | <a href="#q15">夜间扫荡</a> | Lv0 | — | — |
+| 16 | <a href="#q16">头号机密</a> | Lv0 | 灯塔 | 需钥匙 |
+| 17 | <a href="#q17">安全通道</a> | Lv0 | 储备站 | **必须战局内找到** |
 | 18 | <a href="#q18">情报就是力量</a> | Lv0 | — | **需自备物品** |
 | 19 | <a href="#q19">敲诈者</a> | Lv0 | 海关 | 需钥匙 |
 | 20 | <a href="#q20">暗中破坏</a> | Lv0 | — | 有失败条件 |
@@ -93,16 +93,17 @@ tags:
 | 58 | <a href="#q58">致命道具</a> | Lv38 | — | — |
 | 59 | <a href="#q59">公道价 - 1</a> | Lv45 | — | — |
 | 60 | <a href="#q60">公道价 - 2</a> | Lv45 | 森林 | — |
-| 61 | <a href="#q61">人生之课</a> | Lv50 | — | — |
-| 62 | <a href="#q62">利润保留</a> | Lv50 | — | — |
-| 63 | <a href="#q63">学无止境</a> | Lv50 | — | — |
-| 64 | <a href="#q64">安全保障</a> | Lv50 | — | — |
-| 65 | <a href="#q65">有利可图的生意</a> | Lv50 | — | — |
-| 66 | <a href="#q66">站稳脚跟</a> | Lv50 | — | — |
+| 61 | <a href="#q61">安慰奖</a> | Lv46 | 实验室 | — |
+| 62 | <a href="#q62">人生之课</a> | Lv50 | — | — |
+| 63 | <a href="#q63">利润保留</a> | Lv50 | — | — |
+| 64 | <a href="#q64">学无止境</a> | Lv50 | — | — |
+| 65 | <a href="#q65">安全保障</a> | Lv50 | — | — |
+| 66 | <a href="#q66">有利可图的生意</a> | Lv50 | — | — |
+| 67 | <a href="#q67">站稳脚跟</a> | Lv50 | — | — |
 
 </details>
 
-> 📖 本页共 66 个任务，按等级分 **6 档**，档位分隔在索引表下方。要**按地图或商人横向找**，回[总览](index.md)。
+> 📖 本页共 67 个任务，按等级分 **6 档**，档位分隔在索引表下方。要**按地图或商人横向找**，回[总览](index.md)。
 
 ---
 
@@ -281,7 +282,29 @@ tags:
 - **失败条件**：
   - **任务状态** **独立的代价** ｜ 状态：完成
 
-<h3 id="q09" data-qid="5979f9ba86f7740f6c3fe9f2">化学品 - 1<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
+<h3 id="q09" data-qid="6a7aef2360157cb5e3029a5f">刺激需求<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
+
+**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Stimulating Demand**
+
+<a href="quest.md?id=6a7aef2360157cb5e3029a5f">💬 台词与完整明细 →</a>
+
+`地图：灯塔`
+
+**接取条件**
+
+- **进度计数**：**Skier** ≥ 3（含义见[总览](index.md)）
+
+**要求**
+
+- **击杀／射击** **击杀** ｜ 目标：Knight／游荡者／Big Pipe／Birdeye ｜ **×5** ｜ 限定武器：托卡列夫 AVT-40 7.62x54R 自动步枪／托卡列夫 SVT-40 7.62x54R 步枪／PKM 7.62x54R 机枪／PKP 7.62x54R 步兵机枪 —— 在灯塔使用 7.62×54R 口径的武器消灭游荡者或 Goon 成员
+- **找任务物品** **游荡者补给物资箱** —— 在灯塔度假村区域找到并获取游荡者的物资箱
+- **交任务物品** **游荡者补给物资箱** —— 上交包裹
+
+- **完成奖励**：经验 **28,000** ｜ **欧元** ×1,650 ｜ **金项链** ×2 ｜ **KRISS G30 MagEx Glock .45 ACP 30 发弹匣** ×2 ｜ **.45 ACP RIP弹药包（50发装）** ×2
+  - 声望：**Skier** +0.75
+  - 解锁购买：**TDI KRISS Vector Gen.2 .45 ACP 冲锋枪 默认（Skier LL3）**
+
+<h3 id="q10" data-qid="5979f9ba86f7740f6c3fe9f2">化学品 - 1<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Chemical Part 1**
 
@@ -311,7 +334,7 @@ tags:
 - **完成奖励**：经验 **3,000** ｜ **MSA ACH TC-2002 MICH系列头盔** ×1 ｜ **欧元** ×450 ｜ **7.62x54mm R SP BT 弹药包（20发装）** ×2
   - 解锁购买：**7.62x54R SP BT（Skier LL1）**
 
-<h3 id="q10" data-qid="597a0b2986f77426d66c0633">化学品 - 2<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
+<h3 id="q11" data-qid="597a0b2986f77426d66c0633">化学品 - 2<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Chemical Part 2**
 
@@ -342,7 +365,7 @@ tags:
   - 解锁制作：**xTG-12 解毒剂注射器（工作站 Lv2）**
 - **接取即得**：**宿舍220房间钥匙** ×1
 
-<h3 id="q11" data-qid="6764174c86addd02bc033d68">北国新秀<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
+<h3 id="q12" data-qid="6764174c86addd02bc033d68">北国新秀<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Connections Up North**
 
@@ -354,7 +377,7 @@ tags:
 
 **要求**
 
-- **击杀／射击** **击杀** ｜ 目标：任意PMC干员 ｜ **×20** ｜ 限定武器：Accuracy International AXMC .338 LM 栓动式狙击步枪／莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）／莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）／SV-98 7.62x54 狙击步枪 ｜ 限定配件：FLIR RS-32 2.25-9x 35毫米 60Hz热成像步枪瞄准镜／SIG Sauer ECHO1 1-2x30毫米 30赫兹反射式热成像瞄准镜／Torrey Pines Logic T12W热成像反射式瞄具／Armasight Vulcan MG 3.5x Bravo夜视瞄准镜 —— 使用装有夜视仪或热成像瞄具的栓动式步枪消灭 PMC 行动人员
+- **击杀／射击** **击杀** ｜ 目标：任意PMC干员 ｜ **×20** ｜ 限定武器：Accuracy International AXMC .338 LM 栓动式狙击步枪／莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）／莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）／SV-98 7.62x54R 栓动式狙击步枪 ｜ 限定配件：FLIR RS-32 2.25-9x 35毫米 60Hz热成像步枪瞄准镜／SIG Sauer ECHO1 1-2x30毫米 30赫兹反射式热成像瞄准镜／Torrey Pines Logic T12W热成像反射式瞄具／Armasight Vulcan MG 3.5x Bravo夜视瞄准镜 —— 使用装有夜视仪或热成像瞄具的栓动式步枪消灭 PMC 行动人员
 
 - **完成奖励**：经验 **65,000** ｜ **欧元** ×2,400 ｜ **Sako TRG M10 .338 LM 栓动狙击步枪 默认** ×1 ｜ **Sako TRG M10 .338 LM 8发弹匣** ×2 ｜ **.338 Lapua Magnum FMJ弹药包（20发装）** ×1
   - 声望：**Skier** +1.5
@@ -362,7 +385,7 @@ tags:
   - 技能：**隐蔽行动** +4 级
   - 解锁购买：**Sako TRG M10 .338 LM 栓动狙击步枪 默认（Skier LL4）**
 
-<h3 id="q12" data-qid="6572e876dc0d635f633a5714">发财计划<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
+<h3 id="q13" data-qid="6572e876dc0d635f633a5714">发财计划<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pyramid Scheme**
 
@@ -398,7 +421,7 @@ tags:
   - 声望：**Skier** +0.75
   - 解锁购买：**TDI KRISS Vector Gen.2 .45 ACP 冲锋枪 默认（Skier LL3）**
 
-<h3 id="q13" data-qid="674602307e3818d5bb069489">后知后觉<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
+<h3 id="q14" data-qid="674602307e3818d5bb069489">后知后觉<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Hindsight 2020**
 
@@ -430,7 +453,7 @@ tags:
 - **失败条件**：
   - **任务状态** **独立的代价** ｜ 状态：完成
 
-<h3 id="q14" data-qid="60e71c11d54b755a3b53eb65">夜间扫荡<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
+<h3 id="q15" data-qid="60e71c11d54b755a3b53eb65">夜间扫荡<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Night Sweep**
 
@@ -452,7 +475,7 @@ tags:
   - 技能：**抗压** +4 级
   - 解锁购买：**CMMG Mk47 Mutant 7.62x39 突击步枪 默认（Skier LL4）**／**Magpul MOE 卡宾枪橡胶枪托垫（Skier LL4）**
 
-<h3 id="q15" data-qid="626bd75d5bef5d7d590bd415">头号机密<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
+<h3 id="q16" data-qid="626bd75d5bef5d7d590bd415">头号机密<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Top Secret**
 
@@ -481,7 +504,7 @@ tags:
   - 声望：**Skier** +0.75
   - 解锁购买：**Lone Star TX-15 DML 5.56x45 半自动卡宾枪 默认（Skier LL3）**／**Magpul MOE AR-15 卡宾枪托（黑色）（Skier LL3）**
 
-<h3 id="q16" data-qid="6089743983426423753cd58a">安全通道<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
+<h3 id="q17" data-qid="6089743983426423753cd58a">安全通道<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Safe Corridor**
 
@@ -500,36 +523,6 @@ tags:
 
 - **完成奖励**：经验 **28,000** ｜ **欧元** ×1,650
   - 声望：**Skier** +0.75
-
-<h3 id="q17" data-qid="67af4c1d8c9482eca103e477">安慰奖<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
-
-**Skier** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Consolation Prize**
-
-<a href="quest.md?id=67af4c1d8c9482eca103e477">💬 台词与完整明细 →</a>
-
-`地图：实验室`
-
-**要求**
-
-- **撤离** **×15** ｜ 撤离点状态：幸存／转移 —— 以幸存状态撤离实验室
-- **击杀／射击** **击杀** ｜ 目标：任意目标 ｜ **×100** —— 在实验室消灭任意目标
-
-- **完成奖励**：—（无物品或经验奖励）
-  - 技能：**瞄准训练** +1 级
-  - 技能：**突击步枪** +1 级
-  - 技能：**武器维护** +1 级
-  - 技能：**TroubleShooting** +1 级
-  - 技能：**精确射手步枪** +1 级
-  - 技能：**重机枪** +1 级
-  - 技能：**轻机枪** +1 级
-  - 技能：**近战** +1 级
-  - 技能：**手枪** +1 级
-  - 技能：**左轮手枪** +1 级
-  - 技能：**榴弹发射器** +1 级
-  - 技能：**霰弹枪** +1 级
-  - 技能：**冲锋枪** +1 级
-  - 技能：**投掷物** +1 级
-  - 技能：**下挂发射器** +1 级
 
 <h3 id="q18" data-qid="5b47926a86f7747ccc057c15">情报就是力量<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
@@ -1262,7 +1255,7 @@ tags:
 - **找任务物品** **机械硬盘** —— 在海岸线的木屋内找到并获取硬盘
 - **交任务物品** **机械硬盘** —— 上交找到的物品
 
-- **完成奖励**：经验 **28,000** ｜ **欧元** ×1,650 ｜ **L3Harris AN/PVS-14 单筒夜视仪** ×1 ｜ **AN/PVS-14单目夜视仪双燕尾槽安装座** ×1 ｜ **Norotos钛合金高级战术支架** ×1
+- **完成奖励**：经验 **28,000** ｜ **欧元** ×1,650 ｜ **L3Harris AN/PVS-14 单筒夜视仪** ×1 ｜ **AN/PVS-14 Norotos 双燕尾槽安装座** ×1 ｜ **Norotos钛合金高级战术支架** ×1
 
 <h3 id="q49" data-qid="666314bc1d3ec95634095e77">高光时刻<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
@@ -1472,7 +1465,7 @@ tags:
 
 **要求**
 
-- **击杀／射击** **击杀** ｜ 目标：任意目标 ｜ **×30** ｜ 限定武器：Saiga-12K ver.10 12铅径半自动霰弹枪／MP-133 12 铅径泵动式霰弹枪／雷明顿 Model 870 12铅径泵动式霰弹枪／Mossberg 590A1 12铅径泵动式霰弹枪 ｜ 限定配件：SilencerCo Osprey 12声音抑制器／Hexagon 12K声音抑制器 —— 在储备站、灯塔、中心区或实验室使用消音 12 铅径霰弹枪消灭任意敌对目标
+- **击杀／射击** **击杀** ｜ 目标：任意目标 ｜ **×30** ｜ 限定武器：Saiga-12K ver.10 12铅径半自动霰弹枪／MP-133 12 铅径泵动式霰弹枪／雷明顿 Model 870 12铅径泵动式霰弹枪／Mossberg 590A1 12铅径泵动式霰弹枪 ｜ 限定配件：SilencerCo Salvo 12 12 铅径消音器／Hexagon 12K 12 铅径消音器 —— 在储备站、灯塔、中心区或实验室使用消音 12 铅径霰弹枪消灭任意敌对目标
 
 - **完成奖励**：经验 **65,000** ｜ **欧元** ×2,400 ｜ **MP-155 12铅径半自动霰弹枪 Ultima** ×1
   - 声望：**Skier** +1.5
@@ -1499,7 +1492,7 @@ tags:
   - 解锁购买：**MPS Auto Assault-12 Gen 2 12铅径自动霰弹枪 默认（Skier LL4）**
 - **接取即得**：**MPS Auto Assault-12 Gen 1 12铅径自动霰弹枪 Drum** ×1
 
-## Lv40–49 ｜ 2 个任务
+## Lv40–49 ｜ 3 个任务
 
 <h3 id="q59" data-qid="68400926706e0a55e90b0007">公道价 - 1<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
 
@@ -1537,9 +1530,39 @@ tags:
 
 - **完成奖励**：经验 **28,000**
 
+<h3 id="q61" data-qid="67af4c1d8c9482eca103e477">安慰奖<a class="headerlink" href="#q61" title="Permanent link">&para;</a></h3>
+
+**Skier** ｜ 需 **Lv46** ｜ **无前置** ｜ 英文名 **Consolation Prize**
+
+<a href="quest.md?id=67af4c1d8c9482eca103e477">💬 台词与完整明细 →</a>
+
+`地图：实验室`
+
+**要求**
+
+- **撤离** **×15** ｜ 撤离点状态：幸存／转移 —— 以幸存状态撤离实验室
+- **击杀／射击** **击杀** ｜ 目标：任意目标 ｜ **×100** —— 在实验室消灭任意目标
+
+- **完成奖励**：—（无物品或经验奖励）
+  - 技能：**瞄准训练** +1 级
+  - 技能：**突击步枪** +1 级
+  - 技能：**武器维护** +1 级
+  - 技能：**TroubleShooting** +1 级
+  - 技能：**精确射手步枪** +1 级
+  - 技能：**重机枪** +1 级
+  - 技能：**轻机枪** +1 级
+  - 技能：**近战** +1 级
+  - 技能：**手枪** +1 级
+  - 技能：**左轮手枪** +1 级
+  - 技能：**榴弹发射器** +1 级
+  - 技能：**霰弹枪** +1 级
+  - 技能：**冲锋枪** +1 级
+  - 技能：**投掷物** +1 级
+  - 技能：**下挂发射器** +1 级
+
 ## Lv50–59 ｜ 6 个任务
 
-<h3 id="q61" data-qid="67af4c1cc0e59d55e2010b97">人生之课<a class="headerlink" href="#q61" title="Permanent link">&para;</a></h3>
+<h3 id="q62" data-qid="67af4c1cc0e59d55e2010b97">人生之课<a class="headerlink" href="#q62" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **A Life Lesson**
 
@@ -1566,7 +1589,7 @@ tags:
   - 技能：**弹匣训练** +1 级
   - 技能：**TroubleShooting** +1 级
 
-<h3 id="q62" data-qid="67af4c1a6c3ebfd8e6034916">利润保留<a class="headerlink" href="#q62" title="Permanent link">&para;</a></h3>
+<h3 id="q63" data-qid="67af4c1a6c3ebfd8e6034916">利润保留<a class="headerlink" href="#q63" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **Profit Retention**
 
@@ -1593,7 +1616,7 @@ tags:
   - 技能：**活力** +1 级
   - 技能：**抗压** +1 级
 
-<h3 id="q63" data-qid="67af4c17f4f1fb58a907f8f6">学无止境<a class="headerlink" href="#q63" title="Permanent link">&para;</a></h3>
+<h3 id="q64" data-qid="67af4c17f4f1fb58a907f8f6">学无止境<a class="headerlink" href="#q64" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **Never Too Late to Learn**
 
@@ -1620,7 +1643,7 @@ tags:
   - 技能：**魅力** +1 级
   - 技能：**智力** +1 级
 
-<h3 id="q64" data-qid="67af4c169d95ad16e004fd86">安全保障<a class="headerlink" href="#q64" title="Permanent link">&para;</a></h3>
+<h3 id="q65" data-qid="67af4c169d95ad16e004fd86">安全保障<a class="headerlink" href="#q65" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv50** ｜ **无前置** ｜ 英文名 **Safety Guarantee**
 
@@ -1647,7 +1670,7 @@ tags:
   - 技能：**感知** +1 级
   - 技能：**抗压** +1 级
 
-<h3 id="q65" data-qid="67af4c1405c58dc6f7056667">有利可图的生意<a class="headerlink" href="#q65" title="Permanent link">&para;</a></h3>
+<h3 id="q66" data-qid="67af4c1405c58dc6f7056667">有利可图的生意<a class="headerlink" href="#q66" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv50** ｜ **无前置** ｜ 英文名 **Profitable Venture**
 
@@ -1672,7 +1695,7 @@ tags:
   - 技能：**武器维护** +1 级
   - 技能：**TroubleShooting** +1 级
 
-<h3 id="q66" data-qid="67af4c1991ee75c6d7060a16">站稳脚跟<a class="headerlink" href="#q66" title="Permanent link">&para;</a></h3>
+<h3 id="q67" data-qid="67af4c1991ee75c6d7060a16">站稳脚跟<a class="headerlink" href="#q67" title="Permanent link">&para;</a></h3>
 
 **Skier** ｜ 需 **Lv50** ｜ 前置 **1** 个 ｜ 英文名 **Get a Foothold**
 

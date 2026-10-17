@@ -99,13 +99,13 @@ tags:
 | **Fence** | 开局即有 | Scav 的固定接头点；他的**任务**另看 Karma（见[PMC 与 Scav](pmc-scav.md)） |
 | **Jaeger** | 完成 Mechanic 任务「**介绍**」 | 无等级门槛：去森林坠机处旁找到他的营地，取回加密留言并上交 |
 | **Ref** | 完成 Skier 任务「**赚点快钱 - 1（PVP）**」 | 需 PMC 10 级 + Skier 声望 LL2；竞技场侧线的门 |
-| **Lightkeeper** | 完成 Mechanic 任务「**网络供应商 - 1**」开启访问链 | 该任务要求 Fence 声望 ≥ 2；他没有货架，只发任务 |
+| **Lightkeeper** | **1.1.5.0 起的访问链**：在「Tour」剧情线里取得灯塔通行权限 → 除 Fence / Ref 外全体商人 **LL3** → 向 Mechanic 询问与 Lightkeeper 合作的可能 | 旧「网络供应商」物品链已在 1.1.5.0 被官方重做并失效（来源：1.1.5.0 官方说明）；他没有货架，只发任务 |
 
 三条判断：
 
 - **解锁 ≠ 声望**：开门只意味着「能对话、能接任务」，货架里有什么仍看忠诚等级（见上文第 2 节）。
 - **Jaeger 的门建号当天就能敲**：「介绍」没有等级门槛，越早开越好——狙击枪、食品、狩猎线都卡着他。
-- **Ref 和 Lightkeeper 打不开是正常的**：一个要 10 级 + Skier LL2，一个要整条灯塔访问链，本来就是后期内容，不是号出了问题。
+- **Ref 和 Lightkeeper 打不开是正常的**：一个要 10 级 + Skier LL2，一个要 Tour 剧情 + 全体 LL3，本来就是后期内容，不是号出了问题。
 
 Lightkeeper 的完整访问链（灯塔半岛、Zryachiy 与阔剑地雷、编码 DSP 无线电发射器）见[剧情章节与主线任务](story-chapters.md)与[灯塔](lighthouse.md)；Ref 开门后的竞技场任务线见[商人任务线图鉴](trader-questlines.md)。
 

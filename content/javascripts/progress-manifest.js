@@ -6,13 +6,13 @@
 window.TARKOV_PROGRESS_MANIFEST = {
   "generated": "2026-10-17",
   "source": "scripts/data/quests.json（json.tarkov.dev/regular，持久 PvP） + scripts/data/hideout.json（同源，含 hideout_zh / items_zh 译名） + scripts/data/storylines.json（手维护，与剧情页对账）",
-  "baseline": "2026-09-30",
-  "total": 515,
+  "baseline": "2026-10-17",
+  "total": 504,
   "traders": [
     {
       "slug": "mechanic",
       "name": "Mechanic",
-      "count": 89
+      "count": 72
     },
     {
       "slug": "prapor",
@@ -22,7 +22,7 @@ window.TARKOV_PROGRESS_MANIFEST = {
     {
       "slug": "skier",
       "name": "Skier",
-      "count": 66
+      "count": 67
     },
     {
       "slug": "jaeger",
@@ -32,12 +32,12 @@ window.TARKOV_PROGRESS_MANIFEST = {
     {
       "slug": "ragman",
       "name": "Ragman",
-      "count": 58
+      "count": 61
     },
     {
       "slug": "therapist",
       "name": "Therapist",
-      "count": 52
+      "count": 53
     },
     {
       "slug": "peacekeeper",
@@ -52,7 +52,7 @@ window.TARKOV_PROGRESS_MANIFEST = {
     {
       "slug": "ref",
       "name": "Ref（竞技场裁判）",
-      "count": 20
+      "count": 21
     },
     {
       "slug": "btr-driver",
@@ -67,32 +67,20 @@ window.TARKOV_PROGRESS_MANIFEST = {
   ],
   "items": {
     "threshold": 3,
-    "total": 79,
+    "total": 78,
     "note": "「任务数」是有多少个任务需要它；「合计数量」是这些任务要求的**总件数**（跨任务求和，不是单次需求）。只列被 3 个及以上任务需要的物品。",
     "list": [
       {
         "name": "WIFI摄像头",
-        "tasks": 9,
-        "qty": 47,
-        "traders": "Fence / Mechanic / Skier / Ref / Prapor / Therapist"
+        "tasks": 7,
+        "qty": 42,
+        "traders": "Fence / Skier / Ref / Prapor / Mechanic / Therapist"
       },
       {
         "name": "“凶狠跑刀崽”私酒",
         "tasks": 6,
         "qty": 33,
         "traders": "BTR 司机 / Skier / Ragman / Ref / Lightkeeper"
-      },
-      {
-        "name": "卢布",
-        "tasks": 5,
-        "qty": 4400000,
-        "traders": "Mechanic / Skier / Therapist / Fence / Ref"
-      },
-      {
-        "name": "军用COFDM无线信号发射器",
-        "tasks": 5,
-        "qty": 21,
-        "traders": "Mechanic / Peacekeeper / Prapor / Skier"
       },
       {
         "name": "咸狗牛肉肠",
@@ -107,10 +95,16 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "traders": "Therapist"
       },
       {
+        "name": "卢布",
+        "tasks": 4,
+        "qty": 3400000,
+        "traders": "Skier / Therapist / Fence / Ref"
+      },
+      {
         "name": "BEAR 狗牌",
         "tasks": 4,
-        "qty": 575,
-        "traders": "Peacekeeper / Prapor / Fence"
+        "qty": 635,
+        "traders": "Prapor / Peacekeeper / Fence"
       },
       {
         "name": "Dan Jackiel瓶装威士忌",
@@ -125,10 +119,10 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "traders": "Ragman / BTR 司机 / Skier / Ref"
       },
       {
-        "name": "SJ6 TGLabs 战斗兴奋剂注射器",
+        "name": "Obdolbos 2 鸡尾酒兴奋剂注射器",
         "tasks": 4,
-        "qty": 43,
-        "traders": "Therapist / Mechanic / Skier"
+        "qty": 41,
+        "traders": "Therapist / Skier"
       },
       {
         "name": "M.U.L.E. 兴奋剂注射器",
@@ -143,12 +137,6 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "traders": "Therapist / Peacekeeper / Skier"
       },
       {
-        "name": "SJ9 TGLabs 战斗兴奋剂注射器",
-        "tasks": 4,
-        "qty": 39,
-        "traders": "Therapist / Mechanic / Skier"
-      },
-      {
         "name": "OLOLO瓶装复合维生素",
         "tasks": 4,
         "qty": 32,
@@ -159,12 +147,6 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "tasks": 4,
         "qty": 32,
         "traders": "Fence / Lightkeeper / Skier / Jaeger"
-      },
-      {
-        "name": "加密U盘",
-        "tasks": 4,
-        "qty": 27,
-        "traders": "Skier / Jaeger / Peacekeeper / Mechanic"
       },
       {
         "name": "6B43 屏障-Sh 防弹衣（数码丛林迷彩）",
@@ -185,6 +167,12 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "traders": "Ragman / Jaeger"
       },
       {
+        "name": "P22 (22 号化合物) 兴奋剂注射器",
+        "tasks": 4,
+        "qty": 20,
+        "traders": "Therapist / Peacekeeper"
+      },
+      {
         "name": "医用输血工具",
         "tasks": 4,
         "qty": 20,
@@ -201,6 +189,12 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "tasks": 4,
         "qty": 16,
         "traders": "Therapist"
+      },
+      {
+        "name": "Obdolbos 鸡尾酒兴奋剂注射器",
+        "tasks": 4,
+        "qty": 13,
+        "traders": "Therapist / Peacekeeper"
       },
       {
         "name": "3-(b-TG) 兴奋剂注射器",
@@ -221,9 +215,15 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "traders": "Peacekeeper / BTR 司机 / Jaeger"
       },
       {
+        "name": "MS2000指示器",
+        "tasks": 4,
+        "qty": 7,
+        "traders": "Skier / BTR 司机 / Lightkeeper"
+      },
+      {
         "name": "USEC 狗牌",
         "tasks": 3,
-        "qty": 235,
+        "qty": 285,
         "traders": "Prapor / Peacekeeper / Fence"
       },
       {
@@ -245,12 +245,6 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "traders": "Mechanic / Prapor / Skier"
       },
       {
-        "name": "Obdolbos 2 鸡尾酒兴奋剂注射器",
-        "tasks": 3,
-        "qty": 38,
-        "traders": "Therapist / Skier"
-      },
-      {
         "name": "Propital 再生兴奋剂注射器",
         "tasks": 3,
         "qty": 38,
@@ -258,6 +252,18 @@ window.TARKOV_PROGRESS_MANIFEST = {
       },
       {
         "name": "SJ12 TGLabs 战斗兴奋剂注射器",
+        "tasks": 3,
+        "qty": 38,
+        "traders": "Therapist / Skier"
+      },
+      {
+        "name": "SJ6 TGLabs 战斗兴奋剂注射器",
+        "tasks": 3,
+        "qty": 38,
+        "traders": "Therapist / Skier"
+      },
+      {
+        "name": "SJ9 TGLabs 战斗兴奋剂注射器",
         "tasks": 3,
         "qty": 38,
         "traders": "Therapist / Skier"
@@ -305,12 +311,6 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "traders": "BTR 司机 / Jaeger / Ref"
       },
       {
-        "name": "SJ1 TGLabs 战斗兴奋剂注射器",
-        "tasks": 3,
-        "qty": 23,
-        "traders": "Therapist / Mechanic"
-      },
-      {
         "name": "黑麦面包块",
         "tasks": 3,
         "qty": 23,
@@ -327,6 +327,12 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "tasks": 3,
         "qty": 22,
         "traders": "Ragman / Jaeger"
+      },
+      {
+        "name": "xTG-12 解毒剂注射器",
+        "tasks": 3,
+        "qty": 18,
+        "traders": "Therapist"
       },
       {
         "name": "一次性注射器",
@@ -413,6 +419,12 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "traders": "Peacekeeper / Prapor / Skier"
       },
       {
+        "name": "军用COFDM无线信号发射器",
+        "tasks": 3,
+        "qty": 16,
+        "traders": "Peacekeeper / Prapor / Skier"
+      },
+      {
         "name": "军用绷带",
         "tasks": 3,
         "qty": 16,
@@ -449,10 +461,10 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "traders": "Jaeger / Therapist"
       },
       {
-        "name": "电子元件",
+        "name": "金公鸡塑像",
         "tasks": 3,
         "qty": 15,
-        "traders": "Mechanic / Prapor"
+        "traders": "Skier / Ragman"
       },
       {
         "name": "Tigzresq 夹板",
@@ -485,10 +497,10 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "traders": "Mechanic / Prapor"
       },
       {
-        "name": "气体分析仪",
+        "name": "加密U盘",
         "tasks": 3,
-        "qty": 11,
-        "traders": "Therapist / Mechanic"
+        "qty": 12,
+        "traders": "Skier / Jaeger / Peacekeeper"
       },
       {
         "name": "盐水溶液",
@@ -497,7 +509,7 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "traders": "Therapist"
       },
       {
-        "name": "0.6升瓶装水",
+        "name": "600 毫升瓶装水",
         "tasks": 3,
         "qty": 10,
         "traders": "Jaeger / Therapist / Ref"
@@ -509,28 +521,10 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "traders": "Therapist / Peacekeeper"
       },
       {
-        "name": "Obdolbos 鸡尾酒兴奋剂注射器",
-        "tasks": 3,
-        "qty": 10,
-        "traders": "Therapist / Peacekeeper"
-      },
-      {
-        "name": "P22 (22 号化合物) 兴奋剂注射器",
-        "tasks": 3,
-        "qty": 10,
-        "traders": "Therapist / Peacekeeper"
-      },
-      {
         "name": "5升丙烷罐",
         "tasks": 3,
         "qty": 9,
         "traders": "Skier / Peacekeeper"
-      },
-      {
-        "name": "MS2000指示器",
-        "tasks": 3,
-        "qty": 6,
-        "traders": "Skier / BTR 司机"
       },
       {
         "name": "完好的硬盘驱动器",

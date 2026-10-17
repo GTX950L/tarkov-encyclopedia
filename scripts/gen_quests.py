@@ -31,9 +31,12 @@ import shutil
 import sys
 import urllib.request
 from collections import Counter, defaultdict
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "scripts"))
+from _baseline import baseline_label, read_baseline  # noqa: E402  站点基线的唯一来源
 DATA_FILE = ROOT / "scripts" / "data" / "quests.json"
 CARRIER_FILE = ROOT / "scripts" / "data" / "quests_carrier.json"
 OUT_DIR = ROOT / "content" / "quests"
@@ -70,8 +73,12 @@ else:
           "（先跑 python scripts/gen_quest_carrier.py）")
 
 API = "https://json.tarkov.dev/regular/"
-FETCH_DATE = "2026-09-30"
-BASELINE = ("2026 年 9 月", "1.1.5.1（第一赛季 KORD BREACH）")
+# 抓取日：**写盘用**。离线生成时由 generate() 从数据文件里的 fetched 回填，
+# 否则重跑一次页面就会把「抓取日期」改成今天（数据没变、日期却变了）。
+FETCH_DATE = date.today().isoformat()
+# 站点基线（版本 + 快照月）从 citation.md 读，**不在生成器里硬编码** ——
+# 2026-10-11 那轮漂移就是 7 个生成器各自写死 1.1.5.1 造成的。
+BASELINE = (read_baseline()[0], baseline_label())
 
 # index.md 里由 **另一个脚本**（gen_quest_items.py）生成的速查区。本栏「整栏重建」时必须搬过来。
 EXTRAS_START = "<!-- AUTO-GEN:QUEST-EXTRAS:START -->"
@@ -120,15 +127,19 @@ def uniq(vals: list[str]) -> list[str]:
             out.append(v)
     return out
 
+# ⚠️ 别用纯浏览器 UA —— json.tarkov.dev 会 403 掉 `Mozilla/...`（Chrome / Safari 一律拒绝），
+# curl / 自报家门的 UA 是 200。2026-10-17 实测：巡检与抓取脚本都曾因此静默失败。
 HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/128.0 Safari/537.36"
-    ),
+    "User-Agent": "tarkov-encyclopedia-refresh/1.0 (+https://github.com/GTX950L/tarkov-encyclopedia)",
     "Origin": "https://tarkov.dev",
     "Referer": "https://tarkov.dev/",
     "Accept": "application/json",
 }
+
+# 上游 `name` 一律是 `<24位id> name` 占位符，真正的中文/英文名在 `tasks_zh` 里，
+# 键就是占位符本身。**只有 tasks_zh 都查不到时才该跳过** —— 那种条目印出来
+# 就是一串十六进制 id。2026-10-17 实测：504 条全部有译名（2 条只有英文名）。
+PLACEHOLDER_NAME_RE = re.compile(r"^[0-9a-f]{24} name$")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -578,7 +589,18 @@ def fetch() -> dict:
         return out
 
     records = []
+    old_tasks: dict[str, dict] = {}
+    if DATA_FILE.exists():
+        try:
+            old_tasks = {t["id"]: t for t in
+                         json.loads(DATA_FILE.read_text(encoding="utf-8"))["tasks"]}
+        except Exception:
+            old_tasks = {}
+    skipped_placeholder: list[tuple[str, str]] = []
     for tid, t in tasks.items():
+        if tasks_zh.get(t.get("name") or "") is None:
+            skipped_placeholder.append((tid, t.get("normalizedName") or ""))
+            continue
         reqs = []
         for r in t.get("taskRequirements") or []:
             p = r.get("task")
@@ -632,10 +654,26 @@ def fetch() -> dict:
                                 r["level"], r["name"]))
     if miss:
         print("  ⚠ 译名缺失（已留空，不印 id／英文）：" + "／".join(f"{k} {v}" for k, v in sorted(miss.items())))
+    if skipped_placeholder:
+        print(f"  ⚠ 跳过 {len(skipped_placeholder)} 条上游未本地化任务（name 仍是占位符，"
+              f"印出来就是十六进制 id）：")
+        for tid, slug in skipped_placeholder:
+            print(f"    - {slug or '?'}（{tid}）")
+    if old_tasks:
+        new_ids = {r["id"] for r in records}
+        added = [r for r in records if r["id"] not in old_tasks]
+        removed = [t for tid, t in old_tasks.items() if tid not in new_ids]
+        print(f"  本次变化：新增 {len(added)} 条 / 移除 {len(removed)} 条 "
+              f"（旧 {len(old_tasks)} → 新 {len(records)}）")
+        for r in added:
+            print(f"    + {r['name']}（{r['en']}）")
+        for t in removed:
+            print(f"    - {t.get('name', '')}（{t.get('en', '')}）")
     payload = {
         "fetched": FETCH_DATE,
         "source": "json.tarkov.dev/regular（持久 PvP）",
         "count": len(records),
+        "skippedUnlocalized": [{"id": tid, "slug": slug} for tid, slug in skipped_placeholder],
         "tasks": records,
     }
     DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
@@ -917,7 +955,7 @@ def render_task(rec: dict, i: int) -> list[str]:
 
 
 HEADER = [
-    f"> 版本基线：{BASELINE[0]} ｜ {BASELINE[1]}｜ 数据来源：tarkov.dev（二级）",
+    f"> 版本基线：{BASELINE[0]} ｜ {BASELINE[1]} ｜ 数据来源：tarkov.dev（二级）",
     "> 本页数值随版本调整，引用时请附加「以当前版本为准」。",
     "",
     '<a id="top"></a>',
@@ -1064,14 +1102,14 @@ def write_index(tasks: list[dict]) -> None:
         # ⚠️ 这一行**不能以 `|` 收尾** —— 「怎么用」是**一行**表格行，由多条 f-string
         #    续写而成，`|` 只在最后那条上（下面「另有…」）。中间插一个 `|` 会把这一行
         #    提前收掉，后面那段就变成「表格后缺空行」——check_entries 当场报错。
-        f"现存 **{len(DIALOGUE)}** / {n} 个任务有台词，其余该站没有收录；"
+        f"现存 **{sum(1 for t in tasks if t['id'] in DIALOGUE)}** / {n} 个任务有台词，其余该站没有收录；"
         f"另有 **{maps_n}** 个任务在定义里带地图归属，"
         f"可用「地图」二字在站内检索 |",
         "",
         "---", "",
         "## 🧰 按条件筛任务",
         "",
-        "515 个任务按**商人 / 地图 / 等级门槛 / 条件**（需钥匙、有失败条件、Kappa 线……）筛，"
+        f"{n} 个任务按**商人 / 地图 / 等级门槛 / 条件**（需钥匙、有失败条件、Kappa 线……）筛，"
         "并按**解锁收益**排序 —— 「做完它一次放开多少后续任务」是本栏目自己算的，"
         f"口径见下方「优先级速查」。**「解锁」不等于「可接」**：本表回答「有哪些任务」，"
         "「我能不能接」见[我的进度](progress.md)。"
@@ -1172,7 +1210,7 @@ def write_index(tasks: list[dict]) -> None:
         "长链与忠诚度门槛**，并给出 Kappa 的完整前置树；本栏目是它的**逐任务明细层**",
         "- [物品反查](item-lookup.md) —— **反向**的一条路：手上有个物品，想知道"
         "**要不要留**、被哪些任务要、能不能从商人换到",
-        "- [限时与活动任务补遗](event-quests.md) —— **515 条之外的**那类：随版本挂载、"
+        f"- [限时与活动任务补遗](event-quests.md) —— **{n} 条之外的**那类：随版本挂载、"
         "到点即消失（如 1.1.5.0 灯塔重做附带的 10 条活动链）",
         "- [任务系统](../entries/quests.md) —— 任务的**机制**（奖励怎么发、FiR 怎么算、"
         "失败与放弃的区别）",
@@ -1403,7 +1441,7 @@ def quest_shard_key(qid: str) -> int:
     return sum(int(c, 16) for c in qid) % QUEST_DETAIL_SHARDS
 
 
-def quest_page_markdown(total: int) -> str:
+def quest_page_markdown(total: int, dlg_n: int) -> str:
     """生成「单个任务详情」视图页的静态骨架（``content/quests/quest.md``）。"""
     out: list[str] = []
     out.append("---")
@@ -1414,8 +1452,7 @@ def quest_page_markdown(total: int) -> str:
     out.append("")
     out.append("# 任务详情（Quest Detail）")
     out.append("")
-    out.append("> 版本基线：2026 年 9 月 ｜ 1.1.5.1（第一赛季 KORD BREACH）"
-               "｜ 数据来源：tarkov.dev（二级）")
+    out.append(f"> 版本基线：{BASELINE[0]} ｜ {BASELINE[1]} ｜ 数据来源：tarkov.dev（二级）")
     out.append("> 单个任务的完整页面。数值随版本调整，引用时请附「以当前版本为准」。")
     out.append("")
     out.append('<a id="top"></a>')
@@ -1426,8 +1463,8 @@ def quest_page_markdown(total: int) -> str:
                "**单个任务摊开看** —— 接取门槛、前置与后续、目标清单、完成奖励、"
                "出发前必带，一屏读完。")
     out.append("")
-    out.append("> **这是一个视图页，不是 515 个页面。** 全站没有给每个任务各生成一个 HTML —— "
-               "实测站点每页平均 146 KB，绝大部分是站点框架开销，515 页不划算且难维护。"
+    out.append(f"> **这是一个视图页，不是 {total} 个页面。** 全站没有给每个任务各生成一个 HTML —— "
+               f"实测站点每页平均 146 KB，绝大部分是站点框架开销，{total} 页不划算且难维护。"
                "本页按地址里的任务 ID 渲染，**链接可分享、可收藏、可刷新恢复**。")
     out.append("")
     out.append("---")
@@ -1455,14 +1492,14 @@ def quest_page_markdown(total: int) -> str:
     out.append("| **💬 商人台词** | ⚠️ **本站唯一的「三级来源」**：来自玩家维基 "
                "eftarkov.com，**不是**直读游戏文件。其余数值都来自 `json.tarkov.dev`（二级），"
                "而那个数据源**不含台词** —— 所以这一栏单独走三级来源。"
-               f"覆盖 **{sum(1 for v in DIALOGUE.values() if v.get('intro'))}** 个任务，"
+               f"覆盖 **{dlg_n}** 个任务，"
                "**该站没有的任务不显示这一栏**（不是本站漏抓） |")
     out.append("")
     out.append("---")
     out.append("")
     out.append("## 📚 相关页面")
     out.append("")
-    out.append("- [任务图鉴总览](index.md) — 515 个任务的分类检索入口")
+    out.append(f"- [任务图鉴总览](index.md) — {total} 个任务的分类检索入口")
     out.append("- [我的进度](progress.md) — 记录做到哪了")
     out.append("- [物品反查（要不要留）](item-lookup.md) — 某物品被哪些任务要求")
     out.append("")
@@ -1509,7 +1546,7 @@ def dlg_of(qid: str) -> list:
 def write_quest_detail(tasks: list[dict]) -> None:
     """写「单个任务详情」的分片数据，外加承载它的那一个视图页。
 
-    **为什么要分片**：515 个任务的详情（目标 + 奖励 + 门槛 + 前置后续）合计
+    **为什么要分片**：全部任务的详情（目标 + 奖励 + 门槛 + 前置后续）合计
     约 0.4 MB。合成一个文件的话，读者点开任意一个任务都得先下整包 ——
     与全站「弱网可读」的定位相冲突。
 
@@ -1622,7 +1659,7 @@ def write_quest_detail(tasks: list[dict]) -> None:
         if m and int(m.group(1)) not in rows:
             old.unlink()
 
-    md = quest_page_markdown(len(tasks))
+    md = quest_page_markdown(len(tasks), sum(1 for t in tasks if DIALOGUE.get(t["id"], {}).get("intro")))
     (OUT_DIR / "quest.md").write_bytes(
         md.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8"))
     print(f"任务详情：{len(rows)} 个分片 ｜ {len(tasks)} 个任务 ｜ "
@@ -1742,7 +1779,9 @@ def linkify_items(text: str) -> str:
 
 
 def generate() -> None:
+    global FETCH_DATE
     payload = json.loads(DATA_FILE.read_text(encoding="utf-8"))
+    FETCH_DATE = payload.get("fetched") or FETCH_DATE
     tasks = payload["tasks"]
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     write_index(tasks)

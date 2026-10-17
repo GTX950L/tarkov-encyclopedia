@@ -40,7 +40,7 @@ tags:
 | [Jaeger](../quests/jaeger.md) | 危机四伏塔科夫 | 到访 | 1 | 在森林 USEC 营地周围找到高密度雷区 |
 | [Jaeger](../quests/jaeger.md) | 生存者之路 - 省吃俭用 | 放置物品 | 4 | 在森林的ZB-016地堡里藏匿Iskra个人配给口粮 |
 | [Lightkeeper](../quests/lightkeeper.md) | 外部订单 | 放置任务物品 | 1 | 将该装置藏匿在森林的指定位置 |
-| [Lightkeeper](../quests/lightkeeper.md) | 归还人情 | 放置物品 | 2 | 将TerraGroup 「蓝色文件夹」藏匿在森林USEC营地的黑色SUV里面 |
+| [Lightkeeper](../quests/lightkeeper.md) | 归还人情 | 放置物品 | 2 | 将 TerraGroup“蓝色文件夹”藏匿在森林 USEC 营地的黑色 SUV 内 |
 | [Lightkeeper](../quests/lightkeeper.md) | 简单副业 | 放置任务物品 | 1 | 将货物藏匿在森林的 Scav 小屋 |
 | [Mechanic](../quests/mechanic.md) | 介绍 | 到访 | 1 | 在森林坠机处旁边找到 Jaeger 的营地 |
 | [Mechanic](../quests/mechanic.md) | 稳定信号 | 标记 | 5 | 在森林使用 MS2000 指示器标记任意一个气象站 |

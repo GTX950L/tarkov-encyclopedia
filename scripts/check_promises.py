@@ -173,8 +173,8 @@ ASSERTIONS: dict[str, list[tuple[str, str, bool, str]]] = {
         # 补遗页整页都是「限时 + 无二级来源 + 无官方期限」三重不确定，
         # 所以三条断言各盯一个侧面：口径写在页头、来源层级写在概览表、
         # 「以游戏内为准」的限定语必须出现在页面上。
-        ("quests/event-quests.md", r"不在 515 条常规口径内", True,
-         "须在页头声明本页不在 515 条常规口径内（否则读者会当收录疏漏）"),
+        ("quests/event-quests.md", r"不在 504 条常规口径内", True,
+         "须在页头声明本页不在 504 条常规口径内（否则读者会当收录疏漏）"),
         ("quests/event-quests.md", r"三级", True,
          "须标注来源为三级（限时活动任务不进 tarkov.dev regular 端点，无二级来源可引）"),
         ("quests/event-quests.md", r"以游戏内", True,

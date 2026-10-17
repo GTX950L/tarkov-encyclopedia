@@ -37,9 +37,9 @@ tags:
 | [Jaeger](../quests/jaeger.md) | 直播 - 4 | 到访 | 1 | 在塔科夫街区找到邪教徒的聚集处 |
 | [Jaeger](../quests/jaeger.md) | 直播 - 5 | 到访 | 2 | 在塔科夫街区的Chekannaya大街找到仪式地点 |
 | [Jaeger](../quests/jaeger.md) | 美味香肠 | 到访 | 4 | 搜索Nikitskaya大街的Shestyorochka（Шестёрочка）商店 |
-| [Lightkeeper](../quests/lightkeeper.md) | 大都会之谜 | 到访 | 3 | — |
+| [Lightkeeper](../quests/lightkeeper.md) | 大都会之谜 | 到访 | 3 | 在塔科夫街区找到装有货物的装甲车队 |
 | [Lightkeeper](../quests/lightkeeper.md) | 失踪的线人 | 到访 | 1 | 在塔科夫街区找到线人备用藏身处 |
-| [Lightkeeper](../quests/lightkeeper.md) | 观察员 | 到访 | 9 | — |
+| [Lightkeeper](../quests/lightkeeper.md) | 观察员 | 到访 | 9 | 在塔科夫街区的 Concordia 公寓内找到一处能够俯瞰建筑工地的狙击点 |
 | [Mechanic](../quests/mechanic.md) | 你被盯上了 | 到访 | 1 | 在塔科夫街区找到监视点位 |
 | [Mechanic](../quests/mechanic.md) | 公司福报 | 到访 | 2 | 在塔科夫街区找到IT公司的办公室 |
 | [Mechanic](../quests/mechanic.md) | 大海捞针 | 到访 | 1 | 在塔科夫街区调查 Concordia 公寓的儿童游乐场 |

@@ -1,7 +1,8 @@
 {
- "fetched": "2026-09-30",
+ "fetched": "2026-10-17",
  "source": "json.tarkov.dev/regular（持久 PvP）",
- "count": 515,
+ "count": 504,
+ "skippedUnlocalized": [],
  "tasks": [
   {
    "id": "6752f6d83038f7df520c83e8",
@@ -500,8 +501,8 @@
       "精密工具盒"
      ],
      "maps": [
-      "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "工厂"
      ]
     }
    ],
@@ -622,70 +623,6 @@
    "delay": 0
   },
   {
-   "id": "625d7005a4eb80027c4f2e09",
-   "name": "咚咚咚",
-   "en": "Knock Knock",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 31300,
-   "map": "灯塔",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": true,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "灯塔之匙",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
-   "traderReqs": [],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "visit",
-     "text": "在灯塔半岛附近检查应答机能否正常工作",
-     "maps": [
-      "灯塔"
-     ]
-    },
-    {
-     "type": "extract",
-     "text": "以幸存状态撤离该区域",
-     "count": 1,
-     "exitStatus": [
-      "幸存",
-      "转移"
-     ],
-     "maps": [
-      "灯塔"
-     ]
-    }
-   ],
-   "failConditions": [],
-   "rewards": {
-    "standing": [
-     [
-      "Lightkeeper",
-      0.01
-     ]
-    ]
-   },
-   "startRewards": {
-    "items": [
-     [
-      "Digital secure DSP无线电收发器",
-      1
-     ]
-    ]
-   },
-   "fail": {},
-   "keys": [],
-   "delay": 0
-  },
-  {
    "id": "6179b3bdc7560e13d23eeb8d",
    "name": "商业机密",
    "en": "Corporate Secrets",
@@ -795,8 +732,8 @@
      "type": "visit",
      "text": "在中心区调查调查 TerraGroup 总部门前的公园",
      "maps": [
-      "中心区",
-      "中心区 21+"
+      "中心区 21+",
+      "中心区"
      ]
     },
     {
@@ -887,7 +824,7 @@
      "weapons": [
       "Accuracy International AXMC .338 LM 栓动式狙击步枪",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "ORSIS T-5000M 7.62x51 栓动式狙击步枪",
       "雷明顿Model 700 7.62x51 狙击步枪",
@@ -916,7 +853,7 @@
      "weapons": [
       "Accuracy International AXMC .338 LM 栓动式狙击步枪",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "ORSIS T-5000M 7.62x51 栓动式狙击步枪",
       "雷明顿Model 700 7.62x51 狙击步枪",
@@ -945,7 +882,7 @@
      "weapons": [
       "Accuracy International AXMC .338 LM 栓动式狙击步枪",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "ORSIS T-5000M 7.62x51 栓动式狙击步枪",
       "雷明顿Model 700 7.62x51 狙击步枪",
@@ -975,7 +912,7 @@
      "weapons": [
       "Accuracy International AXMC .338 LM 栓动式狙击步枪",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "ORSIS T-5000M 7.62x51 栓动式狙击步枪",
       "雷明顿Model 700 7.62x51 狙击步枪",
@@ -2476,101 +2413,6 @@
    "delay": 0
   },
   {
-   "id": "625d70031ed3bb5bcc5bd9e5",
-   "name": "灯塔之匙",
-   "en": "Key to the Tower",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 30500,
-   "map": "灯塔",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": true,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "试探 - 3",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
-   "traderReqs": [],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "giveItem",
-     "text": "上交在战局中找到的有机玻璃片",
-     "count": 2,
-     "items": [
-      "有机玻璃片"
-     ],
-     "fir": true
-    },
-    {
-     "type": "giveItem",
-     "text": "上交在战局中找到的绝缘胶带",
-     "count": 1,
-     "items": [
-      "绝缘胶带"
-     ],
-     "fir": true
-    },
-    {
-     "type": "giveItem",
-     "text": "上交在战局中找到的军用电路板",
-     "count": 2,
-     "items": [
-      "军用电路板"
-     ],
-     "fir": true
-    },
-    {
-     "type": "giveItem",
-     "text": "上交在战局中找到的军用COFDM无线信号发射器",
-     "count": 1,
-     "items": [
-      "军用COFDM无线信号发射器"
-     ],
-     "fir": true
-    },
-    {
-     "type": "giveItem",
-     "text": "上交在战局中找到的可用液晶显示屏",
-     "count": 1,
-     "items": [
-      "完好的液晶显示屏"
-     ],
-     "fir": true
-    },
-    {
-     "type": "findQuestItem",
-     "text": "在灯塔找到无线电发射器主机",
-     "count": 1,
-     "items": [
-      "信号发射器主机"
-     ],
-     "maps": [
-      "灯塔"
-     ]
-    },
-    {
-     "type": "giveQuestItem",
-     "text": "上交无线电发射器主机",
-     "count": 1,
-     "items": [
-      "信号发射器主机"
-     ]
-    }
-   ],
-   "failConditions": [],
-   "rewards": {},
-   "startRewards": {},
-   "fail": {},
-   "keys": [],
-   "delay": 86400
-  },
-  {
    "id": "68db9c7557bc51a8c804c14b",
    "name": "目标与手段",
    "en": "Goals and Means",
@@ -2612,7 +2454,7 @@
       "AS“巨浪”MOD.4 9x39 特种突击步枪",
       "SR-3M 9x39紧凑型突击步枪",
       "AS VAL“巨浪” 9x39 特种突击步枪",
-      "VSS “绞丝机” 特种狙击步枪"
+      "VSS “绞丝机”9x39 特种狙击步枪"
      ]
     }
    ],
@@ -2651,592 +2493,6 @@
    "startRewards": {},
    "fail": {},
    "keys": [],
-   "delay": 0
-  },
-  {
-   "id": "6391d90f4ed9512be67647df",
-   "name": "破镜重圆",
-   "en": "Make Amends",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 0,
-   "map": "灯塔",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": false,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "破镜重圆 - 装备",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
-   "traderReqs": [],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "findQuestItem",
-     "text": "在灯塔获得V3 U盘",
-     "count": 1,
-     "items": [
-      "V3加密U盘"
-     ],
-     "maps": [
-      "灯塔"
-     ]
-    },
-    {
-     "type": "findItem",
-     "text": "重置无线电发射器",
-     "count": 1,
-     "items": [
-      "Digital secure DSP无线电收发器"
-     ]
-    },
-    {
-     "type": "giveQuestItem",
-     "text": "上交U盘",
-     "count": 1,
-     "items": [
-      "V3加密U盘"
-     ]
-    },
-    {
-     "type": "visit",
-     "text": "前往灯塔",
-     "maps": [
-      "灯塔"
-     ]
-    }
-   ],
-   "failConditions": [
-    {
-     "type": "traderStanding",
-     "text": "",
-     "single": "Lightkeeper",
-     "value": 0,
-     "cmp": "<="
-    }
-   ],
-   "rewards": {
-    "standing": [
-     [
-      "Mechanic",
-      0.01
-     ]
-    ]
-   },
-   "startRewards": {},
-   "fail": {
-    "standing": [
-     [
-      "Mechanic",
-      -0.02
-     ]
-    ]
-   },
-   "keys": [],
-   "delay": 0
-  },
-  {
-   "id": "6391d912f8e5dd32bf4e3ab2",
-   "name": "破镜重圆",
-   "en": "Make Amends 2",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 0,
-   "map": "",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": false,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "破镜重圆 - 大扫除",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
-   "traderReqs": [],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "findQuestItem",
-     "text": "在灯塔获得V3 U盘",
-     "count": 1,
-     "items": [
-      "V3加密U盘"
-     ],
-     "maps": [
-      "灯塔"
-     ]
-    },
-    {
-     "type": "findItem",
-     "text": "重置无线电发射器",
-     "count": 1,
-     "items": [
-      "Digital secure DSP无线电收发器"
-     ]
-    },
-    {
-     "type": "giveQuestItem",
-     "text": "上交U盘",
-     "count": 1,
-     "items": [
-      "V3加密U盘"
-     ]
-    },
-    {
-     "type": "visit",
-     "text": "前往灯塔",
-     "maps": [
-      "灯塔"
-     ]
-    }
-   ],
-   "failConditions": [],
-   "rewards": {
-    "standing": [
-     [
-      "Lightkeeper",
-      0.01
-     ],
-     [
-      "Mechanic",
-      0.01
-     ]
-    ]
-   },
-   "startRewards": {},
-   "fail": {},
-   "keys": [],
-   "delay": 0
-  },
-  {
-   "id": "6391d9144b15ca31f76bc323",
-   "name": "破镜重圆",
-   "en": "Make Amends 3",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 0,
-   "map": "",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": false,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "破镜重圆 - 隔离",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
-   "traderReqs": [],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "findQuestItem",
-     "text": "在灯塔获得V3 U盘",
-     "count": 1,
-     "items": [
-      "V3加密U盘"
-     ],
-     "maps": [
-      "灯塔"
-     ]
-    },
-    {
-     "type": "findItem",
-     "text": "重置无线电发射器",
-     "count": 1,
-     "items": [
-      "Digital secure DSP无线电收发器"
-     ]
-    },
-    {
-     "type": "giveQuestItem",
-     "text": "上交U盘",
-     "count": 1,
-     "items": [
-      "V3加密U盘"
-     ]
-    },
-    {
-     "type": "visit",
-     "text": "前往灯塔",
-     "maps": [
-      "灯塔"
-     ]
-    }
-   ],
-   "failConditions": [],
-   "rewards": {
-    "standing": [
-     [
-      "Lightkeeper",
-      0.01
-     ],
-     [
-      "Mechanic",
-      0.01
-     ]
-    ]
-   },
-   "startRewards": {},
-   "fail": {},
-   "keys": [],
-   "delay": 0
-  },
-  {
-   "id": "62614836f7308432be1d44cc",
-   "name": "破镜重圆 - 大扫除",
-   "en": "Make Amends Sweep Up",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 0,
-   "map": "储备站",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": false,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "破镜重圆 - 安保",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
-   "traderReqs": [],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "shoot",
-     "text": "在储备站击杀掠夺者",
-     "count": 25,
-     "single": "击杀",
-     "targets": [
-      "掠夺者"
-     ],
-     "maps": [
-      "储备站"
-     ]
-    }
-   ],
-   "failConditions": [],
-   "rewards": {
-    "standing": [
-     [
-      "Lightkeeper",
-      0.01
-     ]
-    ]
-   },
-   "startRewards": {},
-   "fail": {},
-   "keys": [],
-   "delay": 0
-  },
-  {
-   "id": "626148334149f1149b5b12ca",
-   "name": "破镜重圆 - 安保",
-   "en": "Make Amends Security",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 0,
-   "map": "灯塔",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": false,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "破镜重圆",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
-   "traderReqs": [
-    {
-     "kind": "reputation",
-     "trader": "Lightkeeper",
-     "cmp": "<=",
-     "value": 0
-    }
-   ],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "plantItem",
-     "text": "在污水处理厂附近南部大桥上的黄色公交车处放置WI-FI摄像头",
-     "count": 1,
-     "items": [
-      "WIFI摄像头"
-     ],
-     "maps": [
-      "灯塔"
-     ]
-    },
-    {
-     "type": "plantItem",
-     "text": "在污水处理厂东南角的黄色推土机处放置WI-FI摄像头",
-     "count": 1,
-     "items": [
-      "WIFI摄像头"
-     ],
-     "maps": [
-      "灯塔"
-     ]
-    },
-    {
-     "type": "plantItem",
-     "text": "在污水处理厂西边的警车处放置WI-FI摄像头",
-     "count": 1,
-     "items": [
-      "WIFI摄像头"
-     ],
-     "maps": [
-      "灯塔"
-     ]
-    },
-    {
-     "type": "plantItem",
-     "text": "在污水处理厂北边工业区附近的军车处放置WI-FI摄像头",
-     "count": 1,
-     "items": [
-      "WIFI摄像头"
-     ],
-     "maps": [
-      "灯塔"
-     ]
-    }
-   ],
-   "failConditions": [],
-   "rewards": {
-    "standing": [
-     [
-      "Lightkeeper",
-      0.01
-     ]
-    ]
-   },
-   "startRewards": {},
-   "fail": {},
-   "keys": [],
-   "delay": 0
-  },
-  {
-   "id": "626148251ed3bb5bcc5bd9ed",
-   "name": "破镜重圆 - 收买人心",
-   "en": "Make Amends Buyout",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 0,
-   "map": "",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": false,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "邂逅",
-     "trader": "Mechanic",
-     "status": "（**完成或失败皆可**）"
-    }
-   ],
-   "traderReqs": [
-    {
-     "kind": "reputation",
-     "trader": "Lightkeeper",
-     "cmp": "<=",
-     "value": 0
-    }
-   ],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "giveItem",
-     "text": "上交卢布",
-     "count": 1000000,
-     "items": [
-      "卢布"
-     ]
-    }
-   ],
-   "failConditions": [],
-   "rewards": {
-    "standing": [
-     [
-      "Lightkeeper",
-      0.01
-     ]
-    ]
-   },
-   "startRewards": {},
-   "fail": {},
-   "keys": [],
-   "delay": 0
-  },
-  {
-   "id": "6261482fa4eb80027c4f2e11",
-   "name": "破镜重圆 - 装备",
-   "en": "Make Amends Equipment",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 0,
-   "map": "",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": false,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "破镜重圆 - 收买人心",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
-   "traderReqs": [],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "giveItem",
-     "text": "上交在战局中找到的SVDS狙击步枪",
-     "count": 4,
-     "items": [
-      "德拉贡诺夫 SVDS 7.62x54 半自动狙击步枪"
-     ],
-     "fir": true
-    }
-   ],
-   "failConditions": [],
-   "rewards": {
-    "standing": [
-     [
-      "Lightkeeper",
-      0.01
-     ]
-    ]
-   },
-   "startRewards": {},
-   "fail": {},
-   "keys": [],
-   "delay": 0
-  },
-  {
-   "id": "6261483ac48e6c62a440fab7",
-   "name": "破镜重圆 - 软件",
-   "en": "Make Amends Software",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 0,
-   "map": "",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": false,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "破镜重圆",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
-   "traderReqs": [
-    {
-     "kind": "reputation",
-     "trader": "Lightkeeper",
-     "cmp": "<=",
-     "value": 0
-    }
-   ],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "giveItem",
-     "text": "上交在战局中找到的加密U盘",
-     "count": 15,
-     "items": [
-      "加密U盘"
-     ],
-     "fir": true
-    }
-   ],
-   "failConditions": [],
-   "rewards": {
-    "standing": [
-     [
-      "Lightkeeper",
-      0.01
-     ]
-    ]
-   },
-   "startRewards": {},
-   "fail": {},
-   "keys": [],
-   "delay": 0
-  },
-  {
-   "id": "6261483dc4874104f230c0cd",
-   "name": "破镜重圆 - 隔离",
-   "en": "Make Amends Quarantine",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 0,
-   "map": "实验室",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": false,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "破镜重圆 - 软件",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
-   "traderReqs": [],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "plantItem",
-     "text": "在实验室的隔离区内放置WI-FI摄像头",
-     "count": 1,
-     "items": [
-      "WIFI摄像头"
-     ],
-     "keys": [
-      "实验室钥匙卡·黑"
-     ],
-     "maps": [
-      "实验室"
-     ]
-    }
-   ],
-   "failConditions": [],
-   "rewards": {
-    "standing": [
-     [
-      "Lightkeeper",
-      0.01
-     ]
-    ]
-   },
-   "startRewards": {},
-   "fail": {},
-   "keys": [
-    "实验室钥匙卡·黑"
-   ],
    "delay": 0
   },
   {
@@ -3384,159 +2640,6 @@
    "fail": {},
    "keys": [],
    "delay": 0
-  },
-  {
-   "id": "625d6ff5ddc94657c21a1625",
-   "name": "网络供应商 - 1",
-   "en": "Network Provider Part 1",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 18600,
-   "map": "",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": true,
-   "restartable": false,
-   "prereqs": [],
-   "traderReqs": [
-    {
-     "kind": "reputation",
-     "trader": "Fence",
-     "cmp": ">=",
-     "value": 2
-    }
-   ],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "giveItem",
-     "text": "上交在战局中找到的电子元件",
-     "count": 4,
-     "items": [
-      "电子元件"
-     ],
-     "fir": true
-    },
-    {
-     "type": "giveItem",
-     "text": "上交在战局中找到的军用COFDM无线信号发射器",
-     "count": 4,
-     "items": [
-      "军用COFDM无线信号发射器"
-     ],
-     "fir": true
-    },
-    {
-     "type": "giveItem",
-     "text": "上交在战局中找到的气体分析仪",
-     "count": 4,
-     "items": [
-      "气体分析仪"
-     ],
-     "fir": true
-    },
-    {
-     "type": "giveItem",
-     "text": "上交在战局中找到的损坏的Gphone",
-     "count": 4,
-     "items": [
-      "损坏的GPhone"
-     ],
-     "fir": true
-    }
-   ],
-   "failConditions": [],
-   "rewards": {},
-   "startRewards": {},
-   "fail": {},
-   "keys": [],
-   "delay": 0
-  },
-  {
-   "id": "625d6ffaf7308432be1d44c5",
-   "name": "网络供应商 - 2",
-   "en": "Network Provider Part 2",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 19100,
-   "map": "灯塔",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": true,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "网络供应商 - 1",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
-   "traderReqs": [],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "mark",
-     "text": "将信号中继器安装在灯塔污水处理厂的米-8 直升机内部",
-     "count": 1,
-     "items": [
-      "无线电中继器"
-     ],
-     "maps": [
-      "灯塔"
-     ]
-    },
-    {
-     "type": "mark",
-     "text": "将信号中继器安装在灯塔废弃的 USEC 别墅区内",
-     "count": 1,
-     "items": [
-      "无线电中继器"
-     ],
-     "maps": [
-      "灯塔"
-     ]
-    },
-    {
-     "type": "mark",
-     "text": "将信号中继器安装在可以俯瞰灯塔的高处",
-     "count": 1,
-     "items": [
-      "无线电中继器"
-     ],
-     "maps": [
-      "灯塔"
-     ]
-    },
-    {
-     "type": "mark",
-     "text": "将信号中继器安装在灯塔海边沉没建筑的房顶",
-     "count": 1,
-     "items": [
-      "无线电中继器"
-     ],
-     "maps": [
-      "灯塔"
-     ]
-    }
-   ],
-   "failConditions": [],
-   "rewards": {},
-   "startRewards": {
-    "items": [
-     [
-      "无线电中继器",
-      4
-     ]
-    ],
-    "craftUnlock": [
-     "无线电中继器（工作站 Lv1）"
-    ]
-   },
-   "fail": {},
-   "keys": [],
-   "delay": 32400
   },
   {
    "id": "5c1128e386f7746565181106",
@@ -3709,195 +2812,6 @@
    "delay": 0
   },
   {
-   "id": "625d6ffcaa168e51321d69d7",
-   "name": "试探 - 1",
-   "en": "Assessment Part 1",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 23500,
-   "map": "灯塔",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": true,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "网络供应商 - 2",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
-   "traderReqs": [],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "shoot",
-     "text": "消灭位于灯塔本体区域的PMC行动人员",
-     "count": 15,
-     "single": "击杀",
-     "targets": [
-      "任意PMC干员"
-     ],
-     "maps": [
-      "灯塔"
-     ]
-    }
-   ],
-   "failConditions": [],
-   "rewards": {},
-   "startRewards": {},
-   "fail": {},
-   "keys": [],
-   "delay": 0
-  },
-  {
-   "id": "625d6fff4149f1149b5b12c9",
-   "name": "试探 - 2",
-   "en": "Assessment Part 2",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 24200,
-   "map": "森林",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": true,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "试探 - 1",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
-   "traderReqs": [],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "mark",
-     "text": "在森林找到第一个地堡，并使用MS2000指示器标记",
-     "count": 1,
-     "items": [
-      "MS2000指示器"
-     ],
-     "maps": [
-      "森林"
-     ]
-    },
-    {
-     "type": "mark",
-     "text": "在森林找到第二个地堡，并使用MS2000指示器标记",
-     "count": 1,
-     "items": [
-      "MS2000指示器"
-     ],
-     "maps": [
-      "森林"
-     ]
-    },
-    {
-     "type": "mark",
-     "text": "在森林找到第三个地堡，并使用MS2000指示器标记",
-     "count": 1,
-     "items": [
-      "MS2000指示器"
-     ],
-     "maps": [
-      "森林"
-     ]
-    },
-    {
-     "type": "mark",
-     "text": "在森林找到第四个地堡，并使用MS2000指示器标记",
-     "count": 1,
-     "items": [
-      "MS2000指示器"
-     ],
-     "maps": [
-      "森林"
-     ]
-    }
-   ],
-   "failConditions": [],
-   "rewards": {},
-   "startRewards": {},
-   "fail": {},
-   "keys": [],
-   "delay": 0
-  },
-  {
-   "id": "625d7001c4874104f230c0c5",
-   "name": "试探 - 3",
-   "en": "Assessment Part 3",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 24800,
-   "map": "实验室",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": true,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "试探 - 2",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
-   "traderReqs": [],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "shoot",
-     "text": "在实验室消灭掠夺者",
-     "count": 7,
-     "single": "击杀",
-     "targets": [
-      "掠夺者"
-     ],
-     "maps": [
-      "实验室",
-      "实验室 (Dark)"
-     ]
-    },
-    {
-     "type": "giveItem",
-     "text": "上交在战局中找到的SJ1 TGLabs战斗兴奋剂注射器",
-     "count": 15,
-     "items": [
-      "SJ1 TGLabs 战斗兴奋剂注射器"
-     ],
-     "fir": true
-    },
-    {
-     "type": "giveItem",
-     "text": "上交在战局中找到的SJ6 TGLabs战斗兴奋剂注射器",
-     "count": 5,
-     "items": [
-      "SJ6 TGLabs 战斗兴奋剂注射器"
-     ],
-     "fir": true
-    },
-    {
-     "type": "giveItem",
-     "text": "上交在战局中找到的SJ9 TGLabs战斗兴奋剂注射器",
-     "count": 1,
-     "items": [
-      "SJ9 TGLabs 战斗兴奋剂注射器"
-     ],
-     "fir": true
-    }
-   ],
-   "failConditions": [],
-   "rewards": {},
-   "startRewards": {},
-   "fail": {},
-   "keys": [],
-   "delay": 0
-  },
-  {
    "id": "5c139eb686f7747878361a6f",
    "name": "进口",
    "en": "Import",
@@ -3981,83 +2895,6 @@
     ]
    },
    "startRewards": {},
-   "fail": {},
-   "keys": [],
-   "delay": 0
-  },
-  {
-   "id": "625d700cc48e6c62a440fab5",
-   "name": "邂逅",
-   "en": "Getting Acquainted",
-   "trader": "mechanic",
-   "level": 0,
-   "exp": 32000,
-   "map": "灯塔",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": false,
-   "restartable": false,
-   "prereqs": [
-    {
-     "name": "咚咚咚",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
-   "traderReqs": [],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "findQuestItem",
-     "text": "获得V3 U盘",
-     "count": 1,
-     "items": [
-      "V3加密U盘"
-     ],
-     "maps": [
-      "灯塔"
-     ]
-    },
-    {
-     "type": "findItem",
-     "text": "重置无线电发射器",
-     "count": 1,
-     "items": [
-      "Digital secure DSP无线电收发器"
-     ]
-    },
-    {
-     "type": "giveQuestItem",
-     "text": "上交U盘",
-     "count": 1,
-     "items": [
-      "V3加密U盘"
-     ]
-    },
-    {
-     "type": "visit",
-     "text": "前往灯塔",
-     "maps": [
-      "灯塔"
-     ]
-    }
-   ],
-   "failConditions": [
-    {
-     "type": "traderStanding",
-     "text": "",
-     "single": "Lightkeeper",
-     "value": 0,
-     "cmp": "<="
-    }
-   ],
-   "rewards": {},
-   "startRewards": {
-    "craftUnlock": [
-     "Digital secure DSP无线电收发器（工作站 Lv2）"
-    ]
-   },
    "fail": {},
    "keys": [],
    "delay": 0
@@ -4338,7 +3175,7 @@
       800
      ],
      [
-      "SilencerCo Osprey 9 9x19毫米抑制器",
+      "SilencerCo Osprey 9 9x19 消音器",
       2
      ]
     ],
@@ -6045,7 +4882,7 @@
       "Zenit PT-2 「Klassika」 PK 机枪枪托",
       "Zenit DTK-1P 7.62x54R PK 膛口制退器",
       "NPZ USP-1 郁金香 4x 瞄准镜",
-      "PK 7.62x54R 100发盒式弹匣"
+      "PK 7.62x54R 100发弹链盒"
      ]
     }
    ],
@@ -6133,7 +4970,7 @@
       165000
      ],
      [
-      "AI .338 LM战术声音抑制器",
+      "AI .338 LM 战术消音器",
       1
      ],
      [
@@ -6415,7 +5252,7 @@
      "type": "buildWeapon",
      "text": "按照要求改装SVDS",
      "count": 1,
-     "single": "德拉贡诺夫 SVDS 7.62x54 半自动狙击步枪",
+     "single": "德拉贡诺夫 SVDS 7.62x54R 半自动狙击步枪",
      "attrs": {
       "durability": [
        ">=",
@@ -6768,7 +5605,7 @@
       "Accuracy International AXMC .338 LM 栓动式狙击步枪",
       "莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "VPO-215 雪貂 .366 TKM 栓动式步枪",
       "ORSIS T-5000M 7.62x51 栓动式狙击步枪",
@@ -6949,7 +5786,7 @@
       "Peltor ComTac V 耳机（橄榄绿）",
       "Peltor ComTac VI 耳机（狼棕色）",
       "GSSh-01有源耳机",
-      "Safariland Liberator HP 2.0听力保护耳机（泥土色）",
+      "Safariland Liberator HP 2.0听力保护耳机 (FDE)",
       "Opsmen Earmor M32 耳机",
       "Opsmen Earmor M32 耳机（白色）",
       "Peltor TEP-300 战术耳塞（狼棕色）",
@@ -6961,7 +5798,7 @@
       "BNTI Gzhel-K（彩瓷-K）防弹衣",
       "MF-UNTAR防弹背心",
       "6B43 屏障-Sh 防弹衣（数码丛林迷彩）",
-      "6B45 防弹衣",
+      "6B45 防弹衣（数码丛林迷彩）",
       "6B13 突击甲（数码丛林迷彩）",
       "6B13 突击甲（丛林迷彩）",
       "6B13 M 突击甲（Killa 版）",
@@ -7025,7 +5862,7 @@
       "MTEK FLUX 防弹头盔（橄榄绿）",
       "MTEK FLUX 防弹头盔（高原复合迷彩）",
       "6B47 Ratnik-BSh 头盔（极地数码迷彩盔罩）",
-      "DevTac Ronin helmet",
+      "Devtac 浪人头盔",
       "Ballistic Armor Co. Bastion头盔（复合迷彩）",
       "Ballistic Armor Co. Bastion头盔（橄榄绿）",
       "Ballistic Armor Co. Bastion头盔（黑色）",
@@ -7056,7 +5893,7 @@
       "Ops-Core FAST MT 超级高切 头盔（城市褐）",
       "ZSh-1-2M 头盔（黑色盔罩）",
       "ZSh-1-2M 头盔（橄榄绿）",
-      "Altyn 防弹头盔（橄榄绿）",
+      "Altyn 突击头盔（橄榄绿）",
       "UNTAR头盔",
       "SSSh-94 SFERA-S 头盔",
       "6B47 Ratnik-BSh 头盔（数码迷彩盔罩）",
@@ -7070,9 +5907,9 @@
       "Crye Precision JPC 插板胸挂（复合迷彩）",
       "Stich Profi V2 插板胸挂（MARPAT 林地迷彩）",
       "FirstSpear Strandhogg 插板胸挂（ABU 迷彩）",
-      "6B45 防弹胸挂 (突击型)",
-      "6B45 防弹胸挂 (医疗型)",
-      "6B45 防弹胸挂 (通用型)",
+      "6B45 防弹胸挂（突击型，数码丛林迷彩）",
+      "6B45 防弹胸挂（医疗型，数码丛林迷彩）",
+      "6B45 防弹胸挂（通用型，数码丛林迷彩）",
       "First Spear Siege-R Optimized M.A.S.S. 插板胸挂 (黑色军团)",
       "Spiritus Systems LV-119 插板胸挂 (黑色军团 V2)",
       "Ferro Concepts FCPC V5 插板胸挂 (黑色军团)",
@@ -7081,7 +5918,7 @@
       "Crye Precision AVS 插板胸挂（复合迷彩）",
       "Stich Profi V2 插板胸挂（黑色）",
       "Tasmanian Tiger MKIII 插板胸挂（狼棕色）",
-      "Stich Profi Stich Defense mod.2防弹插板胸挂（多用途迷彩）",
+      "Stich Profi Stich Defense mod.2 插板胸挂（复合迷彩）",
       "Eagle Allied Industries MBSS 插板胸挂（狼棕色）",
       "WARTECH TV-115 插板胸挂（橄榄绿）",
       "Shellback Tactical Banshee 插板胸挂（A-TACS AU 迷彩）",
@@ -7457,7 +6294,7 @@
       165000
      ],
      [
-      "Altyn 防弹头盔（橄榄绿）",
+      "Altyn 突击头盔（橄榄绿）",
       2
      ],
      [
@@ -7605,9 +6442,9 @@
       "西蒙诺夫 OP-SKS 7.62x39 卡宾枪",
       "VPO-101 Vepr-Hunter 7.62x51 卡宾枪",
       "AS VAL“巨浪” 9x39 特种突击步枪",
-      "Tokarev AVT-40 7.62x54R自动步枪",
+      "托卡列夫 AVT-40 7.62x54R 自动步枪",
       "西蒙诺夫 SKS 7.62x39 卡宾枪",
-      "Tokarev SVT-40 7.62x54R步枪",
+      "托卡列夫 SVT-40 7.62x54R 步枪",
       "SIG MCX SPEAR 6.8x51突击步枪",
       "KBP 9A-91 9x39紧凑型突击步枪",
       "KBP VSK-94 9x39步枪",
@@ -7950,7 +6787,7 @@
       1
      ],
      [
-      "SV-98 7.62x54 狙击步枪 默认",
+      "SV-98 7.62x54R 栓动式狙击步枪 默认",
       1
      ],
      [
@@ -7965,7 +6802,7 @@
      ]
     ],
     "offerUnlock": [
-     "SV-98 7.62x54 狙击步枪 默认（Prapor LL2）"
+     "SV-98 7.62x54R 栓动式狙击步枪 默认（Prapor LL2）"
     ]
    },
    "startRewards": {},
@@ -8001,13 +6838,10 @@
      "type": "extract",
      "text": "在海关以幸存状态通过“铁路通道”信号弹撤离点撤离",
      "count": 1,
-     "single": "铁路通道（信号弹）",
+     "single": "customs_sniper_exit",
      "exitStatus": [
       "幸存",
       "匆匆逃离"
-     ],
-     "maps": [
-      "海关"
      ]
     }
    ],
@@ -8084,8 +6918,8 @@
       "0022号保险文件夹"
      ],
      "maps": [
-      "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "工厂"
      ]
     }
    ],
@@ -8155,17 +6989,17 @@
       "头部"
      ],
      "maps": [
-      "工厂",
+      "破冰船",
       "森林",
-      "海岸线",
-      "灯塔",
       "夜间工厂",
+      "灯塔",
       "海关",
       "Ground Zero 教程",
-      "储备站",
+      "工厂",
       "塔科夫街区",
-      "破冰船",
-      "立交桥"
+      "立交桥",
+      "海岸线",
+      "储备站"
      ]
     }
    ],
@@ -8324,7 +7158,7 @@
     ],
     "offerUnlock": [
      "7.62x39毫米 PS（Prapor LL3）",
-     "SV-98 7.62x54 狙击步枪 默认（Prapor LL2）"
+     "SV-98 7.62x54R 栓动式狙击步枪 默认（Prapor LL2）"
     ]
    },
    "startRewards": {},
@@ -8435,8 +7269,8 @@
      ],
      "maps": [
       "森林",
-      "海岸线",
-      "海关"
+      "海关",
+      "海岸线"
      ]
     }
    ],
@@ -8995,8 +7829,7 @@
       "MS2000指示器"
      ],
      "maps": [
-      "海关",
-      "储备站"
+      "海关"
      ]
     }
    ],
@@ -9438,8 +8271,8 @@
      "text": "设法进入工厂办公区三楼的上锁房间",
      "optional": true,
      "maps": [
-      "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "工厂"
      ]
     },
     {
@@ -9773,7 +8606,7 @@
      ]
     ],
     "offerUnlock": [
-     "Tokarev AVT-40 7.62x54R自动步枪 默认（Prapor LL3）"
+     "托卡列夫 AVT-40 7.62x54R 自动步枪 默认（Prapor LL3）"
     ]
    },
    "startRewards": {},
@@ -10892,10 +9725,10 @@
      ],
      "maps": [
       "森林",
-      "海岸线",
       "夜间工厂",
       "海关",
-      "中心区 21+"
+      "中心区 21+",
+      "海岸线"
      ]
     }
    ],
@@ -11373,7 +10206,7 @@
       "SR-3M 9x39紧凑型突击步枪",
       "AS VAL“巨浪” 9x39 特种突击步枪",
       "AS“巨浪”MOD.4 9x39 特种突击步枪",
-      "VSS “绞丝机” 特种狙击步枪"
+      "VSS “绞丝机”9x39 特种狙击步枪"
      ],
      "maps": [
       "储备站"
@@ -11937,7 +10770,7 @@
       "狙击手"
      ],
      "weapons": [
-      "德拉贡诺夫 SVDS 7.62x54 半自动狙击步枪",
+      "德拉贡诺夫 SVDS 7.62x54R 半自动狙击步枪",
       "TKPD 9.3x64 突击卡宾枪"
      ],
      "maps": [
@@ -12130,17 +10963,17 @@
       "RPDN 7.62x39 轻机枪"
      ],
      "maps": [
-      "工厂",
+      "破冰船",
       "森林",
-      "海岸线",
-      "灯塔",
       "夜间工厂",
+      "灯塔",
       "海关",
       "Ground Zero 教程",
-      "储备站",
+      "工厂",
       "塔科夫街区",
-      "破冰船",
-      "立交桥"
+      "立交桥",
+      "海岸线",
+      "储备站"
      ]
     }
    ],
@@ -12202,13 +11035,13 @@
       "任意PMC干员"
      ],
      "weapons": [
-      "德拉贡诺夫 SVDS 7.62x54 半自动狙击步枪",
+      "德拉贡诺夫 SVDS 7.62x54R 半自动狙击步枪",
       "KBP 9A-91 9x39紧凑型突击步枪",
       "KBP VSK-94 9x39步枪",
       "SR-3M 9x39紧凑型突击步枪",
       "AS VAL“巨浪” 9x39 特种突击步枪",
       "AS“巨浪”MOD.4 9x39 特种突击步枪",
-      "VSS “绞丝机” 特种狙击步枪",
+      "VSS “绞丝机”9x39 特种狙击步枪",
       "TKPD 9.3x64 突击卡宾枪",
       "RPK-16 5.45x39 轻机枪",
       "U.S Ordnance M60E4 7.62x51 轻机枪",
@@ -12274,8 +11107,8 @@
       "立交桥",
       "森林",
       "海岸线",
-      "工厂",
       "夜间工厂",
+      "工厂",
       "实验室 (Dark)"
      ]
     },
@@ -12328,7 +11161,18 @@
       "带有标记的 USEC 狗牌",
       "带有标记的 BEAR 狗牌",
       "带有标记的 BEAR 狗牌",
-      "带有标记的 BEAR 狗牌"
+      "带有标记的 BEAR 狗牌",
+      "USEC 狗牌",
+      "USEC 狗牌",
+      "USEC 狗牌",
+      "USEC 狗牌",
+      "USEC 狗牌",
+      "BEAR 狗牌",
+      "BEAR 狗牌",
+      "BEAR 狗牌",
+      "BEAR 狗牌",
+      "BEAR 狗牌",
+      "BEAR 狗牌"
      ]
     }
    ],
@@ -13761,7 +12605,7 @@
       "纯净水",
       "Tarkovskaya瓶装伏特加",
       "“俄罗斯军队”盒装菠萝汁",
-      "0.6升瓶装水",
+      "600 毫升瓶装水",
       "Alyonka 巧克力",
       "炖美味牛肉罐头（大）",
       "黑麦面包块",
@@ -14315,7 +13159,7 @@
       "Peltor ComTac V 耳机（橄榄绿）",
       "Peltor ComTac VI 耳机（狼棕色）",
       "GSSh-01有源耳机",
-      "Safariland Liberator HP 2.0听力保护耳机（泥土色）",
+      "Safariland Liberator HP 2.0听力保护耳机 (FDE)",
       "Opsmen Earmor M32 耳机",
       "Peltor 战术运动型耳机",
       "Walker's Razor 数字耳机",
@@ -14483,7 +13327,7 @@
       "Shellback Tactical Banshee 插板胸挂（A-TACS AU 迷彩）",
       "Stich Profi MK2胸挂（突击型，A-TACS FG迷彩）",
       "Stich Profi MK2胸挂（侦察型，A-TACS FG迷彩）",
-      "Stich Profi Stich Defense mod.2防弹插板胸挂（多用途迷彩）",
+      "Stich Profi Stich Defense mod.2 插板胸挂（复合迷彩）",
       "Stich Profi V2 插板胸挂（黑色）",
       "FirstSpear Strandhogg 插板胸挂（丛林绿）",
       "Crye Precision AVS 插板胸挂（Tagilla 版）",
@@ -14505,9 +13349,9 @@
       "VPO-101 Vepr-Hunter 7.62x51 卡宾枪",
       "SR-3M 9x39紧凑型突击步枪",
       "AS VAL“巨浪” 9x39 特种突击步枪",
-      "Tokarev AVT-40 7.62x54R自动步枪",
+      "托卡列夫 AVT-40 7.62x54R 自动步枪",
       "西蒙诺夫 SKS 7.62x39 卡宾枪",
-      "Tokarev SVT-40 7.62x54R步枪",
+      "托卡列夫 SVT-40 7.62x54R 步枪",
       "ADAR 2-15 .223 卡宾枪",
       "ASh-12 12.7x55 突击步枪",
       "CMMG Mk47 Mutant 7.62x39 突击步枪",
@@ -14567,13 +13411,13 @@
       "RPD 7.62x39 轻机枪",
       "RPDN 7.62x39 轻机枪",
       "HK G28 7.62x51 精确射手步枪",
-      "德拉贡诺夫 SVDS 7.62x54 半自动狙击步枪",
+      "德拉贡诺夫 SVDS 7.62x54R 半自动狙击步枪",
       "奈特军械公司 (KAC) SR-25 7.62x51 精确射手步枪",
       "Kel-Tec RFB 7.62x51",
       "雷明顿 R11 RSASS 7.62x51 精确射手步枪",
       "春田 M1A 7.62x51 步枪",
       "SWORD International Mk-18 .338 LM 精确射手步枪",
-      "VSS “绞丝机” 特种狙击步枪",
+      "VSS “绞丝机”9x39 特种狙击步枪",
       "伯莱塔 M9A3 9x19 手枪",
       "柯尔特 M1911A1 .45 ACP 手枪",
       "柯尔特 M45A1 .45 ACP 手枪",
@@ -14644,7 +13488,7 @@
       "Accuracy International AXMC .338 LM 栓动式狙击步枪",
       "莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "VPO-215 雪貂 .366 TKM 栓动式步枪",
       "ORSIS T-5000M 7.62x51 栓动式狙击步枪",
@@ -14692,9 +13536,9 @@
       "KITECO SC-IV SA防弹插板",
       "Kiba Arms Steel防弹插板",
       "Kiba Arms Titan防弹插板",
-      "Monoclete三级PE防弹插板",
+      "Monoclete III 级 PE 防弹插板",
       "NESCO 4400-SA-MC防弹插板",
-      "NewSphereTech三级防弹插板",
+      "NewSphereTech III 级防弹插板",
       "PRTCTR轻量化防弹插板",
       "SPRTN Elaphros防弹插板",
       "SPRTN Omega防弹插板",
@@ -14772,7 +13616,7 @@
       "带眼洞滑雪头套",
       "FORT Kiver-M 防弹头盔",
       "6B47 Ratnik-BSh 头盔（数码迷彩盔罩）",
-      "Altyn 防弹头盔（橄榄绿）",
+      "Altyn 突击头盔（橄榄绿）",
       "Armasight夜视镜头罩基座",
       "TSH-4M-L软质坦克乘员头盔",
       "Kolpak -1S防暴头盔",
@@ -14788,7 +13632,7 @@
       "ZSh-1-2M 头盔（黑色盔罩）",
       "Rivals 2020 帽",
       "DevTac 浪人面罩",
-      "DevTac Ronin helmet",
+      "Devtac 浪人头盔",
       "Zryachiy巴拉克拉瓦帽子",
       "复仇Zryachiy巴拉克拉瓦（折叠）",
       "头巾",
@@ -14809,7 +13653,7 @@
       "UCP军帽",
       "军用科技奔尼帽",
       "Jack Pyke Hunting LLCS奔尼帽",
-      "Stich Profi Chimera 奔尼帽",
+      "Stich Profi 奇美拉奔尼帽",
       "绒球毛线帽",
       "Rivals 2020 圆帽",
       "BOSS鸭舌帽",
@@ -14877,7 +13721,7 @@
       "FAB Defense AGR-870 保护盖",
       "Axion Kobra 瞄具遮光罩",
       "HK G36 阻手",
-      "Zev Tech瞄具基座盖",
+      "Zev Tech Glock 瞄具基座保护盖",
       "MP-155 「Ultima」 枪管下基座",
       "MP-155 「Ultima」手枪式握把橡胶垫",
       "NSPU-M瞄准镜眼罩",
@@ -14910,7 +13754,7 @@
       "Armytek Predator Pro v3 XHP35 HI手电",
       "Zenit 2D 战术手电",
       "Ultrafire WF-501B手电筒",
-      "BCM MOD.3战术握把",
+      "BCM GUNFIGHTER MOD 3 垂直前握把",
       "ASh-12 垂直前握把",
       "Fortis Shift 战术前握把",
       "Hera Arms CQR 战术前握把",
@@ -15096,8 +13940,8 @@
       "Lancer L7AWM 7.62x51 AR-10 20发弹匣",
       "Lancer L7AWM 7.62x51 AR-10 25发弹匣",
       "Magpul PMAG 20 SR-LR GEN M3 7.62x51 20发弹匣",
-      "12.7x55 10发ASh-12弹匣",
-      "ASh-12 20发ASh-12弹匣",
+      "12.7x55 ASh-12 10发弹匣",
+      "12.7x55 ASh-12 20发弹匣",
       "Steyr AUG 5.56x45 10发容量弹匣",
       "Steyr AUG 5.56x45 30发容量弹匣",
       "Steyr AUG 5.56x45 42发容量弹匣",
@@ -15178,7 +14022,7 @@
       "P226弹匣",
       "FN P90 5.7x28 50发弹匣",
       "玩具枪 20x1毫米 20发弹匣",
-      "PK 7.62x54R 100发盒式弹匣",
+      "PK 7.62x54R 100发弹链盒",
       "PL-15 9x19 16发弹匣",
       "PM 9x18PM 84发简易弹鼓",
       "90-93 9x18PM 8发PM弹匣",
@@ -15222,7 +14066,7 @@
       "TROY Battlemag 5.56x45 STANAG 30发弹匣",
       "7.62x54R 10发SV-98聚合物弹匣",
       "SVD 7.62x54 10发弹匣",
-      "SVD 7.62x54 20发弹匣",
+      "SVD 7.62x54R 20发弹匣",
       "AVT-40 7.62x54R 10发弹匣",
       "AVT-40 7.62x54R 15发弹匣",
       ".308 T-5000 5发弹匣",
@@ -15290,8 +14134,8 @@
       "Recknagel Era-Tac Sunshade Aimpoint T-1基座",
       "Recknagel Era-Tac 30毫米环形基座",
       "Recknagel Era-Tac 34毫米环形基座",
-      "SIG ALPHA4 30环形瞄具基座",
-      "西格-绍尔Romeo系列瞄具基座",
+      "SIG Sauer ALPHA4 30 毫米环形瞄准镜基座",
+      "SIG Sauer ROMEO 瞄具基座",
       "Trijicon RMR 高基线基座",
       "Trijicon RMR 低基线基座",
       "TA51瞄具基座",
@@ -15318,7 +14162,7 @@
       "KMZ 1P59 燕尾槽基座",
       "TOZ-106瞄准镜基座",
       "NPZ 1P78-1燕尾槽基座",
-      "Pilad 043-02基座",
+      "VOMZ Pilad 043-02 燕尾槽基座",
       "RS Regulate AK-303M 全尺寸导轨燕尾槽下基座",
       "SAG AK燕尾侧基座",
       "SAG Bit 低基线燕尾槽基座",
@@ -15477,7 +14321,7 @@
       "Zenit B-3 VSS/VAL 环形基座",
       "Zenit B-3 VSS/VAL 基座组合",
       "PNV-10T燕尾槽转接器",
-      "AN/PVS-14单目夜视仪双燕尾槽安装座",
+      "AN/PVS-14 Norotos 双燕尾槽安装座",
       "Norotos钛合金高级战术支架",
       "PVS-7 Wilcox接口",
       "AI AXMC手枪式握把",
@@ -15530,10 +14374,10 @@
       "AKMSN 折叠式枪托",
       "AKS-74 金属框架枪托",
       "AKS-74U 金属框架枪托",
-      "SIG枪托伸缩管转接器",
+      "SIG Sauer 折叠锁扣式缓冲管转接器",
       "SIG Sauer 伸缩/折叠式枪托",
       "SIG Sauer 枪托锁定铰链套件",
-      "SIG Sauer MCX/MPX 伸缩枪托",
+      "SIG Sauer 伸缩/折叠式枪托",
       "SIG Sauer 轻量化折叠式枪托",
       "APB可拆卸钢丝枪托",
       "ADAR 2-15木质枪托",
@@ -15811,7 +14655,7 @@
       "514毫米莫辛卡宾枪标准枪管",
       "莫辛纳甘 220 毫米锯短螺纹枪管 7.62x54R",
       "莫辛纳甘 200 毫米锯短枪管 7.62x54R",
-      "730毫米标准莫辛枪管",
+      "7.62x54R 730毫米莫辛标准枪管",
       "MP-155 12 铅径 510 毫米枪管",
       "MP-18 7.62x54R 600毫米枪管",
       "4.5 英寸 MPX 枪管 9x19",
@@ -15950,7 +14794,7 @@
       "Noveske SWS N6 AR-10 分体式护木",
       "AB Arms MOD1 AR-15 护木",
       "AB Arms MOD1 AR-15 下护木",
-      "ADAR 2-15 AR-15兼容木质枪托",
+      "ADAR 2-15 AR-15 木制护木",
       "Aeroknox AX-15 10.5 英寸 AR-15 M-LOK 护木",
       "Aeroknox AX-15 15.8英寸 AR-15 M-LOK 护木",
       "Aeroknox AX-15 4英寸 AR-15 M-LOK 护木",
@@ -15987,7 +14831,7 @@
       "Strike Industries Viper 卡宾枪规格 AR-15 M-LOK 护木 (FDE)",
       "Strike Industries Viper 卡宾枪规格 AR-15 M-LOK 下护木",
       "Strike Industries Viper 卡宾枪规格 M-LOK 下护木 (FDE)",
-      "Unique-ARs Wing & Skull 12 英寸 AR-15 护木",
+      "Unique-ARs 飞翼骷髅 12 英寸 AR-15 护木",
       "War Sport LVOA-C AR-15 护木（黑色）",
       "War Sport LVOA-S AR-15 护木（黑色）",
       "ASh-12聚合物护木",
@@ -16376,9 +15220,9 @@
       "Steyr AUG A3 5.56x45封闭式消焰器",
       "Steyr AUG A3 5.56x45枪口制退器",
       "Lantac BMD 7.62x51 爆炸缓冲装置",
-      "三叉 SIG 消焰器 7.62x51",
-      "SIG 微型膛口制退器 7.62x51",
-      "SIG 双端膛口制退器 7.62x51",
+      "SIG Sauer 7.62x51 三叉消焰器",
+      "SIG Sauer Micro Brake 7.62x51 微型膛口制退器",
+      "SIG Sauer Two Port Brake 7.62x51 双端膛口制退器",
       "DVL-10 M2 7.62x51膛口制退器",
       "DVL-10 7.62x51膛口装置",
       "SA-58 奥地利型 7.62x51 膛口制退器",
@@ -16480,10 +15324,10 @@
       "Kriss Vector .45 ACP螺纹保护帽",
       "Vector 9x19螺纹保护帽",
       "VPO-215螺纹保护帽",
-      "Hexagon 12K声音抑制器",
+      "Hexagon 12K 12 铅径消音器",
       "Gemtech SFN-57 5.7x28毫米消音器",
-      "9A-91 9x39声音抑制器",
-      "AI .338 LM战术声音抑制器",
+      "9A-91 9x39 消音器",
+      "AI .338 LM 战术消音器",
       "AK-12 5.45x39消音器",
       "Hexagon AK-74 5.45x39消音器",
       "AK-74 TGP-A 5.45x39消音器",
@@ -16493,30 +15337,30 @@
       "Zenit DTK-4M 7.62x39 AKM 消音器",
       "AKS-74U PBS-4 5.45x39消音器",
       "AAC Illusion 9 9x19毫米消音器",
-      "Alpha Dog Alpha 9 9x19声音抑制器",
-      "PL-15 9x19毫米声音抑制器",
+      "Alpha Dog Alpha 9 9x19 消音器",
+      "PL-15 9x19 消音器",
       "Rotor 43 9x19 消音器",
       "Rotor 43 .366TKM 消音器",
       "Rotor 43 5.56x45 消音器",
       "Rotor 43 7.62x39 消音器",
       "SIG Sauer SRD762Ti 7.62x51 消音器",
       "SIG Sauer SRD9 9x19 消音器",
-      "SilencerCo Osprey 9 9x19毫米抑制器",
+      "SilencerCo Osprey 9 9x19 消音器",
       "APB 9x18PM消音器",
-      "AAC 762 SDN-6 7.62x51声音抑制器",
-      "ASh-12 12.7x55战术抑制器",
+      "AAC 762-SDN-6 多口径消音器",
+      "ASh-12 12.7x55 声音抑制器",
       "SilencerCo SAKER ASR 556 5.56x45 消音器",
       "Steyr AUG Ase Utra S Series SL7i 5.56x45消音器",
       "Steyr AUG Relfex T4AUG Ranger 5.56x45消音器",
       "AWC Thor PSR XL多口径消音器",
-      "Gemtech ONE 7.62x51声音抑制器",
+      "Gemtech ONE 多口径消音器",
       "Rotor 43 7.62x54R 消音器",
       "SIG Sauer SRD762-QD 7.62x51 消音器",
-      "SilencerCo Omega 45k .45 ACP 声音抑制器",
-      "SilencerCo Osprey 12声音抑制器",
-      "B&T QD 7.62x51 G28 消音器",
+      "SilencerCo Omega 45k .45 ACP 消音器",
+      "SilencerCo Salvo 12 12 铅径消音器",
+      "B&T QD 7.62x51 G28 快拆消音器",
       "MCX SPEAR SLX68-MG-QD 6.8x51消音器",
-      "Fisher Development FD917抑制器",
+      "Fisher Development FD917 Glock 9x19 消音器",
       "Hexagon Wafflemaker 5.45x39 AK 消音器",
       "HK MP5SD 9x19消音器",
       "KAC QDSS NT-4 5.56x45 消音器（黑色）",
@@ -16528,32 +15372,32 @@
       "FN P90 Attenuator 5.7x28消音器",
       "PB 9x18马卡洛夫库藏消音器",
       "PP-19-01 Vityaz 9x19 消音器",
-      "PP-91-01 Kedr-B 9x18PM抑制器",
+      "PP-91-01 Kedr-B 9x18PM 消音器",
       "KAC PRS/QDC 7.62x51 消音器",
       "KAC QDC 5.56x45消音器",
       "Griffin Armament M4SD-K 5.56x45 AR-15 消音器",
       "MPX-SD 9x19整体式消声器",
-      "Hexagon SKS 7.62x39声音抑制器",
+      "Hexagon SKS 7.62x39 消音器",
       "SureFire SOCOM556-MINI MONSTER 5.56x45 消音器",
       "SureFire SOCOM556-MONSTER 5.56x45 消音器",
       "Surefire SOCOM556-RC2 5.56x45消音器",
       "SR-1MP 9x21 消音器",
       "SR-2M 9x21 SV-1381 消音器",
       "SR-3M 9x39消音器",
-      "SV-98 7.62x54标准消音器",
-      "Thunder Beast Ultra 5声音抑制器",
+      "SV-98 7.62x54R 消音器",
+      "Thunder Beast Ultra 5 消音器",
       "土制7.62x25 TT消音器",
       "B&T OEM .45 ACP UMP 消音器",
       "UZI 9x19毫米消音器",
-      "AS VAL 9x39枪管整体式抑制器",
+      "AS VAL 9x39 一体式消音枪管",
       "VPO-101 Rotor 43 7.62x51 消音器",
-      "VSS 9x39整体式枪管抑制器",
+      "VSS 9x39 一体式消音枪管",
       "Daniel Defence WAVE 快拆消音器",
       "ELCAN SpecterDR 1x/4x瞄准镜",
       "ELCAN SpecterDR 1x/4x瞄准镜 FDE",
       "Leupold Mark 4 HAMR 4x24 DeltaPoint 组合式突击瞄准镜",
       "Monstrum 紧凑战术棱镜式瞄准镜 2x32",
-      "Sig BRAVO4 4X30瞄准镜",
+      "SIG Sauer BRAVO4 4x30 瞄准镜",
       "SwampFox Trihawk 棱镜式瞄准镜 3x30",
       "Valday PS-320 1x/6x瞄准镜",
       "Steyr AUG A3 M1 1.5倍光学瞄准镜",
@@ -16577,12 +15421,12 @@
       "Holosun HS401G5反射式瞄具",
       "Leapers UTG反射式瞄具",
       "Milkor M2A1榴弹发射器反射式瞄具",
-      "SIG Romeo 8T反射式瞄具",
+      "SIG Sauer ROMEO8T 反射式瞄具",
       "SIG Sauer ROMEO7 1x30反射式瞄具（原型版本）",
       "Trijicon SRS-02反射式瞄具",
       "Valday PK-120 (1P87) 反射式瞄具",
       "Valday Krechet反射式瞄具",
-      "VOMZ Pilad P1X42 「WEAVER」反射式瞄具",
+      "VOMZ Pilad P1x42 韦佛导轨反射式瞄具",
       "Vortex Razor AMG UH-1全息瞄具",
       "Walther MRS反射式瞄具",
       "Wilcox BOSS Xe反射式瞄具",
@@ -16591,7 +15435,7 @@
       "Hensoldt RV 红点瞄具",
       "Axion Kobra EKP-1S-03 反射式瞄具（燕尾槽）",
       "Axion Kobra EKP-8-02 反射式瞄具（燕尾槽）",
-      "Belomo PK-AA反射式瞄具",
+      "BelOMO PK-AA 燕尾槽反射式瞄具",
       "OKP-7反射式瞄具（燕尾槽）",
       "KOMZ Rusak反射式瞄具",
       "NPZ PK1 Obzor“监视”反射式瞄具（燕尾槽）",
@@ -16603,8 +15447,8 @@
       "Aimpoint Micro T-1反射式瞄具",
       "Burris FastFire 3反射式瞄具",
       "Leupold DeltaPoint反射式瞄具",
-      "西格-绍尔Romeo 4反射式瞄具",
-      "Trijicon RMR",
+      "SIG Sauer ROMEO4 反射式瞄具",
+      "Trijicon RMR 反射式瞄具",
       "Five-seveN MK2标准准星",
       "M590 鬼环准星",
       "AKMP系统准星装置",
@@ -16731,7 +15575,7 @@
       "Nightforce ATACR 7-35x56 34 毫米步枪瞄准镜",
       "Schmidt & Bender PM II 3-20x50 34 毫米步枪瞄准镜",
       "Schmidt & Bender PM II 5-25x56 34 毫米步枪瞄准镜",
-      "NcSTAR ADO P4 Sniper 3-9x42步枪瞄准镜",
+      "NcSTAR ADO P4 狙击手 3-9x42 步枪瞄准镜",
       "KMZ 1P59 3-10x步枪瞄准镜",
       "KMZ 1P69 3-10x步枪瞄准镜",
       "NPZ 1P78-1 2.8倍瞄准镜",
@@ -16789,6 +15633,111 @@
       "情报文件夹",
       2
      ]
+    ]
+   },
+   "startRewards": {},
+   "fail": {},
+   "keys": [],
+   "delay": 0
+  },
+  {
+   "id": "6a7aef2360157cb5e3029a5f",
+   "name": "刺激需求",
+   "en": "Stimulating Demand",
+   "trader": "skier",
+   "level": 0,
+   "exp": 28000,
+   "map": "灯塔",
+   "faction": "",
+   "prestige": 0,
+   "kappa": false,
+   "lightkeeper": false,
+   "restartable": false,
+   "prereqs": [],
+   "traderReqs": [],
+   "otherReqs": [
+    {
+     "kind": "counter",
+     "trader": "Skier",
+     "cmp": ">=",
+     "value": 3
+    }
+   ],
+   "objectives": [
+    {
+     "type": "shoot",
+     "text": "在灯塔使用 7.62×54R 口径的武器消灭游荡者或 Goon 成员",
+     "count": 5,
+     "single": "击杀",
+     "targets": [
+      "Knight",
+      "游荡者",
+      "Big Pipe",
+      "Birdeye"
+     ],
+     "weapons": [
+      "托卡列夫 AVT-40 7.62x54R 自动步枪",
+      "托卡列夫 SVT-40 7.62x54R 步枪",
+      "PKM 7.62x54R 机枪",
+      "PKP 7.62x54R 步兵机枪",
+      "德拉贡诺夫 SVDS 7.62x54R 半自动狙击步枪",
+      "莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）",
+      "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
+      "SV-98 7.62x54R 栓动式狙击步枪",
+      "MP-18 7.62x54R单发步枪"
+     ],
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "type": "findQuestItem",
+     "text": "在灯塔度假村区域找到并获取游荡者的物资箱",
+     "count": 1,
+     "items": [
+      "游荡者补给物资箱"
+     ],
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "type": "giveQuestItem",
+     "text": "上交包裹",
+     "count": 1,
+     "items": [
+      "游荡者补给物资箱"
+     ]
+    }
+   ],
+   "failConditions": [],
+   "rewards": {
+    "items": [
+     [
+      "欧元",
+      1650
+     ],
+     [
+      "金项链",
+      2
+     ],
+     [
+      "KRISS G30 MagEx Glock .45 ACP 30 发弹匣",
+      2
+     ],
+     [
+      ".45 ACP RIP弹药包（50发装）",
+      2
+     ]
+    ],
+    "standing": [
+     [
+      "Skier",
+      0.75
+     ]
+    ],
+    "offerUnlock": [
+     "TDI KRISS Vector Gen.2 .45 ACP 冲锋枪 默认（Skier LL3）"
     ]
    },
    "startRewards": {},
@@ -17035,7 +15984,7 @@
       "Accuracy International AXMC .338 LM 栓动式狙击步枪",
       "莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "VPO-215 雪貂 .366 TKM 栓动式步枪",
       "ORSIS T-5000M 7.62x51 栓动式狙击步枪",
@@ -17487,10 +16436,10 @@
      ],
      "maps": [
       "森林",
-      "海岸线",
       "夜间工厂",
       "海关",
-      "中心区 21+"
+      "中心区 21+",
+      "海岸线"
      ]
     }
    ],
@@ -17692,120 +16641,6 @@
      [
       "Skier",
       0.75
-     ]
-    ]
-   },
-   "startRewards": {},
-   "fail": {},
-   "keys": [],
-   "delay": 0
-  },
-  {
-   "id": "67af4c1d8c9482eca103e477",
-   "name": "安慰奖",
-   "en": "Consolation Prize",
-   "trader": "skier",
-   "level": 0,
-   "exp": 0,
-   "map": "实验室",
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": false,
-   "restartable": false,
-   "prereqs": [],
-   "traderReqs": [],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "extract",
-     "text": "以幸存状态撤离实验室",
-     "count": 15,
-     "exitStatus": [
-      "幸存",
-      "转移"
-     ],
-     "maps": [
-      "实验室",
-      "实验室 (Dark)"
-     ]
-    },
-    {
-     "type": "shoot",
-     "text": "在实验室消灭任意目标",
-     "count": 100,
-     "single": "击杀",
-     "targets": [
-      "任意目标"
-     ],
-     "maps": [
-      "实验室",
-      "实验室 (Dark)"
-     ]
-    }
-   ],
-   "failConditions": [],
-   "rewards": {
-    "skills": [
-     [
-      "瞄准训练",
-      1
-     ],
-     [
-      "突击步枪",
-      1
-     ],
-     [
-      "武器维护",
-      1
-     ],
-     [
-      "TroubleShooting",
-      1
-     ],
-     [
-      "精确射手步枪",
-      1
-     ],
-     [
-      "重机枪",
-      1
-     ],
-     [
-      "轻机枪",
-      1
-     ],
-     [
-      "近战",
-      1
-     ],
-     [
-      "手枪",
-      1
-     ],
-     [
-      "左轮手枪",
-      1
-     ],
-     [
-      "榴弹发射器",
-      1
-     ],
-     [
-      "霰弹枪",
-      1
-     ],
-     [
-      "冲锋枪",
-      1
-     ],
-     [
-      "投掷物",
-      1
-     ],
-     [
-      "下挂发射器",
-      1
      ]
     ]
    },
@@ -19042,8 +17877,8 @@
       "任意目标"
      ],
      "maps": [
-      "海岸线",
-      "灯塔"
+      "灯塔",
+      "海岸线"
      ]
     }
    ],
@@ -20114,7 +18949,7 @@
       1
      ],
      [
-      "AN/PVS-14单目夜视仪双燕尾槽安装座",
+      "AN/PVS-14 Norotos 双燕尾槽安装座",
       1
      ],
      [
@@ -20814,8 +19649,8 @@
       "Saiga-12K 12 铅径自动霰弹枪（红线）"
      ],
      "mods": [
-      "SilencerCo Osprey 12声音抑制器",
-      "Hexagon 12K声音抑制器"
+      "SilencerCo Salvo 12 12 铅径消音器",
+      "Hexagon 12K 12 铅径消音器"
      ],
      "maps": [
       "储备站",
@@ -21034,6 +19869,120 @@
    ],
    "failConditions": [],
    "rewards": {},
+   "startRewards": {},
+   "fail": {},
+   "keys": [],
+   "delay": 0
+  },
+  {
+   "id": "67af4c1d8c9482eca103e477",
+   "name": "安慰奖",
+   "en": "Consolation Prize",
+   "trader": "skier",
+   "level": 46,
+   "exp": 0,
+   "map": "实验室",
+   "faction": "",
+   "prestige": 0,
+   "kappa": false,
+   "lightkeeper": false,
+   "restartable": false,
+   "prereqs": [],
+   "traderReqs": [],
+   "otherReqs": [],
+   "objectives": [
+    {
+     "type": "extract",
+     "text": "以幸存状态撤离实验室",
+     "count": 15,
+     "exitStatus": [
+      "幸存",
+      "转移"
+     ],
+     "maps": [
+      "实验室",
+      "实验室 (Dark)"
+     ]
+    },
+    {
+     "type": "shoot",
+     "text": "在实验室消灭任意目标",
+     "count": 100,
+     "single": "击杀",
+     "targets": [
+      "任意目标"
+     ],
+     "maps": [
+      "实验室",
+      "实验室 (Dark)"
+     ]
+    }
+   ],
+   "failConditions": [],
+   "rewards": {
+    "skills": [
+     [
+      "瞄准训练",
+      1
+     ],
+     [
+      "突击步枪",
+      1
+     ],
+     [
+      "武器维护",
+      1
+     ],
+     [
+      "TroubleShooting",
+      1
+     ],
+     [
+      "精确射手步枪",
+      1
+     ],
+     [
+      "重机枪",
+      1
+     ],
+     [
+      "轻机枪",
+      1
+     ],
+     [
+      "近战",
+      1
+     ],
+     [
+      "手枪",
+      1
+     ],
+     [
+      "左轮手枪",
+      1
+     ],
+     [
+      "榴弹发射器",
+      1
+     ],
+     [
+      "霰弹枪",
+      1
+     ],
+     [
+      "冲锋枪",
+      1
+     ],
+     [
+      "投掷物",
+      1
+     ],
+     [
+      "下挂发射器",
+      1
+     ]
+    ]
+   },
    "startRewards": {},
    "fail": {},
    "keys": [],
@@ -21809,8 +20758,8 @@
      "type": "visit",
      "text": "在中心区找到阔剑地雷",
      "maps": [
-      "中心区",
-      "中心区 21+"
+      "中心区 21+",
+      "中心区"
      ]
     }
    ],
@@ -21874,7 +20823,7 @@
      "weapons": [
       "莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "雷明顿Model 700 7.62x51 狙击步枪",
       "VPO-215 雪貂 .366 TKM 栓动式步枪",
@@ -21886,16 +20835,16 @@
      ],
      "maps": [
       "塔科夫街区",
-      "工厂",
+      "破冰船",
       "森林",
-      "海岸线",
-      "灯塔",
       "夜间工厂",
+      "灯塔",
       "海关",
       "Ground Zero 教程",
-      "储备站",
-      "破冰船",
-      "立交桥"
+      "工厂",
+      "立交桥",
+      "海岸线",
+      "储备站"
      ]
     }
    ],
@@ -22205,7 +21154,7 @@
       "NFM THOR 隐蔽型强化防弹背心",
       "FORT Kiver-M 防弹头盔",
       "6B47 Ratnik-BSh 头盔（数码迷彩盔罩）",
-      "Altyn 防弹头盔（橄榄绿）",
+      "Altyn 突击头盔（橄榄绿）",
       "TSH-4M-L软质坦克乘员头盔",
       "Kolpak -1S防暴头盔",
       "MSA ACH TC-2001 MICH系列头盔",
@@ -22263,11 +21212,11 @@
       "Death Shadow（死亡阴影）面具",
       "Stich Profi V2 插板胸挂（黑色）",
       "Tasmanian Tiger MKIII 插板胸挂（狼棕色）",
-      "Stich Profi Stich Defense mod.2防弹插板胸挂（多用途迷彩）",
+      "Stich Profi Stich Defense mod.2 插板胸挂（复合迷彩）",
       "Ballistic Armor Co. Bastion头盔（复合迷彩）",
       "Ballistic Armor Co. Bastion头盔（橄榄绿）",
       "Ballistic Armor Co. Bastion头盔（黑色）",
-      "DevTac Ronin helmet",
+      "Devtac 浪人头盔",
       "6B13 M 突击甲（圣诞特装版）",
       "Maska-1SCh 防弹头盔（圣诞特装版）",
       "MTEK STRIKE 防弹头盔（灰褐/荒漠复合迷彩）",
@@ -22285,10 +21234,10 @@
       "Ferro Concepts FCPC V5 插板胸挂 (黑色军团)",
       "First Spear Siege-R Optimized M.A.S.S. 插板胸挂 (黑色军团)",
       "Spiritus Systems LV-119 插板胸挂 (黑色军团 V2)",
-      "6B45 防弹胸挂 (医疗型)",
-      "6B45 防弹胸挂 (通用型)",
-      "6B45 防弹胸挂 (突击型)",
-      "6B45 防弹衣",
+      "6B45 防弹胸挂（医疗型，数码丛林迷彩）",
+      "6B45 防弹胸挂（通用型，数码丛林迷彩）",
+      "6B45 防弹胸挂（突击型，数码丛林迷彩）",
+      "6B45 防弹衣（数码丛林迷彩）",
       "Hexatac HPC 插板背心（复合迷彩）",
       "HighCom Trooper TFO 防弹背心（郊狼棕）",
       "Interceptor OTV 防弹衣（林地迷彩）",
@@ -22712,7 +21661,7 @@
       40
      ],
      "weapons": [
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "Sako TRG M10 .338 LM 栓动狙击步枪",
       "Accuracy International AXMC .338 LM 栓动式狙击步枪",
       "雷明顿Model 700 7.62x51 狙击步枪",
@@ -23389,7 +22338,10 @@
      "count": 10,
      "single": "击杀",
      "targets": [
-      "游荡者"
+      "游荡者",
+      "Big Pipe",
+      "Birdeye",
+      "Knight"
      ],
      "maps": [
       "灯塔"
@@ -23531,7 +22483,7 @@
      "text": "上交在战局中找到的 Glukhar 保镖的头盔",
      "count": 2,
      "items": [
-      "Altyn 防弹头盔（橄榄绿）",
+      "Altyn 突击头盔（橄榄绿）",
       "Vulkan-5 (火神) LShZ-5 重型防弹头盔 (黑色)",
       "HighCom Striker ULACH IIIA 头盔（沙漠黄）",
       "HighCom Striker ULACH IIIA 头盔（黑色）",
@@ -23540,7 +22492,6 @@
       "BNTI LShZ-2DTM 头盔（黑色）",
       "Maska-1SCh 防弹头盔（橄榄绿）",
       "MSA ACH TC-2002 MICH系列头盔",
-      "SSh-68钢盔（橄榄绿）",
       "6B47 Ratnik-BSh 头盔（数码迷彩盔罩）",
       "NPP KlASS Tor-2 头盔（橄榄绿）",
       "NFM 「HJELM」 头盔",
@@ -23555,7 +22506,7 @@
      "optional": true,
      "count": 2,
      "items": [
-      "Altyn 防弹头盔（橄榄绿）",
+      "Altyn 突击头盔（橄榄绿）",
       "Vulkan-5 (火神) LShZ-5 重型防弹头盔 (黑色)",
       "HighCom Striker ULACH IIIA 头盔（黑色）",
       "HighCom Striker ULACH IIIA 头盔（沙漠黄）",
@@ -23564,7 +22515,6 @@
       "BNTI LShZ-2DTM 头盔（黑色）",
       "Maska-1SCh 防弹头盔（橄榄绿）",
       "MSA ACH TC-2002 MICH系列头盔",
-      "SSh-68钢盔（橄榄绿）",
       "6B47 Ratnik-BSh 头盔（数码迷彩盔罩）",
       "NPP KlASS Tor-2 头盔（橄榄绿）",
       "NFM 「HJELM」 头盔",
@@ -23716,9 +22666,9 @@
       "掠夺者"
      ],
      "maps": [
+      "储备站",
       "实验室 (Dark)",
-      "实验室",
-      "储备站"
+      "实验室"
      ]
     }
    ],
@@ -24182,7 +23132,7 @@
       40
      ],
      "weapons": [
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "VPO-215 雪貂 .366 TKM 栓动式步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
@@ -24211,7 +23161,7 @@
       40
      ],
      "weapons": [
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "VPO-215 雪貂 .366 TKM 栓动式步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
@@ -24289,7 +23239,7 @@
      "weapons": [
       "莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "雷明顿Model 700 7.62x51 狙击步枪",
       "VPO-215 雪貂 .366 TKM 栓动式步枪",
@@ -24426,8 +23376,8 @@
      "type": "visit",
      "text": "在工厂需要破门的位置找到合适的绊线布设点位",
      "maps": [
-      "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "工厂"
      ]
     },
     {
@@ -24633,16 +23583,16 @@
       "WARTECH TV-115 插板胸挂（橄榄绿）",
       "Stich Profi V2 插板胸挂（黑色）",
       "Tasmanian Tiger MKIII 插板胸挂（狼棕色）",
-      "Stich Profi Stich Defense mod.2防弹插板胸挂（多用途迷彩）",
+      "Stich Profi Stich Defense mod.2 插板胸挂（复合迷彩）",
       "6B13 M 突击甲（圣诞特装版）",
       "Spiritus Systems LV-119 插板胸挂 (黑色军团 V1)",
       "Spiritus Systems LV-119 插板胸挂 (黑色军团 V2)",
       "Ferro Concepts FCPC V5 插板胸挂 (黑色军团)",
       "First Spear Siege-R Optimized M.A.S.S. 插板胸挂 (黑色军团)",
-      "6B45 防弹胸挂 (通用型)",
-      "6B45 防弹胸挂 (医疗型)",
-      "6B45 防弹胸挂 (突击型)",
-      "6B45 防弹衣",
+      "6B45 防弹胸挂（通用型，数码丛林迷彩）",
+      "6B45 防弹胸挂（医疗型，数码丛林迷彩）",
+      "6B45 防弹胸挂（突击型，数码丛林迷彩）",
+      "6B45 防弹衣（数码丛林迷彩）",
       "Crye Precision JPC 插板胸挂（复合迷彩）",
       "Tac-Kek JayPC 插板胸挂（黑色）",
       "Tac-Kek JayPC 插板胸挂（橄榄绿）",
@@ -24723,17 +23673,17 @@
       "狙击手"
      ],
      "maps": [
-      "工厂",
+      "破冰船",
       "森林",
-      "海岸线",
-      "灯塔",
       "夜间工厂",
+      "灯塔",
       "海关",
       "Ground Zero 教程",
-      "储备站",
+      "工厂",
       "塔科夫街区",
-      "破冰船",
-      "立交桥"
+      "立交桥",
+      "海岸线",
+      "储备站"
      ]
     }
    ],
@@ -24801,7 +23751,7 @@
      "text": "在森林的ZB-016地堡里藏匿瓶装水",
      "count": 1,
      "items": [
-      "0.6升瓶装水"
+      "600 毫升瓶装水"
      ],
      "maps": [
       "森林"
@@ -24823,7 +23773,7 @@
      "text": "在森林的ZB-014地堡里藏匿瓶装水",
      "count": 1,
      "items": [
-      "0.6升瓶装水"
+      "600 毫升瓶装水"
      ],
      "maps": [
       "森林"
@@ -25068,7 +24018,7 @@
       "Accuracy International AXMC .338 LM 栓动式狙击步枪",
       "莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "VPO-215 雪貂 .366 TKM 栓动式步枪",
       "ORSIS T-5000M 7.62x51 栓动式狙击步枪",
@@ -25141,7 +24091,7 @@
      "weapons": [
       "莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "雷明顿Model 700 7.62x51 狙击步枪",
       "VPO-215 雪貂 .366 TKM 栓动式步枪",
@@ -25221,7 +24171,7 @@
      "weapons": [
       "莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "雷明顿Model 700 7.62x51 狙击步枪",
       "VPO-215 雪貂 .366 TKM 栓动式步枪",
@@ -25315,7 +24265,7 @@
    "rewards": {
     "items": [
      [
-      "NcSTAR ADO P4 Sniper 3-9x42步枪瞄准镜",
+      "NcSTAR ADO P4 狙击手 3-9x42 步枪瞄准镜",
       1
      ],
      [
@@ -25358,7 +24308,7 @@
    "objectives": [
     {
      "type": "useItem",
-     "text": "在储备站火车站台上发射一枚黄色信号弹",
+     "text": "在储备站火车站台上发射一枚黄色信号弹（在同场战局中完成）",
      "count": 1,
      "items": [
       "RSP-30 反应式信号弹（黄色）",
@@ -25370,7 +24320,7 @@
     },
     {
      "type": "shoot",
-     "text": "在森林的列车停放处消灭任意敌对目标",
+     "text": "在储备站火车站处消灭任意敌对目标（在同场战局中完成）",
      "count": 6,
      "single": "击杀",
      "targets": [
@@ -25547,7 +24497,7 @@
       3
      ],
      [
-      "VSS “绞丝机” 特种狙击步枪  VSS",
+      "VSS “绞丝机”9x39 特种狙击步枪  VSS",
       1
      ],
      [
@@ -25851,10 +24801,10 @@
      ],
      "maps": [
       "森林",
-      "海岸线",
       "夜间工厂",
       "海关",
-      "中心区 21+"
+      "中心区 21+",
+      "海岸线"
      ]
     },
     {
@@ -26151,7 +25101,7 @@
       "任意PMC干员"
      ],
      "weapons": [
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "VPO-215 雪貂 .366 TKM 栓动式步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）",
@@ -26169,19 +25119,19 @@
       "AKM PBS-1 7.62x39消音器",
       "Zenit DTK-4M 7.62x39 AKM 消音器",
       "Rotor 43 7.62x39 消音器",
-      "AAC 762 SDN-6 7.62x51声音抑制器",
-      "Gemtech ONE 7.62x51声音抑制器",
+      "AAC 762-SDN-6 多口径消音器",
+      "Gemtech ONE 多口径消音器",
       "Daniel Defence WAVE 快拆消音器",
-      "Thunder Beast Ultra 5声音抑制器",
+      "Thunder Beast Ultra 5 消音器",
       "Hexagon DTKP MK.2 7.62x39 消音器",
       "Zenit DTK-4M 7.62x39 AKM 消音器",
       "KAC PRS/QDC 7.62x51 消音器",
-      "SV-98 7.62x54标准消音器",
+      "SV-98 7.62x54R 消音器",
       "DVL-10 7.62x51膛口装置",
       "Rotor 43 .366TKM 消音器",
       "SIG Sauer SRD762Ti 7.62x51 消音器",
       "SIG Sauer SRD762-QD 7.62x51 消音器",
-      "AI .338 LM战术声音抑制器",
+      "AI .338 LM 战术消音器",
       "AWC Thor PSR XL多口径消音器",
       "CGS Hekate DT .338 LM 消音器",
       "Sako TRG PGM Precision .338 LM 消音器",
@@ -26256,7 +25206,7 @@
      "weapons": [
       "莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "雷明顿Model 700 7.62x51 狙击步枪",
       "VPO-215 雪貂 .366 TKM 栓动式步枪",
@@ -26624,11 +25574,11 @@
       "Knight"
      ],
      "maps": [
+      "破冰船",
       "森林",
-      "海岸线",
       "灯塔",
       "海关",
-      "破冰船"
+      "海岸线"
      ]
     },
     {
@@ -26641,9 +25591,9 @@
      ],
      "maps": [
       "森林",
-      "海岸线",
       "灯塔",
-      "海关"
+      "海关",
+      "海岸线"
      ]
     },
     {
@@ -26656,9 +25606,9 @@
      ],
      "maps": [
       "森林",
-      "海岸线",
       "灯塔",
-      "海关"
+      "海关",
+      "海岸线"
      ]
     }
    ],
@@ -26868,8 +25818,8 @@
       "感染者"
      ],
      "maps": [
-      "工厂",
       "夜间工厂",
+      "工厂",
       "立交桥"
      ]
     },
@@ -27556,6 +26506,131 @@
    "delay": 0
   },
   {
+   "id": "6a7af2e48fddc3979d0510b8",
+   "name": "双手插袋",
+   "en": "Akimbo",
+   "trader": "ragman",
+   "level": 0,
+   "exp": 28000,
+   "map": "灯塔",
+   "faction": "",
+   "prestige": 0,
+   "kappa": false,
+   "lightkeeper": false,
+   "restartable": false,
+   "prereqs": [],
+   "traderReqs": [],
+   "otherReqs": [
+    {
+     "kind": "counter",
+     "trader": "Ragman",
+     "cmp": ">=",
+     "value": 4
+    }
+   ],
+   "objectives": [
+    {
+     "type": "shoot",
+     "text": "在灯塔使用 7.62×39 口径武器命中胸部或胃部消灭任意目标（在同场战局中完成）",
+     "count": 3,
+     "single": "击杀",
+     "targets": [
+      "任意目标"
+     ],
+     "bodyParts": [
+      "胸部",
+      "腹部"
+     ],
+     "weapons": [
+      "西蒙诺夫 OP-SKS 7.62x39 卡宾枪",
+      "西蒙诺夫 SKS 7.62x39 卡宾枪",
+      "AKMN 7.62x39 突击步枪",
+      "CMMG Mk47 Mutant 7.62x39 突击步枪",
+      "AK-103 7.62x39 突击步枪",
+      "AK-104 7.62x39 突击步枪",
+      "AKM 7.62x39 突击步枪",
+      "AKMS 7.62x39 突击步枪",
+      "AKMSN 7.62x39 突击步枪",
+      "VPO-136 野猪-KM 7.62x39 卡宾枪",
+      "Rifle Dynamics RD-704 7.62x39突击步枪",
+      "RPD 7.62x39 轻机枪",
+      "RPDN 7.62x39 轻机枪"
+     ],
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "type": "shoot",
+     "text": "在灯塔使用 7.62×51 口径武器命中胸部或胃部消灭任意目标（在同场战局中完成）",
+     "count": 3,
+     "single": "击杀",
+     "targets": [
+      "任意目标"
+     ],
+     "bodyParts": [
+      "胸部",
+      "腹部"
+     ],
+     "weapons": [
+      "VPO-101 Vepr-Hunter 7.62x51 卡宾枪",
+      "DS Arms SA-58 7.62x51 突击步枪",
+      "FN SCAR-H 7.62x51突击步枪",
+      "FN SCAR-H 7.62x51 突击步枪 (FDE)",
+      "沙漠科技 MDR 7.62x51 突击步枪",
+      "AK-308 7.62x51 突击步枪",
+      "FN SCAR-H X-17 7.62x51突击步枪",
+      "U.S Ordnance M60E4 7.62x51 轻机枪",
+      "U.S Ordnance M60E6 7.62x51 轻机枪",
+      "U.S Ordnance M60E6 7.62x51 轻机枪（FDE）",
+      "HK G28 7.62x51 精确射手步枪",
+      "奈特军械公司 (KAC) SR-25 7.62x51 精确射手步枪",
+      "奈特军械公司 (KAC) SR-25 7.62x51 精确射手步枪（褐灰色）",
+      "Kel-Tec RFB 7.62x51",
+      "雷明顿 R11 RSASS 7.62x51 精确射手步枪",
+      "春田 M1A 7.62x51 步枪",
+      "DVL-10 7.62x51 栓动式狙击步枪",
+      "ORSIS T-5000M 7.62x51 栓动式狙击步枪",
+      "雷明顿Model 700 7.62x51 狙击步枪"
+     ],
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "failConditions": [],
+   "rewards": {
+    "items": [
+     [
+      "卢布",
+      275000
+     ],
+     [
+      "Gruppa 99 T30背包 （复合迷彩）",
+      1
+     ],
+     [
+      "HighCom Trooper TFO 防弹背心（复合迷彩） 默认",
+      1
+     ],
+     [
+      "电源线",
+      2
+     ]
+    ],
+    "standing": [
+     [
+      "Ragman",
+      0.75
+     ]
+    ]
+   },
+   "startRewards": {},
+   "fail": {},
+   "keys": [],
+   "delay": 0
+  },
+  {
    "id": "5c112d7e86f7740d6f647486",
    "name": "垃圾佬",
    "en": "Scavenger",
@@ -27706,7 +26781,7 @@
       "MSA ACH TC-2002 MICH系列头盔",
       "SSh-68钢盔（橄榄绿）",
       "DevTac 浪人面罩",
-      "Altyn 防弹头盔（橄榄绿）",
+      "Altyn 突击头盔（橄榄绿）",
       "6B47 Ratnik-BSh 头盔（橄榄绿）",
       "FORT Kiver-M 防弹头盔",
       "BNTI LShZ-2DTM 头盔（黑色）",
@@ -27723,7 +26798,7 @@
       "SHPM消防盔",
       "Ops-Core FAST MT 超级高切 头盔（城市褐）",
       "Diamond Age NeoSteel 高切头盔 (黑色)",
-      "DevTac Ronin helmet",
+      "Devtac 浪人头盔",
       "MTEK FLUX 防弹头盔（高原复合迷彩）",
       "MSA Gallet TC 800 High Cut 作战头盔",
       "NPP KlASS Tor-2 头盔（橄榄绿）",
@@ -27776,7 +26851,20 @@
       "Team Wendy EXFIL 防弹头盔（复合迷彩）",
       "Atlant Armour Titan（泰坦）芳纶头盔 (Rudiarius)",
       "Galvion 凯门鳄 复合防弹头盔（高原复合迷彩）",
-      "Galvion 凯门鳄 复合防弹头盔（复合迷彩）"
+      "Galvion 凯门鳄 复合防弹头盔（复合迷彩）",
+      "Devtac 浪人防弹头盔（猛禽）",
+      "Devtac 浪人防弹头盔（橄榄色）",
+      "Devtac 浪人防弹头盔（试作机）",
+      "Devtac 浪人防弹头盔（橄榄绿）",
+      "DevTac 浪人面罩（实验室安保）",
+      "Altyn 突击头盔（防弹验证）",
+      "Atlant Armour Titan（泰坦）芳纶头盔（数码丛林迷彩）",
+      "Crye Precision AirFrame 头盔（慢工出烂活）",
+      "Crye Precision AirFrame 头盔（瘟疫侵袭）",
+      "Diamond Age NovaSteel 防弹头盔（橄榄绿）",
+      "Diamond Age NovaSteel 防弹头盔（毒素）",
+      "Diamond Age NovaSteel 防弹头盔（死亡守护者）",
+      "MTEK STRIKE 防弹头盔（碳纤维）"
      ],
      "fir": true
     },
@@ -27800,14 +26888,19 @@
       "Peltor ComTac V 耳机（橄榄绿）",
       "Peltor ComTac VI 耳机（狼棕色）",
       "GSSh-01有源耳机",
-      "Safariland Liberator HP 2.0听力保护耳机（泥土色）",
+      "Safariland Liberator HP 2.0听力保护耳机 (FDE)",
       "Safariland Liberator HP 2.0听力保护耳机（黑色）",
       "Safariland Liberator HP 2.0听力保护耳机（黑系复合迷彩）",
       "Safariland Liberator HP 2.0听力保护耳机（复合迷彩）",
       "Opsmen Earmor M32 耳机",
       "Opsmen Earmor M32 耳机（白色）",
       "Peltor 战术运动型耳机",
-      "Walker's Razor 数字耳机"
+      "Walker's Razor 数字耳机",
+      "Walker's Razor Slim 耳机（林地迷彩）",
+      "Safariland Liberator HP 2.0听力保护耳机（沙漠虎纹迷彩）",
+      "Walker's Razor Slim 耳机（碳纤维）",
+      "CENS ProFlex DX5 战术耳塞",
+      "Peltor TEP-300 战术耳塞（狼棕色）"
      ],
      "fir": true
     },
@@ -27855,7 +26948,10 @@
       "斐格力太阳镜 (红色)",
       "Ops-Core FAST护目罩",
       "Galvion 凯门鳄 面罩固定臂",
-      "Kolpak-1S 防暴面罩"
+      "Kolpak-1S 防暴面罩",
+      "Fit Viper 防护眼镜 (Actualbush)",
+      "Fit Viper 防护眼镜 (Exec)",
+      "Fit Viper 防护眼镜 (Straya)"
      ],
      "fir": true
     },
@@ -27887,7 +26983,7 @@
       "HighCom Trooper TFO 防弹背心（复合迷彩）",
       "MF-UNTAR防弹背心",
       "FORT Redut-T5（堡垒-T5）防弹衣（烟雾迷彩）",
-      "6B45 防弹衣",
+      "6B45 防弹衣（数码丛林迷彩）",
       "6B43 屏障-Sh 防弹衣（数码丛林迷彩）",
       "NFM THOR 一体式防弹护甲",
       "6B23-2 防弹衣（山地丛林迷彩）",
@@ -27910,7 +27006,9 @@
       "FORT Redut-M（堡垒-M）防弹衣（韩国林地迷彩）",
       "FORT Redut-M（堡垒-M）防弹衣（黑色）",
       "LBT 6094A Slick 插板背心（橄榄绿）",
-      "HighCom Trooper TFO 防弹背心（郊狼棕）"
+      "HighCom Trooper TFO 防弹背心（郊狼棕）",
+      "Blue Force Gear PLATEminus V2 防弹衣（狼棕色）",
+      "Blue Force Gear PLATEminus V2 防弹衣（狼灰色）"
      ],
      "fir": true
     }
@@ -28451,7 +27549,7 @@
       275000
      ],
      [
-      "Safariland Liberator HP 2.0听力保护耳机（泥土色）",
+      "Safariland Liberator HP 2.0听力保护耳机 (FDE)",
       2
      ],
      [
@@ -28881,7 +27979,7 @@
       32000
      ],
      [
-      "Altyn 防弹头盔（橄榄绿）",
+      "Altyn 突击头盔（橄榄绿）",
       1
      ]
     ],
@@ -29276,6 +28374,118 @@
    "keys": [
     "Primorsky 46-48号天桥钥匙"
    ],
+   "delay": 0
+  },
+  {
+   "id": "6a7b0df31ea00c9a980e2742",
+   "name": "西西弗斯",
+   "en": "Sisyphus",
+   "trader": "ragman",
+   "level": 0,
+   "exp": 28000,
+   "map": "",
+   "faction": "",
+   "prestige": 0,
+   "kappa": false,
+   "lightkeeper": false,
+   "restartable": false,
+   "prereqs": [],
+   "traderReqs": [],
+   "otherReqs": [
+    {
+     "kind": "counter",
+     "trader": "Ragman",
+     "cmp": ">=",
+     "value": 4
+    }
+   ],
+   "objectives": [
+    {
+     "type": "plantQuestItem",
+     "text": "在储备站将第一个货箱藏匿在靠近森林转移点的警卫营房内",
+     "count": 1,
+     "items": [
+      "走私者货运箱 #1"
+     ],
+     "maps": [
+      "储备站"
+     ]
+    },
+    {
+     "type": "plantQuestItem",
+     "text": "在灯塔将第二个货箱藏匿在火车站台上装有 Ural 卡车的车厢内",
+     "count": 1,
+     "items": [
+      "走私者货运箱 #2"
+     ],
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "type": "findQuestItem",
+     "text": "在森林 ZB-014 地堡内找到并获取第一个走私者货箱",
+     "count": 1,
+     "items": [
+      "走私者货运箱 #1"
+     ],
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "type": "findQuestItem",
+     "text": "在森林 USEC 检查站小屋后方找到并获取第二个走私者货箱",
+     "count": 1,
+     "items": [
+      "走私者货运箱 #2"
+     ],
+     "maps": [
+      "森林"
+     ]
+    },
+    {
+     "type": "extract",
+     "text": "在灯塔或储备站通过“装甲列车”撤离点撤离",
+     "count": 1,
+     "single": "装甲列车",
+     "exitStatus": [
+      "幸存",
+      "匆匆逃离"
+     ],
+     "maps": [
+      "灯塔",
+      "灯塔",
+      "储备站"
+     ]
+    }
+   ],
+   "failConditions": [],
+   "rewards": {
+    "items": [
+     [
+      "防弹插板箱",
+      1
+     ],
+     [
+      "卢布",
+      275000
+     ],
+     [
+      "电源线",
+      2
+     ]
+    ],
+    "standing": [
+     [
+      "Ragman",
+      0.75
+     ]
+    ]
+   },
+   "startRewards": {},
+   "fail": {},
+   "keys": [],
    "delay": 0
   },
   {
@@ -30063,17 +29273,17 @@
       "狙击手"
      ],
      "maps": [
-      "工厂",
+      "破冰船",
       "森林",
-      "海岸线",
-      "灯塔",
       "夜间工厂",
+      "灯塔",
       "海关",
       "Ground Zero 教程",
-      "储备站",
+      "工厂",
       "塔科夫街区",
-      "破冰船",
-      "立交桥"
+      "立交桥",
+      "海岸线",
+      "储备站"
      ]
     },
     {
@@ -30162,6 +29372,138 @@
    "delay": 0
   },
   {
+   "id": "6a959d33b9b22567ed0d0a4e",
+   "name": "本事不是喝出来的",
+   "en": "Cant Drink Away Skill",
+   "trader": "ragman",
+   "level": 25,
+   "exp": 30000,
+   "map": "",
+   "faction": "",
+   "prestige": 0,
+   "kappa": false,
+   "lightkeeper": false,
+   "restartable": false,
+   "prereqs": [
+    {
+     "name": "这是什么梗？",
+     "trader": "Fence",
+     "status": ""
+    }
+   ],
+   "traderReqs": [],
+   "otherReqs": [],
+   "objectives": [
+    {
+     "type": "findItem",
+     "text": "在战局中找到物品：金项链",
+     "count": 10,
+     "items": [
+      "金项链"
+     ],
+     "fir": true
+    },
+    {
+     "type": "giveItem",
+     "text": "上交物品",
+     "count": 10,
+     "items": [
+      "金项链"
+     ],
+     "fir": true
+    },
+    {
+     "type": "findItem",
+     "text": "在战局中找到物品：金公鸡",
+     "count": 5,
+     "items": [
+      "金公鸡塑像"
+     ],
+     "fir": true
+    },
+    {
+     "type": "giveItem",
+     "text": "上交物品",
+     "count": 5,
+     "items": [
+      "金公鸡塑像"
+     ],
+     "fir": true
+    },
+    {
+     "type": "findItem",
+     "text": "上交战局中找到的物品：金色1GPhone",
+     "count": 5,
+     "items": [
+      "金色1GPhone"
+     ],
+     "fir": true
+    },
+    {
+     "type": "giveItem",
+     "text": "上交物品",
+     "count": 5,
+     "items": [
+      "金色1GPhone"
+     ],
+     "fir": true
+    },
+    {
+     "type": "findItem",
+     "text": "在战局中找到物品：简易钱包",
+     "count": 10,
+     "items": [
+      "简易钱包"
+     ],
+     "fir": true
+    },
+    {
+     "type": "giveItem",
+     "text": "上交物品",
+     "count": 10,
+     "items": [
+      "简易钱包"
+     ],
+     "fir": true
+    },
+    {
+     "type": "findItem",
+     "text": "在战局中找到物品：WZ 钱包",
+     "count": 5,
+     "items": [
+      "WZ钱包"
+     ],
+     "fir": true
+    },
+    {
+     "type": "giveItem",
+     "text": "上交物品",
+     "count": 5,
+     "items": [
+      "WZ钱包"
+     ],
+     "fir": true
+    }
+   ],
+   "failConditions": [],
+   "rewards": {
+    "items": [
+     [
+      "卢布",
+      300000
+     ],
+     [
+      "路易伪登豪华钱包",
+      1
+     ]
+    ]
+   },
+   "startRewards": {},
+   "fail": {},
+   "keys": [],
+   "delay": 0
+  },
+  {
    "id": "67d03be712fb5f8fd2096332",
    "name": "清空外围",
    "en": "Vacate the Premises",
@@ -30214,7 +29556,7 @@
      ]
     ],
     "offerUnlock": [
-     "Altyn 防弹头盔（橄榄绿）（Ragman LL4）"
+     "Altyn 突击头盔（橄榄绿）（Ragman LL4）"
     ]
    },
    "startRewards": {},
@@ -30255,9 +29597,9 @@
       "掠夺者"
      ],
      "maps": [
+      "储备站",
       "实验室 (Dark)",
-      "实验室",
-      "储备站"
+      "实验室"
      ]
     },
     {
@@ -30326,9 +29668,9 @@
       "掠夺者"
      ],
      "maps": [
+      "储备站",
       "实验室 (Dark)",
-      "实验室",
-      "储备站"
+      "实验室"
      ]
     },
     {
@@ -31145,10 +30487,17 @@
      "count": 100,
      "single": "击杀",
      "targets": [
-      "游荡者"
+      "游荡者",
+      "Big Pipe",
+      "Birdeye",
+      "Knight"
      ],
      "maps": [
-      "破冰船"
+      "破冰船",
+      "灯塔",
+      "森林",
+      "海关",
+      "海岸线"
      ]
     },
     {
@@ -31421,8 +30770,8 @@
       "立交桥",
       "森林",
       "海岸线",
-      "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "工厂"
      ]
     }
    ],
@@ -31969,7 +31318,7 @@
       1
      ],
      [
-      "Safariland Liberator HP 2.0听力保护耳机（泥土色）",
+      "Safariland Liberator HP 2.0听力保护耳机 (FDE)",
       1
      ]
     ],
@@ -32068,7 +31417,7 @@
       1
      ],
      [
-      "Safariland Liberator HP 2.0听力保护耳机（泥土色）",
+      "Safariland Liberator HP 2.0听力保护耳机 (FDE)",
       1
      ]
     ],
@@ -32210,10 +31559,10 @@
       "Tasmanian Tiger Modular Pack 45 Plus 模块化背包 (黑系复合迷彩)",
       "Mystery Ranch 2 日突击包 (黑色)",
       "Mystery Ranch NICE 框架式承重系统",
-      "6B45 防弹胸挂 (通用型)",
-      "6B45 防弹胸挂 (医疗型)",
-      "6B45 防弹胸挂 (突击型)",
-      "6B45 防弹衣"
+      "6B45 防弹胸挂（通用型，数码丛林迷彩）",
+      "6B45 防弹胸挂（医疗型，数码丛林迷彩）",
+      "6B45 防弹胸挂（突击型，数码丛林迷彩）",
+      "6B45 防弹衣（数码丛林迷彩）"
      ]
     }
    ],
@@ -32379,6 +31728,129 @@
      [
       "Therapist",
       0.1
+     ]
+    ]
+   },
+   "startRewards": {},
+   "fail": {},
+   "keys": [],
+   "delay": 0
+  },
+  {
+   "id": "6a7ae35b2dbf91eb050af95a",
+   "name": "侵入性疗法",
+   "en": "Invasive Therapy",
+   "trader": "therapist",
+   "level": 0,
+   "exp": 28000,
+   "map": "灯塔",
+   "faction": "",
+   "prestige": 0,
+   "kappa": false,
+   "lightkeeper": false,
+   "restartable": false,
+   "prereqs": [],
+   "traderReqs": [],
+   "otherReqs": [
+    {
+     "kind": "counter",
+     "trader": "Therapist",
+     "cmp": ">=",
+     "value": 3
+    }
+   ],
+   "objectives": [
+    {
+     "type": "giveItem",
+     "text": "上交在战局中找到的 P22 (22 号化合物) 兴奋剂注射器",
+     "count": 5,
+     "items": [
+      "P22 (22 号化合物) 兴奋剂注射器"
+     ],
+     "fir": true
+    },
+    {
+     "type": "findItem",
+     "text": "在战局中找到物品：P22 (22 号化合物) 兴奋剂注射器",
+     "optional": true,
+     "count": 5,
+     "items": [
+      "P22 (22 号化合物) 兴奋剂注射器"
+     ],
+     "fir": true
+    },
+    {
+     "type": "giveItem",
+     "text": "上交在战局中找到的 xTG-12 解毒剂注射器",
+     "count": 5,
+     "items": [
+      "xTG-12 解毒剂注射器"
+     ],
+     "fir": true
+    },
+    {
+     "type": "findItem",
+     "text": "在战局中找到物品：xTG-12解毒剂注射器",
+     "optional": true,
+     "count": 5,
+     "items": [
+      "xTG-12 解毒剂注射器"
+     ],
+     "fir": true
+    },
+    {
+     "type": "plantItem",
+     "text": "在灯塔上层度假村内的游荡者医疗区处藏匿任意 Obdolbos 鸡尾酒注射器",
+     "count": 1,
+     "items": [
+      "Obdolbos 2 鸡尾酒兴奋剂注射器",
+      "Obdolbos 鸡尾酒兴奋剂注射器"
+     ],
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "type": "plantItem",
+     "text": "在灯塔上层度假村内的游荡者客厅物资区处藏匿任意 Obdolbos 鸡尾酒注射器",
+     "count": 1,
+     "items": [
+      "Obdolbos 2 鸡尾酒兴奋剂注射器",
+      "Obdolbos 鸡尾酒兴奋剂注射器"
+     ],
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "type": "plantItem",
+     "text": "在灯塔下层度假村内的游荡者弹药堆放处藏匿任意 Obdolbos 鸡尾酒注射器",
+     "count": 1,
+     "items": [
+      "Obdolbos 2 鸡尾酒兴奋剂注射器",
+      "Obdolbos 鸡尾酒兴奋剂注射器"
+     ],
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "failConditions": [],
+   "rewards": {
+    "items": [
+     [
+      "卢布",
+      275000
+     ],
+     [
+      "检眼镜",
+      1
+     ]
+    ],
+    "standing": [
+     [
+      "Therapist",
+      0.75
      ]
     ]
    },
@@ -33250,7 +32722,7 @@
      "type": "extract",
      "text": "通过Primorsky大道出租车载具撤离点撤离",
      "count": 1,
-     "single": "Primorsky大道出租车载具撤离点",
+     "single": "Primorsky大道载具撤离点",
      "exitStatus": [
       "幸存",
       "匆匆逃离"
@@ -33504,7 +32976,7 @@
      "text": "上交任意在战局中找到的饮用水",
      "count": 3,
      "items": [
-      "0.6升瓶装水",
+      "600 毫升瓶装水",
       "纯净水",
       "Aquamari带滤嘴水瓶",
       "油墨香车瓶装水",
@@ -35264,7 +34736,7 @@
      "type": "extract",
      "text": "在塔科夫街区幸存，并通过Primorsky（Приморский）大道出租车载具撤离点撤离",
      "count": 1,
-     "single": "Primorsky大道出租车载具撤离点",
+     "single": "Primorsky大道载具撤离点",
      "exitStatus": [
       "幸存"
      ],
@@ -37550,16 +37022,16 @@
      "type": "visit",
      "text": "在同场战局中侦察中心区 Mira 大道和高架路的交汇路口",
      "maps": [
-      "中心区",
-      "中心区 21+"
+      "中心区 21+",
+      "中心区"
      ]
     },
     {
      "type": "visit",
      "text": "在同场战局中找到中心区通往塔科夫街区的道路",
      "maps": [
-      "中心区",
-      "中心区 21+"
+      "中心区 21+",
+      "中心区"
      ]
     }
    ],
@@ -38093,8 +37565,26 @@
      "fir": true
     },
     {
+     "type": "giveItem",
+     "text": "上交物品",
+     "count": 5,
+     "items": [
+      "VPX闪存模块"
+     ],
+     "fir": true
+    },
+    {
      "type": "findItem",
      "text": "在战局中找到物品：UHF RFID 固定式读取器",
+     "count": 5,
+     "items": [
+      "UHF RFID固定式读取器"
+     ],
+     "fir": true
+    },
+    {
+     "type": "giveItem",
+     "text": "上交物品",
      "count": 5,
      "items": [
       "UHF RFID固定式读取器"
@@ -38111,8 +37601,26 @@
      "fir": true
     },
     {
+     "type": "giveItem",
+     "text": "上交物品",
+     "count": 5,
+     "items": [
+      "Virtex可编程处理器"
+     ],
+     "fir": true
+    },
+    {
      "type": "findItem",
      "text": "在战局中找到物品：军用 COFDM 无线信号发射器",
+     "count": 5,
+     "items": [
+      "军用COFDM无线信号发射器"
+     ],
+     "fir": true
+    },
+    {
+     "type": "giveItem",
+     "text": "上交物品",
      "count": 5,
      "items": [
       "军用COFDM无线信号发射器"
@@ -38125,42 +37633,6 @@
      "count": 4,
      "items": [
       "军用闪存装置"
-     ],
-     "fir": true
-    },
-    {
-     "type": "giveItem",
-     "text": "上交物品",
-     "count": 5,
-     "items": [
-      "VPX闪存模块"
-     ],
-     "fir": true
-    },
-    {
-     "type": "giveItem",
-     "text": "上交物品",
-     "count": 5,
-     "items": [
-      "UHF RFID固定式读取器"
-     ],
-     "fir": true
-    },
-    {
-     "type": "giveItem",
-     "text": "上交物品",
-     "count": 5,
-     "items": [
-      "Virtex可编程处理器"
-     ],
-     "fir": true
-    },
-    {
-     "type": "giveItem",
-     "text": "上交物品",
-     "count": 5,
-     "items": [
-      "军用COFDM无线信号发射器"
      ],
      "fir": true
     },
@@ -39810,7 +39282,7 @@
       2
      ],
      [
-      "NcSTAR ADO P4 Sniper 3-9x42步枪瞄准镜",
+      "NcSTAR ADO P4 狙击手 3-9x42 步枪瞄准镜",
       1
      ]
     ],
@@ -40271,6 +39743,7 @@
      ]
     ],
     "offerUnlock": [
+     "Vltor MUR-1S 5.56x45 AR-15 上机匣（Peacekeeper LL4）",
      "Ops-Core SLAAP 附加防弹板（黄褐色）（Peacekeeper LL4）"
     ],
     "craftUnlock": [
@@ -41402,11 +40875,11 @@
       "海关",
       "灯塔",
       "立交桥",
+      "破冰船",
       "森林",
       "海岸线",
-      "破冰船",
-      "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "工厂"
      ]
     }
    ],
@@ -41648,17 +41121,17 @@
       "狙击手"
      ],
      "maps": [
-      "工厂",
+      "破冰船",
       "森林",
-      "海岸线",
-      "灯塔",
       "夜间工厂",
+      "灯塔",
       "海关",
       "Ground Zero 教程",
-      "储备站",
+      "工厂",
       "塔科夫街区",
-      "破冰船",
-      "立交桥"
+      "立交桥",
+      "海岸线",
+      "储备站"
      ]
     }
    ],
@@ -41962,8 +41435,8 @@
       "WIFI摄像头"
      ],
      "maps": [
-      "中心区",
-      "中心区 21+"
+      "中心区 21+",
+      "中心区"
      ]
     },
     {
@@ -41974,8 +41447,8 @@
       "WIFI摄像头"
      ],
      "maps": [
-      "中心区",
-      "中心区 21+"
+      "中心区 21+",
+      "中心区"
      ]
     },
     {
@@ -41986,8 +41459,8 @@
       "WIFI摄像头"
      ],
      "maps": [
-      "中心区",
-      "中心区 21+"
+      "中心区 21+",
+      "中心区"
      ]
     },
     {
@@ -42108,8 +41581,8 @@
       "WIFI摄像头"
      ],
      "maps": [
-      "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "工厂"
      ]
     },
     {
@@ -42120,8 +41593,8 @@
       "WIFI摄像头"
      ],
      "maps": [
-      "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "工厂"
      ]
     },
     {
@@ -42132,8 +41605,8 @@
       "WIFI摄像头"
      ],
      "maps": [
-      "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "工厂"
      ]
     },
     {
@@ -42147,8 +41620,8 @@
       "工厂紧急出口钥匙"
      ],
      "maps": [
-      "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "工厂"
      ]
     },
     {
@@ -42159,8 +41632,8 @@
       "WIFI摄像头"
      ],
      "maps": [
-      "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "工厂"
      ]
     },
     {
@@ -42171,8 +41644,8 @@
       "WIFI摄像头"
      ],
      "maps": [
-      "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "工厂"
      ]
     },
     {
@@ -42183,8 +41656,8 @@
       "WIFI摄像头"
      ],
      "maps": [
-      "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "工厂"
      ]
     },
     {
@@ -42802,6 +42275,70 @@
     ]
    },
    "startRewards": {},
+   "fail": {},
+   "keys": [],
+   "delay": 0
+  },
+  {
+   "id": "6a91840a740be0cff50e0310",
+   "name": "Preliminary Survey",
+   "en": "Preliminary Survey",
+   "trader": "ref",
+   "level": 5,
+   "exp": 14500,
+   "map": "实验室",
+   "faction": "",
+   "prestige": 0,
+   "kappa": false,
+   "lightkeeper": false,
+   "restartable": false,
+   "prereqs": [],
+   "traderReqs": [],
+   "otherReqs": [],
+   "objectives": [
+    {
+     "type": "findQuestItem",
+     "text": "Locate the testing area blueprint flash drive in The Lab",
+     "count": 1,
+     "items": [
+      "测试区域蓝图 U 盘"
+     ],
+     "maps": [
+      "实验室"
+     ]
+    },
+    {
+     "type": "giveQuestItem",
+     "text": "Obtain the testing area blueprint flash drive in The Lab",
+     "count": 1,
+     "items": [
+      "测试区域蓝图 U 盘"
+     ]
+    }
+   ],
+   "failConditions": [],
+   "rewards": {
+    "items": [
+     [
+      "GP币",
+      101
+     ]
+    ],
+    "skills": [
+     [
+      "搜索",
+      1
+     ]
+    ]
+   },
+   "startRewards": {
+    "items": [
+     [
+      "TerraGroup实验室访问钥匙卡",
+      1
+     ]
+    ]
+   },
    "fail": {},
    "keys": [],
    "delay": 0
@@ -43573,17 +43110,17 @@
       "Steyr AUG A3 5.56x45 突击步枪（黑色）"
      ],
      "maps": [
-      "工厂",
+      "破冰船",
       "森林",
-      "海岸线",
-      "灯塔",
       "夜间工厂",
+      "灯塔",
       "海关",
       "Ground Zero 教程",
-      "储备站",
+      "工厂",
       "塔科夫街区",
-      "破冰船",
-      "立交桥"
+      "立交桥",
+      "海岸线",
+      "储备站"
      ]
     }
    ],
@@ -43746,10 +43283,10 @@
       "NESCO 4400-SA-MC防弹插板",
       "Granit Br5防弹插板",
       "ESAPI IV 级防弹插板",
-      "Monoclete三级PE防弹插板",
+      "Monoclete III 级 PE 防弹插板",
       "SPRTN Elaphros防弹插板",
       "Kiba Arms Titan防弹插板",
-      "NewSphereTech三级防弹插板",
+      "NewSphereTech III 级防弹插板",
       "SPRTN Omega防弹插板",
       "Global Armor’s Steel防弹插板",
       "SAPI III+ 级防弹插板",
@@ -44091,7 +43628,7 @@
       "纯净水",
       "Tarkovskaya瓶装伏特加",
       "“俄罗斯军队”盒装菠萝汁",
-      "0.6升瓶装水"
+      "600 毫升瓶装水"
      ],
      "fir": true
     },
@@ -44309,9 +43846,9 @@
      ],
      "maps": [
       "森林",
-      "海岸线",
       "灯塔",
       "海关",
+      "海岸线",
       "破冰船"
      ]
     }
@@ -44678,7 +44215,7 @@
       "纯净水",
       "Tarkovskaya瓶装伏特加",
       "“俄罗斯军队”盒装菠萝汁",
-      "0.6升瓶装水",
+      "600 毫升瓶装水",
       "Alyonka 巧克力",
       "炖美味牛肉罐头（大）",
       "黑麦面包块",
@@ -45232,7 +44769,7 @@
       "Peltor ComTac V 耳机（橄榄绿）",
       "Peltor ComTac VI 耳机（狼棕色）",
       "GSSh-01有源耳机",
-      "Safariland Liberator HP 2.0听力保护耳机（泥土色）",
+      "Safariland Liberator HP 2.0听力保护耳机 (FDE)",
       "Opsmen Earmor M32 耳机",
       "Peltor 战术运动型耳机",
       "Walker's Razor 数字耳机",
@@ -45400,7 +44937,7 @@
       "Shellback Tactical Banshee 插板胸挂（A-TACS AU 迷彩）",
       "Stich Profi MK2胸挂（突击型，A-TACS FG迷彩）",
       "Stich Profi MK2胸挂（侦察型，A-TACS FG迷彩）",
-      "Stich Profi Stich Defense mod.2防弹插板胸挂（多用途迷彩）",
+      "Stich Profi Stich Defense mod.2 插板胸挂（复合迷彩）",
       "Stich Profi V2 插板胸挂（黑色）",
       "FirstSpear Strandhogg 插板胸挂（丛林绿）",
       "Crye Precision AVS 插板胸挂（Tagilla 版）",
@@ -45422,9 +44959,9 @@
       "VPO-101 Vepr-Hunter 7.62x51 卡宾枪",
       "SR-3M 9x39紧凑型突击步枪",
       "AS VAL“巨浪” 9x39 特种突击步枪",
-      "Tokarev AVT-40 7.62x54R自动步枪",
+      "托卡列夫 AVT-40 7.62x54R 自动步枪",
       "西蒙诺夫 SKS 7.62x39 卡宾枪",
-      "Tokarev SVT-40 7.62x54R步枪",
+      "托卡列夫 SVT-40 7.62x54R 步枪",
       "ADAR 2-15 .223 卡宾枪",
       "ASh-12 12.7x55 突击步枪",
       "CMMG Mk47 Mutant 7.62x39 突击步枪",
@@ -45484,13 +45021,13 @@
       "RPD 7.62x39 轻机枪",
       "RPDN 7.62x39 轻机枪",
       "HK G28 7.62x51 精确射手步枪",
-      "德拉贡诺夫 SVDS 7.62x54 半自动狙击步枪",
+      "德拉贡诺夫 SVDS 7.62x54R 半自动狙击步枪",
       "奈特军械公司 (KAC) SR-25 7.62x51 精确射手步枪",
       "Kel-Tec RFB 7.62x51",
       "雷明顿 R11 RSASS 7.62x51 精确射手步枪",
       "春田 M1A 7.62x51 步枪",
       "SWORD International Mk-18 .338 LM 精确射手步枪",
-      "VSS “绞丝机” 特种狙击步枪",
+      "VSS “绞丝机”9x39 特种狙击步枪",
       "伯莱塔 M9A3 9x19 手枪",
       "柯尔特 M1911A1 .45 ACP 手枪",
       "柯尔特 M45A1 .45 ACP 手枪",
@@ -45561,7 +45098,7 @@
       "Accuracy International AXMC .338 LM 栓动式狙击步枪",
       "莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "VPO-215 雪貂 .366 TKM 栓动式步枪",
       "ORSIS T-5000M 7.62x51 栓动式狙击步枪",
@@ -45609,9 +45146,9 @@
       "KITECO SC-IV SA防弹插板",
       "Kiba Arms Steel防弹插板",
       "Kiba Arms Titan防弹插板",
-      "Monoclete三级PE防弹插板",
+      "Monoclete III 级 PE 防弹插板",
       "NESCO 4400-SA-MC防弹插板",
-      "NewSphereTech三级防弹插板",
+      "NewSphereTech III 级防弹插板",
       "PRTCTR轻量化防弹插板",
       "SPRTN Elaphros防弹插板",
       "SPRTN Omega防弹插板",
@@ -45689,7 +45226,7 @@
       "带眼洞滑雪头套",
       "FORT Kiver-M 防弹头盔",
       "6B47 Ratnik-BSh 头盔（数码迷彩盔罩）",
-      "Altyn 防弹头盔（橄榄绿）",
+      "Altyn 突击头盔（橄榄绿）",
       "Armasight夜视镜头罩基座",
       "TSH-4M-L软质坦克乘员头盔",
       "Kolpak -1S防暴头盔",
@@ -45705,7 +45242,7 @@
       "ZSh-1-2M 头盔（黑色盔罩）",
       "Rivals 2020 帽",
       "DevTac 浪人面罩",
-      "DevTac Ronin helmet",
+      "Devtac 浪人头盔",
       "Zryachiy巴拉克拉瓦帽子",
       "复仇Zryachiy巴拉克拉瓦（折叠）",
       "头巾",
@@ -45726,7 +45263,7 @@
       "UCP军帽",
       "军用科技奔尼帽",
       "Jack Pyke Hunting LLCS奔尼帽",
-      "Stich Profi Chimera 奔尼帽",
+      "Stich Profi 奇美拉奔尼帽",
       "绒球毛线帽",
       "Rivals 2020 圆帽",
       "BOSS鸭舌帽",
@@ -45794,7 +45331,7 @@
       "FAB Defense AGR-870 保护盖",
       "Axion Kobra 瞄具遮光罩",
       "HK G36 阻手",
-      "Zev Tech瞄具基座盖",
+      "Zev Tech Glock 瞄具基座保护盖",
       "MP-155 「Ultima」 枪管下基座",
       "MP-155 「Ultima」手枪式握把橡胶垫",
       "NSPU-M瞄准镜眼罩",
@@ -45827,7 +45364,7 @@
       "Armytek Predator Pro v3 XHP35 HI手电",
       "Zenit 2D 战术手电",
       "Ultrafire WF-501B手电筒",
-      "BCM MOD.3战术握把",
+      "BCM GUNFIGHTER MOD 3 垂直前握把",
       "ASh-12 垂直前握把",
       "Fortis Shift 战术前握把",
       "Hera Arms CQR 战术前握把",
@@ -46013,8 +45550,8 @@
       "Lancer L7AWM 7.62x51 AR-10 20发弹匣",
       "Lancer L7AWM 7.62x51 AR-10 25发弹匣",
       "Magpul PMAG 20 SR-LR GEN M3 7.62x51 20发弹匣",
-      "12.7x55 10发ASh-12弹匣",
-      "ASh-12 20发ASh-12弹匣",
+      "12.7x55 ASh-12 10发弹匣",
+      "12.7x55 ASh-12 20发弹匣",
       "Steyr AUG 5.56x45 10发容量弹匣",
       "Steyr AUG 5.56x45 30发容量弹匣",
       "Steyr AUG 5.56x45 42发容量弹匣",
@@ -46095,7 +45632,7 @@
       "P226弹匣",
       "FN P90 5.7x28 50发弹匣",
       "玩具枪 20x1毫米 20发弹匣",
-      "PK 7.62x54R 100发盒式弹匣",
+      "PK 7.62x54R 100发弹链盒",
       "PL-15 9x19 16发弹匣",
       "PM 9x18PM 84发简易弹鼓",
       "90-93 9x18PM 8发PM弹匣",
@@ -46139,7 +45676,7 @@
       "TROY Battlemag 5.56x45 STANAG 30发弹匣",
       "7.62x54R 10发SV-98聚合物弹匣",
       "SVD 7.62x54 10发弹匣",
-      "SVD 7.62x54 20发弹匣",
+      "SVD 7.62x54R 20发弹匣",
       "AVT-40 7.62x54R 10发弹匣",
       "AVT-40 7.62x54R 15发弹匣",
       ".308 T-5000 5发弹匣",
@@ -46207,8 +45744,8 @@
       "Recknagel Era-Tac Sunshade Aimpoint T-1基座",
       "Recknagel Era-Tac 30毫米环形基座",
       "Recknagel Era-Tac 34毫米环形基座",
-      "SIG ALPHA4 30环形瞄具基座",
-      "西格-绍尔Romeo系列瞄具基座",
+      "SIG Sauer ALPHA4 30 毫米环形瞄准镜基座",
+      "SIG Sauer ROMEO 瞄具基座",
       "Trijicon RMR 高基线基座",
       "Trijicon RMR 低基线基座",
       "TA51瞄具基座",
@@ -46235,7 +45772,7 @@
       "KMZ 1P59 燕尾槽基座",
       "TOZ-106瞄准镜基座",
       "NPZ 1P78-1燕尾槽基座",
-      "Pilad 043-02基座",
+      "VOMZ Pilad 043-02 燕尾槽基座",
       "RS Regulate AK-303M 全尺寸导轨燕尾槽下基座",
       "SAG AK燕尾侧基座",
       "SAG Bit 低基线燕尾槽基座",
@@ -46394,7 +45931,7 @@
       "Zenit B-3 VSS/VAL 环形基座",
       "Zenit B-3 VSS/VAL 基座组合",
       "PNV-10T燕尾槽转接器",
-      "AN/PVS-14单目夜视仪双燕尾槽安装座",
+      "AN/PVS-14 Norotos 双燕尾槽安装座",
       "Norotos钛合金高级战术支架",
       "PVS-7 Wilcox接口",
       "AI AXMC手枪式握把",
@@ -46447,10 +45984,10 @@
       "AKMSN 折叠式枪托",
       "AKS-74 金属框架枪托",
       "AKS-74U 金属框架枪托",
-      "SIG枪托伸缩管转接器",
+      "SIG Sauer 折叠锁扣式缓冲管转接器",
       "SIG Sauer 伸缩/折叠式枪托",
       "SIG Sauer 枪托锁定铰链套件",
-      "SIG Sauer MCX/MPX 伸缩枪托",
+      "SIG Sauer 伸缩/折叠式枪托",
       "SIG Sauer 轻量化折叠式枪托",
       "APB可拆卸钢丝枪托",
       "ADAR 2-15木质枪托",
@@ -46728,7 +46265,7 @@
       "514毫米莫辛卡宾枪标准枪管",
       "莫辛纳甘 220 毫米锯短螺纹枪管 7.62x54R",
       "莫辛纳甘 200 毫米锯短枪管 7.62x54R",
-      "730毫米标准莫辛枪管",
+      "7.62x54R 730毫米莫辛标准枪管",
       "MP-155 12 铅径 510 毫米枪管",
       "MP-18 7.62x54R 600毫米枪管",
       "4.5 英寸 MPX 枪管 9x19",
@@ -46867,7 +46404,7 @@
       "Noveske SWS N6 AR-10 分体式护木",
       "AB Arms MOD1 AR-15 护木",
       "AB Arms MOD1 AR-15 下护木",
-      "ADAR 2-15 AR-15兼容木质枪托",
+      "ADAR 2-15 AR-15 木制护木",
       "Aeroknox AX-15 10.5 英寸 AR-15 M-LOK 护木",
       "Aeroknox AX-15 15.8英寸 AR-15 M-LOK 护木",
       "Aeroknox AX-15 4英寸 AR-15 M-LOK 护木",
@@ -46904,7 +46441,7 @@
       "Strike Industries Viper 卡宾枪规格 AR-15 M-LOK 护木 (FDE)",
       "Strike Industries Viper 卡宾枪规格 AR-15 M-LOK 下护木",
       "Strike Industries Viper 卡宾枪规格 M-LOK 下护木 (FDE)",
-      "Unique-ARs Wing & Skull 12 英寸 AR-15 护木",
+      "Unique-ARs 飞翼骷髅 12 英寸 AR-15 护木",
       "War Sport LVOA-C AR-15 护木（黑色）",
       "War Sport LVOA-S AR-15 护木（黑色）",
       "ASh-12聚合物护木",
@@ -47293,9 +46830,9 @@
       "Steyr AUG A3 5.56x45封闭式消焰器",
       "Steyr AUG A3 5.56x45枪口制退器",
       "Lantac BMD 7.62x51 爆炸缓冲装置",
-      "三叉 SIG 消焰器 7.62x51",
-      "SIG 微型膛口制退器 7.62x51",
-      "SIG 双端膛口制退器 7.62x51",
+      "SIG Sauer 7.62x51 三叉消焰器",
+      "SIG Sauer Micro Brake 7.62x51 微型膛口制退器",
+      "SIG Sauer Two Port Brake 7.62x51 双端膛口制退器",
       "DVL-10 M2 7.62x51膛口制退器",
       "DVL-10 7.62x51膛口装置",
       "SA-58 奥地利型 7.62x51 膛口制退器",
@@ -47397,10 +46934,10 @@
       "Kriss Vector .45 ACP螺纹保护帽",
       "Vector 9x19螺纹保护帽",
       "VPO-215螺纹保护帽",
-      "Hexagon 12K声音抑制器",
+      "Hexagon 12K 12 铅径消音器",
       "Gemtech SFN-57 5.7x28毫米消音器",
-      "9A-91 9x39声音抑制器",
-      "AI .338 LM战术声音抑制器",
+      "9A-91 9x39 消音器",
+      "AI .338 LM 战术消音器",
       "AK-12 5.45x39消音器",
       "Hexagon AK-74 5.45x39消音器",
       "AK-74 TGP-A 5.45x39消音器",
@@ -47410,30 +46947,30 @@
       "Zenit DTK-4M 7.62x39 AKM 消音器",
       "AKS-74U PBS-4 5.45x39消音器",
       "AAC Illusion 9 9x19毫米消音器",
-      "Alpha Dog Alpha 9 9x19声音抑制器",
-      "PL-15 9x19毫米声音抑制器",
+      "Alpha Dog Alpha 9 9x19 消音器",
+      "PL-15 9x19 消音器",
       "Rotor 43 9x19 消音器",
       "Rotor 43 .366TKM 消音器",
       "Rotor 43 5.56x45 消音器",
       "Rotor 43 7.62x39 消音器",
       "SIG Sauer SRD762Ti 7.62x51 消音器",
       "SIG Sauer SRD9 9x19 消音器",
-      "SilencerCo Osprey 9 9x19毫米抑制器",
+      "SilencerCo Osprey 9 9x19 消音器",
       "APB 9x18PM消音器",
-      "AAC 762 SDN-6 7.62x51声音抑制器",
-      "ASh-12 12.7x55战术抑制器",
+      "AAC 762-SDN-6 多口径消音器",
+      "ASh-12 12.7x55 声音抑制器",
       "SilencerCo SAKER ASR 556 5.56x45 消音器",
       "Steyr AUG Ase Utra S Series SL7i 5.56x45消音器",
       "Steyr AUG Relfex T4AUG Ranger 5.56x45消音器",
       "AWC Thor PSR XL多口径消音器",
-      "Gemtech ONE 7.62x51声音抑制器",
+      "Gemtech ONE 多口径消音器",
       "Rotor 43 7.62x54R 消音器",
       "SIG Sauer SRD762-QD 7.62x51 消音器",
-      "SilencerCo Omega 45k .45 ACP 声音抑制器",
-      "SilencerCo Osprey 12声音抑制器",
-      "B&T QD 7.62x51 G28 消音器",
+      "SilencerCo Omega 45k .45 ACP 消音器",
+      "SilencerCo Salvo 12 12 铅径消音器",
+      "B&T QD 7.62x51 G28 快拆消音器",
       "MCX SPEAR SLX68-MG-QD 6.8x51消音器",
-      "Fisher Development FD917抑制器",
+      "Fisher Development FD917 Glock 9x19 消音器",
       "Hexagon Wafflemaker 5.45x39 AK 消音器",
       "HK MP5SD 9x19消音器",
       "KAC QDSS NT-4 5.56x45 消音器（黑色）",
@@ -47445,32 +46982,32 @@
       "FN P90 Attenuator 5.7x28消音器",
       "PB 9x18马卡洛夫库藏消音器",
       "PP-19-01 Vityaz 9x19 消音器",
-      "PP-91-01 Kedr-B 9x18PM抑制器",
+      "PP-91-01 Kedr-B 9x18PM 消音器",
       "KAC PRS/QDC 7.62x51 消音器",
       "KAC QDC 5.56x45消音器",
       "Griffin Armament M4SD-K 5.56x45 AR-15 消音器",
       "MPX-SD 9x19整体式消声器",
-      "Hexagon SKS 7.62x39声音抑制器",
+      "Hexagon SKS 7.62x39 消音器",
       "SureFire SOCOM556-MINI MONSTER 5.56x45 消音器",
       "SureFire SOCOM556-MONSTER 5.56x45 消音器",
       "Surefire SOCOM556-RC2 5.56x45消音器",
       "SR-1MP 9x21 消音器",
       "SR-2M 9x21 SV-1381 消音器",
       "SR-3M 9x39消音器",
-      "SV-98 7.62x54标准消音器",
-      "Thunder Beast Ultra 5声音抑制器",
+      "SV-98 7.62x54R 消音器",
+      "Thunder Beast Ultra 5 消音器",
       "土制7.62x25 TT消音器",
       "B&T OEM .45 ACP UMP 消音器",
       "UZI 9x19毫米消音器",
-      "AS VAL 9x39枪管整体式抑制器",
+      "AS VAL 9x39 一体式消音枪管",
       "VPO-101 Rotor 43 7.62x51 消音器",
-      "VSS 9x39整体式枪管抑制器",
+      "VSS 9x39 一体式消音枪管",
       "Daniel Defence WAVE 快拆消音器",
       "ELCAN SpecterDR 1x/4x瞄准镜",
       "ELCAN SpecterDR 1x/4x瞄准镜 FDE",
       "Leupold Mark 4 HAMR 4x24 DeltaPoint 组合式突击瞄准镜",
       "Monstrum 紧凑战术棱镜式瞄准镜 2x32",
-      "Sig BRAVO4 4X30瞄准镜",
+      "SIG Sauer BRAVO4 4x30 瞄准镜",
       "SwampFox Trihawk 棱镜式瞄准镜 3x30",
       "Valday PS-320 1x/6x瞄准镜",
       "Steyr AUG A3 M1 1.5倍光学瞄准镜",
@@ -47494,12 +47031,12 @@
       "Holosun HS401G5反射式瞄具",
       "Leapers UTG反射式瞄具",
       "Milkor M2A1榴弹发射器反射式瞄具",
-      "SIG Romeo 8T反射式瞄具",
+      "SIG Sauer ROMEO8T 反射式瞄具",
       "SIG Sauer ROMEO7 1x30反射式瞄具（原型版本）",
       "Trijicon SRS-02反射式瞄具",
       "Valday PK-120 (1P87) 反射式瞄具",
       "Valday Krechet反射式瞄具",
-      "VOMZ Pilad P1X42 「WEAVER」反射式瞄具",
+      "VOMZ Pilad P1x42 韦佛导轨反射式瞄具",
       "Vortex Razor AMG UH-1全息瞄具",
       "Walther MRS反射式瞄具",
       "Wilcox BOSS Xe反射式瞄具",
@@ -47508,7 +47045,7 @@
       "Hensoldt RV 红点瞄具",
       "Axion Kobra EKP-1S-03 反射式瞄具（燕尾槽）",
       "Axion Kobra EKP-8-02 反射式瞄具（燕尾槽）",
-      "Belomo PK-AA反射式瞄具",
+      "BelOMO PK-AA 燕尾槽反射式瞄具",
       "OKP-7反射式瞄具（燕尾槽）",
       "KOMZ Rusak反射式瞄具",
       "NPZ PK1 Obzor“监视”反射式瞄具（燕尾槽）",
@@ -47520,8 +47057,8 @@
       "Aimpoint Micro T-1反射式瞄具",
       "Burris FastFire 3反射式瞄具",
       "Leupold DeltaPoint反射式瞄具",
-      "西格-绍尔Romeo 4反射式瞄具",
-      "Trijicon RMR",
+      "SIG Sauer ROMEO4 反射式瞄具",
+      "Trijicon RMR 反射式瞄具",
       "Five-seveN MK2标准准星",
       "M590 鬼环准星",
       "AKMP系统准星装置",
@@ -47648,7 +47185,7 @@
       "Nightforce ATACR 7-35x56 34 毫米步枪瞄准镜",
       "Schmidt & Bender PM II 3-20x50 34 毫米步枪瞄准镜",
       "Schmidt & Bender PM II 5-25x56 34 毫米步枪瞄准镜",
-      "NcSTAR ADO P4 Sniper 3-9x42步枪瞄准镜",
+      "NcSTAR ADO P4 狙击手 3-9x42 步枪瞄准镜",
       "KMZ 1P59 3-10x步枪瞄准镜",
       "KMZ 1P69 3-10x步枪瞄准镜",
       "NPZ 1P78-1 2.8倍瞄准镜",
@@ -48043,7 +47580,7 @@
       "纯净水",
       "Tarkovskaya瓶装伏特加",
       "“俄罗斯军队”盒装菠萝汁",
-      "0.6升瓶装水",
+      "600 毫升瓶装水",
       "Alyonka 巧克力",
       "炖美味牛肉罐头（大）",
       "黑麦面包块",
@@ -48597,7 +48134,7 @@
       "Peltor ComTac V 耳机（橄榄绿）",
       "Peltor ComTac VI 耳机（狼棕色）",
       "GSSh-01有源耳机",
-      "Safariland Liberator HP 2.0听力保护耳机（泥土色）",
+      "Safariland Liberator HP 2.0听力保护耳机 (FDE)",
       "Opsmen Earmor M32 耳机",
       "Peltor 战术运动型耳机",
       "Walker's Razor 数字耳机",
@@ -48765,7 +48302,7 @@
       "Shellback Tactical Banshee 插板胸挂（A-TACS AU 迷彩）",
       "Stich Profi MK2胸挂（突击型，A-TACS FG迷彩）",
       "Stich Profi MK2胸挂（侦察型，A-TACS FG迷彩）",
-      "Stich Profi Stich Defense mod.2防弹插板胸挂（多用途迷彩）",
+      "Stich Profi Stich Defense mod.2 插板胸挂（复合迷彩）",
       "Stich Profi V2 插板胸挂（黑色）",
       "FirstSpear Strandhogg 插板胸挂（丛林绿）",
       "Crye Precision AVS 插板胸挂（Tagilla 版）",
@@ -48787,9 +48324,9 @@
       "VPO-101 Vepr-Hunter 7.62x51 卡宾枪",
       "SR-3M 9x39紧凑型突击步枪",
       "AS VAL“巨浪” 9x39 特种突击步枪",
-      "Tokarev AVT-40 7.62x54R自动步枪",
+      "托卡列夫 AVT-40 7.62x54R 自动步枪",
       "西蒙诺夫 SKS 7.62x39 卡宾枪",
-      "Tokarev SVT-40 7.62x54R步枪",
+      "托卡列夫 SVT-40 7.62x54R 步枪",
       "ADAR 2-15 .223 卡宾枪",
       "ASh-12 12.7x55 突击步枪",
       "CMMG Mk47 Mutant 7.62x39 突击步枪",
@@ -48849,13 +48386,13 @@
       "RPD 7.62x39 轻机枪",
       "RPDN 7.62x39 轻机枪",
       "HK G28 7.62x51 精确射手步枪",
-      "德拉贡诺夫 SVDS 7.62x54 半自动狙击步枪",
+      "德拉贡诺夫 SVDS 7.62x54R 半自动狙击步枪",
       "奈特军械公司 (KAC) SR-25 7.62x51 精确射手步枪",
       "Kel-Tec RFB 7.62x51",
       "雷明顿 R11 RSASS 7.62x51 精确射手步枪",
       "春田 M1A 7.62x51 步枪",
       "SWORD International Mk-18 .338 LM 精确射手步枪",
-      "VSS “绞丝机” 特种狙击步枪",
+      "VSS “绞丝机”9x39 特种狙击步枪",
       "伯莱塔 M9A3 9x19 手枪",
       "柯尔特 M1911A1 .45 ACP 手枪",
       "柯尔特 M45A1 .45 ACP 手枪",
@@ -48926,7 +48463,7 @@
       "Accuracy International AXMC .338 LM 栓动式狙击步枪",
       "莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "VPO-215 雪貂 .366 TKM 栓动式步枪",
       "ORSIS T-5000M 7.62x51 栓动式狙击步枪",
@@ -48974,9 +48511,9 @@
       "KITECO SC-IV SA防弹插板",
       "Kiba Arms Steel防弹插板",
       "Kiba Arms Titan防弹插板",
-      "Monoclete三级PE防弹插板",
+      "Monoclete III 级 PE 防弹插板",
       "NESCO 4400-SA-MC防弹插板",
-      "NewSphereTech三级防弹插板",
+      "NewSphereTech III 级防弹插板",
       "PRTCTR轻量化防弹插板",
       "SPRTN Elaphros防弹插板",
       "SPRTN Omega防弹插板",
@@ -49054,7 +48591,7 @@
       "带眼洞滑雪头套",
       "FORT Kiver-M 防弹头盔",
       "6B47 Ratnik-BSh 头盔（数码迷彩盔罩）",
-      "Altyn 防弹头盔（橄榄绿）",
+      "Altyn 突击头盔（橄榄绿）",
       "Armasight夜视镜头罩基座",
       "TSH-4M-L软质坦克乘员头盔",
       "Kolpak -1S防暴头盔",
@@ -49070,7 +48607,7 @@
       "ZSh-1-2M 头盔（黑色盔罩）",
       "Rivals 2020 帽",
       "DevTac 浪人面罩",
-      "DevTac Ronin helmet",
+      "Devtac 浪人头盔",
       "Zryachiy巴拉克拉瓦帽子",
       "复仇Zryachiy巴拉克拉瓦（折叠）",
       "头巾",
@@ -49091,7 +48628,7 @@
       "UCP军帽",
       "军用科技奔尼帽",
       "Jack Pyke Hunting LLCS奔尼帽",
-      "Stich Profi Chimera 奔尼帽",
+      "Stich Profi 奇美拉奔尼帽",
       "绒球毛线帽",
       "Rivals 2020 圆帽",
       "BOSS鸭舌帽",
@@ -49159,7 +48696,7 @@
       "FAB Defense AGR-870 保护盖",
       "Axion Kobra 瞄具遮光罩",
       "HK G36 阻手",
-      "Zev Tech瞄具基座盖",
+      "Zev Tech Glock 瞄具基座保护盖",
       "MP-155 「Ultima」 枪管下基座",
       "MP-155 「Ultima」手枪式握把橡胶垫",
       "NSPU-M瞄准镜眼罩",
@@ -49192,7 +48729,7 @@
       "Armytek Predator Pro v3 XHP35 HI手电",
       "Zenit 2D 战术手电",
       "Ultrafire WF-501B手电筒",
-      "BCM MOD.3战术握把",
+      "BCM GUNFIGHTER MOD 3 垂直前握把",
       "ASh-12 垂直前握把",
       "Fortis Shift 战术前握把",
       "Hera Arms CQR 战术前握把",
@@ -49378,8 +48915,8 @@
       "Lancer L7AWM 7.62x51 AR-10 20发弹匣",
       "Lancer L7AWM 7.62x51 AR-10 25发弹匣",
       "Magpul PMAG 20 SR-LR GEN M3 7.62x51 20发弹匣",
-      "12.7x55 10发ASh-12弹匣",
-      "ASh-12 20发ASh-12弹匣",
+      "12.7x55 ASh-12 10发弹匣",
+      "12.7x55 ASh-12 20发弹匣",
       "Steyr AUG 5.56x45 10发容量弹匣",
       "Steyr AUG 5.56x45 30发容量弹匣",
       "Steyr AUG 5.56x45 42发容量弹匣",
@@ -49460,7 +48997,7 @@
       "P226弹匣",
       "FN P90 5.7x28 50发弹匣",
       "玩具枪 20x1毫米 20发弹匣",
-      "PK 7.62x54R 100发盒式弹匣",
+      "PK 7.62x54R 100发弹链盒",
       "PL-15 9x19 16发弹匣",
       "PM 9x18PM 84发简易弹鼓",
       "90-93 9x18PM 8发PM弹匣",
@@ -49504,7 +49041,7 @@
       "TROY Battlemag 5.56x45 STANAG 30发弹匣",
       "7.62x54R 10发SV-98聚合物弹匣",
       "SVD 7.62x54 10发弹匣",
-      "SVD 7.62x54 20发弹匣",
+      "SVD 7.62x54R 20发弹匣",
       "AVT-40 7.62x54R 10发弹匣",
       "AVT-40 7.62x54R 15发弹匣",
       ".308 T-5000 5发弹匣",
@@ -49572,8 +49109,8 @@
       "Recknagel Era-Tac Sunshade Aimpoint T-1基座",
       "Recknagel Era-Tac 30毫米环形基座",
       "Recknagel Era-Tac 34毫米环形基座",
-      "SIG ALPHA4 30环形瞄具基座",
-      "西格-绍尔Romeo系列瞄具基座",
+      "SIG Sauer ALPHA4 30 毫米环形瞄准镜基座",
+      "SIG Sauer ROMEO 瞄具基座",
       "Trijicon RMR 高基线基座",
       "Trijicon RMR 低基线基座",
       "TA51瞄具基座",
@@ -49600,7 +49137,7 @@
       "KMZ 1P59 燕尾槽基座",
       "TOZ-106瞄准镜基座",
       "NPZ 1P78-1燕尾槽基座",
-      "Pilad 043-02基座",
+      "VOMZ Pilad 043-02 燕尾槽基座",
       "RS Regulate AK-303M 全尺寸导轨燕尾槽下基座",
       "SAG AK燕尾侧基座",
       "SAG Bit 低基线燕尾槽基座",
@@ -49759,7 +49296,7 @@
       "Zenit B-3 VSS/VAL 环形基座",
       "Zenit B-3 VSS/VAL 基座组合",
       "PNV-10T燕尾槽转接器",
-      "AN/PVS-14单目夜视仪双燕尾槽安装座",
+      "AN/PVS-14 Norotos 双燕尾槽安装座",
       "Norotos钛合金高级战术支架",
       "PVS-7 Wilcox接口",
       "AI AXMC手枪式握把",
@@ -49812,10 +49349,10 @@
       "AKMSN 折叠式枪托",
       "AKS-74 金属框架枪托",
       "AKS-74U 金属框架枪托",
-      "SIG枪托伸缩管转接器",
+      "SIG Sauer 折叠锁扣式缓冲管转接器",
       "SIG Sauer 伸缩/折叠式枪托",
       "SIG Sauer 枪托锁定铰链套件",
-      "SIG Sauer MCX/MPX 伸缩枪托",
+      "SIG Sauer 伸缩/折叠式枪托",
       "SIG Sauer 轻量化折叠式枪托",
       "APB可拆卸钢丝枪托",
       "ADAR 2-15木质枪托",
@@ -50093,7 +49630,7 @@
       "514毫米莫辛卡宾枪标准枪管",
       "莫辛纳甘 220 毫米锯短螺纹枪管 7.62x54R",
       "莫辛纳甘 200 毫米锯短枪管 7.62x54R",
-      "730毫米标准莫辛枪管",
+      "7.62x54R 730毫米莫辛标准枪管",
       "MP-155 12 铅径 510 毫米枪管",
       "MP-18 7.62x54R 600毫米枪管",
       "4.5 英寸 MPX 枪管 9x19",
@@ -50232,7 +49769,7 @@
       "Noveske SWS N6 AR-10 分体式护木",
       "AB Arms MOD1 AR-15 护木",
       "AB Arms MOD1 AR-15 下护木",
-      "ADAR 2-15 AR-15兼容木质枪托",
+      "ADAR 2-15 AR-15 木制护木",
       "Aeroknox AX-15 10.5 英寸 AR-15 M-LOK 护木",
       "Aeroknox AX-15 15.8英寸 AR-15 M-LOK 护木",
       "Aeroknox AX-15 4英寸 AR-15 M-LOK 护木",
@@ -50269,7 +49806,7 @@
       "Strike Industries Viper 卡宾枪规格 AR-15 M-LOK 护木 (FDE)",
       "Strike Industries Viper 卡宾枪规格 AR-15 M-LOK 下护木",
       "Strike Industries Viper 卡宾枪规格 M-LOK 下护木 (FDE)",
-      "Unique-ARs Wing & Skull 12 英寸 AR-15 护木",
+      "Unique-ARs 飞翼骷髅 12 英寸 AR-15 护木",
       "War Sport LVOA-C AR-15 护木（黑色）",
       "War Sport LVOA-S AR-15 护木（黑色）",
       "ASh-12聚合物护木",
@@ -50658,9 +50195,9 @@
       "Steyr AUG A3 5.56x45封闭式消焰器",
       "Steyr AUG A3 5.56x45枪口制退器",
       "Lantac BMD 7.62x51 爆炸缓冲装置",
-      "三叉 SIG 消焰器 7.62x51",
-      "SIG 微型膛口制退器 7.62x51",
-      "SIG 双端膛口制退器 7.62x51",
+      "SIG Sauer 7.62x51 三叉消焰器",
+      "SIG Sauer Micro Brake 7.62x51 微型膛口制退器",
+      "SIG Sauer Two Port Brake 7.62x51 双端膛口制退器",
       "DVL-10 M2 7.62x51膛口制退器",
       "DVL-10 7.62x51膛口装置",
       "SA-58 奥地利型 7.62x51 膛口制退器",
@@ -50762,10 +50299,10 @@
       "Kriss Vector .45 ACP螺纹保护帽",
       "Vector 9x19螺纹保护帽",
       "VPO-215螺纹保护帽",
-      "Hexagon 12K声音抑制器",
+      "Hexagon 12K 12 铅径消音器",
       "Gemtech SFN-57 5.7x28毫米消音器",
-      "9A-91 9x39声音抑制器",
-      "AI .338 LM战术声音抑制器",
+      "9A-91 9x39 消音器",
+      "AI .338 LM 战术消音器",
       "AK-12 5.45x39消音器",
       "Hexagon AK-74 5.45x39消音器",
       "AK-74 TGP-A 5.45x39消音器",
@@ -50775,30 +50312,30 @@
       "Zenit DTK-4M 7.62x39 AKM 消音器",
       "AKS-74U PBS-4 5.45x39消音器",
       "AAC Illusion 9 9x19毫米消音器",
-      "Alpha Dog Alpha 9 9x19声音抑制器",
-      "PL-15 9x19毫米声音抑制器",
+      "Alpha Dog Alpha 9 9x19 消音器",
+      "PL-15 9x19 消音器",
       "Rotor 43 9x19 消音器",
       "Rotor 43 .366TKM 消音器",
       "Rotor 43 5.56x45 消音器",
       "Rotor 43 7.62x39 消音器",
       "SIG Sauer SRD762Ti 7.62x51 消音器",
       "SIG Sauer SRD9 9x19 消音器",
-      "SilencerCo Osprey 9 9x19毫米抑制器",
+      "SilencerCo Osprey 9 9x19 消音器",
       "APB 9x18PM消音器",
-      "AAC 762 SDN-6 7.62x51声音抑制器",
-      "ASh-12 12.7x55战术抑制器",
+      "AAC 762-SDN-6 多口径消音器",
+      "ASh-12 12.7x55 声音抑制器",
       "SilencerCo SAKER ASR 556 5.56x45 消音器",
       "Steyr AUG Ase Utra S Series SL7i 5.56x45消音器",
       "Steyr AUG Relfex T4AUG Ranger 5.56x45消音器",
       "AWC Thor PSR XL多口径消音器",
-      "Gemtech ONE 7.62x51声音抑制器",
+      "Gemtech ONE 多口径消音器",
       "Rotor 43 7.62x54R 消音器",
       "SIG Sauer SRD762-QD 7.62x51 消音器",
-      "SilencerCo Omega 45k .45 ACP 声音抑制器",
-      "SilencerCo Osprey 12声音抑制器",
-      "B&T QD 7.62x51 G28 消音器",
+      "SilencerCo Omega 45k .45 ACP 消音器",
+      "SilencerCo Salvo 12 12 铅径消音器",
+      "B&T QD 7.62x51 G28 快拆消音器",
       "MCX SPEAR SLX68-MG-QD 6.8x51消音器",
-      "Fisher Development FD917抑制器",
+      "Fisher Development FD917 Glock 9x19 消音器",
       "Hexagon Wafflemaker 5.45x39 AK 消音器",
       "HK MP5SD 9x19消音器",
       "KAC QDSS NT-4 5.56x45 消音器（黑色）",
@@ -50810,32 +50347,32 @@
       "FN P90 Attenuator 5.7x28消音器",
       "PB 9x18马卡洛夫库藏消音器",
       "PP-19-01 Vityaz 9x19 消音器",
-      "PP-91-01 Kedr-B 9x18PM抑制器",
+      "PP-91-01 Kedr-B 9x18PM 消音器",
       "KAC PRS/QDC 7.62x51 消音器",
       "KAC QDC 5.56x45消音器",
       "Griffin Armament M4SD-K 5.56x45 AR-15 消音器",
       "MPX-SD 9x19整体式消声器",
-      "Hexagon SKS 7.62x39声音抑制器",
+      "Hexagon SKS 7.62x39 消音器",
       "SureFire SOCOM556-MINI MONSTER 5.56x45 消音器",
       "SureFire SOCOM556-MONSTER 5.56x45 消音器",
       "Surefire SOCOM556-RC2 5.56x45消音器",
       "SR-1MP 9x21 消音器",
       "SR-2M 9x21 SV-1381 消音器",
       "SR-3M 9x39消音器",
-      "SV-98 7.62x54标准消音器",
-      "Thunder Beast Ultra 5声音抑制器",
+      "SV-98 7.62x54R 消音器",
+      "Thunder Beast Ultra 5 消音器",
       "土制7.62x25 TT消音器",
       "B&T OEM .45 ACP UMP 消音器",
       "UZI 9x19毫米消音器",
-      "AS VAL 9x39枪管整体式抑制器",
+      "AS VAL 9x39 一体式消音枪管",
       "VPO-101 Rotor 43 7.62x51 消音器",
-      "VSS 9x39整体式枪管抑制器",
+      "VSS 9x39 一体式消音枪管",
       "Daniel Defence WAVE 快拆消音器",
       "ELCAN SpecterDR 1x/4x瞄准镜",
       "ELCAN SpecterDR 1x/4x瞄准镜 FDE",
       "Leupold Mark 4 HAMR 4x24 DeltaPoint 组合式突击瞄准镜",
       "Monstrum 紧凑战术棱镜式瞄准镜 2x32",
-      "Sig BRAVO4 4X30瞄准镜",
+      "SIG Sauer BRAVO4 4x30 瞄准镜",
       "SwampFox Trihawk 棱镜式瞄准镜 3x30",
       "Valday PS-320 1x/6x瞄准镜",
       "Steyr AUG A3 M1 1.5倍光学瞄准镜",
@@ -50859,12 +50396,12 @@
       "Holosun HS401G5反射式瞄具",
       "Leapers UTG反射式瞄具",
       "Milkor M2A1榴弹发射器反射式瞄具",
-      "SIG Romeo 8T反射式瞄具",
+      "SIG Sauer ROMEO8T 反射式瞄具",
       "SIG Sauer ROMEO7 1x30反射式瞄具（原型版本）",
       "Trijicon SRS-02反射式瞄具",
       "Valday PK-120 (1P87) 反射式瞄具",
       "Valday Krechet反射式瞄具",
-      "VOMZ Pilad P1X42 「WEAVER」反射式瞄具",
+      "VOMZ Pilad P1x42 韦佛导轨反射式瞄具",
       "Vortex Razor AMG UH-1全息瞄具",
       "Walther MRS反射式瞄具",
       "Wilcox BOSS Xe反射式瞄具",
@@ -50873,7 +50410,7 @@
       "Hensoldt RV 红点瞄具",
       "Axion Kobra EKP-1S-03 反射式瞄具（燕尾槽）",
       "Axion Kobra EKP-8-02 反射式瞄具（燕尾槽）",
-      "Belomo PK-AA反射式瞄具",
+      "BelOMO PK-AA 燕尾槽反射式瞄具",
       "OKP-7反射式瞄具（燕尾槽）",
       "KOMZ Rusak反射式瞄具",
       "NPZ PK1 Obzor“监视”反射式瞄具（燕尾槽）",
@@ -50885,8 +50422,8 @@
       "Aimpoint Micro T-1反射式瞄具",
       "Burris FastFire 3反射式瞄具",
       "Leupold DeltaPoint反射式瞄具",
-      "西格-绍尔Romeo 4反射式瞄具",
-      "Trijicon RMR",
+      "SIG Sauer ROMEO4 反射式瞄具",
+      "Trijicon RMR 反射式瞄具",
       "Five-seveN MK2标准准星",
       "M590 鬼环准星",
       "AKMP系统准星装置",
@@ -51013,7 +50550,7 @@
       "Nightforce ATACR 7-35x56 34 毫米步枪瞄准镜",
       "Schmidt & Bender PM II 3-20x50 34 毫米步枪瞄准镜",
       "Schmidt & Bender PM II 5-25x56 34 毫米步枪瞄准镜",
-      "NcSTAR ADO P4 Sniper 3-9x42步枪瞄准镜",
+      "NcSTAR ADO P4 狙击手 3-9x42 步枪瞄准镜",
       "KMZ 1P59 3-10x步枪瞄准镜",
       "KMZ 1P69 3-10x步枪瞄准镜",
       "NPZ 1P78-1 2.8倍瞄准镜",
@@ -51365,7 +50902,7 @@
       "纯净水",
       "Tarkovskaya瓶装伏特加",
       "“俄罗斯军队”盒装菠萝汁",
-      "0.6升瓶装水",
+      "600 毫升瓶装水",
       "Alyonka 巧克力",
       "炖美味牛肉罐头（大）",
       "黑麦面包块",
@@ -52097,7 +51634,7 @@
       "Peltor ComTac V 耳机（橄榄绿）",
       "Peltor ComTac VI 耳机（狼棕色）",
       "GSSh-01有源耳机",
-      "Safariland Liberator HP 2.0听力保护耳机（泥土色）",
+      "Safariland Liberator HP 2.0听力保护耳机 (FDE)",
       "Opsmen Earmor M32 耳机",
       "Peltor 战术运动型耳机",
       "Walker's Razor 数字耳机",
@@ -52265,7 +51802,7 @@
       "Shellback Tactical Banshee 插板胸挂（A-TACS AU 迷彩）",
       "Stich Profi MK2胸挂（突击型，A-TACS FG迷彩）",
       "Stich Profi MK2胸挂（侦察型，A-TACS FG迷彩）",
-      "Stich Profi Stich Defense mod.2防弹插板胸挂（多用途迷彩）",
+      "Stich Profi Stich Defense mod.2 插板胸挂（复合迷彩）",
       "Stich Profi V2 插板胸挂（黑色）",
       "FirstSpear Strandhogg 插板胸挂（丛林绿）",
       "Crye Precision AVS 插板胸挂（Tagilla 版）",
@@ -52287,9 +51824,9 @@
       "VPO-101 Vepr-Hunter 7.62x51 卡宾枪",
       "SR-3M 9x39紧凑型突击步枪",
       "AS VAL“巨浪” 9x39 特种突击步枪",
-      "Tokarev AVT-40 7.62x54R自动步枪",
+      "托卡列夫 AVT-40 7.62x54R 自动步枪",
       "西蒙诺夫 SKS 7.62x39 卡宾枪",
-      "Tokarev SVT-40 7.62x54R步枪",
+      "托卡列夫 SVT-40 7.62x54R 步枪",
       "ADAR 2-15 .223 卡宾枪",
       "ASh-12 12.7x55 突击步枪",
       "CMMG Mk47 Mutant 7.62x39 突击步枪",
@@ -52349,13 +51886,13 @@
       "RPD 7.62x39 轻机枪",
       "RPDN 7.62x39 轻机枪",
       "HK G28 7.62x51 精确射手步枪",
-      "德拉贡诺夫 SVDS 7.62x54 半自动狙击步枪",
+      "德拉贡诺夫 SVDS 7.62x54R 半自动狙击步枪",
       "奈特军械公司 (KAC) SR-25 7.62x51 精确射手步枪",
       "Kel-Tec RFB 7.62x51",
       "雷明顿 R11 RSASS 7.62x51 精确射手步枪",
       "春田 M1A 7.62x51 步枪",
       "SWORD International Mk-18 .338 LM 精确射手步枪",
-      "VSS “绞丝机” 特种狙击步枪",
+      "VSS “绞丝机”9x39 特种狙击步枪",
       "伯莱塔 M9A3 9x19 手枪",
       "柯尔特 M1911A1 .45 ACP 手枪",
       "柯尔特 M45A1 .45 ACP 手枪",
@@ -52426,7 +51963,7 @@
       "Accuracy International AXMC .338 LM 栓动式狙击步枪",
       "莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）",
       "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
-      "SV-98 7.62x54 狙击步枪",
+      "SV-98 7.62x54R 栓动式狙击步枪",
       "DVL-10 7.62x51 栓动式狙击步枪",
       "VPO-215 雪貂 .366 TKM 栓动式步枪",
       "ORSIS T-5000M 7.62x51 栓动式狙击步枪",
@@ -52474,9 +52011,9 @@
       "KITECO SC-IV SA防弹插板",
       "Kiba Arms Steel防弹插板",
       "Kiba Arms Titan防弹插板",
-      "Monoclete三级PE防弹插板",
+      "Monoclete III 级 PE 防弹插板",
       "NESCO 4400-SA-MC防弹插板",
-      "NewSphereTech三级防弹插板",
+      "NewSphereTech III 级防弹插板",
       "PRTCTR轻量化防弹插板",
       "SPRTN Elaphros防弹插板",
       "SPRTN Omega防弹插板",
@@ -52554,7 +52091,7 @@
       "带眼洞滑雪头套",
       "FORT Kiver-M 防弹头盔",
       "6B47 Ratnik-BSh 头盔（数码迷彩盔罩）",
-      "Altyn 防弹头盔（橄榄绿）",
+      "Altyn 突击头盔（橄榄绿）",
       "Armasight夜视镜头罩基座",
       "TSH-4M-L软质坦克乘员头盔",
       "Kolpak -1S防暴头盔",
@@ -52570,7 +52107,7 @@
       "ZSh-1-2M 头盔（黑色盔罩）",
       "Rivals 2020 帽",
       "DevTac 浪人面罩",
-      "DevTac Ronin helmet",
+      "Devtac 浪人头盔",
       "Zryachiy巴拉克拉瓦帽子",
       "复仇Zryachiy巴拉克拉瓦（折叠）",
       "头巾",
@@ -52591,7 +52128,7 @@
       "UCP军帽",
       "军用科技奔尼帽",
       "Jack Pyke Hunting LLCS奔尼帽",
-      "Stich Profi Chimera 奔尼帽",
+      "Stich Profi 奇美拉奔尼帽",
       "绒球毛线帽",
       "Rivals 2020 圆帽",
       "BOSS鸭舌帽",
@@ -52659,7 +52196,7 @@
       "FAB Defense AGR-870 保护盖",
       "Axion Kobra 瞄具遮光罩",
       "HK G36 阻手",
-      "Zev Tech瞄具基座盖",
+      "Zev Tech Glock 瞄具基座保护盖",
       "MP-155 「Ultima」 枪管下基座",
       "MP-155 「Ultima」手枪式握把橡胶垫",
       "NSPU-M瞄准镜眼罩",
@@ -52692,7 +52229,7 @@
       "Armytek Predator Pro v3 XHP35 HI手电",
       "Zenit 2D 战术手电",
       "Ultrafire WF-501B手电筒",
-      "BCM MOD.3战术握把",
+      "BCM GUNFIGHTER MOD 3 垂直前握把",
       "ASh-12 垂直前握把",
       "Fortis Shift 战术前握把",
       "Hera Arms CQR 战术前握把",
@@ -52878,8 +52415,8 @@
       "Lancer L7AWM 7.62x51 AR-10 20发弹匣",
       "Lancer L7AWM 7.62x51 AR-10 25发弹匣",
       "Magpul PMAG 20 SR-LR GEN M3 7.62x51 20发弹匣",
-      "12.7x55 10发ASh-12弹匣",
-      "ASh-12 20发ASh-12弹匣",
+      "12.7x55 ASh-12 10发弹匣",
+      "12.7x55 ASh-12 20发弹匣",
       "Steyr AUG 5.56x45 10发容量弹匣",
       "Steyr AUG 5.56x45 30发容量弹匣",
       "Steyr AUG 5.56x45 42发容量弹匣",
@@ -52960,7 +52497,7 @@
       "P226弹匣",
       "FN P90 5.7x28 50发弹匣",
       "玩具枪 20x1毫米 20发弹匣",
-      "PK 7.62x54R 100发盒式弹匣",
+      "PK 7.62x54R 100发弹链盒",
       "PL-15 9x19 16发弹匣",
       "PM 9x18PM 84发简易弹鼓",
       "90-93 9x18PM 8发PM弹匣",
@@ -53004,7 +52541,7 @@
       "TROY Battlemag 5.56x45 STANAG 30发弹匣",
       "7.62x54R 10发SV-98聚合物弹匣",
       "SVD 7.62x54 10发弹匣",
-      "SVD 7.62x54 20发弹匣",
+      "SVD 7.62x54R 20发弹匣",
       "AVT-40 7.62x54R 10发弹匣",
       "AVT-40 7.62x54R 15发弹匣",
       ".308 T-5000 5发弹匣",
@@ -53072,8 +52609,8 @@
       "Recknagel Era-Tac Sunshade Aimpoint T-1基座",
       "Recknagel Era-Tac 30毫米环形基座",
       "Recknagel Era-Tac 34毫米环形基座",
-      "SIG ALPHA4 30环形瞄具基座",
-      "西格-绍尔Romeo系列瞄具基座",
+      "SIG Sauer ALPHA4 30 毫米环形瞄准镜基座",
+      "SIG Sauer ROMEO 瞄具基座",
       "Trijicon RMR 高基线基座",
       "Trijicon RMR 低基线基座",
       "TA51瞄具基座",
@@ -53100,7 +52637,7 @@
       "KMZ 1P59 燕尾槽基座",
       "TOZ-106瞄准镜基座",
       "NPZ 1P78-1燕尾槽基座",
-      "Pilad 043-02基座",
+      "VOMZ Pilad 043-02 燕尾槽基座",
       "RS Regulate AK-303M 全尺寸导轨燕尾槽下基座",
       "SAG AK燕尾侧基座",
       "SAG Bit 低基线燕尾槽基座",
@@ -53259,7 +52796,7 @@
       "Zenit B-3 VSS/VAL 环形基座",
       "Zenit B-3 VSS/VAL 基座组合",
       "PNV-10T燕尾槽转接器",
-      "AN/PVS-14单目夜视仪双燕尾槽安装座",
+      "AN/PVS-14 Norotos 双燕尾槽安装座",
       "Norotos钛合金高级战术支架",
       "PVS-7 Wilcox接口",
       "AI AXMC手枪式握把",
@@ -53312,10 +52849,10 @@
       "AKMSN 折叠式枪托",
       "AKS-74 金属框架枪托",
       "AKS-74U 金属框架枪托",
-      "SIG枪托伸缩管转接器",
+      "SIG Sauer 折叠锁扣式缓冲管转接器",
       "SIG Sauer 伸缩/折叠式枪托",
       "SIG Sauer 枪托锁定铰链套件",
-      "SIG Sauer MCX/MPX 伸缩枪托",
+      "SIG Sauer 伸缩/折叠式枪托",
       "SIG Sauer 轻量化折叠式枪托",
       "APB可拆卸钢丝枪托",
       "ADAR 2-15木质枪托",
@@ -53593,7 +53130,7 @@
       "514毫米莫辛卡宾枪标准枪管",
       "莫辛纳甘 220 毫米锯短螺纹枪管 7.62x54R",
       "莫辛纳甘 200 毫米锯短枪管 7.62x54R",
-      "730毫米标准莫辛枪管",
+      "7.62x54R 730毫米莫辛标准枪管",
       "MP-155 12 铅径 510 毫米枪管",
       "MP-18 7.62x54R 600毫米枪管",
       "4.5 英寸 MPX 枪管 9x19",
@@ -53732,7 +53269,7 @@
       "Noveske SWS N6 AR-10 分体式护木",
       "AB Arms MOD1 AR-15 护木",
       "AB Arms MOD1 AR-15 下护木",
-      "ADAR 2-15 AR-15兼容木质枪托",
+      "ADAR 2-15 AR-15 木制护木",
       "Aeroknox AX-15 10.5 英寸 AR-15 M-LOK 护木",
       "Aeroknox AX-15 15.8英寸 AR-15 M-LOK 护木",
       "Aeroknox AX-15 4英寸 AR-15 M-LOK 护木",
@@ -53769,7 +53306,7 @@
       "Strike Industries Viper 卡宾枪规格 AR-15 M-LOK 护木 (FDE)",
       "Strike Industries Viper 卡宾枪规格 AR-15 M-LOK 下护木",
       "Strike Industries Viper 卡宾枪规格 M-LOK 下护木 (FDE)",
-      "Unique-ARs Wing & Skull 12 英寸 AR-15 护木",
+      "Unique-ARs 飞翼骷髅 12 英寸 AR-15 护木",
       "War Sport LVOA-C AR-15 护木（黑色）",
       "War Sport LVOA-S AR-15 护木（黑色）",
       "ASh-12聚合物护木",
@@ -54158,9 +53695,9 @@
       "Steyr AUG A3 5.56x45封闭式消焰器",
       "Steyr AUG A3 5.56x45枪口制退器",
       "Lantac BMD 7.62x51 爆炸缓冲装置",
-      "三叉 SIG 消焰器 7.62x51",
-      "SIG 微型膛口制退器 7.62x51",
-      "SIG 双端膛口制退器 7.62x51",
+      "SIG Sauer 7.62x51 三叉消焰器",
+      "SIG Sauer Micro Brake 7.62x51 微型膛口制退器",
+      "SIG Sauer Two Port Brake 7.62x51 双端膛口制退器",
       "DVL-10 M2 7.62x51膛口制退器",
       "DVL-10 7.62x51膛口装置",
       "SA-58 奥地利型 7.62x51 膛口制退器",
@@ -54262,10 +53799,10 @@
       "Kriss Vector .45 ACP螺纹保护帽",
       "Vector 9x19螺纹保护帽",
       "VPO-215螺纹保护帽",
-      "Hexagon 12K声音抑制器",
+      "Hexagon 12K 12 铅径消音器",
       "Gemtech SFN-57 5.7x28毫米消音器",
-      "9A-91 9x39声音抑制器",
-      "AI .338 LM战术声音抑制器",
+      "9A-91 9x39 消音器",
+      "AI .338 LM 战术消音器",
       "AK-12 5.45x39消音器",
       "Hexagon AK-74 5.45x39消音器",
       "AK-74 TGP-A 5.45x39消音器",
@@ -54275,30 +53812,30 @@
       "Zenit DTK-4M 7.62x39 AKM 消音器",
       "AKS-74U PBS-4 5.45x39消音器",
       "AAC Illusion 9 9x19毫米消音器",
-      "Alpha Dog Alpha 9 9x19声音抑制器",
-      "PL-15 9x19毫米声音抑制器",
+      "Alpha Dog Alpha 9 9x19 消音器",
+      "PL-15 9x19 消音器",
       "Rotor 43 9x19 消音器",
       "Rotor 43 .366TKM 消音器",
       "Rotor 43 5.56x45 消音器",
       "Rotor 43 7.62x39 消音器",
       "SIG Sauer SRD762Ti 7.62x51 消音器",
       "SIG Sauer SRD9 9x19 消音器",
-      "SilencerCo Osprey 9 9x19毫米抑制器",
+      "SilencerCo Osprey 9 9x19 消音器",
       "APB 9x18PM消音器",
-      "AAC 762 SDN-6 7.62x51声音抑制器",
-      "ASh-12 12.7x55战术抑制器",
+      "AAC 762-SDN-6 多口径消音器",
+      "ASh-12 12.7x55 声音抑制器",
       "SilencerCo SAKER ASR 556 5.56x45 消音器",
       "Steyr AUG Ase Utra S Series SL7i 5.56x45消音器",
       "Steyr AUG Relfex T4AUG Ranger 5.56x45消音器",
       "AWC Thor PSR XL多口径消音器",
-      "Gemtech ONE 7.62x51声音抑制器",
+      "Gemtech ONE 多口径消音器",
       "Rotor 43 7.62x54R 消音器",
       "SIG Sauer SRD762-QD 7.62x51 消音器",
-      "SilencerCo Omega 45k .45 ACP 声音抑制器",
-      "SilencerCo Osprey 12声音抑制器",
-      "B&T QD 7.62x51 G28 消音器",
+      "SilencerCo Omega 45k .45 ACP 消音器",
+      "SilencerCo Salvo 12 12 铅径消音器",
+      "B&T QD 7.62x51 G28 快拆消音器",
       "MCX SPEAR SLX68-MG-QD 6.8x51消音器",
-      "Fisher Development FD917抑制器",
+      "Fisher Development FD917 Glock 9x19 消音器",
       "Hexagon Wafflemaker 5.45x39 AK 消音器",
       "HK MP5SD 9x19消音器",
       "KAC QDSS NT-4 5.56x45 消音器（黑色）",
@@ -54310,32 +53847,32 @@
       "FN P90 Attenuator 5.7x28消音器",
       "PB 9x18马卡洛夫库藏消音器",
       "PP-19-01 Vityaz 9x19 消音器",
-      "PP-91-01 Kedr-B 9x18PM抑制器",
+      "PP-91-01 Kedr-B 9x18PM 消音器",
       "KAC PRS/QDC 7.62x51 消音器",
       "KAC QDC 5.56x45消音器",
       "Griffin Armament M4SD-K 5.56x45 AR-15 消音器",
       "MPX-SD 9x19整体式消声器",
-      "Hexagon SKS 7.62x39声音抑制器",
+      "Hexagon SKS 7.62x39 消音器",
       "SureFire SOCOM556-MINI MONSTER 5.56x45 消音器",
       "SureFire SOCOM556-MONSTER 5.56x45 消音器",
       "Surefire SOCOM556-RC2 5.56x45消音器",
       "SR-1MP 9x21 消音器",
       "SR-2M 9x21 SV-1381 消音器",
       "SR-3M 9x39消音器",
-      "SV-98 7.62x54标准消音器",
-      "Thunder Beast Ultra 5声音抑制器",
+      "SV-98 7.62x54R 消音器",
+      "Thunder Beast Ultra 5 消音器",
       "土制7.62x25 TT消音器",
       "B&T OEM .45 ACP UMP 消音器",
       "UZI 9x19毫米消音器",
-      "AS VAL 9x39枪管整体式抑制器",
+      "AS VAL 9x39 一体式消音枪管",
       "VPO-101 Rotor 43 7.62x51 消音器",
-      "VSS 9x39整体式枪管抑制器",
+      "VSS 9x39 一体式消音枪管",
       "Daniel Defence WAVE 快拆消音器",
       "ELCAN SpecterDR 1x/4x瞄准镜",
       "ELCAN SpecterDR 1x/4x瞄准镜 FDE",
       "Leupold Mark 4 HAMR 4x24 DeltaPoint 组合式突击瞄准镜",
       "Monstrum 紧凑战术棱镜式瞄准镜 2x32",
-      "Sig BRAVO4 4X30瞄准镜",
+      "SIG Sauer BRAVO4 4x30 瞄准镜",
       "SwampFox Trihawk 棱镜式瞄准镜 3x30",
       "Valday PS-320 1x/6x瞄准镜",
       "Steyr AUG A3 M1 1.5倍光学瞄准镜",
@@ -54359,12 +53896,12 @@
       "Holosun HS401G5反射式瞄具",
       "Leapers UTG反射式瞄具",
       "Milkor M2A1榴弹发射器反射式瞄具",
-      "SIG Romeo 8T反射式瞄具",
+      "SIG Sauer ROMEO8T 反射式瞄具",
       "SIG Sauer ROMEO7 1x30反射式瞄具（原型版本）",
       "Trijicon SRS-02反射式瞄具",
       "Valday PK-120 (1P87) 反射式瞄具",
       "Valday Krechet反射式瞄具",
-      "VOMZ Pilad P1X42 「WEAVER」反射式瞄具",
+      "VOMZ Pilad P1x42 韦佛导轨反射式瞄具",
       "Vortex Razor AMG UH-1全息瞄具",
       "Walther MRS反射式瞄具",
       "Wilcox BOSS Xe反射式瞄具",
@@ -54373,7 +53910,7 @@
       "Hensoldt RV 红点瞄具",
       "Axion Kobra EKP-1S-03 反射式瞄具（燕尾槽）",
       "Axion Kobra EKP-8-02 反射式瞄具（燕尾槽）",
-      "Belomo PK-AA反射式瞄具",
+      "BelOMO PK-AA 燕尾槽反射式瞄具",
       "OKP-7反射式瞄具（燕尾槽）",
       "KOMZ Rusak反射式瞄具",
       "NPZ PK1 Obzor“监视”反射式瞄具（燕尾槽）",
@@ -54385,8 +53922,8 @@
       "Aimpoint Micro T-1反射式瞄具",
       "Burris FastFire 3反射式瞄具",
       "Leupold DeltaPoint反射式瞄具",
-      "西格-绍尔Romeo 4反射式瞄具",
-      "Trijicon RMR",
+      "SIG Sauer ROMEO4 反射式瞄具",
+      "Trijicon RMR 反射式瞄具",
       "Five-seveN MK2标准准星",
       "M590 鬼环准星",
       "AKMP系统准星装置",
@@ -54513,7 +54050,7 @@
       "Nightforce ATACR 7-35x56 34 毫米步枪瞄准镜",
       "Schmidt & Bender PM II 3-20x50 34 毫米步枪瞄准镜",
       "Schmidt & Bender PM II 5-25x56 34 毫米步枪瞄准镜",
-      "NcSTAR ADO P4 Sniper 3-9x42步枪瞄准镜",
+      "NcSTAR ADO P4 狙击手 3-9x42 步枪瞄准镜",
       "KMZ 1P59 3-10x步枪瞄准镜",
       "KMZ 1P69 3-10x步枪瞄准镜",
       "NPZ 1P78-1 2.8倍瞄准镜",
@@ -55134,17 +54671,17 @@
       "狙击手"
      ],
      "maps": [
-      "工厂",
+      "破冰船",
       "森林",
-      "海岸线",
-      "灯塔",
       "夜间工厂",
+      "灯塔",
       "海关",
       "Ground Zero 教程",
-      "储备站",
+      "工厂",
       "塔科夫街区",
-      "破冰船",
-      "立交桥"
+      "立交桥",
+      "海岸线",
+      "储备站"
      ]
     },
     {
@@ -55326,17 +54863,17 @@
       "狙击手"
      ],
      "maps": [
-      "工厂",
+      "破冰船",
       "森林",
-      "海岸线",
-      "灯塔",
       "夜间工厂",
+      "灯塔",
       "海关",
       "Ground Zero 教程",
-      "储备站",
+      "工厂",
       "塔科夫街区",
-      "破冰船",
-      "立交桥"
+      "立交桥",
+      "海岸线",
+      "储备站"
      ]
     },
     {
@@ -56029,22 +55566,11 @@
    "objectives": [
     {
      "type": "shoot",
-     "text": "找到并消灭Glukhar",
-     "count": 1,
+     "text": "在储备站找到并消灭 Glukhar 或他的保镖（在同一场战斗中完成）",
+     "count": 4,
      "single": "击杀",
      "targets": [
-      "Glukhar"
-     ],
-     "maps": [
-      "储备站"
-     ]
-    },
-    {
-     "type": "shoot",
-     "text": "消灭Glukhar的保镖",
-     "count": 6,
-     "single": "击杀",
-     "targets": [
+      "Glukhar",
       "Glukhar Guard (Assault)",
       "Glukhar Guard (Scout)",
       "Glukhar Guard (Security)",
@@ -56055,8 +55581,17 @@
      ]
     },
     {
+     "type": "findItem",
+     "text": "将一枚黄色信号弹带入战局",
+     "optional": true,
+     "count": 1,
+     "items": [
+      "RSP-30 反应式信号弹（黄色）"
+     ]
+    },
+    {
      "type": "useItem",
-     "text": "在雷达站发射一枚黄色信号弹",
+     "text": "在储备站雷达站发射一枚黄色信号弹（在同一场战斗中完成）",
      "count": 1,
      "items": [
       "RSP-30 反应式信号弹（黄色）",
@@ -56068,7 +55603,7 @@
     },
     {
      "type": "extract",
-     "text": "在储备站幸存，并从峭壁斜坡撤离",
+     "text": "在储备站以幸存状态通过“峭壁斜坡”撤离点撤离（在同一场战斗中完成）",
      "count": 1,
      "single": "峭壁斜坡",
      "exitStatus": [
@@ -56089,6 +55624,10 @@
      [
       "LEDX皮肤透照仪",
       3
+     ],
+     [
+      "变电站符号钥匙",
+      1
      ]
     ],
     "standing": [
@@ -56217,25 +55756,25 @@
    "otherReqs": [],
    "objectives": [
     {
-     "type": "skill",
-     "text": "达到指定的栓动式步枪操作技能等级",
-     "single": "栓动式步枪",
-     "level": 10
-    },
-    {
      "type": "shoot",
-     "text": "从350开外击杀狙击Scav",
+     "text": "从 200 米外消灭狙击 Scav",
      "count": 10,
      "single": "击杀",
      "targets": [
-      "狙击手"
+      "狙击手",
+      "Shturman Guard",
+      "Glukhar Guard (Scout)",
+      "Kaban Guard (Sniper)",
+      "Shturman"
      ],
      "dist": [
       ">=",
-      350
+      200
      ],
      "maps": [
-      "塔科夫街区"
+      "塔科夫街区",
+      "森林",
+      "灯塔"
      ]
     }
    ],
@@ -56245,6 +55784,14 @@
      [
       "相控阵单元",
       2
+     ],
+     [
+      "变电站符号钥匙",
+      1
+     ],
+     [
+      "灯塔岛藏匿点钥匙",
+      1
      ]
     ],
     "standing": [
@@ -56284,18 +55831,55 @@
    "objectives": [
     {
      "type": "visit",
-     "text": "在塔科夫街区找到装有货物的载具",
+     "text": "在塔科夫街区找到装有货物的装甲车队",
+     "maps": [
+      "塔科夫街区"
+     ]
+    },
+    {
+     "type": "findItem",
+     "text": "将一个 MS2000 标记器带入战局",
+     "optional": true,
+     "count": 1,
+     "items": [
+      "MS2000指示器"
+     ]
+    },
+    {
+     "type": "findItem",
+     "text": "将一枚黄色信号弹带入战局",
+     "optional": true,
+     "count": 1,
+     "items": [
+      "RSP-30 反应式信号弹（黄色）"
+     ]
+    },
+    {
+     "type": "shoot",
+     "text": "在塔科夫街区消灭 PMC 行动人员",
+     "count": 10,
+     "single": "击杀",
+     "targets": [
+      "任意PMC干员"
+     ],
      "maps": [
       "塔科夫街区"
      ]
     },
     {
      "type": "shoot",
-     "text": "清理区域内的PMC",
-     "count": 50,
+     "text": "在塔科夫街区找到并消灭任意 Boss 或其保镖",
+     "count": 20,
      "single": "击杀",
      "targets": [
-      "任意PMC干员"
+      "Kaban",
+      "Kaban Guard (Sniper)",
+      "Kaban Guard",
+      "Basmach",
+      "Gus",
+      "保镖 (Assault)",
+      "保镖 (Security)",
+      "Kollontay"
      ],
      "maps": [
       "塔科夫街区"
@@ -56314,23 +55898,11 @@
     },
     {
      "type": "useItem",
-     "text": "在装甲车队附近发射黄色信号弹以表明任务完成",
+     "text": "在装甲车队附近发射一枚黄色信号弹",
      "count": 1,
      "items": [
       "RSP-30 反应式信号弹（黄色）",
       "26x75燃烧照明信号弹（黄色）"
-     ],
-     "maps": [
-      "塔科夫街区"
-     ]
-    },
-    {
-     "type": "extract",
-     "text": "以幸存状态撤离该区域",
-     "count": 1,
-     "exitStatus": [
-      "幸存",
-      "转移"
      ],
      "maps": [
       "塔科夫街区"
@@ -56342,6 +55914,10 @@
     "items": [
      [
       "直流变压器",
+      1
+     ],
+     [
+      "变电站符号钥匙",
       1
      ]
     ],
@@ -56472,7 +56048,7 @@
    "objectives": [
     {
      "type": "shoot",
-     "text": "在森林的山区附近击杀PMC",
+     "text": "在森林击杀 PMC 行动人员",
      "count": 15,
      "single": "击杀",
      "targets": [
@@ -56484,7 +56060,7 @@
     },
     {
      "type": "plantItem",
-     "text": "将TerraGroup 「蓝色文件夹」藏匿在森林USEC营地的黑色SUV里面",
+     "text": "将 TerraGroup“蓝色文件夹”藏匿在森林 USEC 营地的黑色 SUV 内",
      "count": 1,
      "items": [
       "TerraGroup 「蓝色文件夹」 材料"
@@ -56495,7 +56071,7 @@
     },
     {
      "type": "plantItem",
-     "text": "将TerraGroup 「蓝色文件夹」藏匿在USEC营地卫星天线附近的箱子里",
+     "text": "将 TerraGroup“蓝色文件夹”藏匿在森林 USEC 营地的卫星天线附近的箱子内",
      "count": 1,
      "items": [
       "TerraGroup 「蓝色文件夹」 材料"
@@ -56510,6 +56086,10 @@
     "items": [
      [
       "硅基光电集成电路教材",
+      1
+     ],
+     [
+      "灯塔岛藏匿点钥匙",
       1
      ]
     ],
@@ -56538,19 +56118,13 @@
    "kappa": false,
    "lightkeeper": false,
    "restartable": false,
-   "prereqs": [
-    {
-     "name": "咚咚咚",
-     "trader": "Mechanic",
-     "status": ""
-    }
-   ],
+   "prereqs": [],
    "traderReqs": [],
    "otherReqs": [],
    "objectives": [
     {
      "type": "extract",
-     "text": "在森林幸存，并通过南部载具撤离点撤离",
+     "text": "在森林幸存，并通过大桥载具撤离点撤离",
      "count": 1,
      "single": "大桥载具撤离点",
      "exitStatus": [
@@ -56586,9 +56160,9 @@
     },
     {
      "type": "extract",
-     "text": "在塔科夫街区幸存，并通过Primorsky（Приморский）大道出租车载具撤离点撤离",
+     "text": "在塔科夫街区幸存，并通过“Primorsky大道出租车”载具撤离点撤离",
      "count": 1,
-     "single": "Primorsky大道出租车载具撤离点",
+     "single": "Primorsky大道载具撤离点",
      "exitStatus": [
       "幸存"
      ],
@@ -56609,25 +56183,27 @@
      ]
     },
     {
-     "type": "mark",
-     "text": "在塔科夫街区找到第一辆Patrol-A装甲车，并使用MS2000指示器标记",
+     "type": "extract",
+     "text": "在灯塔幸存，并通过“通往军事基地的路”载具撤离点撤离",
      "count": 1,
-     "items": [
-      "MS2000指示器"
+     "single": "通往军事基地的载具撤离点",
+     "exitStatus": [
+      "幸存"
      ],
      "maps": [
-      "塔科夫街区"
+      "灯塔"
      ]
     },
     {
-     "type": "mark",
-     "text": "在塔科夫街区找到第二辆Patrol-A装甲车，并使用MS2000指示器标记",
+     "type": "extract",
+     "text": "在灯塔幸存，并通过“通往北方的路”载具撤离点撤离",
      "count": 1,
-     "items": [
-      "MS2000指示器"
+     "single": "通往北方的路（载具撤离点）",
+     "exitStatus": [
+      "幸存"
      ],
      "maps": [
-      "塔科夫街区"
+      "海岸线"
      ]
     }
    ],
@@ -56636,6 +56212,10 @@
     "items": [
      [
       "先进电子材料教材",
+      1
+     ],
+     [
+      "灯塔岛藏匿点钥匙",
       1
      ]
     ],
@@ -56649,7 +56229,7 @@
    "startRewards": {},
    "fail": {},
    "keys": [],
-   "delay": 5
+   "delay": 0
   },
   {
    "id": "63966fccac6f8f3c677b9d89",
@@ -56744,6 +56324,10 @@
      [
       "VPX闪存模块",
       3
+     ],
+     [
+      "变电站符号钥匙",
+      1
      ]
     ],
     "standing": [
@@ -56791,16 +56375,15 @@
    "objectives": [
     {
      "type": "shoot",
-     "text": "击杀掠夺者",
+     "text": "在实验室消灭任意目标",
      "count": 20,
      "single": "击杀",
      "targets": [
-      "掠夺者"
+      "任意目标"
      ],
      "maps": [
       "实验室 (Dark)",
-      "实验室",
-      "储备站"
+      "实验室"
      ]
     },
     {
@@ -56853,6 +56436,10 @@
      [
       "GPS信号放大单元",
       1
+     ],
+     [
+      "变电站符号钥匙",
+      1
      ]
     ],
     "standing": [
@@ -56898,7 +56485,7 @@
    "objectives": [
     {
      "type": "shoot",
-     "text": "在立交桥使用Ash-12击杀任何位于Kiba Arms商店附近的敌人",
+     "text": "在立交桥 ULTRA 商场内使用 ASh-12 突击步枪消灭任意目标",
      "count": 20,
      "single": "击杀",
      "targets": [
@@ -56913,7 +56500,7 @@
     },
     {
      "type": "plantItem",
-     "text": "将咸狗牛肉肠藏匿在Kiba Arms商店里",
+     "text": "在立交桥将咸狗牛肉肠藏匿在 Kiba Arms 商店里",
      "count": 1,
      "items": [
       "咸狗牛肉肠"
@@ -56928,7 +56515,7 @@
     },
     {
      "type": "plantItem",
-     "text": "将一瓶“凶狠跑刀崽”月光藏匿在秘密安全屋里",
+     "text": "在立交桥将一瓶“凶狠跑刀崽”私酒藏匿在安全屋撤离点内",
      "count": 1,
      "items": [
       "“凶狠跑刀崽”私酒"
@@ -56942,25 +56529,13 @@
     },
     {
      "type": "plantItem",
-     "text": "将厕纸藏匿在秘密物资箱里",
+     "text": "在立交桥将厕纸藏匿在秘密物资箱里",
      "count": 1,
      "items": [
       "卫生纸"
      ],
      "keys": [
       "Object #21WS 钥匙卡"
-     ],
-     "maps": [
-      "立交桥"
-     ]
-    },
-    {
-     "type": "extract",
-     "text": "以幸存状态撤离该区域",
-     "count": 1,
-     "exitStatus": [
-      "幸存",
-      "转移"
      ],
      "maps": [
       "立交桥"
@@ -56973,6 +56548,10 @@
      [
       "Virtex可编程处理器",
       2
+     ],
+     [
+      "灯塔岛藏匿点钥匙",
+      1
      ]
     ],
     "standing": [
@@ -57117,7 +56696,7 @@
      "text": "在红色桌子附近藏匿一个 AI .338 LM 战术声音抑制器",
      "count": 1,
      "items": [
-      "AI .338 LM战术声音抑制器"
+      "AI .338 LM 战术消音器"
      ],
      "maps": [
       "塔科夫街区"
@@ -57146,18 +56725,6 @@
      "maps": [
       "塔科夫街区"
      ]
-    },
-    {
-     "type": "extract",
-     "text": "以幸存状态撤离该区域",
-     "count": 1,
-     "exitStatus": [
-      "幸存",
-      "转移"
-     ],
-     "maps": [
-      "塔科夫街区"
-     ]
     }
    ],
    "failConditions": [],
@@ -57165,6 +56732,10 @@
     "items": [
      [
       "微控制器电路板",
+      1
+     ],
+     [
+      "变电站符号钥匙",
       1
      ]
     ],

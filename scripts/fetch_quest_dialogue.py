@@ -14,7 +14,7 @@
 -----------------
 两站都用**游戏原始任务 id**（实测 3 个任务逐一核对：``6752f6d8…`` 双方都是
 「一臂之力」）。所以不需要按名字模糊匹配 —— 那正是站内重复踩过的坑
-（10 个重名任务）。
+（重名任务按 id 只取一条）。
 
 抓取要点
 --------
@@ -50,11 +50,9 @@ DELAY = 0.6
 # 每抓这么多个就落一次盘：中断了不用从头再来
 FLUSH_EVERY = 25
 
+# ⚠️ 别用纯浏览器 UA —— json.tarkov.dev 对 `Mozilla/...` 返回 403（2026-10-17 实测）。
 HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/128.0 Safari/537.36"
-    ),
+    "User-Agent": "tarkov-encyclopedia-refresh/1.0 (+https://github.com/GTX950L/tarkov-encyclopedia)",
     "Accept-Language": "zh-CN,zh;q=0.9",
 }
 
@@ -80,7 +78,7 @@ def parse(h: str) -> dict | None:
 
     ⚠️ **该站对「没有详情页的任务 id」会回退到任务列表页，HTTP 仍是 200。**
        必须显式识别，否则会把「该站查不到」误报成「本来就没有台词」——
-       实测 515 个任务里有 **36 个**是这种情况（第一版就是这么漏的，
+       实测有 **36 个**任务是这种情况（第一版就是这么漏的，
        那 36 条被存成了「有页面但三个字段全空」，看起来像数据缺失）。
        判据用 `task-detail-main`：真任务页必有，列表页没有。
 

@@ -89,6 +89,18 @@ python scripts/gen_item_icons.py     # 联网抓 assets.tarkov.dev，约一两�
 判据：`content/assets/items/icons/` 的文件数必须等于 `item-icons.js` 的映射条数 ——
 `check_entries.py` 已替你对这条账（数量不等或出现孤儿图标会直接报错）。
 
+**重抓任务数据（会改全站计数，按顺序跑）**：
+
+```bash
+python scripts/gen_quests.py --fetch      # 任务主数据 + 页面 + 详情分片
+python scripts/gen_quest_graph.py --fetch # 前置边表（id 级，必须跟着重抓）
+python scripts/gen_home_stats.py          # 首页速览（任务数 / 目标数）
+python scripts/build_all.py               # 其余生成物 + 全套校验
+```
+
+抓完**必须同步正文里的「N 个任务 / M 条目标」**——`check_entries.py` 会逐处对账（8 处声明 + citation），
+漏改一处就红。抓取脚本会打印「新增 / 移除」清单，先看清是哪一类变化，再决定要不要接受。
+
 ## 🏷️ 发版与版本号
 
 ```bash

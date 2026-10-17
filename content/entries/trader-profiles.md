@@ -22,7 +22,7 @@ tags:
 |------|------|
 | **类型** | 人物与动机（经济系统的「人」的一面） |
 | **覆盖对象** | 八位常规商人，外加 BTR 司机 / Lightkeeper / Ref 三位非常规角色 |
-| **证据来源** | 游戏内任务台词（`quest_dialogue.json`，474 个任务带台词）、任务设计（`quests.json`，515 个任务）、站内既有口径（[商人系统](traders.md)、[商人任务线图鉴](trader-questlines.md)） |
+| **证据来源** | 游戏内任务台词（`quest_dialogue.json`，464 个任务带台词）、任务设计（`quests.json`，504 个任务）、站内既有口径（[商人系统](traders.md)、[商人任务线图鉴](trader-questlines.md)） |
 | **读法** | 每人五问：一句话画像 → 他怎么说话 → 他让你干什么 → 货架上是什么人 → 他到底要什么 |
 
 ---
@@ -56,7 +56,7 @@ tags:
 | **Jaeger** | 64 | 守林的老猎人 | 一个「配得上这片森林的人」 |
 | **Fence** | 16 | Scav 世界的声誉经纪人 | 忠诚与情报——玩家既是客户也是产品 |
 
-> 📐 **任务数口径**：取自官方任务数据端点（持久 PvP 档案，2026-09-30 抓取），与[商人任务线图鉴](trader-questlines.md) §2.1 同源。 Ref（20）、BTR 司机（19）、Lightkeeper（14）不计入八位商人。
+> 📐 **任务数口径**：取自官方任务数据端点（持久 PvP 档案，2026-10-17 抓取），与[商人任务线图鉴](trader-questlines.md) §2.1 同源。 Ref（21）、BTR 司机（19）、Lightkeeper（14）不计入八位商人。
 
 ### 2. Prapor —— 脱下军装的军官，还没放下纪律
 
@@ -120,7 +120,7 @@ tags:
 
 **他怎么说话**：八位里唯一谈得上「思想」的。[侦查](../quests/mechanic.md#q04) 里交代出身：「我曾在这里的化工厂工作，只不过是一名普普通通的工头罢了」；同一段话里露出恨意：「总有一天，我们会摆脱这只无形之手，它先是给我们打上雇员的标签，让我们屈服于上位者的意志，又带来了这一切混乱」。[不良嗜好](../quests/mechanic.md#q02) 里又要 20 包香烟：「我开工后就必须一气呵成把活干完……我知道，吸烟在折我的寿，但是谁会在乎呢。」
 
-**他让你干什么**：89 个任务（全站最多）四线——**枪匠**（26 条改枪任务，按他的规格造出来）、**跑腿**（[一臂之力](../quests/mechanic.md#q01) 查失联的 BTR 司机）、**开门**（[介绍](../quests/mechanic.md#q03)：替他去森林取 Jaeger 的加密包裹——这是全站最重要的引荐任务；[网络供应商] 链开 Lightkeeper）、**企业调查**（[公司福报](../quests/mechanic.md#q05)、[影子雇员](../quests/mechanic.md#q14)、[投机第一步](../quests/mechanic.md#q17)——全是 TerraGroup 的边角）。
+**他让你干什么**：72 个任务（全站最多）四线——**枪匠**（26 条改枪任务，按他的规格造出来）、**跑腿**（[一臂之力](../quests/mechanic.md#q01) 查失联的 BTR 司机）、**开门**（[介绍](../quests/mechanic.md#q03)：替他去森林取 Jaeger 的加密包裹——这是全站最重要的引荐任务；Lightkeeper 的门 1.1.5.0 起改为「Tour 剧情 + 全体 LL3 + 向 Mechanic 询问」）、**企业调查**（[公司福报](../quests/mechanic.md#q05)、[影子雇员](../quests/mechanic.md#q14)、[投机第一步](../quests/mechanic.md#q17)——全是 TerraGroup 的边角）。
 
 **货架上是什么人**：高端改装件与枪匠任务的发源地（见[商人系统](traders.md) §1）。他供货给「懂行的人」——货架本身就是技术门槛，筛掉不配用的客户。
 
@@ -241,15 +241,14 @@ tags:
 | 关系 | 性质 | 证据 |
 |------|------|------|
 | **Mechanic ↔ Jaeger** | 旧识 + 情报互换 | 「我的老伙计 Jaeger 联系了我」（[介绍](../quests/mechanic.md#q03)）；Jaeger 向 Mechanic 打听掌握的情况（[如楔在侧](../quests/jaeger.md#q05)）；猎物的枪「作为 Mechanic 的藏品肯定很合适」（[猎人之路 - 战利品](../quests/jaeger.md#q19)） |
-| **Mechanic ↔ Lightkeeper** | 中介 + 声誉修复 | 台词 11 次提及；「破镜重圆」系列由 Mechanic 传话——「Lightkeeper 说他已经准备好重新接纳你了」，且该系列**要求 Lightkeeper 声望 ≤ 0** |
-| **Mechanic ↔ Peacekeeper** | 买卖（情报 ↔ 补给） | Peacekeeper 向 Mechanic 买 Sanitar 情报且嫌贵（[TerraGroup 雇员](../quests/peacekeeper.md#q01)）；Mechanic 安排来自 Peacekeeper 的补给作为回报（[轻重缓急](../quests/mechanic.md#q88)） |
+| **Mechanic ↔ Lightkeeper** | 引荐人 | **1.1.5.0 官方**把「向 Mechanic 询问」列为访问 Lightkeeper 的三道门之一；旧「网络供应商 / 破镜重圆」两条中介链已随版本移除 |
+| **Mechanic ↔ Peacekeeper** | 买卖（情报 ↔ 补给） | Peacekeeper 向 Mechanic 买 Sanitar 情报且嫌贵（[TerraGroup 雇员](../quests/peacekeeper.md#q01)）；Mechanic 安排来自 Peacekeeper 的补给作为回报（[轻重缓急](../quests/mechanic.md#q71)） |
 | **Prapor ↔ Therapist** | 暗线合作 | 「邮递员派特」双任务：Prapor 给 Therapist 送「互利共赢的合作建议，但肯定不方便就这么公之于众」，玩家负责把这条通道修回来（两人的 Kappa 任务各一半） |
 | **Prapor ↔ Skier** | 对立 | [横插一杠](../quests/prapor.md#q19)：Prapor 想与 BTR 司机合作，Skier 是绊脚石；[缔结友谊](../quests/prapor.md#q28)：「想要对抗 Skier 那个滑头，代价可是小不了啊」 |
 | **Skier ↔ BTR 司机** | 控制与反叛 | 「我和 Skier 合作，替他送货」（[奠定基石](../quests/btr-driver.md#q03)）；「Skier 那个滑头肯定不会轻易把我放走」（[投石问路](../quests/btr-driver.md#q08)） |
 | **Therapist ↔ Jaeger** | 政见冲突 | 「我知道 Jaeger 会让你杀了那个 Sanitar，但你不一定非得这么做」（[艰难抉择](../quests/therapist.md#q24)）——Therapist 当面拆 Jaeger 的台 |
 | **Mechanic ↔ Skier** | 竞争 + 不信任 | 「Skier 那个滑头」（[一臂之力](../quests/mechanic.md#q01)）；两人抢同一样东西（[公道价 - 1](../quests/skier.md#q59)） |
 | **Mechanic ↔ Ragman** | 买卖（燃料） | 「有了 Mechanic 这样来者不拒照单全收的买主……我上次弄来的一整批货都卖给他了」（[小事大帮忙](../quests/ragman.md#q11)） |
-| **Mechanic ↔ Fence** | 借道 | [网络供应商 - 1](../quests/mechanic.md#q44)**要求 Fence 声望 ≥ 2**——Mechanic 开 Lightkeeper 的门，先要过 Fence 的声望关 |
 | **Prapor ↔ BTR 司机** | 潜在合作 | BTR 的服务「已经用过几次了」（[缔结友谊](../quests/prapor.md#q28)）；双方谈判中（「电池换新」） |
 | **Skier ↔ Ragman** | 介绍人 | 「我会向 Ragman 提起你的——他会给你搞些头盔给你买」（[化学品 - 4](../quests/skier.md#q41)） |
 | **Lightkeeper ↔ Fence / Ref** | 旁观者 | 「我听说你卷进了 Fence 和竞技场裁判之间的风波」（「天降大礼」） |
@@ -268,8 +267,8 @@ tags:
 
 把上面的表连起来看，八位商人不是八张并排的桌子，是一张有结构的网：
 
-- **Mechanic 是节点**：唯一与另外五位有直接证据关系的商人（Jaeger 旧识、Lightkeeper 中介、Peacekeeper 买卖、Ragman 买卖、Fence 借道、Skier 竞争）。这解释了他为什么任务数全站最多（89）——**他的「活」就是维持这张网**，玩家是他网络里最活跃的节点（与 §6 画像互证）。
-- **Fence 是底层**：不进前台，但开 Lightkeeper 的门要他的声望（[网络供应商 - 1](../quests/mechanic.md#q44)），收藏家由他发放——他是整张网的**认证层**。
+- **Mechanic 是节点**：唯一与另外五位有直接证据关系的商人（Jaeger 旧识、Lightkeeper 中介、Peacekeeper 买卖、Ragman 买卖、Fence 借道、Skier 竞争）。这解释了他为什么任务数全站最多（72）——**他的「活」就是维持这张网**，玩家是他网络里最活跃的节点（与 §6 画像互证）。
+- **Fence 是底层**：不进前台，收藏家由他发放——他是整张网的**认证层**。
 - **BTR 司机是公用的路**：Skier 扣着他、Prapor 谈着他、Mechanic 派活给他、Ragman 用他的线——所有阵营都用他，没有一个把他当自己人（他的原话：「就好像我是他家养的运货牲口一样」）。不可替代性正在于此，他的叛逃冲动也正在于此。
 - **Prapor ↔ Skier 是主要摩擦面**：BTR 司机是争夺对象，一条对立线暗划地区格局。
 - **Prapor ↔ Therapist 是暗线**：一封不便公开的信——两位「建制余脉」在口号之下互通款曲。
@@ -282,7 +281,7 @@ tags:
 
 1. **接任务前先问一句「他为什么找我」**：八位商人的第一个任务几乎都是试探与建立信任——看懂了动机，就知道这单是考验还是真缺人。
 2. **用画像预测任务走向**：Ragman 要的货「别从市场上买」是写在台词里的（[临行密密缝]）；Jaeger 让你打通撤离点不是为了他自己，是在教你保命。
-3. **Mechanic 是网络节点**：[介绍](../quests/mechanic.md#q03) 开 Jaeger、[网络供应商] 开 Lightkeeper——想开门，先替他跑腿。
+3. **Mechanic 是网络节点**：[介绍](../quests/mechanic.md#q03) 开 Jaeger；1.1.5.0 起 Lightkeeper 的访问链也要「向 Mechanic 询问」——想开门，先替他跑腿。
 4. **Fence 的声誉是可修复的**：杀了 Scav 别慌，[亡羊补牢] 系列就是他的修复通道；但修复有价，且只收他指定的东西。
 5. **Peacekeeper 的话术要拆开读**：「为了人民」当文案听，任务目标当真听——他从不亲自脏手，你是那把刀，别替旗号激动。
 

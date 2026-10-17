@@ -1,5 +1,5 @@
 {
- "fetched": "2026-09-30",
+ "fetched": "2026-10-17",
  "baseline": "持久 PvP",
  "bringTypes": {
   "plantItem": "放置",
@@ -8,10 +8,10 @@
   "useItem": "使用"
  },
  "stats": {
-  "tasksTotal": 515,
-  "tasksWithCarrier": 140,
-  "withPack": 87,
-  "withKeys": 57
+  "tasksTotal": 504,
+  "tasksWithCarrier": 137,
+  "withPack": 83,
+  "withKeys": 56
  },
  "carriers": [
   {
@@ -45,8 +45,8 @@
      "act": "放置任务物品",
      "givenInRaid": true,
      "maps": [
-      "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "工厂"
      ]
     }
    ],
@@ -153,60 +153,6 @@
    "pack": []
   },
   {
-   "id": "626148334149f1149b5b12ca",
-   "name": "破镜重圆 - 安保",
-   "trader": "Mechanic",
-   "keys": [],
-   "bring": [
-    {
-     "item": "WIFI摄像头",
-     "act": "放置",
-     "givenInRaid": false,
-     "maps": [
-      "灯塔"
-     ]
-    }
-   ],
-   "pack": [
-    {
-     "item": "WIFI摄像头",
-     "act": "放置",
-     "givenInRaid": false,
-     "maps": [
-      "灯塔"
-     ]
-    }
-   ]
-  },
-  {
-   "id": "6261483dc4874104f230c0cd",
-   "name": "破镜重圆 - 隔离",
-   "trader": "Mechanic",
-   "keys": [
-    "实验室钥匙卡·黑"
-   ],
-   "bring": [
-    {
-     "item": "WIFI摄像头",
-     "act": "放置",
-     "givenInRaid": false,
-     "maps": [
-      "实验室"
-     ]
-    }
-   ],
-   "pack": [
-    {
-     "item": "WIFI摄像头",
-     "act": "放置",
-     "givenInRaid": false,
-     "maps": [
-      "实验室"
-     ]
-    }
-   ]
-  },
-  {
    "id": "64ee9df4496db64f9b7a4432",
    "name": "神秘的门",
    "trader": "Mechanic",
@@ -261,32 +207,6 @@
    ]
   },
   {
-   "id": "625d6ffaf7308432be1d44c5",
-   "name": "网络供应商 - 2",
-   "trader": "Mechanic",
-   "keys": [],
-   "bring": [
-    {
-     "item": "无线电中继器",
-     "act": "放置（标记）",
-     "givenInRaid": false,
-     "maps": [
-      "灯塔"
-     ]
-    }
-   ],
-   "pack": [
-    {
-     "item": "无线电中继器",
-     "act": "放置（标记）",
-     "givenInRaid": false,
-     "maps": [
-      "灯塔"
-     ]
-    }
-   ]
-  },
-  {
    "id": "6179b3a12153c15e937d52bc",
    "name": "能源危机",
    "trader": "Mechanic",
@@ -308,32 +228,6 @@
      "givenInRaid": false,
      "maps": [
       "灯塔"
-     ]
-    }
-   ]
-  },
-  {
-   "id": "625d6fff4149f1149b5b12c9",
-   "name": "试探 - 2",
-   "trader": "Mechanic",
-   "keys": [],
-   "bring": [
-    {
-     "item": "MS2000指示器",
-     "act": "放置（标记）",
-     "givenInRaid": false,
-     "maps": [
-      "森林"
-     ]
-    }
-   ],
-   "pack": [
-    {
-     "item": "MS2000指示器",
-     "act": "放置（标记）",
-     "givenInRaid": false,
-     "maps": [
-      "森林"
      ]
     }
    ]
@@ -555,8 +449,8 @@
      "act": "放置任务物品",
      "givenInRaid": true,
      "maps": [
-      "工厂",
-      "夜间工厂"
+      "夜间工厂",
+      "工厂"
      ]
     }
    ],
@@ -584,8 +478,7 @@
      "act": "放置（标记）",
      "givenInRaid": false,
      "maps": [
-      "海关",
-      "储备站"
+      "海关"
      ]
     }
    ],
@@ -595,8 +488,7 @@
      "act": "放置（标记）",
      "givenInRaid": false,
      "maps": [
-      "海关",
-      "储备站"
+      "海关"
      ]
     }
    ]
@@ -1717,7 +1609,7 @@
      ]
     },
     {
-     "item": "0.6升瓶装水",
+     "item": "600 毫升瓶装水",
      "act": "放置",
      "givenInRaid": false,
      "maps": [
@@ -1735,7 +1627,7 @@
      ]
     },
     {
-     "item": "0.6升瓶装水",
+     "item": "600 毫升瓶装水",
      "act": "放置",
      "givenInRaid": false,
      "maps": [
@@ -2078,6 +1970,31 @@
    "pack": []
   },
   {
+   "id": "6a7b0df31ea00c9a980e2742",
+   "name": "西西弗斯",
+   "trader": "Ragman",
+   "keys": [],
+   "bring": [
+    {
+     "item": "走私者货运箱 #1",
+     "act": "放置任务物品",
+     "givenInRaid": true,
+     "maps": [
+      "储备站"
+     ]
+    },
+    {
+     "item": "走私者货运箱 #2",
+     "act": "放置任务物品",
+     "givenInRaid": true,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": []
+  },
+  {
    "id": "5ae449d986f774453a54a7e1",
    "name": "财务总监",
    "trader": "Ragman",
@@ -2389,6 +2306,48 @@
    ],
    "bring": [],
    "pack": []
+  },
+  {
+   "id": "6a7ae35b2dbf91eb050af95a",
+   "name": "侵入性疗法",
+   "trader": "Therapist",
+   "keys": [],
+   "bring": [
+    {
+     "item": "Obdolbos 2 鸡尾酒兴奋剂注射器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "item": "Obdolbos 鸡尾酒兴奋剂注射器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ],
+   "pack": [
+    {
+     "item": "Obdolbos 2 鸡尾酒兴奋剂注射器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    },
+    {
+     "item": "Obdolbos 鸡尾酒兴奋剂注射器",
+     "act": "放置",
+     "givenInRaid": false,
+     "maps": [
+      "灯塔"
+     ]
+    }
+   ]
   },
   {
    "id": "64f731ab83cfca080a361e42",
@@ -3319,13 +3278,13 @@
      "givenInRaid": false,
      "maps": [
       "塔科夫街区",
-      "中心区",
       "中心区 21+",
+      "中心区",
       "灯塔",
       "储备站",
       "海关",
-      "工厂",
       "夜间工厂",
+      "工厂",
       "森林",
       "海岸线"
      ]
@@ -3338,13 +3297,13 @@
      "givenInRaid": false,
      "maps": [
       "塔科夫街区",
-      "中心区",
       "中心区 21+",
+      "中心区",
       "灯塔",
       "储备站",
       "海关",
-      "工厂",
       "夜间工厂",
+      "工厂",
       "森林",
       "海岸线"
      ]
@@ -3684,7 +3643,7 @@
     {
      "item": "RSP-30 反应式信号弹（黄色）",
      "act": "使用",
-     "givenInRaid": false,
+     "givenInRaid": true,
      "maps": [
       "储备站"
      ]
@@ -3699,14 +3658,6 @@
     }
    ],
    "pack": [
-    {
-     "item": "RSP-30 反应式信号弹（黄色）",
-     "act": "使用",
-     "givenInRaid": false,
-     "maps": [
-      "储备站"
-     ]
-    },
     {
      "item": "26x75燃烧照明信号弹（黄色）",
      "act": "使用",
@@ -3743,7 +3694,7 @@
     {
      "item": "MS2000指示器",
      "act": "放置（标记）",
-     "givenInRaid": false,
+     "givenInRaid": true,
      "maps": [
       "塔科夫街区"
      ]
@@ -3751,7 +3702,7 @@
     {
      "item": "RSP-30 反应式信号弹（黄色）",
      "act": "使用",
-     "givenInRaid": false,
+     "givenInRaid": true,
      "maps": [
       "塔科夫街区"
      ]
@@ -3766,22 +3717,6 @@
     }
    ],
    "pack": [
-    {
-     "item": "MS2000指示器",
-     "act": "放置（标记）",
-     "givenInRaid": false,
-     "maps": [
-      "塔科夫街区"
-     ]
-    },
-    {
-     "item": "RSP-30 反应式信号弹（黄色）",
-     "act": "使用",
-     "givenInRaid": false,
-     "maps": [
-      "塔科夫街区"
-     ]
-    },
     {
      "item": "26x75燃烧照明信号弹（黄色）",
      "act": "使用",
@@ -3824,32 +3759,6 @@
      "givenInRaid": false,
      "maps": [
       "森林"
-     ]
-    }
-   ]
-  },
-  {
-   "id": "63966faeea19ac7ed845db2c",
-   "name": "情报之源",
-   "trader": "Lightkeeper",
-   "keys": [],
-   "bring": [
-    {
-     "item": "MS2000指示器",
-     "act": "放置（标记）",
-     "givenInRaid": false,
-     "maps": [
-      "塔科夫街区"
-     ]
-    }
-   ],
-   "pack": [
-    {
-     "item": "MS2000指示器",
-     "act": "放置（标记）",
-     "givenInRaid": false,
-     "maps": [
-      "塔科夫街区"
      ]
     }
    ]
@@ -3973,7 +3882,7 @@
    ],
    "bring": [
     {
-     "item": "AI .338 LM战术声音抑制器",
+     "item": "AI .338 LM 战术消音器",
      "act": "放置",
      "givenInRaid": false,
      "maps": [
@@ -3991,7 +3900,7 @@
    ],
    "pack": [
     {
-     "item": "AI .338 LM战术声音抑制器",
+     "item": "AI .338 LM 战术消音器",
      "act": "放置",
      "givenInRaid": false,
      "maps": [
