@@ -6628,3 +6628,66 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 [data-md-color-scheme="slate"] .tk-map__pin circle { stroke: #22282A; }
 [data-md-color-scheme="slate"] .tk-map__pin text { stroke: #22282A; fill: #FFC4BE; }
 
+
+/* ==========================================================================
+   64. 物品官方图标（scripts/gen_item_icons.py ｜ 三处消费方共用）
+   --------------------------------------------------------------------------
+   图标文件在 content/assets/items/icons/<id>.webp（官方 WebP 64×64，
+   平均 3 KB），「物品中文名 → id」映射在 item-icons.js。三处消费方渲染的都是
+   同一个 .tk-item-icon：
+
+     · 物品反查卡片头与速查表（quest-items.js）
+     · 任务目标里的物品名（quest-detail.js 的 .tk-obj 列表）
+     · 进度页「物品收集 / 收藏家」两表（progress-boards.js）
+
+   ⚠️ 官方图标是**深色整幅底**（游戏内背包格的样子），不是透明背 —— 在纸面上
+      就是一枚深色小方块。两条对应处理：
+      ① 圆角 3px，让它读作「背包格」而不是一块没裁好的图；
+      ② 尺寸按场景写（下方三档），**不要只调基础值** —— 三处字号本来就小
+         （速查表 .7rem / 目标节 .74rem / 看板表 .78rem），1.15em 乘下来
+         只有 13–14px，实际渲染是个「图钉」；64×64 无损源放到 20px 以上
+         依然清晰，2026-10-17 应用户反馈整体放大。
+
+   另两条通用规矩：
+      · 图标是**装饰**（名字就在旁边），alt="" + aria-hidden，读屏不重复念；
+      · 深色方案下加一道浅色细边，否则图标会陷进同色底里（与 §52 等节同一判断）。
+   ========================================================================== */
+
+.tk-item-icon {
+  width: 1.6em;
+  height: 1.6em;
+  /* 原 -.22em 负偏移：图标只有 14px 时勉强居中对齐，放大后整枚「骑」到
+     文字上方一半 —— 表格单元格是 inline 布局，改垂直居中（flex 场景不受影响）。 */
+  vertical-align: middle;
+  margin-right: .35em;
+  flex: none;
+  border-radius: 3px;
+  object-fit: contain;
+}
+
+/* 进度看板两表：.78rem 字号下 1.7em ≈ 21px —— 行里的视觉锚点 */
+.tk-board__tbl .tk-item-icon {
+  width: 1.7em;
+  height: 1.7em;
+}
+
+/* 反查速查表：.7rem 字号下 1.8em ≈ 20px */
+.tk-ilt__tbl .tk-item-icon {
+  width: 1.8em;
+  height: 1.8em;
+}
+
+/* 反查卡片头是 flex 行：图标自己居中，不动 name / verdict 的基线对齐 */
+.tk-il__cardhead .tk-item-icon {
+  align-self: center;
+  width: 1.8em;
+  height: 1.8em;
+  margin-right: 0;
+}
+
+/* 任务目标一行里可能有多个物品名（AK-74 系列五连发），间距比正文略紧 */
+.tk-obj .tk-item-icon { margin-right: .25em; }
+
+[data-md-color-scheme="slate"] .tk-item-icon {
+  border: 1px solid rgba(255, 255, 255, .22);
+}

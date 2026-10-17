@@ -86,14 +86,64 @@ function siteRoot() {
 
   function h(level, txt) { return el("h" + level, null, txt); }
 
+  /* ---------------------------------------------------------------- 物品图标
+     名字 → 官方图标 id 的映射在 item-icons.js（scripts/gen_item_icons.py 生成），
+     图标文件在 assets/items/icons/<id>.webp。**按需加载**：只有本页用得到，
+     而 extra_javascript 是全局的，塞进去等于让 118 个页面都多背 45 KB。
+     加载失败（文件缺失 / 404）就静默无图标 —— 图标是增强，不是内容。 */
+  var ICON_MAP = {};       // 物品中文名 → id
+  var iconsState = 0;      // 0 未开始 / 1 加载中 / 2 就绪 / -1 失败
+  var iconCbs = [];
+
+  function flushIcons() {
+    var cbs = iconCbs;
+    iconCbs = [];
+    for (var i = 0; i < cbs.length; i++) cbs[i]();
+  }
+
+  /* 与 progress-boards.js 的图加载同一个模式：请求合并可以，回调不能丢。 */
+  function withIcons(cb) {
+    if (iconsState === 2 || iconsState === -1) { cb(); return; }
+    iconCbs.push(cb);
+    if (iconsState === 1) return;
+    iconsState = 1;
+    var sc = document.createElement("script");
+    sc.src = siteRoot() + "javascripts/item-icons.js";
+    sc.onload = function () {
+      ICON_MAP = window.TARKOV_ITEM_ICONS || {};
+      iconsState = 2;
+      flushIcons();
+    };
+    sc.onerror = function () { iconsState = -1; flushIcons(); };
+    document.head.appendChild(sc);
+  }
+
+  /* 图标 <img>；查不到名字就返回 null（生成器对歧义 / 译名漂移的名字不出映射）。 */
+  function itemIcon(name) {
+    var id = ICON_MAP[name];
+    if (!id) return null;
+    var img = document.createElement("img");
+    img.className = "tk-item-icon";
+    img.src = siteRoot() + "assets/items/icons/" + id + ".webp";
+    img.alt = "";
+    img.setAttribute("aria-hidden", "true");
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.onerror = function () { if (img.parentNode) img.parentNode.removeChild(img); };
+    return img;
+  }
+
   /* 内联记号解析 —— 只认两种，不引 markdown 库：
        · `**粗体**`    —— 生成器复用 render_objective / render_rewards 的输出；
        · `[[名字|id]]` —— **物品名 → 图鉴链接**，由生成器的 linkify_items() 写下
                           （重名与未收录的名字不带这个标记，退成普通粗体）。
 
      ⚠️ 一次扫描处理两种标记，不要先 split("**") 再找 [[…]] ——
-        两种标记可能相邻，分两步会把中间的普通文本切碎。 */
-  function rich(text) {
+        两种标记可能相邻，分两步会把中间的普通文本切碎。
+
+     withIcon = true 时给物品名挂官方图标（仅「任务目标」用：奖励 / 失败条件
+     里的物品名是同一套记号，但那一屏信息密度已经很高，不再加图）。 */
+  function rich(text, withIcon) {
     var frag = document.createDocumentFragment();
     var s = String(text == null ? "" : text);
     var re = /\[\[([^\]|]+)\|([^\]]+)\]\]|\*\*([^*]+)\*\*/g;
@@ -103,6 +153,10 @@ function siteRoot() {
         frag.appendChild(document.createTextNode(s.slice(last, m.index)));
       }
       if (m[1] != null) {
+        if (withIcon) {
+          var ic = itemIcon(m[1]);
+          if (ic) frag.appendChild(ic);
+        }
         var a = el("a", null, m[1]);
         a.href = itemUrl(m[2]);
         frag.appendChild(a);
@@ -119,8 +173,9 @@ function siteRoot() {
 
   function p(text) { var e = el("p"); e.appendChild(rich(text)); return e; }
 
-  function ul(items, render) {
+  function ul(items, render, cls) {
     var list = document.createElement("ul");
+    if (cls) list.className = cls;
     items.forEach(function (x) {
       var li = document.createElement("li");
       if (render) render(li, x); else li.appendChild(rich(x));
@@ -323,8 +378,15 @@ function siteRoot() {
 
     /* ---- 任务目标 ---- */
     host.appendChild(h(4, "📋 任务目标"));
-    if ((it.o || []).length) host.appendChild(ul(it.o));
-    else host.appendChild(p("这个任务在数据端点里没有逐条登记目标。"));
+    if ((it.o || []).length) {
+      /* 唯一挂物品图标的一节：目标里「找 / 交 / 放」的正是读者要在战局里
+         认出来的东西，看见图标比读名字快。tk-obj 类只服务图标的排版。 */
+      host.appendChild(ul(it.o, function (li, x) {
+        li.appendChild(rich(x, true));
+      }, "tk-obj"));
+    } else {
+      host.appendChild(p("这个任务在数据端点里没有逐条登记目标。"));
+    }
 
     /* ---- 完成奖励 ---- */
     if ((it.rw || []).length) {
@@ -445,10 +507,16 @@ function siteRoot() {
     if (!id) { renderEmpty(host); return; }
     host.textContent = "";
     host.appendChild(el("p", null, "正在载入任务数据…"));
+    /* 图标与任务分片**并行**加载：分片按需现拉（15 KB 上下），图标全站一份，
+       两条链谁也不等谁；渲染前用 withIcons 汇合，失败就静默无图标。 */
+    withIcons(function () {});
     loadShard(id, function (data) {
       var it = data ? data[id] : null;
-      if (it) renderDetail(host, id, it);
-      else renderMissing(host, id);
+      if (it) {
+        withIcons(function () { renderDetail(host, id, it); });
+      } else {
+        renderMissing(host, id);
+      }
     });
   }
 

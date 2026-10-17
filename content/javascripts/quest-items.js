@@ -126,16 +126,46 @@ function siteRoot() {
     return span;
   }
 
-  function load(cb) {
-    if (window[DATA_KEY]) { cb(window[DATA_KEY]); return; }
-    var url = siteRoot() + "javascripts/" + DATA_FILE;
-    if (!url || url.indexOf("javascripts/") === 0) { cb(null); return; }
+  /* ---------------------------------------------------------------- 物品图标
+     名字 → 官方图标 id 的映射在 item-icons.js（scripts/gen_item_icons.py 生成），
+     图标文件在 assets/items/icons/<id>.webp。与物品索引**依次**加载：
+     索引是内容（没有它就整页降级），图标是增强（加载失败只是不显示图）。 */
+  var ICON_MAP = {};
+
+  function itemIcon(name) {
+    var id = ICON_MAP[name];
+    if (!id) return null;
+    var img = document.createElement("img");
+    img.className = "tk-item-icon";
+    img.src = siteRoot() + "assets/items/icons/" + id + ".webp";
+    img.alt = "";
+    img.setAttribute("aria-hidden", "true");
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.onerror = function () { if (img.parentNode) img.parentNode.removeChild(img); };
+    return img;
+  }
+
+  function loadOne(file, key, cb) {
+    if (window[key]) { cb(true); return; }
+    var url = siteRoot() + "javascripts/" + file;
+    if (!url || url.indexOf("javascripts/") === 0) { cb(false); return; }
     var sc = document.createElement("script");
     sc.src = url;
     var done = false;
-    sc.onload = function () { if (!done) { done = true; cb(window[DATA_KEY] || null); } };
-    sc.onerror = function () { if (!done) { done = true; cb(null); } };
+    sc.onload = function () { if (!done) { done = true; cb(!!window[key]); } };
+    sc.onerror = function () { if (!done) { done = true; cb(false); } };
     document.head.appendChild(sc);
+  }
+
+  function load(cb) {
+    loadOne(DATA_FILE, DATA_KEY, function (ok) {
+      if (!ok) { cb(null); return; }
+      loadOne("item-icons.js", "TARKOV_ITEM_ICONS", function () {
+        ICON_MAP = window.TARKOV_ITEM_ICONS || {};
+        cb(window[DATA_KEY]);
+      });
+    });
   }
 
   /* --------------------------------------------------------------------------
@@ -176,6 +206,8 @@ function siteRoot() {
     var card = el("div", "tk-il__card");
 
     var head = el("div", "tk-il__cardhead");
+    var ic = itemIcon(name);
+    if (ic) head.appendChild(ic);
     head.appendChild(itemAnchor(name, "tk-il__name"));
     var v = verdict(rec);
     head.appendChild(el("span", "tk-il__verdict tk-il__verdict--" + v.cls, v.text));
@@ -319,6 +351,8 @@ function siteRoot() {
       var rec = items[name];
       var r = el("tr");
       var td = el("td", "tk-ilt__name");
+      var ic = itemIcon(name);
+      if (ic) td.appendChild(ic);
       td.appendChild(itemAnchor(name, "tk-ilt__name"));
       r.appendChild(td);
       r.appendChild(el("td", "tk-ilt__n", String(rec.n)));

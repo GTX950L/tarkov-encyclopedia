@@ -256,6 +256,45 @@
   /* 按商人分块的明细：只在**展开某个任务**时才拉它所属的那一块。 */
   var detailLoading = {};
 
+  /* --------------------------------------------------------------------------
+     物品官方图标（名字 → id 映射，scripts/gen_item_icons.py 生成）
+
+     只有「物品收集」与「收藏家」两张看板用得到，所以**不进 extra_javascript**，
+     在这两张看板渲染前按需拉。失败就静默无图标 —— 与 quest-detail.js 的
+     withIcons 同一个模式：请求合并可以，回调不能丢（多个看板 + 总览都会点）。
+     -------------------------------------------------------------------------- */
+  var ICON_MAP = {};
+  var iconsState = 0;   // 0 未开始 / 1 加载中 / 2 就绪 / -1 失败
+  var iconCbs = [];
+
+  function ensureIcons(cb) {
+    if (iconsState === 2 || iconsState === -1) { cb(); return; }
+    iconCbs.push(cb);
+    if (iconsState === 1) return;
+    iconsState = 1;
+    loadScript("item-icons.js", ["TARKOV_ITEM_ICONS"], function (ok) {
+      ICON_MAP = (ok && window.TARKOV_ITEM_ICONS) || {};
+      iconsState = ok && window.TARKOV_ITEM_ICONS ? 2 : -1;
+      var cbs = iconCbs;
+      iconCbs = [];
+      for (var i = 0; i < cbs.length; i++) cbs[i]();
+    });
+  }
+
+  /* 图标 <img>；映射里没有这个名字（歧义 / 译名漂移的 19 个）就返回 null。 */
+  function itemIcon(name) {
+    var id = ICON_MAP[name];
+    if (!id) return null;
+    var img = document.createElement("img");
+    img.className = "tk-item-icon";
+    img.src = siteRoot() + "assets/items/icons/" + id + ".webp";
+    img.alt = "";
+    img.setAttribute("aria-hidden", "true");
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.onerror = function () { if (img.parentNode) img.parentNode.removeChild(img); };
+    return img;
+  }
   /* 明细块的加载**不能复用 loadScript 的「全局已存在」短路**：
      11 个分块写的是同一个全局（TARKOV_QUEST_DETAIL），第一块载完之后，
      其余的会被当成「已经载过」而永远不请求 —— 实测踩到：
@@ -1941,7 +1980,11 @@
       var ctl = countCtl(it.name, it.qty);
       tdCtl.appendChild(ctl.el);
       tr.appendChild(tdCtl);
-      tr.appendChild(el("td", null, it.name));
+      var tdName = el("td", null);
+      var ic = itemIcon(it.name);
+      if (ic) tdName.appendChild(ic);
+      tdName.appendChild(document.createTextNode(it.name));
+      tr.appendChild(tdName);
       tr.appendChild(el("td", "tk-board__num", String(it.tasks)));
       tr.appendChild(el("td", "tk-board__num", fmtNum(it.qty)));
       tr.appendChild(el("td", "tk-board__who", it.traders || "—"));
@@ -2026,7 +2069,11 @@
       var ctl = countCtl(it.name, it.qty);
       tdCtl.appendChild(ctl.el);
       tr.appendChild(tdCtl);
-      tr.appendChild(el("td", null, it.name));
+      var tdName = el("td", null);
+      var ic = itemIcon(it.name);
+      if (ic) tdName.appendChild(ic);
+      tdName.appendChild(document.createTextNode(it.name));
+      tr.appendChild(tdName);
       tr.appendChild(el("td", "tk-board__num", String(it.qty)));
       rows.push({ tr: tr, ctl: ctl, it: it });
       tbody.appendChild(tr);
@@ -3143,6 +3190,14 @@
     };
   }
 
+  /* 把宿主绑进回调 —— render() 的循环里 `var h` 是**函数级作用域**，直接写
+     `function () { renderItemBoard(h); }` 的话，等 ensureIcons 的异步回调真正
+     执行时 h 已经是循环最后那个元素（tk-board-ops）：两张物品看板全空、
+     内容整块糊到「进度管理」看板上。ES5 没有块级作用域，用工厂函数当场固定。 */
+  function hostBound(fn, host) {
+    return function () { fn(host); };
+  }
+
   function render(mounts) {
     for (var i = 0; i < mounts.length; i++) {
       var h = mounts[i];
@@ -3150,9 +3205,14 @@
       h.textContent = "";
       if (id === "tk-board-overview") renderOverview(h);
       else if (id === "tk-progress-board") renderQuestBoard(h);
-      else if (id === "tk-board-items") renderItemBoard(h);
-      else if (id === "tk-board-collector") renderCollectorBoard(h);
-      else if (id === "tk-board-tree") renderQuestTree(h);
+      /* 两张物品看板等图标映射就绪再渲染（加载失败也渲染，只是没图标）——
+         与 ensureGraph 同一个模式：请求合并可以，回调不能丢。
+         ⚠️ 回调必须用 hostBound 绑死宿主，原因见其上方注释。 */
+      else if (id === "tk-board-items") {
+        ensureIcons(hostBound(renderItemBoard, h));
+      } else if (id === "tk-board-collector") {
+        ensureIcons(hostBound(renderCollectorBoard, h));
+      } else if (id === "tk-board-tree") renderQuestTree(h);
       else if (id === "tk-board-hideout") renderHideoutBoard(h);
       else if (id === "tk-board-story") renderStoryBoard(h);
       else if (id === "tk-board-ops") renderOps(h);
