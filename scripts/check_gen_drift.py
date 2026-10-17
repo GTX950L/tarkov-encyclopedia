@@ -116,6 +116,7 @@ GENERATORS: list[list[str]] = [
     ["scripts/gen_achievements.py"],      # ⑩ 成就全表
     ["scripts/gen_maps.py"],              # ⑪ 交互地图：底图换肤 + 点位投影（独立，不依赖其他生成器）
     ["scripts/gen_map_pages.py"],        # ⑫ 13 个地图页（读 gen_maps 的产物，故在后）
+    ["scripts/gen_quest_tree.py"],        # ⑬ 任务全景图数据（读 quests.json + quest-graph.json，独立）
 ]
 
 # 豁免清单：这些文件**不用「重跑比对」来判定**。

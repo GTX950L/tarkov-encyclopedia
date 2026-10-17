@@ -258,10 +258,32 @@
       { passive: false }
     );
 
-    /* 拖拽平移。用 pointer 事件（鼠标与触摸一套代码）。
-       点在任务区域上**不拖拽** —— 那一下是「选中这个任务」。 */
+    /* 拖拽平移 + 双指缩放。用 pointer 事件（鼠标与触摸一套代码）。
+       点在任务区域上**不拖拽** —— 那一下是「选中这个任务」；
+       双指手势不挑落点（第二指落在任务框上也要能缩）。
+       ⚠️ 触屏可用性靠 CSS 的 `touch-action: none`（extra.css 的
+          .tk-map__canvas svg）—— 没有它，pointermove 会被浏览器中途抢走
+          （pointercancel），拖动"挑方向"、双指完全不可用。 */
     var drag = null;
+    var ptActive = {};    // pointerId → 最近坐标（双指缩放用）
+    var ptPrevDist = 0;   // 上一帧两指距离（增量式缩放的基准）
+    function ptCount() { var n = 0; for (var k in ptActive) n++; return n; }
+    function ptMid() {
+      var ids = Object.keys(ptActive);
+      var a = ptActive[ids[0]], b = ptActive[ids[1]];
+      return { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+    }
     svg.addEventListener("pointerdown", function (e) {
+      ptActive[e.pointerId] = { x: e.clientX, y: e.clientY };
+      if (ptCount() === 2) {
+        /* 第二指落下 → 进手势模式：取消拖拽判定（含 tk-zq 分支）。 */
+        var ids = Object.keys(ptActive);
+        var a = ptActive[ids[0]], b = ptActive[ids[1]];
+        ptPrevDist = Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
+        drag = null;
+        canvas.classList.remove("is-dragging");
+        return;
+      }
       if (e.target.classList && e.target.classList.contains("tk-zq")) return;
       drag = { x: e.clientX, y: e.clientY, vb: cur.slice() };
       canvas.classList.add("is-dragging");
@@ -272,6 +294,25 @@
       }
     });
     svg.addEventListener("pointermove", function (e) {
+      if (ptActive[e.pointerId]) {
+        ptActive[e.pointerId].x = e.clientX;
+        ptActive[e.pointerId].y = e.clientY;
+      }
+      /* 双指缩放：**增量式**（当前两指距离 ÷ 上一帧距离），锚点取两指中点。
+         中点跟随手指 → 两指整体平移时图跟着走，手感与系统手势一致；
+         限幅与滚轮/按钮共用 zoomAt（12× 上限、原尺寸下限）。
+         距离过小时不缩（两指重合会得到暴走的倍数）。 */
+      if (ptCount() === 2) {
+        var ids = Object.keys(ptActive);
+        var a = ptActive[ids[0]], b = ptActive[ids[1]];
+        var d = Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
+        if (ptPrevDist > 8 && d > 8) {
+          var mid = ptMid();
+          zoomAt(mid.x, mid.y, d / ptPrevDist);
+        }
+        ptPrevDist = d;
+        return;
+      }
       if (!drag) return;
       var r = svg.getBoundingClientRect();
       var dx = ((e.clientX - drag.x) / r.width) * drag.vb[2];
@@ -280,6 +321,8 @@
       applyVB();
     });
     function endDrag(e) {
+      delete ptActive[e.pointerId];
+      if (ptCount() < 2) ptPrevDist = 0;   // 任一指抬起 → 本次手势结束
       if (!drag) return;
       drag = null;
       canvas.classList.remove("is-dragging");
@@ -1045,6 +1088,9 @@
     (data.locks || []).forEach(function (lk) {
       var g = el("g", {
         class: "tk-lk",
+        /* data-key：锁点的钥匙物品 id。?key= 深链（钥匙页「所在图」列 /
+           物品详情「在哪用它」段）按它高亮 —— 见本函数尾部的深链处理。 */
+        "data-key": lk.k || "",
         transform: "translate(" + lk.p[0] + "," + lk.p[1] + ")",
       });
       g.appendChild(el("rect", { x: -4.2, y: -4.2, width: 8.4, height: 8.4, rx: 1.6 }));
@@ -2001,6 +2047,45 @@
       missLink.textContent = "看任务详情 →";
       miss.appendChild(missLink);
       host.appendChild(miss);
+    }
+
+    /* ── 深链：?key=<物品id> 高亮某把钥匙的锁点 ──
+       入口是物品图鉴的两处（keys 页的「所在图」列 / 物品详情页的「在哪用它」段）：
+       点图名 → 跳到本图并高亮这把钥匙的**全部锁点**。匹配的点放大变实、
+       其余降透明（「你的门在这几个」一眼可见）；顶部一行说明给出计数与还原办法。
+       落空时同样**不静默**：说明它可能落在别的地图上，并指出完整清单在哪 ——
+       连锁点的 key 都查了一遍（data-key），查不到才报落空。 */
+    var k0 = null;
+    try {
+      k0 = new URLSearchParams(location.search).get("key");
+    } catch (err) {
+      k0 = null;
+    }
+    if (k0) {
+      var hitN = 0;
+      lockLayer.classList.add("is-keyhl");
+      Array.prototype.forEach.call(lockLayer.children, function (g) {
+        if (g.getAttribute("data-key") === k0) {
+          g.classList.add("is-keyhl");
+          hitN++;
+        }
+      });
+      var knote = document.createElement("p");
+      knote.className = "tk-map__note";
+      if (hitN) {
+        knote.textContent = "已按链接高亮这把钥匙在本图的 " + hitN +
+          " 个锁点（其余锁点已淡出）。去掉地址里的 ?key= 参数即可还原；" +
+          "这把钥匙在别的地图有没有锁点，见物品图鉴钥匙页的「所在图」列。";
+      } else {
+        knote.appendChild(document.createTextNode(
+          "地址里带了钥匙参数，但本图没有这把钥匙的锁点 —— 它可能落在别的地图上" +
+          "（或上游锁点数据里没有它的门）。这把钥匙在所有收录地图上的锁点，见："));
+        var klink = document.createElement("a");
+        klink.href = siteRoot() + "catalog/keys/";
+        klink.textContent = "物品图鉴 · 钥匙与门禁 →";
+        knote.appendChild(klink);
+      }
+      host.appendChild(knote);
     }
 
     /* 别处（另一个标签页）改了进度 → 地图跟着更新。

@@ -4305,6 +4305,271 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 [data-md-color-scheme="slate"] .tk-stat__card { background: #2A2825; border-color: #4A473F; }
 
+/* ── 交互地图总览：「选一张图」卡片（content/maps/index.md）──
+   13 张图各一张卡片：缩略图（scripts/gen_map_thumbs.py 的产物，480×320
+   浅纸底 contain）+ 名称 + 时长人数 + 定位 + 三项数字。整卡是链接。
+   样式基线取自上方 .tk-stat 卡片：同色板、同 hover 语言、同暗色兜底写法
+   （亮色用 var(--tk-*)，暗色显式覆盖 —— 与 4306 行同一条纪律）。 */
+.tk-mcards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
+  gap: .65rem;
+  margin: 1rem 0 .5rem;
+}
+.tk-mcard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--tk-panel);
+  color: inherit;
+  text-decoration: none;
+}
+.tk-mcard:hover {
+  border-color: var(--tk-fiord);
+  background: var(--tk-brand-soft);
+}
+.tk-mcard__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  background: var(--tk-paper);
+  border-bottom: 1px solid var(--tk-line);
+}
+.tk-mcard__body {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  padding: .45rem .6rem .55rem;
+}
+.tk-mcard__head {
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+}
+.tk-mcard__name { font-weight: 700; font-size: .82rem; color: var(--tk-ink); }
+.tk-mcard__meta {
+  margin-left: auto;
+  font-size: .64rem;
+  color: var(--tk-ink-2);
+  white-space: nowrap;
+}
+.tk-mcard__desc { font-size: .7rem; line-height: 1.55; color: var(--tk-ink-2); }
+.tk-mcard__nums { font-size: .63rem; color: var(--tk-khaki); }
+.tk-mcard__open { font-size: .68rem; font-weight: 700; color: var(--tk-brand); }
+.tk-mcard:hover .tk-mcard__open { text-decoration: underline; }
+[data-md-color-scheme="slate"] .tk-mcard { background: #2A2825; border-color: #4A473F; }
+[data-md-color-scheme="slate"] .tk-mcard:hover { background: #33302B; border-color: #6B665C; }
+[data-md-color-scheme="slate"] .tk-mcard__img { background: #232220; border-bottom-color: #4A473F; }
+
+/* ── 任务全景图（content/quests/tree.md）───────────────────────────────
+   交互画布：11 列 × 515 张卡片 + 238 条 SVG 边；拖拽平移 / 滚轮与双指
+   缩放（视图语言同交互地图），缩放走 transform。状态色直接用进度看板的
+   同一套变量（--tk-grn / --tk-amber），它们在暗色段已有对照值 —— 本段
+   除「线标记圆点」外不写字面色。 */
+.tk-qt__bar {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin: .6rem 0 .5rem;
+}
+.tk-qt__q {
+  flex: 0 1 15rem;
+  min-width: 0;
+  font: inherit;
+  font-size: .8rem;
+  padding: 6px 8px;
+  color: var(--tk-ink);
+  background: var(--tk-paper);
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+}
+.tk-qt__q:focus-visible { outline: 2px solid var(--tk-fiord); outline-offset: 1px; }
+.tk-qt__count {
+  font-family: var(--tk-mono);
+  font-size: .7rem;
+  color: var(--tk-brand);
+  white-space: nowrap;
+}
+.tk-qt__spacer { flex: 1; }
+.tk-qt__zbtn {
+  font: inherit;
+  font-size: .72rem;
+  padding: 4px 10px;
+  color: var(--tk-brand);
+  background: var(--tk-panel);
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.tk-qt__zbtn:hover { background: var(--tk-brand-soft); border-color: var(--tk-fiord); }
+
+.tk-qt__wrap {
+  position: relative;
+  height: min(74vh, 860px);
+  overflow: hidden;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  background: var(--tk-paper);
+  /* 手势自己处理（与地图的 .tk-map__canvas svg 同一条理由） */
+  touch-action: none;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.tk-qt__wrap.is-dragging { cursor: grabbing; }
+.tk-qt__canvas { position: absolute; top: 0; left: 0; transform-origin: 0 0; }
+.tk-qt__edges { position: absolute; top: 0; left: 0; pointer-events: none; }
+
+.tk-qt__edge { fill: none; stroke: var(--tk-line-3); stroke-width: 1; }
+.tk-qt__edge--same { opacity: .55; }
+.tk-qt__edge--cross { opacity: .28; stroke-dasharray: 4 4; }
+.tk-qt__edge.is-hl { stroke: var(--tk-brand-dark); opacity: 1; stroke-width: 1.8; }
+.tk-qt__edge.is-dim { opacity: .06; }
+
+.tk-qt__nodes { position: absolute; top: 0; left: 0; }
+
+.tk-qt__coltitle {
+  position: absolute;
+  top: 22px;
+  box-sizing: border-box;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--tk-brand);
+  text-align: center;
+  padding-bottom: .22rem;
+  border-bottom: 2px solid var(--tk-fiord);
+}
+
+.tk-qt__node {
+  position: absolute;
+  height: 56px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  padding: 0 .45rem 0 .5rem;
+  border: 1px solid var(--tk-line);
+  border-left: 3px solid var(--tk-line-2);
+  border-radius: 2px;
+  background: var(--tk-panel);
+  font-size: .67rem;
+  line-height: 1.25;
+  color: var(--tk-ink);
+  cursor: pointer;
+  overflow: hidden;
+}
+.tk-qt__node.is-inhand {
+  background: var(--tk-amber-bg);
+  border-color: var(--tk-amber);
+  border-left-color: var(--tk-amber);
+}
+.tk-qt__node.is-done {
+  background: var(--tk-grn-bg);
+  border-color: var(--tk-grn);
+  border-left-color: var(--tk-grn);
+}
+.tk-qt__node.is-hover { box-shadow: 0 0 0 2px var(--tk-fiord-lt); }
+.tk-qt__node.is-nb { border-color: var(--tk-fiord-lt); }
+.tk-qt__node.is-sel { box-shadow: 0 0 0 2px var(--tk-brand); }
+.tk-qt__node.is-dim { opacity: .14; }
+.tk-qt__n {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tk-qt__lv {
+  flex: none;
+  font-size: .58rem;
+  color: var(--tk-ink-2);
+  font-variant-numeric: tabular-nums;
+}
+.tk-qt__dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.tk-qt__dot--k { background: #C9A227; box-shadow: inset 0 0 0 1px #8a6d1c; }
+.tk-qt__dot--l { background: #8b5cf6; box-shadow: inset 0 0 0 1px #5b21b6; }
+
+/* 信息面板：固定在画布视口右上角（不随缩放） */
+.tk-qt__panel {
+  position: absolute;
+  top: .6rem;
+  right: .6rem;
+  width: min(330px, 82%);
+  padding: .5rem .65rem .6rem;
+  background: #fff;
+  border: 1px solid var(--tk-line-3);
+  border-radius: 3px;
+  box-shadow: 0 4px 16px rgba(28, 26, 23, .18);
+  font-size: .7rem;
+  z-index: 3;
+  cursor: auto;
+}
+.tk-qt__phead { display: flex; align-items: flex-start; gap: .4rem; }
+.tk-qt__phead b { font-size: .8rem; line-height: 1.4; }
+.tk-qt__pclose {
+  margin-left: auto;
+  padding: 0 .2rem;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--tk-ink-2);
+  cursor: pointer;
+}
+.tk-qt__pmeta { margin: .3rem 0 0; color: var(--tk-ink-2); }
+.tk-qt__pk,
+.tk-qt__pl {
+  font-style: normal;
+  margin-left: .5rem;
+  padding: 0 .35rem;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  font-size: .62rem;
+}
+.tk-qt__pk { color: #8a6d1c; }
+.tk-qt__pl { color: #6d28d9; }
+.tk-qt__pst { display: flex; align-items: center; gap: .35rem; margin-top: .5rem; }
+.tk-qt__pstl { color: var(--tk-ink-2); font-size: .64rem; }
+.tk-qt__pbtn {
+  font: inherit;
+  font-size: .66rem;
+  padding: 3px 8px;
+  color: var(--tk-ink);
+  background: var(--tk-panel);
+  border: 1px solid var(--tk-line-2);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.tk-qt__pbtn.is-on {
+  background: var(--tk-brand);
+  border-color: var(--tk-brand);
+  color: #fff;
+}
+.tk-qt__popen {
+  display: inline-block;
+  margin-top: .45rem;
+  font-weight: 700;
+  color: var(--tk-brand);
+}
+
+[data-md-color-scheme="slate"] .tk-qt__wrap { background: #232220; border-color: #4A473F; }
+[data-md-color-scheme="slate"] .tk-qt__node { background: #2A2825; border-color: #4A473F; }
+[data-md-color-scheme="slate"] .tk-qt__panel { background: #2A2825; border-color: #6B665C; }
+
+@media screen and (max-width: 44.9375em) {
+  .tk-qt__bar { gap: .35rem; }
+  .tk-qt__q { flex-basis: 100%; }
+  .tk-qt__wrap { height: 66vh; }
+}
+
 /* 窄屏两列 —— auto-fit 的 8.4rem 下限在 390px 下只剩一列，卡片会拉得很长 */
 @media screen and (max-width: 44.9375em) {
   .tk-stat__grid { grid-template-columns: repeat(2, 1fr); }
@@ -5427,7 +5692,15 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   line-height: 0;
 }
 
-.tk-map__canvas svg { width: 100%; height: auto; display: block; }
+.tk-map__canvas svg {
+  width: 100%; height: auto; display: block;
+  /* 触摸手势（单指拖动 / 双指缩放）由地图自己处理 —— 不让浏览器把滑动
+     当页面滚动、把双指当页面缩放。代价：地图区域内的单指滑动不再滚页面
+     （地图交互的通行做法）；地图以外的页面区域照常滚动。
+     没有这一条时，触屏上的 pointermove 会被浏览器中途抢走（pointercancel），
+     拖动"挑方向"、双指缩放完全不可用 —— 实测过的症状。 */
+  touch-action: none;
+}
 
 /* 点位：红点 + 白环；文字带白描边（paint-order 让描边在字之下） */
 .tk-map__pin circle {
@@ -6240,6 +6513,22 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 }
 
 .tk-lk:hover rect { fill: #6d28d9; stroke-width: calc(2.2px / var(--tk-k, 1)); }
+
+/* 钥匙深链（?key=<物品id>）高亮：匹配的锁点**放大变实**、其余降透明 ——
+   「这把钥匙的门在这几个」一眼可见。入口：物品图鉴钥匙页的「所在图」列、
+   物品详情页的「在哪用它」段。几何属性同样按 --tk-k 补偿（屏幕恒定大小），
+   与基础规则的写法保持一致。 */
+.tk-map__locks.is-keyhl .tk-lk { opacity: .22; }
+.tk-map__locks.is-keyhl .tk-lk.is-keyhl { opacity: 1; }
+.tk-lk.is-keyhl rect {
+  x: calc(-6px / var(--tk-k, 1));
+  y: calc(-6px / var(--tk-k, 1));
+  width: calc(12px / var(--tk-k, 1));
+  height: calc(12px / var(--tk-k, 1));
+  rx: calc(2.2px / var(--tk-k, 1));
+  fill: #6d28d9;
+  stroke-width: calc(2.2px / var(--tk-k, 1));
+}
 
 /* 撤离点按阵营分色：PMC（蓝）／Scav（橙）／共用（紫）。
    ⚠️ 这是**上游的 faction 字段**，不是本站判断的「谁能用」—— 别读成通行结论。 */

@@ -15,7 +15,7 @@ tags:
 
 | 项目 | 说明 |
 |------|------|
-| **收录件数** | **198 件**（全站物品图鉴共 4979 件） |
+| **收录件数** | **198 件**（全站物品图鉴共 4983 件） |
 | **本页范围** | 第 **1** / 2 部分（[穿戴与面罩](gear-wear.md) 整类共 433 件、4 个官方分类） |
 | **叶子分类** | 2 个官方分类：[耳机](#耳机)、[头部穿戴](#头部穿戴) |
 | **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。本页 **127 / 198 件**有至少一条（商人出售 60 ｜ 以物换物 71 ｜ 制作 3）；`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— 那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|
@@ -40,7 +40,7 @@ tags:
 | # | 名称 | 英文名 | 重量 | 关键属性 | 获取方式 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|----------|--------------|--------------|
 | 1 | Peltor TEP-300 战术耳塞（狼棕色） | `peltor-tep-300-tactical-earplug-coyote-brown` | 0.01 千克 | 环境音量 50 dB；压缩阈值 10 dB；压缩增益 0%；压缩启动 35；压缩释放 215（共 8 项） | 以物换物 | — | 19,025 卢布（3 家最高） |
-| 2 | CENS ProFlex DX5 战术耳塞 | `cens-proflex-dx5-tactical-earplug` | 0.012 千克 | 环境音量 50 dB；压缩阈值 18 dB；压缩增益 300%；压缩启动 15；压缩释放 265（共 8 项） | 商人出售 | 168,829 卢布，需 Peacekeeper 4 级 | 42,806 卢布（3 家最高） |
+| 2 | CENS ProFlex DX5 战术耳塞 | `cens-proflex-dx5-tactical-earplug` | 0.012 千克 | 环境音量 50 dB；压缩阈值 18 dB；压缩增益 300%；压缩启动 15；压缩释放 265（共 8 项） | 商人出售 | 168,344 卢布，需 Peacekeeper 4 级 | 42,806 卢布（3 家最高） |
 | 3 | Peltor ComTac V 耳机（橄榄绿） | `peltor-comtac-v-headset-od-green` | 0.335 千克 | 环境音量 50 dB；压缩阈值 23 dB；压缩增益 300%；压缩启动 20；压缩释放 140（共 8 项） | — | — | 32,267 卢布（3 家最高） |
 | 4 | Safariland Liberator HP 2.0听力保护耳机 (FDE) | `safariland-liberator-hp-20-hearing-protection-headset-fde` | 0.34 千克 | 环境音量 50 dB；压缩阈值 21 dB；压缩增益 300%；压缩启动 20；压缩释放 150（共 8 项） | 商人出售 | 58,860 卢布，需 Ragman 3 级 | 21,172 卢布（3 家最高） |
 | 5 | Safariland Liberator HP 2.0听力保护耳机（复合迷彩） | `safariland-liberator-hp-20-hearing-protection-headset-multicam` | 0.34 千克 | 环境音量 50 dB；压缩阈值 21 dB；压缩增益 300%；压缩启动 20；压缩释放 150（共 8 项） | 以物换物 | — | 21,172 卢布（3 家最高） |
@@ -50,19 +50,19 @@ tags:
 | 9 | Peltor ComTac VI 耳机（丛林绿） | `peltor-comtac-vi-headset-ranger-green` | 0.379 千克 | 环境音量 50 dB；压缩阈值 24 dB；压缩增益 300%；压缩启动 35；压缩释放 160（共 8 项） | 以物换物 | — | 36,274 卢布（3 家最高） |
 | 10 | Peltor ComTac VI 耳机（狼棕色） | `peltor-comtac-vi-headset-coyote-brown` | 0.379 千克 | 环境音量 50 dB；压缩阈值 24 dB；压缩增益 300%；压缩启动 35；压缩释放 160（共 8 项） | — | — | 36,274 卢布（3 家最高） |
 | 11 | Peltor ComTac VI 耳机（黑色） | `peltor-comtac-vi-headset-black` | 0.379 千克 | 环境音量 50 dB；压缩阈值 24 dB；压缩增益 300%；压缩启动 35；压缩释放 160（共 8 项） | 以物换物 | — | 36,274 卢布（3 家最高） |
-| 12 | TW EXFIL Peltor ComTac V 耳机（橄榄绿） | `tw-exfil-peltor-comtac-v-headset-od-green` | 0.395 千克 | 环境音量 50 dB；压缩阈值 23 dB；压缩增益 300%；压缩启动 20；压缩释放 140（共 8 项） | 商人出售 | 115,187 卢布，需 Peacekeeper 4 级 | 30,654 卢布（3 家最高） |
+| 12 | TW EXFIL Peltor ComTac V 耳机（橄榄绿） | `tw-exfil-peltor-comtac-v-headset-od-green` | 0.395 千克 | 环境音量 50 dB；压缩阈值 23 dB；压缩增益 300%；压缩启动 20；压缩释放 140（共 8 项） | 商人出售 | 114,695 卢布，需 Peacekeeper 4 级 | 30,654 卢布（3 家最高） |
 | 13 | Walker's Razor Slim 耳机（林地迷彩） | `walkers-razor-slim-headset-woodland` | 0.43 千克 | 环境音量 50 dB；压缩阈值 23 dB；压缩增益 300%；压缩启动 20；压缩释放 320（共 8 项） | 以物换物 | — | 17,550 卢布（3 家最高） |
 | 14 | Walker's Razor Slim 耳机（碳纤维） | `walkers-razor-slim-headset-carbon-fiber` | 0.43 千克 | 环境音量 50 dB；压缩阈值 23 dB；压缩增益 300%；压缩启动 20；压缩释放 320（共 8 项） | 以物换物 | — | 17,550 卢布（3 家最高） |
 | 15 | Walker's Razor 数字耳机 | `walkers-razor-digital-headset` | 0.43 千克 | 环境音量 50 dB；压缩阈值 23 dB；压缩增益 300%；压缩启动 20；压缩释放 320（共 8 项） | — | — | 17,550 卢布（3 家最高） |
 | 16 | Walker's Razor 数字耳机（ΜΟΛΩΝ ΛΑΒΕ） | `walkers-razor-digital-headset-molon-labe` | 0.43 千克 | 环境音量 50 dB；压缩阈值 23 dB；压缩增益 300%；压缩启动 20；压缩释放 320（共 8 项） | 以物换物 | — | 17,550 卢布（3 家最高） |
 | 17 | TW EXFIL Peltor ComTac VI 耳机（丛林绿） | `tw-exfil-peltor-comtac-vi-headset-ranger-green` | 0.439 千克 | 环境音量 50 dB；压缩阈值 24 dB；压缩增益 300%；压缩启动 35；压缩释放 160（共 8 项） | 以物换物 | — | 34,460 卢布（3 家最高） |
-| 18 | TW EXFIL Peltor ComTac VI 耳机（狼棕色） | `tw-exfil-peltor-comtac-vi-headset-coyote-brown` | 0.439 千克 | 环境音量 50 dB；压缩阈值 24 dB；压缩增益 300%；压缩启动 35；压缩释放 160（共 8 项） | 商人出售 | 129,487 卢布，需 Peacekeeper 4 级 | 34,460 卢布（3 家最高） |
+| 18 | TW EXFIL Peltor ComTac VI 耳机（狼棕色） | `tw-exfil-peltor-comtac-vi-headset-coyote-brown` | 0.439 千克 | 环境音量 50 dB；压缩阈值 24 dB；压缩增益 300%；压缩启动 35；压缩释放 160（共 8 项） | 商人出售 | 128,935 卢布，需 Peacekeeper 4 级 | 34,460 卢布（3 家最高） |
 | 19 | TW EXFIL Peltor ComTac VI 耳机（黑色） | `tw-exfil-peltor-comtac-vi-headset-black` | 0.439 千克 | 环境音量 50 dB；压缩阈值 24 dB；压缩增益 300%；压缩启动 35；压缩释放 160（共 8 项） | 以物换物 | — | 34,460 卢布（3 家最高） |
 | 20 | Opsmen Earmor M32 耳机 | `opsmen-earmor-m32-headset` | 0.49 千克 | 环境音量 50 dB；压缩阈值 22 dB；压缩增益 300%；压缩启动 15；压缩释放 265（共 8 项） | 商人出售 | 35,377 卢布，需 Skier 1 级 | 12,283 卢布（3 家最高） |
 | 21 | Opsmen Earmor M32 耳机（白色） | `opsmen-earmor-m32-headset-white` | 0.49 千克 | 环境音量 50 dB；压缩阈值 22 dB；压缩增益 300%；压缩启动 15；压缩释放 265（共 8 项） | 以物换物 | — | 12,283 卢布（3 家最高） |
 | 22 | Walker's XCEL 500BT 数字耳机 | `walkers-xcel-500bt-digital-headset` | 0.49 千克 | 环境音量 50 dB；压缩阈值 24 dB；压缩增益 300%；压缩启动 40；压缩释放 200（共 8 项） | — | — | 30,062 卢布（3 家最高） |
 | 23 | GSSh-01有源耳机 | `gssh-01-active-headset` | 0.5 千克 | 环境音量 50 dB；压缩阈值 20 dB；压缩增益 300%；压缩启动 35；压缩释放 255（共 8 项） | 商人出售 / 以物换物 | 21,837 卢布，需 Prapor 1 级 | 8,028 卢布（3 家最高） |
-| 24 | Ops-Core FAST RAC 耳机 | `ops-core-fast-rac-headset` | 0.6 千克 | 环境音量 50 dB；压缩阈值 20 dB；压缩增益 300%；压缩启动 20；压缩释放 130（共 8 项） | 商人出售 | 85,647 卢布，需 Peacekeeper 3 级 | 26,815 卢布（3 家最高） |
+| 24 | Ops-Core FAST RAC 耳机 | `ops-core-fast-rac-headset` | 0.6 千克 | 环境音量 50 dB；压缩阈值 20 dB；压缩增益 300%；压缩启动 20；压缩释放 130（共 8 项） | 商人出售 | 85,282 卢布，需 Peacekeeper 3 级 | 26,815 卢布（3 家最高） |
 | 25 | Peltor ComTac IV Hybrid 耳机（狼棕色） | `peltor-comtac-iv-hybrid-headset-coyote-brown` | 0.6 千克 | 环境音量 50 dB；压缩阈值 22 dB；压缩增益 300%；压缩启动 40；压缩释放 120（共 8 项） | — | — | 39,675 卢布（3 家最高） |
 | 26 | Peltor 战术运动型耳机 | `peltor-tactical-sport-headset` | 0.6 千克 | 环境音量 50 dB；压缩阈值 20 dB；压缩增益 300%；压缩启动 15；压缩释放 265（共 8 项） | 商人出售 | 61,855 卢布，需 Ragman 4 级 | 22,250 卢布（3 家最高） |
 | 27 | MSA Sordin Supreme PRO-X/L有源耳机 | `msa-sordin-supreme-pro-xl-headset` | 0.65 千克 | 环境音量 50 dB；压缩阈值 25 dB；压缩增益 300%；压缩启动 24；压缩释放 164（共 8 项） | 商人出售 / 以物换物 | 62,588 卢布，需 Ragman 3 级 | 22,513 卢布（3 家最高） |
@@ -145,7 +145,7 @@ Peltor TEP-300 战术耳塞（狼棕色）　CENS ProFlex DX5 战术耳塞　Pel
 | 55 | Domontovich 毛帽 | `domontovich-ushanka-hat` | 0.35 千克 | — | — | — | 13,500 卢布（4 家最高） |
 | 56 | 带耳罩的苏联毛帽 | `ushanka-ear-flap-hat` | 0.35 千克 | — | 以物换物 | — | 2,506 卢布（4 家最高） |
 | 57 | 新年苏联毛帽 | `new-year-ushanka-hat` | 0.35 千克 | — | 商人出售 | 2,537 卢布，需 Ragman 1 级 | — |
-| 58 | Armasight夜视镜头罩基座 | `armasight-nvg-head-strap` | 0.4 千克 | — | 商人出售 | 35,884 卢布，需 Peacekeeper 3 级 | 9,550 卢布（4 家最高） |
+| 58 | Armasight夜视镜头罩基座 | `armasight-nvg-head-strap` | 0.4 千克 | — | 商人出售 | 35,732 卢布，需 Peacekeeper 3 级 | 9,550 卢布（4 家最高） |
 | 59 | SHIELD 神中神 硬质安全帽 (橘色) | `shield-absolute-cinema-hard-hat-orange` | 0.45 千克 | 防护等级 2 级；材质 轻型；耐久 96；防护区域 7 处；钝伤防护 22%（共 9 项） | — | — | 4,600 卢布（4 家最高） |
 | 60 | SHIELD 神中神 硬质安全帽 (白色) | `shield-absolute-cinema-hard-hat-white` | 0.45 千克 | 防护等级 2 级；材质 轻型；耐久 96；防护区域 7 处；钝伤防护 22%（共 9 项） | — | — | 4,600 卢布（4 家最高） |
 | 61 | Tac-Kek Fast MT 头盔（不防弹的仿制品） | `tac-kek-fast-mt-helmet-replica` | 0.45 千克 | 防护等级 1 级；材质 轻型；耐久 48；防护区域 2 处；钝伤防护 33%（共 9 项） | — | — | 5,500 卢布（4 家最高） |
@@ -177,10 +177,10 @@ Peltor TEP-300 战术耳塞（狼棕色）　CENS ProFlex DX5 战术耳塞　Pel
 | 87 | Crye Precision AirFrame 头盔（网格绿色） | `crye-precision-airframe-helmet-mesh-green` | 0.88 千克 | 防护等级 4 级；材质 轻型；耐久 48；防护区域 2 处；钝伤防护 13%（共 9 项） | — | — | 43,728 卢布（4 家最高） |
 | 88 | Crye Precision AirFrame 头盔（老派风格） | `crye-precision-airframe-helmet-old-school` | 0.88 千克 | 防护等级 4 级；材质 轻型；耐久 48；防护区域 2 处；钝伤防护 13%（共 9 项） | — | — | 43,728 卢布（4 家最高） |
 | 89 | Crye Precision AirFrame 头盔（鲨鱼嘴） | `crye-precision-airframe-helmet-shark` | 0.88 千克 | 防护等级 4 级；材质 轻型；耐久 48；防护区域 2 处；钝伤防护 13%（共 9 项） | 以物换物 | — | 43,728 卢布（4 家最高） |
-| 90 | Crye Precision AirFrame 头盔（黄褐色） | `crye-precision-airframe-helmet-tan` | 0.88 千克 | 防护等级 4 级；材质 轻型；耐久 48；防护区域 2 处；钝伤防护 13%（共 9 项） | 商人出售 | 164,315 卢布，需 Peacekeeper 4 级 | 43,728 卢布（4 家最高） |
+| 90 | Crye Precision AirFrame 头盔（黄褐色） | `crye-precision-airframe-helmet-tan` | 0.88 千克 | 防护等级 4 级；材质 轻型；耐久 48；防护区域 2 处；钝伤防护 13%（共 9 项） | 商人出售 | 163,614 卢布，需 Peacekeeper 4 级 | 43,728 卢布（4 家最高） |
 | 91 | MTEK STRIKE 防弹头盔（灰褐色） | `mtek-strike-ballistic-helmet-coyote` | 0.9 千克 | 防护等级 4 级；材质 轻型；耐久 40；防护区域 2 处；钝伤防护 15%（共 9 项） | 商人出售 | 77,290 卢布，需 Ragman 4 级 | 27,802 卢布（4 家最高） |
 | 92 | MTEK STRIKE 防弹头盔（碳纤维） | `mtek-strike-ballistic-helmet-carbon-fiber` | 0.9 千克 | 防护等级 4 级；材质 轻型；耐久 40；防护区域 2 处；钝伤防护 0%（共 9 项） | 以物换物 | — | 27,802 卢布（4 家最高） |
-| 93 | Ops-Core FAST MT 超级高切 头盔（城市褐） | `ops-core-fast-mt-super-high-cut-helmet-urban-tan` | 0.9 千克 | 防护等级 4 级；材质 轻型；耐久 48；防护区域 2 处；钝伤防护 14%（共 9 项） | 商人出售 | 178,677 卢布，需 Peacekeeper 4 级 | 47,550 卢布（4 家最高） |
+| 93 | Ops-Core FAST MT 超级高切 头盔（城市褐） | `ops-core-fast-mt-super-high-cut-helmet-urban-tan` | 0.9 千克 | 防护等级 4 级；材质 轻型；耐久 48；防护区域 2 处；钝伤防护 14%（共 9 项） | 商人出售 | 177,915 卢布，需 Peacekeeper 4 级 | 47,550 卢布（4 家最高） |
 | 94 | Ops-Core FAST MT 超级高切头盔（黑色） | `ops-core-fast-mt-super-high-cut-helmet-black` | 0.9 千克 | 防护等级 4 级；材质 轻型；耐久 48；防护区域 2 处；钝伤防护 14%（共 9 项） | — | — | 52,702 卢布（4 家最高） |
 | 95 | TSH-4M-L软质坦克乘员头盔 | `tsh-4m-l-soft-tank-crew-helmet` | 0.9 千克 | 防护等级 1 级；材质 轻型；耐久 105；防护区域 3 处；钝伤防护 26%（共 9 项） | 商人出售 | 8,340 卢布，需 Ragman 1 级 | 3,000 卢布（4 家最高） |
 | 96 | LZSh 轻型头盔（橄榄绿） | `lshz-lightweight-helmet-olive-drab` | 0.95 千克 | 防护等级 3 级；材质 轻型；耐久 36；防护区域 2 处；钝伤防护 24%（共 9 项） | 商人出售 | 44,682 卢布，需 Ragman 2 级 | 16,072 卢布（4 家最高） |
@@ -191,15 +191,15 @@ Peltor TEP-300 战术耳塞（狼棕色）　CENS ProFlex DX5 战术耳塞　Pel
 | 101 | Diamond Age Bastion 头盔（黑色） | `diamond-age-bastion-helmet-black` | 1.07 千克 | 防护等级 4 级；材质 重型；耐久 48；防护区域 2 处；钝伤防护 13%（共 9 项） | 商人出售 | 82,768 卢布，需 Ragman 3 级 | 29,772 卢布（4 家最高） |
 | 102 | Galvion 凯门鳄 复合防弹头盔（共生者） | `galvion-caiman-hybrid-helmet-mutualist` | 1.12 千克 | 防护等级 3 级；材质 轻型；耐久 60；防护区域 2 处；钝伤防护 15%（共 9 项） | 以物换物 | — | 25,660 卢布（4 家最高） |
 | 103 | Galvion 凯门鳄 复合防弹头盔（复合迷彩） | `galvion-caiman-hybrid-helmet-multicam` | 1.12 千克 | 防护等级 3 级；材质 轻型；耐久 60；防护区域 2 处；钝伤防护 15%（共 9 项） | 以物换物 | — | 25,660 卢布（4 家最高） |
-| 104 | Galvion 凯门鳄 复合防弹头盔（灰色） | `galvion-caiman-hybrid-helmet-grey` | 1.12 千克 | 防护等级 3 级；材质 轻型；耐久 60；防护区域 2 处；钝伤防护 15%（共 9 项） | 商人出售 | 96,420 卢布，需 Peacekeeper 2 级 | 25,660 卢布（4 家最高） |
+| 104 | Galvion 凯门鳄 复合防弹头盔（灰色） | `galvion-caiman-hybrid-helmet-grey` | 1.12 千克 | 防护等级 3 级；材质 轻型；耐久 60；防护区域 2 处；钝伤防护 15%（共 9 项） | 商人出售 | 96,009 卢布，需 Peacekeeper 2 级 | 25,660 卢布（4 家最高） |
 | 105 | Galvion 凯门鳄 复合防弹头盔（高原复合迷彩） | `galvion-caiman-hybrid-helmet-multicam-alpine` | 1.12 千克 | 防护等级 3 级；材质 轻型；耐久 60；防护区域 2 处；钝伤防护 72%（共 9 项） | 以物换物 | — | 25,660 卢布（4 家最高） |
 | 106 | MSA Gallet TC 800 High Cut 作战头盔 | `msa-gallet-tc-800-high-cut-combat-helmet-black` | 1.17 千克 | 防护等级 4 级；材质 轻型；耐久 36；防护区域 2 处；钝伤防护 15%（共 9 项） | 以物换物 | — | 27,060 卢布（4 家最高） |
 | 107 | Diamond Age NovaSteel 防弹头盔（橄榄绿） | `diamond-age-novasteel-helmet-olive-drab` | 1.18 千克 | 防护等级 4 级；材质 重型；耐久 72；防护区域 2 处；钝伤防护 17%（共 9 项） | 商人出售 | 152,940 卢布，需 Ragman 4 级 | 42,318 卢布（4 家最高） |
 | 108 | Diamond Age NovaSteel 防弹头盔（死亡守护者） | `diamond-age-novasteel-helmet-custos-mortis` | 1.18 千克 | 防护等级 4 级；材质 重型；耐久 72；防护区域 2 处；钝伤防护 17%（共 9 项） | — | — | 43,248 卢布（4 家最高） |
 | 109 | Diamond Age NovaSteel 防弹头盔（毒素） | `diamond-age-novasteel-helmet-toxin` | 1.18 千克 | 防护等级 4 级；材质 重型；耐久 72；防护区域 2 处；钝伤防护 17%（共 9 项） | 以物换物 | — | 45,444 卢布（4 家最高） |
 | 110 | Team Wendy EXFIL 防弹头盔（复合迷彩） | `team-wendy-exfil-ballistic-helmet-multicam` | 1.18 千克 | 防护等级 4 级；材质 重型；耐久 54；防护区域 2 处；钝伤防护 15%（共 9 项） | 以物换物 | — | 50,675 卢布（4 家最高） |
-| 111 | Team Wendy EXFIL 防弹头盔（狼棕色） | `team-wendy-exfil-ballistic-helmet-coyote-brown` | 1.18 千克 | 防护等级 4 级；材质 重型；耐久 54；防护区域 2 处；钝伤防护 15%（共 9 项） | 商人出售 | 190,418 卢布，需 Peacekeeper 4 级 | 50,675 卢布（4 家最高） |
-| 112 | Team Wendy EXFIL 防弹头盔（黑色） | `team-wendy-exfil-ballistic-helmet-black` | 1.18 千克 | 防护等级 4 级；材质 重型；耐久 54；防护区域 2 处；钝伤防护 15%（共 9 项） | 商人出售 | 212,618 卢布，需 Peacekeeper 4 级 | 56,583 卢布（4 家最高） |
+| 111 | Team Wendy EXFIL 防弹头盔（狼棕色） | `team-wendy-exfil-ballistic-helmet-coyote-brown` | 1.18 千克 | 防护等级 4 级；材质 重型；耐久 54；防护区域 2 处；钝伤防护 15%（共 9 项） | 商人出售 | 189,606 卢布，需 Peacekeeper 4 级 | 50,675 卢布（4 家最高） |
+| 112 | Team Wendy EXFIL 防弹头盔（黑色） | `team-wendy-exfil-ballistic-helmet-black` | 1.18 千克 | 防护等级 4 级；材质 重型；耐久 54；防护区域 2 处；钝伤防护 15%（共 9 项） | 商人出售 | 211,711 卢布，需 Peacekeeper 4 级 | 56,583 卢布（4 家最高） |
 | 113 | Diamond Age NeoSteel 高切头盔 (橙斑) | `diamond-age-neosteel-high-cut-helmet-orange-stains` | 1.2 千克 | 防护等级 4 级；材质 重型；耐久 72；防护区域 2 处；钝伤防护 17%（共 9 项） | 以物换物 | — | 40,677 卢布（4 家最高） |
 | 114 | Diamond Age NeoSteel 高切头盔 (王牌) | `diamond-age-neosteel-high-cut-helmet-aces` | 1.2 千克 | 防护等级 4 级；材质 重型；耐久 72；防护区域 2 处；钝伤防护 17%（共 9 项） | 以物换物 | — | 40,677 卢布（4 家最高） |
 | 115 | Diamond Age NeoSteel 高切头盔 (黑色) | `diamond-age-neosteel-high-cut-helmet-black` | 1.2 千克 | 防护等级 4 级；材质 重型；耐久 72；防护区域 2 处；钝伤防护 17%（共 9 项） | 商人出售 | 113,083 卢布，需 Ragman 3 级 | 40,677 卢布（4 家最高） |
@@ -217,7 +217,7 @@ Peltor TEP-300 战术耳塞（狼棕色）　CENS ProFlex DX5 战术耳塞　Pel
 | 127 | Devtac 浪人防弹头盔（猛禽） | `devtac-ronin-ballistic-helmet-raptor` | 1.382 千克 | 防护等级 3 级；材质 轻型；耐久 180；防护区域 6 处；钝伤防护 22%（共 9 项） | — | — | 25,959 卢布（4 家最高） |
 | 128 | Devtac 浪人防弹头盔（试作机） | `devtac-ronin-ballistic-helmet-prototype` | 1.382 千克 | 防护等级 3 级；材质 轻型；耐久 180；防护区域 6 处；钝伤防护 22%（共 9 项） | — | — | 25,959 卢布（4 家最高） |
 | 129 | Devtac 浪人防弹头盔（橄榄绿） | `devtac-ronin-ballistic-helmet-olive-drab` | 1.382 千克 | 防护等级 3 级；材质 轻型；耐久 180；防护区域 6 处；钝伤防护 22%（共 9 项） | — | — | 16,048 卢布（4 家最高） |
-| 130 | MSA ACH TC-2001 MICH系列头盔 | `msa-ach-tc-2001-mich-series-helmet-olive-drab` | 1.4 千克 | 防护等级 4 级；材质 重型；耐久 30；防护区域 2 处；钝伤防护 15%（共 9 项） | 商人出售 | 97,959 卢布，需 Peacekeeper 2 级 | 26,069 卢布（4 家最高） |
+| 130 | MSA ACH TC-2001 MICH系列头盔 | `msa-ach-tc-2001-mich-series-helmet-olive-drab` | 1.4 千克 | 防护等级 4 级；材质 重型；耐久 30；防护区域 2 处；钝伤防护 15%（共 9 项） | 商人出售 | 97,542 卢布，需 Peacekeeper 2 级 | 26,069 卢布（4 家最高） |
 | 131 | Ballistic Armor Co. Bastion头盔（复合迷彩） | `ballistic-armor-co-bastion-helmet-multicam` | 1.44 千克 | 防护等级 4 级；材质 轻型；耐久 50；防护区域 2 处；钝伤防护 21%（共 9 项） | — | — | 31,206 卢布（4 家最高） |
 | 132 | Ballistic Armor Co. Bastion头盔（橄榄绿） | `ballistic-armor-co-bastion-helmet-od-green` | 1.44 千克 | 防护等级 4 级；材质 轻型；耐久 50；防护区域 2 处；钝伤防护 21%（共 9 项） | — | — | 32,911 卢布（4 家最高） |
 | 133 | Ballistic Armor Co. Bastion头盔（黑色） | `ballistic-armor-co-bastion-helmet-armor-black` | 1.44 千克 | 防护等级 4 级；材质 轻型；耐久 50；防护区域 2 处；钝伤防护 21%（共 9 项） | — | — | 34,722 卢布（4 家最高） |
@@ -236,7 +236,7 @@ Peltor TEP-300 战术耳塞（狼棕色）　CENS ProFlex DX5 战术耳塞　Pel
 | 146 | HighCom Striker ULACH IIIA 头盔（黑色） | `highcom-striker-ulach-iiia-helmet-black` | 1.9 千克 | 防护等级 4 级；材质 轻型；耐久 66；防护区域 3 处；钝伤防护 21%（共 9 项） | 以物换物 | — | 46,789 卢布（4 家最高） |
 | 147 | Kolpak -1S防暴头盔 | `kolpak-1s-riot-helmet` | 1.9 千克 | 防护等级 2 级；材质 轻型；耐久 45；防护区域 3 处；钝伤防护 24%（共 9 项） | 商人出售 | 11,119 卢布，需 Ragman 1 级 | 3,999 卢布（4 家最高） |
 | 148 | 冠军头盔 | `champions-helmet` | 1.9 千克 | 防护等级 4 级；材质 轻型；耐久 100；防护区域 5 处；钝伤防护 21%（共 9 项） | 以物换物 | — | 43,502 卢布（4 家最高） |
-| 149 | UNTAR头盔 | `untar-helmet` | 2.2 千克 | 防护等级 3 级；材质 轻型；耐久 45；防护区域 3 处；钝伤防护 24%（共 9 项） | 商人出售 / 以物换物 | 53,232 卢布，需 Peacekeeper 1 级 | 14,166 卢布（4 家最高） |
+| 149 | UNTAR头盔 | `untar-helmet` | 2.2 千克 | 防护等级 3 级；材质 轻型；耐久 45；防护区域 3 处；钝伤防护 24%（共 9 项） | 商人出售 / 以物换物 | 53,005 卢布，需 Peacekeeper 1 级 | 14,166 卢布（4 家最高） |
 | 150 | NPP KlASS Tor-2 头盔（橄榄绿） | `npp-klass-tor-2-helmet-olive-drab` | 2.4 千克 | 防护等级 3 级；材质 重型；耐久 81；防护区域 3 处；钝伤防护 15%（共 9 项） | 商人出售 | 73,227 卢布，需 Ragman 3 级 | 26,340 卢布（4 家最高） |
 | 151 | Altyn 突击头盔（防弹验证） | `altyn-assault-helmet-impact-tested` | 2.498 千克 | 防护等级 5 级；材质 重型；耐久 81；防护区域 3 处；钝伤防护 17%（共 9 项） | — | — | 84,000 卢布（4 家最高） |
 | 152 | Altyn 突击头盔（橄榄绿） | `altyn-assault-helmet-olive-drab` | 2.5 千克 | 防护等级 5 级；材质 重型；耐久 81；防护区域 3 处；钝伤防护 17%（共 9 项） | 以物换物 | — | 84,000 卢布（4 家最高） |

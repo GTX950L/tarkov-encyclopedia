@@ -1287,10 +1287,10 @@ function siteRoot() {
   }
 
   /* --------------------------------------------------------------------------
-     看板模块（「我的进度」页的任务 / 依赖树 / 物品 / 藏身处 / 剧情章节 / 管理各块）
+     看板模块（「我的进度」页的总览 / 任务 / 依赖树 / 物品 / 收藏家 / 藏身处 / 剧情章节 / 管理各块）
      -------------------------------------------------------------------------- */
 
-  var BOARD_IDS = ["tk-board-overview", "tk-progress-board", "tk-board-tree", "tk-board-items", "tk-board-hideout", "tk-board-story", "tk-board-ops"];
+  var BOARD_IDS = ["tk-board-overview", "tk-progress-board", "tk-board-tree", "tk-board-items", "tk-board-collector", "tk-board-hideout", "tk-board-story", "tk-board-ops"];
   var boardsState = 0;   // 0 未开始 / 1 加载中 / 2 就绪 / -1 失败
   var boardsCbs = [];
 

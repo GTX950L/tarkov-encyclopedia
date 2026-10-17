@@ -62,6 +62,9 @@ CACHE = ROOT / "scripts" / "data" / "maps_source.json"
 RAW_DIR = ROOT / "scripts" / "data" / "maps_raw"
 SVG_DIR = ROOT / "content" / "assets" / "maps"
 OUT_JS = ROOT / "content" / "javascripts" / "maps-data.js"
+# 「钥匙 → 所在图」反查表：供物品图鉴的「所在图」列（gen_items_catalog.py）读，
+# 与 maps-data.js 同源同批产出 —— 两边不一致时，⑤c 防漂移会同时重跑本脚本暴露。
+KEY_LOC_FILE = ROOT / "scripts" / "data" / "key_locations.json"
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 任务点位 —— 供「地图 ↔ 任务图鉴 ↔ 我的进度」联动
@@ -1274,6 +1277,44 @@ window.TARKOV_MAPS = {payload};
     log(f"\n③ 写出 {OUT_JS.relative_to(ROOT)}（{len(js.encode('utf-8')) / 1024:.1f} KB）")
 
 
+def write_key_locations(maps: dict) -> None:
+    """把「钥匙 → 出现在哪些图的锁点上」的反查表写成数据文件。
+
+    供 `gen_items_catalog.py` 给钥匙图鉴的「所在图」列使用 —— 它在**离线**模式下
+    也会重跑（check_gen_drift 的 ⑪），所以本函数必须确定性输出（键、列表都显式排序）。
+
+    ⚠️ 这份数据**推翻了 keys.md 口径四条第③条的旧理由**（2026-10-08 版写
+       「能拿到的只有 23%，且是任务所在地图的间接推断」）：锁点图层（v1.115 补上）
+       的 `key` 字段就是**「这把钥匙开哪张图的哪扇门」的直接证据**，覆盖 208/259 件。
+       没有锁点数据的钥匙**不在此表** —— 留白不等于「不在这张图用」，句子写在页面口径里。
+
+    键是物品 id（tarkov.dev item id，与站内物品图鉴同一套键，零桥接）；
+    值 = 该钥匙出现锁点的地图 key 列表（去重、按站内图 key 字母序）。
+    """
+    agg: dict[str, list[str]] = {}
+    for key in sorted(maps):
+        for lk in maps[key].get("locks") or []:
+            kid = lk.get("k")
+            if not kid:
+                continue
+            seen = agg.setdefault(kid, [])
+            if key not in seen:
+                seen.append(key)
+
+    payload = {
+        "source": "json.tarkov.dev maps 端点 · locks 图层（与交互地图同一份数据）",
+        "note": "键=物品 id；值=该钥匙出现锁点的地图 key 列表。"
+                "没有锁点数据的钥匙不在此表 —— 留白不等于「不在这张图用」。",
+        "maps": {k: MAP_ZH.get(k, k) for k in sorted(maps)},
+        "keys": {k: agg[k] for k in sorted(agg)},
+    }
+    KEY_LOC_FILE.parent.mkdir(parents=True, exist_ok=True)
+    KEY_LOC_FILE.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    log(f"④ 写出 {KEY_LOC_FILE.relative_to(ROOT)}"
+        f"（{len(agg)} 件钥匙 / {sum(len(v) for v in agg.values())} 个图-钥匙对）")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="生成交互地图底图与点位数据")
     ap.add_argument("--fetch", action="store_true", help="重新抓上游数据（联网）")
@@ -1298,6 +1339,7 @@ def main() -> int:
     log(f"\n② 换肤并投影（{len(_svg_sources(data))} 张）…")
     maps = build_maps(data)
     write_js(maps)
+    write_key_locations(maps)
     log(f"\n✅ 完成：{len(maps)} 张图，共 "
         f"{sum(len(m['labels']) for m in maps.values())} 个地名锚点")
     return 0

@@ -4,7 +4,7 @@
    content/entries/story-chapters.md 同源（storylines.json 手维护、与剧情页对账），
    重抓数据或改动上述页面后，要按脚本头部写的顺序重跑。 */
 window.TARKOV_PROGRESS_MANIFEST = {
-  "generated": "2026-10-15",
+  "generated": "2026-10-17",
   "source": "scripts/data/quests.json（json.tarkov.dev/regular，持久 PvP） + scripts/data/hideout.json（同源，含 hideout_zh / items_zh 译名） + scripts/data/storylines.json（手维护，与剧情页对账）",
   "baseline": "2026-09-30",
   "total": 515,
@@ -543,6 +543,235 @@ window.TARKOV_PROGRESS_MANIFEST = {
         "tasks": 3,
         "qty": 6,
         "traders": "Fence / Ref / Lightkeeper"
+      }
+    ]
+  },
+  "collector": {
+    "quest": "收藏家",
+    "questId": "5c51aac186f77432ea65c552",
+    "total": 44,
+    "allFir": true,
+    "note": "「收藏家」任务的**全部**物品需求。与「物品收集」是两条口径，**共用同一份已囤件数账本** —— 在哪一边改数字，另一边都是同一份。",
+    "list": [
+      {
+        "name": "古董斧头",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "破旧的古董书",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "#FireKlean牌枪润滑油",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "银徽章",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Deadlyslob的胡须油",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "金色1GPhone",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "假胡子",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "乌鸦雕像",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Pestily 瘟疫面具",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Shroud 半面巾",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "罐装 Dr. Lupo 咖啡豆",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "42 Signature Blend英式茶",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Veritas吉他拨片",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Dunduk 软盘",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "罐装六可乐",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Nut Sack 巴拉克拉瓦头套",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Desmondpilak CD 专辑",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Mazoni 金色哑铃",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "SheefGG 存钱罐",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Loot Lord毛绒玩具",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Tigzresq 夹板",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "GigaBeef 咸牛肉罐头",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Smoke巴拉克拉瓦头套",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Domontovich 毛帽",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "LM KC-130 飞机模型",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "法国面包房特产法棍",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "油墨香车瓶装水",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "WZ钱包",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "LVNDMARK的老鼠药",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Missam叉车钥匙",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "《天雷地火》录像带",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "BakeEzy烹饪书",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "JohnB 「Liquid DNB」墨镜",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Baddie的红胡子",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "DRD防弹衣",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Gingy钥匙串",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "金蛋",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "记者证（为NoiceGuy签发）",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Axel鹦鹉雕像",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "BEAR Buddy毛绒玩具",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Glorious E 面具",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Inseq燃气管扳手",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Viibiin运动鞋",
+        "qty": 1,
+        "fir": true
+      },
+      {
+        "name": "Tamatthi 苦无飞刀（仿制品）",
+        "qty": 1,
+        "fir": true
       }
     ]
   },

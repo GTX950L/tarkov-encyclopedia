@@ -142,6 +142,53 @@ def build_items(tasks: list[dict]) -> dict:
     }
 
 
+# ②b 收藏家清单（Kappa 终点任务的物品需求）
+# ---------------------------------------------------------------------------
+#
+# 与 ②「物品收集」是**两条口径、同一份账本**：
+#   · 「物品收集」（≥3 任务）看的是「长期要囤什么」；
+#   · 「收藏家」看的是「Kappa 还要交什么」——它要的一大半物品只被这**一个**
+#     任务需要，进不了 ≥3 的门槛，所以必须单列（不然 Kappa 玩家没有清单可盯）。
+# 数据口径：该任务 objectives 里 `giveItem` 且带 items 的条目；同名物品合并数量
+# （fir 取**与** —— 只要有一条不要求 FIR，合并后就不算全 FIR）。
+COLLECTOR_QUEST_ID = "5c51aac186f77432ea65c552"  # 「收藏家」（Fence）
+
+
+def build_collector(tasks: list[dict]) -> dict:
+    quest = None
+    for q in tasks:
+        if q.get("id") == COLLECTOR_QUEST_ID:
+            quest = q
+            break
+    if not quest:
+        return {"total": 0, "list": [], "allFir": False,
+                "note": "数据里找不到「收藏家」任务（id 变了吗？）。"}
+
+    agg: dict[str, dict] = {}
+    for o in quest.get("objectives") or []:
+        if o.get("type") != "giveItem":
+            continue
+        for name in o.get("items") or []:
+            fir = bool(o.get("fir"))
+            if name in agg:
+                agg[name]["qty"] += o.get("count") or 1
+                agg[name]["fir"] = agg[name]["fir"] and fir
+            else:
+                agg[name] = {"name": name, "qty": o.get("count") or 1, "fir": fir}
+
+    rows = list(agg.values())
+    return {
+        "quest": quest.get("name") or "收藏家",
+        "questId": COLLECTOR_QUEST_ID,
+        "total": len(rows),
+        "allFir": bool(rows) and all(r["fir"] for r in rows),
+        # 说明写在数据里，前端直接取用（同 items.note 的纪律）。
+        "note": "「收藏家」任务的**全部**物品需求。与「物品收集」是两条口径，"
+                "**共用同一份已囤件数账本** —— 在哪一边改数字，另一边都是同一份。",
+        "list": rows,
+    }
+
+
 def count_item_rows_in_page() -> int:
     """数 quests/index.md 的「物品需求反查」表实际写了多少行。"""
     if not QUEST_INDEX.exists():
@@ -595,6 +642,7 @@ def main() -> int:
 
     quests = build_quests(tasks)
     items = build_items(tasks)
+    collector = build_collector(tasks)
     hideout, hut_raw = build_hideout()
     story = build_storyline()
     graph_n = build_graph(tasks)
@@ -610,6 +658,7 @@ def main() -> int:
         "total": quests["total"],
         "traders": quests["traders"],
         "items": items,
+        "collector": collector,
         "hideout": hideout,
         "storyline": story,
     }, ensure_ascii=False, indent=2)

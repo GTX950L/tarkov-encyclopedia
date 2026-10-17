@@ -1979,6 +1979,90 @@
   }
 
   /* --------------------------------------------------------------------------
+     看板二·B：收藏家清单（Kappa 终点的物品需求）
+     --------------------------------------------------------------------------
+     数据：manifest.collector（「收藏家」任务的全部物品需求；本批 44 件、
+     全部要求「战局内找到」）。与「物品收集」是**两条口径、同一份账本** ——
+     countCtl / TP.itemCount 与那一页用的是同一套键（物品中文名），
+     在哪边改数字，另一边（含总览）立刻同值。
+     为什么单列：它要的一大半物品只被这一个任务需要，进不了「物品收集」的
+     ≥3 任务门槛 —— Kappa 玩家真正要盯的就是这一张清单。 */
+  function renderCollectorBoard(host) {
+    var mf = window.TARKOV_PROGRESS_MANIFEST;
+    var c = (mf && mf.collector) || null;
+    host.textContent = "";
+    if (!c || !c.list || !c.list.length) { host.appendChild(notReady("收藏家清单")); return; }
+
+    var list = c.list;
+    var cards = sumCards([["已备齐"], ["还差种类"], ["收藏品总数", String(c.total)]]);
+    var refs = cards.refs;
+    host.appendChild(cards.el);
+
+    var bar = el("div", "tk-board__filter");
+    var input = document.createElement("input");
+    input.type = "search";
+    input.className = "tk-board__search";
+    input.placeholder = "筛选物品名";
+    input.setAttribute("data-focus-key", "csearch");
+    input.setAttribute("aria-label", "筛选收藏家清单");
+    bar.appendChild(input);
+    var only = document.createElement("label");
+    only.className = "tk-board__check";
+    var cb = document.createElement("input");
+    cb.type = "checkbox";
+    only.appendChild(cb);
+    only.appendChild(document.createTextNode("只看还差的"));
+    bar.appendChild(only);
+    var count = el("span", "tk-board__filtercount");
+    bar.appendChild(count);
+    host.appendChild(bar);
+
+    var tbody = el("tbody");
+    var rows = [];
+    for (var i = 0; i < list.length; i++) {
+      var it = list[i];
+      var tr = el("tr");
+      var tdCtl = el("td", "tk-board__pick");
+      var ctl = countCtl(it.name, it.qty);
+      tdCtl.appendChild(ctl.el);
+      tr.appendChild(tdCtl);
+      tr.appendChild(el("td", null, it.name));
+      tr.appendChild(el("td", "tk-board__num", String(it.qty)));
+      rows.push({ tr: tr, ctl: ctl, it: it });
+      tbody.appendChild(tr);
+    }
+    host.appendChild(wrapTable(["已囤 / 需", "物品", "需要"], tbody));
+    var note = (c.note || "");
+    if (c.allFir) {
+      note += " 全部 " + c.total + " 件都要求**必须战局内找到**（跳蚤市场买的不算数）。";
+    }
+    host.appendChild(richEl("p", "tk-board__note", note));
+
+    function apply() {
+      var q = (input.value || "").trim().toLowerCase();
+      var onlyOn = cb.checked;
+      var shown = 0, met = 0;
+      for (var r = 0; r < rows.length; r++) {
+        var v = TP.itemCount(rows[r].it.name);
+        var ok2 = v >= rows[r].it.qty;
+        if (ok2) met++;
+        rows[r].ctl.set(v);
+        rows[r].tr.className = ok2 ? "tk-met" : "";
+        var hit = (!q || rows[r].it.name.toLowerCase().indexOf(q) >= 0) && (!onlyOn || !ok2);
+        rows[r].tr.hidden = !hit;
+        if (hit) shown++;
+      }
+      count.textContent = "显示 " + shown + " / " + rows.length;
+      refs["已备齐"].textContent = met + " / " + list.length;
+      refs["还差种类"].textContent = String(list.length - met);
+    }
+    input.addEventListener("input", apply);
+    cb.addEventListener("change", apply);
+    host.__tkSync = apply;
+    apply();
+  }
+
+  /* --------------------------------------------------------------------------
      看板三：藏身处（模块等级 + 下一级材料）
      -------------------------------------------------------------------------- */
 
@@ -3067,6 +3151,7 @@
       if (id === "tk-board-overview") renderOverview(h);
       else if (id === "tk-progress-board") renderQuestBoard(h);
       else if (id === "tk-board-items") renderItemBoard(h);
+      else if (id === "tk-board-collector") renderCollectorBoard(h);
       else if (id === "tk-board-tree") renderQuestTree(h);
       else if (id === "tk-board-hideout") renderHideoutBoard(h);
       else if (id === "tk-board-story") renderStoryBoard(h);
@@ -3075,7 +3160,7 @@
   }
 
   function sync() {
-    var ids = ["tk-board-overview", "tk-progress-board", "tk-board-tree", "tk-board-items", "tk-board-hideout", "tk-board-story", "tk-board-ops"];
+    var ids = ["tk-board-overview", "tk-progress-board", "tk-board-tree", "tk-board-items", "tk-board-collector", "tk-board-hideout", "tk-board-story", "tk-board-ops"];
     for (var i = 0; i < ids.length; i++) {
       var h = document.getElementById(ids[i]);
       if (h && h.__tkSync) h.__tkSync();

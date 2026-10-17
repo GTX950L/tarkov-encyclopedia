@@ -43,6 +43,10 @@
   var PAGE_LIMIT = 120;      /* 一次最多渲染多少行 —— 1,518 件的配件页不切页没法用 */
   var state = { q: "", kind: "", sort: "weight" };
   var page = 1;
+  /* 「所在图」字段的列下标 —— 只有钥匙页的列规格里有它，draw() 每次现取
+     （换页会重建面板）。hay() 的检索索引靠它并入图名：**「按图筛钥匙」就靠这个**
+     （搜「海关」列出在海关有锁点的钥匙）。为 null 表示本页没有这一列。 */
+  var LMAP_I = null;
 
 function siteRoot() {
     /* 优先用 toolbox.js 在首次整页加载时算好并公布的站点根，不要每次现算。
@@ -129,9 +133,18 @@ function siteRoot() {
   }
 
   function hay(r) {
-    /* 一次建好检索索引，不要每次输入都重算 */
-    if (r._h) return r._h;
-    r._h = (r[1] + " " + r[2]).toLowerCase();
+    /* 一次建好检索索引，不要每次输入都重算。
+       ⚠️ 缓存要带上「算它时的 LMAP_I」标记 —— 同一个 row 对象会在总览页
+       （把全部分块拼起来、没有「所在图」列）与钥匙页两处出现；不带标记的话，
+       先在总览页算出的那份会一直遮蔽后算的，搜图名在钥匙页就静默失效。 */
+    if (r._h !== undefined && r._hl === LMAP_I) return r._h;
+    var s = r[1] + " " + r[2];
+    if (LMAP_I != null && r[LMAP_I]) {
+      /* r[LMAP_I] 结构 [[地图key, 中文名], …]（生成器注的 it["lmaps"]） */
+      for (var i = 0; i < r[LMAP_I].length; i++) s += " " + r[LMAP_I][i][1];
+    }
+    r._h = s.toLowerCase();
+    r._hl = LMAP_I;
     return r._h;
   }
 
@@ -271,6 +284,24 @@ function siteRoot() {
         (typeof u === "number" && u > 0) ? u + " 次" : "—");
     },
     desc: function (r, i) { return el("td", "tk-col-desc", r[i] || "—"); },
+    /* 「所在图」（只有钥匙页有）：图名即链接 —— 点进对应地图页并高亮这把钥匙的
+       锁点（?key=<物品id>）。数据与生成器 cell_md() 的 lmaps 分支**同一份**（
+       r[i] 结构 [[地图key, 中文名], …]）；文字相同，链接各自拼（静态表是相对
+       路径、JS 侧走 siteRoot()，URL 基准本就不同）。没有锁点数据的钥匙 → "—"。 */
+    lmaps: function (r, i) {
+      var td = el("td", "tk-col-nowrap");
+      var pairs = r[i];
+      if (!pairs || !pairs.length) { td.textContent = "—"; return td; }
+      pairs.forEach(function (pr, k) {
+        if (k) td.appendChild(document.createTextNode("、"));
+        var a = document.createElement("a");
+        a.href = siteRoot() + "maps/" + pr[0] + "/?key=" + encodeURIComponent(r[0]);
+        a.title = "在地图上看这把钥匙的锁点";
+        a.textContent = pr[1];
+        td.appendChild(a);
+      });
+      return td;
+    },
     /* 获取方式：生成器压好的短标签串（`商人出售 / 以物换物 / 制作`），`—` = 站内未收录。
        **不要在 JS 侧重算** —— 静态表与 JS 表必须显示同一个串，两处各算就迟早不一致。 */
     acq: function (r, i) { return el("td", "tk-col-nowrap", r[i] || "—"); }
@@ -351,6 +382,10 @@ function siteRoot() {
          列宽与对齐改用**挂在 th/td 上的语义类**（.tk-col-*）——
          子元素带 class 不影响 `table:not([class])` 的匹配，两套规则互不干扰。 */
       var cols = colsFor(d, slugOfPage());
+      /* 「所在图」列下标：只有钥匙页的列规格带这一列。hay() 的检索索引要用它，
+         所以每次 draw 都从**当前页的列规格**现取（换页会换 slug / 换规格）。 */
+      LMAP_I = null;
+      cols.forEach(function (c) { if (c[0] === "lmaps") LMAP_I = c[3]; });
       var tb = document.createElement("table");
       var thead = document.createElement("thead");
       var hr = document.createElement("tr");

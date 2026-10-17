@@ -76,6 +76,12 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "content" / "catalog"
 JS = ROOT / "content" / "javascripts"
 API = "https://json.tarkov.dev/regular/"
+
+# 中文地图名 → 地图页 key：**全站唯一一份在 _map_links.py**（它服务任务侧
+# 「在地图上看」的判定）。「刷新地图速查」的地名链接复用它，不另建映射 ——
+# 词表正好同源（通行证文件描述里写的就是「塔科夫街区」）。
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _map_links import MAP_KEY_BY_CN  # noqa: E402
 HEADERS = {
     "User-Agent": "tarkov-encyclopedia/1.0 (+https://github.com/GTX950L/tarkov-encyclopedia)",
     "Origin": "https://tarkov.dev",
@@ -387,8 +393,9 @@ ROW_BASE = ["id", "name", "en", "weight", "props", "buy", "sell", "type", "size"
 #     只有「每页都有、且下标相同」的字段才能出现在那里（见 catalog.js 的 COLS_FALLBACK）。
 #   · `EXTRA_OPTIONAL` —— **只为用到它的页面追加**。
 #     `desc`（官方简介）全站 4979 件合计 145 KB，不该给 14 个不需要它的页面一起背。
+#     `lmaps`（所在图）只有钥匙页用，全站 208 件 —— 同理。
 EXTRA_ALWAYS = ["acq"]
-EXTRA_OPTIONAL = ["uses", "desc"]
+EXTRA_OPTIONAL = ["uses", "desc", "lmaps"]
 
 # 「获取方式」短标签。**只收站内收录的固定渠道**，口径与 load_routes() 的注释一致：
 #   ① 商人出售 —— 数据源的 `buyFromTrader`；
@@ -438,14 +445,20 @@ COL_SPECS = {
     # ⚠️ 列名用「使用次数」而不是「耐久」：数据源字段就叫 `uses`，
     #    实测与四个「直读游戏文件」的来源一致（20 / 10 次等，见 CHANGELOG v1.103.0）；
     #    社区里流传的「耐久度」是一套没有数值依据的说法，不采用。
+    #
+    # 「所在图」列（v1.130.0）：键→图 的映射由 gen_maps.py 产出
+    # （scripts/data/key_locations.json），**直接是锁点数据**——
+    # 「这把钥匙开哪张图的哪扇门」的直接证据，不是推断。数据与口径见下方注释与
+    # 页面「口径四条」③。
     "keys": {
-        "header": "| # | 名称 | 英文名 | 重量 | 使用次数 | 官方简介 | 获取方式 | 商人最低售价 | 商人最高回收 |",
-        "sep": "|---|------|--------|------|----------|----------|----------|--------------|--------------|",
+        "header": "| # | 名称 | 英文名 | 重量 | 使用次数 | 所在图 | 官方简介 | 获取方式 | 商人最低售价 | 商人最高回收 |",
+        "sep": "|---|------|--------|------|----------|--------|----------|----------|--------------|--------------|",
         "cols": [
             ("name", "名称", "tk-col-name"),
             ("en", "英文名", "tk-col-nowrap"),
             ("weight", "重量", "tk-col-num"),
             ("uses", "使用次数", "tk-col-num"),
+            ("lmaps", "所在图", "tk-col-nowrap"),
             ("desc", "官方简介", "tk-col-desc"),
             ("acq", "获取方式", "tk-col-nowrap"),
             ("buy", "商人最低售价", "tk-col-nowrap"),
@@ -595,6 +608,19 @@ def cell_md(it, field) -> str:
         # 与 prop_cells 同一口径：0 / 缺失一律留白（含义数据源未说明，见表注）
         u = it.get("uses")
         return f"{u} 次" if isinstance(u, int) and u > 0 else "—"
+    if field == "lmaps":
+        # 「所在图」列：图名即链接 —— 点进对应地图页并高亮这把钥匙的锁点（?key=）。
+        # 数据由 annotate_key_locations() 注入（锁点图层的直接证据，不是推断）；
+        # 没有锁点数据的钥匙留白 —— 「留白 ≠ 不在这张图用」写在页面「口径四条」③。
+        # ⚠️ 相对路径里的 `.md?query` 会被构建器改写成 `/maps/<key>/?query`（实测
+        #    quests 页的 `quest.md?id=` 先例），**不要手写成 /maps/ 绝对路径** ——
+        #    那会绕过相对链接体系，本地预览与线上行为分叉。
+        pairs = it.get("lmaps")
+        if not pairs:
+            return "—"
+        return "、".join(
+            f'<a href="../maps/{k}.md?key={it["id"]}" title="在地图上看这把钥匙的锁点">{zh}</a>'
+            for k, zh in pairs)
     if field == "desc":
         return it["desc"] or "—"
     if field == "acq":
@@ -1080,7 +1106,120 @@ def annotate_acquisition(plan, buckets, routes):
     return stat
 
 
-def page_markdown(page, leaves, buckets, total_items) -> str:
+# 「钥匙 → 所在图」数据（gen_maps.py 的产物）。键是物品 id（tarkov.dev item id，
+# 与本站物品图鉴同一套键），值 = 出现锁点的地图 key 列表。
+KEY_LOC_FILE = ROOT / "scripts" / "data" / "key_locations.json"
+
+
+def annotate_key_locations(buckets) -> dict:
+    """给钥匙物品注入「所在图」字段（`it["lmaps"]`）；返回统计（供打印核对）。
+
+    ⚠️ **数据来源是地图图层的锁点**（gen_maps.py 写出的 scripts/data/key_locations.json），
+       不是任务侧推断 —— 这正是 keys.md 口径四条第③条当年「不做」的反面：
+       当时只有「任务所在地图」的间接数据（23%），写上去会指错；锁点数据是
+       「这把钥匙开哪张图的哪扇门」的**直接证据**（208/259 件 = 80%）。
+
+    ⚠️ 文件缺失 = **工程缺失**（不是数据缺失）：直接退出并提示先跑 gen_maps.py，
+       不静默输出一列空白 —— 静默的话，check_gen_drift 重跑两遍也会「稳定地漂」
+       一个没有该列的版本，没人会发现。
+
+    ⚠️ 没在锁点数据里的钥匙**不给该字段**（表格留白，口径见页面「口径四条」③）——
+       「留白 ≠ 不在这张图用」，那句话必须落在页面上。
+    """
+    if not KEY_LOC_FILE.exists():
+        raise SystemExit(
+            f"[错误] 缺 {KEY_LOC_FILE.relative_to(ROOT)} —— 「所在图」列的数据源。\n"
+            "  先运行：python scripts/gen_maps.py（离线，用缓存）")
+    kl = json.loads(KEY_LOC_FILE.read_text(encoding="utf-8"))
+    maps_zh: dict = kl.get("maps") or {}
+    loc: dict = kl.get("keys") or {}
+
+    stat = {"with": 0, "pairs": 0, "dangling": []}
+    seen: set = set()
+    for lid, items in buckets.items():
+        for it in items:
+            kids = loc.get(it["id"])
+            if not kids:
+                continue
+            # 结构 [[地图key, 中文名], …]：静态表与 JS 表都从这份数据各自拼链接
+            # （相对路径的拼法与 URL 基准不同，两处各拼是对的；**文字取自同一份数据**）。
+            it["lmaps"] = [[k, maps_zh.get(k, k)] for k in kids]
+            seen.add(it["id"])
+            stat["with"] += 1
+            stat["pairs"] += len(kids)
+    # 锁点引用了、但图鉴里找不到对应物品的 id：数据对不上的迹象，报出来（不静默丢）。
+    stat["dangling"] = sorted(set(loc) - seen)
+    return stat
+
+
+# ── 「赛季通行证文件」：刷新地图速查 ─────────────────────────────────────────
+#
+# 9 类文件里 8 类的刷新地图写在**游戏内物品描述原文**里（「可在以下地点找到此类文件：
+# - X - Y - Z」），逐件解析 `desc` —— **不手工维护映射表**（官方改描述，重跑即可跟上；
+# 解析不出来的自然落「不走地图刷新」，如秘密文件——它是购买品）。
+#
+# 机制条（上限 / 5 换 1 / 独立刷新）来自页面之外的信息，来源与冲突处理写进表注：
+# 每日上限主口径 30/20/15（官方 Wiki + 两家中文站一致）；部分英文社区站记
+# 25/15/10 —— 口径不一，按站内惯例写上「以游戏内为准」。
+BP_MAP_RE = re.compile(r"可在以下地点找到此类文件[:：]\s*(.+)")
+BP_MAP_ITEM_RE = re.compile(r"[-–—]\s*([^\s\-–—]+)")
+
+
+def bpdoc_section(items) -> list:
+    """渲染「刷新地图速查」小节（地图表 + 收集机制注）；返回 Markdown 行列表。
+
+    由 page_markdown 在「赛季通行证文件」分类尾部追加。
+    """
+    parsed: list = []
+    no_map: list = []
+    for it in items:
+        m = BP_MAP_RE.search(it.get("desc") or "")
+        maps = BP_MAP_ITEM_RE.findall(m.group(1)) if m else []
+        if maps:
+            parsed.append((it["name"], maps))
+        else:
+            no_map.append(it["name"])
+
+    out: list = []
+    out.append("#### 刷新地图速查")
+    out.append("")
+    out.append("> **8 类文件各在固定的 3 张图上刷新** —— 地图列表逐件取自"
+               "**游戏内物品描述原文**（「可在以下地点找到此类文件」一句），"
+               "不是社区整理表；版本更新后重跑生成器即跟上。")
+    out.append("")
+    out.append("| 文件 | 刷新地图 |")
+    out.append("|------|----------|")
+    for name, maps in parsed:
+        cells = []
+        for zh in maps:
+            k = MAP_KEY_BY_CN.get(zh)
+            cells.append(f"[{zh}](../maps/{k}.md)" if k else zh)
+        out.append(f"| {name} | {'、'.join(cells)} |")
+    out.append("")
+    if no_map:
+        out.append(f"> **{'、'.join(no_map)}** 不在地图刷新 —— 它是**购买品**："
+                   "在游戏内的 **Expansions Hub** 购入，可替代任意类型上交，"
+                   "且对后续赛季同样有效。")
+        out.append("")
+    out.append("> **收集机制四条**（来源：官方 Wiki 与两家中文站交叉核对，2026-10-16）：")
+    out.append(">")
+    out.append("> ① **每人独立刷新** —— 你捡到的那一份别人拿不走（PMC 与 Scav、三种模式"
+               "都能捡）；击杀**黑色分部干员**也会掉文件（这一类是全队共享的战利品）。")
+    out.append(">")
+    out.append("> ② **每日拾取上限**：赛季模式 **30** / PvP **20** / PvE **15**，"
+               "三个模式**共享**同一个额度（先在 PvE 捡了 15 份，当天在赛季模式就只剩 15 份），"
+               "每日重置、剩余数量在游戏内通行证界面的文件区可见。"
+               "⚠ 部分英文社区站记为 25 / 15 / 10 —— 口径不一，**以游戏内显示为准**。")
+    out.append(">")
+    out.append("> ③ **5 换 1**：在通行证界面的交换区，任意 5 份可换成 1 份自选类型。")
+    out.append(">")
+    out.append("> ④ **领完全部奖励共需上交 501 份**（各玩家所需类型组合不同）；"
+               "已解锁的奖励在所有模式间通用且永久保留，赛季结束仍未解锁的则永久不可获得。")
+    out.append("")
+    return out
+
+
+def page_markdown(page, leaves, buckets, total_items, kl_stat=None) -> str:
     rows = []
     for lid in page["leaves"]:
         path = leaves[lid]
@@ -1148,8 +1287,8 @@ def page_markdown(page, leaves, buckets, total_items) -> str:
                "[任务需求物品反查](../quests/item-lookup.md) ｜ [配方速查表](../docs/recipes.md) |")
     if page["slug"] == "keys":
         out.append("| **按图带钥匙** | 全站 57 个任务需要 59 把钥匙，"
-                   "**按地图归拢**的表在[任务图鉴 §4](../quests/index.md)；"
-                   "本页**不逐件标注所属地图**，理由见下方「口径四条」 |")
+                   "**按地图归拢**的任务视角表在[任务图鉴 §4](../quests/index.md)；"
+                   "本页钥匙的**「所在图」列**来自地图锁点图层（口径见下方「口径四条」③） |")
     out.append("")
     if page["slug"] == "keys":
         # 口径说明放在**概览表正下方**，不放检索面板后面 ——
@@ -1166,15 +1305,18 @@ def page_markdown(page, leaves, buckets, total_items) -> str:
                    "**本站不把它写成「0 次」**——那会被读成「已经用完了」。"
                    "数据源未说明 0 的含义，请以游戏内的物品描述为准。")
         out.append(">")
-        out.append("> ③ **本页不逐件标注「属于哪张图」**：能拿到的只有两类 —— "
-                   "游戏数据里 `maps.accessKeys` 能对上本页的进图准入钥匙（**5 件**），"
-                   "以及任务侧反推出的「哪个任务在哪张图需要它」（**54 件**），"
-                   "两个来源互不重叠，合计 **59 / 259 = 23%**；"
-                   "更关键的是后者是"
-                   "**「任务所在地图」，不是「这把钥匙开哪张图的哪扇门」**，"
-                   "写成「所属地图」会指错。所以按图看钥匙请走"
-                   "[任务图鉴 §4「任务与钥匙」](../quests/index.md)。"
-                   "**表格里没有地图，不等于这把钥匙只有一张图能用。**")
+        _n_keys = sum(len(buckets.get(l, [])) for l in page["leaves"])
+        _n_loc = (kl_stat or {}).get("with", 0)
+        out.append("> ③ **「所在图」列取交互地图的锁点图层 —— 直接证据，不是推断**："
+                   "标出这把钥匙出现在**哪几张图的哪几扇门上**；**点图名**跳到该图"
+                   "并高亮它的全部锁点。覆盖 "
+                   f"**{_n_loc} / {_n_keys} 件**；没被锁点数据收录的钥匙留白 —— "
+                   "**留白不代表「不在这张图用」**，只表示上游锁点数据里没有它的门。"
+                   "**本列也不等于任务需求**：「哪个任务在哪张图要它」是另一条线，"
+                   "见[任务图鉴 §4「任务与钥匙」](../quests/index.md)。"
+                   "（2026-10-08 版页面写「不标地图」：当时只拿得到「任务所在地图」的"
+                   "间接数据（59 件 / 23%），写上去会指错 —— 交互地图补上锁点图层后，"
+                   "这个理由已不成立。）")
         out.append(">")
         out.append("> ④ **官方简介是游戏内的原文**，不是本站的攻略解读 —— "
                    "它常直接点名地点（如「化工厂紧急出口的钥匙」），"
@@ -1232,6 +1374,10 @@ def page_markdown(page, leaves, buckets, total_items) -> str:
         out.append(f"> 本分类 **{len(items)} 件**。价格取各商人中的最优价；"
                    "「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。")
         out.append("")
+        # 「赛季通行证文件」：追加「刷新地图速查」（数据从游戏内描述原文解析，
+        # 见 bpdoc_section 的注释）。其它分类没有这一节。
+        if path[-1] == "赛季通行证文件":
+            out.extend(bpdoc_section(items))
         # 名称一览：**折叠着**，所以不占版面；内容会被索引用上，
         # 让读者在站内搜索里仍能按物品名找到这一页。
         out.append(f"<details><summary>本分类 {len(items)} 件的名称一览"
@@ -1650,6 +1796,9 @@ def write_item_detail(plan, buckets, routes, quests, name_to_id, total_items):
                     "gt": title_of[iid],
                     "r": (routes or {}).get(iid) or [],
                     "q": quests_by_id.get(iid),
+                    # 「所在图」（仅钥匙有值；没值的**不带这个键** —— 全量带 null
+                    # 会给 4700+ 件非钥匙物品白加字段，约 40 KB）。渲染见 catalog-item.js。
+                    **({"lm": it["lmaps"]} if it.get("lmaps") else {}),
                 }
 
     JS.mkdir(parents=True, exist_ok=True)
@@ -1785,6 +1934,15 @@ def main() -> int:
     # 所以整体前移到这里。**别再把它挪回去** —— 挪回去的后果是静态表整列 `—` 而不报错。
     routes, recipe_names, recipe_meta = load_routes()
     acq_stat = annotate_acquisition(plan, buckets, routes)
+    # 「所在图」列：与「获取方式」同理，**必须在写页面与写分片之前**注入
+    # （静态表从 it["lmaps"] 渲染、JS 行数据从同一份 it 带出去）。
+    kl_stat = annotate_key_locations(buckets)
+    print(f"所在图（钥匙）：注入 {kl_stat['with']} 件 / {kl_stat['pairs']} 个图-钥匙对"
+          + (f"　⚠ 锁点引用了但图鉴里没有的 id：{len(kl_stat['dangling'])} 个"
+             f"（{kl_stat['dangling'][:3]}）" if kl_stat["dangling"] else ""))
+    if kl_stat["dangling"]:
+        print("  （上游锁点数据的 key 引用了站内不存在的物品 id —— 逐条核过再动手）",
+              file=sys.stderr)
 
     if args.check:
         return 0
@@ -1806,7 +1964,7 @@ def main() -> int:
     for p in expand_splits(plan, leaves, buckets):
         # 被拆开的整页 → 总览页（只列分册，不含大表）
         md = (hub_markdown(p, leaves, items_total) if p.get("hub")
-              else page_markdown(p, leaves, buckets, items_total))
+              else page_markdown(p, leaves, buckets, items_total, kl_stat))
         anchor_errs += check_anchors(md, p["slug"])
         f = OUT / f"{p['slug']}.md"
         f.write_bytes(md.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8"))

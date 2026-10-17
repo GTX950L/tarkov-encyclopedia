@@ -241,6 +241,26 @@ function siteRoot() {
       "以上是确定的获取途径（配方可复核），不含「哪张图能刷到」——"
       + "站内的散落刷新数据只覆盖少数物品，给出来反而会让人以为只有那几张图有。"));
 
+    /* ---- 在哪用它（仅钥匙有 lm 字段；生成器只在锁点数据命中时带出）----
+       数据取交互地图的锁点图层（scripts/data/key_locations.json），
+       是「这把钥匙开哪张图的哪扇门」的**直接证据** —— 与「有任务要它吗」段里
+       「任务所在地图」是两条不同的线，措辞上已分开（那边写了「不是物品的刷新
+       位置」，这边写「锁点」）。没有锁点数据的钥匙不显示这一段。 */
+    if (it.lm && it.lm.length) {
+      host.appendChild(h(4, "🗺️ 在哪用它"));
+      var lp = el("p", null, "");
+      lp.appendChild(document.createTextNode("这把钥匙在以下地图的锁点上出现："));
+      it.lm.forEach(function (pr, k) {
+        if (k) lp.appendChild(document.createTextNode("、"));
+        lp.appendChild(link(
+          siteRoot() + "maps/" + pr[0] + "/?key=" + encodeURIComponent(id), pr[1]));
+      });
+      host.appendChild(lp);
+      host.appendChild(el("p", null,
+        "点击地图名跳到该图，并高亮这把钥匙的全部锁点。数据取交互地图的锁点图层 —— "
+        + "没有锁点数据的钥匙不显示这一段；不显示不代表「不在这张图用」。"));
+    }
+
     /* ---- 有任务要它吗 ---- */
     host.appendChild(h(4, "🎯 有任务要它吗"));
     var q = it.q;

@@ -9,29 +9,147 @@ tags:
 
 <a id="top"></a>
 
-> **13 张图全部上线**，每张一个页面。这一页讲**怎么用**与**数据从哪来**；具体某张图请从下面的表进。
+> **13 张图全部上线**，每张一个页面。这一页讲**怎么用**与**数据从哪来**；具体某张图请从下面的卡片进。
 
 ---
 
 ## 🗺️ 选一张图
 
-| 图 | 时长 / 人数 | 定位 | 地名 | 任务区域 | 撤离点 | 页码 |
-|----|-----------|------|------|----------|--------|------|
-| **海关** | 35 分 · 10–12 人 | 任务最密集，前中期必经 | 24 | **116** | 28 | [进入](customs.md) |
-| **工厂** | 20 分 · 7–8 人 | 最小最快，20 分钟一局 | 27 | 71 | 10 | [进入](factory.md) |
-| **中心区** | 30 分 · 9–12 人 | 新手图，终盘有高等级区 | 13 | 33 | 6 | [进入](ground-zero.md) |
-| **森林** | 35 分 · 10–14 人 | 开阔地，远距离交火 | 16 | 57 | 20 | [进入](woods.md) |
-| **立交桥** | 40 分 · 11–15 人 | 商场近战 + 外围开阔 | 77 | 31 | 8 | [进入](interchange.md) |
-| **储备站** | 40 分 · 9–11 人 | 军事设施，Boss 密度高 | 27 | 46 | 11 | [进入](reserve.md) |
-| **海岸线** | 45 分 · 10–14 人 | 跨度最大，疗养院为核心 | 20 | 89 | 19 | [进入](shoreline.md) |
-| **灯塔** | 40 分 · 10–12 人 | 水资源与军用设施 | 22 | 44 | 12 | [进入](lighthouse.md) |
-| **街区** | 40 分 · 12–16 人 | 城市巷战，室内外交替 | 46 | 85 | 19 | [进入](streets-of-tarkov.md) |
-| **终点站** | 45 分 · 1–5 人 | 线性结构，通道推进 | — | — | — | [进入](terminal.md) |
-| **破冰船** | 50 分 · 1–3 人 | 船体多层，垂直交火 | — | — | — | [进入](icebreaker.md) |
-| **实验室** | 30 分 · 8–10 人 | 高投入高回报，需钥匙卡 | 31 | 9 | 6 | [进入](the-lab.md) |
-| **迷宫** | 30 分 · 1–5 人 | 限时事件图，结构特殊 | — | 8 | 2 | [进入](the-labyrinth.md) |
+<div class="tk-mcards">
 
-「地名」是上游给的地名锚点数量；「任务区域」是任务目标区的数量（一张图上可能有几十处）；「—」表示上游没给这项数据。**时长与人数是游戏内参数**（1.2.0.0 口径），随版本调整 —— 选图前先建立「这局要打多久、大概遇到多少人」的预期。
+<a class="tk-mcard" href="customs.md">
+<img class="tk-mcard__img" src="../assets/maps/thumbs/customs.png" alt="海关 · 交互地图缩略图" loading="lazy" decoding="async">
+<span class="tk-mcard__body">
+<span class="tk-mcard__head"><span class="tk-mcard__name">海关</span><span class="tk-mcard__meta">35 分 · 10–12 人</span></span>
+<span class="tk-mcard__desc">任务最密集，前中期必经</span>
+<span class="tk-mcard__nums">地名 24 ｜ 任务区域 116 ｜ 撤离点 28</span>
+<span class="tk-mcard__open">打开地图 →</span>
+</span>
+</a>
+
+<a class="tk-mcard" href="factory.md">
+<img class="tk-mcard__img" src="../assets/maps/thumbs/factory.png" alt="工厂 · 交互地图缩略图" loading="lazy" decoding="async">
+<span class="tk-mcard__body">
+<span class="tk-mcard__head"><span class="tk-mcard__name">工厂</span><span class="tk-mcard__meta">20 分 · 7–8 人</span></span>
+<span class="tk-mcard__desc">最小最快，20 分钟一局</span>
+<span class="tk-mcard__nums">地名 27 ｜ 任务区域 71 ｜ 撤离点 10</span>
+<span class="tk-mcard__open">打开地图 →</span>
+</span>
+</a>
+
+<a class="tk-mcard" href="ground-zero.md">
+<img class="tk-mcard__img" src="../assets/maps/thumbs/ground-zero.png" alt="中心区 · 交互地图缩略图" loading="lazy" decoding="async">
+<span class="tk-mcard__body">
+<span class="tk-mcard__head"><span class="tk-mcard__name">中心区</span><span class="tk-mcard__meta">30 分 · 9–12 人</span></span>
+<span class="tk-mcard__desc">新手图，终盘有高等级区</span>
+<span class="tk-mcard__nums">地名 13 ｜ 任务区域 33 ｜ 撤离点 6</span>
+<span class="tk-mcard__open">打开地图 →</span>
+</span>
+</a>
+
+<a class="tk-mcard" href="woods.md">
+<img class="tk-mcard__img" src="../assets/maps/thumbs/woods.png" alt="森林 · 交互地图缩略图" loading="lazy" decoding="async">
+<span class="tk-mcard__body">
+<span class="tk-mcard__head"><span class="tk-mcard__name">森林</span><span class="tk-mcard__meta">35 分 · 10–14 人</span></span>
+<span class="tk-mcard__desc">开阔地，远距离交火</span>
+<span class="tk-mcard__nums">地名 16 ｜ 任务区域 57 ｜ 撤离点 20</span>
+<span class="tk-mcard__open">打开地图 →</span>
+</span>
+</a>
+
+<a class="tk-mcard" href="interchange.md">
+<img class="tk-mcard__img" src="../assets/maps/thumbs/interchange.png" alt="立交桥 · 交互地图缩略图" loading="lazy" decoding="async">
+<span class="tk-mcard__body">
+<span class="tk-mcard__head"><span class="tk-mcard__name">立交桥</span><span class="tk-mcard__meta">40 分 · 11–15 人</span></span>
+<span class="tk-mcard__desc">商场近战 + 外围开阔</span>
+<span class="tk-mcard__nums">地名 77 ｜ 任务区域 31 ｜ 撤离点 8</span>
+<span class="tk-mcard__open">打开地图 →</span>
+</span>
+</a>
+
+<a class="tk-mcard" href="reserve.md">
+<img class="tk-mcard__img" src="../assets/maps/thumbs/reserve.png" alt="储备站 · 交互地图缩略图" loading="lazy" decoding="async">
+<span class="tk-mcard__body">
+<span class="tk-mcard__head"><span class="tk-mcard__name">储备站</span><span class="tk-mcard__meta">40 分 · 9–11 人</span></span>
+<span class="tk-mcard__desc">军事设施，Boss 密度高</span>
+<span class="tk-mcard__nums">地名 27 ｜ 任务区域 46 ｜ 撤离点 11</span>
+<span class="tk-mcard__open">打开地图 →</span>
+</span>
+</a>
+
+<a class="tk-mcard" href="shoreline.md">
+<img class="tk-mcard__img" src="../assets/maps/thumbs/shoreline.png" alt="海岸线 · 交互地图缩略图" loading="lazy" decoding="async">
+<span class="tk-mcard__body">
+<span class="tk-mcard__head"><span class="tk-mcard__name">海岸线</span><span class="tk-mcard__meta">45 分 · 10–14 人</span></span>
+<span class="tk-mcard__desc">跨度最大，疗养院为核心</span>
+<span class="tk-mcard__nums">地名 20 ｜ 任务区域 89 ｜ 撤离点 19</span>
+<span class="tk-mcard__open">打开地图 →</span>
+</span>
+</a>
+
+<a class="tk-mcard" href="lighthouse.md">
+<img class="tk-mcard__img" src="../assets/maps/thumbs/lighthouse.png" alt="灯塔 · 交互地图缩略图" loading="lazy" decoding="async">
+<span class="tk-mcard__body">
+<span class="tk-mcard__head"><span class="tk-mcard__name">灯塔</span><span class="tk-mcard__meta">40 分 · 10–12 人</span></span>
+<span class="tk-mcard__desc">水资源与军用设施</span>
+<span class="tk-mcard__nums">地名 22 ｜ 任务区域 44 ｜ 撤离点 12</span>
+<span class="tk-mcard__open">打开地图 →</span>
+</span>
+</a>
+
+<a class="tk-mcard" href="streets-of-tarkov.md">
+<img class="tk-mcard__img" src="../assets/maps/thumbs/streets-of-tarkov.png" alt="塔科夫街区 · 交互地图缩略图" loading="lazy" decoding="async">
+<span class="tk-mcard__body">
+<span class="tk-mcard__head"><span class="tk-mcard__name">街区</span><span class="tk-mcard__meta">40 分 · 12–16 人</span></span>
+<span class="tk-mcard__desc">城市巷战，室内外交替</span>
+<span class="tk-mcard__nums">地名 46 ｜ 任务区域 85 ｜ 撤离点 19</span>
+<span class="tk-mcard__open">打开地图 →</span>
+</span>
+</a>
+
+<a class="tk-mcard" href="terminal.md">
+<img class="tk-mcard__img" src="../assets/maps/thumbs/terminal.png" alt="终点站 · 交互地图缩略图" loading="lazy" decoding="async">
+<span class="tk-mcard__body">
+<span class="tk-mcard__head"><span class="tk-mcard__name">终点站</span><span class="tk-mcard__meta">45 分 · 1–5 人</span></span>
+<span class="tk-mcard__desc">线性结构，通道推进</span>
+<span class="tk-mcard__nums">地名 — ｜ 任务区域 — ｜ 撤离点 —</span>
+<span class="tk-mcard__open">打开地图 →</span>
+</span>
+</a>
+
+<a class="tk-mcard" href="icebreaker.md">
+<img class="tk-mcard__img" src="../assets/maps/thumbs/icebreaker.png" alt="破冰船 · 交互地图缩略图" loading="lazy" decoding="async">
+<span class="tk-mcard__body">
+<span class="tk-mcard__head"><span class="tk-mcard__name">破冰船</span><span class="tk-mcard__meta">50 分 · 1–3 人</span></span>
+<span class="tk-mcard__desc">船体多层，垂直交火</span>
+<span class="tk-mcard__nums">地名 — ｜ 任务区域 — ｜ 撤离点 —</span>
+<span class="tk-mcard__open">打开地图 →</span>
+</span>
+</a>
+
+<a class="tk-mcard" href="the-lab.md">
+<img class="tk-mcard__img" src="../assets/maps/thumbs/the-lab.png" alt="实验室 · 交互地图缩略图" loading="lazy" decoding="async">
+<span class="tk-mcard__body">
+<span class="tk-mcard__head"><span class="tk-mcard__name">实验室</span><span class="tk-mcard__meta">30 分 · 8–10 人</span></span>
+<span class="tk-mcard__desc">高投入高回报，需钥匙卡</span>
+<span class="tk-mcard__nums">地名 31 ｜ 任务区域 9 ｜ 撤离点 6</span>
+<span class="tk-mcard__open">打开地图 →</span>
+</span>
+</a>
+
+<a class="tk-mcard" href="the-labyrinth.md">
+<img class="tk-mcard__img" src="../assets/maps/thumbs/the-labyrinth.png" alt="迷宫 · 交互地图缩略图" loading="lazy" decoding="async">
+<span class="tk-mcard__body">
+<span class="tk-mcard__head"><span class="tk-mcard__name">迷宫</span><span class="tk-mcard__meta">30 分 · 1–5 人</span></span>
+<span class="tk-mcard__desc">限时事件图，结构特殊</span>
+<span class="tk-mcard__nums">地名 — ｜ 任务区域 8 ｜ 撤离点 2</span>
+<span class="tk-mcard__open">打开地图 →</span>
+</span>
+</a>
+
+</div>
+
+「地名」是上游给的地名锚点数量；「任务区域」是任务目标区的数量（一张图上可能有几十处）；「—」表示上游没给这项数据。**时长与人数是游戏内参数**（1.2.0.0 口径），随版本调整 —— 选图前先建立「这局要打多久、大概遇到多少人」的预期。缩略图取自各图底图本身（矢量图换肤后的效果）。
 
 ### 地名与撤离点都说中文了吗
 

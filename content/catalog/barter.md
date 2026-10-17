@@ -15,9 +15,9 @@ tags:
 
 | 项目 | 说明 |
 |------|------|
-| **收录件数** | **326 件**（全站物品图鉴共 4979 件） |
+| **收录件数** | **328 件**（全站物品图鉴共 4983 件） |
 | **叶子分类** | 9 个官方分类：[珠宝](#珠宝)、[电子产品](#电子产品)、[建筑材料](#建筑材料)、[工具](#工具)、[日常用品](#日常用品)、[医疗用品](#医疗用品)、[电池](#电池)、[其他](#其他)、[燃料](#燃料) |
-| **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。本页 **69 / 326 件**有至少一条（商人出售 1 ｜ 以物换物 18 ｜ 制作 62）；`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— 那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|
+| **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。本页 **69 / 328 件**有至少一条（商人出售 1 ｜ 以物换物 18 ｜ 制作 62）；`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— 那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|
 | **数据来源** | `json.tarkov.dev` 的 `itemCategories` 树与 `items` 接口，二级来源 |
 | **抓取日期** | 2026-10-08 |
 | **配套页面** | [物品图鉴总览](index.md) ｜ [任务需求物品反查](../quests/item-lookup.md) ｜ [配方速查表](../docs/recipes.md) |
@@ -43,7 +43,7 @@ tags:
 | 3 | 圣诞树装饰球（紫） | `christmas-tree-ornament-violet` | 0.05 千克 | — | — | — | 10,200 卢布（4 家最高） |
 | 4 | 圣诞树装饰球（红） | `christmas-tree-ornament-red` | 0.05 千克 | — | — | — | 7,650 卢布（4 家最高） |
 | 5 | 圣诞树装饰球（银） | `christmas-tree-ornament-silver` | 0.05 千克 | — | — | — | 5,100 卢布（4 家最高） |
-| 6 | 实体比特币 | `physical-bitcoin` | 0.05 千克 | — | 以物换物 / 制作 | — | 587,194 卢布（4 家最高） |
+| 6 | 实体比特币 | `physical-bitcoin` | 0.05 千克 | — | 以物换物 / 制作 | — | 572,409 卢布（4 家最高） |
 | 7 | 实体比特币的右半边 | `right-half-of-a-physical-bitcoin` | 0.05 千克 | — | — | — | 6,302 卢布（4 家最高） |
 | 8 | 实体比特币的左半边 | `left-half-of-a-physical-bitcoin` | 0.05 千克 | — | 制作 | — | 6,302 卢布（4 家最高） |
 | 9 | 橘子 | `tangerine` | 0.07 千克 | — | — | — | 64,830 卢布（4 家最高） |
@@ -153,45 +153,46 @@ Veritas吉他拨片　黄金骷髅指环　圣诞树装饰球（紫）　圣诞�
 | 20 | 包含未知数据的光盘 | `disk-with-unknown-data` | 0.25 千克 | — | — | — | — |
 | 21 | 损坏的硬盘 | `damaged-hard-drive` | 0.25 千克 | — | — | — | 3,820 卢布（5 家最高） |
 | 22 | 电线 | `bundle-of-wires` | 0.25 千克 | — | 制作 | — | 3,774 卢布（5 家最高） |
-| 23 | Virtex可编程处理器 | `virtex-programmable-processor` | 0.3 千克 | — | 制作 | — | 61,200 卢布（5 家最高） |
-| 24 | 印制电路板 | `printed-circuit-board` | 0.3 千克 | — | 制作 | — | 6,501 卢布（5 家最高） |
-| 25 | 损坏的GPhone | `broken-gphone-smartphone` | 0.3 千克 | — | 制作 | — | 9,527 卢布（5 家最高） |
-| 26 | 损坏的GPhone X | `broken-gphone-x-smartphone` | 0.3 千克 | — | — | — | 16,320 卢布（5 家最高） |
-| 27 | 金色1GPhone | `golden-1gphone-smartphone` | 0.3 千克 | — | — | — | 22,765 卢布（5 家最高） |
-| 28 | USB适配器 | `usb-adapter` | 0.4 千克 | — | — | — | 885 卢布（5 家最高） |
-| 29 | 气体分析仪 | `gas-analyzer` | 0.4 千克 | — | 以物换物 / 制作 | — | 11,065 卢布（5 家最高） |
-| 30 | 电磁铁 | `magnet` | 0.4 千克 | — | 制作 | — | 6,483 卢布（5 家最高） |
-| 31 | 盖革-穆勒计数器 | `geiger-muller-counter` | 0.4 千克 | — | 制作 | — | 8,508 卢布（5 家最高） |
-| 32 | 螺旋散热器 | `radiator-helix` | 0.42 千克 | — | — | — | 7,395 卢布（5 家最高） |
-| 33 | GPS信号放大单元 | `far-forward-gps-signal-amplifier-unit` | 0.44 千克 | — | 以物换物 | — | 61,200 卢布（5 家最高） |
-| 34 | UHF RFID固定式读取器 | `uhf-rfid-reader` | 0.5 千克 | — | 制作 | — | 24,480 卢布（5 家最高） |
-| 35 | 军用电路板 | `military-circuit-board` | 0.52 千克 | — | 制作 | — | 20,400 卢布（5 家最高） |
-| 36 | DVD光驱 | `dvd-drive` | 0.6 千克 | — | — | — | 4,230 卢布（5 家最高） |
-| 37 | 显示卡 | `graphics-card` | 0.6 千克 | — | 以物换物 / 制作 | — | 100,980 卢布（5 家最高） |
-| 38 | 电源线 | `power-cord` | 0.6 千克 | — | 制作 | — | 6,437 卢布（5 家最高） |
-| 39 | 军用电缆 | `military-cable` | 0.65 千克 | — | — | — | 21,012 卢布（5 家最高） |
-| 40 | GARY ZONT “保护伞”便携式电子战装置 | `gary-zont-portable-electronic-warfare-device` | 0.8 千克 | — | — | — | 76,500 卢布（5 家最高） |
-| 41 | VPX闪存模块 | `vpx-flash-storage-module` | 0.8 千克 | — | — | — | 77,724 卢布（5 家最高） |
-| 42 | 军用转速计 | `military-gyrotachometer` | 0.9 千克 | — | — | — | 31,620 卢布（5 家最高） |
-| 43 | 电钻 | `electric-drill` | 1.2 千克 | — | — | — | 16,800 卢布（5 家最高） |
-| 44 | 电动马达 | `electric-motor` | 1.4 千克 | — | 制作 | — | 21,930 卢布（5 家最高） |
-| 45 | 供电单元 | `power-supply-unit` | 1.5 千克 | — | — | — | 4,047 卢布（5 家最高） |
-| 46 | 相控阵单元 | `phased-array-element` | 1.7 千克 | — | — | — | 84,660 卢布（5 家最高） |
-| 47 | 军用COFDM无线信号发射器 | `military-cofdm-wireless-signal-transmitter` | 2 千克 | — | — | — | 74,205 卢布（5 家最高） |
-| 48 | KOSA无人机电子反制装置 | `kosa-uav-electronic-jamming-device` | 3 千克 | — | — | — | 25,500 卢布（5 家最高） |
-| 49 | Ultralink 卫星通讯模块 | `ultralink-satellite-communication-module` | 3 千克 | — | — | — | 144,840 卢布（5 家最高） |
-| 50 | 未知设备碎片 | `unknown-device-fragment` | 3.2 千克 | — | — | — | — |
-| 51 | IBX Gigachad 加密处理器 | `ibx-gigachad-cryptographic-processor` | 3.6 千克 | — | — | — | 268,726 卢布（5 家最高） |
-| 52 | 直流变压器 | `advanced-current-converter` | 5 千克 | — | 以物换物 | — | 153,000 卢布（5 家最高） |
-| 53 | 雷达站备用零件 | `radar-station-spare-parts` | 8 千克 | — | — | — | 25,500 卢布（5 家最高） |
+| 23 | Scourge's smartphone | `scourges-smartphone` | 0.3 千克 | — | — | — | 81,600 卢布（4 家最高） |
+| 24 | Virtex可编程处理器 | `virtex-programmable-processor` | 0.3 千克 | — | 制作 | — | 61,200 卢布（5 家最高） |
+| 25 | 印制电路板 | `printed-circuit-board` | 0.3 千克 | — | 制作 | — | 6,501 卢布（5 家最高） |
+| 26 | 损坏的GPhone | `broken-gphone-smartphone` | 0.3 千克 | — | 制作 | — | 9,527 卢布（5 家最高） |
+| 27 | 损坏的GPhone X | `broken-gphone-x-smartphone` | 0.3 千克 | — | — | — | 16,320 卢布（5 家最高） |
+| 28 | 金色1GPhone | `golden-1gphone-smartphone` | 0.3 千克 | — | — | — | 22,765 卢布（5 家最高） |
+| 29 | USB适配器 | `usb-adapter` | 0.4 千克 | — | — | — | 885 卢布（5 家最高） |
+| 30 | 气体分析仪 | `gas-analyzer` | 0.4 千克 | — | 以物换物 / 制作 | — | 11,065 卢布（5 家最高） |
+| 31 | 电磁铁 | `magnet` | 0.4 千克 | — | 制作 | — | 6,483 卢布（5 家最高） |
+| 32 | 盖革-穆勒计数器 | `geiger-muller-counter` | 0.4 千克 | — | 制作 | — | 8,508 卢布（5 家最高） |
+| 33 | 螺旋散热器 | `radiator-helix` | 0.42 千克 | — | — | — | 7,395 卢布（5 家最高） |
+| 34 | GPS信号放大单元 | `far-forward-gps-signal-amplifier-unit` | 0.44 千克 | — | 以物换物 | — | 61,200 卢布（5 家最高） |
+| 35 | UHF RFID固定式读取器 | `uhf-rfid-reader` | 0.5 千克 | — | 制作 | — | 24,480 卢布（5 家最高） |
+| 36 | 军用电路板 | `military-circuit-board` | 0.52 千克 | — | 制作 | — | 20,400 卢布（5 家最高） |
+| 37 | DVD光驱 | `dvd-drive` | 0.6 千克 | — | — | — | 4,230 卢布（5 家最高） |
+| 38 | 显示卡 | `graphics-card` | 0.6 千克 | — | 以物换物 / 制作 | — | 100,980 卢布（5 家最高） |
+| 39 | 电源线 | `power-cord` | 0.6 千克 | — | 制作 | — | 6,437 卢布（5 家最高） |
+| 40 | 军用电缆 | `military-cable` | 0.65 千克 | — | — | — | 21,012 卢布（5 家最高） |
+| 41 | GARY ZONT “保护伞”便携式电子战装置 | `gary-zont-portable-electronic-warfare-device` | 0.8 千克 | — | — | — | 76,500 卢布（5 家最高） |
+| 42 | VPX闪存模块 | `vpx-flash-storage-module` | 0.8 千克 | — | — | — | 77,724 卢布（5 家最高） |
+| 43 | 军用转速计 | `military-gyrotachometer` | 0.9 千克 | — | — | — | 31,620 卢布（5 家最高） |
+| 44 | 电钻 | `electric-drill` | 1.2 千克 | — | — | — | 16,800 卢布（5 家最高） |
+| 45 | 电动马达 | `electric-motor` | 1.4 千克 | — | 制作 | — | 21,930 卢布（5 家最高） |
+| 46 | 供电单元 | `power-supply-unit` | 1.5 千克 | — | — | — | 4,047 卢布（5 家最高） |
+| 47 | 相控阵单元 | `phased-array-element` | 1.7 千克 | — | — | — | 84,660 卢布（5 家最高） |
+| 48 | 军用COFDM无线信号发射器 | `military-cofdm-wireless-signal-transmitter` | 2 千克 | — | — | — | 74,205 卢布（5 家最高） |
+| 49 | KOSA无人机电子反制装置 | `kosa-uav-electronic-jamming-device` | 3 千克 | — | — | — | 25,500 卢布（5 家最高） |
+| 50 | Ultralink 卫星通讯模块 | `ultralink-satellite-communication-module` | 3 千克 | — | — | — | 144,840 卢布（5 家最高） |
+| 51 | 未知设备碎片 | `unknown-device-fragment` | 3.2 千克 | — | — | — | — |
+| 52 | IBX Gigachad 加密处理器 | `ibx-gigachad-cryptographic-processor` | 3.6 千克 | — | — | — | 268,726 卢布（5 家最高） |
+| 53 | 直流变压器 | `advanced-current-converter` | 5 千克 | — | 以物换物 | — | 153,000 卢布（5 家最高） |
+| 54 | 雷达站备用零件 | `radar-station-spare-parts` | 8 千克 | — | — | — | 25,500 卢布（5 家最高） |
 
 </div>
 
-> 本分类 **53 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+> 本分类 **54 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
 
-<details><summary>本分类 53 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+<details><summary>本分类 54 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
 
-微控制器电路板　完好的液晶显示屏　损坏的液晶显示屏　Memento 服务器内存模块　内存条　火花塞　电脑CPU　相位控制继电器　电灯泡　CPU风扇　电子元件　电容　Tetriz便携式游戏机　T形插座　NIXXOR镜头　军用电源滤波器　紫外线灯泡　节能灯泡　Iridium军用热成像模块　包含未知数据的光盘　损坏的硬盘　电线　Virtex可编程处理器　印制电路板　损坏的GPhone　损坏的GPhone X　金色1GPhone　USB适配器　气体分析仪　电磁铁　盖革-穆勒计数器　螺旋散热器　GPS信号放大单元　UHF RFID固定式读取器　军用电路板　DVD光驱　显示卡　电源线　军用电缆　GARY ZONT “保护伞”便携式电子战装置　VPX闪存模块　军用转速计　电钻　电动马达　供电单元　相控阵单元　军用COFDM无线信号发射器　KOSA无人机电子反制装置　Ultralink 卫星通讯模块　未知设备碎片　IBX Gigachad 加密处理器　直流变压器　雷达站备用零件
+微控制器电路板　完好的液晶显示屏　损坏的液晶显示屏　Memento 服务器内存模块　内存条　火花塞　电脑CPU　相位控制继电器　电灯泡　CPU风扇　电子元件　电容　Tetriz便携式游戏机　T形插座　NIXXOR镜头　军用电源滤波器　紫外线灯泡　节能灯泡　Iridium军用热成像模块　包含未知数据的光盘　损坏的硬盘　电线　Scourge's smartphone　Virtex可编程处理器　印制电路板　损坏的GPhone　损坏的GPhone X　金色1GPhone　USB适配器　气体分析仪　电磁铁　盖革-穆勒计数器　螺旋散热器　GPS信号放大单元　UHF RFID固定式读取器　军用电路板　DVD光驱　显示卡　电源线　军用电缆　GARY ZONT “保护伞”便携式电子战装置　VPX闪存模块　军用转速计　电钻　电动马达　供电单元　相控阵单元　军用COFDM无线信号发射器　KOSA无人机电子反制装置　Ultralink 卫星通讯模块　未知设备碎片　IBX Gigachad 加密处理器　直流变压器　雷达站备用零件
 
 </details>
 
@@ -454,54 +455,55 @@ Nooby Shield 碘化钾片　一次性注射器　检眼镜　LEDX皮肤透照仪
 | 65 | 绒布布料 | `fleece-fabric` | 0.05 千克 | — | 制作 | — | 2,040 卢布（5 家最高） |
 | 66 | UZRGM手榴弹引信 | `uzrgm-grenade-fuze` | 0.055 千克 | — | — | — | 4,131 卢布（4 家最高） |
 | 67 | 防撕布料 | `ripstop-fabric` | 0.09 千克 | — | 制作 | — | 2,958 卢布（5 家最高） |
-| 68 | Cordura聚酰胺面料 | `cordura-polyamide-fabric` | 0.11 千克 | — | 制作 | — | 6,732 卢布（5 家最高） |
-| 69 | 记者证（为NoiceGuy签发） | `press-pass-issued-for-noiceguy` | 0.12 千克 | — | — | — | 25,500 卢布（4 家最高） |
-| 70 | 芳纶纤维布料 | `aramid-fiber-fabric` | 0.14 千克 | — | 制作 | — | 4,488 卢布（4 家最高） |
-| 71 | 42 Signature Blend英式茶 | `42-signature-blend-english-tea` | 0.22 千克 | — | 以物换物 | — | 14,154 卢布（4 家最高） |
-| 72 | Loot Lord毛绒玩具 | `loot-lord-plushie` | 0.3 千克 | — | — | — | 42,344 卢布（4 家最高） |
-| 73 | 尼龙绳索 | `paracord` | 0.35 千克 | — | 制作 | — | 11,475 卢布（5 家最高） |
-| 74 | BEAR Buddy毛绒玩具 | `bear-buddy-plush-toy` | 0.38 千克 | — | — | — | 44,217 卢布（4 家最高） |
-| 75 | 滤水器 | `water-filter` | 0.4 千克 | 数量 100 | 制作 | — | 12,495 卢布（4 家最高） |
-| 76 | 破旧的古董书 | `battered-antique-book` | 0.4 千克 | — | — | — | 32,144 卢布（4 家最高） |
-| 77 | 密封的盒子 | `sealed-box` | 0.5 千克 | — | — | — | 26,520 卢布（3 家最高） |
-| 78 | 罐装 Majaica 咖啡豆 | `can-of-majaica-coffee-beans` | 0.5 千克 | — | 制作 | — | 7,638 卢布（4 家最高） |
-| 79 | 违禁品盒子 | `contraband-box` | 0.5 千克 | — | — | — | 26,520 卢布（2 家最高） |
-| 80 | 防毒面具滤罐 | `gas-mask-air-filter` | 0.5 千克 | — | 制作 | — | 5,119 卢布（4 家最高） |
-| 81 | 武器零件 | `weapon-parts` | 0.56 千克 | — | 制作 | — | 7,262 卢布（4 家最高） |
-| 82 | “Eagle”火药 | `gunpowder-eagle` | 0.6 千克 | — | 制作 | — | 16,320 卢布（4 家最高） |
-| 83 | “Hawk”火药 | `gunpowder-hawk` | 0.6 千克 | — | 制作 | — | 17,850 卢布（4 家最高） |
-| 84 | “Kite”火药 | `gunpowder-kite` | 0.6 千克 | — | 制作 | — | 7,140 卢布（4 家最高） |
-| 85 | 罐装 Dr. Lupo 咖啡豆 | `can-of-dr-lupos-coffee-beans` | 0.6 千克 | — | — | — | 26,520 卢布（4 家最高） |
-| 86 | Arseniy包装荞麦 | `pack-of-arseniy-buckwheat` | 0.8 千克 | — | — | — | 11,373 卢布（4 家最高） |
-| 87 | OFZ 30x165毫米炮弹 | `ofz-30x165mm-shell` | 0.839 千克 | — | 制作 | — | 28,560 卢布（4 家最高） |
-| 88 | 一罐酸黄瓜 | `jar-of-pickles` | 2 千克 | — | — | — | 47,651 卢布（4 家最高） |
-| 89 | 锁住的箱子 | `locked-case` | 3 千克 | — | — | — | 26,520 卢布（3 家最高） |
-| 90 | 上锁的贵重物品箱（普通） | `locked-valuables-crate-common` | 4 千克 | — | — | — | — |
-| 91 | 上锁的贵重物品箱（特等） | `locked-valuables-crate-epic` | 4 千克 | — | — | — | — |
-| 92 | 上锁的贵重物品箱（稀有） | `locked-valuables-crate-rare` | 4 千克 | — | — | — | — |
-| 93 | Everclear 两级净水器 | `everclear-two-stage-water-filter` | 4.5 千克 | 数量 400 | — | — | 62,985 卢布（4 家最高） |
-| 94 | 万能药物资箱 | `panacea-crate` | 10 千克 | — | — | — | — |
-| 95 | 上锁的武器箱（普通） | `locked-weapon-crate-common` | 10 千克 | — | — | — | — |
-| 96 | 上锁的武器箱（特等） | `locked-weapon-crate-epic` | 10 千克 | — | — | — | — |
-| 97 | 上锁的武器箱（稀有） | `locked-weapon-crate-rare` | 10 千克 | — | — | — | — |
-| 98 | 上锁的物资箱（普通） | `locked-supply-crate-common` | 10 千克 | — | — | — | — |
-| 99 | 上锁的物资箱（特等） | `locked-supply-crate-epic` | 10 千克 | — | — | — | — |
-| 100 | 上锁的物资箱（稀有） | `locked-supply-crate-rare` | 10 千克 | — | — | — | — |
-| 101 | 上锁的装备箱（普通） | `locked-equipment-crate-common` | 10 千克 | — | — | — | — |
-| 102 | 上锁的装备箱（特等） | `locked-equipment-crate-epic` | 10 千克 | — | — | — | — |
-| 103 | 上锁的装备箱（稀有） | `locked-equipment-crate-rare` | 10 千克 | — | — | — | — |
-| 104 | 上锁的装备箱（通行证 0 赛季） | `locked-equipment-crate-battlepass-0` | 10 千克 | — | — | — | — |
-| 105 | 战争回声物资箱 | `echo-belli-crate` | 10 千克 | — | — | — | — |
-| 106 | 瘟疫物资箱 | `morbus-crate` | 10 千克 | — | — | — | — |
-| 107 | FP-100过滤吸收器 | `fp-100-filter-absorber` | 13 千克 | 数量 300 | 制作 | — | 41,820 卢布（4 家最高） |
+| 68 | Precursor container | `precursor-container` | 0.1 千克 | — | — | — | 153,000 卢布（6 家最高） |
+| 69 | Cordura聚酰胺面料 | `cordura-polyamide-fabric` | 0.11 千克 | — | 制作 | — | 6,732 卢布（5 家最高） |
+| 70 | 记者证（为NoiceGuy签发） | `press-pass-issued-for-noiceguy` | 0.12 千克 | — | — | — | 25,500 卢布（4 家最高） |
+| 71 | 芳纶纤维布料 | `aramid-fiber-fabric` | 0.14 千克 | — | 制作 | — | 4,488 卢布（4 家最高） |
+| 72 | 42 Signature Blend英式茶 | `42-signature-blend-english-tea` | 0.22 千克 | — | 以物换物 | — | 14,154 卢布（4 家最高） |
+| 73 | Loot Lord毛绒玩具 | `loot-lord-plushie` | 0.3 千克 | — | — | — | 42,344 卢布（4 家最高） |
+| 74 | 尼龙绳索 | `paracord` | 0.35 千克 | — | 制作 | — | 11,475 卢布（5 家最高） |
+| 75 | BEAR Buddy毛绒玩具 | `bear-buddy-plush-toy` | 0.38 千克 | — | — | — | 44,217 卢布（4 家最高） |
+| 76 | 滤水器 | `water-filter` | 0.4 千克 | 数量 100 | 制作 | — | 12,495 卢布（4 家最高） |
+| 77 | 破旧的古董书 | `battered-antique-book` | 0.4 千克 | — | — | — | 32,144 卢布（4 家最高） |
+| 78 | 密封的盒子 | `sealed-box` | 0.5 千克 | — | — | — | 26,520 卢布（3 家最高） |
+| 79 | 罐装 Majaica 咖啡豆 | `can-of-majaica-coffee-beans` | 0.5 千克 | — | 制作 | — | 7,638 卢布（4 家最高） |
+| 80 | 违禁品盒子 | `contraband-box` | 0.5 千克 | — | — | — | 26,520 卢布（2 家最高） |
+| 81 | 防毒面具滤罐 | `gas-mask-air-filter` | 0.5 千克 | — | 制作 | — | 5,119 卢布（4 家最高） |
+| 82 | 武器零件 | `weapon-parts` | 0.56 千克 | — | 制作 | — | 7,262 卢布（4 家最高） |
+| 83 | “Eagle”火药 | `gunpowder-eagle` | 0.6 千克 | — | 制作 | — | 16,320 卢布（4 家最高） |
+| 84 | “Hawk”火药 | `gunpowder-hawk` | 0.6 千克 | — | 制作 | — | 17,850 卢布（4 家最高） |
+| 85 | “Kite”火药 | `gunpowder-kite` | 0.6 千克 | — | 制作 | — | 7,140 卢布（4 家最高） |
+| 86 | 罐装 Dr. Lupo 咖啡豆 | `can-of-dr-lupos-coffee-beans` | 0.6 千克 | — | — | — | 26,520 卢布（4 家最高） |
+| 87 | Arseniy包装荞麦 | `pack-of-arseniy-buckwheat` | 0.8 千克 | — | — | — | 11,373 卢布（4 家最高） |
+| 88 | OFZ 30x165毫米炮弹 | `ofz-30x165mm-shell` | 0.839 千克 | — | 制作 | — | 28,560 卢布（4 家最高） |
+| 89 | 一罐酸黄瓜 | `jar-of-pickles` | 2 千克 | — | — | — | 47,651 卢布（4 家最高） |
+| 90 | 锁住的箱子 | `locked-case` | 3 千克 | — | — | — | 26,520 卢布（3 家最高） |
+| 91 | 上锁的贵重物品箱（普通） | `locked-valuables-crate-common` | 4 千克 | — | — | — | — |
+| 92 | 上锁的贵重物品箱（特等） | `locked-valuables-crate-epic` | 4 千克 | — | — | — | — |
+| 93 | 上锁的贵重物品箱（稀有） | `locked-valuables-crate-rare` | 4 千克 | — | — | — | — |
+| 94 | Everclear 两级净水器 | `everclear-two-stage-water-filter` | 4.5 千克 | 数量 400 | — | — | 62,985 卢布（4 家最高） |
+| 95 | 万能药物资箱 | `panacea-crate` | 10 千克 | — | — | — | — |
+| 96 | 上锁的武器箱（普通） | `locked-weapon-crate-common` | 10 千克 | — | — | — | — |
+| 97 | 上锁的武器箱（特等） | `locked-weapon-crate-epic` | 10 千克 | — | — | — | — |
+| 98 | 上锁的武器箱（稀有） | `locked-weapon-crate-rare` | 10 千克 | — | — | — | — |
+| 99 | 上锁的物资箱（普通） | `locked-supply-crate-common` | 10 千克 | — | — | — | — |
+| 100 | 上锁的物资箱（特等） | `locked-supply-crate-epic` | 10 千克 | — | — | — | — |
+| 101 | 上锁的物资箱（稀有） | `locked-supply-crate-rare` | 10 千克 | — | — | — | — |
+| 102 | 上锁的装备箱（普通） | `locked-equipment-crate-common` | 10 千克 | — | — | — | — |
+| 103 | 上锁的装备箱（特等） | `locked-equipment-crate-epic` | 10 千克 | — | — | — | — |
+| 104 | 上锁的装备箱（稀有） | `locked-equipment-crate-rare` | 10 千克 | — | — | — | — |
+| 105 | 上锁的装备箱（通行证 0 赛季） | `locked-equipment-crate-battlepass-0` | 10 千克 | — | — | — | — |
+| 106 | 战争回声物资箱 | `echo-belli-crate` | 10 千克 | — | — | — | — |
+| 107 | 瘟疫物资箱 | `morbus-crate` | 10 千克 | — | — | — | — |
+| 108 | FP-100过滤吸收器 | `fp-100-filter-absorber` | 13 千克 | 数量 300 | 制作 | — | 41,820 卢布（4 家最高） |
 
 </div>
 
-> 本分类 **107 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+> 本分类 **108 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
 
-<details><summary>本分类 107 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+<details><summary>本分类 108 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
 
-BD 狗牌 •｜ 红色　BD 狗牌 •｜ 绿色　BD 狗牌 •｜ 铁灰　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　带有标记的 BEAR 狗牌　带有标记的 BEAR 狗牌　带有标记的 BEAR 狗牌　带有标记的 BEAR 狗牌　带有标记的 USEC 狗牌　带有标记的 USEC 狗牌　带有标记的 USEC 狗牌　带有标记的 USEC 狗牌　箱子钥匙　云尔斯顿香烟　无彩香烟　阿波罗-联盟香烟　马宝路香烟　BEAR 两片式狗牌　USEC 两片式狗牌　绒布布料　UZRGM手榴弹引信　防撕布料　Cordura聚酰胺面料　记者证（为NoiceGuy签发）　芳纶纤维布料　42 Signature Blend英式茶　Loot Lord毛绒玩具　尼龙绳索　BEAR Buddy毛绒玩具　滤水器　破旧的古董书　密封的盒子　罐装 Majaica 咖啡豆　违禁品盒子　防毒面具滤罐　武器零件　“Eagle”火药　“Hawk”火药　“Kite”火药　罐装 Dr. Lupo 咖啡豆　Arseniy包装荞麦　OFZ 30x165毫米炮弹　一罐酸黄瓜　锁住的箱子　上锁的贵重物品箱（普通）　上锁的贵重物品箱（特等）　上锁的贵重物品箱（稀有）　Everclear 两级净水器　万能药物资箱　上锁的武器箱（普通）　上锁的武器箱（特等）　上锁的武器箱（稀有）　上锁的物资箱（普通）　上锁的物资箱（特等）　上锁的物资箱（稀有）　上锁的装备箱（普通）　上锁的装备箱（特等）　上锁的装备箱（稀有）　上锁的装备箱（通行证 0 赛季）　战争回声物资箱　瘟疫物资箱　FP-100过滤吸收器
+BD 狗牌 •｜ 红色　BD 狗牌 •｜ 绿色　BD 狗牌 •｜ 铁灰　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　带有标记的 BEAR 狗牌　带有标记的 BEAR 狗牌　带有标记的 BEAR 狗牌　带有标记的 BEAR 狗牌　带有标记的 USEC 狗牌　带有标记的 USEC 狗牌　带有标记的 USEC 狗牌　带有标记的 USEC 狗牌　箱子钥匙　云尔斯顿香烟　无彩香烟　阿波罗-联盟香烟　马宝路香烟　BEAR 两片式狗牌　USEC 两片式狗牌　绒布布料　UZRGM手榴弹引信　防撕布料　Precursor container　Cordura聚酰胺面料　记者证（为NoiceGuy签发）　芳纶纤维布料　42 Signature Blend英式茶　Loot Lord毛绒玩具　尼龙绳索　BEAR Buddy毛绒玩具　滤水器　破旧的古董书　密封的盒子　罐装 Majaica 咖啡豆　违禁品盒子　防毒面具滤罐　武器零件　“Eagle”火药　“Hawk”火药　“Kite”火药　罐装 Dr. Lupo 咖啡豆　Arseniy包装荞麦　OFZ 30x165毫米炮弹　一罐酸黄瓜　锁住的箱子　上锁的贵重物品箱（普通）　上锁的贵重物品箱（特等）　上锁的贵重物品箱（稀有）　Everclear 两级净水器　万能药物资箱　上锁的武器箱（普通）　上锁的武器箱（特等）　上锁的武器箱（稀有）　上锁的物资箱（普通）　上锁的物资箱（特等）　上锁的物资箱（稀有）　上锁的装备箱（普通）　上锁的装备箱（特等）　上锁的装备箱（稀有）　上锁的装备箱（通行证 0 赛季）　战争回声物资箱　瘟疫物资箱　FP-100过滤吸收器
 
 </details>
 

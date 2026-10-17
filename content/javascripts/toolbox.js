@@ -347,6 +347,7 @@ function siteRoot() {
   var catalogInjected = false;
   var itemPageInjected = false;
   var questPageInjected = false;
+  var treePageInjected = false;
   var ballisticsCalcInjected = false;
   var fleaCalcInjected = false;
   var miningCalcInjected = false;
@@ -373,6 +374,12 @@ function siteRoot() {
     if (itemPageInjected && document.getElementById("tk-item-page")
         && typeof window.__tkBootItem === "function") {
       window.__tkBootItem();
+    }
+    /* 任务全景图：注入异步、换页多次 —— 同上面两条，每次换页叫一次 boot
+       （幂等：挂载点上的 data-tkMounted 挡第二次渲染）。 */
+    if (treePageInjected && document.getElementById("tk-quest-tree")
+        && typeof window.__tkBootTree === "function") {
+      window.__tkBootTree();
     }
     /* 两个计算器同理：注入是异步的，而 instant 换页会多次换入内容 ——
        注入的时机可能落在两次换入的间隙里，那一刻挂载点还不在 DOM 中。
@@ -434,6 +441,12 @@ function siteRoot() {
     if (!questPageInjected && document.getElementById("tk-quest-page")) {
       questPageInjected = true;
       injectScript("quest-detail.js");
+    }
+    /* 任务全景图（quests/tree.md）：本体按需注入；它自己再按需拉数据
+       （quest-tree-data.js 44 KB，同 map.js 的 maps-data.js 模式）。 */
+    if (!treePageInjected && document.getElementById("tk-quest-tree")) {
+      treePageInjected = true;
+      injectScript("quest-tree.js");
     }
     /* 两个计算器都是**自包含**的（无数据文件、无网络），所以只注入本体，
        不像图鉴那样要先注入一份数据。体量都在 10 KB 上下。 */

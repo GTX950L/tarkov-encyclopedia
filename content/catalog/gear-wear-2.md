@@ -15,7 +15,7 @@ tags:
 
 | 项目 | 说明 |
 |------|------|
-| **收录件数** | **235 件**（全站物品图鉴共 4979 件） |
+| **收录件数** | **235 件**（全站物品图鉴共 4983 件） |
 | **本页范围** | 第 **2** / 2 部分（[穿戴与面罩](gear-wear.md) 整类共 433 件、4 个官方分类） |
 | **叶子分类** | 2 个官方分类：[面罩](#面罩)、[臂章](#臂章) |
 | **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。本页 **146 / 235 件**有至少一条（商人出售 41 ｜ 以物换物 107 ｜ 制作 0）；`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— 那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|
@@ -134,8 +134,8 @@ tags:
 | 93 | 黄色巴拉克拉瓦头套 | `balaclava-yellow` | 0.1 千克 | — | 以物换物 | — | 2,500 卢布（3 家最高） |
 | 94 | 黄色恶鬼巴拉克拉瓦头套 | `balaclava-yellow-oni` | 0.1 千克 | — | 以物换物 | — | 2,500 卢布（3 家最高） |
 | 95 | 食尸鬼面具 | `ghoul-mask` | 0.15 千克 | — | — | — | 17,766 卢布（4 家最高） |
-| 96 | TW EXFIL 护耳（狼棕色） | `team-wendy-exfil-ear-covers-coyote-brown` | 0.172 千克 | 防护等级 3 级；材质 不适用；耐久 30；防护区域 1 处；钝伤防护 13%（共 9 项） | 商人出售 | 92,061 卢布，需 Peacekeeper 4 级 | 24,500 卢布（4 家最高） |
-| 97 | TW EXFIL 护耳（黑色） | `team-wendy-exfil-ear-covers-black` | 0.172 千克 | 防护等级 3 级；材质 不适用；耐久 30；防护区域 1 处；钝伤防护 13%（共 9 项） | 商人出售 | 92,061 卢布，需 Peacekeeper 4 级 | 24,500 卢布（4 家最高） |
+| 96 | TW EXFIL 护耳（狼棕色） | `team-wendy-exfil-ear-covers-coyote-brown` | 0.172 千克 | 防护等级 3 级；材质 不适用；耐久 30；防护区域 1 处；钝伤防护 13%（共 9 项） | 商人出售 | 91,669 卢布，需 Peacekeeper 4 级 | 24,500 卢布（4 家最高） |
+| 97 | TW EXFIL 护耳（黑色） | `team-wendy-exfil-ear-covers-black` | 0.172 千克 | 防护等级 3 级；材质 不适用；耐久 30；防护区域 1 处；钝伤防护 13%（共 9 项） | 商人出售 | 91,669 卢布，需 Peacekeeper 4 级 | 24,500 卢布（4 家最高） |
 | 98 | Pestily 瘟疫面具 | `pestily-plague-mask` | 0.18 千克 | — | — | — | 47,450 卢布（4 家最高） |
 | 99 | Diamond Age NovaSteel 护颈 | `diamond-age-novasteel-aventail` | 0.2 千克 | 防护等级 3 级；材质 不适用；耐久 15；防护区域 1 处；钝伤防护 17%（共 9 项） | 商人出售 | 44,720 卢布，需 Ragman 3 级 | 18,925 卢布（4 家最高） |
 | 100 | Twitch Rivals 2020 面罩 | `twitch-rivals-2020-mask` | 0.2 千克 | — | — | — | 12,000 卢布（4 家最高） |
@@ -154,7 +154,7 @@ tags:
 | 113 | 氯丁橡胶面具（路易伪登） | `neoprene-mask-loui-peeton` | 0.25 千克 | — | 以物换物 | — | 2,500 卢布（3 家最高） |
 | 114 | 氯丁橡胶面具（非礼勿言） | `neoprene-mask-say-nothing` | 0.25 千克 | — | 以物换物 | — | 2,500 卢布（3 家最高） |
 | 115 | 氯丁橡胶面具（鬼） | `neoprene-mask-oni` | 0.25 千克 | — | 以物换物 | — | 2,500 卢布（3 家最高） |
-| 116 | Galvion 凯门鳄 面罩固定臂 | `galvion-caiman-fixed-arm-visor` | 0.27 千克 | 防护等级 2 级；材质 不适用；耐久 30；防护区域 2 处；钝伤防护 15%（共 9 项） | 商人出售 | 42,155 卢布，需 Peacekeeper 3 级 | 11,218 卢布（4 家最高） |
+| 116 | Galvion 凯门鳄 面罩固定臂 | `galvion-caiman-fixed-arm-visor` | 0.27 千克 | 防护等级 2 级；材质 不适用；耐久 30；防护区域 2 处；钝伤防护 15%（共 9 项） | 商人出售 | 41,975 卢布，需 Peacekeeper 3 级 | 11,218 卢布（4 家最高） |
 | 117 | Glorious E 面具 | `glorious-e-mask` | 0.28 千克 | — | — | — | 23,625 卢布（4 家最高） |
 | 118 | 破碎面具 | `shattered-mask` | 0.3 千克 | — | 商人出售 | 10,425 卢布，需 Ragman 4 级 | 3,750 卢布（4 家最高） |
 | 119 | Ops-Core FAST护目罩 | `ops-core-fast-visor` | 0.32 千克 | 防护等级 2 级；材质 不适用；耐久 20；防护区域 2 处；钝伤防护 15%（共 9 项） | 商人出售 | 18,699 卢布，需 Ragman 2 级 | 6,726 卢布（4 家最高） |
@@ -165,7 +165,7 @@ tags:
 | 124 | GP-5防毒面具 | `gp-5-gas-mask` | 0.45 千克 | — | — | — | 3,193 卢布（4 家最高） |
 | 125 | Team Wendy EXFIL 防弹护颚（复合迷彩） | `team-wendy-exfil-ballistic-mandible-multicam` | 0.59 千克 | 防护等级 3 级；材质 不适用；耐久 36；防护区域 4 处；钝伤防护 20%（共 9 项） | 以物换物 | — | 23,410 卢布（4 家最高） |
 | 126 | Team Wendy EXFIL 防弹护颚（狼棕色） | `team-wendy-exfil-ballistic-mandible-coyote-brown` | 0.59 千克 | 防护等级 3 级；材质 不适用；耐久 36；防护区域 4 处；钝伤防护 19%（共 9 项） | 以物换物 | — | 23,410 卢布（4 家最高） |
-| 127 | Team Wendy EXFIL 防弹护颚（黑色） | `team-wendy-exfil-ballistic-mandible-black` | 0.59 千克 | 防护等级 3 级；材质 不适用；耐久 36；防护区域 4 处；钝伤防护 19%（共 9 项） | 商人出售 | 139,864 卢布，需 Peacekeeper 4 级 | 23,410 卢布（4 家最高） |
+| 127 | Team Wendy EXFIL 防弹护颚（黑色） | `team-wendy-exfil-ballistic-mandible-black` | 0.59 千克 | 防护等级 3 级；材质 不适用；耐久 36；防护区域 4 处；钝伤防护 19%（共 9 项） | 商人出售 | 139,268 卢布，需 Peacekeeper 4 级 | 23,410 卢布（4 家最高） |
 | 128 | GP-7防毒面具 | `gp-7-gas-mask` | 0.6 千克 | — | — | — | 4,193 卢布（4 家最高） |
 | 129 | DevTac 浪人头盔护颚 | `devtac-ronin-mandible` | 0.67 千克 | 防护等级 4 级；材质 不适用；耐久 21；防护区域 3 处；钝伤防护 22%（共 9 项） | 商人出售 | 164,922 卢布，需 Mechanic 4 级 | 26,387 卢布（4 家最高） |
 | 130 | DevTac 浪人头盔护颚（橄榄绿） | `devtac-ronin-mandible-olive-drab` | 0.67 千克 | 防护等级 4 级；材质 不适用；耐久 21；防护区域 3 处；钝伤防护 22%（共 9 项） | — | — | 26,387 卢布（4 家最高） |
@@ -173,19 +173,19 @@ tags:
 | 132 | DevTac 浪人头盔护颚（猛禽） | `devtac-ronin-mandible-raptor` | 0.67 千克 | 防护等级 4 级；材质 不适用；耐久 21；防护区域 3 处；钝伤防护 22%（共 9 项） | 以物换物 | — | 26,387 卢布（4 家最高） |
 | 133 | DevTac 浪人头盔护颚（瘟疫） | `devtac-ronin-mandible-plague` | 0.67 千克 | 防护等级 4 级；材质 不适用；耐久 21；防护区域 3 处；钝伤防护 22%（共 9 项） | 以物换物 | — | 26,387 卢布（4 家最高） |
 | 134 | DevTac 浪人头盔护颚（试作机） | `devtac-ronin-mandible-prototype` | 0.67 千克 | 防护等级 4 级；材质 不适用；耐久 21；防护区域 3 处；钝伤防护 22%（共 9 项） | 以物换物 | — | 26,387 卢布（4 家最高） |
-| 135 | Galvion 凯门鳄 复合防弹贴片 | `galvion-caiman-hybrid-ballistic-applique` | 0.68 千克 | 防护等级 4 级；材质 不适用；耐久 40；防护区域 2 处；钝伤防护 8%（共 9 项） | 商人出售 | 124,621 卢布，需 Peacekeeper 4 级 | 33,165 卢布（4 家最高） |
+| 135 | Galvion 凯门鳄 复合防弹贴片 | `galvion-caiman-hybrid-ballistic-applique` | 0.68 千克 | 防护等级 4 级；材质 不适用；耐久 40；防护区域 2 处；钝伤防护 8%（共 9 项） | 商人出售 | 124,090 卢布，需 Peacekeeper 4 级 | 33,165 卢布（4 家最高） |
 | 136 | Galvion 凯门鳄 复合防弹贴片（共生者） | `galvion-caiman-hybrid-ballistic-applique-mutualist` | 0.68 千克 | 防护等级 4 级；材质 不适用；耐久 40；防护区域 2 处；钝伤防护 8%（共 9 项） | 以物换物 | — | 33,165 卢布（4 家最高） |
 | 137 | Galvion 凯门鳄 复合防弹贴片（复合迷彩） | `galvion-caiman-hybrid-ballistic-applique-multicam` | 0.68 千克 | 防护等级 4 级；材质 不适用；耐久 40；防护区域 2 处；钝伤防护 8%（共 9 项） | 以物换物 | — | 33,165 卢布（4 家最高） |
 | 138 | Galvion 凯门鳄 复合防弹贴片（高原复合迷彩） | `galvion-caiman-hybrid-ballistic-applique-multicam-alpine` | 0.68 千克 | 防护等级 4 级；材质 不适用；耐久 20；防护区域 2 处；钝伤防护 72%（共 9 项） | 以物换物 | — | 33,165 卢布（4 家最高） |
 | 139 | Avon M53A1 防毒面具 | `avon-m53a1-gas-mask` | 0.73 千克 | — | 以物换物 | — | 3,193 卢布（4 家最高） |
 | 140 | Death Knight面具 | `death-knight-mask` | 0.78 千克 | 防护等级 1 级；材质 轻型；耐久 55；防护区域 2 处；钝伤防护 20%（共 9 项） | — | — | 36,000 卢布（4 家最高） |
-| 141 | TW EXFIL 防弹头盔面罩（狼棕色） | `team-wendy-exfil-ballistic-face-shield-coyote-brown` | 0.8 千克 | 防护等级 3 级；材质 不适用；耐久 45；防护区域 3 处；钝伤防护 12%（共 9 项） | 商人出售 | 128,426 卢布，需 Peacekeeper 4 级 | 24,412 卢布（4 家最高） |
-| 142 | TW EXFIL 防弹头盔面罩（黑色） | `team-wendy-exfil-ballistic-face-shield-black` | 0.8 千克 | 防护等级 3 级；材质 不适用；耐久 45；防护区域 3 处；钝伤防护 12%（共 9 项） | 商人出售 | 128,426 卢布，需 Peacekeeper 4 级 | 24,412 卢布（4 家最高） |
+| 141 | TW EXFIL 防弹头盔面罩（狼棕色） | `team-wendy-exfil-ballistic-face-shield-coyote-brown` | 0.8 千克 | 防护等级 3 级；材质 不适用；耐久 45；防护区域 3 处；钝伤防护 12%（共 9 项） | 商人出售 | 127,879 卢布，需 Peacekeeper 4 级 | 24,412 卢布（4 家最高） |
+| 142 | TW EXFIL 防弹头盔面罩（黑色） | `team-wendy-exfil-ballistic-face-shield-black` | 0.8 千克 | 防护等级 3 级；材质 不适用；耐久 45；防护区域 3 处；钝伤防护 12%（共 9 项） | 商人出售 | 127,879 卢布，需 Peacekeeper 4 级 | 24,412 卢布（4 家最高） |
 | 143 | MSA Millennium 暴乱控制防毒面具 | `msa-millennium-riot-control-gas-mask` | 0.9 千克 | — | 以物换物 | — | 6,380 卢布（4 家最高） |
 | 144 | Kolpak-1S 防暴面罩 | `kolpak-1s-face-shield` | 1 千克 | 防护等级 2 级；材质 不适用；耐久 30；防护区域 3 处；钝伤防护 10%（共 9 项） | 商人出售 | 6,743 卢布，需 Ragman 1 级 | 2,425 卢布（4 家最高） |
 | 145 | LSHZ-2DTM面罩 | `lshz-2dtm-face-shield` | 1 千克 | 防护等级 4 级；材质 不适用；耐久 50；防护区域 3 处；钝伤防护 7%（共 9 项） | 商人出售 / 以物换物 | 60,264 卢布，需 Ragman 4 级 | 16,675 卢布（4 家最高） |
 | 146 | ZSh-1-2M面罩 | `zsh-1-2m-face-shield` | 1 千克 | 防护等级 3 级；材质 不适用；耐久 50；防护区域 3 处；钝伤防护 10%（共 9 项） | 商人出售 / 以物换物 | 37,383 卢布，需 Ragman 3 级 | 13,447 卢布（4 家最高） |
-| 147 | Galvion 凯门鳄 复合防弹护颚 | `galvion-caiman-hybrid-ballistic-mandible-guard` | 1.1 千克 | 防护等级 2 级；材质 不适用；耐久 20；防护区域 1 处；钝伤防护 20%（共 9 项） | 商人出售 | 46,031 卢布，需 Peacekeeper 3 级 | 12,250 卢布（4 家最高） |
+| 147 | Galvion 凯门鳄 复合防弹护颚 | `galvion-caiman-hybrid-ballistic-mandible-guard` | 1.1 千克 | 防护等级 2 级；材质 不适用；耐久 20；防护区域 1 处；钝伤防护 20%（共 9 项） | 商人出售 | 45,834 卢布，需 Peacekeeper 3 级 | 12,250 卢布（4 家最高） |
 | 148 | Galvion 凯门鳄 复合防弹护颚（共生者） | `galvion-caiman-hybrid-ballistic-mandible-guard-mutualist` | 1.1 千克 | 防护等级 2 级；材质 不适用；耐久 20；防护区域 1 处；钝伤防护 20%（共 9 项） | 以物换物 | — | 12,250 卢布（4 家最高） |
 | 149 | Galvion 凯门鳄 复合防弹护颚（复合迷彩） | `galvion-caiman-hybrid-ballistic-mandible-guard-multicam` | 1.1 千克 | 防护等级 2 级；材质 不适用；耐久 20；防护区域 1 处；钝伤防护 20%（共 9 项） | 以物换物 | — | 12,250 卢布（4 家最高） |
 | 150 | Galvion 凯门鳄 复合防弹护颚（高原复合迷彩） | `galvion-caiman-hybrid-ballistic-mandible-guard-multicam-alpine` | 1.1 千克 | 防护等级 2 级；材质 不适用；耐久 20；防护区域 1 处；钝伤防护 72%（共 9 项） | 以物换物 | — | 12,250 卢布（4 家最高） |
@@ -193,7 +193,7 @@ tags:
 | 152 | Maska-1SCh 防弹面罩（Vida 版） | `maska-1sch-face-shield-vida-edition` | 1.1 千克 | 防护等级 6 级；材质 不适用；耐久 50；防护区域 3 处；钝伤防护 8%（共 9 项） | — | — | 46,095 卢布（4 家最高） |
 | 153 | Maska-1SCh 面罩（橄榄绿） | `maska-1sch-face-shield-olive-drab` | 1.1 千克 | 防护等级 6 级；材质 不适用；耐久 50；防护区域 3 处；钝伤防护 8%（共 9 项） | 以物换物 | — | 36,125 卢布（4 家最高） |
 | 154 | NPP KlASS Tor-2头盔面罩 | `npp-klass-tor-2-helmet-face-shield` | 1.15 千克 | 防护等级 3 级；材质 不适用；耐久 30；防护区域 3 处；钝伤防护 12%（共 9 项） | 商人出售 | 44,536 卢布，需 Ragman 3 级 | 16,020 卢布（4 家最高） |
-| 155 | Crye Precision AirFrame 护耳 | `crye-precision-airframe-ears` | 1.2 千克 | 防护等级 3 级；材质 不适用；耐久 27；防护区域 1 处；钝伤防护 15%（共 9 项） | 商人出售 | 76,855 卢布，需 Peacekeeper 4 级 | 24,062 卢布（4 家最高） |
+| 155 | Crye Precision AirFrame 护耳 | `crye-precision-airframe-ears` | 1.2 千克 | 防护等级 3 级；材质 不适用；耐久 27；防护区域 1 处；钝伤防护 15%（共 9 项） | 商人出售 | 76,527 卢布，需 Peacekeeper 4 级 | 24,062 卢布（4 家最高） |
 | 156 | Crye Precision AirFrame 护耳（复合迷彩） | `crye-precision-airframe-ears-multicam` | 1.2 千克 | 防护等级 3 级；材质 不适用；耐久 27；防护区域 1 处；钝伤防护 15%（共 9 项） | 以物换物 | — | 24,062 卢布（4 家最高） |
 | 157 | Crye Precision AirFrame 护耳（橄榄绿） | `crye-precision-airframe-ears-od-green` | 1.2 千克 | 防护等级 3 级；材质 不适用；耐久 27；防护区域 1 处；钝伤防护 15%（共 9 项） | — | — | 24,062 卢布（4 家最高） |
 | 158 | Crye Precision AirFrame 护耳（灰褐色） | `crye-precision-airframe-ears-coyote` | 1.2 千克 | 防护等级 3 级；材质 不适用；耐久 27；防护区域 1 处；钝伤防护 15%（共 9 项） | 以物换物 | — | 24,062 卢布（4 家最高） |
@@ -204,13 +204,13 @@ tags:
 | 163 | Diamond Age NeoSteel 头盔护颚 (黑色) | `diamond-age-neosteel-helmet-ballistic-mandible-black` | 1.2 千克 | 防护等级 3 级；材质 不适用；耐久 25；防护区域 4 处；钝伤防护 17%（共 9 项） | 以物换物 | — | 18,925 卢布（4 家最高） |
 | 164 | Kiver-M头盔面罩 | `kiver-m-face-shield` | 1.2 千克 | 防护等级 3 级；材质 不适用；耐久 40；防护区域 3 处；钝伤防护 15%（共 9 项） | 商人出售 | 40,075 卢布，需 Ragman 2 级 | 12,535 卢布（4 家最高） |
 | 165 | LSHZ-2DTM 护颈 | `lshz-2dtm-aventail` | 1.2 千克 | 防护等级 5 级；材质 不适用；耐久 35；防护区域 1 处；钝伤防护 4%（共 9 项） | 商人出售 | 46,148 卢布，需 Ragman 4 级 | 16,600 卢布（4 家最高） |
-| 166 | Ops-Core FAST GUNSIGHT护颚 | `ops-core-fast-gunsight-mandible` | 1.2 千克 | 防护等级 2 级；材质 不适用；耐久 20；防护区域 2 处；钝伤防护 20%（共 9 项） | 商人出售 | 40,093 卢布，需 Peacekeeper 3 级 | 13,337 卢布（4 家最高） |
-| 167 | Ops-Core FAST头盔多重打击防弹面罩 | `ops-core-fast-multi-hit-ballistic-face-shield` | 1.2 千克 | 防护等级 3 级；材质 不适用；耐久 40；防护区域 3 处；钝伤防护 15%（共 9 项） | 商人出售 | 75,080 卢布，需 Peacekeeper 4 级 | 19,980 卢布（4 家最高） |
-| 168 | Ops-Core Fast侧甲 | `ops-core-fast-side-armor` | 1.2 千克 | 防护等级 3 级；材质 不适用；耐久 25；防护区域 1 处；钝伤防护 15%（共 9 项） | 商人出售 | 55,045 卢布，需 Peacekeeper 3 级 | 17,234 卢布（4 家最高） |
+| 166 | Ops-Core FAST GUNSIGHT护颚 | `ops-core-fast-gunsight-mandible` | 1.2 千克 | 防护等级 2 级；材质 不适用；耐久 20；防护区域 2 处；钝伤防护 20%（共 9 项） | 商人出售 | 39,923 卢布，需 Peacekeeper 3 级 | 13,337 卢布（4 家最高） |
+| 167 | Ops-Core FAST头盔多重打击防弹面罩 | `ops-core-fast-multi-hit-ballistic-face-shield` | 1.2 千克 | 防护等级 3 级；材质 不适用；耐久 40；防护区域 3 处；钝伤防护 15%（共 9 项） | 商人出售 | 74,759 卢布，需 Peacekeeper 4 级 | 19,980 卢布（4 家最高） |
+| 168 | Ops-Core Fast侧甲 | `ops-core-fast-side-armor` | 1.2 千克 | 防护等级 3 级；材质 不适用；耐久 25；防护区域 1 处；钝伤防护 15%（共 9 项） | 商人出售 | 54,810 卢布，需 Peacekeeper 3 级 | 17,234 卢布（4 家最高） |
 | 169 | Rys-T 面罩 | `rys-t-face-shield` | 1.2 千克 | 防护等级 5 级；材质 不适用；耐久 55；防护区域 3 处；钝伤防护 8%（共 9 项） | 以物换物 | — | 39,730 卢布（4 家最高） |
 | 170 | Altyn 头盔防弹面罩（防弹验证） | `altyn-helmet-face-shield-impact-tested` | 1.4 千克 | 防护等级 5 级；材质 不适用；耐久 50；防护区域 3 处；钝伤防护 8%（共 9 项） | — | — | 33,681 卢布（4 家最高） |
 | 171 | Altyn面罩 | `altyn-helmet-face-shield` | 1.4 千克 | 防护等级 5 级；材质 不适用；耐久 50；防护区域 3 处；钝伤防护 8%（共 9 项） | 以物换物 | — | 33,681 卢布（4 家最高） |
-| 172 | Crye Precision AirFrame 护颚 | `crye-precision-airframe-chops` | 1.45 千克 | 防护等级 3 级；材质 不适用；耐久 30；防护区域 2 处；钝伤防护 15%（共 9 项） | 商人出售 | 112,118 卢布，需 Peacekeeper 4 级 | 29,837 卢布（4 家最高） |
+| 172 | Crye Precision AirFrame 护颚 | `crye-precision-airframe-chops` | 1.45 千克 | 防护等级 3 级；材质 不适用；耐久 30；防护区域 2 处；钝伤防护 15%（共 9 项） | 商人出售 | 111,640 卢布，需 Peacekeeper 4 级 | 29,837 卢布（4 家最高） |
 | 173 | Crye Precision AirFrame 护颚（复合迷彩） | `crye-precision-airframe-chops-multicam` | 1.45 千克 | 防护等级 3 级；材质 不适用；耐久 30；防护区域 2 处；钝伤防护 15%（共 9 项） | 以物换物 | — | 29,837 卢布（4 家最高） |
 | 174 | Crye Precision AirFrame 护颚（橄榄绿） | `crye-precision-airframe-chops-od-green` | 1.45 千克 | 防护等级 3 级；材质 不适用；耐久 30；防护区域 2 处；钝伤防护 15%（共 9 项） | — | — | 29,837 卢布（4 家最高） |
 | 175 | Crye Precision AirFrame 护颚（瘟疫侵袭） | `crye-precision-airframe-chops-morbus-incorsio` | 1.45 千克 | 防护等级 3 级；材质 不适用；耐久 30；防护区域 2 处；钝伤防护 15%（共 9 项） | 以物换物 | — | 29,837 卢布（4 家最高） |
