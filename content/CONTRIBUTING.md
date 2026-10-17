@@ -78,6 +78,17 @@ zensical serve                       # ② 打开 http://localhost:8000
 
 只跑 `zensical build`（不 serve）也可以，用于确认构建无误。
 
+**改了任务数据之后，还要手动重跑一次物品图标**：
+
+```bash
+python scripts/gen_item_icons.py     # 联网抓 assets.tarkov.dev，约一两分钟
+```
+
+它**故意不进 `build_all.py` / `check_gen_drift.py`**：要联网、非确定性，放进每次构建会让门禁变慢变脆。
+漏跑的后果是**新任务物品没有图标** —— 前端 `onerror` 兜底成「不显示」，不破版、也不报错，很难发现。
+判据：`content/assets/items/icons/` 的文件数必须等于 `item-icons.js` 的映射条数 ——
+`check_entries.py` 已替你对这条账（数量不等或出现孤儿图标会直接报错）。
+
 ## 🏷️ 发版与版本号
 
 ```bash

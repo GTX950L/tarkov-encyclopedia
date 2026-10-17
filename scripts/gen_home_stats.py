@@ -3,7 +3,7 @@
 
 为什么要这个脚本：首页顶部此前是「双轨卡 → 一大段正文」，读者第一屏看不到**规模**。
 对照站（eftarkov）的首屏是密集的数据卡，而且**每张卡都是一个入口**。本脚本把同样的
-结构做出来，但**只用静态计数** —— 站内不收实时数值、不用游戏美术资源，所以学的是
+结构做出来，但**只用静态计数** —— 站内不收实时数值、正文以文字与表格呈现，所以学的是
 **信息结构**，不是它的数据。
 
 ⚠️ **数字绝不能手写**。首页是与其它页面并列的**第 N 处计数落点**，手写必然漂。
@@ -30,6 +30,47 @@ END = "<!-- AUTO-GEN:HOME-STATS:END -->"
 # `sellItem` 是「卖任何物品」的许可白名单，不是需求。
 DEMAND = {"giveItem", "findItem", "findQuestItem", "giveQuestItem", "plantItem", "plantQuestItem"}
 
+# nav 里的「第X篇」分组标题（与 check_entries.py 同一条正则）
+NAV_GROUP_RE = re.compile(r"^(\s*)-\s*(第[零一二三四五六七八九十]{1,3}篇)\s*·\s*(.+?):\s*$")
+
+
+def nav_group_stats(nav_text: str) -> tuple[int, int, int]:
+    """返回 (分组总数, 内容篇数, 查阅栏目数)。
+
+    分类口径与 check_entries 一致：**页面全在 entries/ 下的才算内容篇**。
+    首页卡片曾把「分组总数」直接写成「N 篇主线」，于是 v1.130 之后出现
+    「12 篇主线」——而站内明说后四篇是查阅栏目、不在阅读顺序里。
+    """
+    lines = nav_text.splitlines()
+    try:
+        start = next(i for i, ln in enumerate(lines) if ln.startswith("nav:")) + 1
+    except StopIteration:
+        return 0, 0, 0
+    pages: dict[str, set[str]] = {}
+    order: list[str] = []
+    cur: str | None = None
+    cur_indent = -1
+    for ln in lines[start:]:
+        m = re.match(r"^(\s*)-\s*(.*)$", ln)
+        if not m:
+            continue
+        g = NAV_GROUP_RE.match(ln)
+        if g:
+            cur = g.group(2)
+            cur_indent = len(g.group(1))
+            if cur not in pages:
+                order.append(cur)
+                pages[cur] = set()
+            continue
+        if cur is not None and len(m.group(1)) <= cur_indent:
+            cur = None
+            continue
+        if cur is not None:
+            _, _, value = m.group(2).partition(":")
+            pages[cur].update(re.findall(r"([\w/\-\.]+\.md)", value))
+    n_content = sum(1 for k in order if pages[k] and all(p.startswith("entries/") for p in pages[k]))
+    return len(order), n_content, len(order) - n_content
+
 
 def _quests() -> list[dict]:
     import json
@@ -42,9 +83,10 @@ def counts() -> dict[str, int]:
     import re as _re
 
     entries = [p for p in (CONTENT / "entries").glob("*.md") if p.name != "index.md"]
-    # 篇数：nav 里「第 X 篇」的分组数（与 check_entries 的篇数口径同源）
+    # 篇数：nav 里「第 X 篇」的分组数（与 check_entries 的篇数口径同源）；
+    # 其中「内容篇 / 查阅栏目」按页面是否全在 entries/ 下派生 —— 首页卡片两个数都要。
     nav = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
-    n_groups = len(_re.findall(r"第[一二三四五六七八九十]+篇", nav))
+    n_groups, n_content, n_cols = nav_group_stats(nav)
 
     tasks = _quests()
     obj_n = sum(len(t.get("objectives") or []) for t in tasks)
@@ -85,6 +127,8 @@ def counts() -> dict[str, int]:
     return {
         "entries": len(entries),
         "groups": n_groups,
+        "content_groups": n_content,
+        "column_groups": n_cols,
         "tasks": len(tasks),
         "objectives": obj_n,
         "maps": n_maps,
@@ -101,7 +145,7 @@ def counts() -> dict[str, int]:
 
 CARDS = [
     # (数字键, 单位, 标签, 说明, 链接)
-    ("entries", "篇", "百科条目", "{groups} 篇主线 · 逐篇可读", "entries/index.md"),
+    ("entries", "篇", "百科条目", "{content_groups} 篇主线 · {column_groups} 篇查阅栏目", "entries/index.md"),
     # 交互地图放在第二位：它是本站的旗舰工具，此前只在条目里间接出现，
     # 读者反馈「藏的有点深」—— 首页速览给它一个直接入口（2026-10-14）。
     ("maps", "张", "交互地图", "{mapzones} 个任务区域 · 可筛进度", "maps/index.md"),

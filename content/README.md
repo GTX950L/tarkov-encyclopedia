@@ -42,7 +42,7 @@
 <a class="tk-stat__card" href="entries/index.md">
 <b class="tk-stat__n">88<em>篇</em></b>
 <span class="tk-stat__l">百科条目</span>
-<span class="tk-stat__d">12 篇主线 · 逐篇可读</span>
+<span class="tk-stat__d">8 篇主线 · 4 篇查阅栏目</span>
 </a>
 <a class="tk-stat__card" href="maps/index.md">
 <b class="tk-stat__n">13<em>张</em></b>
@@ -89,11 +89,11 @@
 
 <!-- AUTO-GEN:HOME-STATS:END -->
 
-《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **88 个**条目，分十一篇组织 —— **前八篇**是“从零上手”的主线，**第九篇 · [物品图鉴](catalog/index.md)** 收录 **4,979 件**物品的属性与商人价，**第十篇 · [任务图鉴](quests/index.md)** 把 **515 个任务**的要求、奖励与接取门槛逐条列全，**第十一篇 · [参考](docs/index.md)** 收齐速查表与站务工具页，**第十二篇 · [交互地图](maps/index.md)** 把点位信息从条目正文里接出来。
+《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **88 个**条目，分十二篇组织 —— **前八篇**是“从零上手”的主线，**第九篇 · [物品图鉴](catalog/index.md)** 收录 **4,983 件**物品的属性与商人价，**第十篇 · [任务图鉴](quests/index.md)** 把 **515 个任务**的要求、奖励与接取门槛逐条列全，**第十一篇 · [参考](docs/index.md)** 收齐速查表与站务工具页，**第十二篇 · [交互地图](maps/index.md)** 把点位信息从条目正文里接出来。
 
-> 💡 本站**全文不使用配图**，弱网环境可流畅阅读。所有数值描述以“机制原理”为主，具体数值随版本变动，请以游戏内为准。
+> 💡 本站**以文字与表格为主体**（仅交互地图底图与任务/物品页图标为图形素材，权利边界见下方声明），弱网环境可流畅阅读。所有数值描述以“机制原理”为主，具体数值随版本变动，请以游戏内为准。
 
-> ⓘ **本站是非官方粉丝资料站**：由爱好者独立维护，**与 Battlestate Games 没有隶属、合作或背书关系**；「Escape from Tarkov」「逃离塔科夫」及相关名称、标志与游戏内容的**商标权与著作权归 Battlestate Games 及其关联方所有**。本站**不使用任何游戏美术资源**，文字内容以 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 授权。详见[数据口径与引用说明](docs/citation.md)。
+> ⓘ **本站是非官方粉丝资料站**：由爱好者独立维护，**与 Battlestate Games 没有隶属、合作或背书关系**；「Escape from Tarkov」「逃离塔科夫」及相关名称、标志与游戏内容的**商标权与著作权归 Battlestate Games 及其关联方所有**。站内**文字内容**以 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 授权；交互地图底图来自 Shebuka / tarkov-dev-svg-maps（同协议），任务与物品页的图标为游戏内素材、版权归 Battlestate Games，**不在本站 CC 授权范围内**。详见[数据口径与引用说明](docs/citation.md) 与 [LICENSE-NOTICE](https://github.com/GTX950L/tarkov-encyclopedia/blob/main/LICENSE-NOTICE.md)。
 
 ---
 

@@ -54,16 +54,17 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "scripts" / "data"
 API = "https://json.tarkov.dev/regular/"
 
-# 大文件会 403 —— 实测补上 Origin / Referer 与完整 UA 即 200（别把 403 当永久拒绝）
+# ⚠️ **别用浏览器 UA**（2026-10-17 实测，这是每周巡检「一个端点都没取到」的真正原因）。
+# json.tarkov.dev 会 403 掉 `Mozilla/...` 这类浏览器 UA（Chrome / Safari 一律 403），
+# 而 curl / okhttp / 自报家门的 UA 都是 200。脚本此前特意伪装 Chrome，结果全年巡检
+# 静默失败，还被误读成「网络 / 限流」。用**带项目地址的自报 UA**：既能过，也方便上游识别。
 HEADERS = {
     "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+        "tarkov-encyclopedia-drift-check/1.0 "
+        "(+https://github.com/GTX950L/tarkov-encyclopedia)"
     ),
     "Accept": "application/json, text/plain, */*",
     "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-    "Origin": "https://tarkov.dev",
-    "Referer": "https://tarkov.dev/",
 }
 TIMEOUT = 180
 
@@ -100,7 +101,7 @@ KNOWN_BASELINE: dict[str, tuple[int, str]] = {
     "crafts": (214, "recipes.json -> len(crafts)"),
     "barters": (855, "recipes.json -> len(barters)"),
     "traders": (16, "traders 端点：16 位（含 Ref / BTR Driver / Lightkeeper）"),
-    "items": (5476, "2026-10-06 抓取时 items 端点的条目数（站内只用了其中一部分）"),
+    "items": (5480, "2026-10-17 抓取时 items 端点的条目数（= 图鉴 4,983 + 497 条枪械预配）"),
 }
 
 

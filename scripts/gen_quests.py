@@ -25,7 +25,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
+import shutil
 import sys
 import urllib.request
 from collections import Counter, defaultdict
@@ -1588,18 +1590,37 @@ def write_quest_detail(tasks: list[dict]) -> None:
         }
 
     QUEST_JS_DIR.mkdir(parents=True, exist_ok=True)
-    # 先清旧分片：片数改过之后旧文件名不会与新的一致，不清就会残留一堆没人引用的文件
-    for old in QUEST_JS_DIR.glob("quest-detail-*.js"):
-        old.unlink()
+    # ⚠️ **先写临时目录、全部成功后再落位**（2026-10-17 修）。
+    #    旧实现是「先把 quest-detail-*.js 全部 unlink、再逐个写」：任何一步失败
+    #    （数据缺失 / 编码错误 / 被安全策略拦下）都会让工作区留下已删除的分片；
+    #    若随后有人 `git add -A` 提交，线上任务详情页直接 404 —— 而构建与其余门禁全绿。
+    #    实测代价（2026-10-17）：一次中断删掉了 00–16 共 17 个分片。
+    #    `os.replace` 在同一文件系统内是原子覆盖：旧分片直到新内容写好才被替换。
+    tmp_dir = QUEST_JS_DIR / ".quest-detail-tmp"
+    if tmp_dir.exists():
+        shutil.rmtree(tmp_dir)
+    tmp_dir.mkdir()
     total_bytes = 0
-    for k in sorted(rows):
-        body = json.dumps(rows[k], ensure_ascii=False, separators=(",", ":"))
-        total_bytes += len(body.encode("utf-8"))
-        (QUEST_JS_DIR / f"quest-detail-{k:02d}.js").write_bytes(
-            ("/* 由 scripts/gen_quests.py 生成 —— 勿手改。\n"
-             f"   任务详情分片 #{k}（id 十六进制数字之和 % {QUEST_DETAIL_SHARDS} = {k}）。"
-             f"数据抓取于 {payload_fetched()}。 */\n"
-             "window.TARKOV_QUEST_DETAIL_ONE=" + body + ";\n").encode("utf-8"))
+    try:
+        for k in sorted(rows):
+            body = json.dumps(rows[k], ensure_ascii=False, separators=(",", ":"))
+            total_bytes += len(body.encode("utf-8"))
+            (tmp_dir / f"quest-detail-{k:02d}.js").write_bytes(
+                ("/* 由 scripts/gen_quests.py 生成 —— 勿手改。\n"
+                 f"   任务详情分片 #{k}（id 十六进制数字之和 % {QUEST_DETAIL_SHARDS} = {k}）。"
+                 f"数据抓取于 {payload_fetched()}。 */\n"
+                 "window.TARKOV_QUEST_DETAIL_ONE=" + body + ";\n").encode("utf-8"))
+        # 全部写成功才落位；此后的替换是逐片原子的，不会再出现「删了没写回」
+        for k in sorted(rows):
+            os.replace(tmp_dir / f"quest-detail-{k:02d}.js",
+                       QUEST_JS_DIR / f"quest-detail-{k:02d}.js")
+    finally:
+        shutil.rmtree(tmp_dir, ignore_errors=True)
+    # 片数变少时清掉多余分片 —— 只删**新一批不存在**的编号，不碰刚写好的
+    for old in QUEST_JS_DIR.glob("quest-detail-*.js"):
+        m = re.match(r"quest-detail-(\d+)\.js$", old.name)
+        if m and int(m.group(1)) not in rows:
+            old.unlink()
 
     md = quest_page_markdown(len(tasks))
     (OUT_DIR / "quest.md").write_bytes(

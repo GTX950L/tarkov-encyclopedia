@@ -1,0 +1,17 @@
+# 行尾约定（2026-10-17）
+#
+# 生成器一律写 LF；而本机 core.autocrlf=true 会期望工作区是 CRLF。
+# 这两个文件由 gen_quests.py / gen_quest_tree.py 以 LF 字节写盘，内容与 HEAD
+# 完全一致，却会让 `git status` 常驻一个「假 M」（git diff 无输出）。
+# 显式声明 eol=lf 后，检出与生成器一致，状态干净。
+#
+# 新增「生成器写 LF」的文件时，把路径加在这里，别去改生成器的换行逻辑
+# （平台上写 CRLF 会让 CI 的产物与本地不一致）。
+content/quests/quest.md text eol=lf
+content/quests/tree.md text eol=lf
+
+# 同理：content/javascripts 下的脚本一律 LF（索引里本来也是 LF）。
+# 生成器（gen_quests / gen_progress_manifest / gen_quest_tree …）写 LF，
+# 而 autocrlf=true 检出的旧副本是 CRLF —— 每跑一次生成器就会出现一批
+# 「git diff 为空、status 却是 M」的假修改，提交时容易误判。
+content/javascripts/*.js text eol=lf

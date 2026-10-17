@@ -1,19 +1,27 @@
 #!/usr/bin/env python3
-"""一键跑完「本地验收」的完整链路 —— 生成数据 → 五道校验 → 真实构建。
+"""一键跑完「本地验收」的完整链路 —— 生成数据 → 全套校验 → 真实构建。
 
 为什么需要它
 ------------
-站点的验收流程散在五条命令里，且**有先后依赖**：
+站点的验收流程散在十几条命令里，且**有先后依赖**（生成 → 校验 → 构建）：
 
-    python scripts/build_glossary.py     # ① 生成术语数据（extra_javascript 依赖它）
-    python scripts/check_entries.py      # ② 硬错误：断链 / 计数 / 骨架 / 引号 / 表格吞块
-    python scripts/check_icons.py        # ③ 图标语义表对账
-    python scripts/check_promises.py     # ④ 《引用说明》第三节的承诺是否落实
-    python scripts/skills_consistency.py # ⑤ 手册里的路径与门禁声明是否属实
-    zensical build                       # ⑥ 真实构建
+    python scripts/build_glossary.py         # ① 生成术语数据（extra_javascript 依赖它）
+    python scripts/gen_items_catalog.py      # ①b 生成物品图鉴（16 个分类页 + 数据）
+    python scripts/gen_quest_tree.py         # ①c 生成任务全景图数据
+    python scripts/check_entries.py          # ② 硬错误：断链 / 计数 / 骨架 / 引号 / 表格吞块
+    python scripts/check_icons.py            # ③ 图标语义表对账
+    python scripts/check_promises.py         # ④ 《引用说明》第三节的承诺是否落实
+    python scripts/skills_consistency.py     # ⑤ 手册里的路径与门禁声明是否属实
+    python scripts/check_catalog_consistency.py  # ⑤b 既有图鉴与物品图鉴的数值对账
+    python scripts/check_gen_drift.py        # ⑤c 生成物防漂移（重跑离线生成器）
+    python scripts/check_map_projection.py   # ⑤d 地图投影自检
+    zensical build                           # ⑥ 真实构建
+
+⚠️ 步骤数以 `STEPS` 为准 —— 别在文档里写死「五道」这类数字（2026-10-17 修：
+    文档写「五道」，实际已长到 10 步，读者会以为只跑了五条）。
 
 手动敲的问题不是麻烦，而是**漏跑**：只跑 ② 就提交，③④⑤ 的漂移会一路
-带到线上；或者跑完 ②③④⑤ 忘了 ⑥，nav 缩进写坏、锚点被删这类「只有构建
+带到线上；或者跑完校验忘了构建，nav 缩进写坏、锚点被删这类「只有构建
 才会报」的错就会漏过去（`check_*` 一律查不出）。
 
 判据（站规）：**「检查器失效时，世界是静默的」** —— 所以这里把链路固化，

@@ -1034,7 +1034,7 @@ def hub_markdown(page, leaves, total_items) -> str:
     out.append("")
     out.append("| 项目 | 说明 |")
     out.append("|------|------|")
-    out.append(f"| **收录件数** | **{page['count']} 件**（全站物品图鉴共 {total_items} 件） |")
+    out.append(f"| **收录件数** | **{page['count']:,} 件**（全站物品图鉴共 {total_items:,} 件） |")
     out.append(f"| **叶子分类** | {page['leaf_n']} 个官方分类，分 **{len(parts)}** 册列出 |")
     out.append("| **为什么分册** | 整类一次列完是 **100+ 屏**，读者要滚很久、页内锚点也失去意义。"
                "按叶子分类切成若干册后，每册约 **40** 屏以内，且**每册可单独分享** |")
@@ -1244,7 +1244,7 @@ def page_markdown(page, leaves, buckets, total_items, kl_stat=None) -> str:
     out.append("")
     out.append("| 项目 | 说明 |")
     out.append("|------|------|")
-    out.append(f"| **收录件数** | **{page['count']} 件**（全站物品图鉴共 {total_items} 件） |")
+    out.append(f"| **收录件数** | **{page['count']:,} 件**（全站物品图鉴共 {total_items:,} 件） |")
     # 拆出来的子页：**必须说清「这不是全部」以及其余在哪** ——
     # 否则读者会以为这个大类只有这一页的内容。
     if page.get("parts"):
@@ -1432,14 +1432,14 @@ def index_markdown(plan, total_items, leaves_zh) -> str:
     out.append("")
     out.append("| 项目 | 说明 |")
     out.append("|------|------|")
-    out.append(f"| **收录件数** | **{total_items} 件**（不含枪械预配方案） |")
+    out.append(f"| **收录件数** | **{total_items:,} 件**（不含枪械预配方案） |")
     out.append(f"| **分类页** | {len(plan)} 页，按官方 `itemCategories` 树的顶层组归并 |")
     out.append("| **收录依据** | 全量收录 —— 只收录任务物品或热门物品会让读者「查不到就是没有」，"
                "而图鉴的价值恰恰在于查得到 |")
     out.append("| **数据来源** | `json.tarkov.dev`（二级来源，直读游戏文件）；分类名取自游戏内译名 |")
     out.append(f"| **抓取日期** | {FETCH_DATE} |")
     out.append("| **不收录** | ① **枪械预配方案**（497 条，是同一底枪的改装组合，不是独立物品）"
-               "② **配图** —— 沿用全站约定，本图鉴以文字与表格呈现 |")
+               "② **配图** —— 本图鉴以文字与表格呈现（图标只出现在任务详情与进度页） |")
     out.append("")
     out.append("---")
     out.append("")
@@ -1665,9 +1665,9 @@ def write_js(plan, buckets, leaves, total_items, routes, quests, item_of_name):
 def item_page_markdown(total_items, with_desc) -> str:
     """生成「单件物品详情」视图页的静态骨架（``content/catalog/item.md``）。
 
-    ⚠️ 这一页**不是** 4979 个页面，是**一个**按地址里的物品 ID 渲染的视图页。
+    ⚠️ 这一页**不是**每件物品一个页面，是**一个**按地址里的物品 ID 渲染的视图页。
        为什么不做成每件一个 HTML：实测每页平均 146 KB，其中绝大部分是站点框架
-       （侧栏 nav + 主题）；4979 页合计约 700 MB —— 既逼近 GitHub Pages 的 1 GB 上限，
+       （侧栏 nav + 主题）；近 5,000 页合计约 700 MB —— 既逼近 GitHub Pages 的 1 GB 上限，
        也是「一页框架装 1 KB 内容」的浪费，还让构建时间翻数十倍。
     """
     out = []
@@ -1691,7 +1691,8 @@ def item_page_markdown(total_items, with_desc) -> str:
                "**单件物品竖着看** —— 官方介绍、重量与占地、商人买卖价、怎么拿到它、"
                "有没有任务要它，一屏读完。")
     out.append("")
-    out.append("> **这是一个视图页，不是 4979 个页面。** 全站没有给每件物品各生成一个 HTML —— "
+    out.append(f"> **这是一个视图页，不是 {total_items} 个页面。** "
+               "全站没有给每件物品各生成一个 HTML —— "
                "实测那样做站点会从 23 MB 涨到约 700 MB，而每页 146 KB 里绝大部分是站点框架开销。"
                "本页按地址里的物品 ID 渲染对应物品，**链接可分享、可收藏、可刷新恢复**。")
     out.append("")

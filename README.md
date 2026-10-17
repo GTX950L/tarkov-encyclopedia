@@ -12,7 +12,7 @@
 
 👉 **https://GTX950L.github.io/tarkov-encyclopedia/**
 
-> 本项目**不使用任何配图**——全部信息以文字与表格呈现，弱网环境也可流畅阅读。
+> 本项目**以文字与表格为主体**——信息以文字与表格呈现；图形素材仅两类：交互地图底图（Shebuka / tarkov-dev-svg-maps，CC BY-NC-SA 4.0）与任务/物品页图标（游戏内素材，版权归 Battlestate Games，不在本站 CC 授权内）。弱网环境也可流畅阅读。
 
 > 🗓️ **版本基线**：2026 年 10 月 / 1.2.0.0（第一赛季 KORD BREACH）。版本变迁、作用与玩家反馈见[重大版本更新史](content/docs/version-history.md)。
 
@@ -22,7 +22,7 @@
 |------|------|
 | `content/` | 站点内容目录（MkDocs docs_dir） |
 | `content/entries/` | 百科条目页（共 88 篇，构成前八篇） |
-| `content/catalog/` | 物品图鉴页（4,979 件物品，26 页＝16 个分类 + 10 个分册，第九篇）＋ 单件物品详情视图页 |
+| `content/catalog/` | 物品图鉴页（4,983 件物品，25 个内容页＝15 个分类 + 10 个分册，第九篇；nav 共 27 页）＋ 单件物品详情视图页 |
 | `content/quests/` | **第十篇 · 任务图鉴**（查阅型栏目：总览 + 11 位商人分页 + 我的进度 + 物品反查 + **单件任务详情视图页**，515 个任务） |
 | `content/docs/` | **第十一篇**的主要载体：补充资料（机制速查、成长路线、**重大版本更新史**、待收录清单） |
 | `content/maps/` | **第十二篇 · 交互地图**（矢量底图 + 地名锚点 + 楼层切换，海关先行） |
@@ -71,6 +71,9 @@
 - **相同方式共享** —— 基于本作品创作的新作品，须以相同协议分发。
 
 游戏《逃离塔科夫》的名称、商标、游戏内文本与数据归 Battlestate Games 所有，不在本协议授权范围内。
+物品图标（`content/assets/items/icons/`）同属游戏内素材，不在本协议授权范围内；
+地图底图另按 CC BY-NC-SA 4.0 来自 Shebuka / tarkov-dev-svg-maps。
+完整边界见 [LICENSE-NOTICE.md](LICENSE-NOTICE.md)。
 
 ---
 

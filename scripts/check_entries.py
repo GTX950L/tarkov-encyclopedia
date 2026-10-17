@@ -433,6 +433,10 @@ def main() -> int:
     # 4b. 篇数口径：声明的篇数必须与 nav 的「第X篇」分组数一致
     #     条目数对了不代表篇数对——取消/合并一篇时总数不变，只有篇数会变，
     #     而三处声明散在 index / content README / 根 README，靠肉眼一定会漏。
+    #
+    # ⚠️ **每一处声明都要查，不是每份文件查第一处**（2026-10-17 修的漏检）：
+    #     原实现用 `search()`，`content/README.md` 第 11 行「分十二篇」通过后，
+    #     第 92 行「分十一篇」从未被读取 —— 首页同屏两个数字，门禁全绿。
     for path, label in [
         (CONTENT / "entries" / "index.md", "总览页首句"),
         (CONTENT / "README.md", "站点首页首段"),
@@ -440,26 +444,28 @@ def main() -> int:
     ]:
         if not path.exists():
             continue
-        found = GROUP_DECL_RE.search(path.read_text(encoding="utf-8"))
-        if not found:
+        found_all = list(GROUP_DECL_RE.finditer(path.read_text(encoding="utf-8")))
+        if not found_all:
             # 与计数那条同理：找不到声明句比数字写错更隐蔽——数字错会报错，
             # 找不到就静默通过。声明句被改写时这里必须响。
             errors.append(
                 f"篇数声明缺失（{label}）: {path.relative_to(ROOT)} 里找不到「分N篇」的声明"
             )
             continue
-        declared = cn2int(found.group(1))
-        if declared is None:
-            errors.append(
-                f"篇数无法解析（{label}）: {path.relative_to(ROOT)} 写的是「{found.group(1)}篇」，"
-                f"不是可识别的中文数字"
-            )
-            continue
-        if declared != n_groups:
-            errors.append(
-                f"篇数不一致（{label}）: {path.relative_to(ROOT)} 写的是 {found.group(1)}篇，"
-                f"nav 实际 {n_groups} 篇"
-            )
+        for found in found_all:
+            declared = cn2int(found.group(1))
+            if declared is None:
+                errors.append(
+                    f"篇数无法解析（{label}）: {path.relative_to(ROOT)} 写的是「{found.group(1)}篇」，"
+                    f"不是可识别的中文数字"
+                )
+                continue
+            if declared != n_groups:
+                line_no = path.read_text(encoding="utf-8")[:found.start()].count("\n") + 1
+                errors.append(
+                    f"篇数不一致（{label}）: {path.relative_to(ROOT)}:{line_no} 写的是 "
+                    f"{found.group(1)}篇，nav 实际 {n_groups} 篇"
+                )
 
     # 4c. 首页「本站速览」的数字必须与数据一致
     #     **刻意复用生成器的实现**（`render()`），而不是在这里另写一遍算术：
@@ -471,6 +477,91 @@ def main() -> int:
             errors.append("首页「本站速览」已过期 —— 跑 `python scripts/gen_home_stats.py` 重新生成")
     except Exception as exc:  # pragma: no cover
         errors.append(f"首页速览核对未能执行：{type(exc).__name__}: {exc}")
+
+    # 4d. 图鉴件数：生成物是唯一事实源，其余声明逐处对账
+    #     2026-10-17 实测：items 端点 5,480 件 − 497 条预配 = 4,983，图鉴总览已按 4,983 生成，
+    #     而 9 处正文仍写 4,979 —— 没有任何检查器在看「件数」这一类声明。
+    #     口径与条目数一致：**生成页写的数**是基准，正文只允许跟着它走。
+    catalog_index = CONTENT / "catalog" / "index.md"
+    cat_text = catalog_index.read_text(encoding="utf-8") if catalog_index.exists() else ""
+    m_total = re.search(r"\*\*([\d,]+) 件\*\*（不含枪械预配方案）", cat_text)
+    if not m_total:
+        errors.append("图鉴总览缺少「收录件数」声明（预期 `**N 件**（不含枪械预配方案）`）")
+    else:
+        items_total = int(m_total.group(1).replace(",", ""))
+        catalog_decls = [
+            (CONTENT / "entries" / "index.md", r"收录 \*\*([\d,]+) 件\*\*物品", "总览页首句"),
+            (CONTENT / "README.md", r"收录 \*\*([\d,]+) 件\*\*物品", "站点首页首段"),
+            (ROOT / "README.md", r"（([\d,]+) 件物品，", "仓库首页结构表"),
+            (CONTENT / "catalog" / "item.md", r"不是 ([\d,]+) 个页面", "物品详情视图页说明"),
+            (CONTENT / "docs" / "citation.md", r"的 \*\*([\d,]+) 件\*\*", "引用说明·数据口径"),
+            (CONTENT / "docs" / "citation.md", r"去重后 ([\d,]+) 件", "引用说明·收录范围"),
+        ]
+        for path, pattern, label in catalog_decls:
+            if not path.exists():
+                continue
+            text = path.read_text(encoding="utf-8")
+            hits = list(re.finditer(pattern, text))
+            if not hits:
+                errors.append(
+                    f"图鉴件数声明缺失（{label}）: {path.relative_to(ROOT)} 里找不到声明句"
+                )
+                continue
+            for hit in hits:
+                declared_items = int(hit.group(1).replace(",", ""))
+                if declared_items != items_total:
+                    line_no = text[:hit.start()].count("\n") + 1
+                    errors.append(
+                        f"图鉴件数不一致（{label}）: {path.relative_to(ROOT)}:{line_no} 写的是 "
+                        f"{hit.group(1)}，图鉴总览实际 {items_total:,} 件"
+                    )
+        llms_txt = (CONTENT / "llms.txt").read_text(encoding="utf-8")
+        for hit in re.finditer(r"([\d,]+) 件物品", llms_txt):
+            declared_items = int(hit.group(1).replace(",", ""))
+            if declared_items != items_total:
+                line_no = llms_txt[:hit.start()].count("\n") + 1
+                errors.append(
+                    f"图鉴件数不一致（llms.txt）: content/llms.txt:{line_no} 写的是 "
+                    f"{hit.group(1)}，图鉴总览实际 {items_total:,} 件"
+                )
+
+    # 4e. 资源事实 ↔ 身份声明：仓库里有图标/底图时，正文不得再声称“不使用任何美术资源”
+    #     这条断言来自 2026-10-17 的审查：803 个图标已入库，而 citation/README/llms
+    #     五处仍写“本站不使用任何游戏美术资源”——文字与仓库事实相反，且没有任何门禁在看。
+    icon_dir = CONTENT / "assets" / "items" / "icons"
+    icon_files = {p.stem for p in icon_dir.glob("*.webp")} if icon_dir.exists() else set()
+    if icon_files:
+        mapping_js = CONTENT / "javascripts" / "item-icons.js"
+        mapped = set(re.findall(r'"([0-9a-f]{24})"', mapping_js.read_text(encoding="utf-8"))) \
+            if mapping_js.exists() else set()
+        if not mapped:
+            errors.append("物品图标已入库，但 item-icons.js 缺失或没有解析到任何 id")
+        else:
+            if len(mapped) != len(icon_files):
+                errors.append(
+                    f"图标文件与映射数量不一致: icons {len(icon_files)} 个 / 映射 {len(mapped)} 条"
+                )
+            if icon_files - mapped:
+                errors.append(
+                    "存在没有被映射引用的孤儿图标: "
+                    + "、".join(sorted(icon_files - mapped)[:5])
+                    + ("…" if len(icon_files - mapped) > 5 else "")
+                )
+        for path in [
+            CONTENT / "docs" / "citation.md",
+            CONTENT / "README.md",
+            CONTENT / "llms.txt",
+            ROOT / "README.md",
+        ]:
+            if not path.exists():
+                continue
+            for line_no, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+                if "不使用任何游戏美术资源" in line or "不使用任何配图" in line:
+                    errors.append(
+                        f"身份声明与资源事实冲突: {path.relative_to(ROOT)}:{line_no} 仍写"
+                        f"「不使用任何游戏美术资源/配图」，而仓库里已有 {len(icon_files)} 个物品图标"
+                        f"（另有 13 张地图底图）"
+                    )
 
     # 5. tags.md 与 frontmatter 实际统计是否一致
     tagmap: dict[str, set[str]] = defaultdict(set)
