@@ -20,6 +20,7 @@ tags:
 | 地名锚点 | 20 |
 | 任务目标区域 | 89 |
 | 涉及任务 | 33 |
+| 提及任务（无坐标） | 47 |
 | 撤离点 | 19 |
 | 转场点 | 4 |
 | 上锁位置 | 33 |
@@ -65,6 +66,60 @@ tags:
 | [Therapist](../quests/therapist.md) | 医疗隐私 - 1 | 标记 | 8 | 在海岸线找到第一辆救护车，并使用MS2000指示器标记 |
 | [Therapist](../quests/therapist.md) | 口干舌燥 - 往日回响 | 到访 | 1 | 在海岸线找到与“渴死鬼”有关的任何信息 |
 | [Therapist](../quests/therapist.md) | 同事 | 到访 | 3 | 找到被派往海岸线疗养院的小组 |
+
+## 🧭 提到本图、但画不出位置（47 个）
+
+> 这些任务的任务级地图或目标文字提到本图，但上游**没有给出可画的坐标区**。所以它们不在上面的地图上，也不该被当成「漏抓」—— **位置没有就是没有，不编。**点商人名进对应页看完整任务明细。
+
+| 商人 | 任务 | 目标里怎么提到 |
+|------|------|----------------|
+| [BTR 司机](../quests/btr-driver.md) | 坚持到底 | 消灭游荡者 |
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 在完成其他目标的同时消灭 Scav |
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 在完成其他目标的同时消灭 Scav |
+| [Fence](../quests/fence.md) | 小本生意 - 2 | 消灭任意 Scav 阵营 Boss 的保镖，但不击杀 Boss 本人 |
+| [Jaeger](../quests/jaeger.md) | 卑鄙的外乡人 | 在海岸线消灭 Scav（单场战局内完成） |
+| [Jaeger](../quests/jaeger.md) | 口干舌燥 - 猎犬行动 | 22:00-07:00 期间在海岸线消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 塔科夫神射手 - 1 | 使用栓动式步枪在 40 米开外通过机械瞄具击杀 Scav |
+| [Jaeger](../quests/jaeger.md) | 屠宰场 | 在海岸线使用近战武器消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 流浪狗 | 在同场战局中找到并消灭 Knight |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 无情杀手 | 找到并消灭Sanitar |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 杀戮森林 | 在塔科夫街区、储备站、灯塔或海岸线消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 虐待狂 | 找到并消灭Sanitar |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 -  雕鸮 | 不使用任何夜视仪或热成像瞄具，在 21:00-04:00 期间消灭 Scav （工厂除外） |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - Zhivchik | 获得“脱水”状态，并维持状态生效 5 分钟时间（工厂除外） |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - 受伤的野兽 | 在疼痛状态下消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 直播 - 5 | 找到并消灭邪教徒祭司 |
+| [Lightkeeper](../quests/lightkeeper.md) | 情报之源 | 在灯塔幸存，并通过“通往北方的路”载具撤离点撤离 |
+| [Mechanic](../quests/mechanic.md) | 天神射手 | 在塔科夫街区或海岸线使用栓动式步枪爆头击杀 PMC 行动人员 |
+| [Peacekeeper](../quests/peacekeeper.md) | 主钥匙 | 在海岸线后山碉堡内找到疗养院封闭区域的钥匙 |
+| [Peacekeeper](../quests/peacekeeper.md) | 先声夺人 | 以幸存状态撤离海岸线 |
+| [Peacekeeper](../quests/peacekeeper.md) | 反抗 | 在灯塔、中心区、储备站、海岸线或塔科夫街区消灭 BEAR PMC |
+| [Peacekeeper](../quests/peacekeeper.md) | 向导 | 以“幸存”状态撤离海岸线或储备站 |
+| [Peacekeeper](../quests/peacekeeper.md) | 彻夜难眠 | 21:00-06:00 期间在塔科夫街区、灯塔、储备站、中心区或海岸线消灭任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 最烂的差事 | 使用 AR-15 系列武器在储备站、灯塔、海岸线或中心区从 100 米外消灭任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 湿活 - 1 | 在海岸线使用 M4A1、M16、ADAR 或 TX-15 消灭 Scav |
+| [Peacekeeper](../quests/peacekeeper.md) | 湿活 - 4 | 在海岸线取得疗养院房客名单 |
+| [Peacekeeper](../quests/peacekeeper.md) | 湿活 - 5 | 在海岸线找到关于Artyom工作的信息 |
+| [Peacekeeper](../quests/peacekeeper.md) | 湿活 - 6 | 使用 7.62x51 口径的精确射手步枪在海岸线或灯塔从 50 米外消灭任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 神秘货物 | 在海岸线疗养院东楼的计算机中心找到可能包含情报的物品 |
+| [Peacekeeper](../quests/peacekeeper.md) | 维和任务 | 在海岸线或塔科夫街区穿戴 UN 制式装备（UN头盔与防弹背心）使用 5.56x45 口径 UN 武器消灭 Scav |
+| [Prapor](../quests/prapor.md) | 人间地狱 - 2 | 使用双管霰弹枪消灭邪教徒 |
+| [Prapor](../quests/prapor.md) | 恐吓者 | 命中头部击杀Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 2 | 在海岸线使用 AKM 系列武器消灭 Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 5 | 使用轻机枪消灭 Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 6 | 使用指定类型武器在灯塔、海岸线、储备站、中心区或实验室消灭 PMC 行动人员 |
+| [Prapor](../quests/prapor.md) | 护送 | 在海岸线击杀PMC |
+| [Prapor](../quests/prapor.md) | 缔结友谊 | 在海岸线找到并获取 Prapor 的货物 |
+| [Prapor](../quests/prapor.md) | 透透气 | 在海岸线、灯塔或储备站使用带有 EKP-1S-03 瞄具的 RPDN 机枪消灭任意目标 |
+| [Ragman](../quests/ragman.md) | 人靠衣装 - 2 | 击杀游荡者 |
+| [Ragman](../quests/ragman.md) | 实战考验 | 穿戴任意款式的 Goon 版胸挂找到并消灭除 Goon 小队、Wedge 与 Partisan 外的任意 Boss |
+| [Ragman](../quests/ragman.md) | 新起点 | 消灭 Scav |
+| [Ref（竞技场裁判）](../quests/ref.md) | 平衡之力 - 1（PVP） | 在任意地图使用 Steyr AUG 消灭 Scav |
+| [Skier](../quests/skier.md) | 严词指控 | 在海岸线的木屋内找到并获取硬盘 |
+| [Skier](../quests/skier.md) | 夜间扫荡 | 找到并消灭消灭邪教徒 |
+| [Skier](../quests/skier.md) | 维他命 | 在工厂找到并获取化学品容器 |
+| [Therapist](../quests/therapist.md) | 医疗隐私 - 2 | 在海岸线疗养院西楼的房间内找到任何关于 TerraGroup 研究的文件 |
+| [Therapist](../quests/therapist.md) | 塔科夫式手腕 | 在海岸线找到并获取 Sanitar 的手术包 |
 
 ## 🧭 怎么用这张图
 

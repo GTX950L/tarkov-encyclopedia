@@ -1,12 +1,12 @@
 /* ==========================================================================
    单个任务详情视图页（content/quests/quest.md）
    --------------------------------------------------------------------------
-   定位：**一个视图页承载 515 个任务的详情**，不是 515 个 HTML。
+   定位：**一个视图页承载 504 个任务的详情**，不是 515 个 HTML。
 
    为什么不做成每件一个页面
    ------------------------
    站点每页平均约 146 KB，其中绝大部分是站点框架（侧栏 nav + 主题）——
-   515 页既拖慢构建也难维护，而每页真正的内容只有 1 KB 上下。
+   504 页既拖慢构建也难维护，而每页真正的内容只有 1 KB 上下。
    所以这一页按地址里的 ``?id=<任务id>`` 渲染：链接可分享、可收藏、可刷新恢复。
 
    数据从哪来
@@ -313,15 +313,13 @@ function siteRoot() {
     host.appendChild(tagLine);
 
     /* ---- 「在地图上看」深链 ----
-       任务在数据里有地图归属（it.m）时，给一条通往交互地图的入口：
-       map.js 认 ?q=<任务id>，落地即选中 + 定位 + 高亮地图下方清单行。
-       ⚠️ 只有**图上真画得出来**的任务（it.mz=1）才给链接：263 条带地图归属的
-          任务里，116 条上游没给坐标区（判定见 scripts/_map_links.py）—— 给链接
-          就是白点一次（读者反馈 2026-10-17）。这些任务改为一行**非链接**说明，
-          把「地图上没有它」的话说在前面。
+       2026-10-17 起：任务可有多张图（目标级地图 ∪ 任务级地图），详情页给
+       **每个图一个入口**，不再只链任务级 `map` 的第一张。
+       map.js 认 `?q=<任务id>`；带 `&o=<目标id>` 时只定位该目标的区域。
+       ⚠️ 只有**图上真画得出来**的任务（it.mz=1）才给链接；有地图归属但上游
+          没给坐标区的，改为一行说明 + 地图名（不制造空点击）。
        ⚠️ 中文地图名 → 地图页 key 的映射与 progress-boards.js 各写一份
-          （两份都很短；地图 key 改名时两处一起改，否则这里会静默给 404 页）。
-       ⚠️ mz 缺字段 = 旧分片未更新，按 1 处理（维持旧行为，宁可暂给链接）。 */
+          （两份都很短；地图 key 改名时两处一起改，否则这里会静默给 404 页）。 */
     var MAP_KEY = {
       "海关": "customs", "工厂": "factory", "夜间工厂": "factory",
       "中心区": "ground-zero", "森林": "woods", "立交桥": "interchange",
@@ -329,18 +327,27 @@ function siteRoot() {
       "塔科夫街区": "streets-of-tarkov", "终点站": "terminal",
       "破冰船": "icebreaker", "实验室": "the-lab", "迷宫": "the-labyrinth",
     };
-    if (it.m && MAP_KEY[it.m]) {
+    var MAP_CN = {};
+    for (var mk in MAP_KEY) MAP_CN[MAP_KEY[mk]] = mk;
+    var mks = (it.ms && it.ms.length) ? it.ms.slice()
+      : (it.m && MAP_KEY[it.m] ? [MAP_KEY[it.m]] : []);
+    if (mks.length) {
       var mapLine = el("p");
       mapLine.appendChild(document.createTextNode("🗺️ "));
       if (it.mz === 0) {
         mapLine.className = "tk-qd-nomap";
         mapLine.appendChild(document.createTextNode(
-          "目标坐标上游未提供，地图上无法定位（具体地点见「📋 任务目标」）"));
+          "地图归属：" + mks.map(function (k) { return MAP_CN[k] || k; }).join(" / ")
+          + " —— 目标坐标上游未提供，地图上画不出区域（具体地点见「📋 任务目标」）"));
       } else {
-        var mapLink = el("a", null, "在地图上看 →");
-        mapLink.href = siteRoot() + "maps/" + MAP_KEY[it.m] + "/?q=" + encodeURIComponent(id);
-        mapLink.title = "打开交互地图，定位本任务的目标区域";
-        mapLine.appendChild(mapLink);
+        mapLine.appendChild(document.createTextNode("在地图上看："));
+        mks.forEach(function (k, i) {
+          if (i) mapLine.appendChild(document.createTextNode(" ／ "));
+          var a = el("a", null, MAP_CN[k] || k);
+          a.href = siteRoot() + "maps/" + k + "/?q=" + encodeURIComponent(id);
+          a.title = "打开交互地图，定位本任务的目标区域";
+          mapLine.appendChild(a);
+        });
       }
       host.appendChild(mapLine);
     }
@@ -380,10 +387,90 @@ function siteRoot() {
     host.appendChild(h(4, "📋 任务目标"));
     if ((it.o || []).length) {
       /* 唯一挂物品图标的一节：目标里「找 / 交 / 放」的正是读者要在战局里
-         认出来的东西，看见图标比读名字快。tk-obj 类只服务图标的排版。 */
-      host.appendChild(ul(it.o, function (li, x) {
-        li.appendChild(rich(x, true));
-      }, "tk-obj"));
+         认出来的东西，看见图标比读名字快。tk-obj 类只服务图标的排版。
+         2026-10-17 起每条目标下补一行**精确坐标**（可点，落到地图该目标的区域）。 */
+      var objList = document.createElement("ul");
+      objList.className = "tk-obj";
+      var ozAll = it.oz || [], oiAll = it.oi || [], oplAll = it.opl || [];
+      it.o.forEach(function (txt, idx) {
+        var li = document.createElement("li");
+        /* 2026-10-17：目标可直接勾选 —— 写进与「我的进度」同一份账本
+           （tarkov_progress_v1 的 `任务id|目标id`），两页实时同步。 */
+        var oid = oiAll[idx];
+        var P = window.TarkovProgress;
+        if (oid && P && typeof P.setObjective === "function") {
+          var cbx = document.createElement("input");
+          cbx.type = "checkbox";
+          cbx.checked = !!P.objDone(id, oid);
+          cbx.setAttribute("aria-label", "标记这条目标已完成");
+          cbx.addEventListener("change", function () {
+            P.setObjective(id, oid, cbx.checked);
+            /* 全勾 = 已完成；部分 = 进行中（与进度页同一套判定，避免两页打架） */
+            var oids = it.oi || [];
+            var met = oids.filter(function (x) { return x && P.objDone(id, x); }).length;
+            if (oids.length && met === oids.length) {
+              P.setTaskState(id, "done");
+            } else if (met > 0) {
+              P.setTaskState(id, "inhand");
+            }
+            var note = document.getElementById("tk-qd-objnote");
+            if (note) {
+              note.textContent = "目标进度 " + met + " / " + oids.length
+                + (met === oids.length ? " —— 全部勾完，任务已记为「已完成」。"
+                   : met > 0 ? " —— 任务记为「进行中」。" : "");
+            }
+          });
+          li.appendChild(cbx);
+        }
+        li.appendChild(rich(txt, true));
+        var oz = ozAll[idx] || [];
+        if (oz.length) {
+          var line = el("div", "tk-qd-coord");
+          line.appendChild(document.createTextNode("坐标："));
+          oz.forEach(function (z, zi) {
+            if (zi) line.appendChild(document.createTextNode(" ／ "));
+            var cn = MAP_CN[z.m] || z.m || "未知图";
+            var pts = z.p || [];
+            var a = el("a", null,
+              cn + "  x " + pts[0] + " / y " + pts[1] + " / z " + pts[2]);
+            a.href = siteRoot() + "maps/" + z.m + "/?q=" + encodeURIComponent(id)
+              + (oiAll[idx] ? "&o=" + encodeURIComponent(oiAll[idx]) : "");
+            a.title = "打开地图，定位这条目标的区域";
+            line.appendChild(a);
+          });
+          li.appendChild(line);
+        }
+        var pl = oplAll[idx] || [];
+        if (pl.length) {
+          var pline = el("div", "tk-qd-coord tk-qd-coord--alt");
+          var n = 0;
+          pl.forEach(function (loc) { n += (loc.p || []).length; });
+          pline.appendChild(document.createTextNode("可能位置：" + n + " 个点"));
+          var first = pl[0];
+          if (first && (first.p || []).length) {
+            var p0 = first.p[0];
+            var plink = el("a", null,
+              "（" + (MAP_CN[first.m] || first.m || "未知图")
+              + "  x " + p0[0] + " / y " + p0[1] + " / z " + p0[2] + "）");
+            plink.href = siteRoot() + "maps/" + first.m + "/?q=" + encodeURIComponent(id)
+              + (oiAll[idx] ? "&o=" + encodeURIComponent(oiAll[idx]) : "");
+            pline.appendChild(plink);
+          }
+          li.appendChild(pline);
+        }
+        objList.appendChild(li);
+      });
+      host.appendChild(objList);
+      if ((it.oi || []).length && window.TarkovProgress) {
+        var met0 = (it.oi || []).filter(function (x) {
+          return x && window.TarkovProgress.objDone(id, x);
+        }).length;
+        var note = el("p", "tk-qd-objnote");
+        note.id = "tk-qd-objnote";
+        note.textContent = "目标进度 " + met0 + " / " + it.oi.length
+          + "（勾选写进「我的进度」，两页实时同步）";
+        host.appendChild(note);
+      }
     } else {
       host.appendChild(p("这个任务在数据端点里没有逐条登记目标。"));
     }

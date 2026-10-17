@@ -20,6 +20,7 @@ tags:
 | 地名锚点 | 31 |
 | 任务目标区域 | 9 |
 | 涉及任务 | 4 |
+| 提及任务（无坐标） | 20 |
 | 撤离点 | 6 |
 | 转场点 | 1 |
 | 上锁位置 | 13 |
@@ -35,6 +36,33 @@ tags:
 | [Peacekeeper](../quests/peacekeeper.md) | TerraGroup 雇员 | 到访 | 1 | 在实验室找到 Sanitar 的工作室 |
 | [Therapist](../quests/therapist.md) | 医疗隐私 - 6 | 放置任务物品 | 2 | 在实验室将血液样本藏匿在 Sanitar 的办公室里 |
 | [Therapist](../quests/therapist.md) | 街区之下 | 到访 | 4 | 在同场战局中侦查实验室的服务器机房 |
+
+## 🧭 提到本图、但画不出位置（20 个）
+
+> 这些任务的任务级地图或目标文字提到本图，但上游**没有给出可画的坐标区**。所以它们不在上面的地图上，也不该被当成「漏抓」—— **位置没有就是没有，不编。**点商人名进对应页看完整任务明细。
+
+| 商人 | 任务 | 目标里怎么提到 |
+|------|------|----------------|
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 控制 | 同场战局中在实验室内消灭任意目标 |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 解放 | 击杀掠夺者 |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 -  雕鸮 | 不使用任何夜视仪或热成像瞄具，在 21:00-04:00 期间消灭 Scav （工厂除外） |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - Zhivchik | 获得“脱水”状态，并维持状态生效 5 分钟时间（工厂除外） |
+| [Peacekeeper](../quests/peacekeeper.md) | 向导 | 以“幸存”状态撤离实验室或灯塔 |
+| [Peacekeeper](../quests/peacekeeper.md) | 清洁工 | 在实验室消灭掠夺者或黑色军团干员 |
+| [Prapor](../quests/prapor.md) | 体验独一份 | 在灯塔或实验室使用 Aklys Defense“迅猛龙”突击步枪消灭任意目标 |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 6 | 使用指定类型武器在灯塔、海岸线、储备站、中心区或实验室消灭 PMC 行动人员 |
+| [Prapor](../quests/prapor.md) | 护送 | 在实验室击杀PMC |
+| [Ragman](../quests/ragman.md) | 人靠衣装 - 1 | 击杀掠夺者 |
+| [Ragman](../quests/ragman.md) | 人靠衣装 - 1 | 击杀掠夺者 |
+| [Ragman](../quests/ragman.md) | 新起点 | 以幸存状态撤离实验室 |
+| [Ragman](../quests/ragman.md) | 新起点 | 以幸存状态撤离实验室 |
+| [Ragman](../quests/ragman.md) | 新起点 | 使用转移功能从实验室转移到塔科夫街区 |
+| [Ragman](../quests/ragman.md) | 新起点 | 使用转移功能从实验室转移到塔科夫街区 |
+| [Ref（竞技场裁判）](../quests/ref.md) | Preliminary Survey | Locate the testing area blueprint flash drive in The Lab |
+| [Skier](../quests/skier.md) | 大音希声 | 在储备站、灯塔、中心区或实验室使用消音 12 铅径霰弹枪消灭任意敌对目标 |
+| [Skier](../quests/skier.md) | 安慰奖 | 以幸存状态撤离实验室 |
+| [Therapist](../quests/therapist.md) | 灭虫服务 | 在实验室穿戴防毒面具或呼吸面罩，在 60 米内消灭任意敌对目标 |
+| [Therapist](../quests/therapist.md) | 质量标准 | 在实验室找到并获取特殊版本的 LEDX 皮肤透照仪 |
 
 ## 🧭 怎么用这张图
 

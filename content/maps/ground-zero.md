@@ -20,6 +20,7 @@ tags:
 | 地名锚点 | 13 |
 | 任务目标区域 | 33 |
 | 涉及任务 | 10 |
+| 提及任务（无坐标） | 32 |
 | 撤离点 | 6 |
 | 转场点 | 1 |
 | 上锁位置 | 6 |
@@ -42,6 +43,45 @@ tags:
 | [Prapor](../quests/prapor.md) | 打靶训练 | 到访 | 4 | 在中心区找到 KORD Utyos 机枪 |
 | [Ref](../quests/ref.md) | 声东击西 - 1（PVP） | 放置物品 | 2 | 在中心区区域的咖啡馆二楼安放TP-200 砖型TNT |
 | [Therapist](../quests/therapist.md) | 新手上路 | 到访 | 2 | 在中心区找到 Emercom 站点 |
+
+## 🧭 提到本图、但画不出位置（32 个）
+
+> 这些任务的任务级地图或目标文字提到本图，但上游**没有给出可画的坐标区**。所以它们不在上面的地图上，也不该被当成「漏抓」—— **位置没有就是没有，不编。**点商人名进对应页看完整任务明细。
+
+| 商人 | 任务 | 目标里怎么提到 |
+|------|------|----------------|
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 在完成其他目标的同时消灭 Scav |
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 在完成其他目标的同时消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 塔科夫神射手 - 1 | 使用栓动式步枪在 40 米开外通过机械瞄具击杀 Scav |
+| [Jaeger](../quests/jaeger.md) | 屠宰场 | 在中心区使用近战武器消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 污秽遍地…… | 在立交桥、中心区、森林或海关消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 -  雕鸮 | 不使用任何夜视仪或热成像瞄具，在 21:00-04:00 期间消灭 Scav （工厂除外） |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - Zhivchik | 获得“脱水”状态，并维持状态生效 5 分钟时间（工厂除外） |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - 受伤的野兽 | 在疼痛状态下消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 直播 - 5 | 找到并消灭邪教徒祭司 |
+| [Lightkeeper](../quests/lightkeeper.md) | 情报之源 | 在中心区通过警方封锁线载具撤离点撤离 |
+| [Mechanic](../quests/mechanic.md) | 天神射手 | 在立交桥或中心区使用栓动式步枪爆头击杀 PMC 行动人员 |
+| [Peacekeeper](../quests/peacekeeper.md) | 反抗 | 在灯塔、中心区、储备站、海岸线或塔科夫街区消灭 BEAR PMC |
+| [Peacekeeper](../quests/peacekeeper.md) | 向导 | 以“幸存”状态撤离中心区或塔科夫街区 |
+| [Peacekeeper](../quests/peacekeeper.md) | 彻夜难眠 | 21:00-06:00 期间在塔科夫街区、灯塔、储备站、中心区或海岸线消灭任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 最烂的差事 | 使用 AR-15 系列武器在储备站、灯塔、海岸线或中心区从 100 米外消灭任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 维和任务 | 在中心区或立交桥穿戴 UN 制式装备（UN头盔与防弹背心）使用 5.56x45 口径 UN 武器消灭 Scav |
+| [Prapor](../quests/prapor.md) | 人间地狱 - 2 | 使用双管霰弹枪消灭邪教徒 |
+| [Prapor](../quests/prapor.md) | 恐吓者 | 命中头部击杀Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 5 | 使用轻机枪消灭 Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 6 | 使用指定类型武器在灯塔、海岸线、储备站、中心区或实验室消灭 PMC 行动人员 |
+| [Prapor](../quests/prapor.md) | 护送 | 在中心区击杀PMC |
+| [Prapor](../quests/prapor.md) | 武力说服 | 在森林、中心区、立交桥或海关使用 MP5SD 消灭 PMC 行动人员 |
+| [Prapor](../quests/prapor.md) | 硝烟野餐 | 在森林、中心区、海关或立交桥消灭任意敌对目标 |
+| [Prapor](../quests/prapor.md) | 首秀 | 在森林、中心区、立交桥或海关消灭 Scav |
+| [Ragman](../quests/ragman.md) | 新起点 | 消灭 Scav |
+| [Ragman](../quests/ragman.md) | 稳定业务 | 在中心区单场战局内击杀 Scav |
+| [Ref（竞技场裁判）](../quests/ref.md) | 平衡之力 - 1（PVP） | 在任意地图使用 Steyr AUG 消灭 Scav |
+| [Skier](../quests/skier.md) | Polikhim流浪汉 | 在立交桥、中心区或森林消灭 Scav |
+| [Skier](../quests/skier.md) | 夜间扫荡 | 找到并消灭消灭邪教徒 |
+| [Skier](../quests/skier.md) | 大音希声 | 在储备站、灯塔、中心区或实验室使用消音 12 铅径霰弹枪消灭任意敌对目标 |
+| [Skier](../quests/skier.md) | 快车初体验 | 在中心区使用载具撤离点 |
+| [Therapist](../quests/therapist.md) | 塔科夫屠夫 | 在中心区找到并获取化学品容器 |
 
 ## 🧭 怎么用这张图
 

@@ -1,7 +1,7 @@
 /* ==========================================================================
    任务全景图（content/quests/tree.md）—— **惰性模块**（toolbox.js 按需注入）
 
-   515 个任务按 11 位商人分列排布、238 条前置边连起来；数据与布局由
+   504 个任务按 11 位商人分列排布、222 条前置边连起来；数据与布局由
    scripts/gen_quest_tree.py 离线算好（quest-tree-data.js，入库）。
    本文件只负责「画出来 + 交互 + 接进度」。
 
@@ -10,7 +10,7 @@
         （同 map.js 的 maps-data.js 模式；本体注入是 toolbox 管的）。
      ② **进度只读 window.TarkovProgress**；状态判断用「键存在与否」
         （progress.js 的纪律），一次 data() 拿副本、之后纯本地判断 ——
-        别在 515 个节点上反复调 taskState()（每次都是 localStorage 读）。
+        别在 504 个节点上反复调 taskState()（每次都是 localStorage 读）。
      ③ **写状态只走 TP.setTaskState**，其余概览/地图/进度页靠
         "tarkov:progress" 事件各自刷新 —— 本页也这么做，不另设同步。
      ④ **instant 换页会重放脚本**：window/document 级监听先摘旧再挂新

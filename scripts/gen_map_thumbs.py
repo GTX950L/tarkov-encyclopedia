@@ -30,7 +30,7 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MAPS_DATA = ROOT / "content" / "javascripts" / "maps-data.js"
+MAPS_DATA = ROOT / "scripts" / "data" / "maps_site.json"
 ASSETS = ROOT / "content" / "assets" / "maps"
 THUMBS = ASSETS / "thumbs"
 

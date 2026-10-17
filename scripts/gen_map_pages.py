@@ -3,7 +3,7 @@
 
 为什么用生成器
 --------------
-13 张图的页面骨架、数据统计、**静态任务清单**全都来自 `maps-data.js`。
+13 张图的页面骨架、数据统计、**静态任务清单**全都来自 `scripts/data/maps_site.json`（页面侧按图分片）。
 手写 13 份会立刻漂移（改一次数据要改 13 处），而站内既有的做法就是
 「生成器出产物、产物不许手改」—— 这里沿用。
 
@@ -13,7 +13,7 @@
 
 用法
 ----
-    python scripts/gen_map_pages.py     # 读 maps-data.js → 写 content/maps/*.md
+    python scripts/gen_map_pages.py     # 读 maps_site.json → 写 content/maps/*.md
 """
 from __future__ import annotations
 
@@ -25,8 +25,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _baseline import baseline_label  # noqa: E402  站点基线的唯一来源（citation.md）
+from _map_links import MAP_KEY_BY_CN, map_key_of_cn  # noqa: E402
+import gen_quests as gq  # noqa: E402  复用商人 slug → 显示名（唯一一份）
 
-DATA_JS = ROOT / "content" / "javascripts" / "maps-data.js"
+DATA_JS = ROOT / "scripts" / "data" / "maps_site.json"
+QUESTS_JSON = ROOT / "scripts" / "data" / "quests.json"
 MAPS_DIR = ROOT / "content" / "maps"
 
 # 图 → (中文名, 站内条目, 一句话定性)
@@ -69,14 +72,16 @@ TRADER_SLUG = {
 
 
 def load_maps() -> dict:
-    text = DATA_JS.read_text(encoding="utf-8")
-    m = re.search(r"window\.TARKOV_MAPS\s*=\s*(\{.*\});", text, re.S)
-    if not m:
-        raise SystemExit(f"[错误] {DATA_JS.relative_to(ROOT)} 里读不到 window.TARKOV_MAPS")
-    return json.loads(m.group(1))
+    """读合并 JSON（2026-10-17 起页面数据按图分片，构建期读这一份）。"""
+    return json.loads(DATA_JS.read_text(encoding="utf-8"))
 
 
-def page(key: str, data: dict) -> str:
+def load_quests() -> list[dict]:
+    d = json.loads(QUESTS_JSON.read_text(encoding="utf-8"))
+    return d.get("tasks") or []
+
+
+def page(key: str, data: dict, quests: list[dict]) -> str:
     cn, entry, blurb = META.get(key, (data.get("nameEn") or key, "", ""))
     qz = data.get("questZones") or []
     labels = data.get("labels") or []
@@ -94,6 +99,28 @@ def page(key: str, data: dict) -> str:
         if z.get("d") and not it["d"]:
             it["d"] = z["d"]
     tasks = sorted(seen.items(), key=lambda kv: ((kv[1]["tr"] or ""), kv[1]["n"]))
+
+    # 提到本图、但上游没给坐标的任务（2026-10-17 新增）。
+    # 地图页原先只列「有区域」的任务，海关因此只显示 31 个，而实际有 81 个任务
+    # 的任务级 map 或目标 maps 提到海关。没有区域不等于没在这张图做任务 ——
+    # 把「提到但画不出」单独列出来，比让读者以为漏了强。
+    zoned = set(seen)
+    mentions: list[dict] = []
+    for t in quests:
+        keys = set(t.get("ms") or [])
+        if key not in keys or t["id"] in zoned:
+            continue
+        reason = ""
+        for o in t.get("objectives") or []:
+            om = {map_key_of_cn(m) for m in (o.get("maps") or []) if m}
+            if key in om:
+                reason = o.get("text") or ""
+                break
+        mentions.append({
+            "id": t["id"], "n": t["name"], "tr": t.get("trader") or "",
+            "reason": reason or "任务级地图归属",
+        })
+    mentions.sort(key=lambda x: ((TRADER_SLUG.get(x["tr"]) or x["tr"], x["n"])))
 
     out: list[str] = []
     out.append("---")
@@ -133,6 +160,8 @@ def page(key: str, data: dict) -> str:
     row.append(("任务目标区域", len(qz)))
     if qz:
         row.append(("涉及任务", len(tasks)))
+    if mentions:
+        row.append(("提及任务（无坐标）", len(mentions)))
     if exs:
         row.append(("撤离点", len(exs)))
     if trs:
@@ -175,11 +204,40 @@ def page(key: str, data: dict) -> str:
     else:
         out.append("## 🎯 任务")
         out.append("")
+        if mentions:
+            out.append(
+                f"这张图上**没有可画的任务目标区域** —— 不是本站漏抓：上游的任务数据里，"
+                f"这张图的任务目标没有给出坐标。但**有 {len(mentions)} 个任务提到本图**，"
+                "下面单列，避免读者以为「这张图没有任务」。"
+            )
+        else:
+            out.append(
+                "这张图上**没有**任务目标区域 —— **不是本站漏抓**：上游的任务数据里，"
+                "这张图的任务目标没有给出坐标。站内有该图的任务与打法说明，"
+                "只是地图上暂时画不出位置。**数据没有就是没有，不编位置。**"
+            )
+        out.append("")
+
+    # ── 提到本图、但画不出位置 ─────────────────────────────────────────
+    # 与上面的「有区域」表**分开**：两个数回答两个问题（能不能在地图上画 /
+    # 这张图有没有它的事），混在一起会让人以为「提及数 = 可定位数」。
+    if mentions:
+        out.append(f"## 🧭 提到本图、但画不出位置（{len(mentions)} 个）")
+        out.append("")
         out.append(
-            "这张图上**没有**任务目标区域 —— **不是本站漏抓**：上游的任务数据里，"
-            "这张图的任务目标没有给出坐标。站内有该图的任务与打法说明，"
-            "只是地图上暂时画不出位置。**数据没有就是没有，不编位置。**"
+            "> 这些任务的任务级地图或目标文字提到本图，但上游**没有给出可画的坐标区**。"
+            "所以它们不在上面的地图上，也不该被当成「漏抓」—— **位置没有就是没有，不编。**"
+            "点商人名进对应页看完整任务明细。"
         )
+        out.append("")
+        out.append("| 商人 | 任务 | 目标里怎么提到 |")
+        out.append("|------|------|----------------|")
+        for m in mentions:
+            disp = gq.TRADER_LABEL.get(m["tr"], m["tr"]) or "—"
+            slug = TRADER_SLUG.get(disp) or m["tr"]
+            tr = f"[{disp}](../quests/{slug}.md)" if slug else disp
+            reason = (m["reason"] or "—").replace("|", "／")
+            out.append(f"| {tr} | {m['n']} | {reason} |")
         out.append("")
 
     # 用法
@@ -245,6 +303,7 @@ def page(key: str, data: dict) -> str:
 
 def main() -> int:
     maps = load_maps()
+    quests = load_quests()
     MAPS_DIR.mkdir(parents=True, exist_ok=True)
     written = []
     for key in sorted(maps):
@@ -252,7 +311,7 @@ def main() -> int:
             print(f"  ⚠ {key} 不在 META 表里，跳过（新增地图时要补中文名与条目）")
             continue
         dst = MAPS_DIR / f"{key}.md"
-        dst.write_text(page(key, maps[key]), encoding="utf-8")
+        dst.write_text(page(key, maps[key], quests), encoding="utf-8")
         written.append(dst.name)
     print(f"✅ 写出 {len(written)} 个地图页：{'、'.join(written)}")
     return 0

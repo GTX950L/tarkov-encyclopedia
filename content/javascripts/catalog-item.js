@@ -268,20 +268,59 @@ function siteRoot() {
       host.appendChild(el("p", null,
         "没有任务需要这件物品（或它是任务专属道具，不在图鉴收录范围内）。"));
     } else {
-      host.appendChild(el("p", null,
-        "被 " + (q.n || 0) + " 个任务需要"
-        + ((q.keep || []).length ? "，建议保留。" : "。")));
-      if ((q.keep || []).length) {
-        var qul = document.createElement("ul");
-        q.keep.slice(0, 12).forEach(function (t) {
-          var li = document.createElement("li");
-          li.appendChild(questNode(t));      /* 任务名 → 任务详情页（重名退纯文本） */
-          qul.appendChild(li);
-        });
-        if (q.keep.length > 12) {
-          qul.appendChild(el("li", null, "…等共 " + q.keep.length + " 个"));
+      /* 2026-10-17：与物品反查页共用 quest-needs.js 的判定（读进度）。
+         旧版这里只看 q.n，任务清完仍说「建议保留」，和反查页两套口径。 */
+      var v = (window.TKQuestNeeds)
+        ? window.TKQuestNeeds.verdict(q)
+        : { cls: "keep", text: "要留", total: q.n || 0, done: 0,
+            inhand: 0, remain: q.n || 0, items: [], noProgress: true };
+      var head = el("p", null, "");
+      head.appendChild(el("strong", null, "共 " + v.total + " 个任务要它"));
+      var bits = [];
+      if (v.done) bits.push("已完成 " + v.done);
+      if (v.inhand) bits.push("进行中 " + v.inhand);
+      if (bits.length) head.appendChild(document.createTextNode("（" + bits.join(" · ") + "）"));
+      head.appendChild(document.createTextNode(" —— " + v.text + "。"));
+      host.appendChild(head);
+
+      if (v.total > 0) {
+        var rem = v.items.filter(function (x) { return x.state !== "done"; });
+        if (rem.length) {
+          var qul = document.createElement("ul");
+          rem.slice(0, 12).forEach(function (x) {
+            var li = document.createElement("li");
+            li.appendChild(questNode([x.name, x.qid || null]));
+            qul.appendChild(li);
+          });
+          if (rem.length > 12) {
+            qul.appendChild(el("li", null, "…等共 " + rem.length + " 个"));
+          }
+          host.appendChild(qul);
         }
-        host.appendChild(qul);
+        var doneList = v.items.filter(function (x) { return x.state === "done"; });
+        if (doneList.length) {
+          var det = document.createElement("details");
+          det.className = "tk-il__done";
+          var sum = document.createElement("summary");
+          sum.textContent = "已完成 " + doneList.length + " 个（不再需要为它们留）";
+          det.appendChild(sum);
+          var dul = document.createElement("p");
+          dul.className = "tk-il__why--muted";
+          doneList.forEach(function (x, i) {
+            if (i) dul.appendChild(document.createTextNode("、"));
+            dul.appendChild(questNode([x.name, x.qid || null]));
+          });
+          det.appendChild(dul);
+          host.appendChild(det);
+        }
+        if (v.remain === 0) {
+          host.appendChild(el("p", "tk-il__sell",
+            "任务角度可以出掉；藏身处材料与以物换物另查。"));
+        }
+        if (v.noProgress) {
+          host.appendChild(el("p", "tk-il__why--muted",
+            "尚未记录进度，先按全部任务算。"));
+        }
       }
       if ((q.maps || []).length) {
         var mp = el("p", null, "");

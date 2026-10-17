@@ -20,6 +20,7 @@ tags:
 | 地名锚点 | 27 |
 | 任务目标区域 | 71 |
 | 涉及任务 | 14 |
+| 提及任务（无坐标） | 31 |
 | 撤离点 | 10 |
 | 转场点 | 3 |
 | 上锁位置 | 4 |
@@ -45,6 +46,44 @@ tags:
 | [Skier](../quests/skier.md) | 隔墙有“眼” | 放置物品 | 6 | 在工厂的第一个起重机驾驶室内安装WI-FI摄像头 |
 | [Therapist](../quests/therapist.md) | 医疗隐私 - 5 | 到访 | 8 | 在夜间工厂找到交货点 |
 | [Therapist](../quests/therapist.md) | 卫生标准 | 放置物品 | 2 | 在日间工厂的医学实验室内藏匿气体分析仪 |
+
+## 🧭 提到本图、但画不出位置（31 个）
+
+> 这些任务的任务级地图或目标文字提到本图，但上游**没有给出可画的坐标区**。所以它们不在上面的地图上，也不该被当成「漏抓」—— **位置没有就是没有，不编。**点商人名进对应页看完整任务明细。
+
+| 商人 | 任务 | 目标里怎么提到 |
+|------|------|----------------|
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 在完成其他目标的同时消灭 Scav |
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 在完成其他目标的同时消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 塔科夫神射手 - 1 | 使用栓动式步枪在 40 米开外通过机械瞄具击杀 Scav |
+| [Jaeger](../quests/jaeger.md) | 妥善保管 | 在工厂的TerraGroup仓库找到化学品容器 |
+| [Jaeger](../quests/jaeger.md) | 屠宰场 | 在日间工厂使用近战武器消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 周边安全 | 在工厂消灭 PMC 行动人员 |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 工厂头目 | 找到并消灭Tagilla |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 无情杀手 | 找到并消灭Tagilla |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - 受伤的野兽 | 在疼痛状态下消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 直播 - 5 | 找到并消灭邪教徒祭司 |
+| [Peacekeeper](../quests/peacekeeper.md) | 单程票 | 在工厂使用 AUG 爆头消灭任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 向导 | 以“幸存”状态撤离工厂或海关 |
+| [Peacekeeper](../quests/peacekeeper.md) | 悬结已解 | 在工厂找到实验室日志 |
+| [Prapor](../quests/prapor.md) | 人间地狱 - 2 | 使用双管霰弹枪消灭邪教徒 |
+| [Prapor](../quests/prapor.md) | 占有者 | 在工厂找到直升机飞行日志 |
+| [Prapor](../quests/prapor.md) | 往昔时光 - 1 | 穿戴 6B43 防弹衣和 Kiver-M 头盔在工厂消灭 PMC 行动人员 |
+| [Prapor](../quests/prapor.md) | 恐吓者 | 命中头部击杀Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 5 | 使用轻机枪消灭 Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 6 | 找到并消灭任意 Boss |
+| [Prapor](../quests/prapor.md) | 护送 | 于白天在工厂击杀PMC |
+| [Prapor](../quests/prapor.md) | 邮递员派特 - 1 | 在工厂找到死去的信使，并获取信件 |
+| [Ragman](../quests/ragman.md) | 实战考验 | 穿戴任意款式的 Goon 版胸挂找到并消灭除 Goon 小队、Wedge 与 Partisan 外的任意 Boss |
+| [Ragman](../quests/ragman.md) | 新起点 | 消灭 Scav |
+| [Ref（竞技场裁判）](../quests/ref.md) | 平衡之力 - 1（PVP） | 在任意地图使用 Steyr AUG 消灭 Scav |
+| [Skier](../quests/skier.md) | 出口在此 | 在工厂以幸存状态通过“庭院大门”撤离点撤离 |
+| [Skier](../quests/skier.md) | 化学品 - 3 | 在工厂取得装有化学品的注射器 |
+| [Skier](../quests/skier.md) | 夜间扫荡 | 找到并消灭消灭邪教徒 |
+| [Skier](../quests/skier.md) | 维他命 | 在工厂找到并获取化学品容器 |
+| [Skier](../quests/skier.md) | 风波 | 在工厂使用手枪消灭任意敌对目标 |
+| [Therapist](../quests/therapist.md) | 刨根问底 | 在工厂提取破损罐体中的化学品样本 |
+| [Therapist](../quests/therapist.md) | 医疗隐私 - 6 | 在工厂找到死亡的工人，并获取他们的血液样本 |
 
 ## 🧭 怎么用这张图
 

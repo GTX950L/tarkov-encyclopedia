@@ -20,6 +20,7 @@ tags:
 | 地名锚点 | 46 |
 | 任务目标区域 | 85 |
 | 涉及任务 | 34 |
+| 提及任务（无坐标） | 45 |
 | 撤离点 | 19 |
 | 转场点 | 3 |
 | 上锁位置 | 63 |
@@ -66,6 +67,58 @@ tags:
 | [Therapist](../quests/therapist.md) | 兽医也是医 - 2 | 到访 | 3 | 在塔科夫街区的Primorsky大街找到第一家药店 |
 | [Therapist](../quests/therapist.md) | 城市的解药 | 到访 | 1 | 在塔科夫街区找到化学品实验室 |
 | [Therapist](../quests/therapist.md) | 塔科夫屠夫 | 放置任务物品 | 1 | 在塔科夫街区将化学容器放置藏匿在警察局 |
+
+## 🧭 提到本图、但画不出位置（45 个）
+
+> 这些任务的任务级地图或目标文字提到本图，但上游**没有给出可画的坐标区**。所以它们不在上面的地图上，也不该被当成「漏抓」—— **位置没有就是没有，不编。**点商人名进对应页看完整任务明细。
+
+| 商人 | 任务 | 目标里怎么提到 |
+|------|------|----------------|
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 在完成其他目标的同时消灭 Scav |
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 在完成其他目标的同时消灭 Scav |
+| [Fence](../quests/fence.md) | 小本生意 - 2 | 消灭任意 Scav 阵营 Boss 的保镖，但不击杀 Boss 本人 |
+| [Jaeger](../quests/jaeger.md) | 别开枪！ | 在塔科夫街区幸存，并通过 Klimov 大街信号弹撤离点撤离 |
+| [Jaeger](../quests/jaeger.md) | 塔科夫神射手 - 1 | 使用栓动式步枪在 40 米开外通过机械瞄具击杀 Scav |
+| [Jaeger](../quests/jaeger.md) | 塔科夫神射手 - 5 | 使用栓动式步枪消灭狙击 Scav |
+| [Jaeger](../quests/jaeger.md) | 屠宰场 | 在塔科夫街区使用近战武器消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 坏警察 | 找到并消灭Kollontay |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 大动作 | 找到并消灭Kaban |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 杀戮森林 | 在塔科夫街区、储备站、灯塔或海岸线消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 -  雕鸮 | 不使用任何夜视仪或热成像瞄具，在 21:00-04:00 期间消灭 Scav （工厂除外） |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - Zhivchik | 获得“脱水”状态，并维持状态生效 5 分钟时间（工厂除外） |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - 受伤的野兽 | 在疼痛状态下消灭 Scav |
+| [Lightkeeper](../quests/lightkeeper.md) | 大显身手 | 从 200 米外消灭狙击 Scav |
+| [Lightkeeper](../quests/lightkeeper.md) | 情报之源 | 在塔科夫街区幸存，并通过“Primorsky大道出租车”载具撤离点撤离 |
+| [Mechanic](../quests/mechanic.md) | 天神射手 | 在塔科夫街区或海岸线使用栓动式步枪爆头击杀 PMC 行动人员 |
+| [Mechanic](../quests/mechanic.md) | 探望 | 取得塔科夫街区 Concordia 公寓区停车场车辆进出情况的相关数据 |
+| [Peacekeeper](../quests/peacekeeper.md) | 你的车该洗了 | 在塔科夫街区的车行办公室找到数字存储装置 |
+| [Peacekeeper](../quests/peacekeeper.md) | 反抗 | 在灯塔、中心区、储备站、海岸线或塔科夫街区消灭 BEAR PMC |
+| [Peacekeeper](../quests/peacekeeper.md) | 向导 | 以“幸存”状态撤离中心区或塔科夫街区 |
+| [Peacekeeper](../quests/peacekeeper.md) | 彻夜难眠 | 21:00-06:00 期间在塔科夫街区、灯塔、储备站、中心区或海岸线消灭任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 秘密消息 | 在塔科夫街区使用 12 号霰弹枪爆头击杀任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 维和任务 | 在海岸线或塔科夫街区穿戴 UN 制式装备（UN头盔与防弹背心）使用 5.56x45 口径 UN 武器消灭 Scav |
+| [Prapor](../quests/prapor.md) | 一信之缘 | 在塔科夫街区找到并获取挂号信 |
+| [Prapor](../quests/prapor.md) | 地区巡逻 | 在塔科夫街区使用突击步枪或突击卡宾枪消灭任意敌对目标 |
+| [Prapor](../quests/prapor.md) | 屋顶战神 | 在塔科夫街区消灭狙击 Scav |
+| [Prapor](../quests/prapor.md) | 恐吓者 | 命中头部击杀Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 5 | 使用轻机枪消灭 Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 6 | 找到并消灭任意 Boss |
+| [Ragman](../quests/ragman.md) | 城市之匙 | 在塔科夫街区的城市博物馆找到并获取纪念钥匙 |
+| [Ragman](../quests/ragman.md) | 实战考验 | 穿戴任意款式的 Goon 版胸挂找到并消灭除 Goon 小队、Wedge 与 Partisan 外的任意 Boss |
+| [Ragman](../quests/ragman.md) | 审计 | 在塔科夫街区取得财务记录 |
+| [Ragman](../quests/ragman.md) | 感官分析 - 1 | 前往森林或塔科夫街区 |
+| [Ragman](../quests/ragman.md) | 新起点 | 消灭 Scav |
+| [Ragman](../quests/ragman.md) | 新起点 | 使用转移功能从实验室转移到塔科夫街区 |
+| [Ragman](../quests/ragman.md) | 新起点 | 使用转移功能从实验室转移到塔科夫街区 |
+| [Ragman](../quests/ragman.md) | 此路是我开！ | 同场战局中在塔科夫街区消灭任意目标 |
+| [Ref（竞技场裁判）](../quests/ref.md) | 声东击西 - 2（PVP） | 在塔科夫街区消灭Kaban或Kollontay的保镖 |
+| [Ref（竞技场裁判）](../quests/ref.md) | 平衡之力 - 1（PVP） | 在任意地图使用 Steyr AUG 消灭 Scav |
+| [Skier](../quests/skier.md) | 好吃到上瘾 | 在塔科夫街区的白鲸餐厅找到并获取有关烹饪的秘密信息 |
+| [Skier](../quests/skier.md) | 秘制食谱 | 在塔科夫街区的 TerraGroup 办公室找到并获取红色瓶装神秘原料 |
+| [Therapist](../quests/therapist.md) | 人口普查 | 在塔科夫街区取得记载有人口数据的记录 |
+| [Therapist](../quests/therapist.md) | 危险之路 | 在塔科夫街区幸存，并通过Primorsky（Приморский）大道出租车载具撤离点撤离 |
+| [Therapist](../quests/therapist.md) | 急诊室的故事 | 在塔科夫街区找到并获取救护车急救员的手机 |
+| [Therapist](../quests/therapist.md) | 街区之下 | 使用转移功能从塔科夫街区转移到实验室（在单次战局中） |
 
 ## 🧭 怎么用这张图
 

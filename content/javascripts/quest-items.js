@@ -31,14 +31,16 @@
 
   var HOST_LOOKUP = "tk-item-lookup";
   var HOST_TABLE = "tk-item-table";
+  var HOST_BATCH = "tk-item-batch";
   var DATA_FILE = "items_index.js";
   var DATA_KEY = "TARKOV_ITEM_INDEX";
 
   var f = {
     lookup: document.getElementById(HOST_LOOKUP),
-    table: document.getElementById(HOST_TABLE)
+    table: document.getElementById(HOST_TABLE),
+    batch: document.getElementById(HOST_BATCH),
   };
-  if (!f.lookup && !f.table) return;
+  if (!f.lookup && !f.table && !f.batch) return;
 
   function el(tag, cls, text) {
     var n = document.createElement(tag);
@@ -193,13 +195,21 @@ function siteRoot() {
      单条结果
      -------------------------------------------------------------------------- */
   function verdict(rec) {
-    /* 「要留」与「不用留」是**两个不同的问题**，别混成一个布尔值：
-         n > 0  → 有任务要它 → 留
-         n === 0 → 站点收录的任务里没有它要 → 本页答不了「留不留」
-       第三种必须显式说「本页答不了」，而不是含糊地显示「不留」——
-       那会让读者以为「这玩意儿没用」，而真相可能只是它属于装备类、不在任务里。 */
-    if (rec.n > 0) return { cls: "keep", text: "要留" };
-    return { cls: "unknown", text: "任务里不需要" };
+    /* 2026-10-17：判定改为**读进度**（共享模块 quest-needs.js）。
+       旧逻辑只看 rec.n > 0，任务清完后仍说「要留」—— 那是错的。
+       没有共享模块 / 没有进度时退回旧文案，不凭空说「可出」。 */
+    if (window.TKQuestNeeds) return window.TKQuestNeeds.verdict(rec);
+    if (rec.n > 0) {
+      return { cls: "keep", text: "要留", total: rec.n, done: 0,
+               inhand: 0, remain: rec.n, items: [], noProgress: true };
+    }
+    return { cls: "unknown", text: "任务里不需要", total: 0, done: 0,
+             inhand: 0, remain: 0, items: [], noProgress: false };
+  }
+
+  function dataTotal() {
+    var d = window.TARKOV_ITEM_INDEX;
+    return (d && d.tasksTotal) ? d.tasksTotal : 0;
   }
 
   function resultCard(name, rec) {
@@ -213,17 +223,62 @@ function siteRoot() {
     head.appendChild(el("span", "tk-il__verdict tk-il__verdict--" + v.cls, v.text));
     card.appendChild(head);
 
-    /* 要留 / 不要留 —— 一句话说清「为什么」 */
-    if (rec.n > 0) {
+    /* 要留 / 可出 —— 一句话说清「为什么」，并按**未完成任务**排序。
+       已完成的沉到 <details> 里：它们不再影响「要不要留」这个决定。 */
+    if (v.total > 0) {
       var why = el("p", "tk-il__why");
-      why.appendChild(el("b", null, "要做 " + rec.n + " 个任务："));
-      /* 任务名逐个渲染成链接（重名的退成纯文本）—— 分隔符自己加。
-         原来是一句 `rec.keep.join("、")`，那样没法往名字上挂链接。 */
-      rec.keep.forEach(function (t, i) {
-        if (i) why.appendChild(document.createTextNode("、"));
-        why.appendChild(questNode(t));
-      });
+      why.appendChild(el("b", null, "共 " + v.total + " 个任务要它"));
+      var bits = [];
+      if (v.done) bits.push("已完成 " + v.done);
+      if (v.inhand) bits.push("进行中 " + v.inhand);
+      if (bits.length) why.appendChild(document.createTextNode("（" + bits.join(" · ") + "）"));
+      why.appendChild(document.createTextNode("："));
+
+      var rem = v.items.filter(function (x) { return x.state !== "done"; });
+      if (!rem.length) {
+        why.appendChild(document.createTextNode("没有未完成任务"));
+      } else {
+        rem.forEach(function (x, i) {
+          if (i) why.appendChild(document.createTextNode("、"));
+          why.appendChild(questNode([x.name, x.qid || null]));
+        });
+      }
       card.appendChild(why);
+
+      var doneList = v.items.filter(function (x) { return x.state === "done"; });
+      if (doneList.length) {
+        var det = document.createElement("details");
+        det.className = "tk-il__done";
+        var sum = document.createElement("summary");
+        sum.textContent = "已完成 " + doneList.length + " 个（不再需要为它们留）";
+        det.appendChild(sum);
+        var dul = document.createElement("p");
+        dul.className = "tk-il__why tk-il__why--muted";
+        doneList.forEach(function (x, i) {
+          if (i) dul.appendChild(document.createTextNode("、"));
+          dul.appendChild(questNode([x.name, x.qid || null]));
+        });
+        det.appendChild(dul);
+        card.appendChild(det);
+      }
+
+      if (v.remain === 0) {
+        var sell = el("p", "tk-il__sell");
+        sell.textContent = "这些任务都已标记完成 —— 从任务角度可以出掉。"
+          + "藏身处材料、以物换物配方另查；本页不判断那两类用途。";
+        card.appendChild(sell);
+      }
+      if (v.noProgress) {
+        card.appendChild(el("p", "tk-il__hint",
+          "尚未记录进度，先按全部任务算。到「我的进度」标几条，这里会按未完成任务重算。"));
+      }
+
+      var have = 0;
+      try {
+        have = (window.TarkovProgress && window.TarkovProgress.itemCount)
+          ? (window.TarkovProgress.itemCount(name) || 0) : 0;
+      } catch (e) { have = 0; }
+      if (have > 0) card.appendChild(row("已囤", have + " 件（物品收集账本）"));
 
       if (rec.traders && rec.traders.length) {
         card.appendChild(row("发布者", rec.traders.join(" / ")));
@@ -233,7 +288,7 @@ function siteRoot() {
       }
     } else {
       var none = el("p", "tk-il__why tk-il__why--muted");
-      none.textContent = "本页收录的 515 个任务里没有它要上交或放置 —— " +
+      none.textContent = "本页收录的 " + (dataTotal() || "当前") + " 个任务里没有它要上交或放置 —— " +
         "若是装备类物品，请查护甲与弹药图鉴；这不等于它没用。";
       card.appendChild(none);
     }
@@ -372,6 +427,150 @@ function siteRoot() {
     host.appendChild(wrap);
   }
 
+  /* --------------------------------------------------------------------------
+     批量判读（2026-10-17）：一次贴进多个物品名，出一张「留 / 可出」表。
+     只做文本匹配，不做截图 OCR（那需要把图片传出本页）。
+     -------------------------------------------------------------------------- */
+  function buildBatch(host, data) {
+    host.textContent = "";
+    var items = data.items;
+    var box = el("div", "tk-ilb");
+    box.appendChild(el("p", "tk-il__hint",
+      "把一背包的物品名贴进来（每行一个，或用逗号 / 顿号分隔），一次得到「留 / 可出」表。"
+      + "匹配本页收录的 " + Object.keys(items).length + " 种任务物品；"
+      + "**不上传、不识别截图**。"));
+
+    var ta = el("textarea", "tk-ilb__ta");
+    ta.rows = 5;
+    ta.setAttribute("aria-label", "批量物品输入框");
+    ta.placeholder = "信号干扰器\n摄像头、显卡\n螺栓";
+    box.appendChild(ta);
+
+    var bar = el("div", "tk-ilb__bar");
+    var go = el("button", "tk-ilb__btn tk-ilb__btn--primary", "判一批");
+    go.type = "button";
+    var cp = el("button", "tk-ilb__btn", "复制结果");
+    cp.type = "button";
+    bar.appendChild(go);
+    bar.appendChild(cp);
+    box.appendChild(bar);
+
+    var out = el("div", "tk-ilb__out");
+    box.appendChild(out);
+    host.appendChild(box);
+
+    var lastRows = [];
+
+    function run() {
+      var raw = ta.value || "";
+      var toks = raw.split(/[\n,，、;；]+/).map(function (s) { return s.trim(); })
+        .filter(function (s) { return !!s; });
+      out.textContent = "";
+      lastRows = [];
+      if (!toks.length) {
+        out.appendChild(el("p", "tk-il__hint", "先贴几个物品名。"));
+        return;
+      }
+      var miss = [];
+      var rows = [];
+      toks.forEach(function (tok) {
+        var rec = items[tok], name = tok;
+        if (!rec) {
+          var n = norm(tok);
+          for (var k in items) {
+            if (norm(k).indexOf(n) >= 0) { rec = items[k]; name = k; break; }
+          }
+        }
+        if (!rec) { miss.push(tok); return; }
+        var v = verdict(rec);
+        var rem = v.items.filter(function (x) { return x.state !== "done"; });
+        var qty = 0, fir = false;
+        (rec.d || []).forEach(function (d) {
+          var keep = rem.some(function (x) { return x.qid === d[0]; });
+          if (keep) { qty += d[1] || 1; fir = fir || !!d[2]; }
+        });
+        rows.push({ name: name, rec: rec, v: v, rem: rem, qty: qty, fir: fir });
+      });
+
+      var head = el("p", "tk-il__hint");
+      head.textContent = "判出 " + rows.length + " 行"
+        + (miss.length ? "；未收录 " + miss.length + " 个：" + miss.join("、") : "")
+        + "。";
+      out.appendChild(head);
+
+      if (rows.length) {
+        var wrap = el("div", "tk-ilb__scroll");
+        var tbl = el("table", "tk-ilb__tbl");
+        var thead = el("thead");
+        var htr = el("tr");
+        ["物品", "判定", "未完成任务", "要几个", "必须局内找到", "已囤"].forEach(function (h) {
+          htr.appendChild(el("th", null, h));
+        });
+        thead.appendChild(htr);
+        tbl.appendChild(thead);
+        var tbody = el("tbody");
+        rows.forEach(function (r) {
+          var tr = el("tr");
+          var td = el("td", "tk-ilb__name");
+          var ic = itemIcon(r.name);
+          if (ic) td.appendChild(ic);
+          td.appendChild(itemAnchor(r.name, "tk-ilb__nm"));
+          tr.appendChild(td);
+          var cls = "tk-il__verdict tk-il__verdict--" + r.v.cls;
+          var tdV = el("td");
+          tdV.appendChild(el("span", cls, r.v.text));
+          tr.appendChild(tdV);
+          var tdTasks = el("td");
+          r.rem.forEach(function (x, i) {
+            if (i) tdTasks.appendChild(document.createTextNode("、"));
+            tdTasks.appendChild(questNode([x.name, x.qid || null]));
+          });
+          if (!r.rem.length) tdTasks.textContent = "—";
+          tr.appendChild(tdTasks);
+          tr.appendChild(el("td", "tk-ilb__num", r.v.remain === 0 ? "—" : String(r.qty)));
+          tr.appendChild(el("td", null, r.fir ? "是" : "否"));
+          var have = 0;
+          try {
+            have = (window.TarkovProgress && window.TarkovProgress.itemCount)
+              ? (window.TarkovProgress.itemCount(r.name) || 0) : 0;
+          } catch (e) { have = 0; }
+          tr.appendChild(el("td", "tk-ilb__num", have ? String(have) : "—"));
+          tbody.appendChild(tr);
+          lastRows.push([r.name, r.v.text, r.rem.map(function (x) { return x.name; }).join("、"),
+                         r.v.remain === 0 ? 0 : r.qty, r.fir ? "是" : "否", have]);
+        });
+        tbl.appendChild(tbody);
+        wrap.appendChild(tbl);
+        out.appendChild(wrap);
+        cp.hidden = false;
+      } else {
+        cp.hidden = true;
+      }
+    }
+    go.addEventListener("click", run);
+    ta.addEventListener("input", function () { /* 手动点按钮再判，避免每键全表重算 */ });
+    cp.addEventListener("click", function () {
+      var lines = ["物品\t判定\t未完成任务\t要几个\t必须局内找到\t已囤"];
+      lastRows.forEach(function (r) {
+        lines.push(r[0] + "\t" + r[1] + "\t" + (r[2] || "—") + "\t"
+          + (r[3] || "—") + "\t" + r[4] + "\t" + (r[5] || "—"));
+      });
+      var txt = lines.join("\n");
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt);
+      } else {
+        var ta2 = document.createElement("textarea");
+        ta2.value = txt;
+        document.body.appendChild(ta2);
+        ta2.select();
+        try { document.execCommand("copy"); } catch (e) { /* 老浏览器 */ }
+        document.body.removeChild(ta2);
+      }
+      cp.textContent = "已复制";
+      setTimeout(function () { cp.textContent = "复制结果"; }, 1500);
+    });
+  }
+
   load(function (data) {
     if (!data || !data.items) {
       if (f.lookup) f.lookup.textContent =
@@ -379,6 +578,7 @@ function siteRoot() {
       return;
     }
     PAGE_MAP = data.pages || {};
+    if (f.batch) buildBatch(f.batch, data);
     if (f.lookup) buildLookup(f.lookup, data);
     if (f.table) buildTable(f.table, data);
   });

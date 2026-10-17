@@ -1339,6 +1339,14 @@ h3.tk-qdone { color: var(--tk-ink-2); }
   border-color: var(--tk-red);
 }
 
+/* 「断开连接」：比主按钮弱一档，避免误点；仍保留描边以便识别为可点 */
+.tk-board__btn--ghost {
+  color: var(--tk-ink-2);
+  border-color: var(--tk-line);
+  font-size: .7rem;
+}
+.tk-board__btn--ghost:hover { color: var(--tk-red); border-color: var(--tk-red); }
+
 /* 全清：与分轨清空同为警示描边，靠**位置**区分而不是换一套颜色 ——
    margin-left:auto 把它推到按钮组最右，宽屏上与前面的按钮拉开距离；
    窄屏换行时它落到自己那一行，同样读得出「这是一个单列的动作」。
@@ -3679,6 +3687,43 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
    — 汇总是一眼扫的，推荐是要逐条读的，两种密度不该混在一起。 */
 .tk-ov__picks { margin-top: .6em; }
 
+/* 按图作战面板（P1-5）：13 张图的小卡网格，回答「今晚去哪张图」 */
+.tk-ov__maps { margin-top: .7em; }
+.tk-ov__maps-head {
+  margin: 0 0 .4em;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--tk-brand);
+}
+.tk-ov__maps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.2rem, 1fr));
+  gap: .4rem;
+}
+.tk-ov__map {
+  appearance: none;
+  text-align: left;
+  padding: .4rem .55rem;
+  border: 1px solid var(--tk-line);
+  border-radius: .2rem;
+  background: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+.tk-ov__map:hover { border-color: var(--tk-brand); background: #F5F9FF; }
+.tk-ov__map b { display: block; font-size: .74rem; color: var(--tk-ink); }
+.tk-ov__map-line { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .15rem; }
+.tk-ov__map-line em {
+  font-style: normal;
+  font-size: .62rem;
+  white-space: nowrap;
+  color: var(--tk-ink-2);
+}
+.tk-ov__map-a { color: var(--tk-brand); }
+.tk-ov__map-i { color: var(--tk-amber); }
+.tk-ov__map-d { color: var(--tk-grn); }
+.tk-ov__map-b { color: var(--tk-ink-2); opacity: .75; }
+
 .tk-ov__picks-load,
 .tk-ov__picks-none {
   margin: 0;
@@ -4921,7 +4966,61 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 }
 
 .tk-il__verdict--keep { color: var(--tk-grn); border-color: var(--tk-grn); }
+.tk-il__verdict--partial { color: var(--tk-amber); border-color: var(--tk-amber); }
+.tk-il__verdict--sell { color: var(--tk-ink-2); border-color: var(--tk-line-3); }
 .tk-il__verdict--unknown { color: var(--tk-ink-2); border-color: var(--tk-line-3); }
+
+.tk-il__done { margin: .15em 0 .3em; font-size: .72rem; color: var(--tk-ink-2); }
+.tk-il__done summary { cursor: pointer; color: var(--tk-ink-2); }
+.tk-il__done summary:hover { color: var(--tk-brand); }
+.tk-il__sell {
+  margin: .25em 0;
+  padding: .35em .55em;
+  border-left: 3px solid var(--tk-grn);
+  background: var(--tk-grn-bg);
+  color: var(--tk-ink);
+  font-size: .72rem;
+  line-height: 1.6;
+}
+
+/* 批量判读（quest-items.js 的 #tk-item-batch）*/
+.tk-ilb__ta {
+  width: 100%;
+  min-height: 5rem;
+  font: inherit;
+  font-size: .76rem;
+  line-height: 1.7;
+  padding: .5rem .6rem;
+  border: 1px solid var(--tk-line);
+  border-radius: .2rem;
+  background: #fff;
+  color: var(--tk-ink);
+  resize: vertical;
+}
+.tk-ilb__bar { display: flex; gap: .5rem; margin: .5rem 0 .7rem; }
+.tk-ilb__btn {
+  appearance: none;
+  padding: .3rem .8rem;
+  font: inherit;
+  font-size: .72rem;
+  border: 1px solid var(--tk-line-3);
+  border-radius: .2rem;
+  background: transparent;
+  color: var(--tk-brand);
+  cursor: pointer;
+}
+.tk-ilb__btn:hover { background: var(--tk-panel); }
+.tk-ilb__btn--primary { background: var(--tk-brand); border-color: var(--tk-brand); color: #fff; }
+.tk-ilb__btn--primary:hover { background: var(--tk-brand-dark, var(--tk-brand)); }
+.tk-ilb__scroll { overflow-x: auto; border: 1px solid var(--tk-line); border-radius: .2rem; }
+.tk-ilb__tbl { width: 100%; border-collapse: collapse; font-size: .7rem; }
+.tk-ilb__tbl th,
+.tk-ilb__tbl td { padding: .32em .55em; border-bottom: 1px solid var(--tk-line); text-align: left; }
+.tk-ilb__tbl th { background: var(--tk-fiord); color: #F5F4F0; font-weight: 700; white-space: nowrap; }
+.tk-ilb__tbl tbody tr:nth-child(even) { background: var(--tk-zebra); }
+.tk-ilb__name { font-weight: 600; white-space: nowrap; }
+.tk-ilb__nm { color: var(--tk-ink); }
+.tk-ilb__num { text-align: right; font-variant-numeric: tabular-nums; }
 
 .tk-il__why { margin: .1em 0; font-size: .74rem; line-height: 1.6; color: var(--tk-ink); }
 .tk-il__why--muted { color: var(--tk-ink-2); }
@@ -5338,6 +5437,28 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 /* 「在地图上看」不可用时的一行说明（任务无上游坐标，见 quest-detail.js）——
    与链接行同位置，但压暗、**不是链接**：它不承诺任何可点的东西。 */
 #tk-quest-page p.tk-qd-nomap { color: var(--tk-ink-2); }
+
+/* 任务目标的精确坐标行（2026-10-17 坐标口径撤销后新增）——
+   与目标文本同一条 li 内，等宽字体让 x/y/z 好对；链接落到地图的该目标区域。 */
+#tk-quest-page .tk-qd-coord {
+  margin-top: .18rem;
+  font-family: var(--tk-mono);
+  font-size: .66rem;
+  line-height: 1.6;
+  color: var(--tk-ink-2);
+}
+#tk-quest-page .tk-qd-coord a { color: var(--tk-brand); text-decoration: none; border-bottom: 1px dotted var(--tk-line); }
+#tk-quest-page .tk-qd-coord a:hover { border-bottom-color: var(--tk-brand); }
+#tk-quest-page .tk-qd-coord--alt { color: var(--tk-ink-2); opacity: .88; }
+
+/* 目标级勾选（2026-10-17）：勾选框与坐标行同在一条目标里；进度提示压暗一行 */
+#tk-quest-page .tk-obj { display: block; cursor: auto; }
+#tk-quest-page .tk-obj > li { padding: .18rem 0 .18rem 1.1rem; position: relative; }
+#tk-quest-page .tk-obj > li > input[type="checkbox"] {
+  position: absolute; left: 0; top: .28rem;
+  margin: 0; accent-color: var(--tk-fiord);
+}
+#tk-quest-page .tk-qd-objnote { margin: .35rem 0 0; font-size: .68rem; color: var(--tk-ink-2); }
 
 /* 数值表：两列网格、标签淡、值醒目 —— 与 .tk-cat-detail__dl 同一套观感，
    只是详情页版面更宽，加个面板底把小节圈起来。（任务详情页不用 dl。） */
@@ -5855,6 +5976,14 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   color: var(--tk-ink-2);
 }
 
+/* 空数据图的说明：给一个面板底，避免和普通提示混在一起 */
+.tk-map__note--empty {
+  padding: .5rem .7rem;
+  background: var(--tk-panel);
+  border: 1px solid var(--tk-line);
+  border-radius: .2rem;
+}
+
 /* 「任务点位」的筛选计数 —— 数字要等宽，否则切换时控件条会抖 */
 .tk-map__count {
   font-size: .68rem;
@@ -5902,6 +6031,13 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 /* 已完成的任务点位**弱化而不是隐藏** —— 读者往往需要回头确认「这里我做过了吗」 */
 .tk-zq.is-done { opacity: .22; }
 .tk-zq.is-done:hover { opacity: .7; }
+
+/* 目标级已完成：只弱化**那一条目标**的区域，任务未完成时也能看出进度 */
+.tk-zq.is-objdone {
+  opacity: .14;
+  stroke-dasharray: calc(3px / var(--tk-k, 1)) calc(2.5px / var(--tk-k, 1));
+}
+.tk-zq.is-objdone.is-sel { opacity: .5; stroke-dasharray: none; }
 
 /* 选中的那个任务：**不换色相**（色相承载「做什么」这一层信息），
    只提高填充浓度与描边粗细 —— 于是「选中」与「是什么类型」两件事同时读得出来。 */
@@ -6091,6 +6227,60 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 .tk-map__badge--key { background: #FBF0DD; color: #9A5C10; }
 .tk-map__badge--pack { background: var(--tk-panel); color: var(--tk-ink-2); }
 .tk-map__badge--plan { background: #EAF2FB; color: var(--tk-brand); }
+.tk-map__badge--obj { background: #EEF3FD; color: var(--tk-brand); }
+
+/* 任务卡里的目标清单（2026-10-17）：每条目标一行，带区域数 / 完成态 /
+   精确坐标 / 定位按钮。高多目标任务不再只给一句「N 处区域」。 */
+.tk-map__objlist {
+  list-style: none;
+  margin: .4rem 0 .25rem;
+  padding: 0;
+  max-height: 11rem;
+  overflow: auto;
+}
+.tk-map__objrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .3rem .45rem;
+  padding: .28rem 0;
+  border-top: 1px dashed var(--tk-line);
+  font-size: .68rem;
+}
+.tk-map__objrow:first-child { border-top: 0; }
+.tk-map__objrow.is-done .tk-map__objtext { color: var(--tk-ink-2); text-decoration: line-through; text-decoration-thickness: 1px; }
+.tk-map__objrow.is-sel { background: #EEF3FD; }
+.tk-map__objtext { flex: 1 1 10rem; min-width: 6rem; color: var(--tk-ink); line-height: 1.5; }
+.tk-map__objnz,
+.tk-map__objdone {
+  flex: none;
+  font-style: normal;
+  font-size: .6rem;
+  padding: 0 .35rem;
+  border-radius: .55rem;
+  background: var(--tk-panel);
+  color: var(--tk-ink-2);
+  white-space: nowrap;
+}
+.tk-map__objdone { background: var(--tk-grn-bg); color: var(--tk-grn); }
+.tk-map__objcoord {
+  flex: 1 1 100%;
+  font-family: var(--tk-mono);
+  font-size: .6rem;
+  color: var(--tk-ink-2);
+}
+.tk-map__objloc {
+  flex: none;
+  margin-left: auto;
+  border: 1px solid var(--tk-line);
+  border-radius: .2rem;
+  background: #fff;
+  color: var(--tk-brand);
+  font-size: .6rem;
+  padding: .05rem .4rem;
+  cursor: pointer;
+}
+.tk-map__objloc:hover { border-color: var(--tk-brand); background: #EEF3FD; }
 
 .tk-map__carddesc { margin: .45rem 0 .3rem; color: var(--tk-ink-2); }
 
@@ -6152,6 +6342,19 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   padding: .45rem .9rem .5rem;
   border-top: 1px solid var(--tk-line);
   background: var(--tk-panel);
+}
+
+/* 区域筛选下拉（P1-6）：与进度三态按钮同一行，弱化样式避免抢焦点 */
+.tk-map__areasel {
+  margin-left: auto;
+  font: inherit;
+  font-size: .66rem;
+  padding: .1rem .35rem;
+  border: 1px solid var(--tk-line-3);
+  border-radius: .2rem;
+  background: #fff;
+  color: var(--tk-ink-2);
+  max-width: 10rem;
 }
 
 .tk-map__panelbody {
@@ -6321,6 +6524,19 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   background: var(--tk-panel);
   color: var(--tk-ink-2);
 }
+
+/* 清单行的目标级完成度：只在有 oid 时显示，避免给旧数据造一个 0 / 0 */
+.tk-qp__obj {
+  flex: none;
+  padding: 0 .4rem;
+  border-radius: .6rem;
+  font-size: .6rem;
+  line-height: 1.55;
+  white-space: nowrap;
+  background: #EEF3FD;
+  color: var(--tk-brand);
+}
+.tk-qp__obj.is-all { background: var(--tk-grn-bg); color: var(--tk-grn); }
 
 /* 计划内的行：左侧一道品牌蓝（与勾选钮同色，远看也认得出） */
 .tk-qp.is-plan { box-shadow: inset 3px 0 0 var(--tk-brand); }

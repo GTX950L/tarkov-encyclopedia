@@ -4,7 +4,7 @@
    页面挂载点：`<div id="tk-map" data-map="customs">…</div>`（content/maps/*.md）
 
    数据与底图都是**生成物**：
-     · 点位 / 楼层 / 图层  → javascripts/maps-data.js（scripts/gen_maps.py）
+     · 点位 / 楼层 / 图层  → javascripts/maps-data-<图key>.js（scripts/gen_maps.py，13 个分片）
      · 底图 SVG            → assets/maps/<Name>.svg（同一支生成器换肤后入库）
 
    八件事在这里做：
@@ -185,10 +185,14 @@
        选中的任务可能缩在地图另一个角落：信息卡有了，人仍得自己找。
        宽高比保持与画布一致（SVG 是 xMidYMid meet，比例不符会出黑边），
        放大倍数夹在滚轮同款的 [原尺寸, K_MAX] 里，不打破既有缩放纪律。 */
-    function focusZone(qid) {
+    function focusZone(qid, oid) {
       var zs = qzAll.filter(function (z) {
-        return z.q === qid;
+        return z.q === qid && (!oid || z.oid === oid);
       });
+      if (!zs.length && oid) {
+        /* 目标 id 对不上（旧数据 / 生成器漂移）：退回整任务，不把视图卡死 */
+        zs = qzAll.filter(function (z) { return z.q === qid; });
+      }
       if (!zs.length) return;
       var x0 = Infinity,
         y0 = Infinity,
@@ -426,6 +430,18 @@
          · **超大框本身是语义**，不是坐标错 —— `shoot` 类（「在图里击杀 N 个」）
            中位面积就有画布的 9.6%，而 `plantItem` 只有 0.001%。一个是区域、一个是点。 */
     var qzAll = data.questZones || [];
+    /* 空数据图（终点站 / 破冰船）：上游没给任务区域，也没给地名锚点。
+       这时仍渲染底图，但要在最上面说清楚「这里是空的、为什么」——
+       一张什么都没有的地图比一行说明更容易被读成「页面坏了」。 */
+    if (!qzAll.length) {
+      var empty = document.createElement("p");
+      empty.className = "tk-map__note tk-map__note--empty";
+      empty.appendChild(document.createTextNode(
+        "这张图**没有可画的任务目标区域**（上游任务数据里这些目标没给坐标）—— "
+        + "不是本站漏抓，也不编位置。底图与图层照常可用；"
+        + "提到本图的任务列在页面下方「提到本图、但画不出位置」一节。"));
+      host.appendChild(empty);
+    }
     var vbw = (data.viewBox || [0, 0, 1000, 600])[2];
     var MIN_PX = Math.max(9, vbw * 0.008); // 画布的 0.8%，但不小于 9px
     /** 千分位。自己算而不用 toLocaleString —— 后者的输出取决于浏览器语言设置，
@@ -457,11 +473,15 @@
           height: h.toFixed(1),
           class: "tk-zq tk-zq--" + (z.k || "other") + (z.sz ? " tk-zq-" + z.sz : ""),
           "data-q": z.q,
+          "data-oid": z.oid || "",
         });
         var tip = z.n + "（" + z.t + "）";
         if (z.px >= 20) {
           /* 区域级目标要说明白 —— 否则读者会以为「这个任务就在这一小块」 */
           tip += "\n⚠ 这是**区域级**目标，占本图约 " + z.px + "% 的面积";
+        }
+        if (z.z && z.z.length === 3) {
+          tip += "\n坐标：x " + z.z[0] + " / y " + z.z[1] + " / z " + z.z[2];
         }
         if (z.d) tip += "\n" + z.d;
         tip += "\n单击=只看这个任务，双击=打开任务详情";
@@ -485,9 +505,13 @@
           t: z.t || "",
           nz: 0,
           px: 0,
+          oids: {}, // 目标 id 集合：清单行显示「目标 X / Y」
+          nls: {},  // 最近地名集合：清单行的「靠近 X」区域筛选
         };
       }
       zoneByQ[z.q].nz++;
+      if (z.oid) zoneByQ[z.q].oids[z.oid] = 1;
+      if (z.nl) zoneByQ[z.q].nls[z.nl] = 1;
       zoneByQ[z.q].px = Math.max(zoneByQ[z.q].px, z.px || 0);
     });
 
@@ -684,7 +708,8 @@
       try {
         var d = P.data();
         var md = (d.modes || {})[d.mode] || {};
-        return { quests: md.quests || {}, inhand: md.inhand || {} };
+        return { quests: md.quests || {}, inhand: md.inhand || {},
+                 objectives: md.objectives || {} };
       } catch (e) {
         return null;
       }
@@ -695,6 +720,12 @@
       if (Object.prototype.hasOwnProperty.call(snap.quests, qid)) return "done";
       if (Object.prototype.hasOwnProperty.call(snap.inhand, qid)) return "inhand";
       return "";
+    }
+
+    function objDone(snap, qid, oid) {
+      if (!snap || !oid) return false;
+      return Object.prototype.hasOwnProperty.call(snap.objectives,
+        String(qid) + "|" + String(oid));
     }
 
     var qzFilter = "all"; // all（全部） | open（只看未完成） | inhand（只看进行中）
@@ -716,6 +747,7 @@
       }
     })();
     var selected = null; // 选中的任务 id；一非空就切到「只看这一个」
+    var selectedObj = null; // 选中的目标 id（null = 整个任务）
     var qzCount = null; // 控件条上的计数元素，建控件时才赋值
 
     /* ── 出击清单（多任务同图）──
@@ -738,6 +770,8 @@
         var q = r.getAttribute("data-q");
         var st = stateOf(snap, q);
         r.classList.toggle("is-done", st === "done");
+        r.classList.toggle("is-objdone",
+          objDone(snap, q, r.getAttribute("data-oid")));
         r.classList.toggle("is-sel", !planOnly && selected === q);
         r.classList.toggle("is-plan", planOnly && !!planSet[q]);
         /* 选中时筛选退居其次：读者点某个区域，意图是「看这个」，
@@ -745,7 +779,7 @@
         var ok = planOnly
           ? !!planSet[q]
           : selected
-            ? q === selected
+            ? q === selected && (!selectedObj || r.getAttribute("data-oid") === selectedObj)
             : qzFilter === "all" ||
               (qzFilter === "open" && st !== "done") ||
               (qzFilter === "inhand" && st === "inhand");
@@ -756,7 +790,7 @@
         qzCount.textContent = planOnly
           ? "只看出击清单的 " + Object.keys(planSet).length + " 个任务"
           : selected
-            ? "只看选中的这 1 个任务"
+            ? (selectedObj ? "只看选中的这 1 个目标" : "只看选中的这 1 个任务")
             : qzFilter === "all"
               ? qzAll.length + " 个目标区域"
               : shown + " / " + qzAll.length + " 个目标区域";
@@ -803,9 +837,10 @@
       if (refreshPlanUI) refreshPlanUI();
     }
 
-    function selectTask(qid) {
+    function selectTask(qid, oid) {
       hideZonePicker();
       selected = qid || null;
+      selectedObj = oid || null;
       applyQzFilter();
       renderCard();
       /* 清单里那把选中的行标出来 —— 图上只剩它，清单里也要能找到它 */
@@ -831,16 +866,30 @@
       nameEl.textContent = head.n || selected;
       cardHost.appendChild(nameEl);
 
+      /* 目标分组：同一 oid 的多个区域归到一条目标下；旧数据没有 oid 时归到 ""。 */
+      var snap = progressSnap();
+      var byObj = {};
+      zs.forEach(function (z) {
+        var k = z.oid || "";
+        (byObj[k] = byObj[k] || []).push(z);
+      });
+      var oids = Object.keys(byObj);
+      var doneN = oids.filter(function (k) {
+        return objDone(snap, selected, k);
+      }).length;
+
       var badges = [
         [head.t || "", ""],
         [zs.length + " 处区域", "--dim"],
+        ["目标 " + doneN + " / " + oids.length, "--obj"],
       ];
-      var st = stateOf(progressSnap(), selected);
+      var st = stateOf(snap, selected);
       if (st) badges.push([st === "done" ? "已完成" : "进行中", "--" + st]);
       /* 行前提示：钥匙与自备物品 —— 与清单行同一套数据（questZones 的 kn/pk） */
       if (head.kn) badges.push(["钥匙 " + head.kn, "--key"]);
       if (head.pk) badges.push(["需自备物品", "--pack"]);
       if (planSet[selected]) badges.push(["在出击清单中", "--plan"]);
+      if (selectedObj) badges.push(["只看 1 个目标", "--obj"]);
       badges.forEach(function (pair) {
         if (!pair[0]) return;
         var s = document.createElement("span");
@@ -849,11 +898,67 @@
         cardHost.appendChild(s);
       });
 
-      if (head.d) {
-        var p = document.createElement("p");
-        p.className = "tk-map__carddesc";
-        p.textContent = head.d;
-        cardHost.appendChild(p);
+      /* 目标清单：文本 + 区域数 + 完成态 + 精确坐标 + 「定位」。
+         多目标任务是这次改动的重点 —— 原先只给一句「N 处区域」，
+         读者分不清哪块对应哪条目标。 */
+      var ol = document.createElement("ul");
+      ol.className = "tk-map__objlist";
+      oids.forEach(function (oid) {
+        var list = byObj[oid];
+        var z0 = list[0] || {};
+        var done = objDone(snap, selected, oid);
+        var li = document.createElement("li");
+        li.className = "tk-map__objrow" + (done ? " is-done" : "")
+          + (selectedObj === oid ? " is-sel" : "");
+
+        var text = document.createElement("span");
+        text.className = "tk-map__objtext";
+        text.textContent = z0.d || z0.t || "（无描述）";
+        li.appendChild(text);
+
+        var nz = document.createElement("em");
+        nz.className = "tk-map__objnz";
+        nz.textContent = list.length + " 处";
+        li.appendChild(nz);
+
+        if (done) {
+          var chip = document.createElement("em");
+          chip.className = "tk-map__objdone";
+          chip.textContent = "已完成";
+          li.appendChild(chip);
+        }
+
+        if (z0.z && z0.z.length === 3) {
+          var cd = document.createElement("span");
+          cd.className = "tk-map__objcoord";
+          cd.textContent = "x " + z0.z[0] + " / y " + z0.z[1] + " / z " + z0.z[2];
+          li.appendChild(cd);
+        }
+
+        if (oid) {
+          var loc = document.createElement("button");
+          loc.type = "button";
+          loc.className = "tk-map__objloc";
+          loc.textContent = "定位";
+          loc.addEventListener("click", function () {
+            selectTask(selected, oid);
+            focusZone(selected, oid);
+          });
+          li.appendChild(loc);
+        }
+        ol.appendChild(li);
+      });
+      cardHost.appendChild(ol);
+      if (selectedObj) {
+        var allBtn = document.createElement("button");
+        allBtn.type = "button";
+        allBtn.className = "tk-map__cardclear";
+        allBtn.textContent = "看整个任务";
+        allBtn.addEventListener("click", function () {
+          selectTask(selected, null);
+          focusZone(selected);
+        });
+        cardHost.appendChild(allBtn);
       }
 
       var a = document.createElement("a");
@@ -1742,6 +1847,7 @@
       pbody.hidden = false; // 默认展开：它现在是主操作面，不是入口
 
       var plFilter = "all"; // all | none | inhand | done
+      var areaPick = "";    // 最近地名（P1-6：站在一片区域前问「这里还有什么」）
       var chipEls = {};
       [
         ["all", "全部"],
@@ -1763,6 +1869,31 @@
         chipEls[pair[0]] = c;
         pchips.appendChild(c);
       });
+
+      /* 区域筛选（2026-10-17）：按「最近地名」收窄清单。
+         措辞用「靠近 X」—— 最近地名是近似（大区域可能横跨两个锚点），不是精确位置。 */
+      var areaSel = document.createElement("select");
+      areaSel.className = "tk-map__areasel";
+      areaSel.setAttribute("aria-label", "按区域筛选清单");
+      var optAll = document.createElement("option");
+      optAll.value = ""; optAll.textContent = "全部区域";
+      areaSel.appendChild(optAll);
+      var seenArea = {};
+      qlist.forEach(function (it) {
+        for (var nm in it.nls || {}) {
+          if (!seenArea[nm]) {
+            seenArea[nm] = 1;
+            var o = document.createElement("option");
+            o.value = nm; o.textContent = "靠近 " + nm;
+            areaSel.appendChild(o);
+          }
+        }
+      });
+      areaSel.addEventListener("change", function () {
+        areaPick = areaSel.value;
+        applyPanelFilter(progressSnap());
+      });
+      pchips.appendChild(areaSel);
 
       /* 空结果提示：筛到某个进度下没有任务时要说一句，别留一片空白 */
       var pempty = document.createElement("div");
@@ -1836,6 +1967,10 @@
         var bi = document.createElement("i");
         bi.textContent = it.t + " · " + it.nz + " 处";
         b.appendChild(bi);
+        var bo = document.createElement("span");
+        bo.className = "tk-qp__obj";
+        bo.title = "目标级完成度（与「我的进度」的目标勾选同一份账本）";
+        b.appendChild(bo);
         b.addEventListener("click", function () {
           /* 点行 = 「看这一个」：退出规划视图再选中。规划视图仍在
              「只看这些」按钮上等着，不丢。 */
@@ -1850,7 +1985,7 @@
         });
         rowWrap.appendChild(b);
         pbody.appendChild(rowWrap);
-        rowEls.push({ q: it.q, el: b, planBtn: planBtn, grp: curGrpIdx });
+        rowEls.push({ q: it.q, el: b, planBtn: planBtn, grp: curGrpIdx, oids: it.oids, nls: it.nls });
       });
 
       /* 页脚：把「只读」这条边界写在离操作最近的地方 */
@@ -1874,7 +2009,8 @@
         var visByGrp = {}; // 组序号 → 可见行数
         rowEls.forEach(function (r) {
           var st = stateOf(snap, r.q) || "none";
-          var ok = plFilter === "all" || plFilter === st;
+          var ok = (plFilter === "all" || plFilter === st)
+            && (!areaPick || (r.nls && r.nls[areaPick]));
           r.el.style.display = ok ? "" : "none";
           if (ok) {
             visible++;
@@ -1886,7 +2022,8 @@
         });
         pempty.hidden = visible > 0;
         pempty.textContent =
-          plFilter === "done" ? "这张图上还没有已完成的任务。"
+          areaPick ? "这个区域下没有符合当前条件的任务。"
+          : plFilter === "done" ? "这张图上还没有已完成的任务。"
           : plFilter === "inhand" ? "这张图上没有进行中的任务。"
           : plFilter === "none" ? "这张图上的任务都动过了。"
           : "";
@@ -1905,6 +2042,20 @@
           var badge = r.el.querySelector(".tk-qp__st");
           badge.textContent = st === "done" ? "已完成" : st === "inhand" ? "进行中" : "未标记";
           badge.className = "tk-qp__st tk-qp__st--" + st;
+          /* 目标级完成度：只有该任务在本图有可识别的 oid 时才显示 */
+          var objEl = r.el.querySelector(".tk-qp__obj");
+          var oids = Object.keys(r.oids || {});
+          if (objEl) {
+            if (!oids.length) {
+              objEl.textContent = "";
+            } else {
+              var od = oids.filter(function (oid) {
+                return objDone(snap, r.q, oid);
+              }).length;
+              objEl.textContent = "目标 " + od + " / " + oids.length;
+              objEl.classList.toggle("is-all", od === oids.length);
+            }
+          }
         });
         /* 组头：完成度细条 + n/N（P2-2）。条与数字都来自同一份 grpStat */
         grpRefs.forEach(function (g, gi) {
@@ -2027,15 +2178,21 @@
        落空时**不再完全静默**，也不再只留一行说明：给出「为什么 + 去哪看」
        —— 一行说明 + 直达任务详情的链接（读者反馈：点了链接看不到位置时，
        最需要的是一条出路）。 */
-    var q0 = null;
+    var q0 = null, o0 = null;
     try {
-      q0 = new URLSearchParams(location.search).get("q");
+      var sp0 = new URLSearchParams(location.search);
+      q0 = sp0.get("q");
+      o0 = sp0.get("o");
     } catch (err) {
       q0 = null;
+      o0 = null;
+    }
+    if (o0 && !qzAll.some(function (z) { return z.q === q0 && z.oid === o0; })) {
+      o0 = null; // 目标 id 对不上：退回整个任务，不把视图卡死在空集合
     }
     if (q0 && zoneByQ[q0]) {
-      selectTask(q0);
-      focusZone(q0);
+      selectTask(q0, o0);
+      focusZone(q0, o0);
     } else if (q0) {
       var miss = document.createElement("p");
       miss.className = "tk-map__note";
@@ -2100,12 +2257,15 @@
     }
   }
 
-  /* 数据按需加载：maps-data.js 约 20 KB，只有带挂载点的页面才需要，
-     不适合像 progress-manifest.js 那样全站引入。 */
-  function ensureData(cb) {
-    if (window.TARKOV_MAPS) return cb(window.TARKOV_MAPS);
+  /* 数据按需加载：**每图一个分片**（2026-10-17 起，从单体 maps-data.js 拆出）——
+     海关 58 KB / 工厂 35 KB / 破冰船 2 KB，只有带挂载点的页面才需要，
+     而且只下自己那张图。 */
+  function ensureData(key, cb) {
+    if (window.TARKOV_MAPS && window.TARKOV_MAPS[key]) {
+      return cb(window.TARKOV_MAPS);
+    }
     var s = document.createElement("script");
-    s.src = siteRoot() + "javascripts/maps-data.js";
+    s.src = siteRoot() + "javascripts/maps-data-" + key + ".js";
     s.onload = function () {
       cb(window.TARKOV_MAPS || null);
     };
@@ -2124,7 +2284,7 @@
     var key = host.getAttribute("data-map") || "customs";
     host.dataset.tkMapBusy = "1";
 
-    ensureData(function (maps) {
+    ensureData(key, function (maps) {
       var data = maps && maps[key];
       if (!data) {
         /* 点位数据没取到：同样给明确提示，不让「加载中…」一直挂着 */

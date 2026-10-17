@@ -41,7 +41,7 @@
 ## 任务图鉴（第十篇 · 逐任务明细）
 
 > 覆盖持久 PvP 档案下**全部 504 个任务**：每个任务的要求、完成奖励、接取门槛（商人忠诚度／声望）、
-> 前置任务、需要钥匙与失败条件。**不含坐标**（含真实 x/y/z 的字段在抓取阶段整体剔除）**与逐步攻略**。
+> 前置任务、需要钥匙与失败条件。**自 2026-10-17 起含精确坐标**（目标自带 x/y/z，可点回交互地图），**但不含逐步攻略**。
 > 口径：官方任务数据端点（二级来源），2026-10-17 抓取。
 > ⚠️ **一次结论更正（2026-10-17）**：上一轮曾把「上游缺 17 条（整条 Lightkeeper 前置链）」判为端点不完整；本轮核实 **1.1.5.0 官方重做了 Lightkeeper 访问链**（改为 Tour 剧情 + 全体 LL3 + 向 Mechanic 询问），旧「网络供应商 / 破镜重圆 / 试探」链已失效并从 `regular` 移除。站内已重抓对齐为 **504 条**，并补入 6 条 1.2.0.0 新任务。
 
@@ -58,7 +58,7 @@
 - [新手成长路线](https://gtx950l.github.io/tarkov-encyclopedia/docs/progression/)：按阶段该做什么
 - [新手开局检查清单](https://gtx950l.github.io/tarkov-encyclopedia/docs/starter-checklist/)：可打印的每局勾选表（进图前 / 撤离前照着勾）
 - [交互地图](https://gtx950l.github.io/tarkov-encyclopedia/maps/)：**13 张图全部上线** —— 矢量底图 + 任务区域 / 撤离点 / 转场 / 上锁 / 危险区五类图层（可开关），与「我的进度」本机联动
-- [地图对照速查](https://gtx950l.github.io/tarkov-encyclopedia/docs/map-guide/)：逐图的交战风格、资源类型、风险与适合阶段（本页不列坐标，点位在交互地图）
+- [地图对照速查](https://gtx950l.github.io/tarkov-encyclopedia/docs/map-guide/)：逐图的交战风格、资源类型、风险与适合阶段（定性分析；点位与坐标在交互地图与任务图鉴）
 - [配方速查表（制作与交换）](https://gtx950l.github.io/tarkov-encyclopedia/docs/recipes/)：藏身处制作 214 条 + 商人交换 855 条；可按设施 / 商人 / 材料反查，**不含价格与利润**（实时数据）
 - [购买指南（地区与版本）](https://gtx950l.github.io/tarkov-encyclopedia/docs/buying-guide/)
 - [配置与性能](https://gtx950l.github.io/tarkov-encyclopedia/docs/performance/)

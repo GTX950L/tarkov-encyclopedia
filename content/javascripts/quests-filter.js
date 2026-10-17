@@ -32,9 +32,17 @@
   /* 数据列顺序（与生成器里的 cols 严格一致） */
   var C_NAME = 0, C_EN = 1, C_TRADER = 2, C_LEVEL = 3, C_MAP = 4, C_KEYS = 5,
       C_FACTION = 6, C_FLAGS = 7, C_FAIL = 8, C_DELAY = 9, C_RESTART = 10,
-      C_EXP = 11, C_DUNLOCK = 12, C_CUNLOCK = 13, C_LINK = 14, C_ID = 15;
+      C_EXP = 11, C_DUNLOCK = 12, C_CUNLOCK = 13, C_LINK = 14, C_ID = 15,
+      C_MZ = 16, C_MAPS = 17, C_SEARCH = 18;
 
   var NO_MAP = "__none__";
+
+  var MAP_CN = {
+    customs: "海关", factory: "工厂", "ground-zero": "中心区", woods: "森林",
+    interchange: "立交桥", reserve: "储备站", shoreline: "海岸线",
+    lighthouse: "灯塔", "streets-of-tarkov": "街区", terminal: "终点站",
+    icebreaker: "破冰船", "the-lab": "实验室", "the-labyrinth": "迷宫",
+  };
 
 function siteRoot() {
     /* 优先用 toolbox.js 在首次整页加载时算好并公布的站点根，不要每次现算。
@@ -139,7 +147,7 @@ function siteRoot() {
 
     var q = el("input", "tk-qs__q");
     q.type = "search";
-    q.placeholder = "搜任务名（中文或英文）…";
+    q.placeholder = "搜任务名 / 目标 / 物品 / 奖励（中文或英文）…";
     q.setAttribute("aria-label", "按任务名搜索");
     bar.appendChild(q);
 
@@ -162,11 +170,12 @@ function siteRoot() {
     selMap.appendChild(new Option("全部地图", ""));
     var maps = [];
     for (i = 0; i < all.length; i++) {
-      var m = all[i][C_MAP];
-      if (m && maps.indexOf(m) < 0) maps.push(m);
+      (all[i][C_MAPS] || []).forEach(function (k) {
+        if (k && maps.indexOf(k) < 0) maps.push(k);
+      });
     }
     maps.sort();
-    for (i = 0; i < maps.length; i++) selMap.appendChild(new Option(maps[i], maps[i]));
+    for (i = 0; i < maps.length; i++) selMap.appendChild(new Option(MAP_CN[maps[i]] || maps[i], maps[i]));
     selMap.appendChild(new Option("未标注地图", NO_MAP));
     bar.appendChild(selMap);
 
@@ -276,13 +285,13 @@ function siteRoot() {
         var r = all[i];
         if (tr && r[C_TRADER] !== tr) continue;
         if (mp === NO_MAP) {
-          if (r[C_MAP]) continue;                 /* 「未标注地图」= 只要没有地图字段的 */
-        } else if (mp && r[C_MAP] !== mp) {
+          if ((r[C_MAPS] || []).length) continue;   /* 「未标注地图」= 多图数组为空 */
+        } else if (mp && (r[C_MAPS] || []).indexOf(mp) < 0) {
           continue;
         }
         if (!inBand(r[C_LEVEL], band)) continue;
         if (kw) {
-          var hay = (r[C_NAME] + " " + r[C_EN]).toLowerCase();
+          var hay = (r[C_NAME] + " " + r[C_EN] + " " + (r[C_SEARCH] || "")).toLowerCase();
           if (hay.indexOf(kw) < 0) continue;
         }
         var ok = true;
@@ -357,11 +366,14 @@ function siteRoot() {
 
       /* 列顺序：**解锁紧跟在任务名之后** —— 它是本表唯一的「本站算出来的」
          数据，也是读者来这里的理由；放在最后一列时，窄屏默认视口里根本看不见。 */
+      var mapText = (r[C_MAPS] || []).map(function (k) { return MAP_CN[k] || k; }).join(" / ")
+        || r[C_MAP] || "";
+
       return "<tr>"
         + '<td><a href="' + esc(href) + '">' + esc(r[C_NAME]) + "</a>" + say + lv + en + "</td>"
         + "<td>" + unlock + "</td>"
         + "<td>" + esc(r[C_TRADER]) + "</td>"
-        + "<td>" + (r[C_MAP] ? esc(r[C_MAP]) : "—") + "</td>"
+        + "<td>" + (mapText ? esc(mapText) : "—") + "</td>"
         + '<td class="tk-qs__marks">' + (marks || '<span class="tk-qs__zero">—</span>') + "</td>"
         + "</tr>";
     }

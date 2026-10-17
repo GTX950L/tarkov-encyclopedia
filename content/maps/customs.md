@@ -20,6 +20,7 @@ tags:
 | 地名锚点 | 24 |
 | 任务目标区域 | 116 |
 | 涉及任务 | 31 |
+| 提及任务（无坐标） | 50 |
 | 撤离点 | 28 |
 | 转场点 | 4 |
 | 上锁位置 | 37 |
@@ -63,6 +64,63 @@ tags:
 | [Therapist](../quests/therapist.md) | 无主货物 | 标记 | 14 | 在海关使用 MS2000 指示器标记任意一个 TerraGroup 特殊货箱 |
 | [Therapist](../quests/therapist.md) | 水瓶座行动 | 到访 | 2 | 在海关找到被藏在宿舍楼里的水 |
 | [Therapist](../quests/therapist.md) | 药剂师 | 到访 | 4 | 在海关找到急救员的车 |
+
+## 🧭 提到本图、但画不出位置（50 个）
+
+> 这些任务的任务级地图或目标文字提到本图，但上游**没有给出可画的坐标区**。所以它们不在上面的地图上，也不该被当成「漏抓」—— **位置没有就是没有，不编。**点商人名进对应页看完整任务明细。
+
+| 商人 | 任务 | 目标里怎么提到 |
+|------|------|----------------|
+| [BTR 司机](../quests/btr-driver.md) | 坚持到底 | 消灭游荡者 |
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 在海关找到并获取控告信 |
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 在海关找到并获取控告信 |
+| [Fence](../quests/fence.md) | 小本生意 - 2 | 消灭任意 Scav 阵营 Boss 的保镖，但不击杀 Boss 本人 |
+| [Jaeger](../quests/jaeger.md) | 塔科夫神射手 - 1 | 使用栓动式步枪在 40 米开外通过机械瞄具击杀 Scav |
+| [Jaeger](../quests/jaeger.md) | 塔科夫神射手 - 5 | 21:00-05:00 期间在海关使用栓动式步枪消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 污秽遍地…… | 在立交桥、中心区、森林或海关消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 流浪狗 | 在同场战局中找到并消灭 Knight |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 战利品 | 找到并消灭 Reshala |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 无情杀手 | 找到并消灭Reshala |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 正义 | 消灭 Reshala 的保镖 |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 -  雕鸮 | 不使用任何夜视仪或热成像瞄具，在 21:00-04:00 期间消灭 Scav （工厂除外） |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - Zhivchik | 获得“脱水”状态，并维持状态生效 5 分钟时间（工厂除外） |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - 受伤的野兽 | 在疼痛状态下消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 直播 - 5 | 找到并消灭邪教徒祭司 |
+| [Lightkeeper](../quests/lightkeeper.md) | 情报之源 | 在海关幸存，并通过宿舍载具撤离点撤离 |
+| [Mechanic](../quests/mechanic.md) | 化工厂的秘密 | 使用转移功能从海关转移到工厂（在单次战局中） |
+| [Mechanic](../quests/mechanic.md) | 天神射手 | 在海关或灯塔使用栓动式步枪爆头击杀 PMC 行动人员 |
+| [Mechanic](../quests/mechanic.md) | 工欲善其事 | 在海关车库区找到并获取经过改装的工具套件 |
+| [Peacekeeper](../quests/peacekeeper.md) | 先声夺人 | 使用转移功能从海关转移到海岸线 |
+| [Peacekeeper](../quests/peacekeeper.md) | 向导 | 以“幸存”状态撤离工厂或海关 |
+| [Peacekeeper](../quests/peacekeeper.md) | 维和任务 | 在海关或灯塔穿戴 UN 制式装备（UN头盔与防弹背心）使用 5.56x45 口径 UN 武器消灭 Scav |
+| [Prapor](../quests/prapor.md) | 人间地狱 - 2 | 使用双管霰弹枪消灭邪教徒 |
+| [Prapor](../quests/prapor.md) | 引路先驱 | 任务级地图归属 |
+| [Prapor](../quests/prapor.md) | 往事速递 | 在位于海关关口的Tarcone公司主管办公室内找到一个保险盒 |
+| [Prapor](../quests/prapor.md) | 恐吓者 | 命中头部击杀Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 1 | 在海关使用 AKS-74U 消灭 Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 5 | 使用轻机枪消灭 Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 6 | 找到并消灭任意 Boss |
+| [Prapor](../quests/prapor.md) | 护送 | 在海关击杀PMC |
+| [Prapor](../quests/prapor.md) | 武力说服 | 在森林、中心区、立交桥或海关使用 MP5SD 消灭 PMC 行动人员 |
+| [Prapor](../quests/prapor.md) | 爱国者的使命 | 在灯塔、海关或储备站使用装有Valday PS-320 1/6x瞄准镜与消音器的AK-12击杀PMC行动人员 |
+| [Prapor](../quests/prapor.md) | 硝烟野餐 | 在森林、中心区、海关或立交桥消灭任意敌对目标 |
+| [Prapor](../quests/prapor.md) | 罪证 | 在海关工棚中取得0031号机密文件夹 |
+| [Prapor](../quests/prapor.md) | 背景调查 | 在海关取得青铜怀表 |
+| [Prapor](../quests/prapor.md) | 首秀 | 在森林、中心区、立交桥或海关消灭 Scav |
+| [Ragman](../quests/ragman.md) | 人靠衣装 - 2 | 击杀游荡者 |
+| [Ragman](../quests/ragman.md) | 实战考验 | 穿戴任意款式的 Goon 版胸挂找到并消灭除 Goon 小队、Wedge 与 Partisan 外的任意 Boss |
+| [Ragman](../quests/ragman.md) | 新起点 | 消灭 Scav |
+| [Ref（竞技场裁判）](../quests/ref.md) | 两难抉择（PVP） | 找到并获取竞技场裁判的黑料 |
+| [Ref（竞技场裁判）](../quests/ref.md) | 平衡之力 - 1（PVP） | 在任意地图使用 Steyr AUG 消灭 Scav |
+| [Skier](../quests/skier.md) | 供货 | 在海关找到并获取化学品容器 |
+| [Skier](../quests/skier.md) | 借刀杀人 | 在海关穿戴指定装备使用常见的 Scav 武器消灭 PMC |
+| [Skier](../quests/skier.md) | 化学品 - 2 | 在海关找到任何有助于调查的证据 |
+| [Skier](../quests/skier.md) | 夜间扫荡 | 找到并消灭消灭邪教徒 |
+| [Skier](../quests/skier.md) | 私人俱乐部 | 在海关找到并获取 Skier 的钱包 |
+| [Skier](../quests/skier.md) | 识时务者为俊杰 | 使用转移功能从海关转移到储备站 |
+| [Therapist](../quests/therapist.md) | 带血的水 | 在海关击杀Scav |
+| [Therapist](../quests/therapist.md) | 平易近人 | 在海关找到并获取货运班组的日志 |
+| [Therapist](../quests/therapist.md) | 货运追踪 | 在海关找到并获取 TerraGroup 货运清单 |
 
 ## 🧭 怎么用这张图
 

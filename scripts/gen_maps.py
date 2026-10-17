@@ -61,7 +61,10 @@ MAPS_SRC = (
 CACHE = ROOT / "scripts" / "data" / "maps_source.json"
 RAW_DIR = ROOT / "scripts" / "data" / "maps_raw"
 SVG_DIR = ROOT / "content" / "assets" / "maps"
-OUT_JS = ROOT / "content" / "javascripts" / "maps-data.js"
+OUT_JSON = ROOT / "scripts" / "data" / "maps_site.json"
+OUT_JS_DIR = ROOT / "content" / "javascripts"
+# 旧的单体 content/javascripts/maps-data.js（2026-10-17 起拆分为每图一个文件）
+OLD_OUT_JS = ROOT / "content" / "javascripts" / "maps-data.js"
 # 「钥匙 → 所在图」反查表：供物品图鉴的「所在图」列（gen_items_catalog.py）读，
 # 与 maps-data.js 同源同批产出 —— 两边不一致时，⑤c 防漂移会同时重跑本脚本暴露。
 KEY_LOC_FILE = ROOT / "scripts" / "data" / "key_locations.json"
@@ -69,10 +72,9 @@ KEY_LOC_FILE = ROOT / "scripts" / "data" / "key_locations.json"
 # ─────────────────────────────────────────────────────────────────────────────
 # 任务点位 —— 供「地图 ↔ 任务图鉴 ↔ 我的进度」联动
 #
-# ⚠️ **这是全站唯一一处把坐标入仓的数据**，依据是 citation.md 第六节的新口径：
-#    坐标不进条目正文，**集中收在交互地图**。它因此**与正文数据分开存放** ——
-#    正文侧的 `gen_quests.py:slim_objective()` 照旧丢弃坐标，一行没改；
-#    坐标走自己这条管线（本文件）。两边各有各的口径，互不污染。
+# 2026-10-17 起坐标**同时入正文**（gen_quests.slim_objective 不再剔除），
+# 本文件仍负责投影 / 底图那一层，两份坐标同源于上游 `zones`，靠
+# `check_map_projection.py` 第 ③ 节交叉对账（oid / ms / 可定位性）。
 #
 # 2026-10-17 重抓后两侧已对齐（都是 504 条）：
 #   ① 上游 tasks 与站内 `quests.json` 同为 504 条；
@@ -455,9 +457,20 @@ def fetch_quest_zones() -> None:
                 box = _zone_box(z)
                 if not box:
                     continue
-                zones.append(
-                    {"task": tid, "oi": i, "type": o.get("type"), "map": mid, "box": box}
-                )
+                pos = z.get("position") or {}
+                ol = [[p.get("x"), p.get("z")] for p in (z.get("outline") or [])
+                      if "x" in p and "z" in p]
+                zones.append({
+                    "task": tid, "oi": i, "oid": o.get("id") or "",
+                    "type": o.get("type"), "map": mid, "box": box,
+                    # 精确坐标（2026-10-17 起入缓存）：中心点 + 顶/底 + 轮廓。
+                    # `box` 仍保留，供旧投影路径与门禁使用；新字段只增不改。
+                    "p": [pos.get("x"), pos.get("y"), pos.get("z")]
+                         if "x" in pos and "z" in pos else None,
+                    "top": z.get("top"), "bottom": z.get("bottom"),
+                    "outline": ol or None,
+                    "zid": z.get("id") or "",
+                })
 
     payload = {
         "fetched": datetime.date.today().isoformat(),
@@ -872,7 +885,8 @@ def build_maps(data: list) -> dict:
     )
     qidx = _quest_index()
     carr = _carrier_index()
-    zstat = {"desc": 0, "bytype": 0, "lost": 0, "clipped": 0, "offscreen": 0}
+    zstat = {"desc": 0, "bytype": 0, "lost": 0, "clipped": 0, "offscreen": 0,
+             "dropped": []}
     layer_dropped: dict[str, int] = {}   # 画布外被丢掉的图层点数（按图记）
     lz = (
         json.loads(LAYERS_CACHE.read_text(encoding="utf-8"))
@@ -987,6 +1001,7 @@ def build_maps(data: list) -> dict:
             q = qidx.get(z["task"])
             if not q:
                 zstat["lost"] += 1
+                zstat["dropped"].append(z["task"])
                 continue
             X1, Y1 = project(z["box"][0], z["box"][1], pmeta)
             X2, Y2 = project(z["box"][2], z["box"][3], pmeta)
@@ -1008,6 +1023,7 @@ def build_maps(data: list) -> dict:
             cx1, cy1 = min(fx1, bx + bw), min(fy1, by + bh)
             if cx1 - cx0 < 0.5 or cy1 - cy0 < 0.5:
                 zstat["offscreen"] += 1        # 整条都在画布外（上游坐标问题），不画
+                zstat["dropped"].append(z["task"])
                 continue
             if (cx0, cy0, cx1, cy1) != (bx, by, bx + bw, by + bh):
                 zstat["clipped"] += 1
@@ -1019,8 +1035,34 @@ def build_maps(data: list) -> dict:
             area_ratio = ((cx1 - cx0) * (cy1 - cy0)) / (view_box[2] * view_box[3])  # 分母=显示框
             size = "l" if area_ratio > 0.20 else ("m" if area_ratio > 0.02 else "s")
 
+            # ── 精确坐标（2026-10-17 起）────────────────────────────────
+            # `c` 是投影后的中心点（屏幕像素），`wz` 是游戏世界坐标 [x,y,z]；
+            # `pol` 是投影后的轮廓（[x,z] → 像素），供地图画真实多边形。
+            # 没有 position 的旧缓存回退到 bbox 中心，保证不空。
+            if z.get("p") and z["p"][0] is not None and z["p"][2] is not None:
+                CX, CY = project(z["p"][0], z["p"][2], pmeta)
+            else:
+                CX, CY = (cx0 + cx1) / 2, (cy0 + cy1) / 2
+            pol: list[list[float]] = []
+            for ox, oz in (z.get("outline") or []):
+                if ox is None or oz is None:
+                    continue
+                PX, PY = project(ox, oz, pmeta)
+                pol.append([round(PX, 1), round(PY, 1)])
+
+            # 最近地名：给「按区域聚类」用。只在图内有地名时算；措辞用「靠近」，
+            # 因为最近地名是近似（大区域可能横跨两个锚点）。
+            nl, nd = "", 0
+            if labels:
+                lb = min(labels, key=lambda l: (l["x"] - CX) ** 2 + (l["y"] - CY) ** 2)
+                nl = lb.get("cn") or lb.get("en") or ""
+                mp = mpp_of(meta, view_box, grid_px)
+                nd = round(math.hypot((lb["x"] - CX) * mp[0],
+                                      (lb["y"] - CY) * mp[1]))
+
             rec = {
                 "q": z["task"],
+                "oid": z.get("oid") or "",                  # 目标 id：单目标定位 / 完成态
                 "n": q["name"],
                 "en": q.get("en") or "",                   # 英文名：搜索用（见 _quest_index）
                 "kn": q.get("k") or 0,                     # 钥匙数：行前提示（信息卡/清单行）
@@ -1032,6 +1074,11 @@ def build_maps(data: list) -> dict:
                 "y": round(cy0, 1),
                 "w": round(cx1 - cx0, 1),
                 "h": round(cy1 - cy0, 1),
+                "c": [round(CX, 1), round(CY, 1)],          # 精确中心（像素）
+                "z": z.get("p") or None,                    # 精确中心（世界坐标 x,y,z）
+                "top": z.get("top"), "bot": z.get("bottom"),
+                "pol": pol or None,
+                "nl": nl, "nd": nd,
                 "sz": size,          # 面积档：s / m / l（仅影响视觉权重）
                 "px": round(area_ratio * 100, 3),   # 占画布面积的百分比（页面提示用）
             }
@@ -1213,6 +1260,7 @@ def build_maps(data: list) -> dict:
             "layers": layers,
             "labels": labels,
             "questZones": quest_zones,
+            "dropped": sorted(set(zstat["dropped"])),
             "extracts": extracts,
             "locks": locks,
             "hazards": hazards,
@@ -1238,42 +1286,61 @@ def build_maps(data: list) -> dict:
 
 
 # ── 输出 ─────────────────────────────────────────────────────────────────────
+def write_dropped(maps: dict) -> None:
+    """把「坐标区存在、但投影后画不出来」的任务写出来，供 _map_links 扣掉。
+
+    2026-10-17 实测 1 条（蛋卷冰淇淋）因为整条区域落在画布外被跳过；如果
+    `mz` 仍按 quest_zones 判 1，任务详情会给一个点进去什么都没有的地图链接。
+    这份文件是「有区域 ≠ 可定位」的唯一差额来源。
+    """
+    ids = sorted({q for d in maps.values() for q in d.get("dropped", [])})
+    out = ROOT / "scripts" / "data" / "map_dropped.json"
+    out.write_text(json.dumps({"tasks": ids}, ensure_ascii=False) + "\n",
+                   encoding="utf-8")
+    if ids:
+        log(f"   → {out.relative_to(ROOT)}：{len(ids)} 个任务有坐标区但画不出")
+
+
 def write_js(maps: dict) -> None:
-    payload = json.dumps(maps, ensure_ascii=False, separators=(",", ":"))
-    js = f"""/* ==========================================================================
-   交互地图 · 数据（**生成物，不要手改**）
+    """写出**每图一个 JS**（页面按需加载）+ 一份合并 JSON（构建期消费者读）。
+
+    2026-10-17 之前是单体 maps-data.js（344 KB 全站同载）；改按图分片后，
+    单页只下自己那张图的数据，弱网与首屏都受益。构建期脚本（gen_map_pages /
+    check_map_projection / gen_home_stats / gen_map_thumbs）改读 maps_site.json。
+    """
+    OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
+    OUT_JSON.write_text(
+        json.dumps(maps, ensure_ascii=False, separators=(",", ":")) + "\n",
+        encoding="utf-8")
+
+    OUT_JS_DIR.mkdir(parents=True, exist_ok=True)
+    # 清理旧分片（改名 / 删图时不留残骸）
+    for old in OUT_JS_DIR.glob("maps-data-*.js"):
+        old.unlink()
+    if OLD_OUT_JS.exists():
+        OLD_OUT_JS.unlink()
+
+    total = 0
+    for key in sorted(maps):
+        one = json.dumps({key: maps[key]}, ensure_ascii=False, separators=(",", ":"))
+        js = f"""/* ==========================================================================
+   交互地图 · 数据（**生成物，不要手改**）· 本文件只含 **{key}**
    --------------------------------------------------------------------------
    生成：python scripts/gen_maps.py          （离线，用缓存）
          python scripts/gen_maps.py --fetch  （重新抓上游数据）
-
    站点基线：{baseline_label()}
-   底图来源：the-hideout/tarkov-dev-svg-maps（Shebuka），CC BY-NC-SA 4.0
-             —— 署名与使用边界见 content/docs/citation.md 第四节。
 
-   字段：
-     svg       底图文件名（位于 assets/maps/，由 map.js 按脚本位置推导绝对路径）
-     viewBox   SVG 视口（minX minY w h），点位坐标即在此坐标系内
-     floors    楼层图层（id + 中文名），页面做互斥显示的切换按钮
-     layers    上游全部图层 id（含材质层与 `*-locked` 子层），备查
-     labels    地名锚点；cn 为空表示站内暂无译名，页面退回英文（不自己编）
-     questZones 任务点位：q=任务id、n=任务名、en=英文名（地图页搜索用）、
-                kn=钥匙数、pk=需自备物品（两者都是**行前提示**，见 _quest_index）、
-                t=目标类型、k=目标类型英文名（CSS 分类用）、
-                d=目标描述（可能为空，上游与站内 objective 数量不一致时不给，
-                避免张冠李戴）、x/y/w/h = 投影后的像素矩形。
-
-   ⚠️ **questZones 的任务 id 与「我的进度」是同一套键**（localStorage
-      `tarkov_progress_v1` 里的 `modes.<mode>.quests`），所以地图能直接读进度
-      做「只看未完成」筛选 —— 不需要任何桥接表。
-
-   点位坐标 = 由上游 labels 的世界坐标经 scripts/gen_maps.py:project() 投影而来，
-   **不是手工放置的**。公式的锚点自检见 scripts/check_map_projection.py。
+   字段说明见 scripts/gen_maps.py 内的同名注释；底图与投影公式同源于本站。
    ========================================================================== */
-window.TARKOV_MAPS = {payload};
+window.TARKOV_MAPS = window.TARKOV_MAPS || {{}};
+window.TARKOV_MAPS[{json.dumps(key)}] = {one}["{key}"];
 """
-    OUT_JS.parent.mkdir(parents=True, exist_ok=True)
-    OUT_JS.write_text(js, encoding="utf-8")
-    log(f"\n③ 写出 {OUT_JS.relative_to(ROOT)}（{len(js.encode('utf-8')) / 1024:.1f} KB）")
+        (OUT_JS_DIR / f"maps-data-{key}.js").write_text(js, encoding="utf-8")
+        total += len(js.encode("utf-8"))
+    log("\n③ 写出 " + str(OUT_JS_DIR.relative_to(ROOT)) + "/maps-data-<key>.js"
+        + f"（{len(maps)} 个分片，合计 {total / 1024:.1f} KB）"
+        + "＋ " + str(OUT_JSON.relative_to(ROOT)) + "（构建期读取）")
+    return
 
 
 def write_key_locations(maps: dict) -> None:
@@ -1339,6 +1406,7 @@ def main() -> int:
     maps = build_maps(data)
     write_js(maps)
     write_key_locations(maps)
+    write_dropped(maps)
     log(f"\n✅ 完成：{len(maps)} 张图，共 "
         f"{sum(len(m['labels']) for m in maps.values())} 个地名锚点")
     return 0

@@ -106,6 +106,8 @@ extra_javascript:
   - javascripts/nav-top.js
   - javascripts/progress-manifest.js
   - javascripts/progress.js
+  # 物品需求判定（读进度）：物品反查页与图鉴单件页共用同一份，避免两套口径。
+  - javascripts/quest-needs.js
   # ⚠️ 地图脚本**不在这里直接加载**：map.js 约 93 KB（gzip 32 KB），
   #    只有带 #tk-map 的地图页需要。map-loader.js 检测到挂载点才注入它，
   #    其余 150 多页不再为地图付下载（2026-10-17）。

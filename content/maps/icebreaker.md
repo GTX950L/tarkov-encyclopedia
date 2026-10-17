@@ -18,11 +18,39 @@ tags:
 | 项 | 数量 |
 |----|------|
 | 任务目标区域 | 0 |
+| 提及任务（无坐标） | 20 |
 | 上锁位置 | 11 |
 
 ## 🎯 任务
 
-这张图上**没有**任务目标区域 —— **不是本站漏抓**：上游的任务数据里，这张图的任务目标没有给出坐标。站内有该图的任务与打法说明，只是地图上暂时画不出位置。**数据没有就是没有，不编位置。**
+这张图上**没有可画的任务目标区域** —— 不是本站漏抓：上游的任务数据里，这张图的任务目标没有给出坐标。但**有 20 个任务提到本图**，下面单列，避免读者以为「这张图没有任务」。
+
+## 🧭 提到本图、但画不出位置（20 个）
+
+> 这些任务的任务级地图或目标文字提到本图，但上游**没有给出可画的坐标区**。所以它们不在上面的地图上，也不该被当成「漏抓」—— **位置没有就是没有，不编。**点商人名进对应页看完整任务明细。
+
+| 商人 | 任务 | 目标里怎么提到 |
+|------|------|----------------|
+| [BTR 司机](../quests/btr-driver.md) | 坚持到底 | 消灭游荡者 |
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 在完成其他目标的同时消灭 Scav |
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 在完成其他目标的同时消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 塔科夫神射手 - 1 | 使用栓动式步枪在 40 米开外通过机械瞄具击杀 Scav |
+| [Jaeger](../quests/jaeger.md) | 如楔在侧 | 找到并消灭 Wedge 小队 |
+| [Jaeger](../quests/jaeger.md) | 流浪狗 | 在同场战局中找到并消灭 Knight |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - 受伤的野兽 | 在疼痛状态下消灭 Scav |
+| [Peacekeeper](../quests/peacekeeper.md) | 和平原子 | 在破冰船上找到并获取核反应单元控制日志 |
+| [Peacekeeper](../quests/peacekeeper.md) | 窃听风暴 | 修复破冰船通往轮机舱路上自动化控制室内的设备 |
+| [Prapor](../quests/prapor.md) | 恐吓者 | 命中头部击杀Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 5 | 使用轻机枪消灭 Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 6 | 找到并消灭任意 Boss |
+| [Prapor](../quests/prapor.md) | 油料交换 | 任务级地图归属 |
+| [Ragman](../quests/ragman.md) | 人靠衣装 - 2 | 击杀游荡者 |
+| [Ragman](../quests/ragman.md) | 人靠衣装 - 2 | 击杀游荡者 |
+| [Ragman](../quests/ragman.md) | 新起点 | 消灭 Scav |
+| [Ragman](../quests/ragman.md) | 新鲜到货 | 任务级地图归属 |
+| [Ref（竞技场裁判）](../quests/ref.md) | 平衡之力 - 1（PVP） | 在任意地图使用 Steyr AUG 消灭 Scav |
+| [Therapist](../quests/therapist.md) | 战争从未改变 | 任务级地图归属 |
+| [Therapist](../quests/therapist.md) | 生化分析 | 任务级地图归属 |
 
 ## 🧭 怎么用这张图
 

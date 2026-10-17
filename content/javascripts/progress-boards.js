@@ -31,9 +31,18 @@
       richEl = UI.richEl;
   var MODE_LABEL = TP.MODE_LABEL, TRACKS = TP.TRACKS, TRACK_LABEL = TP.TRACK_LABEL;
 
-  /* 图节点字段下标 —— 与生成器里的 cols 一致，改一处要改两处。 */
+  /* 图节点字段下标 —— 与生成器里的 cols 一致，改一处要改两处。
+     第 9 项（下标 8）是 ms：目标级 ∪ 任务级的地图 key 数组（2026-10-17 新增）。 */
   var N_NAME = 0, N_TRADER = 1, N_LEVEL = 2, N_PRE = 3, N_FLAGS = 4,
-      N_LINK = 5, N_GATES = 6, N_MAP = 7;
+      N_LINK = 5, N_GATES = 6, N_MAP = 7, N_MAPS = 8;
+
+  /* 地图 key → 中文名（筛选下拉与推荐卡的「多图」文案用）。 */
+  var MAP_CN = {
+    customs: "海关", factory: "工厂", "ground-zero": "中心区", woods: "森林",
+    interchange: "立交桥", reserve: "储备站", shoreline: "海岸线",
+    lighthouse: "灯塔", "streets-of-tarkov": "街区", terminal: "终点站",
+    icebreaker: "破冰船", "the-lab": "实验室", "the-labyrinth": "迷宫",
+  };
 
   var QROW_CAP = 80;
 
@@ -889,6 +898,61 @@
       chapP.appendChild(document.createTextNode("。"));
       nSec.appendChild(chapP);
 
+      /* ── 五a、按图作战面板（P1-5）──────────────────────────────
+         「下一步」按解锁收益排序，不回答「今晚去哪张图」。这里用 ms 数组
+         （目标级 ∪ 任务级）把 504 个任务按图聚合，给出每张图的
+         可接 / 进行中 / 已完成 / 前置未清 四档。点一张图 →
+         派发 tk:map-filter，任务进度分页套上地图筛选并切过去。 */
+      var mapPanel = el("div", "tk-ov__maps");
+      nSec.appendChild(mapPanel);
+      if (graph && graph.tasks) {
+        mapPanel.appendChild(el("p", "tk-ov__maps-head",
+          "按图看：今晚去哪张图（点一下跳到任务进度并筛选）"));
+        var availSet = {};
+        (tree.avail || []).forEach(function (q) { availSet[q] = 1; });
+        var byMap = {};
+        for (var qid in graph.tasks) {
+          var nd = graph.tasks[qid] || [];
+          var st = tree.done[qid] ? "done"
+            : inhand[qid] ? "inhand"
+              : availSet[qid] ? "avail" : "blocked";
+          (nd[N_MAPS] || []).forEach(function (k) {
+            if (!k) return;
+            var r = byMap[k] || (byMap[k] = { avail: 0, inhand: 0, done: 0, blocked: 0 });
+            r[st]++;
+          });
+        }
+        var grid = el("div", "tk-ov__maps-grid");
+        Object.keys(byMap).sort(function (a, b) {
+          return (byMap[b].avail + byMap[b].inhand) - (byMap[a].avail + byMap[a].inhand);
+        }).forEach(function (k) {
+          var r = byMap[k];
+          var card = el("button", "tk-ov__map", "");
+          card.type = "button";
+          card.appendChild(el("b", null, MAP_CN[k] || k));
+          var line = el("span", "tk-ov__map-line");
+          if (r.avail) line.appendChild(el("em", "tk-ov__map-a", "可接 " + r.avail));
+          if (r.inhand) line.appendChild(el("em", "tk-ov__map-i", "进行中 " + r.inhand));
+          if (r.done) line.appendChild(el("em", "tk-ov__map-d", "已完成 " + r.done));
+          if (!r.avail && !r.inhand && !r.done) {
+            line.appendChild(el("em", "tk-ov__map-b", "前置未清 " + r.blocked));
+          }
+          card.appendChild(line);
+          card.title = "可接 " + r.avail + " ｜ 进行中 " + r.inhand
+            + " ｜ 已完成 " + r.done + " ｜ 前置未清 " + r.blocked;
+          card.addEventListener("click", function () {
+            try {
+              window.dispatchEvent(new CustomEvent("tk:map-filter", { detail: { map: k } }));
+            } catch (e) { /* 老浏览器：静默 */ }
+          });
+          grid.appendChild(card);
+        });
+        mapPanel.appendChild(grid);
+        mapPanel.appendChild(el("p", "tk-board__note",
+          "计数按任务的**全部地图**（目标级 ∪ 任务级）统计，所以一张图可能同时挂着一个跨图任务；"
+          + "没有坐标数据的图（终点站 / 破冰船）同样显示任务数，只是不给地图深链。"));
+      }
+
       /* ── 五b、最划算的可接任务 · 前 5（P1-1）──
          上面的 steps 是**汇总建议**（几条轨各一句）；这一块回答竞品
          tarkovtracker.org 首页那个问题：「具体做哪一个」。
@@ -964,7 +1028,9 @@
           nameLine.appendChild(el("b", null, r[C.name]));
           var meta = (r[C.trader] || "—")
             + (r[C.level] ? " · Lv" + r[C.level] : "")
-            + (r[C.map] ? " · " + r[C.map] : "");
+            + ((r[C.maps] && r[C.maps].length)
+              ? " · " + r[C.maps].map(function (k) { return MAP_CN[k] || k; }).join(" / ")
+              : (r[C.map] ? " · " + r[C.map] : ""));
           nameLine.appendChild(el("span", "tk-ov__pickmeta", meta));
           main.appendChild(nameLine);
           main.appendChild(el("span", "tk-ov__pickwhy", pickReason(r)));
@@ -975,7 +1041,8 @@
                 带地图归属但无坐标的任务（116 条）给地图深链会落空 ——
                 退回「任务详情 →」，与 quest-detail.js 同一判定（同源见
                 scripts/_map_links.py）。mz 缺字段（旧缓存）按可定位处理。 */
-          var mk = MAP_KEY[r[C.map]];
+          var mks = r[C.maps] || [];
+          var mk = mks.length ? mks[0] : MAP_KEY[r[C.map]];
           if (mk && r[C.mz] === 0) mk = "";
           var a = el("a", "tk-ov__picklink",
             mk ? "在地图上看 →" : "任务详情 →");
@@ -1468,15 +1535,32 @@
              ③ **FIR / 可采购分区**——「必须战局中带出」是买不到的，
                 混排时读者会以为都能跳蚤市场买。 */
         var byMap = {}, mapOrder = [];
+        function addPrep(mp, name, qty, fir) {
+          var k = mp || "";
+          if (!byMap[k]) { byMap[k] = []; mapOrder.push(k); }
+          byMap[k].push([name, qty, !!fir]);
+        }
         for (var q2 = 0; q2 < inIds.length; q2++) {
           var node2 = graph.tasks[inIds[q2]] || [];
           var mp = node2[N_MAP] || "";
-          if (!byMap[mp]) { byMap[mp] = []; mapOrder.push(mp); }
           var det2 = detailOf(inIds[q2]);
-          if (!det2 || !det2.p) continue;
+          if (!det2) continue;
+          /* 2026-10-17：优先用目标级 prep（po），**剔除已完成目标**；
+             旧数据没有 po 时退回任务级 p（并尽量用 p 的第 4 项地图数组）。 */
+          if (det2.po && det2.po.length) {
+            det2.po.forEach(function (pp) {
+              var oid = pp[0], name = pp[1], qty = pp[2] || 1, fir = !!pp[3];
+              if (oid && TP.objDone && TP.objDone(inIds[q2], oid)) return;
+              var mps = (pp[4] && pp[4].length) ? pp[4] : [mp];
+              mps.forEach(function (m) { addPrep(m, name, qty, fir); });
+            });
+            continue;
+          }
+          if (!det2.p) continue;
           for (var p2 = 0; p2 < det2.p.length; p2++) {
             var it3 = det2.p[p2];
-            byMap[mp].push([it3[0], it3[1], !!it3[2]]);
+            var mps2 = (it3[3] && it3[3].length) ? it3[3] : [mp];
+            mps2.forEach(function (m) { addPrep(m, it3[0], it3[1], it3[2]); });
           }
         }
 
@@ -1691,20 +1775,38 @@
         return;
       }
 
-      /* 地图选项只要建一次 */
+      /* 地图选项只要建一次 —— 从 ms 数组（目标级 ∪ 任务级）建，92 个
+         「任务级 map 为空、目标级有图」的任务才进得来。 */
       if (!mapSel.__filled) {
         var ms = {};
         for (var id0 in graph.tasks) {
-          var mv = graph.tasks[id0][N_MAP];
-          if (mv) ms[mv] = (ms[mv] || 0) + 1;
+          (graph.tasks[id0][N_MAPS] || []).forEach(function (k) {
+            if (k) ms[k] = (ms[k] || 0) + 1;
+          });
         }
         Object.keys(ms).sort(function (a, b) { return ms[b] - ms[a]; }).forEach(function (mv) {
           var o = document.createElement("option");
-          o.value = mv; o.textContent = mv + "（" + ms[mv] + "）";
+          o.value = mv;
+          o.textContent = (MAP_CN[mv] || mv) + "（" + ms[mv] + "）";
           mapSel.appendChild(o);
         });
         mapSel.__filled = true;
       }
+
+      /* 总览「按图作战面板」点一张图 → 这里套上地图筛选并切到本分页。
+         用自定义事件而不是共享变量：总览与看板是两段独立渲染函数。 */
+      window.addEventListener("tk:map-filter", function (ev) {
+        var k = ev && ev.detail && ev.detail.map;
+        if (!k || !mapSel.__filled) return;
+        var has = false;
+        for (var oi2 = 0; oi2 < mapSel.options.length; oi2++) {
+          if (mapSel.options[oi2].value === k) { has = true; break; }
+        }
+        if (!has) return;
+        mapSel.value = k;
+        if (typeof activateTabOf === "function") activateTabOf(mapSel);
+        sync();
+      });
 
       var md = TP.data();
       var explicit = md.modes[md.mode].quests || {};
@@ -1777,7 +1879,7 @@
           for (var z = 0; z < ids.length; z++) {
             var nn = graph.tasks[ids[z]];
             if (!nn) continue;
-            if (mapPick && nn[N_MAP] !== mapPick) continue;
+            if (mapPick && (nn[N_MAPS] || []).indexOf(mapPick) < 0) continue;
             if (!passPreset(ids[z])) continue;
             out.push(ids[z]);
           }
@@ -2807,6 +2909,53 @@
     });
     ops.appendChild(btnAll);
 
+    /* 进度体检（2026-10-17）：数据重抓会下线任务（v1.132.0 就移除了 17 条），
+       本机账本里的旧 id 会静静留着 —— 界面上一个都看不见。点一次列出
+       「账本里有、当前数据里没有」的任务与目标，便于决定清不清。 */
+    var btnCheck = el("button", "tk-board__btn", "进度体检");
+    btnCheck.type = "button";
+    btnCheck.title = "列出本机进度里已不在当前任务数据中的条目（任务重抓下线会造成）";
+    btnCheck.addEventListener("click", function () {
+      var box = document.getElementById("tk-board-health");
+      box.textContent = "";
+      box.appendChild(el("p", "tk-board__note", "正在核对…"));
+      ensureGraph(function (graph) {
+        box.textContent = "";
+        if (!graph || !graph.tasks) {
+          box.appendChild(el("p", "tk-board__note", "任务图没载入，刷新后再试。"));
+          return;
+        }
+        var md = TP.data(), m = md.mode, mode = md.modes[m] || {};
+        var orphanQ = [], orphanO = [];
+        ["quests", "inhand"].forEach(function (track) {
+          var rec = mode[track] || {};
+          Object.keys(rec).forEach(function (qid) {
+            if (!graph.tasks[qid]) orphanQ.push((rec[qid] && rec[qid].n) || qid);
+          });
+        });
+        var objs = mode.objectives || {};
+        Object.keys(objs).forEach(function (k) {
+          var qid = k.split("|")[0];
+          if (!graph.tasks[qid]) orphanO.push(qid);
+        });
+        var line = el("p", "tk-board__note");
+        if (!orphanQ.length && !orphanO.length) {
+          line.textContent = "✅ 体检通过：当前账本里的任务与目标 id 全部能在当前数据中找到。";
+        } else {
+          line.textContent = "发现 " + orphanQ.length + " 个已下线任务、"
+            + orphanO.length + " 条孤儿目标（数据重抓后旧 id 留存）："
+            + orphanQ.slice(0, 6).join("、") + (orphanQ.length > 6 ? " 等" : "")
+            + "。它们不影响现有任务的统计；要清掉可用「清空已完成 / 进行中」分轨操作，"
+            + "或先导出进度再清。";
+        }
+        box.appendChild(line);
+      });
+    });
+    ops.appendChild(btnCheck);
+    var healthBox = el("div", "tk-board__health");
+    healthBox.id = "tk-board-health";
+    host.appendChild(healthBox);
+
     host.appendChild(ops);
     host.appendChild(richEl("p", "tk-board__note",
       "导出 / 分享都是**纯本地**的：导出是一个 JSON 文件，分享是一条带进度数据的链接 —— "
@@ -2822,6 +2971,71 @@
        目录入口是主用法（一次把 Logs 捞全）；文件入口给「只想读某几个会话」
        与不支持目录选择的浏览器兜底。解析代码不在这里 —— 它在惰性模块
        log-sync.js 里，第一次真正选文件时才注入（这一页其余读者不必背它）。 */
+    /* ---- 目录句柄（2026-10-17）：Chromium 支持 showDirectoryPicker，
+       把句柄存进 IndexedDB，下次一键「同步新增」，不必重选文件夹。
+       Firefox / Safari 没有这个 API —— 保留 webkitdirectory 输入作为兜底。 ---- */
+    var LOG_DB = "tk-logs", LOG_STORE = "handles", LOG_WM = "tarkov_log_sync_v1";
+    function idbOpen() {
+      return new Promise(function (res, rej) {
+        if (!window.indexedDB) { rej(new Error("no-idb")); return; }
+        var r = indexedDB.open(LOG_DB, 1);
+        r.onupgradeneeded = function () {
+          if (!r.result.objectStoreNames.contains(LOG_STORE)) {
+            r.result.createObjectStore(LOG_STORE);
+          }
+        };
+        r.onsuccess = function () { res(r.result); };
+        r.onerror = function () { rej(r.error || new Error("idb")); };
+      });
+    }
+    function idbGet(key) {
+      return idbOpen().then(function (db) {
+        return new Promise(function (res, rej) {
+          var t = db.transaction(LOG_STORE, "readonly");
+          var q = t.objectStore(LOG_STORE).get(key);
+          q.onsuccess = function () { res(q.result || null); };
+          q.onerror = function () { rej(q.error); };
+        });
+      });
+    }
+    function idbSet(key, val) {
+      return idbOpen().then(function (db) {
+        return new Promise(function (res, rej) {
+          var t = db.transaction(LOG_STORE, "readwrite");
+          t.objectStore(LOG_STORE).put(val, key);
+          t.oncomplete = function () { res(true); };
+          t.onerror = function () { rej(t.error); };
+        });
+      });
+    }
+    function idbDel(key) {
+      return idbOpen().then(function (db) {
+        return new Promise(function (res) {
+          var t = db.transaction(LOG_STORE, "readwrite");
+          t.objectStore(LOG_STORE).delete(key);
+          t.oncomplete = function () { res(true); };
+          t.onerror = function () { res(false); };
+        });
+      });
+    }
+    async function collectDir(dir, out) {
+      out = out || [];
+      for await (const ent of dir.values()) {
+        if (ent.kind === "file") out.push(await ent.getFile());
+        else if (ent.kind === "directory") await collectDir(ent, out);
+      }
+      return out;
+    }
+    function lastSyncLabel() {
+      try {
+        var o = JSON.parse(localStorage.getItem(LOG_WM) || "null");
+        if (!o || !o.at) return "";
+        var d = new Date(o.at), p = function (n) { return (n < 10 ? "0" : "") + n; };
+        return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate())
+          + " " + p(d.getHours()) + ":" + p(d.getMinutes());
+      } catch (e) { return ""; }
+    }
+
     var logBox = el("div", "tk-board__logs");
     logBox.appendChild(el("h4", null, "从游戏日志同步（可选）"));
     logBox.appendChild(richEl("p", "tk-board__lognote",
@@ -2834,9 +3048,14 @@
     logDirBtn.type = "button";
     var logFileBtn = el("button", "tk-board__btn", "或选日志文件");
     logFileBtn.type = "button";
+    var logForget = el("button", "tk-board__btn tk-board__btn--ghost", "断开连接");
+    logForget.type = "button";
+    logForget.hidden = true;
+    logForget.title = "清除已保存的 Logs 目录句柄与同步记录；不会删除任何日志文件";
     var logCount = el("span", "tk-board__filtercount");
     logBar.appendChild(logDirBtn);
     logBar.appendChild(logFileBtn);
+    logBar.appendChild(logForget);
     logBar.appendChild(logCount);
     logBox.appendChild(logBar);
 
@@ -2857,7 +3076,16 @@
     var logOut = el("div", "tk-board__logout");
     logBox.appendChild(logOut);
 
-    function onLogFiles(list) {
+    var logHandle = null;
+    function refreshLogBtn() {
+      var at = lastSyncLabel();
+      logDirBtn.textContent = logHandle
+        ? (at ? "同步新增（上次 " + at + "）" : "同步新增日志")
+        : "选择 Logs 文件夹";
+      logForget.hidden = !(logHandle || at);
+    }
+
+    function onLogFiles(list, opts) {
       var files = Array.prototype.slice.call(list || []);
       if (!files.length) return;
       logCount.textContent = "已选 " + files.length + " 个文件";
@@ -2866,13 +3094,67 @@
           toast(host, "解析模块没有载入成功（可能是网络中断）—— 刷新一次再试。", false);
           return;
         }
-        window.TarkovLogSync.run(files, logOut);
+        window.TarkovLogSync.run(files, logOut, {
+          onMerged: function (at) {
+            logCount.textContent = at ? "上次同步 " + at : "";
+            refreshLogBtn();
+          },
+        });
       });
     }
+
+    function useLogHandle() {
+      /* requestPermission 必须**直接**在点击回调里调用（用户手势）——
+         先 await queryPermission 再 request，部分浏览器会把手势丢掉。 */
+      return logHandle.requestPermission({ mode: "read" }).then(function (p) {
+        if (p !== "granted") throw new Error("denied");
+        return collectDir(logHandle);
+      }).then(function (files) {
+        onLogFiles(files, { fromHandle: true });
+      }).catch(function (e) {
+        if (e && e.name === "AbortError") return;
+        toast(host, "读取 Logs 目录失败：" + (e && e.message ? e.message : e)
+          + "。可以改用「或选日志文件」。", false);
+      });
+    }
+
+    /* 初始化：读回上次的目录句柄（不弹权限框，只更新按钮文案）。 */
+    if (window.indexedDB) {
+      idbGet("logs").then(function (h) {
+        logHandle = h || null;
+        refreshLogBtn();
+      }).catch(function () { refreshLogBtn(); });
+    } else {
+      refreshLogBtn();
+    }
+
     dirInput.addEventListener("change", function () { onLogFiles(dirInput.files); dirInput.value = ""; });
     pickInput.addEventListener("change", function () { onLogFiles(pickInput.files); pickInput.value = ""; });
-    logDirBtn.addEventListener("click", function () { dirInput.click(); });
+    logDirBtn.addEventListener("click", function () {
+      if (logHandle) { useLogHandle(); return; }
+      if (!window.showDirectoryPicker) { dirInput.click(); return; }
+      window.showDirectoryPicker({ mode: "read" }).then(function (h) {
+        logHandle = h;
+        idbSet("logs", h).catch(function () { /* 存不下不影响本次 */ });
+        refreshLogBtn();
+        return collectDir(h);
+      }).then(function (files) {
+        onLogFiles(files, { fromHandle: true });
+      }).catch(function (e) {
+        if (e && e.name === "AbortError") return; // 用户取消：不报错
+        toast(host, "打开目录失败：" + (e && e.message ? e.message : e)
+          + "。浏览器不支持时请用「或选日志文件」。", false);
+      });
+    });
     logFileBtn.addEventListener("click", function () { pickInput.click(); });
+    logForget.addEventListener("click", function () {
+      idbDel("logs").catch(function () {});
+      try { localStorage.removeItem(LOG_WM); } catch (e) { /* 隐私模式 */ }
+      logHandle = null;
+      logOut.textContent = "";
+      refreshLogBtn();
+      toast(host, "已断开 Logs 目录连接，并清除同步记录。下次会重新读取全部日志。", true);
+    });
 
     host.appendChild(logBox);
 

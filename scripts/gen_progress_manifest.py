@@ -391,12 +391,16 @@ def build_graph(tasks: list[dict]) -> int:
         ids_for_task = obj_ids.get(tid) or []
         prep_map: dict[str, list] = {}
         obj_detail = []
+        # 目标级准备项：与 obj_detail 的 oid 对齐，渲染时可剔除「已完成目标」。
+        # [目标id, 物品名, 数量, 是否必须战局中带出, 目标地图列表]
+        prep_obj: list[list] = []
         for oi, o in enumerate(t.get("objectives") or []):
             oid = ids_for_task[oi] if oi < len(ids_for_task) else ""
             if oid:
                 obj_detail.append([oid, o.get("text") or "",
                                    o.get("count") or 0, 1 if o.get("fir") else 0])
             ty = o.get("type") or ""
+            omaps = o.get("maps") or []
             if ty in PREP_TYPES:
                 n = o.get("count") or 1
                 is_find = ty in FIND_TYPES
@@ -413,21 +417,29 @@ def build_graph(tasks: list[dict]) -> int:
                     else:
                         cur[1] += n
                     cur[2] = cur[2] or bool(o.get("fir"))
+                    if oid:
+                        prep_obj.append([oid, nm, n, 1 if o.get("fir") else 0, omaps])
             for nm in (o.get("keys") or []):
                 if nm and nm not in prep_map:
                     prep_map[nm] = [nm, 1, False, 0]
-        prep = [[k[0], max(k[1], k[3]), k[2]] for k in prep_map.values()]
+                if nm and oid:
+                    prep_obj.append([oid, nm, 1, 0, omaps])
+        prep = [[k[0], max(k[1], k[3]), k[2], sorted({
+            m for po in prep_obj if po[1] == k[0] for m in (po[4] or [])
+        })] for k in prep_map.values()]
         prep.sort(key=lambda x: (not x[2], -x[1], x[0]))
 
-        # 紧凑数组而不是对象：515 条 × 8 个字段，对象写法会白白多背一半体积
+        # 紧凑数组而不是对象：504 条 × 9 个字段，对象写法会白白多背一半体积。
+        # 第 9 项 ms 是**多图数组**（目标级 ∪ 任务级）；第 8 项 map 只用于展示。
         nodes[tid] = [
             t.get("name") or "", t.get("trader") or "", t.get("level") or 0,
             pre, flags, anchor.get(tid, ""),
             gates,
             t.get("map") or "",
+            t.get("ms") or ([t.get("map")] if t.get("map") else []),
         ]
         if obj_detail or prep:
-            detail[tid] = {"o": obj_detail, "p": prep}
+            detail[tid] = {"o": obj_detail, "p": prep, "po": prep_obj}
 
     body = json.dumps({
         "generated": date.today().isoformat(),

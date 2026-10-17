@@ -11,12 +11,10 @@
 旧 GraphQL 端点对任何查询都返回 422）都会把「重新生成」变成不可完成的任务。
 抓取结果精简后入库，生成只读它。`--fetch` 只在数据该更新时手动跑。
 
-**坐标在抓取这一步就被丢掉**（见 `slim_objective`）：站内不收「只在某个具体
-点位成立」的信息（引用说明第六节），把这条规矩做进数据管道，比事后靠人记得删可靠。
-被同一条规矩剔掉的字段有三类：目标上的 `zones`（坐标盒与轮廓）、
-`findQuestItem` 的 `possibleLocations`（点位坐标组）、以及 `shoot` 的
-`playerHealthEffect` 里的坐标。**判定依据是「字段里有没有真实 x/y/z」**，
-不是「字段叫什么」。
+**坐标从 2026-10-17 起入正文**（见 `slim_objective`）：站点的「不列坐标」限制已撤销，
+目标自带的 `zones`（中心点 / 轮廓 / 高度）与 `possibleLocations`（任务物品可能位置）
+都保留进 `quests.json`，任务详情页与交互地图都能读。**仍然不写的是「走位路线 / 先去哪」**
+（引用说明第六节），那是攻略，不是坐标。
 
 数据源（均为二级来源）：json.tarkov.dev 的 regular（持久 PvP）档案。
 """
@@ -44,7 +42,7 @@ OUT_DIR = ROOT / "content" / "quests"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 # 「在地图上看」可用性判定（中文地图名 → key + 图上有没有可画的坐标）。
 # 唯一来源在 _map_links.py，与 gen_quest_insights / gen_maps 共用同一份口径。
-from _map_links import linkable_ids  # noqa: E402
+from _map_links import MAP_ID_TO_KEY, linkable_ids, task_map_keys  # noqa: E402
 
 # 任务 id → 携带清单。由 gen_quest_carrier.py 生成，**缺失时整块功能降级**：
 # 没有这个文件就当「所有任务都不需要自备物品」，页面照常生成，
@@ -244,18 +242,20 @@ def id_groups(rk, nameof, kind="item") -> list[str]:
 
 
 def slim_objective(o: dict, nameof) -> dict:
-    """把一个 objective 压成展示用的记录 —— **坐标在这里就被丢弃**。
+    """把一个 objective 压成展示用的记录 —— **坐标自 2026-10-17 起保留**。
 
-    被丢弃的是三类含真实 x/y/z 的字段：本目标自己的 `zones`（坐标盒与轮廓）、
-    `findQuestItem` 的 `possibleLocations`（点位坐标组）、`shoot` 的
-    `playerHealthEffect`。它们属站内明确不收的「只在某个具体点位成立」的一类
-    （引用说明第六节）。**不进 JSON，后面也就无从渲染出来** ——
-    比「渲染时记得跳过」可靠，因为渲染代码以后还会改，数据管道只走一次。
+    保留三类含真实 x/y/z 的字段：本目标自己的 `zones`（中心点 / 轮廓 / 高度）、
+    `findQuestItem` 的 `possibleLocations`（点位坐标组）、以及目标 id。它们会在
+    任务详情页显示为「坐标」行，并作为地图 `?q=&o=` 深链的落点。
 
-    保留下来的只有「在哪张图」这一层：`maps` 是地图归属，不是坐标。
+    **仍然不保留的是「走位路线」**：上游没有这个字段，本站也不写。坐标是事实，
+    路线是攻略 —— 两者不是一回事（引用说明第六节）。
+
+    `maps` 仍是地图归属（中文名），坐标走 `zones` / `pl`，两者分开存。
     """
     ty = o.get("type")
     d: dict = {"type": ty,
+               "id": o.get("id") or "",
                "text": quote_cn(one_line(nameof("obj", o.get("id"))))}
     if o.get("optional"):
         d["optional"] = True
@@ -389,6 +389,50 @@ def slim_objective(o: dict, nameof) -> dict:
     maps = [nameof("map", m) for m in (o.get("maps") or [])]
     if maps:
         d["maps"] = maps
+
+    # ── 精确坐标（2026-10-17 口径撤销后入仓）────────────────────────────
+    # zones：上游目标自带的坐标区。`p` 是中心点 [x,y,z]，`o` 是轮廓的 [x,z]，
+    # `t` / `b` 是顶 / 底高度。地图侧用同一份坐标做投影，正文侧直接印数字。
+    zs: list[dict] = []
+    for z in o.get("zones") or []:
+        mid = z.get("map")
+        if isinstance(mid, dict):
+            mid = mid.get("id")
+        pos = z.get("position") or {}
+        if "x" not in pos or "z" not in pos:
+            continue
+        rec: dict = {
+            "m": MAP_ID_TO_KEY.get(mid, ""),
+            "p": [round(pos.get("x") or 0, 1), round(pos.get("y") or 0, 1),
+                  round(pos.get("z") or 0, 1)],
+        }
+        if z.get("top") is not None:
+            rec["t"] = round(z["top"], 1)
+        if z.get("bottom") is not None:
+            rec["b"] = round(z["bottom"], 1)
+        ol = [[round(p.get("x") or 0, 1), round(p.get("z") or 0, 1)]
+              for p in (z.get("outline") or []) if "x" in p and "z" in p]
+        if ol:
+            rec["o"] = ol
+        if z.get("id"):
+            rec["i"] = z["id"]
+        zs.append(rec)
+    if zs:
+        d["zones"] = zs
+
+    # 任务物品的可能位置（findQuestItem 专用）：125 组 / 301 个点，全量入仓。
+    pls: list[dict] = []
+    for loc in o.get("possibleLocations") or []:
+        mid = loc.get("map")
+        if isinstance(mid, dict):
+            mid = mid.get("id")
+        pts = [[round(p.get("x") or 0, 1), round(p.get("y") or 0, 1),
+                round(p.get("z") or 0, 1)]
+               for p in (loc.get("positions") or []) if "x" in p and "z" in p]
+        if pts:
+            pls.append({"m": MAP_ID_TO_KEY.get(mid, ""), "p": pts})
+    if pls:
+        d["pl"] = pls
     return d
 
 
@@ -628,6 +672,8 @@ def fetch() -> dict:
             "level": num(t.get("minPlayerLevel")) or 0,
             "exp": num(t.get("experience")) or 0,
             "map": nameof("map", t["map"]) if t.get("map") else "",
+            # 任务级单值 map 只是展示字段；筛选 / 地图入口一律用 ms（多图数组）。
+            "ms": [],
             "faction": "" if t.get("factionName") in (None, "Any") else t["factionName"],
             "prestige": num(prestige.get(t.get("requiredPrestige") or "")) or 0,
             "kappa": bool(t.get("kappaRequired")),
@@ -649,6 +695,7 @@ def fetch() -> dict:
             "delay": max(num(t.get("availableDelaySecondsMin")) or 0,
                          num(t.get("availableDelaySecondsMax")) or 0),
         })
+        records[-1]["ms"] = task_map_keys(records[-1])
 
     records.sort(key=lambda r: (TRADER_ORDER.index(r["trader"]) if r["trader"] in TRADER_ORDER else 99,
                                 r["level"], r["name"]))
@@ -1053,7 +1100,11 @@ def write_index(tasks: list[dict]) -> None:
     cnt_n = sum(1 for t in tasks if any(o["kind"] == "counter" for o in t["otherReqs"]))
     fac_n = sum(1 for t in tasks if t["faction"])
     pre_n = sum(1 for t in tasks if t["prestige"])
-    maps_n = sum(1 for t in tasks if t["map"])
+    # 地图归属两个数：目标级 maps（含任务级 map 兜底）与「真能在图上定位」。
+    # 旧口径只数任务级 map（256），会把 86 个「目标带图」的任务漏掉。
+    maps_n = sum(1 for t in tasks if t.get("ms"))
+    zone_n = sum(1 for t in tasks
+                 if any(o.get("zones") for o in t["objectives"]))
     fir_o = sum(1 for t in tasks for o in t["objectives"] if o.get("maps"))
 
     L: list[str] = [
@@ -1103,7 +1154,7 @@ def write_index(tasks: list[dict]) -> None:
         #    续写而成，`|` 只在最后那条上（下面「另有…」）。中间插一个 `|` 会把这一行
         #    提前收掉，后面那段就变成「表格后缺空行」——check_entries 当场报错。
         f"现存 **{sum(1 for t in tasks if t['id'] in DIALOGUE)}** / {n} 个任务有台词，其余该站没有收录；"
-        f"另有 **{maps_n}** 个任务在定义里带地图归属，"
+        f"另有 **{maps_n}** 个任务的目标带地图归属，其中 **{zone_n}** 个能在[交互地图](../maps/index.md)上定位，"
         f"可用「地图」二字在站内检索 |",
         "",
         "---", "",
@@ -1196,7 +1247,7 @@ def write_index(tasks: list[dict]) -> None:
         f"| 带**进度计数** | {cnt_n} |",
         f"| **仅限单一阵营**（BEAR 或 USEC） | {fac_n} |",
         f"| 需**威望等级** | {pre_n} |",
-        f"| 定义里带**地图归属** | {maps_n} |",
+        f"| 目标带**地图归属** | {maps_n}（其中 {zone_n} 个可定位） |",
         f"| 含**必须战局内找到**（FiR）的目标 | {fir} 条目标 |",
         f"| 需要钥匙（整任务或任一目标） | {keys_n} |",
         f"| 有失败条件 | {fail_n} |",
@@ -1597,6 +1648,14 @@ def write_quest_detail(tasks: list[dict]) -> None:
             "t": TRADER_LABEL.get(t["trader"], t["trader"]),
             "lv": t.get("level") or 0, "xp": t.get("exp") or 0,
             "m": t.get("map") or "", "f": t.get("faction") or "",
+            # ms：全部地图 key（目标级 ∪ 任务级）。多图任务在详情页给多个入口；
+            # 旧分片没有这个字段时，前端回退到 m（单图）。
+            "ms": t.get("ms") or [],
+            # 目标级坐标：与 "o" 的文本按下标一一对应；oi 是目标 id（地图深链用）。
+            # oz = 坐标区，opl = 任务物品可能位置；都只给有数据的项，缺省为空数组。
+            "oi": [o.get("id") or "" for o in (t.get("objectives") or [])],
+            "oz": [o.get("zones") or [] for o in (t.get("objectives") or [])],
+            "opl": [o.get("pl") or [] for o in (t.get("objectives") or [])],
             # mz：1 = 在地图上有可画的目标区域（详情页给「在地图上看 →」）；
             # 0 = 有地图归属但上游没给坐标（详情页给一行说明，不给死链）。
             # ⚠️ 前端对**缺这个字段**的旧分片按 1 处理（维持旧行为）——

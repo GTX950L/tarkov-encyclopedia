@@ -265,8 +265,10 @@ def main() -> int:
         "所以**不存在「挑覆盖率最高的那把」这种算法** —— "
         "「该买哪把」不看通用性，只看**你要做的那条链有没有让你进那扇门**。",
         "> ",
-        "> 地图一列是**任务自己的地图归属**，而该字段只有 263 个任务带"
-        "（见上方「关键标记与条件」）——所以有 4 把钥匙归不到地图，不是漏了，是**数据源没给**。",
+        f"> 地图一列是**任务自己的地图归属**，该字段只有 "
+        f"{sum(1 for t in tasks if t.get('map'))} 个任务带"
+        "（见上方「关键标记与条件」）——所以有 4 把钥匙归不到地图，不是漏了，是**数据源没给**。"
+        "多图任务在筛选器里会出现在它对应的每一张图下（ms 数组，见 quests-index-data 末列）。",
     ]
 
     # —— 五、读表前提：中文名会撞 ——
@@ -343,6 +345,15 @@ def main() -> int:
     # 推荐卡的链接选择要用：不可定位的任务退回「任务详情 →」，不给落空的地图深链。
     linkable = linkable_ids(tasks)
     for t in tasks:
+        # 检索用文本：目标 + 需求物品 + 奖励物品 + 钥匙。只做子串匹配，
+        # 不引拼音（站内没有权威读音来源）。体积约 +90 KB，仅本页加载。
+        obj_txt = [o.get("text") or "" for o in (t.get("objectives") or [])]
+        obj_items = [i for o in (t.get("objectives") or [])
+                     for i in (o.get("items") or [])]
+        rw_items = [p[0] for p in ((t.get("rewards") or {}).get("items") or [])
+                    if isinstance(p, list) and p]
+        search_blob = " ".join([t["name"], t.get("en") or ""] + obj_txt + obj_items
+                               + rw_items + list(t.get("keys") or []))
         rows.append([
             t["name"],
             t.get("en") or "",
@@ -367,6 +378,9 @@ def main() -> int:
             # mz：地图归属下的「图上有没有可画的坐标」（1/0）——
             # 进度页「最划算的可接」推荐卡据此选链（在最后继续追加，同上规则）。
             1 if t["id"] in linkable else 0,
+            # 2026-10-17 追加：ms = 多图 key 数组（筛选用）；s = 检索文本。
+            t.get("ms") or ([t["map"]] if t.get("map") else []),
+            search_blob,
         ])
     rows.sort(key=lambda r: (r[2], -r[13], r[0]))
 
@@ -382,7 +396,9 @@ def main() -> int:
                  # mz 是 2026-10-17 追加的末列（地图深链可用性）——
                  # quests-filter.js 只按下标读前 16 列，追加不影响它；
                  # progress-boards.js 按 cols 名字取列，天然兼容。
-                 "mz"],
+                 "mz",
+                 # ms / s 继续追加：多图数组、检索文本。
+                 "ms", "s"],
         "tasks": rows,
     }
     JS_OUT.write_text(

@@ -3,7 +3,7 @@
    --------------------------------------------------------------------------
    要解决的问题：站点的互动能力已经很完整 ——
      · 「我的进度」：任务 / 剧情章节 / 物品 / 藏身处四条轨，任务按前置反推
-     · 「任务图鉴」：515 个任务逐条 + 按条件筛选器
+     · 「任务图鉴」：504 个任务逐条 + 按条件筛选器
      · 「赛季特质模拟器」：34 张卡的点数市场与互斥校验
      · 「物品图鉴」：4,979 件全量物品，检索 / 筛选 / 商人价
      · 「配方速查」：214 条制作 + 855 条交换配方
@@ -26,7 +26,7 @@
 
      · **数字口径只有一处来源**：直接调 progress.js 暴露的
        window.TarkovProgress.count()（＝当前模式下**手动标过**的已完成数，
-       不含推断 —— 与进度页顶栏「已标记 N / 515」同一口径），
+       不含推断 —— 与进度页顶栏「已标记 N / 总数」同一口径），
        不自己解析 localStorage：两处各读一遍必然漂。API 缺失（脚本被拦截 /
        隐私模式禁用 localStorage）时保留静态文案，不报错、不空白。
 
@@ -50,7 +50,6 @@
   "use strict";
 
   var MENU = "tk-toolmenu";
-  var FALLBACK_TOTAL = 515;
 
   /* 工具清单（唯一一份，菜单与页内提示共用）。
      ⚠️ 这里**不写计数** —— 见文件头「三条边界」第二条。
@@ -107,10 +106,15 @@ function siteRoot() {
     var done;
     try { done = api.count(); } catch (e) { return ""; }
     if (!done) return "";
-    var total = FALLBACK_TOTAL;
+    /* 任务总数**不写死**：优先 manifest，其次任务图（都是生成物），
+       都没有就只报已记录数 —— 写死一个数会在下次重抓时悄悄漂。 */
+    var total = 0;
     var mf = window.TARKOV_PROGRESS_MANIFEST;
+    var g = window.TARKOV_QUEST_GRAPH;
     if (mf && mf.total) total = mf.total;
-    return "已记录 " + done + " / " + total + " 个任务";
+    else if (g && g.total) total = g.total;
+    return total ? "已记录 " + done + " / " + total + " 个任务"
+                 : "已记录 " + done + " 个任务";
   }
 
   /* --------------------------------------------------------------------------

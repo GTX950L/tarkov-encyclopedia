@@ -105,11 +105,11 @@ def counts() -> dict[str, int]:
     ammo = json.loads((ROOT / "scripts/data/ammo_values.json").read_text(encoding="utf-8"))
     hideout = json.loads((ROOT / "scripts/data/hideout.json").read_text(encoding="utf-8"))
 
-    # 交互地图：张数 = maps-data.js 的顶层 key 数；任务区域 = 各图 questZones 合计。
+    # 交互地图：张数 = maps_site.json 的顶层 key 数；任务区域 = 各图 questZones 合计。
     # 读**产物**而不是数页面文件 —— 数字与地图页「这张图的数据」表同源。
-    maps_js = (CONTENT / "javascripts" / "maps-data.js").read_text(encoding="utf-8")
-    m = _re.search(r"window\.TARKOV_MAPS\s*=\s*(\{.*\});", maps_js, _re.S)
-    maps_data = json.loads(m.group(1)) if m else {}
+    # （2026-10-17 起页面数据按图分片，构建期统一读合并 JSON。）
+    maps_data = json.loads(
+        (ROOT / "scripts/data/maps_site.json").read_text(encoding="utf-8"))
     n_maps = len(maps_data)
     n_zones = sum(len(mp.get("questZones") or []) for mp in maps_data.values())
 

@@ -1,7 +1,7 @@
 /* ==========================================================================
    从游戏日志同步（Logs → 「我的进度」）—— **惰性模块**
 
-   要解决的问题：站内 515 个任务要读者自己勾，而游戏**把任务接取 / 完成
+   要解决的问题：站内 504 个任务要读者自己勾，而游戏**把任务接取 / 完成
    都写进了本机日志**。本模块让读者**手动选一次 Logs 文件夹**，把已经
    发生的事实一次性补进账本；之后继续手勾增量（日志只覆盖「本机还留着
    日志的那段时间」——游戏会清理旧会话）。
@@ -22,7 +22,7 @@
      · 事件写在 `<会话前缀> push-notifications_000.log`：行首
        `Got notification | ChatMessageReceived` + 紧随一个 JSON 块；
      · `message.type`：10=接取 / 11=失败 / 12=完成（与官方枚举同源）；
-     · `templateId` 首段（24 位十六进制）= 任务 id，**与站内 515 个任务
+     · `templateId` 首段（24 位十六进制）= 任务 id，**与站内 504 个任务
        同一批 id**（不需要任何名字匹配）；
      · `<会话前缀> application_000.log` 里的 `Session mode:` 行决定写进
        哪个账本（Pve→PVE、Regular→PVP、Season→赛季）。
@@ -58,7 +58,7 @@
        的缺口，不是数据的问题；
      · 与任务同步**共用一次文件读取**，不为了地图再读一遍磁盘。
 
-   口径：任务表是**持久 PvP 口径的 515 条**。日常 / 周常与 PvE 专属任务
+   口径：任务表是**持久 PvP 口径的 504 条**。日常 / 周常与 PvE 专属任务
    不在其中 —— 那些事件**跳过并计数**，不硬塞（否则会污染分母）。
 
    入口在「我的进度 → 进度管理」：progress-boards.js 渲染按钮与文件输入，
@@ -81,6 +81,56 @@
      写成裸 siteRoot() 会在运行时报 ReferenceError，而**只有在有地图记录时
      才走到那一行**，所以读起来像「统计功能时灵时不灵」。 */
   function siteRoot() { return UI.siteRoot ? UI.siteRoot() : ""; }
+
+  /* --------------------------------------------------------------------------
+     〇、增量水印（2026-10-17）
+     --------------------------------------------------------------------------
+     每次同步都重读全部日志是不可接受的：文件头记录过 54 个会话 / 550 MB。
+     这里按「文件名 + 大小 + lastModified」记住已处理文件，第二次只读新增 /
+     变化的；`application_*.log` **例外**（永远读）—— 它只有几十 KB，却决定
+     这批事件写进 PVP / PVE / 赛季哪个账本，跳过它会把模式判错。
+
+     水印只在读者点「并入我的进度」之后才写：预览到一半关页面，下次还能重来。
+     -------------------------------------------------------------------------- */
+  var WM_KEY = "tarkov_log_sync_v1";
+
+  function readWM() {
+    try {
+      var raw = window.localStorage.getItem(WM_KEY);
+      var o = raw ? JSON.parse(raw) : null;
+      return (o && typeof o === "object") ? o : { at: "", files: {} };
+    } catch (e) { return { at: "", files: {} }; }
+  }
+
+  function writeWM(files) {
+    try {
+      var old = readWM(), map = {};
+      // 只保留最近 800 个文件，防止 localStorage 无限长（日志会被游戏轮转）
+      var names = Object.keys(old.files || {});
+      names.slice(-800).forEach(function (n) { map[n] = old.files[n]; });
+      (files || []).forEach(function (f) {
+        var r = roleOf(f.name);
+        if (!r) return;
+        map[f.name] = f.size + "|" + f.lastModified;
+      });
+      window.localStorage.setItem(WM_KEY, JSON.stringify({
+        at: new Date().toISOString(), files: map,
+      }));
+    } catch (e) { /* 隐私模式 / 配额满：静默降级，不影响本次同步 */ }
+  }
+
+  function fpOf(f) { return f.size + "|" + f.lastModified; }
+
+  function lastSyncText() {
+    var wm = readWM();
+    if (!wm.at) return "";
+    try {
+      var d = new Date(wm.at);
+      var p = function (n) { return (n < 10 ? "0" : "") + n; };
+      return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate())
+        + " " + p(d.getHours()) + ":" + p(d.getMinutes());
+    } catch (e) { return ""; }
+  }
 
   /* --------------------------------------------------------------------------
      一、日志识别
@@ -211,7 +261,7 @@
     if (!m) return;
     var qid = m[1];
     sink.events++;
-    if (!sink.isTask(qid)) { sink.outside++; return; }      // 515 口径外（日常/周常等）
+    if (!sink.isTask(qid)) { sink.outside++; return; }      // 当前任务表外（日常/周常等）
     var bucket = sink.modes[sink.mode] || (sink.modes[sink.mode] = { done: {}, inhand: {} });
     if (type === 12) bucket.done[qid] = sink.traderOf(qid);
     else bucket.inhand[qid] = sink.traderOf(qid);
@@ -361,7 +411,7 @@
      -------------------------------------------------------------------------- */
 
   /* 任务图（quests-graph.js）有两件事离不开它：
-       · 判定「这个 id 在不在 515 任务表里」（口径外过滤）；
+       · 判定「这个 id 在不在当前任务表里」（口径外过滤）；
        · 取每个任务的商人（写进账本的值 —— 与手勾路径存的值同构）。
      优先借看板模块的 ensureGraph（它自带「多个等待者」的合并逻辑）；
      拿不到就从脚本加载器走原路。两条路都以「全局已存在」短路。 */
@@ -389,9 +439,32 @@
      四、主流程：读取 → 解析 → 预览 → 并入
      -------------------------------------------------------------------------- */
 
-  function run(files, host) {
+  function run(files, host, opts) {
     if (!host) return;
+    opts = opts || {};
     host.textContent = "";
+
+    /* 增量过滤：application 永远读（判模式），其余按指纹跳过。 */
+    var origFiles = Array.prototype.slice.call(files || []);
+    var wm = readWM(), skipped = 0, kept = [];
+    origFiles.forEach(function (f) {
+      var r = roleOf(f.name);
+      if (r && r.key !== "app" && wm.files && wm.files[f.name] === fpOf(f)) {
+        skipped++;
+      } else {
+        kept.push(f);
+      }
+    });
+    files = kept;
+
+    if (!files.length) {
+      var none = el("p", "tk-board__logline",
+        "没有新增日志 —— 上次同步是 " + (lastSyncText() || "—")
+        + "，选中的 " + origFiles.length + " 个文件都已处理过。"
+        + "如需重读全部，先点下方「断开连接」清除同步记录。");
+      host.appendChild(none);
+      return;
+    }
 
     var box = el("div", "tk-board__logrun");
     var line = el("p", "tk-board__logline", "正在整理文件清单…");
@@ -497,10 +570,11 @@
         }
 
         line.textContent = "扫描完成：" + sessKeys.length + " 个会话 · 读到任务事件 " + sink.events + " 条（去重后）"
-          + (sink.outside ? "，其中 " + sink.outside + " 条不在 515 任务表（日常 / 周常等），已跳过" : "")
+          + (sink.outside ? "，其中 " + sink.outside + " 条不在当前 " + Object.keys(tasks).length + " 任务表（日常 / 周常等），已跳过" : "")
           + (sink.fails ? "；另有 " + sink.fails + " 条失败事件（本站没有失败轨）" : "")
           + (fallbackOut ? "；" + fallbackOut + " 个会话缺通知文件，已回退读 output" : "")
           + (noApp ? "；" + noApp + " 个会话没有模式记录，按 PVP 计" : "")
+          + (skipped ? "；跳过 " + skipped + " 个已处理文件" : "")
           + (raids.list.length ? "；另读到 " + raids.list.length + " 条地图加载记录" : "");
 
         /* ⚠️ 地图统计**放在「有没有任务事件」这个分支之前**：
@@ -553,9 +627,11 @@
           btnMerge.style.opacity = "0.55";
           sum.appendChild(el("p", "tk-board__logok", "已并入：" + parts.join("；")
             + "。如需退回：先用上方「导出进度」备份，再「清空已完成任务 / 清空进行中任务」。"));
-          /* 并入的模式与当前页面模式不同时**必须指路**：看板与状态条都按
-             当前模式显示 —— 不说明的话，读者在 PVP 模式下同步了 PVE 日志，
-             会看到界面「什么都没发生」，以为功能没生效。 */
+          /* 并入成功后才推进水印 —— 预览到一半关页面，下次仍能重来。 */
+          writeWM(origFiles);
+          if (typeof opts.onMerged === "function") {
+            try { opts.onMerged(lastSyncText()); } catch (e) { /* 界面刷新失败不影响账本 */ }
+          }
           var cur = TP.mode(), hasCur = false, want = [], wi;
           for (wi = 0; wi < plans.length; wi++) {
             if (plans[wi].mode === cur) hasCur = true;

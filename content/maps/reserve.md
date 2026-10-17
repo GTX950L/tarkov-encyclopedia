@@ -20,6 +20,7 @@ tags:
 | 地名锚点 | 27 |
 | 任务目标区域 | 47 |
 | 涉及任务 | 21 |
+| 提及任务（无坐标） | 39 |
 | 撤离点 | 11 |
 | 转场点 | 3 |
 | 上锁位置 | 34 |
@@ -53,6 +54,52 @@ tags:
 | [Ragman](../quests/ragman.md) | 西西弗斯 | 放置任务物品 | 1 | 在储备站将第一个货箱藏匿在靠近森林转移点的警卫营房内 |
 | [Ragman](../quests/ragman.md) | 雪中送炭 | 标记 | 2 | 在储备站使用MS2000指示器标记第一组油罐 |
 | [Skier](../quests/skier.md) | 安全通道 | 击杀／射击 | 1 | 在储备站地下仓库内消灭 Scav |
+
+## 🧭 提到本图、但画不出位置（39 个）
+
+> 这些任务的任务级地图或目标文字提到本图，但上游**没有给出可画的坐标区**。所以它们不在上面的地图上，也不该被当成「漏抓」—— **位置没有就是没有，不编。**点商人名进对应页看完整任务明细。
+
+| 商人 | 任务 | 目标里怎么提到 |
+|------|------|----------------|
+| [BTR 司机](../quests/btr-driver.md) | 必然回应 | 在储备站击杀Scav |
+| [Jaeger](../quests/jaeger.md) | 塔科夫神射手 - 1 | 使用栓动式步枪在 40 米开外通过机械瞄具击杀 Scav |
+| [Jaeger](../quests/jaeger.md) | 屠宰场 | 在储备站使用近战武器消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 杀戮森林 | 在塔科夫街区、储备站、灯塔或海岸线消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 蒸发密令 - 1 | 找到并消灭Glukhar |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 解放 | 击杀掠夺者 |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 -  雕鸮 | 不使用任何夜视仪或热成像瞄具，在 21:00-04:00 期间消灭 Scav （工厂除外） |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - Zhivchik | 获得“脱水”状态，并维持状态生效 5 分钟时间（工厂除外） |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - 受伤的野兽 | 在疼痛状态下消灭 Scav |
+| [Lightkeeper](../quests/lightkeeper.md) | 外部订单 | 在储备站的机电仓库找到并获取电子干扰器 |
+| [Lightkeeper](../quests/lightkeeper.md) | 简单副业 | 在储备站军医院楼顶找到并获取 Lightkeeper 的货箱 |
+| [Mechanic](../quests/mechanic.md) | 天神射手 | 在森林或储备站使用栓动式步枪爆头击杀 PMC 行动人员 |
+| [Mechanic](../quests/mechanic.md) | 物尽其用 | 在储备站取得MBT综合导航模块 |
+| [Peacekeeper](../quests/peacekeeper.md) | 向导 | 以“幸存”状态撤离海岸线或储备站 |
+| [Peacekeeper](../quests/peacekeeper.md) | 彻夜难眠 | 21:00-06:00 期间在塔科夫街区、灯塔、储备站、中心区或海岸线消灭任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 最烂的差事 | 使用 AR-15 系列武器在储备站、灯塔、海岸线或中心区从 100 米外消灭任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 来自塔科夫的礼物 | 在灯塔或储备站使用 M203 榴弹发射器消灭任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 清洁工 | 在实验室消灭掠夺者或黑色军团干员 |
+| [Peacekeeper](../quests/peacekeeper.md) | 演示原型 | 在储备站使用 7.62x51 口径的突击步枪或精确射手步枪爆头消灭任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 维和任务 | 在森林或储备站穿戴 UN 制式装备（UN头盔与防弹背心）使用 5.56x45 口径 UN 武器消灭 Scav |
+| [Prapor](../quests/prapor.md) | 塔市进口货 | 在灯塔或储备站使用装有 Hybrid 46 消音器和 PM II 1-8x24 瞄准镜的 SR-25 消灭 PMC |
+| [Prapor](../quests/prapor.md) | 多鱼之漏 | 在储备站指挥地堡的办公室内取得第一份军事文件 |
+| [Prapor](../quests/prapor.md) | 恐吓者 | 命中头部击杀Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 3 | 在储备站使用 9x39 口径武器消灭 Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 5 | 使用轻机枪消灭 Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 6 | 使用指定类型武器在灯塔、海岸线、储备站、中心区或实验室消灭 PMC 行动人员 |
+| [Prapor](../quests/prapor.md) | 护送 | 在储备站击杀PMC |
+| [Prapor](../quests/prapor.md) | 最好的差事 | 在储备站或灯塔使用 AK-74 系列突击步枪消灭任意目标 |
+| [Prapor](../quests/prapor.md) | 武装郊游 | 使用装有消音器和 KP-SR2 反射式瞄具的 SR-2M 在储备站或灯塔消灭任意目标 |
+| [Prapor](../quests/prapor.md) | 爱国者的使命 | 在灯塔、海关或储备站使用装有Valday PS-320 1/6x瞄准镜与消音器的AK-12击杀PMC行动人员 |
+| [Prapor](../quests/prapor.md) | 透透气 | 在海岸线、灯塔或储备站使用带有 EKP-1S-03 瞄具的 RPDN 机枪消灭任意目标 |
+| [Ragman](../quests/ragman.md) | 人靠衣装 - 1 | 击杀掠夺者 |
+| [Ragman](../quests/ragman.md) | 人靠衣装 - 1 | 击杀掠夺者 |
+| [Ragman](../quests/ragman.md) | 新起点 | 消灭 Scav |
+| [Ref（竞技场裁判）](../quests/ref.md) | 平衡之力 - 1（PVP） | 在任意地图使用 Steyr AUG 消灭 Scav |
+| [Skier](../quests/skier.md) | 大音希声 | 在储备站、灯塔、中心区或实验室使用消音 12 铅径霰弹枪消灭任意敌对目标 |
+| [Skier](../quests/skier.md) | 绝密技术 | 在储备站找到装有 T-90M 车长控制面板的包裹 |
+| [Skier](../quests/skier.md) | 识时务者为俊杰 | 使用转移功能从储备站转移到森林 |
+| [Therapist](../quests/therapist.md) | 病历 | 在储备站取得第一份医学报告 |
 
 ## 🧭 怎么用这张图
 

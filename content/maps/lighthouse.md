@@ -20,6 +20,7 @@ tags:
 | 地名锚点 | 22 |
 | 任务目标区域 | 48 |
 | 涉及任务 | 24 |
+| 提及任务（无坐标） | 46 |
 | 撤离点 | 12 |
 | 转场点 | 4 |
 | 上锁位置 | 26 |
@@ -56,6 +57,59 @@ tags:
 | [Therapist](../quests/therapist.md) | 侵入性疗法 | 放置物品 | 3 | 在灯塔上层度假村内的游荡者医疗区处藏匿任意 Obdolbos 鸡尾酒注射器 |
 | [Therapist](../quests/therapist.md) | 消失的线人 | 到访 | 1 | 在灯塔度假村区域找到失踪的小队 |
 | [Therapist](../quests/therapist.md) | 缉毒行动 | 到访 | 2 | 在灯塔找到隐蔽的毒品实验室 |
+
+## 🧭 提到本图、但画不出位置（46 个）
+
+> 这些任务的任务级地图或目标文字提到本图，但上游**没有给出可画的坐标区**。所以它们不在上面的地图上，也不该被当成「漏抓」—— **位置没有就是没有，不编。**点商人名进对应页看完整任务明细。
+
+| 商人 | 任务 | 目标里怎么提到 |
+|------|------|----------------|
+| [BTR 司机](../quests/btr-driver.md) | 坚持到底 | 消灭游荡者 |
+| [Fence](../quests/fence.md) | 小本生意 - 2 | 消灭任意 Scav 阵营 Boss 的保镖，但不击杀 Boss 本人 |
+| [Jaeger](../quests/jaeger.md) | 卑鄙的外乡人 | 在灯塔消灭 Scav（单场战局内完成） |
+| [Jaeger](../quests/jaeger.md) | 塔科夫神射手 - 1 | 使用栓动式步枪在 40 米开外通过机械瞄具击杀 Scav |
+| [Jaeger](../quests/jaeger.md) | 屠宰场 | 在灯塔使用近战武器消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 流浪狗 | 在同场战局中找到并消灭 Knight |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 无情杀手 | 找到并消灭Glukhar |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 杀戮森林 | 在塔科夫街区、储备站、灯塔或海岸线消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 流浪汉 | 消灭游荡者 |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 -  雕鸮 | 不使用任何夜视仪或热成像瞄具，在 21:00-04:00 期间消灭 Scav （工厂除外） |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - Zhivchik | 获得“脱水”状态，并维持状态生效 5 分钟时间（工厂除外） |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - 受伤的野兽 | 在疼痛状态下消灭 Scav |
+| [Lightkeeper](../quests/lightkeeper.md) | 大显身手 | 从 200 米外消灭狙击 Scav |
+| [Lightkeeper](../quests/lightkeeper.md) | 天降大礼 [PVP ZONE] | 上交找到的信息 |
+| [Lightkeeper](../quests/lightkeeper.md) | 失踪的线人 | 将情报上交给Lightkeeper |
+| [Lightkeeper](../quests/lightkeeper.md) | 情报之源 | 在灯塔幸存，并通过“通往军事基地的路”载具撤离点撤离 |
+| [Lightkeeper](../quests/lightkeeper.md) | 抢夺先机 | 撤离灯塔 |
+| [Lightkeeper](../quests/lightkeeper.md) | 按图索骥 | 将磁带上交给Lightkeeper |
+| [Mechanic](../quests/mechanic.md) | 商业机密 | 在灯塔污水处理厂找到并获取水泵运行数据 |
+| [Mechanic](../quests/mechanic.md) | 天神射手 | 在海关或灯塔使用栓动式步枪爆头击杀 PMC 行动人员 |
+| [Peacekeeper](../quests/peacekeeper.md) | 反抗 | 在灯塔、中心区、储备站、海岸线或塔科夫街区消灭 BEAR PMC |
+| [Peacekeeper](../quests/peacekeeper.md) | 向导 | 以“幸存”状态撤离实验室或灯塔 |
+| [Peacekeeper](../quests/peacekeeper.md) | 彻夜难眠 | 21:00-06:00 期间在塔科夫街区、灯塔、储备站、中心区或海岸线消灭任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 最烂的差事 | 使用 AR-15 系列武器在储备站、灯塔、海岸线或中心区从 100 米外消灭任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 湿活 - 6 | 使用 7.62x51 口径的精确射手步枪在海岸线或灯塔从 50 米外消灭任意敌对目标 |
+| [Peacekeeper](../quests/peacekeeper.md) | 维和任务 | 在海关或灯塔穿戴 UN 制式装备（UN头盔与防弹背心）使用 5.56x45 口径 UN 武器消灭 Scav |
+| [Prapor](../quests/prapor.md) | 体验独一份 | 在灯塔或实验室使用 Aklys Defense“迅猛龙”突击步枪消灭任意目标 |
+| [Prapor](../quests/prapor.md) | 塔市进口货 | 在灯塔或储备站使用装有 Hybrid 46 消音器和 PM II 1-8x24 瞄准镜的 SR-25 消灭 PMC |
+| [Prapor](../quests/prapor.md) | 恐吓者 | 命中头部击杀Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 4 | 在灯塔使用 SVDS 或 TKPD 消灭 Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 5 | 使用轻机枪消灭 Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 6 | 使用指定类型武器在灯塔、海岸线、储备站、中心区或实验室消灭 PMC 行动人员 |
+| [Prapor](../quests/prapor.md) | 我们的土地，我们的血 | 使用 GP-25 榴弹发射器消灭游荡者 |
+| [Prapor](../quests/prapor.md) | 最好的差事 | 在储备站或灯塔使用 AK-74 系列突击步枪消灭任意目标 |
+| [Prapor](../quests/prapor.md) | 武装郊游 | 使用装有消音器和 KP-SR2 反射式瞄具的 SR-2M 在储备站或灯塔消灭任意目标 |
+| [Prapor](../quests/prapor.md) | 爱国者的使命 | 在灯塔、海关或储备站使用装有Valday PS-320 1/6x瞄准镜与消音器的AK-12击杀PMC行动人员 |
+| [Prapor](../quests/prapor.md) | 透透气 | 在海岸线、灯塔或储备站使用带有 EKP-1S-03 瞄具的 RPDN 机枪消灭任意目标 |
+| [Ragman](../quests/ragman.md) | 人靠衣装 - 2 | 击杀游荡者 |
+| [Ragman](../quests/ragman.md) | 双手插袋 | 在灯塔使用 7.62×39 口径武器命中胸部或胃部消灭任意目标（在同场战局中完成） |
+| [Ragman](../quests/ragman.md) | 实战考验 | 穿戴任意款式的 Goon 版胸挂找到并消灭除 Goon 小队、Wedge 与 Partisan 外的任意 Boss |
+| [Ragman](../quests/ragman.md) | 新起点 | 消灭 Scav |
+| [Ref（竞技场裁判）](../quests/ref.md) | 平衡之力 - 1（PVP） | 在任意地图使用 Steyr AUG 消灭 Scav |
+| [Skier](../quests/skier.md) | 刺激需求 | 在灯塔使用 7.62×54R 口径的武器消灭游荡者或 Goon 成员 |
+| [Skier](../quests/skier.md) | 大音希声 | 在储备站、灯塔、中心区或实验室使用消音 12 铅径霰弹枪消灭任意敌对目标 |
+| [Skier](../quests/skier.md) | 识时务者为俊杰 | 以幸存状态撤离灯塔 |
+| [Therapist](../quests/therapist.md) | 海边假期 | 在灯塔找到并获取线人的公文包 |
 
 ## 🧭 怎么用这张图
 

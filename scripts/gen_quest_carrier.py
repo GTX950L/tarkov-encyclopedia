@@ -171,6 +171,10 @@ def main() -> None:
                 rec = {
                     "task": q["name"], "trader": tr, "level": q["level"],
                     "qid": q["id"], "type": ty,
+                    # 每任务的精确需求：数量 / 是否必须战局内找到。
+                    # 反查页的「留几个」「买的不算」两条判读靠它。
+                    "count": o.get("count") or 1,
+                    "fir": bool(o.get("fir")),
                 }
                 if ty in KEEP:
                     slot(name)["keep"].append(rec)
@@ -236,6 +240,15 @@ def main() -> None:
             ([n, sorted(ids)[0] if len(ids) == 1 else None]
              for n, ids in by_name.items()),
             key=lambda x: x[0])
+        # 每任务明细：[qid, 合计数量, 是否必须局内找到, 目标类型列表]。
+        # 同一任务多个目标要同一件物品时按数量累加、FIR 取或 —— 与「出发前准备」同口径。
+        by_qid: dict[str, list] = {}
+        for r in v["keep"]:
+            k = r.get("qid") or r.get("task")
+            cur = by_qid.setdefault(k, [k, 0, 0, set()])
+            cur[1] += r.get("count") or 1
+            cur[2] = 1 if (cur[2] or r.get("fir")) else 0
+            cur[3].add(r.get("type") or "")
         items[name] = {
             "keep": keep_tasks,
             "n": len(keep_tasks),
@@ -244,6 +257,8 @@ def main() -> None:
             "questOnly": sorted({r["task"] for r in v["questOnly"]}),
             "maps": sorted(v["maps"]),
             "barter": trades.get(name) or [],
+            "d": [[qid, qty, fir, sorted(t for t in tys if t)]
+                  for qid, qty, fir, tys in by_qid.values()],
         }
     # ── 物品 → 图鉴位置（供前端把物品名变成链接）─────────────────────
     #
@@ -276,6 +291,7 @@ def main() -> None:
 
     payload2 = {
         "fetched": fetched,
+        "tasksTotal": len(tasks),
         "coverage": coverage,
         "note": ("barter 字段只对「出现在 recipes.json 的 names 里」的物品有值；"
                  "未命中不等于买不到，只表示不在本站收录的配方里"),

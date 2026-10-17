@@ -20,6 +20,7 @@ tags:
 | 地名锚点 | 77 |
 | 任务目标区域 | 31 |
 | 涉及任务 | 10 |
+| 提及任务（无坐标） | 33 |
 | 撤离点 | 8 |
 | 转场点 | 2 |
 | 上锁位置 | 15 |
@@ -42,6 +43,46 @@ tags:
 | [Ragman](../quests/ragman.md) | 财务总监 | 放置物品 | 3 | 在立交桥将 Goshan 收银机钥匙藏匿在 BIZARRO 商店的试衣间内 |
 | [Skier](../quests/skier.md) | 情报就是力量 | 放置物品 | 1 | 在立交桥安装无线摄像头以监视Kiba武器商店大门 |
 | [Skier](../quests/skier.md) | 禁止打劫 | 击杀／射击 | 1 | 在海岸线或立交桥走私者营地范围内消灭任意目标 |
+
+## 🧭 提到本图、但画不出位置（33 个）
+
+> 这些任务的任务级地图或目标文字提到本图，但上游**没有给出可画的坐标区**。所以它们不在上面的地图上，也不该被当成「漏抓」—— **位置没有就是没有，不编。**点商人名进对应页看完整任务明细。
+
+| 商人 | 任务 | 目标里怎么提到 |
+|------|------|----------------|
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 在完成其他目标的同时消灭 Scav |
+| [BTR 司机](../quests/btr-driver.md) | 独立的代价 | 在完成其他目标的同时消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 塔科夫神射手 - 1 | 使用栓动式步枪在 40 米开外通过机械瞄具击杀 Scav |
+| [Jaeger](../quests/jaeger.md) | 污秽遍地…… | 在立交桥、中心区、森林或海关消灭 Scav |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 无情杀手 | 找到并消灭Tagilla |
+| [Jaeger](../quests/jaeger.md) | 猎人之路 - 脱销 | 找到并消灭Killa |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 -  雕鸮 | 不使用任何夜视仪或热成像瞄具，在 21:00-04:00 期间消灭 Scav （工厂除外） |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - Zhivchik | 获得“脱水”状态，并维持状态生效 5 分钟时间（工厂除外） |
+| [Jaeger](../quests/jaeger.md) | 生存者之路 - 受伤的野兽 | 在疼痛状态下消灭 Scav |
+| [Lightkeeper](../quests/lightkeeper.md) | 情报之源 | 在立交桥幸存，并通过发电站载具撤离点撤离 |
+| [Mechanic](../quests/mechanic.md) | 天神射手 | 在立交桥或中心区使用栓动式步枪爆头击杀 PMC 行动人员 |
+| [Peacekeeper](../quests/peacekeeper.md) | 向导 | 以“幸存”状态撤离森林或立交桥 |
+| [Peacekeeper](../quests/peacekeeper.md) | 维和任务 | 在中心区或立交桥穿戴 UN 制式装备（UN头盔与防弹背心）使用 5.56x45 口径 UN 武器消灭 Scav |
+| [Prapor](../quests/prapor.md) | 恐吓者 | 命中头部击杀Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 5 | 使用轻机枪消灭 Scav |
+| [Prapor](../quests/prapor.md) | 惩罚者 - 6 | 找到并消灭任意 Boss |
+| [Prapor](../quests/prapor.md) | 护送 | 在立交桥击杀PMC |
+| [Prapor](../quests/prapor.md) | 武力说服 | 在森林、中心区、立交桥或海关使用 MP5SD 消灭 PMC 行动人员 |
+| [Prapor](../quests/prapor.md) | 硝烟野餐 | 在森林、中心区、海关或立交桥消灭任意敌对目标 |
+| [Prapor](../quests/prapor.md) | 首秀 | 在森林、中心区、立交桥或海关消灭 Scav |
+| [Ragman](../quests/ragman.md) | Make ULTRA Great Again | 在立交桥消灭任意目标 |
+| [Ragman](../quests/ragman.md) | 实战考验 | 穿戴任意款式的 Goon 版胸挂找到并消灭除 Goon 小队、Wedge 与 Partisan 外的任意 Boss |
+| [Ragman](../quests/ragman.md) | 库存清单 | 在立交桥取得Goshan货物清单 |
+| [Ragman](../quests/ragman.md) | 成功的关键 | 在立交桥取得服装设计手册（一） |
+| [Ragman](../quests/ragman.md) | 损失惨重 | 在立交桥取得OLI货运路线文件 |
+| [Ragman](../quests/ragman.md) | 新起点 | 消灭 Scav |
+| [Ragman](../quests/ragman.md) | 新起点 | 使用转移功能从塔科夫街区转移到立交桥 |
+| [Ragman](../quests/ragman.md) | 此路是我开！ | 同场战局中在立交桥区消灭任意目标 |
+| [Ragman](../quests/ragman.md) | 长期合作 | 在立交桥消灭 PMC 行动人员 |
+| [Ref（竞技场裁判）](../quests/ref.md) | 平衡之力 - 1（PVP） | 在任意地图使用 Steyr AUG 消灭 Scav |
+| [Skier](../quests/skier.md) | Polikhim流浪汉 | 在立交桥、中心区或森林消灭 Scav |
+| [Skier](../quests/skier.md) | 诱人新货 | 在立交桥找到并获取丢失的武器箱 |
+| [Skier](../quests/skier.md) | 高光时刻 | 在立交桥找到并获取特殊版本的游戏杂志 |
 
 ## 🧭 怎么用这张图
 
