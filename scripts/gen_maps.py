@@ -1101,6 +1101,14 @@ def build_maps(data: list) -> dict:
             rec = {
                 "q": z["task"],
                 "oid": z.get("oid") or "",                  # 目标 id：单目标定位 / 完成态
+                # ⚠️ **oi 才是跨模式稳定的键**（2026-10-18 实测）：同一个任务在
+                # PvP / PvE 下**目标 id 各自独立**（任务 id 相同、objective id 不同），
+                # 所以两模式比对必须用 (q, oi)；用 oid 会把全部 501 条都判成
+                # 「模式专属」，合并就白做了。
+                "oi": z.get("oi"),
+                # zid：上游坐标区 id（Sandbox_1_MedicalArea_exploration 这种）——
+                # 含地点语义，是 Callout 层「官方区名」的第二来源。
+                "zid": z.get("zid") or "",
                 "n": q["name"],
                 "en": q.get("en") or "",                   # 英文名：搜索用（见 _quest_index）
                 "kn": q.get("k") or 0,                     # 钥匙数：行前提示（信息卡/清单行）
@@ -1426,13 +1434,143 @@ def write_key_locations(maps: dict) -> None:
         f"（{len(agg)} 件钥匙 / {sum(len(v) for v in agg.values())} 个图-钥匙对）")
 
 
+def merge_modes() -> int:
+    """把 pvp / pve 两份地图数据合并成**一份**，给每条任务点位打模式标记。
+
+    为什么能合（2026-10-18 实测）：两模式的**地图图层逐条完全相同** ——
+    extracts / locks / hazards / transits / labels 13 张图全部一致，撤离收费
+    差异 0。真正不同的只有任务点位，且差异极小：
+
+        customs       仅 PvP 5 条 / 仅 PvE 5 条 / 同键坐标不同 0
+        ground-zero   仅 PvP 1 条 / 仅 PvE 1 条 / 同键坐标不同 0
+        lighthouse    仅 PvP 2 条 / 仅 PvE 0 条 / 同键坐标不同 2
+
+    合计 **16 条**。而两份 json 各 341 KB —— 分开存等于为 16 条差多付 341 KB，
+    多一次网络请求，仓库也多 342 KB。
+
+    标记规则（前端 map.js / ops-board.js 按此过滤）：
+        无 ``m``      两模式共有（绝大多数）
+        ``m: "pvp"``  只在 PvP 出现
+        ``m: "pve"``  只在 PvE 出现
+
+    同键但坐标不同的：**两条都留**，各自带 ``m`` —— 不做「谁覆盖谁」的判断，
+    因为两种坐标都来自上游，我们没有依据说哪个对。
+    """
+    base_p = ROOT / "scripts" / "data" / "maps_site.json"
+    base_e = ROOT / "scripts" / "data" / "maps_site_pve.json"
+    if not (base_p.exists() and base_e.exists()):
+        print("[错误] 需要先跑完 pvp 与 pve 两轮，再跑 --merge", file=sys.stderr)
+        return 1
+    a = json.loads(base_p.read_text(encoding="utf-8"))
+    b = json.loads(base_e.read_text(encoding="utf-8"))
+
+    # 防呆：maps_site.json **本身会被 merge 改写成合并版**（加 m 标记）。
+    # 再拿它当 pvp 基底跑一次 merge，统计就会飘（实测 579/51 而不是 577/17）。
+    # 所以基底里已经带 m 的，必须先重跑一次 pvp 轮重建干净基底。
+    if any(z.get("m") for d in a.values() for z in (d.get("questZones") or [])):
+        print("[错误] maps_site.json 里已经有模式标记 —— 它是上一轮 merge 的产物，"
+              "不能直接当 pvp 基底。请按顺序重跑：", file=sys.stderr)
+        print("  python scripts/gen_maps.py            # pvp 基底（干净）")
+        print("  python scripts/gen_maps.py --mode pve  # pve 补充")
+        print("  python scripts/gen_maps.py --merge     # 合并", file=sys.stderr)
+        return 1
+
+    # ⚠️ 跨模式配对的键必须是**语义键**（任务 id + 目标文本），不能用 oid 也不能用 oi：
+    #    · oid —— 目标 id 在两模式下各自独立（部分任务不同）；
+    #    · oi  —— 目标在数组里的序号，两模式下目标数不同时会**错位**，
+    #             错位之后后面每一条都配不上对，全被误判成「模式专属」
+    #             （2026-10-18 实测：用 oi 配对得出「PvP 专属 93 条」的错误结论）。
+    tp = {t["id"]: t for t in
+          json.loads((ROOT / "scripts" / "data" / "quests.json").read_text(encoding="utf-8"))["tasks"]}
+    te = {t["id"]: t for t in
+          json.loads((ROOT / "scripts" / "data" / "quests_pve.json").read_text(encoding="utf-8"))["tasks"]}
+
+    def _key(z: dict, tmap: dict):
+        q = z["q"]
+        oi = z.get("oi")
+        objs = (tmap.get(q) or {}).get("objectives") or []
+        txt = ""
+        if oi is not None and 0 <= oi < len(objs):
+            txt = (objs[oi].get("text") or "").strip()
+        return (q, txt or f"#{oi}")
+
+    stats = {"common": 0, "pvp": 0, "pve": 0, "split": 0}
+    for key in a:
+        za = a[key].get("questZones") or []
+        zb = b.get(key, {}).get("questZones") or []
+        # ⚠️ **必须按多重集配对，不能用 dict 去重**（2026-10-18 实测）：
+        #    同一任务同一目标文本可能在**一张图上有多个区域**（同一句"到访 X"
+        #    对应两个 zones），dict 只会留一条 —— 另一条两边都被判成"没配上"，
+        #    结果就是 PvE 视图凭空少 4 条。改成「按序取一条尚未使用的匹配」。
+        kb_keys = [_key(z, te) for z in zb]
+        used: set[int] = set()
+        merged = []
+        for z in za:
+            k = _key(z, tp)
+            idx = None
+            for i, kk in enumerate(kb_keys):
+                if kk == k and i not in used:
+                    idx = i
+                    break
+            if idx is None:
+                merged.append({**z, "m": "pvp"})
+                stats["pvp"] += 1
+            else:
+                used.add(idx)
+                o = zb[idx]
+                if json.dumps(o.get("c")) != json.dumps(z.get("c")):
+                    # 同键但坐标不同 → 两条都留，各自带模式。
+                    # ⚠️ PvP 那份**也必须打 m**，否则它会被两个视图都算进去。
+                    merged.append({**o, "m": "pve"})
+                    z = {**z, "m": "pvp"}
+                    stats["split"] += 1
+                    stats["pvp"] += 1
+                else:
+                    stats["common"] += 1
+                merged.append(z)
+        for i, z in enumerate(zb):
+            if i not in used:
+                merged.append({**z, "m": "pve"})
+                stats["pve"] += 1
+        # 排序：模式专属在前（渲染时先画），其余按任务名保持稳定
+        merged.sort(key=lambda z: (z.get("m") or "", z.get("n") or "",
+                                   z.get("oi") if z.get("oi") is not None else 0))
+        a[key]["questZones"] = merged
+    base_p.write_text(json.dumps(a, ensure_ascii=False, separators=(",", ":")) + "\n",
+                      encoding="utf-8")
+    log(f"合并两模式：共有 {stats['common']} 条｜PvP 专属 {stats['pvp']} 条"
+        f"｜PvE 专属 {stats['pve']} 条｜同键坐标不同（各留一条）{stats['split']} 组")
+    log(f"  产物仍是一份：{base_p.name}（{base_p.stat().st_size / 1024:.0f} KB）")
+
+    # 用合并结果重出分片（write_js 读的是内存里的 maps，这里从 json 再来一遍）
+    write_js(a)
+
+    # 合并后 PvE 不再需要独立产物 —— **删掉**，否则仓库里躺着两份同样大小的
+    # 图层数据（实测 372 KB），前端也会多一个永远不被请求的文件。
+    # quest_zones_pve.json 保留：门禁 --mode pve 要靠它核对坐标区。
+    n_del = 0
+    for old in OUT_JS_DIR.glob("maps-data-pve-*.js"):
+        old.unlink()
+        n_del += 1
+    old_json = ROOT / "scripts" / "data" / "maps_site_pve.json"
+    if old_json.exists():
+        old_json.unlink()
+    if n_del:
+        log(f"   → 已清理 {n_del} 个 PvE 旧分片与 maps_site_pve.json（合并后不需要）")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="生成交互地图底图与点位数据")
     ap.add_argument("--fetch", action="store_true", help="重新抓上游数据（联网）")
     ap.add_argument("--mode", choices=["pvp", "pve"], default="pvp",
                     help="数据模式：pvp=持久 PvP（默认，现有 13 个地图页）；"
                          "pve=PvE 剧情（独立图层与坐标，给作战台）")
+    ap.add_argument("--merge", action="store_true",
+                    help="把已生成的 pvp / pve 两份合并成一份（跑完两轮后执行）")
     args = ap.parse_args()
+    if args.merge:
+        return merge_modes()
     global MODE
     MODE = args.mode
     apply_mode()

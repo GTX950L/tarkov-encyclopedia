@@ -429,7 +429,17 @@
          · **面积分档**（`sz`：s/m/l）交给 CSS：大框退到背景，不跟点级目标抢视线；
          · **超大框本身是语义**，不是坐标错 —— `shoot` 类（「在图里击杀 N 个」）
            中位面积就有画布的 9.6%，而 `plantItem` 只有 0.001%。一个是区域、一个是点。 */
-    var qzAll = data.questZones || [];
+    /* 模式过滤（2026-10-18）：pvp 与 pve 的点位**合并在一份数据里**（实测只差
+       十几条，没必要为它多下一份 341 KB），每条按 `m` 标了适用模式：
+         无 m    两模式共有
+         m=pvp  只在 PvP
+         m=pve  只在 PvE
+       现有 13 个地图页都是 PvP（host 上没写 data-mode）→ 默认 pvp。
+       ⚠️ **别忘了这行**：不过滤的话 PvP 海关页会多画出几十个 PvE 专属点位。 */
+    var pageMode = host.getAttribute("data-mode") || "pvp";
+    var qzAll = (data.questZones || []).filter(function (z) {
+      return !z.m || z.m === pageMode;
+    });
     /* 空数据图（终点站 / 破冰船）：上游没给任务区域，也没给地名锚点。
        这时仍渲染底图，但要在最上面说清楚「这里是空的、为什么」——
        一张什么都没有的地图比一行说明更容易被读成「页面坏了」。 */

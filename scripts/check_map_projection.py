@@ -56,7 +56,9 @@ def _mp(rel: str) -> Path:
 
 
 def load_site_data() -> dict:
-    return json.loads(_mp("scripts/data/maps_site.json").read_text(encoding="utf-8"))
+    """读**合并后**的 maps_site.json（两种模式一份，zone.m 标模式）。"""
+    return json.loads((ROOT / "scripts" / "data" / "maps_site.json")
+                      .read_text(encoding="utf-8"))
 
 
 def main() -> int:
@@ -129,9 +131,23 @@ def main() -> int:
         problems.append(f"接线校验读不到任务 / 区域 / 图数据：{e}")
         tasks, zj, graph_objs = {}, {"zones": []}, {}
 
+    # 模式过滤：合并数据里每条带 m（缺省=两模式共有）。
+    # ⚠️ **PvP 视图的 zone 数是硬回归线**：13 个地图页与 site 都依赖它，
+    #    过滤逻辑一旦坏掉，页面会多画出 PvE 专属点位（2026-10-18 加的断言）。
+    EXPECT_ZONES = {"pvp": 594, "pve": 596}
+    def _zones(d):
+        return [z for z in (d.get("questZones") or [])
+                if not z.get("m") or z.get("m") == MODE]
+    n_zones = sum(len(_zones(d)) for d in data.values())
+    exp_zones = EXPECT_ZONES.get(MODE)
+    if exp_zones and n_zones != exp_zones:
+        problems.append(
+            f"{MODE} 视图的任务点位是 {n_zones} 条，应为 {exp_zones} 条"
+            " —— 模式过滤（zone.m）或合并产物坏了")
+
     site_tasks: set[str] = set()
     for key, d in data.items():
-        for z in d.get("questZones") or []:
+        for z in _zones(d):
             site_tasks.add(z["q"])
     dropped: set[str] = set()
     for key, d in data.items():
@@ -155,7 +171,7 @@ def main() -> int:
             problems.append(f"{q}（{t.get('name')}）: ms 漏了 {sorted(lack)}，地图入口/筛选仍会缺")
 
     for key, d in data.items():
-        for z in d.get("questZones") or []:
+        for z in _zones(d):
             oid = z.get("oid")
             if not oid:
                 continue
