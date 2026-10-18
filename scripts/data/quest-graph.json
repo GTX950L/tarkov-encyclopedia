@@ -1,5 +1,5 @@
 {
- "fetched": "2026-10-17",
+ "fetched": "2026-10-19",
  "source": "json.tarkov.dev/regular/tasks（官方数据端点，二级）",
  "gameMode": "regular（持久 PvP）",
  "statusVocab": {
@@ -8,7 +8,7 @@
   "failed": 5
  },
  "edgeCount": 222,
- "objCount": 1418,
+ "objCount": 1416,
  "edges": {
   "5a68663e86f774501078f78a": [
    [
@@ -1804,10 +1804,6 @@
   "669fa39ee749756c920d02c8": [
    "669fb6c859bdae826f7325d4",
    "66a7eebed6bac3ecc16f7d6b"
-  ],
-  "6a91840a740be0cff50e0310": [
-   "6a91bfe6964adc01452f2a42",
-   "6a91c02d74fa5c3dba8025fe"
   ],
   "5a68665c86f774255929b4c7": [
    "5a68776786f774759f1f55f6",

@@ -1,7 +1,7 @@
 {
  "fetched": "2026-10-18",
  "source": "json.tarkov.dev/regular（持久 PvP）",
- "count": 500,
+ "count": 499,
  "skippedUnlocalized": [],
  "tasks": [
   {
@@ -62381,87 +62381,6 @@
      [
       "WIFI摄像头",
       4
-     ]
-    ]
-   },
-   "fail": {},
-   "keys": [],
-   "delay": 0
-  },
-  {
-   "id": "6a91840a740be0cff50e0310",
-   "name": "Preliminary Survey",
-   "en": "Preliminary Survey",
-   "trader": "ref",
-   "level": 5,
-   "exp": 14500,
-   "map": "实验室",
-   "ms": [
-    "the-lab"
-   ],
-   "faction": "",
-   "prestige": 0,
-   "kappa": false,
-   "lightkeeper": false,
-   "restartable": false,
-   "prereqs": [],
-   "traderReqs": [],
-   "otherReqs": [],
-   "objectives": [
-    {
-     "type": "findQuestItem",
-     "id": "6a91bfe6964adc01452f2a42",
-     "text": "Locate the testing area blueprint flash drive in The Lab",
-     "count": 1,
-     "items": [
-      "测试区域蓝图 U 盘"
-     ],
-     "maps": [
-      "实验室"
-     ],
-     "pl": [
-      {
-       "m": "the-lab",
-       "p": [
-        [
-         -168.0,
-         1.0,
-         -359.4
-        ]
-       ]
-      }
-     ]
-    },
-    {
-     "type": "giveQuestItem",
-     "id": "6a91c02d74fa5c3dba8025fe",
-     "text": "Obtain the testing area blueprint flash drive in The Lab",
-     "count": 1,
-     "items": [
-      "测试区域蓝图 U 盘"
-     ]
-    }
-   ],
-   "failConditions": [],
-   "rewards": {
-    "items": [
-     [
-      "GP币",
-      101
-     ]
-    ],
-    "skills": [
-     [
-      "搜索",
-      1
-     ]
-    ]
-   },
-   "startRewards": {
-    "items": [
-     [
-      "TerraGroup实验室访问钥匙卡",
-      1
      ]
     ]
    },

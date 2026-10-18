@@ -7,7 +7,7 @@ window.TARKOV_PROGRESS_MANIFEST = {
   "generated": "2026-10-19",
   "source": "scripts/data/quests.json（json.tarkov.dev/regular，持久 PvP） + scripts/data/hideout.json（同源，含 hideout_zh / items_zh 译名） + scripts/data/storylines.json（手维护，与剧情页对账）",
   "baseline": "2026-10-19",
-  "total": 504,
+  "total": 503,
   "traders": [
     {
       "slug": "mechanic",
@@ -52,7 +52,7 @@ window.TARKOV_PROGRESS_MANIFEST = {
     {
       "slug": "ref",
       "name": "Ref（竞技场裁判）",
-      "count": 21
+      "count": 20
     },
     {
       "slug": "btr-driver",
