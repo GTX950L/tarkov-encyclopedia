@@ -2120,8 +2120,9 @@
           selectTask(it.q);
           focusZone(it.q);
           if (refreshPlanUI) refreshPlanUI();
-          /* 地图在上方 —— 点完把它带回视口（只在看不见时才滚，不抢滚动位置） */
-          if (canvas.scrollIntoView) {
+          /* 地图在上方 —— 点完把它带回视口（只在看不见时才滚，不抢滚动位置）。
+             作战台里这段面板已被隐藏，滚动只会把任务清单顶走，故跳过。 */
+          if (!document.getElementById("tk-ops") && canvas.scrollIntoView) {
             canvas.scrollIntoView({ block: "nearest", behavior: "smooth" });
           }
         });
