@@ -33,7 +33,11 @@ BUDGETS: list[tuple[str, float, str]] = [
     ("search.json", 700, "681 KB（2026-10-18）；搜索是唯一「每次打开都付费」的全局资源"),
     ("首页 HTML", 30, "22 KB；首屏决定「这站快不快」的第一印象"),
     ("最大单页 HTML", 400, "370 KB（CHANGELOG）；再大就该分页或折叠"),
-    ("每页 JS 合计", 70, "67 KB；11 个手写脚本 + 主题 bundle，剔除 /ops/ 的按需加载"),
+    ("每页 JS 合计", 74,
+     "72 KB；12 个手写脚本 + 主题 bundle，剔除 /ops/ 的按需加载。"
+     "2026-10-18 从 70 提到 74：新增 table-sticky.js 3.2 KB gz，"
+     "换 39 个长表页的表头常驻（其余页只多一次 querySelectorAll）。"
+     "再涨就该学 map-loader / ops-loader 改成按需注入了"),
     ("整站体积", 45 * 1024, "34 MB；含 803 个图标与 13 张地图底图"),
     ("llms.txt", 40, "正文 17 KB / gzip 7 KB；给 AI 爬虫的入口，超了说明该拆"),
 ]

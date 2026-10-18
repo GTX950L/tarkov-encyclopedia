@@ -11,6 +11,67 @@ search:
 
 本文件记录面向用户的条目内容变更。历史条目一经发布，只做修订不做改写。
 
+## 2026-10（v1.135.1）— 作战台恢复 + 长表表头常驻：两处「看得见的坏」
+
+**触发**：2026-10-18 的视觉走查（截图 + DOM 探针）。不是审美偏好，
+是两个**能复现的坏**：`/ops/` 整页两栏全空；39 个长表页读到中段就不知道列是什么。
+
+### 一、作战台两栏全空（v1.135.0 引入的回归）
+
+上一批把 `ops-board.js` 的按需加载写成了 `content/ops/index.md` 末尾的**内联脚本**，
+靠「找一个站内 `javascripts/*.js` 的 src 再改写文件名」反推地址。实测失效：
+
+- 正文里的脚本先于 body 末尾的 `extra_javascript` 执行，那一刻 DOM 里只有主题的
+  `assets/javascripts/bundle.*.min.js`，所有 `javascripts/*.js` 还**不存在**；
+- 选择器排除掉 `assets/` 之后一个都匹配不到，加载器 `if (!ref) return;` **静默退出**；
+- 于是左栏 `#tk-ops-left`、右栏 `#tk-ops-right` 各剩 26px 空盒（探针实测 innerHTML 长度 2）。
+
+修法（与 `map-loader.js` 同一套，不再自创）：
+
+- 新增 `content/javascripts/ops-loader.js` 并**放回 `extra_javascript`**：检测到 `#tk-ops`
+  才注入 `ops-board.js`；地址按**当前脚本自己的 src** 反推，不依赖任何别的标签。
+- `ops-board.js` 改成幂等的：按**挂载点节点身份**判重（instant 换页时 `#tk-ops` 是新节点，
+  旧 DOM 已销毁，而脚本不会重跑）；订阅 `document$` 换页；键盘/进度这类**文档级监听只绑一次**
+  （否则一次按键走两遍）；`map.js` 重复注入前先认 `window.TarkovMap`，回调必须 `setTimeout`
+  出栈 —— 否则 `map.js` 的 `siteRoot()` 读到 `document.currentScript` 是正在执行的
+  `ops-board.js`，拼出 `…/ops-board.jsjavascripts/maps-data-<图>.js`（实测 404）。
+
+验证：直接打开 / 侧栏点击（instant 换页）/ 暗色 / 窄屏，左栏 3,983 字符、右栏 88,280 字符、
+80 行任务，无 4xx。
+
+### 二、长表读到中段就不知道列是什么
+
+全站 39 个页面有 ≥40 行的表，最长 338 行（`catalog/containers/`，表体 13,086px）。
+表头滚出视口后，读者要靠记忆分辨「伤害 / 穿深 / 甲伤」这类只差一个字的列 ——
+这是本站最高频的查阅面。
+
+CSS `position: sticky` 这条路**两条都堵死**（试过）：
+
+- 全站唯一的横向滚动容器是 `.md-typeset__table`，它同时是 sticky 的参照系，
+  而它的高度等于内容高度、**永远不会自己纵向滚**，表头的 sticky 等于没写；
+- 给容器封 78vh 让它自己滚：实测 338 行的表被塞进 702px 的盒子，读者滚过 700px 后
+  以为表结束了 —— **后 300 多行被悄悄藏起来**，比没有表头更糟。
+
+改为一条复用的 `position: fixed` 克隆表头栏（`content/javascripts/table-sticky.js`）：
+表头滑到页头下沿之上、且表还没结束时出现；列宽**逐列从真实表头量出来**再用 fixed 布局钉住
+（只克隆表头时自动布局会按表头文字重算列宽，横向滚到第 8 列就错位）；横向滚动跟随
+`.md-typeset__table` 的 `scrollLeft` 平移；克隆节点去掉 `id`、整栏 `aria-hidden` + `inert`，
+不产生第二个可聚焦副本。只对 ≥15 行的表生效，窄屏不启用（页头 + 栏会吃掉两成屏高）。
+
+实测：15 列宽度误差 <1.5px；横向 420px 时表头与表体逐列对齐；暗色/亮色同款；
+滚回表头之上自动消失。
+
+### 三、顺手
+
+- 作战台右栏的目标原文从单行省略改成两行截断：单行会把「安装 Wi-Fi 摄像头」这类
+  **动作在句尾**的目标切掉，只剩环境描述。
+- 每页 JS 预算 70 → 74 KB：新增 `table-sticky.js` 3.2 KB（gzip），换来 39 个长表页
+  的表头常驻。数字与理由同时改在 `scripts/check_budget.py` 的预算表里。
+
+**验证**：九道门禁全绿（`check_entries` / `check_icons` / `check_promises` /
+`skills_consistency` / `check_gen_drift` 24 支 ×2 遍 / `check_catalog_consistency` /
+`check_js_lint` / `check_budget` / `pytest` 885 条），`zensical build` 168 页无告警。
+
 ## 2026-10（v1.135.0）— 把「审查发现」变成「门禁看得见」：九道门禁 + 885 条单测
 
 **触发**：2026-10-18 一次全站审查（内容 / 数据 / 工程 / 性能 / 代码 / 可发现性 / 治理七维）。
