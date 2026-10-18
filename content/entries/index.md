@@ -6,133 +6,178 @@ tags:
 
 <a id="top"></a>
 
-目前已收录 **88 个**条目，分十二篇：**前八篇**按主题组织这 88 个条目，**第九篇**[**物品图鉴**](../catalog/index.md) 收录 **4,983 件**物品的属性与商人买卖价，**第十篇**[**任务图鉴**](../quests/index.md) 把 **504 个任务**的要求、完成奖励、接取门槛与前置任务逐条列全（不含坐标与攻略），**第十一篇**[**参考**](../docs/index.md) 收齐速查表、数值口径与站务页，**第十二篇**[**交互地图**](../maps/index.md) 把点位信息从条目正文里接出来（矢量底图 + 地名锚点 + 楼层切换）。也可用右上角搜索直接查词。
+已收录 **88 个**条目，分十二篇：前八篇按主题组织，后四篇是查数据的栏目，[物品图鉴](../catalog/index.md)收录 **4,983 件**物品、[任务图鉴](../quests/index.md)收录 **504 个任务**，外加[参考](../docs/index.md)与[交互地图](../maps/index.md)。想按关键词找，用右上角搜索；想按定位找，从下面八篇里挑。
 
-## 📊 条目一览表
+## 🗂️ 八篇一览
 
-| # | 条目 | 分类 | 一句话定位 |
-|---|------|------|-----------|
-| 1 | [开局与出生点](spawn-and-opening.md) | 机制 | 出生后的头 30 秒最危险 |
-| 2 | [撤离机制](extraction.md) | 机制 | 唯一的胜利条件 |
-| 3 | [撤离点详解](extraction-points.md) | 机制 | 条件型撤离点速查 |
-| 4 | [生命与身体部位系统](health.md) | 机制 | 七部位血量与状态异常 |
-| 5 | [食物与水分](food-and-water.md) | 机制 | 水比食物难找，先见底的是水 |
-| 6 | [食物与饮料图鉴](food-catalog.md) | 装备 | 能量与水分的两个数字怎么读 |
-| 7 | [医疗物资](medical.md) | 装备 | 止血、复位、止痛的取舍 |
-| 8 | [医疗物资图鉴](medical-catalog.md) | 装备 | 按“它解决什么”选型号 |
-| 9 | [保险机制](insurance.md) | 机制 | 装备的最后防线 |
-| 10 | [背包与容器系统](inventory.md) | 机制 | 安全箱与格子经济学 |
-| 11 | [安全箱与容器](containers.md) | 机制 | 六个安全箱型号与专用容器 |
-| 12 | [PMC 与 Scav](pmc-scav.md) | 机制 | 两条命、两套规则 |
-| 13 | [中心区](ground-zero.md) | 地图 | 低等级玩家的市区图 |
-| 14 | [工厂](factory.md) | 地图 | 最小最快的 CQB 图 |
-| 15 | [海关](customs.md) | 地图 | 经典入门图、任务密集 |
-| 16 | [森林](woods.md) | 地图 | 狙击与开阔地考场 |
-| 17 | [立交桥](interchange.md) | 地图 | 全室内商场背身战 |
-| 18 | [储备站](reserve.md) | 地图 | 军事基地与信号弹撤离 |
-| 19 | [海岸线](shoreline.md) | 地图 | 疗养院垂直攻防 |
-| 20 | [灯塔](lighthouse.md) | 地图 | 重做后的海岸军事图 |
-| 21 | [街区](streets.md) | 地图 | 全游戏最大城市图 |
-| 22 | [实验室](labs.md) | 地图 | 全 PMC 顶级风险区 |
-| 23 | [终点站](terminal.md) | 地图 | 1.0 主线压轴场景 |
-| 24 | [破冰船](icebreaker.md) | 地图 | 全 PvE 终局场景 |
-| 25 | [迷宫](labyrinth.md) | 地图 | 隐藏的解谜型终局场景 |
-| 26 | [转场与 BTR](transit.md) | 地图 | 不撤离也能换图 |
-| 27 | [弹药与穿深等级](ammo.md) | 装备 | 子弹比枪重要 |
-| 28 | [弹药选型速查表](ammo-table.md) | 装备 | 按口径与对手反推配弹 |
-| 29 | [弹道与穿透机制](ballistics.md) | 装备 | 飞行、下坠与穿深结算 |
-| 30 | [护甲与头盔](armor.md) | 装备 | 护甲等级与材质取舍 |
-| 31 | [护甲与头盔图鉴](armor-catalog.md) | 装备 | 代表型号与插件结构 |
-| 32 | [护甲修复与耐久](armor-repair.md) | 装备 | 修一次掉一截上限 |
-| 33 | [载具图鉴：背包与胸挂](loadout-carriers.md) | 装备 | 载具选的是打法，不是容量 |
-| 34 | [耳机与听力装备](headsets.md) | 装备 | 先听见的人先开枪 |
-| 35 | [武器故障与耐久维护](weapon-maintenance.md) | 装备 | 93% 是故障那条线 |
-| 36 | [枪械改装](gunsmith.md) | 装备 | 后坐、人机、精度三角 |
-| 37 | [枪械图鉴](weapons.md) | 装备 | 按口径与枪型选型 |
-| 38 | [特殊槽装备与工具](special-equipment.md) | 装备 | 三个格子，死了也不掉 |
-| 39 | [服装与外观](clothing.md) | 装备 | 纯外观件：不挡子弹，只影响判断 |
-| 40 | [钥匙与钥匙房](keys.md) | 装备 | 消耗品与房间价值排序 |
-| 41 | [商人系统](traders.md) | 经济 | 八位商人与声望 |
-| 42 | [以物换物](barter.md) | 经济 | 物品换物品的估值方法 |
-| 43 | [跳蚤市场](flea-market.md) | 经济 | 玩家经济的中枢 |
-| 44 | [跳蚤定价与手续费](flea-pricing.md) | 经济 | 税费公式与定价算法 |
-| 45 | [邮件与领取](mail.md) | 经济 | 会过期的取件柜 |
-| 46 | [藏身处](hideout.md) | 经济 | 离线收益与被动成长 |
-| 47 | [藏身处模块详解](hideout-modules.md) | 经济 | 模块功能与建造优先级 |
-| 48 | [任务系统](quests.md) | 经济 | 声望与 Kappa 之路 |
-| 49 | [商人任务线图鉴](trader-questlines.md) | 经济 | 八条任务线与 Kappa 门槛 |
-| 50 | [商人群像](trader-profiles.md) | 经济 | 八位商人各自是什么人、要什么 |
-| 51 | [剧情章节与主线任务](story-chapters.md) | 经济 | Tour / Falling Skies / The Ticket |
-| 52 | [经济周期](economic-cycle.md) | 经济 | 赛季内价格的四阶段规律 |
-| 53 | [战利品分布与热点](loot.md) | 经济 | 按区域类型判断收益 |
-| 54 | [声望与 Karma](karma.md) | 经济 | 逐项加减分与声望收益 |
-| 55 | [等级与经验体系](levels.md) | 成长 | 等级只开门，不给属性；经验从任务与撤离来 |
-| 56 | [技能系统](skills.md) | 成长 | 用行为练出来的被动加成 |
-| 57 | [武器掌握](weapon-mastery.md) | 成长 | 命中换来的换弹动作升级 |
-| 58 | [成就系统](achievements.md) | 成长 | 任务之外的长期目标 |
-| 59 | [Prestige 转生](prestige.md) | 成长 | 自愿重置换永久奖励 |
-| 60 | [耐力与移速](stamina.md) | 战斗 | 重量与机动性的定价 |
-| 61 | [姿态、移动与射击](movement.md) | 战斗 | 站蹲卧与慢走的取舍 |
-| 62 | [手雷与投掷物](grenades.md) | 战斗 | 逼位、封路与反弹风险 |
-| 63 | [夜视与热成像](night-vision.md) | 战斗 | 夜间视野的军备竞赛 |
-| 64 | [听声辨位与音频机制](audio.md) | 战斗 | 耳机决定的信息差 |
-| 65 | [组队与协作](squads.md) | 战斗 | 无 HUD 标识的小队规则 |
-| 66 | [敌我识别与身份判断](iff.md) | 战斗 | 没有名字标签时怎么看人 |
-| 67 | [阵营关系与交战规则](engagement-rules.md) | 战斗 | 谁能打谁、开火之后记哪本账 |
-| 68 | [AI 行为逻辑](ai-behavior.md) | 战斗 | 感知、记忆与声响诱导 |
-| 69 | [Scav 互动与叛徒判定](scav-relations.md) | 战斗 | 一枪作废的中立协议 |
-| 70 | [Scav 指挥与随从系统](scav-command.md) | 战斗 | 六个指令让 AI 替你开枪 |
-| 71 | [Boss 图鉴](bosses.md) | 战斗 | 首领对照与护卫编队 |
-| 72 | [战斗复盘与常见死因](death-review.md) | 战斗 | 从死因倒推可改进项 |
-| 73 | [战局流程与节奏](raid-flow.md) | 行为 | 时间是唯一不可再生的预算 |
-| 74 | [搜刮效率与战利品取舍](looting.md) | 行为 | 搜索是一段不能开枪的静止 |
-| 75 | [遇敌处置与接战决策](contact-drill.md) | 行为 | 前 3 秒看完这五件事 |
-| 76 | [交火中的技术动作](firefight.md) | 行为 | 露多大、露多久，比枪法更决定生死 |
-| 77 | [投掷物来袭处置](grenade-response.md) | 行为 | 拔销声是一张双向的牌 |
-| 78 | [战中伤情处置](combat-medical.md) | 行为 | 会继续变坏的伤先治 |
-| 79 | [赛季与修改器](seasons.md) | 赛季 | 三种档案与赛季规则 |
-| 80 | [赛季修改器逐项](season-modifiers.md) | 赛季 | 全局 6 项 + 个人卡构筑 |
-| 81 | [联赛系统](leagues.md) | 赛季 | 每周 50 人的经验值天梯 |
-| 82 | [竞技场](arena.md) | 衍生 | 独立进度的纯对抗模式 |
-| 83 | [PvE 模式](pve.md) | 衍生 | 没有真人对手的持久档案 |
-| 84 | [EXFIL Brothers 计划](exfil-brothers.md) | 衍生 | 带新人的双向奖励计划 |
-| 85 | [天气与时间系统](weather.md) | 世界 | 七倍速的时钟与天气 |
-| 86 | [光照与夜战](lighting.md) | 世界 | 光源是双刃剑 |
-| 87 | [彩蛋与制作组的恶意](easter-eggs.md) | 世界 | 彩蛋点位与设计好的陷阱 |
-| 88 | [世界观与阵营背景](worldview.md) | 世界 | 诺文斯克封锁与两大 PMC 的由来 |
+| 篇 | 篇目 | 篇数 | 这一篇讲什么 |
+|---|------|-----|-------------|
+| 第一篇 | [入门机制](#p1) | 12 | 出生、撤离、身体、物资、保险、容器。先把规则跑通，再谈打得好不好。 |
+| 第二篇 | [地图](#p2) | 14 | 13 张可用地图加转场规则，按新手、常规、进阶、终局四档排序。 |
+| 第三篇 | [装备与枪械](#p3) | 14 | 弹药穿深、护甲材质、枪匠改装与携带方案。数值决定你能打死谁、能活几枪。 |
+| 第四篇 | [经济与成长](#p4) | 19 | 商人阶梯、跳蚤定价、藏身处、任务线、等级与技能。钱和进度的来源都在这里。 |
+| 第五篇 | [进阶战斗机制](#p5) | 13 | 耐力、移动、听觉、敌我识别、AI 行为与 Boss。同一套装备不同的结局，差别在这。 |
+| 第六篇 | [战局内行为手册](#p6) | 6 | 进场后按时间顺序：搜什么、怎么打、受伤怎么处理、什么时候撤。 |
+| 第七篇 | [赛季与衍生内容](#p7) | 6 | 赛季机制、竞技场、PvE 与联赛。跟主线档案分开的几套进度。 |
+| 第八篇 | [世界与背景](#p8) | 4 | 天气与时间、光照、彩蛋、诺文斯克封锁区的来历。 |
 
-## 🗂️ 按标签浏览
+<a id="p1"></a>
 
-- **机制**（29 篇）：ai-behavior · audio · contact-drill · death-review · engagement-rules · extraction · extraction-points · food-and-water · health · iff · insurance · inventory · levels · looting · mail · mechanics · movement · pmc-scav · prestige · pve · raid-flow · scav-command · scav-relations · skills · spawn-and-opening · squads · stamina · transit · weather
-- **装备**（24 篇）：weapon-maintenance · clothing · ammo · ammo-table · ballistics · armor · armor-catalog · armor-repair · loadout-carriers · headsets · medical · medical-catalog · food-catalog · gunsmith · weapons · special-equipment · keys · containers · grenades · night-vision · weapon-mastery · inventory · lighting · audio
-- **经济**（17 篇）：armor-repair · barter · containers · economic-cycle · flea-market · flea-pricing · hideout · hideout-modules · insurance · karma · keys · loot · looting · mail · quests · trader-questlines · traders
-- **地图**（17 篇）：factory · customs · woods · shoreline · interchange · reserve · labs · ground-zero · lighthouse · streets · terminal · icebreaker · labyrinth · loot · transit · easter-eggs · map-guide
-- **成长**（16 篇）：traders · flea-market · flea-pricing · hideout · hideout-modules · quests · trader-questlines · story-chapters · economic-cycle · karma · levels · skills · weapon-mastery · achievements · prestige · progression
-- **战斗**（22 篇）：ai-behavior · audio · headsets · bosses · combat-medical · contact-drill · death-review · engagement-rules · factory · firefight · grenade-response · grenades · iff · lighting · movement · night-vision · raid-flow · scav-command · scav-relations · squads · stamina · woods
-- **地形**（6 篇）：factory · interchange · labs · shoreline · streets · woods
-- **环境**（4 篇）：audio · lighting · night-vision · weather
-- **军事**（3 篇）：lighthouse · reserve · worldview
-- **赛季与衍生**（7 篇）：seasons · season-modifiers · leagues · arena · pve · exfil-brothers · version-history
+## 第一篇 · 入门机制
+
+出生、撤离、身体、物资、保险、容器。先把规则跑通，再谈打得好不好。
+
+- [开局与出生点](spawn-and-opening.md)：出生后的头 30 秒最危险
+- [撤离机制](extraction.md)：唯一的胜利条件
+- [撤离点详解](extraction-points.md)：条件型撤离点速查
+- [生命与身体部位系统](health.md)：七部位血量与状态异常
+- [食物与水分](food-and-water.md)：水比食物难找，先见底的是水
+- [食物与饮料图鉴](food-catalog.md)：能量与水分的两个数字怎么读
+- [医疗物资](medical.md)：止血、复位、止痛的取舍
+- [医疗物资图鉴](medical-catalog.md)：按“它解决什么”选型号
+- [保险机制](insurance.md)：装备的最后防线
+- [背包与容器系统](inventory.md)：安全箱与格子经济学
+- [安全箱与容器](containers.md)：六个安全箱型号与专用容器
+- [PMC 与 Scav](pmc-scav.md)：两条命、两套规则
+
+<a id="p2"></a>
+
+## 第二篇 · 地图
+
+13 张可用地图加转场规则，按新手、常规、进阶、终局四档排序。
+
+- [中心区](ground-zero.md)：低等级玩家的市区图
+- [工厂](factory.md)：最小最快的 CQB 图
+- [海关](customs.md)：经典入门图、任务密集
+- [森林](woods.md)：狙击与开阔地考场
+- [立交桥](interchange.md)：全室内商场背身战
+- [储备站](reserve.md)：军事基地与信号弹撤离
+- [海岸线](shoreline.md)：疗养院垂直攻防
+- [灯塔](lighthouse.md)：重做后的海岸军事图
+- [街区](streets.md)：全游戏最大城市图
+- [实验室](labs.md)：全 PMC 顶级风险区
+- [终点站](terminal.md)：1.0 主线压轴场景
+- [破冰船](icebreaker.md)：全 PvE 终局场景
+- [迷宫](labyrinth.md)：隐藏的解谜型终局场景
+- [转场与 BTR](transit.md)：不撤离也能换图
+
+<a id="p3"></a>
+
+## 第三篇 · 装备与枪械
+
+弹药穿深、护甲材质、枪匠改装与携带方案。数值决定你能打死谁、能活几枪。
+
+- [弹药与穿深等级](ammo.md)：子弹比枪重要
+- [弹药选型速查表](ammo-table.md)：按口径与对手反推配弹
+- [弹道与穿透机制](ballistics.md)：飞行、下坠与穿深结算
+- [护甲与头盔](armor.md)：护甲等级与材质取舍
+- [护甲与头盔图鉴](armor-catalog.md)：代表型号与插件结构
+- [护甲修复与耐久](armor-repair.md)：修一次掉一截上限
+- [载具图鉴：背包与胸挂](loadout-carriers.md)：载具选的是打法，不是容量
+- [耳机与听力装备](headsets.md)：先听见的人先开枪
+- [武器故障与耐久维护](weapon-maintenance.md)：93% 是故障那条线
+- [枪械改装](gunsmith.md)：后坐、人机、精度三角
+- [枪械图鉴](weapons.md)：按口径与枪型选型
+- [特殊槽装备与工具](special-equipment.md)：三个格子，死了也不掉
+- [服装与外观](clothing.md)：纯外观件：不挡子弹，只影响判断
+- [钥匙与钥匙房](keys.md)：消耗品与房间价值排序
+
+<a id="p4"></a>
+
+## 第四篇 · 经济与成长
+
+商人阶梯、跳蚤定价、藏身处、任务线、等级与技能。钱和进度的来源都在这里。
+
+- [商人系统](traders.md)：八位商人与声望
+- [以物换物](barter.md)：物品换物品的估值方法
+- [跳蚤市场](flea-market.md)：玩家经济的中枢
+- [跳蚤定价与手续费](flea-pricing.md)：税费公式与定价算法
+- [邮件与领取](mail.md)：会过期的取件柜
+- [藏身处](hideout.md)：离线收益与被动成长
+- [藏身处模块详解](hideout-modules.md)：模块功能与建造优先级
+- [任务系统](quests.md)：声望与 Kappa 之路
+- [商人任务线图鉴](trader-questlines.md)：八条任务线与 Kappa 门槛
+- [商人群像](trader-profiles.md)：八位商人各自是什么人、要什么
+- [剧情章节与主线任务](story-chapters.md)：Tour / Falling Skies / The Ticket
+- [经济周期](economic-cycle.md)：赛季内价格的四阶段规律
+- [战利品分布与热点](loot.md)：按区域类型判断收益
+- [声望与 Karma](karma.md)：逐项加减分与声望收益
+- [等级与经验体系](levels.md)：等级只开门，不给属性；经验从任务与撤离来
+- [技能系统](skills.md)：用行为练出来的被动加成
+- [武器掌握](weapon-mastery.md)：命中换来的换弹动作升级
+- [成就系统](achievements.md)：任务之外的长期目标
+- [Prestige 转生](prestige.md)：自愿重置换永久奖励
+
+<a id="p5"></a>
+
+## 第五篇 · 进阶战斗机制
+
+耐力、移动、听觉、敌我识别、AI 行为与 Boss。同一套装备不同的结局，差别在这。
+
+- [耐力与移速](stamina.md)：重量与机动性的定价
+- [姿态、移动与射击](movement.md)：站蹲卧与慢走的取舍
+- [手雷与投掷物](grenades.md)：逼位、封路与反弹风险
+- [夜视与热成像](night-vision.md)：夜间视野的军备竞赛
+- [听声辨位与音频机制](audio.md)：耳机决定的信息差
+- [组队与协作](squads.md)：无 HUD 标识的小队规则
+- [敌我识别与身份判断](iff.md)：没有名字标签时怎么看人
+- [阵营关系与交战规则](engagement-rules.md)：谁能打谁、开火之后记哪本账
+- [AI 行为逻辑](ai-behavior.md)：感知、记忆与声响诱导
+- [Scav 互动与叛徒判定](scav-relations.md)：一枪作废的中立协议
+- [Scav 指挥与随从系统](scav-command.md)：六个指令让 AI 替你开枪
+- [Boss 图鉴](bosses.md)：首领对照与护卫编队
+- [战斗复盘与常见死因](death-review.md)：从死因倒推可改进项
+
+<a id="p6"></a>
+
+## 第六篇 · 战局内行为手册
+
+进场后按时间顺序：搜什么、怎么打、受伤怎么处理、什么时候撤。
+
+- [战局流程与节奏](raid-flow.md)：时间是唯一不可再生的预算
+- [搜刮效率与战利品取舍](looting.md)：搜索是一段不能开枪的静止
+- [遇敌处置与接战决策](contact-drill.md)：前 3 秒看完这五件事
+- [交火中的技术动作](firefight.md)：露多大、露多久，比枪法更决定生死
+- [投掷物来袭处置](grenade-response.md)：拔销声是一张双向的牌
+- [战中伤情处置](combat-medical.md)：会继续变坏的伤先治
+
+<a id="p7"></a>
+
+## 第七篇 · 赛季与衍生内容
+
+赛季机制、竞技场、PvE 与联赛。跟主线档案分开的几套进度。
+
+- [赛季与修改器](seasons.md)：三种档案与赛季规则
+- [赛季修改器逐项](season-modifiers.md)：全局 6 项 + 个人卡构筑
+- [联赛系统](leagues.md)：每周 50 人的经验值天梯
+- [竞技场](arena.md)：独立进度的纯对抗模式
+- [PvE 模式](pve.md)：没有真人对手的持久档案
+- [EXFIL Brothers 计划](exfil-brothers.md)：带新人的双向奖励计划
+
+<a id="p8"></a>
+
+## 第八篇 · 世界与背景
+
+天气与时间、光照、彩蛋、诺文斯克封锁区的来历。
+
+- [天气与时间系统](weather.md)：七倍速的时钟与天气
+- [光照与夜战](lighting.md)：光源是双刃剑
+- [彩蛋与制作组的恶意](easter-eggs.md)：彩蛋点位与设计好的陷阱
+- [世界观与阵营背景](worldview.md)：诺文斯克封锁与两大 PMC 的由来
+
+## 📚 查阅栏目
+
+上面八篇讲规则，下面四个栏目是查数据的地方。
+
+- [第九篇 · 物品图鉴](../catalog/index.md)：4,983 件物品的属性、商人买卖价与配图，按分类分页
+- [第十篇 · 任务图鉴](../quests/index.md)：504 个任务的要求、完成奖励、接取门槛与前置，逐条列全
+- [第十一篇 · 参考](../docs/index.md)：速查表、数值口径、配置与站务页
+- [第十二篇 · 交互地图](../maps/index.md)：13 张矢量底图，地名锚点、任务区域、撤离点与楼层切换
 
 更多标签见[标签分类页](../tags.md)。
 
 ---
 
-## 📚 补充资料
-
-- [机制速查表](../docs/mechanics.md)
-- [地图对照速查](../docs/map-guide.md)
-- [术语与黑话速查](../docs/glossary.md)
-- [新手成长路线](../docs/progression.md)
-- [新手开局检查清单](../docs/starter-checklist.md)
-- [购买指南（地区与版本）](../docs/buying-guide.md)
-- [配置与性能](../docs/performance.md)
-- [操作与设置](../docs/game-settings.md) — 哪些设置真的影响战斗
-- [重大版本更新史](../docs/version-history.md) — 2016 至今的重大更新与玩家反馈
-- [待收录清单](../docs/roadmap.md)
-
 ⬆️ **[回到顶部](#top)**
 
-**最后更新**: 2026年10月<br>
-**贡献者**: GTX950L<br>
-**License**: CC BY-NC-SA 4.0
+**最后更新**：2026 年 10 月

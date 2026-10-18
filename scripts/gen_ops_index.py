@@ -108,7 +108,29 @@ def build(mode: str) -> int:
     gname = f"TARKOV_OPS_INDEX_{mode.upper()}"
     out.write_text(header + f"window.{gname} = {body};\n", encoding="utf-8")
     size = out.stat().st_size / 1024
+
+    # ── 首页精简版：只留「哪张图上有哪些任务」需要的四列 ────────────────
+    # 首页的作战台只做三件事：按图列任务、看还有几个没做、一键勾完成。
+    # 目标的 id 与文本（otxt/oids，全份 110 KB）在那里一点用都没有 ——
+    # 打包进去等于让每个首页访客为「不看的字」付流量。
+    # 实测：完整索引 150 KB → 精简版 40 KB（gzip 11 KB）。
+    lite = {qid: [n[0], n[2], n[3], n[4]] for qid, n in nodes.items() if n[4]}
+    lite_body = json.dumps({
+        "mode": mode,
+        "baseline": baseline_label(),
+        "total": len(nodes),
+        "cols": ["name", "trader", "level", "ms"],
+        "tasks": lite,
+    }, ensure_ascii=False, separators=(",", ":"))
+    lite_out = OUT_DIR / f"ops-lite-{mode}.js"
+    lite_out.write_text(
+        header.replace("作战台任务索引", "首页作战台精简索引")
+        + f"window.TARKOV_OPS_LITE_{mode.upper()} = {lite_body};\n",
+        encoding="utf-8")
+    lite_size = lite_out.stat().st_size / 1024
     print(f"已写 {out.relative_to(ROOT)}（{size:.0f} KB，{len(nodes)} 个任务）")
+    print(f"已写 {lite_out.relative_to(ROOT)}（{lite_size:.0f} KB，{len(lite)} 条" 
+          f"带地图的任务）")
     return 0
 
 

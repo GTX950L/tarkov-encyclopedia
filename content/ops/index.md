@@ -63,5 +63,5 @@ title: 作战台
   </ul>
 </div>
 
-<!-- 作战台脚本不在本页内联注入：由 extra_javascript 里的 ops-loader.js
-     检测到 #tk-ops 后按需注入（理由与踩过的坑写在 mkdocs.yml 与 ops-loader.js 头部）。 -->
+<!-- 作战台脚本不在本页内联注入：由 extra_javascript 里的 mount-loader.js
+     检测到 #tk-ops 后按需注入（理由与踩过的坑写在 mkdocs.yml 与 mount-loader.js 头部）。 -->

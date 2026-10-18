@@ -2,8 +2,7 @@
 
 <a id="top"></a>
 
-> “这是一个没有 HUD、没有教学、没有第二次机会的世界。”
-> —— 塔科夫，诺文斯克地区的封锁区
+离线可用的《逃离塔科夫》中文百科。88 篇条目讲规则、地图与数值，图鉴收 4,983 件物品、504 个任务，13 张交互地图和进度工具全部在浏览器里跑 —— 不登录，也不上传任何东西。
 
 <div class="tk-launch">
 <a class="tk-launch__card tk-launch--read" href="entries/spawn-and-opening.md">
@@ -11,7 +10,7 @@
 <span class="tk-launch__desc">88 个条目分十二篇：先懂规则，再看地图，最后吃透装备与经济。</span>
 <ul class="tk-launch__list">
 <li><span class="tk-launch__row"><b>① 先活下来</b><i>撤离 · 保险 · 健康</i></span></li>
-<li><span class="tk-launch__row"><b>② 再认识地图</b><i>十四张图逐张讲</i></span></li>
+<li><span class="tk-launch__row"><b>② 再认识地图</b><i>十三张图逐张讲</i></span></li>
 <li><span class="tk-launch__row"><b>③ 然后懂数值</b><i>弹药 · 护甲 · 枪械</i></span></li>
 <li><span class="tk-launch__row"><b>④ 最后是战场</b><i>经济 · 交火 · 设定</i></span></li>
 </ul>
@@ -20,7 +19,7 @@
 <div class="tk-launch__card tk-launch--tools">
 <span class="tk-launch__head"><span class="tk-launch__title">🧰 用 · 工具箱</span><span class="tk-launch__badge">离线可用 · 无需登录</span></span>
 <ul class="tk-launch__list">
-<li><a href="maps/index.md"><b>交互地图</b><i>13 张图 · 589 个任务区域 · 进度联动</i></a></li>
+<li><a href="maps/index.md"><b>交互地图</b><i>13 张图 · 任务区域与进度联动</i></a></li>
 <li><a href="quests/progress.md"><b>我的进度</b><i data-tk-toolstat>任务 · 剧情 · 物品 · 藏身处</i></a></li>
 <li><a href="quests/index.md"><b>任务图鉴</b><i>逐条要求与奖励 · 可筛选</i></a></li>
 <li><a href="entries/season-modifiers.md"><b>赛季特质模拟器</b><i>点选构筑 · 互斥校验</i></a></li>
@@ -33,6 +32,38 @@
 </div>
 
 > 🎮 **完全新手？** 先打印[新手开局检查清单](docs/starter-checklist.md) 贴着勾——进图前、撤离前各过一遍；或照[新手成长路线](docs/progression.md) 的「**前 10 局脚本**」走，**每局只练一件事**。
+
+<div class="tk-home-ops" id="tk-home-ops">
+<div class="tk-home-ops__head">
+<b class="tk-home-ops__title">🗺️ 作战台</b>
+<span class="tk-home-ops__modes">
+<button type="button" class="tk-home-ops__mode" data-mode="pve">PvE</button>
+<button type="button" class="tk-home-ops__mode" data-mode="season">赛季</button>
+<button type="button" class="tk-home-ops__mode is-on" data-mode="pvp">PvP</button>
+</span>
+</div>
+<p class="tk-home-ops__lead">选一张图，看这张图上还有哪些任务没做；勾一下就算记下了。目标逐条、前置是否满足、地图上的点位，在<a href="ops/index.md">完整作战台</a>。</p>
+<div class="tk-home-ops__maps">
+<a class="tk-home-ops__map" data-map="customs" href="ops/?map=customs">海关</a>
+<a class="tk-home-ops__map" data-map="factory" href="ops/?map=factory">工厂</a>
+<a class="tk-home-ops__map" data-map="ground-zero" href="ops/?map=ground-zero">中心区</a>
+<a class="tk-home-ops__map" data-map="reserve" href="ops/?map=reserve">储备站</a>
+<a class="tk-home-ops__map" data-map="shoreline" href="ops/?map=shoreline">海岸线</a>
+<a class="tk-home-ops__map" data-map="woods" href="ops/?map=woods">森林</a>
+<a class="tk-home-ops__map" data-map="lighthouse" href="ops/?map=lighthouse">灯塔</a>
+<a class="tk-home-ops__map" data-map="interchange" href="ops/?map=interchange">立交桥</a>
+<a class="tk-home-ops__map" data-map="streets-of-tarkov" href="ops/?map=streets-of-tarkov">街区</a>
+<a class="tk-home-ops__map" data-map="terminal" href="ops/?map=terminal">终点站</a>
+<a class="tk-home-ops__map" data-map="icebreaker" href="ops/?map=icebreaker">破冰船</a>
+<a class="tk-home-ops__map" data-map="the-lab" href="ops/?map=the-lab">实验室</a>
+<a class="tk-home-ops__map" data-map="the-labyrinth" href="ops/?map=the-labyrinth">迷宫</a>
+</div>
+<div class="tk-home-ops__body">
+<p class="tk-home-ops__hint">上面选一张图 —— 这张图上还有哪些任务、各要几级，一屏看完。</p>
+</div>
+<noscript><p class="tk-home-ops__hint">任务清单需要 JavaScript；不过每个地图按钮都能直接打开<a href="ops/index.md">完整作战台</a>的对应地图。</p></noscript>
+</div>
+
 
 <!-- AUTO-GEN:HOME-STATS:START -->
 
