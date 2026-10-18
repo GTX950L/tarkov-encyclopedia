@@ -112,10 +112,16 @@ extra_javascript:
   #    只有带 #tk-map 的地图页需要。map-loader.js 检测到挂载点才注入它，
   #    其余 150 多页不再为地图付下载（2026-10-17）。
   - javascripts/map-loader.js
-  # ⚠️ 作战台**不在这里**：ops-board.js 约 48 KB（gzip 16 KB），而全场只有 /ops/
-  #    一个页面需要它。留在这里 = 其余 166 页每页都为它付一次下载（2026-10-18 审查实测：
-  #    全站每页 JS 从 294 KB 降到 246 KB）。改由 content/ops/index.md 末尾的内联加载器按需注入。
-  #    真正的重货（map.js / ops-index-*.js）仍由 ops-board.js 自己按需拉。
+  # 长表表头吸顶：只对 ≥15 行的表生效，脚本自己找表，没有表就什么都不做。
+  # 6.9 KB（gzip 3.2 KB）。为什么不能纯 CSS，见脚本头注释。
+  - javascripts/table-sticky.js
+  # ⚠️ ops-board.js 也**不在这里**：约 48 KB（gzip 16 KB），全场只有 /ops/ 需要。
+  #    留在这里 = 其余 166 页每页为它付一次下载（2026-10-18 实测：每页 JS 294 → 246 KB）。
+  #    与地图同一套做法：ops-loader.js 检测到 #tk-ops 才注入。
+  #    ⚠️ 别改回「在 ops/index.md 里写内联 script 注入」：正文里的脚本先于
+  #    body 末尾的 extra_javascript 执行，那时 DOM 里没有任何 javascripts/*.js 可反推地址，
+  #    加载器只能静默退出（左/右栏全空，实测过）。
+  - javascripts/ops-loader.js
   - javascripts/toolbox.js
 
 nav:

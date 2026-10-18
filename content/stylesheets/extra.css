@@ -7269,3 +7269,65 @@ body:has(#tk-ops) .tk-ops__grid {
 .tk-ops__logs > summary:hover { color: var(--tk-brand); }
 .tk-ops__logs[open] > summary { color: var(--tk-ink); margin-bottom: .3rem; }
 .tk-ops__logsbody { padding-left: .1rem; }
+
+/* 作战台右栏的目标原文：单行省略把「安装 Wi-Fi 摄像头」这类**动作在句尾**的
+   目标切掉了，读到的是环境描述、看不到要干什么。改两行截断 —— 行高由内容撑，
+   不影响键盘行序（行序按 DOM 查，不按像素）。 */
+.tk-ops__objtxt {
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   长表表头吸顶栏（2026-10-18）—— 由 content/javascripts/table-sticky.js 驱动
+   --------------------------------------------------------------------------
+   为什么不是 CSS：全站唯一的横向滚动容器是 `.md-typeset__table`（见上文
+   「本层是全站唯一的表格滚动容器」），它的高度等于内容高度、永不纵向滚动，
+   所以 thead 的 sticky 没有可粘的参照系。封高度让它自己滚又会把 300 多行
+   藏进 700px 的盒子（实测）—— 用一条 fixed 克隆栏代替。
+
+   样式必须在这里重写一遍：克隆栏挂在 body 下、不在 `.md-typeset` 里，
+   主题与本站对表头的选择器（`.md-typeset table:not([class]) thead th`）都够不到它。
+   数值与上面那条表头规则保持一致，改表头时两处一起改。 */
+.tk-thead-float {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;                 /* 页头是 4：栏永远在页头之下 */
+  display: none;
+  overflow: hidden;           /* 表比视口宽，露出来的部分由 transform 平移决定 */
+  pointer-events: none;       /* 纯装饰：不挡点击、不接滚轮 */
+  background: var(--tk-paper);
+  box-shadow: 0 10px 14px -12px rgba(0, 0, 0, .55);
+  border-bottom: 1px solid var(--tk-line-3);
+}
+.tk-thead-float.is-on { display: block; }
+.tk-thead-float > table {
+  width: max-content;
+  margin: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: .74rem;
+  line-height: 1.55;
+}
+.tk-thead-float th {
+  padding: .5em .75em;
+  background: var(--tk-fiord);
+  color: #F5F4F0;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid var(--tk-fiord);
+  border-bottom: 2px solid var(--tk-brand-dark);
+}
+[data-md-color-scheme="slate"] .tk-thead-float th { color: #E6E4DF; }
+
+/* 窄屏：页头 + 吸顶栏会吃掉近 1/5 屏高，且手机上横向滚动更频繁、
+   读者本来就看不清整行 —— 这条优化只在桌面生效。 */
+@media (max-width: 44.9375em) {
+  .tk-thead-float { display: none !important; }
+}

@@ -53,8 +53,11 @@
     base: null,          // 进度账本
   };
 
-  var host = document.getElementById(HOST);
-  if (!host) return;
+  /* 当前已初始化的挂载点。**按节点身份判重**，不按「本脚本是否跑过」判重：
+     navigation.instant 换页时 #tk-ops 是一份新节点、旧 DOM 已销毁，脚本却不会重跑。
+     所以这里不能 return 后收工 —— 没有挂载点时静默退出，等 document$ 换页后再进来。 */
+  var host = null;
+  var globalBound = false;   // 文档级监听（键盘/进度订阅）只绑一次
 
   /* ---------------------------------------------------------------- 工具 */
   function el(tag, cls, text) {
@@ -65,6 +68,14 @@
   }
   function loadScript(src, key, cb) {
     if (key && window[key]) return cb(true);
+    /* map.js 只注入一次：instant 换页回到 /ops/ 时重复执行 93 KB 既慢，又会把它
+       自己的全局状态重置一遍。挂载由 remountMap() 负责，不靠重跑脚本。
+       ⚠️ 必须 `setTimeout` 出栈再回调：map.js 的 siteRoot() 优先读 document.currentScript，
+          同步回调时它读到的是**正在执行的 ops-board.js**，拼出来的地址是
+          `.../javascripts/ops-board.jsjavascripts/maps-data-<图>.js`（实测 404）。 */
+    if (src === "map.js" && window.TarkovMap) {
+      return setTimeout(function () { cb(true); }, 0);
+    }
     var s = document.createElement("script");
     s.src = siteRoot() + "javascripts/" + src;
     s.onload = function () { cb(!!(key && window[key])); };
@@ -1003,7 +1014,6 @@
     applyWidths();
     bindGrips();
     bindMapToRight();
-    bindKeys();
     bindHover();
     syncUrl();
     /* 进度一变就重绘（勾选、日志同步、别的标签页…）。
@@ -1032,17 +1042,39 @@
        完全不响应。手工勾选看不出问题，因为 setState() 里直接调了 paint()；
        日志同步、进度页改状态、别的标签页改动全都不会反映。
        这里同时兼容两种写法，两个都试一遍。 */
-    var P = window.TarkovProgress;
-    if (P && typeof P.subscribe === "function") {
-      P.subscribe(repaintSoon);
-    } else if (P && typeof P.onChange === "function") {
-      P.onChange(repaintSoon);
-    } else {
-      document.addEventListener("tarkov:progress", repaintSoon);
+    /* ⚠️ 文档级监听只绑一次：instant 换页会重新 boot 一次，重复绑会让
+       一次按键走两遍、一次进度变更触发两次重绘。 */
+    if (!globalBound) {
+      globalBound = true;
+      bindKeys();
+      var P = window.TarkovProgress;
+      if (P && typeof P.subscribe === "function") {
+        P.subscribe(repaintSoon);
+      } else if (P && typeof P.onChange === "function") {
+        P.onChange(repaintSoon);
+      } else {
+        document.addEventListener("tarkov:progress", repaintSoon);
+      }
     }
   }
 
+  /* 进入/离开 /ops/ 的三个时机都要覆盖：
+       · 直接打开（或刷新）—— 脚本由 ops-loader.js 注入，readyState 可能已是 complete；
+       · 首次加载 —— DOMContentLoaded；
+       · instant 换页 —— 不重跑脚本、不触发 DOMContentLoaded，靠 document$。 */
+  function bootIfNeeded() {
+    var h = document.getElementById(HOST);
+    if (!h || h === host) return;
+    host = h;
+    boot();
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", boot);
-  } else { boot(); }
+    document.addEventListener("DOMContentLoaded", bootIfNeeded);
+  } else {
+    bootIfNeeded();
+  }
+  if (window.document$ && typeof window.document$.subscribe === "function") {
+    window.document$.subscribe(bootIfNeeded);
+  }
 })();
