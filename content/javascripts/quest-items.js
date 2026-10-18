@@ -62,12 +62,6 @@
     return a;
   }
 
-  function esc(s) {
-    return String(s == null ? "" : s)
-      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
-  }
-
 function siteRoot() {
     /* 优先用 toolbox.js 在首次整页加载时算好并公布的站点根，不要每次现算。
        Material 的 instant navigation 换页时会重建 <script> 元素，重建后的

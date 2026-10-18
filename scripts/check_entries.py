@@ -27,6 +27,8 @@
 
 from __future__ import annotations
 
+from _console import setup as _setup_console
+
 import json
 import re
 import sys
@@ -677,11 +679,22 @@ def main() -> int:
     #       豁免的粒度是**整行**，与 ① ② 的剥离口径一致：只吃掉标记本身。
     for md in md_files:
         in_code = False
+        in_raw = False   # <script> / <style> 块：里面是代码，不是正文
         for lineno, line in enumerate(md.read_text(encoding="utf-8").splitlines(), 1):
             if line.strip().startswith("```"):
                 in_code = not in_code
                 continue
-            if in_code or line.strip() == "---":
+            # ④ 原生 <script>/<style> 块：页面里内嵌的 JS/CSS 用 ASCII 双引号是语法，
+            #    不是中文标点。2026-10-18 给 /ops/ 加内联加载器时这条误报了注释里的
+            #    `"/javascripts/"` —— 与 ①②③ 是同一类「语法引号」。
+            low = line.strip().lower()
+            if low.startswith(("<script", "<style")):
+                in_raw = "</script" not in low and "</style" not in low
+                continue
+            if low.startswith(("</script", "</style")):
+                in_raw = False
+                continue
+            if in_code or in_raw or line.strip() == "---":
                 continue
             if re.match(r"\s*<[a-zA-Z/]", line):
                 continue
@@ -891,7 +904,45 @@ def main() -> int:
                 "llms.txt 参考区未列出这些参考页: " + "、".join(missing_docs)
             )
 
-    # 12. 汇总
+    # 12. llms.txt 的「最后更新」必须等于站内数据的最新抓取日
+    #
+    # 为什么需要：llms.txt 是给 AI 爬虫读的「这份资料有多新」的唯一声明，而它
+    # **没有任何东西在维护** —— 2026-10-18 审查发现它写 2026-10-17，而站内已有
+    # 4 份脚本缓存是 2026-10-18 抓的。数字小的偏差不会让任何页面报错，只会让
+    # 引用本站的智能体/fl 读者以为数据比实际旧（或新）。
+    llms_path = CONTENT / "llms.txt"
+    if llms_path.exists():
+        text = llms_path.read_text(encoding="utf-8")
+        m_upd = re.search(r"^最后更新：(\d{4}-\d{2}-\d{2})\s*$", text, re.MULTILINE)
+        fetched_dates: list[str] = []
+        # 跳过 .gitignore 里的缓存（items_full.json 由 CI 每次重抓，日期随当天变动；
+        # 拿它当判据会让「本地刚抓过数据」与「仓库状态」混为一谈）。
+        ignored = {
+            line.strip()
+            for line in (ROOT / ".gitignore").read_text(encoding="utf-8").splitlines()
+            if line.strip() and not line.strip().startswith("#")
+        }
+        for cache in sorted((ROOT / "scripts" / "data").glob("*.json")):
+            if f"scripts/data/{cache.name}" in ignored:
+                continue
+            try:
+                payload = json.loads(cache.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, OSError):
+                continue
+            if isinstance(payload, dict) and isinstance(payload.get("fetched"), str):
+                fetched_dates.append(payload["fetched"])
+        if not m_upd:
+            errors.append("llms.txt 缺少「最后更新：YYYY-MM-DD」声明")
+        elif fetched_dates:
+            newest = max(fetched_dates)
+            if m_upd.group(1) != newest:
+                errors.append(
+                    f"llms.txt 的「最后更新」是 {m_upd.group(1)}，"
+                    f"但 scripts/data/ 里最新的抓取日是 {newest} —— "
+                    f"更新数据后忘了改这一行（它是 AI 爬虫判断新鲜度的唯一依据）"
+                )
+
+    # 13. 汇总
     print("=" * 60)
     print(f"内容文件总数: {len(md_files)}")
     print(f"百科条目数:   {n_entries}")
@@ -918,4 +969,5 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    _setup_console()
     sys.exit(main())

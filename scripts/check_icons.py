@@ -37,6 +37,8 @@
 
 from __future__ import annotations
 
+from _console import setup as _setup_console
+
 import re
 import sys
 import unicodedata
@@ -324,4 +326,5 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    _setup_console()
     sys.exit(main())

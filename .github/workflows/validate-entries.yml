@@ -24,6 +24,17 @@ jobs:
       - name: Check agent manual consistency
         run: python scripts/skills_consistency.py
 
+      # 前端脚本结构（重复定义 / 死代码 / 全局泄漏）与单测。
+      # PR 阶段就跑，理由：这两道最快（合计约 2 秒），却最容易因为一次重构变红 ——
+      # 放到部署前置再发现，意味着已经合并进 main 了。
+      - name: Lint handwritten scripts
+        run: python scripts/check_js_lint.py
+
+      - name: Run unit tests
+        run: |
+          pip install -r requirements-dev.txt
+          python -m pytest tests -q
+
       # 物品数值一致性：既有图鉴条目与物品图鉴的同一件物品，数值是否还对得上。
       # ⚠️ 它需要 items_full.json 缓存（不入仓），所以这一条自己抓一次数据源。
       #    数据源结构变了、或某篇条目写错了数，这里就会红。

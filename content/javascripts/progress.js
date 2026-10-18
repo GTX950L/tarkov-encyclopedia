@@ -1249,12 +1249,6 @@ function siteRoot() {
     setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
   }
 
-  function today() {
-    var d = new Date();
-    var p = function (n) { return String(n).padStart(2, "0"); };
-    return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
-  }
-
     /* --------------------------------------------------------------------------
      小工具（核心与看板共用）
      -------------------------------------------------------------------------- */

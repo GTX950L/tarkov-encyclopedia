@@ -8,6 +8,8 @@
   最后一列 = 说明，中间列（若有）= 原文 / 全称。
 - 说明里的 markdown 标记（**加粗**、[链接](...)）要剥掉——tooltip 只显示纯文本。
 """
+
+from _console import setup as _setup_console
 import os
 import re
 import sys
@@ -108,4 +110,5 @@ def main():
 
 
 if __name__ == "__main__":
+    _setup_console()
     main()

@@ -60,3 +60,26 @@ title: 作战台
     <li><a href="../quests/item-lookup/">物品反查</a> —— 手上这个要不要留</li>
   </ul>
 </div>
+
+<script>
+/* 作战台脚本按需注入（2026-10-18）。
+   为什么不用 extra_javascript：ops-board.js ≈ 48 KB / gzip 16 KB，而全场只有本页需要它。
+   为什么从别的 script 标签反推地址：本站部署在 /tarkov-encyclopedia/ 子路径下，
+   写死相对路径在「多深目录 + 子路径」两种变化下都会错（ops-board.js 自己的 siteRoot()
+   也是这么反推的，见该文件 :79-88）。取任意一份站内 javascripts/ 的 src 改写文件名即可；
+   注意要排掉主题自带的 assets/javascripts/bundle.*.min.js（它也含 "/javascripts/"）。
+   注入时若 DOM 已解析完（本脚本在页尾，通常如此），ops-board.js 会直接 boot。 */
+(function () {
+  var ref = null;
+  var list = document.querySelectorAll("script[src]");
+  for (var i = 0; i < list.length; i++) {
+    var u = list[i].getAttribute("src") || "";
+    if (u.indexOf("assets/") < 0 && /javascripts\/[^/]+\.js$/.test(u)) { ref = list[i]; break; }
+  }
+  if (!ref) return;
+  var s = document.createElement("script");
+  s.src = ref.src.replace(/[^/]+$/, "ops-board.js");
+  s.async = false;
+  document.head.appendChild(s);
+})();
+</script>

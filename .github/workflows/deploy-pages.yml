@@ -36,6 +36,20 @@ jobs:
       - name: Check agent manual consistency
         run: python scripts/skills_consistency.py
 
+      # 前端脚本结构：重复定义 / 死代码 / 全局泄漏。
+      # 为什么这不是「代码品味」：2026-10-18 审查在 ops-board.js 里抓到
+      # bindMapToRight() 被逐字复制两份、buildRight() 39 行没人调用 ——
+      # 构建不报错、页面能打开 —— 当时那七道门禁一道都看不见。
+      - name: Lint handwritten scripts
+        run: python scripts/check_js_lint.py
+
+      # 单测：纯函数 + 内容级不变量 + 产物冒烟。约 2 秒，不需要浏览器。
+      # 只装 dev 依赖（pytest），不污染部署用的 requirements.txt。
+      - name: Run unit tests
+        run: |
+          pip install -r requirements-dev.txt
+          python -m pytest tests -q
+
       # ⚠️ 顺序：**先抓一次数据、再跑三个用它/查它的步骤**。
       # 抓三遍和抓一遍结果一样，时间差好几倍。
       - name: Generate item catalog
@@ -58,7 +72,7 @@ jobs:
       # 为什么需要它：`gen_*.py` 的产物是入库的，**改了源或生成器却忘了重跑**
       # 不会让构建失败、也不会让上面任何一道门禁变红 —— 线上就一直留着旧产物。
       # 实测（2026-10-11）：干净工作区重跑一遍，12 个文件与仓库不一致。
-      # ⚠️ 放在最后：它要重跑 17 支生成器（约 20 秒），且会改写产物文件。
+      # ⚠️ 放在最后：它要重跑 24 支生成器（约 20 秒），且会改写产物文件。
       - name: Check generator drift
         run: python scripts/check_gen_drift.py
 
@@ -105,6 +119,11 @@ jobs:
 
       - name: Build site
         run: zensical build
+
+      # 体积预算：把「弱网可读」从口号变成会红的数字。
+      # 超预算时要么优化，要么**同时**改这里的预算并写明理由 —— 不允许静默超标。
+      - name: Check size budgets
+        run: python scripts/check_budget.py
 
       - name: Setup Pages
         uses: actions/configure-pages@v6

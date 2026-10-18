@@ -47,7 +47,13 @@ BASELINE_MONTH_RE = re.compile(
 
 def _citation_text() -> str:
     if not CITATION.exists():
-        raise SystemExit(f"[错误] 找不到 {CITATION.relative_to(ROOT)}，无法确定站点基线")
+        # 打印路径时不能直接 relative_to(ROOT)：测试或别的工作目录下 CITATION
+        # 可能指向仓库外，那会抛 ValueError，而不是给一句人话。
+        try:
+            shown = CITATION.relative_to(ROOT)
+        except ValueError:
+            shown = CITATION
+        raise SystemExit(f"[错误] 找不到 {shown}，无法确定站点基线")
     return CITATION.read_text(encoding="utf-8")
 
 

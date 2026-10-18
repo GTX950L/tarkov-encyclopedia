@@ -112,9 +112,10 @@ extra_javascript:
   #    只有带 #tk-map 的地图页需要。map-loader.js 检测到挂载点才注入它，
   #    其余 150 多页不再为地图付下载（2026-10-17）。
   - javascripts/map-loader.js
-  # 作战台（2026-10-18）：只在 /ops/ 页面有意义，但体量小（~14 KB），
-  # 与 toolbox 同级加载；真正的重货（map.js / ops-index-*.js）由它按需拉。
-  - javascripts/ops-board.js
+  # ⚠️ 作战台**不在这里**：ops-board.js 约 48 KB（gzip 16 KB），而全场只有 /ops/
+  #    一个页面需要它。留在这里 = 其余 166 页每页都为它付一次下载（2026-10-18 审查实测：
+  #    全站每页 JS 从 294 KB 降到 246 KB）。改由 content/ops/index.md 末尾的内联加载器按需注入。
+  #    真正的重货（map.js / ops-index-*.js）仍由 ops-board.js 自己按需拉。
   - javascripts/toolbox.js
 
 nav:

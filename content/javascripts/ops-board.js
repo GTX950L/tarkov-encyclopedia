@@ -432,46 +432,6 @@
     return out;
   }
 
-  function buildRight() {
-    var box = el("div", "tk-ops__right");
-    var search = el("input", "tk-ops__search");
-    search.type = "search";
-    search.placeholder = "搜任务 / 地名 / 物品（/ 聚焦）";
-    search.value = S.q;
-    search.addEventListener("input", function () {
-      S.q = search.value.trim();
-      paint();
-    });
-    box.appendChild(search);
-
-    var seg = el("div", "tk-ops__seg");
-    [["open", "未完成"], ["inhand", "进行中"], ["pinned", "钉住"],
-     ["done", "已完成"], ["ignored", "已忽略"], ["all", "全部"]]
-      .forEach(function (p) {
-        var b = el("button", "tk-ops__segb", p[1]);
-        b.type = "button";
-        b.setAttribute("aria-pressed", p[0] === S.filter ? "true" : "false");
-        b.addEventListener("click", function () { S.filter = p[0]; paint(); syncUrl(); });
-        seg.appendChild(b);
-      });
-    box.appendChild(seg);
-
-    var scopeRow = el("div", "tk-ops__scope");
-    [["map", "仅本图"], ["all", "全站"]].forEach(function (p) {
-      var b = el("button", "tk-ops__segb", p[1]);
-      b.type = "button";
-      b.setAttribute("aria-pressed", p[0] === S.scope ? "true" : "false");
-      b.addEventListener("click", function () { S.scope = p[0]; paint(); syncUrl(); });
-      scopeRow.appendChild(b);
-    });
-    box.appendChild(scopeRow);
-
-    var list = el("div", "tk-ops__list");
-    list.id = "tk-ops-list";
-    box.appendChild(list);
-    return box;
-  }
-
   function renderList(list) {
     list.textContent = "";
     var rows = visibleTasks();
@@ -684,33 +644,6 @@
     window.addEventListener("tk:map:select", window.__tkOpsMapSync);
   }
 
-  /* -------------------------------------------------- 地图 → 右栏（反向联动）
-     地图上点了某个区域，右栏要跟着选中那一行（并滚到可见位置）——
-     否则读者在地图上点了一下，右栏毫无反应，会以为没点中。
-     ⚠️ 只在**任务变了**时才重绘右栏：selectTask 每次都会 emit（含清空选中），
-        无条件 paint 会和右栏的点击互相触发，滚动手感也会被打断。 */
-  function bindMapToRight() {
-    if (window.__tkOpsMapSync) return;
-    window.__tkOpsMapSync = function (ev) {
-      var d = (ev && ev.detail) || {};
-      if (d.map && d.map !== S.map) return;          /* 别的图发来的事件，忽略 */
-      var qid = d.qid || null;
-      if (qid === S.selQ) return;
-      S.selQ = qid;
-      S.selO = d.oid || null;
-      /* 点空白 = 取消选中：只取消高亮，不动筛选，别把列表刷没了 */
-      var list = document.getElementById("tk-ops-list");
-      if (list) {
-        Array.prototype.forEach.call(list.querySelectorAll(".tk-ops__row"), function (n) {
-          n.classList.toggle("is-sel", n.dataset.qid === qid);
-        });
-        var cur = list.querySelector(".tk-ops__row.is-sel");
-        if (cur && cur.scrollIntoView) cur.scrollIntoView({ block: "nearest" });
-      }
-      syncUrl();
-    };
-    window.addEventListener("tk:map:select", window.__tkOpsMapSync);
-  }
 
   /* ------------------------------------------------------------ 键盘流 */
   function bindKeys() {
@@ -1069,7 +1002,6 @@
     });
     applyWidths();
     bindGrips();
-    bindMapToRight();
     bindMapToRight();
     bindKeys();
     bindHover();

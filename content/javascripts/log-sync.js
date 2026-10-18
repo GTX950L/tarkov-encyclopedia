@@ -148,19 +148,6 @@
     } catch (e) { /* 隐私模式 / 配额满：静默降级，不影响本次同步 */ }
   }
 
-  function fpOf(f) { return f.size + "|" + f.lastModified; }
-
-  function loadRaids() {
-    try {
-      var raw = window.localStorage.getItem(RAID_KEY);
-      var o = raw ? JSON.parse(raw) : null;
-      if (o && Array.isArray(o.list)) {
-        return { list: o.list, seen: o.seen || {}, trunc: !!o.trunc };
-      }
-    } catch (e) { /* 坏数据当作没有：宁可重算，也不要让统计整块消失 */ }
-    return { list: [], seen: {}, trunc: false };
-  }
-
   function saveRaids(raids) {
     try {
       var list = raids.list;
