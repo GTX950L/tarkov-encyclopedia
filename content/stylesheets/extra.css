@@ -6149,30 +6149,6 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   stroke-width: calc(3px / var(--tk-k, 1));
 }
 
-/* —— 撤离点 / 转场点 / 上锁的记号几何也按 k 补偿 ——
-   方块的 x/y/宽高原本写死成用户单位：工厂（viewBox 130）上是约 60px 的大块，
-   街区（viewBox 3000+）上不足 2px。SVG 几何属性支持 CSS（Chromium 81+），
-   直接在 CSS 里 calc，与字号同一套纪律。
-   文字的 x/y 偏移由 map.js 的避让布局每帧写入（它们是逐标签不同的属性）。 */
-.tk-ex rect {
-  x: calc(-5px / var(--tk-k, 1));
-  y: calc(-5px / var(--tk-k, 1));
-  width: calc(10px / var(--tk-k, 1));
-  height: calc(10px / var(--tk-k, 1));
-  rx: calc(1.2px / var(--tk-k, 1));
-}
-
-.tk-lk rect {
-  x: calc(-4.2px / var(--tk-k, 1));
-  y: calc(-4.2px / var(--tk-k, 1));
-  width: calc(8.4px / var(--tk-k, 1));
-  height: calc(8.4px / var(--tk-k, 1));
-  rx: calc(1.6px / var(--tk-k, 1));
-}
-
-/* 三角形的 points 不是 CSS 属性，用 scale 补偿（本地原点=点位中心，
-   scale 同步缩描边，视觉等效屏幕恒定） */
-.tk-tr polygon { transform: scale(calc(1 / var(--tk-k, 1))); }
 
 /* —— 比例尺（画布左下角，数据与测距同源）—— */
 .tk-map__canvas { position: relative; }
@@ -6721,14 +6697,7 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 .tk-hz:hover { fill-opacity: .26; }
 
-.tk-lk rect {
-  fill: #8b5cf6;
-  fill-opacity: .9;
-  stroke: #fff;
-  stroke-width: calc(1.2px / var(--tk-k, 1));
-}
-
-.tk-lk:hover rect { fill: #6d28d9; stroke-width: calc(2.2px / var(--tk-k, 1)); }
+.tk-lk:hover .tk-lk__ico { filter: brightness(1.15) drop-shadow(0 0 2px rgba(0, 0, 0, .5)); }
 
 /* 钥匙深链（?key=<物品id>）高亮：匹配的锁点**放大变实**、其余降透明 ——
    「这把钥匙的门在这几个」一眼可见。入口：物品图鉴钥匙页的「所在图」列、
@@ -6736,27 +6705,19 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
    与基础规则的写法保持一致。 */
 .tk-map__locks.is-keyhl .tk-lk { opacity: .22; }
 .tk-map__locks.is-keyhl .tk-lk.is-keyhl { opacity: 1; }
-.tk-lk.is-keyhl rect {
-  x: calc(-6px / var(--tk-k, 1));
-  y: calc(-6px / var(--tk-k, 1));
-  width: calc(12px / var(--tk-k, 1));
-  height: calc(12px / var(--tk-k, 1));
-  rx: calc(2.2px / var(--tk-k, 1));
-  fill: #6d28d9;
-  stroke-width: calc(2.2px / var(--tk-k, 1));
+/* 钥匙深链高亮：锁点放大 1.4 倍 + 描一圈紫环（位图不能改 fill，用 outline 等效） */
+.tk-lk.is-keyhl .tk-lk__ico {
+  width: calc(16px / var(--tk-k, 1));
+  height: calc(16px / var(--tk-k, 1));
+  x: calc(-8px / var(--tk-k, 1));
+  y: calc(-8px / var(--tk-k, 1));
+  filter: drop-shadow(0 0 0.08em #6d28d9) drop-shadow(0 0 0.14em #6d28d9);
 }
 
-/* 撤离点按阵营分色：PMC（蓝）／Scav（橙）／共用（紫）。
-   ⚠️ 这是**上游的 faction 字段**，不是本站判断的「谁能用」—— 别读成通行结论。 */
-.tk-ex rect {
-  stroke: #fff;
-  stroke-width: calc(1.2px / var(--tk-k, 1));
-}
-
-.tk-ex--pmc rect { fill: #1c4fd8; }
-.tk-ex--scav rect { fill: #d97706; }
-.tk-ex--shared rect { fill: #7c3aed; }
-.tk-ex:hover rect { stroke-width: calc(2.4px / var(--tk-k, 1)); }
+/* 撤离点：阵营由**图标本身**区分（extract_pmc / extract_scav / extract_shared），
+   不再靠方块填色。⚠️ 阵营来自**上游的 faction 字段**，不是本站判断的「谁能用」。 */
+.tk-ex:hover .tk-ex__ico,
+.tk-ex:hover .tk-tr__ico { filter: brightness(1.12) drop-shadow(0 0 2px rgba(0, 0, 0, .45)); }
 
 /* 撤离点 / 转场点的名字标签 —— 学参考站：**光有方块，读者不知道是哪个出口**。
    上游给的是 `ex_customs_scav_gasstation` 这种内部 id，转成可读名才敢显示
@@ -6771,14 +6732,8 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   pointer-events: none;
 }
 
-/* 转场点：**三角** —— 与撤离点的方块刻意区分（形状差异在黑白与色弱下同样成立） */
-.tk-tr polygon {
-  fill: #0E7490;
-  stroke: #fff;
-  stroke-width: calc(1.2px / var(--tk-k, 1));
-}
-
-.tk-tr:hover polygon { fill: #155E75; }
+/* 转场点：用「转场」专用图标（extract_transit），与撤离点同款针形但图案不同 */
+.tk-tr:hover .tk-ex__ico { filter: brightness(1.12) drop-shadow(0 0 2px rgba(0, 0, 0, .45)); }
 
 .tk-tr__lbl {
   font-size: calc(10.5px / var(--tk-k, 1));
@@ -7136,4 +7091,74 @@ body:has(#tk-ops) .tk-ops__grid {
   font-size: .58rem; color: var(--tk-ink-2);
   background: var(--tk-panel); border-radius: .18rem;
   padding: 0 .3em; white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   地图标记图标（2026-10-18）
+   来源：The Official Escape From Tarkov Wiki 的地图标记图标，经 tarkov.dev
+   打包分发（该仓库 MIT；图标本身是游戏素材，社区工具通用，站内已署名）。
+   文件在 content/assets/map-icons/，共 6 个、合计约 9 KB。
+
+   尺寸一律 `calc(Npx / var(--tk-k))` = **屏幕像素恒定**：工厂（viewBox 130）
+   与街区（viewBox 3000+）上图钉一样大，与文字避让同一套纪律。
+
+   锚点分两类，这是位图替代色块最容易做错的地方：
+   · **针形**（撤离点 / 转场）—— 图标底部有个尖，尖才是实际坐标。
+     实测源图 60×60，针尖在最后一行 (x=29.5, y=59)，所以 x 取 -H/2、y 取 -H，
+     让**底边**贴住点位。按中心对齐的话，图钉会浮在真实位置上方半个身位。
+   · **徽章 / 三角**（锁 / 危险区）—— 居中即可。
+   ═══════════════════════════════════════════════════════════════════════════ */
+.tk-ex__ico {
+  x: calc(-8px / var(--tk-k, 1));
+  y: calc(-16px / var(--tk-k, 1));
+  width: calc(16px / var(--tk-k, 1));
+  height: calc(16px / var(--tk-k, 1));
+}
+
+.tk-lk__ico {
+  x: calc(-5.5px / var(--tk-k, 1));
+  y: calc(-5.5px / var(--tk-k, 1));
+  width: calc(11px / var(--tk-k, 1));
+  height: calc(11px / var(--tk-k, 1));
+}
+
+.tk-hz__ico {
+  x: calc(-8px / var(--tk-k, 1));
+  y: calc(-8px / var(--tk-k, 1));
+  width: calc(16px / var(--tk-k, 1));
+  height: calc(16px / var(--tk-k, 1));
+}
+
+.tk-hz-ico { pointer-events: none; }   /* 点击穿透到下面的危险区多边形 */
+
+/* 图例：四类点位改用同一套图标。**必须带 .tk-map__legend 前缀**——
+   旧规则（.tk-lg-ex { background: #1c4fd8 }）是 background 简写，
+   同特异性下要靠后写法才覆盖得住，所以这里提特异性并放在文件末尾。 */
+.tk-map__legend .tk-lg-ex,
+.tk-map__legend .tk-lg-tr,
+.tk-map__legend .tk-lg-lock,
+.tk-map__legend .tk-lg-hz {
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 0;
+  box-shadow: none;
+  clip-path: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.tk-map__legend .tk-lg-ex { background-image: url("../assets/map-icons/extract_pmc.png"); }
+.tk-map__legend .tk-lg-tr { background-image: url("../assets/map-icons/extract_transit.png"); }
+.tk-map__legend .tk-lg-lock { background-image: url("../assets/map-icons/lock.png"); }
+.tk-map__legend .tk-lg-hz { background-image: url("../assets/map-icons/hazard.png"); }
+
+/* 图标来源署名：放在图例末尾，小字，不抢戏但可查 */
+.tk-map__credit {
+  margin: .3rem 0 0;
+  font-size: .62rem;
+  line-height: 1.5;
+  color: var(--tk-ink-2);
+  opacity: .85;
 }

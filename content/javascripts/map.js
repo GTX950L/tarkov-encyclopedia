@@ -79,6 +79,30 @@
     return n;
   }
 
+  /* ── 地图标记图标（2026-10-18）─────────────────────────────────────────
+     此前四类点位都是**纯色块**（方块/三角/斜纹面），读者得靠颜色记含义。
+     现在换成官方 Wiki 的地图标记图标（The Official Escape From Tarkov Wiki，
+     由 tarkov.dev 打包分发，MIT 项目下的同套资源）。
+
+     为什么用位图而不是自己画 SVG：
+     这些就是游戏内地图标记的原样素材，自绘一套「像官方」的 SVG 反而更假。
+     60×64 的源图在 20 屏幕像素下显示，3 倍余量，高 DPI 也够锐。
+
+     **针形锚点**：撤离点与转场的图标是「针」——底部有个尖，尖才是实际位置。
+     所以它们的 y 漂移要让**底边**对齐原点；锁与危险区是徽章/三角，按中心对齐。
+     两类锚点分开写在 CSS 里（.tk-ex__ico / .tk-lk__ico），不在这里硬算。 */
+  var ICON_DIR = "assets/map-icons/";
+  function iconURI(name) {
+    return siteRoot() + ICON_DIR + name + ".png";
+  }
+  function iconEl(cls, name) {
+    var img = el("image", { class: cls, href: iconURI(name) });
+    /* 老浏览器只认 xlink:href；两种都写，代价一个属性。 */
+    img.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", iconURI(name));
+    img.setAttribute("preserveAspectRatio", "xMidYMid meet");
+    return img;
+  }
+
   function render(host, data, svgText) {
     host.innerHTML = "";
     host.classList.add("tk-map--ready");
@@ -1272,7 +1296,7 @@
         "data-key": lk.k || "",
         transform: "translate(" + lk.p[0] + "," + lk.p[1] + ")",
       });
-      g.appendChild(el("rect", { x: -4.2, y: -4.2, width: 8.4, height: 8.4, rx: 1.6 }));
+      g.appendChild(iconEl("tk-lk__ico", "lock"));
       var tip = lk.tzh + (lk.pw ? "（需要供电）" : "");
       tip += lk.k ? "\n需要钥匙 —— 点击查看这件钥匙" : "\n无需钥匙";
       g.appendChild(el("title", {}, tip));
@@ -1287,6 +1311,42 @@
     });
     if (lockLayer.children.length) svg.appendChild(lockLayer);
 
+    /* ── 危险区图标（2026-10-18）──
+       危险区是**面**（雷区范围），面必须留 —— 图标只能表示「这里有个点」，
+       表达不了「这一片都是」。所以只在质心加图标作**性质标记**。
+
+       ⚠️ 但**不能每个都加**：实测危险区数量在几张大地图上极多
+       （灯塔 116、树林 64、街区 56），而中位跨度只有画布对角线的
+       **0.6%–0.7%** —— 绝大多数是单颗雷或一小段。逐个盖图标会糊成一片，
+       比原来的斜纹面更难读。所以只给**跨度 ≥ 画布对角线 8%** 的区域加，
+       小雷区只留面（面本身已经够清楚）。
+       图标层放在上锁之后、撤离点之前：压在任务区域半透明填充之上，
+       又不至于挡住撤离点这种行动信息。 */
+    var hazIcoLayer = el("g", { class: "tk-map__hazicons" });
+    var hzDiag = Math.hypot(
+      (data.viewBox || [0, 0, 1000, 600])[2],
+      (data.viewBox || [0, 0, 1000, 600])[3]);
+    (data.hazards || []).forEach(function (h) {
+      var pts = h.pts || [];
+      if (!pts.length) return;
+      var xs = pts.map(function (q) { return q[0]; });
+      var ys = pts.map(function (q) { return q[1]; });
+      var span = Math.hypot(Math.max.apply(null, xs) - Math.min.apply(null, xs),
+                            Math.max.apply(null, ys) - Math.min.apply(null, ys));
+      if (span < hzDiag * 0.08) return false;   // 小雷区：只留面，不盖图标
+      var cx = 0, cy = 0;
+      pts.forEach(function (q) { cx += q[0]; cy += q[1]; });
+      cx /= pts.length; cy /= pts.length;
+      var gi = el("g", {
+        class: "tk-hz-ico",
+        transform: "translate(" + cx + "," + cy + ")",
+      });
+      gi.appendChild(iconEl("tk-hz__ico", "hazard"));
+      gi.appendChild(el("title", {}, h.tzh + "（虚线范围即危险区域）"));
+      hazIcoLayer.appendChild(gi);
+    });
+    if (hazIcoLayer.children.length) svg.appendChild(hazIcoLayer);
+
     /* ── 撤离点：方块 + 阵营色 + **可读名** ──
        名字这件事是参考小喵塔科夫与 eftarkov 补上的：它们都显示「铁路通道」「加油站」，
        而本站此前只有方块 —— 上游给的名字是 `ex_customs_scav_gasstation` 这种内部 id，
@@ -1298,10 +1358,14 @@
         class: "tk-ex tk-ex--" + (e.f || "shared"),
         transform: "translate(" + e.p[0] + "," + e.p[1] + ")",
       });
-      g.appendChild(el("rect", { x: -5, y: -5, width: 10, height: 10, rx: 1.2 }));
+      /* 图标按**上游 faction** 三选一（pmc / scav / shared），
+         与旧版的三色方块一一对应 —— 颜色不再是唯一线索，
+         形状细节（人物剪影的配色）也带阵营信息。 */
+      var exKind = (e.f === "pmc" || e.f === "scav") ? e.f : "shared";
+      g.appendChild(iconEl("tk-ex__ico", "extract_" + exKind));
       g.appendChild(el("text", { x: 8, y: 4, class: "tk-ex__lbl" }, e.nzh || e.fzh));
       /* 名字文字进避让池：撤离点是行动信息，优先级最高（见 PRIO） */
-      regLabel(e, g.querySelector("text"), e.p[0], e.p[1], "extract", 8, 4);
+      regLabel(e, g.querySelector("text"), e.p[0], e.p[1], "extract", 11, 4);
       var etip = e.fzh + " 撤离点：" + (e.nzh || e.n);
       /* 多版本图（工厂日/夜、中心区低等级/高难）各版本的撤离点列表不同。
          只标「不是两个版本都有」的那些 —— 标注出来，读者才知道
@@ -1353,9 +1417,9 @@
         class: "tk-tr",
         transform: "translate(" + tr.p[0] + "," + tr.p[1] + ")",
       });
-      g.appendChild(el("polygon", { points: "0,-6.5 6.5,5 -6.5,5" }));
-      g.appendChild(el("text", { x: 9, y: 4, class: "tk-tr__lbl" }, tr.nzh));
-      regLabel(tr, g.querySelector("text"), tr.p[0], tr.p[1], "transit", 9, 4);
+      g.appendChild(iconEl("tk-ex__ico", "extract_transit"));
+      g.appendChild(el("text", { x: 11, y: 4, class: "tk-tr__lbl" }, tr.nzh));
+      regLabel(tr, g.querySelector("text"), tr.p[0], tr.p[1], "transit", 11, 4);
       var ttip = tr.nzh + "（转场：不结束战局直接换图）\n点击查看转场说明";
       g.appendChild(el("title", {}, ttip));
       g.style.cursor = "pointer";
@@ -2202,10 +2266,10 @@
     legend.className = "tk-map__legend";
     [
       ["tk-lg-pin", "地名锚点 —— 点击查看条目", (data.labels || []).length],
-      ["tk-lg-ex", "撤离点（带名字，按阵营分色）—— 点击看条件", (data.extracts || []).length],
+      ["tk-lg-ex", "撤离点（PMC / Scav / 共用三种图标）—— 点击看条件", (data.extracts || []).length],
       ["tk-lg-tr", "转场点 —— 不结束战局直接换图", (data.transits || []).length],
       ["tk-lg-lock", "上锁 —— 点击查需要哪把钥匙", (data.locks || []).length],
-      ["tk-lg-hz", "危险区（雷区等）", (data.hazards || []).length],
+      ["tk-lg-hz", "危险区 —— 斜纹虚线是范围，图标标大片雷区", (data.hazards || []).length],
       ["tk-lg-task", "任务目标区域 —— 单击只看它、双击进详情", qzAll.length],
     ].forEach(function (pair) {
       if (!pair[2]) return; // 本图没有这一层，图例不列
@@ -2217,6 +2281,17 @@
       legend.appendChild(li);
     });
     host.appendChild(legend);
+
+    /* 图标来源署名（2026-10-18）：只在**本图确实画了图标**时出现，
+       破冰船 / 终点站这类没有点位层的图不挂一句无用的话。 */
+    if ((data.extracts || []).length || (data.transits || []).length
+        || (data.locks || []).length || (data.hazards || []).length) {
+      var credit = document.createElement("p");
+      credit.className = "tk-map__credit";
+      credit.textContent =
+        "地图标记图标：The Official Escape From Tarkov Wiki（经 tarkov.dev 分发）。";
+      host.appendChild(credit);
+    }
 
     /* ── 比例尺（画布左下角）──
        数据与测距同源（mpp），缩放时由 layoutLabels 一并换档；
