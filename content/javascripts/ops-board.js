@@ -724,7 +724,8 @@
         return;
       }
       if (e.key === "Escape") {
-        if (typing) { e.target.value = ""; S.q = ""; paint(); e.target.blur(); }
+        /* 先 blur 再局部重绘：直接 paint() 会「恢复焦点」，把这次的 blur 抵消掉 */
+        if (typing) { e.target.value = ""; S.q = ""; e.target.blur(); renderRightBody(); syncUrl(); }
         else { S.selQ = null; S.selO = null; paint(); }
         return;
       }
@@ -933,6 +934,20 @@
     var left = document.getElementById("tk-ops-left");
     var right = document.getElementById("tk-ops-right");
     if (!left || !right) return;
+
+    /* 整栏重建会连带销毁搜索框 —— 若读者此刻正在框里打字，焦点与光标都会丢。
+       输入事件已经改走 renderRightBody() 了，但**别的路径仍会全量重建**
+       （勾选目标、切筛选、切地图、进度同步…）。所以这里记下焦点与光标位置，
+       重建后原样还回去。**
+       2026-10-18：读者报「只能输入一个字符、要再点一下」，主因是 input 调了 paint；
+       这一层是兜底，防止以后又有人在输入过程中触发全量重绘。 */
+    var prevSearch = document.querySelector(".tk-ops__search");
+    var hadFocus = !!prevSearch && document.activeElement === prevSearch;
+    var caret = null;
+    if (hadFocus) {
+      try { caret = [prevSearch.selectionStart, prevSearch.selectionEnd]; } catch (e) { caret = null; }
+    }
+
     left.textContent = "";
     left.appendChild(buildModeSeg());
     left.appendChild(buildMapList());
@@ -945,7 +960,20 @@
     search.type = "search";
     search.placeholder = "搜任务 / 地名 / 物品（/ 聚焦）";
     search.value = S.q;
-    search.addEventListener("input", function () { S.q = search.value.trim(); paint(); });
+    /* ⚠️ **输入时只能重绘右栏内容，绝不能调 paint()**（2026-10-18 修）：
+       paint() 第一件事是 `right.textContent = ""` —— 连搜索框自己一起销毁重建，
+       于是每敲一个字焦点就丢，读者必须再点一下才能输入下一个字符
+       （「只能输入一个字符」的那个反馈就是这么来的）。
+       这里只更新「跳转条 + 任务列表」，搜索框本身留在原地，焦点与光标都不动。 */
+    var urlTimer = null;
+    search.addEventListener("input", function () {
+      S.q = search.value.trim();
+      renderRightBody();
+      /* URL 跟着更新（刷新能保留搜索词），但**必须节流**：
+         每敲一个字就 replaceState 一次，既不必要，浏览器也可能限流。 */
+      if (urlTimer) clearTimeout(urlTimer);
+      urlTimer = setTimeout(function () { urlTimer = null; syncUrl(); }, 400);
+    });
     right.textContent = "";
     right.appendChild(search);
     var seg = el("div", "tk-ops__seg");
@@ -968,31 +996,58 @@
       sc.appendChild(b);
     });
     right.appendChild(sc);
-    /* 搜地名 → 在右栏顶部给一条「图上飞过去」。地名不是任务，不该混进任务列表，
-       但读者搜它就是想去那个地方 —— 所以给一条独立的跳转条。 */
-    if (S.q && S.scope === "map") {
-      var hit = findCallout(S.q, S.map);
-      if (hit) {
-        var jump = el("button", "tk-ops__jump");
-        jump.type = "button";
-        jump.textContent = "📍 地图上有「" + hit.cn + "」—— 飞过去";
-        jump.addEventListener("click", function () {
-          try {
-            window.dispatchEvent(new CustomEvent("tk:map:focusPoint",
-              { detail: { x: hit.x, y: hit.y } }));
-          } catch (e) {}
-        });
-        right.appendChild(jump);
-      }
-    }
 
+    /* 跳转条与列表放进固定容器 —— 它们随搜索词变化，搜索框不跟着重建。
+       两个 id 供 renderRightBody() 与键盘流（ArrowUp/Down）复用。 */
+    var jumpBox = el("div", "tk-ops__jumpbox");
+    jumpBox.id = "tk-ops-jumpbox";
+    right.appendChild(jumpBox);
     var list = el("div", "tk-ops__list");
     list.id = "tk-ops-list";
     right.appendChild(list);
-    renderList(list);
+
+    renderRightBody();
     document.querySelectorAll(".tk-ops__mode").forEach(function (b) {
       b.setAttribute("aria-pressed", b.dataset.mode === S.mode ? "true" : "false");
     });
+
+    if (hadFocus) {
+      var now = document.querySelector(".tk-ops__search");
+      if (now) {
+        now.focus();
+        if (caret) { try { now.setSelectionRange(caret[0], caret[1]); } catch (e) { /* 类型不支持：光靠 focus 也够用 */ } }
+      }
+    }
+  }
+
+  /* 只重绘右栏**内容**（跳转条 + 任务列表），不动搜索框与筛选按钮。
+     搜索框的 input 事件走这里 —— 详见 paint() 里那段注释。 */
+  function renderRightBody() {
+    var jumpBox = document.getElementById("tk-ops-jumpbox");
+    var list = document.getElementById("tk-ops-list");
+    if (!list) return;
+
+    if (jumpBox) {
+      jumpBox.textContent = "";
+      /* 搜地名 → 一条「图上飞过去」。地名不是任务，不该混进任务列表，
+         但读者搜它就是想去那个地方 —— 所以给一条独立的跳转条。 */
+      if (S.q && S.scope === "map") {
+        var hit = findCallout(S.q, S.map);
+        if (hit) {
+          var jump = el("button", "tk-ops__jump");
+          jump.type = "button";
+          jump.textContent = "📍 地图上有「" + hit.cn + "」—— 飞过去";
+          jump.addEventListener("click", function () {
+            try {
+              window.dispatchEvent(new CustomEvent("tk:map:focusPoint",
+                { detail: { x: hit.x, y: hit.y } }));
+            } catch (e) {}
+          });
+          jumpBox.appendChild(jump);
+        }
+      }
+    }
+    renderList(list);
   }
 
   function boot() {
