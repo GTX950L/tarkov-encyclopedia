@@ -2,8 +2,7 @@
 
 <a id="top"></a>
 
-> “这是一个没有 HUD、没有教学、没有第二次机会的世界。”
-> —— 塔科夫，诺文斯克地区的封锁区
+离线可用的《逃离塔科夫》中文百科。88 篇条目讲规则、地图与数值，图鉴收 4,983 件物品、504 个任务，13 张交互地图和进度工具全部在浏览器里跑 —— 不登录，也不上传任何东西。
 
 <div class="tk-launch">
 <a class="tk-launch__card tk-launch--read" href="entries/spawn-and-opening.md">
@@ -11,7 +10,7 @@
 <span class="tk-launch__desc">88 个条目分十二篇：先懂规则，再看地图，最后吃透装备与经济。</span>
 <ul class="tk-launch__list">
 <li><span class="tk-launch__row"><b>① 先活下来</b><i>撤离 · 保险 · 健康</i></span></li>
-<li><span class="tk-launch__row"><b>② 再认识地图</b><i>十四张图逐张讲</i></span></li>
+<li><span class="tk-launch__row"><b>② 再认识地图</b><i>十三张图逐张讲</i></span></li>
 <li><span class="tk-launch__row"><b>③ 然后懂数值</b><i>弹药 · 护甲 · 枪械</i></span></li>
 <li><span class="tk-launch__row"><b>④ 最后是战场</b><i>经济 · 交火 · 设定</i></span></li>
 </ul>
@@ -20,7 +19,7 @@
 <div class="tk-launch__card tk-launch--tools">
 <span class="tk-launch__head"><span class="tk-launch__title">🧰 用 · 工具箱</span><span class="tk-launch__badge">离线可用 · 无需登录</span></span>
 <ul class="tk-launch__list">
-<li><a href="maps/index.md"><b>交互地图</b><i>13 张图 · 589 个任务区域 · 进度联动</i></a></li>
+<li><a href="maps/index.md"><b>交互地图</b><i>13 张图 · 任务区域与进度联动</i></a></li>
 <li><a href="quests/progress.md"><b>我的进度</b><i data-tk-toolstat>任务 · 剧情 · 物品 · 藏身处</i></a></li>
 <li><a href="quests/index.md"><b>任务图鉴</b><i>逐条要求与奖励 · 可筛选</i></a></li>
 <li><a href="entries/season-modifiers.md"><b>赛季特质模拟器</b><i>点选构筑 · 互斥校验</i></a></li>
@@ -64,7 +63,6 @@
 </div>
 <noscript><p class="tk-home-ops__hint">任务清单需要 JavaScript；不过每个地图按钮都能直接打开<a href="ops/index.md">完整作战台</a>的对应地图。</p></noscript>
 </div>
-
 
 
 <!-- AUTO-GEN:HOME-STATS:START -->

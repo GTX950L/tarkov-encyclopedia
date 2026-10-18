@@ -20,8 +20,11 @@
    不会重复注入 —— 这一条对首页尤其关键：从别的页点「首页」是 instant 换页，
    <script> 标签根本不会执行。 */
 (function () {
+  /* [挂载点 id, 页内脚本, 专属样式表(可选)]
+     tk-ops.css 31 KB（gzip ≈9 KB）是 /ops/ 专用的版面规则，2026-10-19 从
+     extra.css 拆出来 —— 它以前是 167 页每页都付一次渲染阻塞的下载。 */
   var MOUNTS = [
-    ["tk-ops", "ops-board.js"],
+    ["tk-ops", "ops-board.js", "tk-ops.css"],
     ["tk-home-ops", "home-ops.js"]
   ];
 
@@ -34,8 +37,17 @@
     for (var i = 0; i < MOUNTS.length; i++) {
       var id = MOUNTS[i][0];
       var file = MOUNTS[i][1];
+      var css = MOUNTS[i][2];
       if (!document.getElementById(id)) continue;
       if (document.querySelector('script[data-tk-boot="' + file + '"]')) continue;
+
+      if (css && !document.querySelector('link[data-tk-css="' + css + '"]')) {
+        var l = document.createElement("link");
+        l.rel = "stylesheet";
+        l.href = src.replace(/javascripts\/mount-loader\.js(?:\?.*)?$/, "stylesheets/" + css);
+        l.setAttribute("data-tk-css", css);
+        document.head.appendChild(l);
+      }
 
       var s = document.createElement("script");
       s.src = src.replace(/mount-loader\.js(?:\?.*)?$/, file);
