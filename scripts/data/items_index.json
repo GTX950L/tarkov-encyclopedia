@@ -1,6 +1,6 @@
 {
  "fetched": "2026-10-17",
- "tasksTotal": 504,
+ "tasksTotal": 503,
  "coverage": {
   "names": 1157,
   "matched": 236
@@ -28150,36 +28150,6 @@
      0,
      [
       "giveItem"
-     ]
-    ]
-   ]
-  },
-  "测试区域蓝图 U 盘": {
-   "keep": [
-    [
-     "Preliminary Survey",
-     "6a91840a740be0cff50e0310"
-    ]
-   ],
-   "n": 1,
-   "traders": [
-    "Ref"
-   ],
-   "questOnly": [
-    "Preliminary Survey"
-   ],
-   "maps": [
-    "实验室"
-   ],
-   "barter": [],
-   "d": [
-    [
-     "6a91840a740be0cff50e0310",
-     2,
-     0,
-     [
-      "findQuestItem",
-      "giveQuestItem"
      ]
     ]
    ]

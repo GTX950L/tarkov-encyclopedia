@@ -20,7 +20,7 @@ tags:
 | 地名锚点 | 31 |
 | 任务目标区域 | 8 |
 | 涉及任务 | 4 |
-| 提及任务（无坐标） | 20 |
+| 提及任务（无坐标） | 19 |
 | 撤离点 | 6 |
 | 转场点 | 1 |
 | 上锁位置 | 13 |
@@ -37,7 +37,7 @@ tags:
 | [Therapist](../quests/therapist.md) | 医疗隐私 - 6 | 放置任务物品 | 1 | 在实验室将血液样本藏匿在 Sanitar 的办公室里 |
 | [Therapist](../quests/therapist.md) | 街区之下 | 到访 | 4 | 在同场战局中侦查实验室的服务器机房 |
 
-## 🧭 提到本图、但画不出位置（20 个）
+## 🧭 提到本图、但画不出位置（19 个）
 
 > 这些任务的任务级地图或目标文字提到本图，但上游**没有给出可画的坐标区**。所以它们不在上面的地图上，也不该被当成「漏抓」—— **位置没有就是没有，不编。**点商人名进对应页看完整任务明细。
 
@@ -58,7 +58,6 @@ tags:
 | [Ragman](../quests/ragman.md) | 新起点 | 以幸存状态撤离实验室 |
 | [Ragman](../quests/ragman.md) | 新起点 | 使用转移功能从实验室转移到塔科夫街区 |
 | [Ragman](../quests/ragman.md) | 新起点 | 使用转移功能从实验室转移到塔科夫街区 |
-| [Ref（竞技场裁判）](../quests/ref.md) | Preliminary Survey | Locate the testing area blueprint flash drive in The Lab |
 | [Skier](../quests/skier.md) | 大音希声 | 在储备站、灯塔、中心区或实验室使用消音 12 铅径霰弹枪消灭任意敌对目标 |
 | [Skier](../quests/skier.md) | 安慰奖 | 以幸存状态撤离实验室 |
 | [Therapist](../quests/therapist.md) | 灭虫服务 | 在实验室穿戴防毒面具或呼吸面罩，在 60 米内消灭任意敌对目标 |

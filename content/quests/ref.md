@@ -15,74 +15,54 @@ tags:
 
 | 项目 | 信息 |
 |------|------|
-| **任务数** | 21 |
-| **等级跨度** | Lv5–Lv35 |
+| **任务数** | 20 |
+| **等级跨度** | Lv10–Lv35 |
 | **排序** | 按**等级门槛升序**，同级按任务名 |
-| **分档** | 每 10 级一档（Lv0–9 …），与[总览](index.md)「按等级门槛」同口径 |
+| **分档** | 每 10 级一档（Lv10–19 …），与[总览](index.md)「按等级门槛」同口径 |
 | **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |
 | **💬 商人台词** | **每个任务都有** —— 点明细块里的「💬 台词与完整明细 →」，看商人接取时说的话与任务完成对话，另外还能顺着**前置／后续任务**（可点击）走任务链 |
 | **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-10-17 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md)；台词为**三级来源**（玩家维基），见[任务详情](quest.md) 的口径表 |
 
 ---
 
-## 🔎 任务索引 ｜ 21 项
+## 🔎 任务索引 ｜ 20 项
 
 点任务名跳到下方明细。**每个明细块里都有「💬 台词与完整明细 →」**，点开是该任务的完整页面（商人台词 · 前置与后续 · 目标 · 奖励 · 出发前必带）。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
 
-<details markdown="1"><summary>📋 任务索引表（21 项）—— 点开浏览，点任务名跳到下方明细</summary>
+<details markdown="1"><summary>📋 任务索引表（20 项）—— 点开浏览，点任务名跳到下方明细</summary>
 
 | # | 任务 | 门槛 | 地图 | 标记 |
 |---|------|------|------|------|
-| 1 | <a href="#q01">Preliminary Survey</a> | Lv5 | 实验室 | — |
-| 2 | <a href="#q02">专业热身 - 1（PVP）</a> | Lv10 | — | — |
-| 3 | <a href="#q03">专业热身 - 2（PVP）</a> | Lv10 | — | — |
-| 4 | <a href="#q04">两难抉择（PVP）</a> | Lv10 | — | 需钥匙 · 有失败条件 |
-| 5 | <a href="#q05">保持领先（PVP）</a> | Lv10 | — | — |
-| 6 | <a href="#q06">再创新高！- 1（PVP）</a> | Lv10 | — | — |
-| 7 | <a href="#q07">再创新高！- 2（PVP）</a> | Lv10 | — | — |
-| 8 | <a href="#q08">再创新高！- 3（PVP）</a> | Lv10 | — | — |
-| 9 | <a href="#q09">再创新高！- 4（PVP）</a> | Lv10 | — | 可重接 · 有失败条件 |
-| 10 | <a href="#q10">再创新高！- 5（PVP）</a> | Lv10 | — | — |
-| 11 | <a href="#q11">再创新高！- 6（PVP）</a> | Lv10 | — | — |
-| 12 | <a href="#q12">声东击西 - 1（PVP）</a> | Lv10 | 中心区 | **需自备物品** |
-| 13 | <a href="#q13">声东击西 - 2（PVP）</a> | Lv10 | 塔科夫街区 | 可重接 · 有失败条件 |
-| 14 | <a href="#q14">平衡之力 - 1（PVP）</a> | Lv10 | — | — |
-| 15 | <a href="#q15">平衡之力 - 2（PVP）</a> | Lv10 | — | — |
-| 16 | <a href="#q16">惊喜（PVP）</a> | Lv10 | — | **必须战局内找到** |
-| 17 | <a href="#q17">收视灵药</a> | Lv10 | 海关 | **需自备物品** |
-| 18 | <a href="#q18">竞技场差事（PVP）</a> | Lv10 | — | — |
-| 19 | <a href="#q19">良心作祟 - 2（PVP）</a> | Lv10 | — | — |
-| 20 | <a href="#q20">赚点快钱 - 2（PVP）</a> | Lv10 | — | **必须战局内找到** |
-| 21 | <a href="#q21">迟来的奖励（PVP）</a> | Lv35 | — | — |
+| 1 | <a href="#q01">专业热身 - 1（PVP）</a> | Lv10 | — | — |
+| 2 | <a href="#q02">专业热身 - 2（PVP）</a> | Lv10 | — | — |
+| 3 | <a href="#q03">两难抉择（PVP）</a> | Lv10 | — | 需钥匙 · 有失败条件 |
+| 4 | <a href="#q04">保持领先（PVP）</a> | Lv10 | — | — |
+| 5 | <a href="#q05">再创新高！- 1（PVP）</a> | Lv10 | — | — |
+| 6 | <a href="#q06">再创新高！- 2（PVP）</a> | Lv10 | — | — |
+| 7 | <a href="#q07">再创新高！- 3（PVP）</a> | Lv10 | — | — |
+| 8 | <a href="#q08">再创新高！- 4（PVP）</a> | Lv10 | — | 可重接 · 有失败条件 |
+| 9 | <a href="#q09">再创新高！- 5（PVP）</a> | Lv10 | — | — |
+| 10 | <a href="#q10">再创新高！- 6（PVP）</a> | Lv10 | — | — |
+| 11 | <a href="#q11">声东击西 - 1（PVP）</a> | Lv10 | 中心区 | **需自备物品** |
+| 12 | <a href="#q12">声东击西 - 2（PVP）</a> | Lv10 | 塔科夫街区 | 可重接 · 有失败条件 |
+| 13 | <a href="#q13">平衡之力 - 1（PVP）</a> | Lv10 | — | — |
+| 14 | <a href="#q14">平衡之力 - 2（PVP）</a> | Lv10 | — | — |
+| 15 | <a href="#q15">惊喜（PVP）</a> | Lv10 | — | **必须战局内找到** |
+| 16 | <a href="#q16">收视灵药</a> | Lv10 | 海关 | **需自备物品** |
+| 17 | <a href="#q17">竞技场差事（PVP）</a> | Lv10 | — | — |
+| 18 | <a href="#q18">良心作祟 - 2（PVP）</a> | Lv10 | — | — |
+| 19 | <a href="#q19">赚点快钱 - 2（PVP）</a> | Lv10 | — | **必须战局内找到** |
+| 20 | <a href="#q20">迟来的奖励（PVP）</a> | Lv35 | — | — |
 
 </details>
 
-> 📖 本页共 21 个任务，按等级分 **3 档**，档位分隔在索引表下方。要**按地图或商人横向找**，回[总览](index.md)。
+> 📖 本页共 20 个任务，按等级分 **2 档**，档位分隔在索引表下方。要**按地图或商人横向找**，回[总览](index.md)。
 
 ---
 
-## Lv0–9 ｜ 1 个任务
-
-<h3 id="q01" data-qid="6a91840a740be0cff50e0310">Preliminary Survey<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
-
-**Ref（竞技场裁判）** ｜ 需 **Lv5** ｜ **无前置** ｜ 英文名 **Preliminary Survey**
-
-<a href="quest.md?id=6a91840a740be0cff50e0310">💬 台词与完整明细 →</a>
-
-`地图：实验室`
-
-**要求**
-
-- **找任务物品** **测试区域蓝图 U 盘** —— Locate the testing area blueprint flash drive in The Lab
-- **交任务物品** **测试区域蓝图 U 盘** —— Obtain the testing area blueprint flash drive in The Lab
-
-- **完成奖励**：经验 **14,500** ｜ **GP币** ×101
-  - 技能：**搜索** +1 级
-- **接取即得**：**TerraGroup实验室访问钥匙卡** ×1
-
 ## Lv10–19 ｜ 19 个任务
 
-<h3 id="q02" data-qid="69788c2bac719606e40b4e77">专业热身 - 1（PVP）<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
+<h3 id="q01" data-qid="69788c2bac719606e40b4e77">专业热身 - 1（PVP）<a class="headerlink" href="#q01" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Professional Fitness Part 1 Pvp Zone**
 
@@ -99,7 +79,7 @@ tags:
 - **完成奖励**：经验 **1,800** ｜ **GP币** ×10
   - 声望：**Ref（竞技场裁判）** +0.01
 
-<h3 id="q03" data-qid="69788db3878a4385d10c0718">专业热身 - 2（PVP）<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
+<h3 id="q02" data-qid="69788db3878a4385d10c0718">专业热身 - 2（PVP）<a class="headerlink" href="#q02" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Professional Fitness Part 2 Pvp Zone**
 
@@ -116,7 +96,7 @@ tags:
 - **完成奖励**：经验 **2,400** ｜ **GP币** ×15 ｜ **传奇奖章** ×1
   - 声望：**Ref（竞技场裁判）** +0.01
 
-<h3 id="q04" data-qid="66058cd19f59e625462acc90">两难抉择（PVP）<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
+<h3 id="q03" data-qid="66058cd19f59e625462acc90">两难抉择（PVP）<a class="headerlink" href="#q03" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Decisions Decisions Pvp Zone**
 
@@ -149,7 +129,7 @@ tags:
   - **任务状态** **两害相权（PVP）** ｜ 状态：完成 —— 该任务线与“两害相权”冲突
   - **任务状态** **天降大礼 [PVP ZONE]** ｜ 状态：完成 —— 该任务线与“天降大礼”冲突
 
-<h3 id="q05" data-qid="697895b6c639962b2e0cf268">保持领先（PVP）<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
+<h3 id="q04" data-qid="697895b6c639962b2e0cf268">保持领先（PVP）<a class="headerlink" href="#q04" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Hold the Lead Pvp Zone**
 
@@ -165,7 +145,7 @@ tags:
 
 - **完成奖励**：经验 **9,100** ｜ **GP币** ×75
 
-<h3 id="q06" data-qid="66058cc1da30b620a34e6e86">再创新高！- 1（PVP）<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
+<h3 id="q05" data-qid="66058cc1da30b620a34e6e86">再创新高！- 1（PVP）<a class="headerlink" href="#q05" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 1 Pvp Zone**
 
@@ -182,7 +162,7 @@ tags:
 - **完成奖励**：经验 **2,800** ｜ **GP币** ×55
   - 声望：**Ref（竞技场裁判）** +0.02
 
-<h3 id="q07" data-qid="66058cc208308761cf390993">再创新高！- 2（PVP）<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
+<h3 id="q06" data-qid="66058cc208308761cf390993">再创新高！- 2（PVP）<a class="headerlink" href="#q06" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 2 Pvp Zone**
 
@@ -199,7 +179,7 @@ tags:
 - **完成奖励**：经验 **3,500** ｜ **GP币** ×32 ｜ **上锁的武器箱（稀有）** ×1
   - 声望：**Ref（竞技场裁判）** +0.02
 
-<h3 id="q08" data-qid="66058cc5bb83da7ba474aba9">再创新高！- 3（PVP）<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
+<h3 id="q07" data-qid="66058cc5bb83da7ba474aba9">再创新高！- 3（PVP）<a class="headerlink" href="#q07" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 3 Pvp Zone**
 
@@ -216,7 +196,7 @@ tags:
 - **完成奖励**：经验 **4,500** ｜ **GP币** ×28 ｜ **上锁的贵重物品箱（稀有）** ×1
   - 声望：**Ref（竞技场裁判）** +0.03
 
-<h3 id="q09" data-qid="66058cc72cee99303f1ba069">再创新高！- 4（PVP）<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
+<h3 id="q08" data-qid="66058cc72cee99303f1ba069">再创新高！- 4（PVP）<a class="headerlink" href="#q08" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 4 Pvp Zone**
 
@@ -242,7 +222,7 @@ tags:
 - **失败条件**：
   - **到访** —— 失败条件：在 5 场比赛中落败
 
-<h3 id="q10" data-qid="66058cc9ae4719735349b9ea">再创新高！- 5（PVP）<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
+<h3 id="q09" data-qid="66058cc9ae4719735349b9ea">再创新高！- 5（PVP）<a class="headerlink" href="#q09" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 5 Pvp Zone**
 
@@ -259,7 +239,7 @@ tags:
 - **完成奖励**：经验 **6,900** ｜ **GP币** ×40
   - 声望：**Ref（竞技场裁判）** +0.04
 
-<h3 id="q11" data-qid="69789418b2187365e70bb947">再创新高！- 6（PVP）<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
+<h3 id="q10" data-qid="69789418b2187365e70bb947">再创新高！- 6（PVP）<a class="headerlink" href="#q10" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **To Great Heights Part 6 Pvp Zone**
 
@@ -277,7 +257,7 @@ tags:
   - 声望：**Ref（竞技场裁判）** +0.04
   - 解锁购买：**APOK ”荒原之地“ 战术短剑（Ref（竞技场裁判） LL2）**
 
-<h3 id="q12" data-qid="66058cbd9f59e625462acc8e">声东击西 - 1（PVP）<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
+<h3 id="q11" data-qid="66058cbd9f59e625462acc8e">声东击西 - 1（PVP）<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Create a Distraction Part 1 Pvp Zone**
 
@@ -302,7 +282,7 @@ tags:
 - **完成奖励**：经验 **5,000** ｜ **GP币** ×28 ｜ **沙漠科技 MDR 5.56x45 突击步枪 EXPS3-0** ×1 ｜ **Magpul PMAG 20 GEN M3 5.56x45 STANAG 20发弹匣** ×3 ｜ **5.56x45mm M856 弹药包（100发装）** ×1
   - 声望：**Ref（竞技场裁判）** +0.05
 
-<h3 id="q13" data-qid="66058cbf2f19c31a5a1337ec">声东击西 - 2（PVP）<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
+<h3 id="q12" data-qid="66058cbf2f19c31a5a1337ec">声东击西 - 2（PVP）<a class="headerlink" href="#q12" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Create a Distraction Part 2 Pvp Zone**
 
@@ -326,7 +306,7 @@ tags:
 - **失败条件**：
   - **击杀／射击** **命中** ｜ 目标：Kaban／Kollontay —— 任务进行期间不得杀死Kaban或Kollontay
 
-<h3 id="q14" data-qid="66058cb7c7f3584787181476">平衡之力 - 1（PVP）<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
+<h3 id="q13" data-qid="66058cb7c7f3584787181476">平衡之力 - 1（PVP）<a class="headerlink" href="#q13" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Balancing Part 1 Pvp Zone**
 
@@ -344,7 +324,7 @@ tags:
   - 声望：**Ref（竞技场裁判）** +0.03
 - **接取即得**：**Steyr AUG A1 5.56x45突击步枪 默认** ×2 ｜ **Steyr AUG 5.56x45 30发容量弹匣** ×4 ｜ **5.56x45mm M856 弹药包（100发装）** ×2
 
-<h3 id="q15" data-qid="66058cb9e8e4f17985230805">平衡之力 - 2（PVP）<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
+<h3 id="q14" data-qid="66058cb9e8e4f17985230805">平衡之力 - 2（PVP）<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Balancing Part 2 Pvp Zone**
 
@@ -362,7 +342,7 @@ tags:
   - 声望：**Ref（竞技场裁判）** +0.03
 - **接取即得**：**PACA 软质防弹背心** ×2
 
-<h3 id="q16" data-qid="66058cbb06ef1d50a60c1f46">惊喜（PVP）<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
+<h3 id="q15" data-qid="66058cbb06ef1d50a60c1f46">惊喜（PVP）<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Surprise Pvp Zone**
 
@@ -379,7 +359,7 @@ tags:
 - **完成奖励**：经验 **3,600** ｜ **GP币** ×55 ｜ **Maska-1SCh 防弹头盔（Killa 版） 默认** ×1
   - 声望：**Ref（竞技场裁判）** +0.04
 
-<h3 id="q17" data-qid="675c15fbf7da9792a4059871">收视灵药<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
+<h3 id="q16" data-qid="675c15fbf7da9792a4059871">收视灵药<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Provide Viewership**
 
@@ -409,7 +389,7 @@ tags:
   - 声望：**Ref（竞技场裁判）** +0.02
 - **接取即得**：**WIFI摄像头** ×4
 
-<h3 id="q18" data-qid="697877e0c639962b2e0cf24f">竞技场差事（PVP）<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
+<h3 id="q17" data-qid="697877e0c639962b2e0cf24f">竞技场差事（PVP）<a class="headerlink" href="#q17" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Arena Business Pvp Zone**
 
@@ -427,7 +407,7 @@ tags:
 
 - **完成奖励**：经验 **19,500** ｜ **GP币** ×102 ｜ **传奇奖章** ×1 ｜ **上锁的武器箱（稀有）** ×1 ｜ **上锁的物资箱（稀有）** ×1 ｜ **上锁的贵重物品箱（稀有）** ×2
 
-<h3 id="q19" data-qid="66058ccde8e4f17985230807">良心作祟 - 2（PVP）<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
+<h3 id="q18" data-qid="66058ccde8e4f17985230807">良心作祟 - 2（PVP）<a class="headerlink" href="#q18" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Against the Conscience Part 2 Pvp Zone**
 
@@ -444,7 +424,7 @@ tags:
 - **完成奖励**：经验 **23,000** ｜ **GP币** ×100
   - 声望：**Ref（竞技场裁判）** +0.04
 
-<h3 id="q20" data-qid="66058cb5ae4719735349b9e8">赚点快钱 - 2（PVP）<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
+<h3 id="q19" data-qid="66058cb5ae4719735349b9e8">赚点快钱 - 2（PVP）<a class="headerlink" href="#q19" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv10** ｜ 前置 **1** 个 ｜ 英文名 **Easy Money Part 2 Pvp Zone**
 
@@ -464,7 +444,7 @@ tags:
 
 ## Lv30–39 ｜ 1 个任务
 
-<h3 id="q21" data-qid="67e993f5ed537409f009da75">迟来的奖励（PVP）<a class="headerlink" href="#q21" title="Permanent link">&para;</a></h3>
+<h3 id="q20" data-qid="67e993f5ed537409f009da75">迟来的奖励（PVP）<a class="headerlink" href="#q20" title="Permanent link">&para;</a></h3>
 
 **Ref（竞技场裁判）** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Postponed Reward Pvp Zone**
 
