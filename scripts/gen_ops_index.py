@@ -30,7 +30,8 @@ from _map_links import task_map_keys  # noqa: E402
 
 OUT_DIR = ROOT / "content" / "javascripts"
 # 列顺序写在这里，客户端按下标读 —— 紧凑格式的代价就是这一句必须准确。
-COLS = ["name", "en", "trader", "level", "ms", "oids", "nObj", "keys", "flags"]
+# otxt 紧跟 oids：两者**同序等长**，前端按下标配对。
+COLS = ["name", "en", "trader", "level", "ms", "oids", "otxt", "nObj", "keys", "flags"]
 
 
 def load_flags() -> dict[str, str]:
@@ -60,7 +61,15 @@ def build(mode: str) -> int:
     nodes: dict[str, list] = {}
     for t in tasks:
         objs = t.get("objectives") or []
-        oids = [o.get("id") for o in objs if o.get("id")]
+        # oids 与 otxt 必须由**同一份过滤结果**生成，否则目标一多就会错位
+        # （上游偶有目标缺 id）。
+        pairs = [o for o in objs if o.get("id")]
+        oids = [o.get("id") for o in pairs]
+        # 目标文本用 | 连接而不是数组：500 个任务各来一个数组，光引号方括号就多 8 KB。
+        # 实测 1418 条目标文本里没有一条含 |（2026-10-18），但仍把竖线换成全角作防御 ——
+        # 万一上游哪天塞了 |，前端 split 会整行错位，而且**不会报错**，最难查。
+        otxt = "|".join((o.get("text") or "").strip().replace("|", "｜")
+                        for o in pairs)
         nodes[t["id"]] = [
             t.get("name") or "",
             t.get("en") or "",
@@ -68,6 +77,7 @@ def build(mode: str) -> int:
             t.get("level") or 0,
             task_map_keys(t),
             oids,
+            otxt,
             len(objs),
             len(t.get("keys") or []),
             flags.get(t["id"], ""),

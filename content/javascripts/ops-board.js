@@ -37,7 +37,7 @@
     ["season", "赛季 PvP", "赛季模式：任务库与 PvP 相同，进度独立分轨"],
     ["pvp", "PvP", "持久 PvP：504 条标准任务"],
   ];
-  var COLS = ["name", "en", "trader", "level", "ms", "oids", "nObj", "keys", "flags"];
+  var COLS = ["name", "en", "trader", "level", "ms", "oids", "otxt", "nObj", "keys", "flags"];
 
   var S = {
     mode: "pve",
@@ -149,7 +149,15 @@
   function setState(qid, v) {
     var P = window.TarkovProgress;
     if (!P) return;
-    try { P.setTaskState(qid, v); } catch (e) { /* 无进度模块时不阻断 */ }
+    try {
+      P.setTaskState(qid, v);
+      /* 状态与目标勾选必须一致（2026-10-18 修）：把任务标为「已完成」时一并
+         勾满它的目标，否则行头会出现「已完成 · 0/8 目标」——两行字自相矛盾，
+         读者没法判断到底做完了没有。标为未完成则清空目标，与进度看板
+         alignObjectives 的口径一致（那里是展开时才自愈，这里当场对齐）。 */
+      var t = taskOf(qid);
+      if (t && P.alignObjectives) P.alignObjectives(qid, t.oids || [], v);
+    } catch (e) { /* 无进度模块时不阻断 */ }
     paint();
   }
   function objDone(qid, oid) {
@@ -157,13 +165,18 @@
     if (!P || !oid) return false;
     try { return !!P.objDone(qid, oid); } catch (e) { return false; }
   }
+  /* 已完成目标数（行头显示「3/8 目标」）。setObj 与渲染共用同一口径。 */
+  function metCount(t, qid) {
+    var ids = (t && t.oids) || [];
+    return ids.filter(function (x) { return objDone(qid, x); }).length;
+  }
   function setObj(qid, oid, v) {
     var P = window.TarkovProgress;
     if (!P) return;
     try { P.setObjective(qid, oid, v); } catch (e) { return; }
     var t = taskOf(qid);
     var ids = (t && t.oids) || [];
-    var met = ids.filter(function (x) { return objDone(qid, x); }).length;
+    var met = metCount(t, qid);
     if (ids.length && met === ids.length) P.setTaskState(qid, "done");
     else if (met > 0) P.setTaskState(qid, "inhand");
     paint();
@@ -467,11 +480,20 @@
       head.appendChild(st);
       if (r.pinned) head.appendChild(el("span", "tk-ops__pin", "★"));
       head.appendChild(el("b", "tk-ops__rowname", t.name || "（无中文名）"));
+      var nobj = (t.oids || []).length;
+      if (nobj) {
+        head.appendChild(el("span", "tk-ops__objcount",
+          metCount(t, r.qid) + "/" + nobj + " 目标"));
+      }
       if (r.qid in S.plan) head.appendChild(el("span", "tk-ops__planned", "出击"));
       row.appendChild(head);
 
-      /* 目标级：勾选写进同一份账本，地图上该区域同步转态 */
+      /* 目标级：勾选写进同一份账本，地图上该区域同步转态。
+         ⚠️ 必须显示**目标原文**（2026-10-18 修）：此前只写「目标 1 / 目标 2」，
+            读者面对一排复选框不知道在勾什么 —— 于是问了「打钩是什么意思」。
+            文本来自索引的 otxt 列（与 oids 同序等长，生成器保证）。 */
       var objs = el("ol", "tk-ops__objs");
+      var otexts = (t.otxt || "").split("|");
       (t.oids || []).forEach(function (oid, oi) {
         var li = el("li");
         var cb = el("input");
@@ -479,7 +501,11 @@
         cb.checked = objDone(r.qid, oid);
         cb.addEventListener("change", function () { setObj(r.qid, oid, cb.checked); });
         li.appendChild(cb);
-        li.appendChild(el("span", null, "目标 " + (oi + 1)));
+        var otxt = (otexts[oi] || "").trim();
+        var sp = el("span", "tk-ops__objtxt", otxt || ("目标 " + (oi + 1)));
+        if (otxt) sp.title = otxt + "　（点这一行 = 在图上定位这条目标）";
+        li.appendChild(sp);
+        if (cb.checked) li.classList.add("is-done");
         if (oid === S.selO) li.classList.add("is-cur");
         li.addEventListener("click", function (e) {
           if (e.target === cb) return;

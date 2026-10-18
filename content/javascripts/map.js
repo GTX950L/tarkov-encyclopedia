@@ -2323,14 +2323,21 @@
       host.appendChild(knote);
     }
 
-    /* 别处（另一个标签页）改了进度 → 地图跟着更新。
-       零成本、且不需要读者手动刷新。**监听器只装一次**，指向当前的
-       `liveFilter` —— instant 换页会重放本脚本，不挡住会越装越多。 */
+    /* 别处改了进度 → 地图跟着更新。两条通路，缺一不可：
+       · `storage`（window）—— **另一个标签页**改的，浏览器只发这个事件；
+       · `tarkov:progress`（document）—— **同一页**改的，progress.js 的 emit
+         每次写操作都会派发。此前没有任何脚本监听它，于是作战台里勾选目标时
+         同一页的地图不刷新：账本已经写进去了，图上那块还是原样（2026-10-18 实测）。
+       **监听器只装一次**，指向当前的 `liveFilter` —— instant 换页会重放本脚本，
+       不挡住会越装越多。 */
     liveFilter = applyQzFilter;
     if (!storageBound) {
       storageBound = true;
       window.addEventListener("storage", function (e) {
         if (e.key === "tarkov_progress_v1" && liveFilter) liveFilter();
+      });
+      document.addEventListener("tarkov:progress", function () {
+        if (liveFilter) liveFilter();
       });
     }
   }

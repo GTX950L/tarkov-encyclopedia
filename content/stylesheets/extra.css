@@ -7120,3 +7120,20 @@ body:has(#tk-ops) .tk-ops__grid {
 .tk-ops__grip:hover { background: rgba(28, 78, 216, .18); }
 .tk-ops__grip--l { left: calc(var(--tk-ops-left, 236px) + 3px); }
 .tk-ops__grip--r { right: calc(var(--tk-ops-right, 360px) + 3px); }
+
+/* 目标行原文（2026-10-18）：右栏窄，单行省略、完整文本在 title 里。
+   勾完加删除线 —— 让「这条做完了」在勾选框之外还有第二个视觉信号。 */
+.tk-ops__objs li { min-width: 0; }
+.tk-ops__objs li > input[type="checkbox"] { flex: 0 0 auto; margin: 0; }
+.tk-ops__objtxt {
+  flex: 1 1 auto; min-width: 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.tk-ops__objs li.is-done .tk-ops__objtxt {
+  text-decoration: line-through; opacity: .55;
+}
+.tk-ops__objcount {
+  font-size: .58rem; color: var(--tk-ink-2);
+  background: var(--tk-panel); border-radius: .18rem;
+  padding: 0 .3em; white-space: nowrap;
+}
