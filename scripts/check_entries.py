@@ -354,6 +354,21 @@ def main() -> int:
         # CHANGELOG 里出现的是历史记录（“当时全站尾行更新为 N 个条目”），
         # 描述的是那一次的现状而不是当前口径——历史记录不改写，也不参与计数校验。
         if md.name == "CHANGELOG.md":
+            # 但**必须查重复版本标题**（2026-10-18 加）：写 CHANGELOG 的脚本
+            # 常以「在文件开头插一段」的方式实现，脚本重跑一次就会插两遍。
+            # 症状很隐蔽：页面照常渲染、计数门禁全不响，而 `release.py` 是从
+            # 这里解析最新版本与正文的 —— 重复会让 Release 正文带上两份内容。
+            # 本仓库确实发生过（v1.134.1/.2/.3 各重复一次，已提交）。
+            # ⚠️ **必须自己读一次**：这个分支在 `text = md.read_text(...)` 之前
+            #    continue 掉了，用外层那个 text 会拿到**上一轮循环残留的文件内容**
+            #    （Python 的循环变量会泄漏）—— 检查会静默通过。
+            #    2026-10-18 注入重复标题做验证时才发现这一点。
+            cl = md.read_text(encoding="utf-8")
+            heads = [ln for ln in cl.splitlines() if ln.startswith("## ")]
+            dup = sorted({h for h in heads if heads.count(h) > 1})
+            for h in dup:
+                errors.append(
+                    f"CHANGELOG 有重复的版本标题（写入了两遍）：{h}")
             continue
         text = md.read_text(encoding="utf-8")
         for m in COUNT_RE.finditer(text):

@@ -240,9 +240,19 @@
        本机日志里没出现过，所以**没有实测证据**，但名字是通行的。
      · **认不出的原样显示并照常计数**（见 renderRaidStats），不静默丢弃。 */
   var MAP_NAMES = {
+    /* ⚠️ **同一个地名在不同游戏版本可能是不同写法**（2026-10-18 用本机
+       70 个会话 / 763 MB 真实日志核对过）：
+         · 1.1.5 时代写 `bigmap` / `Shoreline` / `Woods`（大写开头）
+         · 1.2.5 起改成 `customs` / `shoreline` / `woods`（全小写）
+       只按原写法建表，实测 **79/147 次加载（53%）认不出**，海关会显示成
+       英文字面量 customs。所以：① 两种写法都收；② `mapOf` 再做一次
+       大小写不敏感的回退，以后上游再改大小写也不会崩。 */
     bigmap: ["海关", "customs"],
+    customs: ["海关", "customs"],
     Woods: ["森林", "woods"],
+    woods: ["森林", "woods"],
     Shoreline: ["海岸线", "shoreline"],
+    shoreline: ["海岸线", "shoreline"],
     Shopping_Mall: ["立交桥", "interchange"],
     Interchange: ["立交桥", "interchange"],
     city: ["街区", "streets"],
@@ -268,8 +278,23 @@
     Icebreaker: ["破冰船", "icebreaker"]
   };
 
+  /* 查到就返回；查不到再做一次**小写比对**（上游改过大小写，见上面注释）。
+     仍然查不到就原样显示、`known: false` —— 不静默丢弃，认不出是映射表的缺口，
+     不是数据的问题。 */
+  var MAP_LOWER = null;
   function mapOf(key) {
     var m = MAP_NAMES[key];
+    if (!m) {
+      if (!MAP_LOWER) {
+        MAP_LOWER = {};
+        for (var k in MAP_NAMES) {
+          if (Object.prototype.hasOwnProperty.call(MAP_NAMES, k)) {
+            MAP_LOWER[k.toLowerCase()] = MAP_NAMES[k];
+          }
+        }
+      }
+      m = MAP_LOWER[String(key).toLowerCase()];
+    }
     return m ? { zh: m[0], slug: m[1], known: true }
              : { zh: key, slug: "", known: false };
   }
@@ -347,7 +372,10 @@
       if (!m) continue;
       var t = LINE_TS_RE.exec(lines[i]);
       var date = t ? (t[1] + "-" + t[2] + "-" + t[3]) : "";
-      var time = t ? (t[4] + ":" + t[5]) : "";
+      /* ⚠️ 正则里第 4 组已经是 `HH:MM`（秒是**未捕获**的 `\d{2}`），
+         原来写成 `t[4] + ":" + t[5]` → 表格里显示 `16:14:undefined`
+         （2026-10-18 用真实日志才看见，仿真日志的时间恰好也没暴露）。 */
+      var time = t ? t[4] : "";
       /* 去重键 = 会话 + 秒级时刻 + 场景。同一次加载偶尔被写两遍。
          ⚠️ **不要**跨会话去重（不同会话的同一时刻是两场），也不要按图去重
          （同一张图会打很多场）—— 这两种去重都会把统计压小。 */
