@@ -7183,3 +7183,89 @@ body:has(#tk-ops) .tk-ops__grid {
 }
 
 .tk-board__auto:hover { color: var(--tk-ink); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   日志同步共享层（2026-10-18 · log-source.js）
+   两个页面共用：进度页（完整版）与作战台（--compact）。
+   样式前缀 tk-logsrc 与 tk-board 分开 —— 作战台不加载看板那套变量。
+   ═══════════════════════════════════════════════════════════════════════════ */
+.tk-logsrc { margin: 0; }
+
+.tk-logsrc__cap {
+  margin: .5rem 0 .2rem;
+  font-size: .66rem; font-weight: 700; color: var(--tk-ink-2);
+}
+
+.tk-logsrc__note {
+  margin: .35rem 0;
+  font-size: .74rem; line-height: 1.75; color: var(--tk-ink-2);
+}
+.tk-logsrc__note b { color: var(--tk-ink); }
+
+.tk-logsrc--compact .tk-logsrc__note {
+  font-size: .64rem; line-height: 1.6; margin: .2rem 0 .35rem;
+}
+
+.tk-logsrc__bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .35rem;
+  margin: .35rem 0 .1rem;
+}
+
+.tk-logsrc__btn {
+  appearance: none; cursor: pointer; font: inherit;
+  font-size: .7rem; padding: .22rem .55rem;
+  border: 1px solid var(--tk-brand); border-radius: .2rem;
+  background: var(--tk-brand); color: #fff;
+}
+.tk-logsrc__btn:hover { background: var(--tk-brand-dark, #1c4ed8); }
+.tk-logsrc__btn--ghost {
+  background: #fff; color: var(--tk-brand); border-color: var(--tk-line);
+}
+.tk-logsrc__btn--ghost:hover { background: var(--tk-brand-soft); }
+
+.tk-logsrc--compact .tk-logsrc__btn {
+  font-size: .64rem; padding: .16rem .45rem;
+}
+
+/* 自动并入开关：用 div + span（**不能用 label**，会被 MkDocs 页签组件吃掉） */
+.tk-logsrc__auto {
+  display: inline-flex; align-items: center; gap: .28rem;
+  font-size: .68rem; color: var(--tk-ink-2);
+  cursor: pointer; user-select: none;
+}
+.tk-logsrc__auto input { margin: 0; width: .95em; height: .95em; cursor: pointer; }
+.tk-logsrc__auto:hover { color: var(--tk-ink); }
+
+.tk-logsrc__count {
+  font-size: .64rem; color: var(--tk-ink-2);
+}
+
+.tk-logsrc__out { margin-top: .3rem; }
+
+.tk-logsrc__toast {
+  margin: .35rem 0 0; padding: .3rem .5rem;
+  font-size: .68rem; line-height: 1.6;
+  border-left: 3px solid var(--tk-brand);
+  background: var(--tk-brand-soft); color: var(--tk-ink);
+}
+.tk-logsrc__toast.is-bad {
+  border-left-color: #b91c1c; background: #fef2f2; color: #7f1d1d;
+}
+
+/* 作战台左栏底部的日志同步（2026-10-18）：折叠块，平时只有一行 */
+.tk-ops__logs {
+  margin-top: .6rem;
+  border-top: 1px solid var(--tk-line);
+  padding-top: .45rem;
+}
+.tk-ops__logs > summary {
+  cursor: pointer;
+  font-size: .66rem;
+  font-weight: 700;
+  color: var(--tk-ink-2);
+  list-style-position: inside;
+  padding: .12rem 0;
+}
+.tk-ops__logs > summary:hover { color: var(--tk-brand); }
+.tk-ops__logs[open] > summary { color: var(--tk-ink); margin-bottom: .3rem; }
+.tk-ops__logsbody { padding-left: .1rem; }

@@ -131,6 +131,11 @@
     return null;
   }
 
+  /* ⚠️ **所有进度 API 都要显式传 S.mode**（2026-10-18 修）：
+     不传时读的是「账本的当前模式」，而作战台左栏可以切到 PvE / 赛季 / PvP ——
+     两者不一定一致。症状：日志同步把 73 条写进 **PvE 轨**，而作战台默认读
+     **PvP 轨** → 右栏「已完成 0、进行中 0」，看着像同步没生效。
+     手工勾选时两处恰好一致，所以这个 bug 一直没暴露。 */
   /* 五态（2026-10-18）：done / inhand / ignored / pinned / none。
      done / inhand 是互斥的主状态；ignored 与 done 互斥；pinned 与谁都并存。
      返回「主状态」，另用 isPinned() 单独问 —— 两者不是一个维度。 */
@@ -138,32 +143,32 @@
     var P = window.TarkovProgress;
     if (!P) return "none";
     try {
-      if (P.isIgnored && P.isIgnored(qid)) return "ignored";
-      return P.taskState(qid) || "none";
+      if (P.isIgnored && P.isIgnored(qid, S.mode)) return "ignored";
+      return P.taskState(qid, S.mode) || "none";
     } catch (e) { return "none"; }
   }
   function isPinned(qid) {
     var P = window.TarkovProgress;
-    try { return !!(P && P.isPinned && P.isPinned(qid)); } catch (e) { return false; }
+    try { return !!(P && P.isPinned && P.isPinned(qid, S.mode)); } catch (e) { return false; }
   }
   function setState(qid, v) {
     var P = window.TarkovProgress;
     if (!P) return;
     try {
-      P.setTaskState(qid, v);
+      P.setTaskState(qid, v, undefined, S.mode);
       /* 状态与目标勾选必须一致（2026-10-18 修）：把任务标为「已完成」时一并
          勾满它的目标，否则行头会出现「已完成 · 0/8 目标」——两行字自相矛盾，
          读者没法判断到底做完了没有。标为未完成则清空目标，与进度看板
          alignObjectives 的口径一致（那里是展开时才自愈，这里当场对齐）。 */
       var t = taskOf(qid);
-      if (t && P.alignObjectives) P.alignObjectives(qid, t.oids || [], v);
+      if (t && P.alignObjectives) P.alignObjectives(qid, t.oids || [], v, S.mode);
     } catch (e) { /* 无进度模块时不阻断 */ }
     paint();
   }
   function objDone(qid, oid) {
     var P = window.TarkovProgress;
     if (!P || !oid) return false;
-    try { return !!P.objDone(qid, oid); } catch (e) { return false; }
+    try { return !!P.objDone(qid, oid, S.mode); } catch (e) { return false; }
   }
   /* 已完成目标数（行头显示「3/8 目标」）。setObj 与渲染共用同一口径。 */
   function metCount(t, qid) {
@@ -173,12 +178,12 @@
   function setObj(qid, oid, v) {
     var P = window.TarkovProgress;
     if (!P) return;
-    try { P.setObjective(qid, oid, v); } catch (e) { return; }
+    try { P.setObjective(qid, oid, v, S.mode); } catch (e) { return; }
     var t = taskOf(qid);
     var ids = (t && t.oids) || [];
     var met = metCount(t, qid);
-    if (ids.length && met === ids.length) P.setTaskState(qid, "done");
-    else if (met > 0) P.setTaskState(qid, "inhand");
+    if (ids.length && met === ids.length) P.setTaskState(qid, "done", undefined, S.mode);
+    else if (met > 0) P.setTaskState(qid, "inhand", undefined, S.mode);
     paint();
   }
 
@@ -292,17 +297,29 @@
     var ex = d.extracts || [];
     var free = ex.filter(function (e) { return !e.pay; }).length;
     var paid = ex.length - free;
-    var keys = 0, ready = 0, n = 0;
+    /* ⚠️ **口径必须是「未完成」**（2026-10-18 修）：原来 `n++` 数的是这张图上的
+       **全部**任务，于是同步完 73 条已完成之后，摘要还写着「活 80 票」——
+       而左栏地图条写的是未完成数，两处对不上，读者会以为同步没生效。
+       同理**钥匙也只算未完成的**：已完成的任务不用再带钥匙，把它算进去
+       等于让人多背一串钥匙进图。 */
+    var keys = 0, ready = 0, open = 0, done = 0;
     if (S.idx && S.idx.tasks) {
       for (var qid in S.idx.tasks) {
         var t = taskOf(qid);
         if (!t || (t.ms || []).indexOf(S.map) < 0) continue;
-        n++; keys += t.keys || 0;
-        if (stateOf(qid) === "inhand") ready++;
+        var st = stateOf(qid);
+        if (st === "ignored") continue;          /* 说过不做的，不算活也不算钥匙 */
+        if (st === "done") { done++; continue; }
+        open++;
+        keys += t.keys || 0;
+        if (st === "inhand") ready++;
       }
     }
     line.textContent = name + "：撤离 自由 " + free + " ｜ 收费 " + paid
-      + " ｜ 活 " + n + " 票 ｜ 钥匙约 " + keys + " 把";
+      + " ｜ 未完成 " + open + " 票"
+      + (done ? "（已完成 " + done + "）" : "")
+      + " ｜ 钥匙约 " + keys + " 把"
+      + (ready ? " ｜ 手上 " + ready + " 票" : "");
     return box;
   }
 
@@ -540,7 +557,7 @@
       pin.addEventListener("click", function (e) {
         e.stopPropagation();
         var P = window.TarkovProgress;
-        if (P && P.togglePin) { P.togglePin(r.qid); paint(); }
+        if (P && P.togglePin) { P.togglePin(r.qid, S.mode); paint(); }
       });
       var ig = el("button", "tk-ops__chip", r.st === "ignored" ? "取消忽略" : "忽略");
       ig.type = "button";
@@ -548,7 +565,7 @@
       ig.addEventListener("click", function (e) {
         e.stopPropagation();
         var P = window.TarkovProgress;
-        if (P && P.toggleIgnore) { P.toggleIgnore(r.qid); paint(); }
+        if (P && P.toggleIgnore) { P.toggleIgnore(r.qid, S.mode); paint(); }
       });
       act.appendChild(loc); act.appendChild(add); act.appendChild(tg);
       act.appendChild(pin); act.appendChild(ig);
@@ -857,6 +874,60 @@
     });
   }
 
+  /* -------------------------------------------------- 从游戏日志同步（左栏底部）
+     **必须复用同一个节点**（2026-10-18）：paint() 每次都 `left.textContent = ""`，
+     若每次重建，模块内部的句柄/自动同步状态就白丢一遍，而且每次搜索输入都会
+     重新 init 一次、重复触发自动同步。所以建一次、存起来，paint 时只重新
+     appendChild（节点对象仍在内存里，状态不丢）。
+     视觉上做成 <details> 折叠：作战台的主角是作战，同步属于设置项，
+     平时收起，需要时点开。 */
+  var logBoxEl = null;
+  function opsLogBox() {
+    if (!logBoxEl) {
+      logBoxEl = el("details", "tk-ops__logs");
+      var sum = el("summary", null, "从游戏日志同步");
+      sum.title = "读本机日志把「接取 / 完成」补进账本（只读、不上传）";
+      /* 左栏是可滚动的（max-height 78vh），这一块在最底下 —— 展开后
+         按钮往往还在视野外，读者会以为「点了没反应」。展开时滚到可见。 */
+      logBoxEl.addEventListener("toggle", function () {
+        if (!logBoxEl.open) return;
+        setTimeout(function () {
+          if (logBoxEl.scrollIntoView) logBoxEl.scrollIntoView({ block: "nearest" });
+        }, 0);
+      });
+      logBoxEl.appendChild(sum);
+      var inner = el("div", "tk-ops__logsbody");
+      logBoxEl.appendChild(inner);
+      loadScript("log-source.js", "TarkovLogSource", function (ok) {
+        if (!ok || !window.TarkovLogSource) {
+          inner.appendChild(el("p", "tk-logsrc__note",
+            "同步模块没有载入成功（可能是网络中断）—— 刷新一次再试。"));
+          return;
+        }
+        window.TarkovLogSource.mount(inner, {
+          compact: true,
+          onStatus: function (st) {
+            /* 摘要行直接显示「已同步到几点」——不用展开就知道进度新不新。 */
+            sum.textContent = st.connected
+              ? (st.lastSync ? "日志已同步（" + st.lastSync + "）" : "日志已连接")
+              : "从游戏日志同步";
+          },
+          toast: function (msg, ok) {
+            var t = el("p", "tk-logsrc__toast" + (ok === false ? " is-bad" : ""), msg);
+            inner.appendChild(t);
+            setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 4200);
+          },
+        });
+        /* 首次展开口径说明（收起时不占视觉重量）。 */
+        var tip = el("p", "tk-logsrc__note");
+        tip.innerHTML = "日志里只有「接取 / 完成」；藏身处、等级、目标级勾选与物品数量仍需手勾。"
+          + "授权时选 <b>「每次访问都允许」</b> → 以后打开这一页会自动补上新增。";
+        inner.appendChild(tip);
+      });
+    }
+    return logBoxEl;
+  }
+
   /* ------------------------------------------------------------ 组装 */
   function paint() {
     var left = document.getElementById("tk-ops-left");
@@ -868,6 +939,7 @@
     left.appendChild(buildBrief());
     left.appendChild(buildLayers());
     left.appendChild(buildPlan());
+    left.appendChild(opsLogBox());
 
     var search = el("input", "tk-ops__search");
     search.type = "search";
@@ -947,8 +1019,40 @@
     bindKeys();
     bindHover();
     syncUrl();
+    /* 进度一变就重绘（勾选、日志同步、别的标签页…）。
+       ⚠️ **必须合并密集更新**（2026-10-18）：日志同步一次并入 100+ 条任务，
+         每条都 emit 一次 → 直接 paint 会连续重绘上百次，主线程卡住、进度条不动。
+         策略：平时立即重绘（勾选要手感），200ms 内的后续变更合并成一次。 */
+    var lastPaintAt = 0, paintPending = false;
+    function repaintSoon() {
+      var now = Date.now();
+      if (now - lastPaintAt > 200) {
+        lastPaintAt = now;
+        paint();
+        return;
+      }
+      if (paintPending) return;
+      paintPending = true;
+      setTimeout(function () {
+        paintPending = false;
+        lastPaintAt = Date.now();
+        paint();
+      }, 200);
+    }
+    /* ⚠️ 对外 API 叫 **subscribe**，不是 onChange（2026-10-18 用真实日志才发现）：
+       之前写的是 `if (P && typeof P.onChange === "function")`，而 onChange 根本
+       不存在 → 条件永远 false → **这一段从来没执行过**，作战台对外部进度变更
+       完全不响应。手工勾选看不出问题，因为 setState() 里直接调了 paint()；
+       日志同步、进度页改状态、别的标签页改动全都不会反映。
+       这里同时兼容两种写法，两个都试一遍。 */
     var P = window.TarkovProgress;
-    if (P && typeof P.onChange === "function") P.onChange(function () { paint(); });
+    if (P && typeof P.subscribe === "function") {
+      P.subscribe(repaintSoon);
+    } else if (P && typeof P.onChange === "function") {
+      P.onChange(repaintSoon);
+    } else {
+      document.addEventListener("tarkov:progress", repaintSoon);
+    }
   }
 
   if (document.readyState === "loading") {
