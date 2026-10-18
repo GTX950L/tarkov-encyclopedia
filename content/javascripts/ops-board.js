@@ -50,6 +50,11 @@
     row: 0,              // 键盘当前行
     idx: null,           // 当前模式的 ops index
     plan: {},            // 出击清单（会话级，与进度严格分开）
+    mapq: "",            // 左栏地图名过滤
+    mapsAll: false,      // 地图清单是否全展开
+    planAll: false,      // 出击清单是否全展开
+    tasksOpen: true,     // 中栏任务清单是否展开
+    tasksAll: false,     // 任务清单是否展开到全部（默认 20 行）
     base: null,          // 进度账本
   };
 
@@ -256,21 +261,61 @@
     });
     return rows;
   }
-  function buildMapList() {
-    var box = el("div", "tk-ops__maps");
-    box.appendChild(el("p", "tk-ops__cap", "地图 · 按我未完成的活排序"));
-    mapRows().forEach(function (r) {
+  function mapMatch(r) {
+    if (!S.mapq) return true;
+    return (r.name + " " + r.key).toLowerCase().indexOf(S.mapq.toLowerCase()) >= 0;
+  }
+  /* 只重绘地图清单本身 —— 搜索框不能跟着重建，否则又是「输一个字丢一次焦点」。 */
+  function renderMapRows() {
+    var box = document.getElementById("tk-ops-maplist");
+    if (!box) return;
+    box.textContent = "";
+    var rows = mapRows().filter(mapMatch);
+    var LIMIT = 6;
+    var all = S.mapsAll || !!S.mapq || rows.length <= LIMIT;
+    rows.slice(0, all ? rows.length : LIMIT).forEach(function (r) {
       var b = el("button", "tk-ops__map" + (r.key === S.map ? " is-on" : ""));
       b.type = "button";
       b.dataset.map = r.key;
-      b.appendChild(el("b", null, r.name));
+      var line = el("span", "tk-ops__mapline");
+      line.appendChild(el("b", null, r.name));
+      line.appendChild(el("span", "tk-ops__mapn", r.n ? String(r.n) : (r.done ? "✓" : "—")));
+      b.appendChild(line);
       var meta = el("span", "tk-ops__mapmeta");
-      meta.textContent = r.n ? (r.n + " 票活" + (r.inhand ? " · 进行中 " + r.inhand : ""))
-        : (r.done ? ("已完成 " + r.done) : "—");
+      meta.textContent = r.n
+        ? ("未完成 " + r.n + (r.inhand ? " · 进行中 " + r.inhand : ""))
+        : (r.done ? ("已完成 " + r.done) : "没有记录");
       b.appendChild(meta);
       b.addEventListener("click", function () { switchMap(r.key); });
       box.appendChild(b);
     });
+    if (!rows.length) box.appendChild(el("p", "tk-ops__muted", "没有匹配的地图"));
+    if (!S.mapq && rows.length > LIMIT) {
+      var more = el("button", "tk-ops__more",
+        S.mapsAll ? "收起地图" : "更多地图（" + (rows.length - LIMIT) + "）");
+      more.type = "button";
+      more.addEventListener("click", function () { S.mapsAll = !S.mapsAll; renderMapRows(); });
+      box.appendChild(more);
+    }
+  }
+  function buildMapList() {
+    var box = el("div", "tk-ops__maps");
+    var head = el("div", "tk-ops__mapshead");
+    head.appendChild(buildModeSeg());
+    box.appendChild(head);
+    var sq = el("input", "tk-ops__mapsq");
+    sq.type = "search";
+    sq.placeholder = "搜地图";
+    sq.value = S.mapq || "";
+    sq.addEventListener("input", function () {
+      S.mapq = sq.value.trim();
+      renderMapRows();
+    });
+    box.appendChild(sq);
+    var list = el("div", "tk-ops__maplist");
+    list.id = "tk-ops-maplist";
+    box.appendChild(list);
+    renderMapRows();
     return box;
   }
   function switchMap(key) {
@@ -280,107 +325,73 @@
     syncUrl();
   }
 
-  /* ---------------------------------------------------------- 本图速览 */
-  function buildBrief() {
-    var box = el("div", "tk-ops__brief");
-    box.appendChild(el("p", "tk-ops__cap", "本图速览"));
-    var line = el("p", "tk-ops__briefline", "正在读地图数据…");
-    box.appendChild(line);
-    var name = (MAPS.find(function (m) { return m[0] === S.map; }) || [])[1] || S.map;
-    var d = window.TARKOV_MAPS && window.TARKOV_MAPS[S.map];
-    if (!d) {
-      /* 地图分片由 map.js 按需注入（maps-data-<key>.js），paint 时往往还没到。
-         不轮询的话这一行会一直停在「加载中…」—— 实测就是如此。
-         用短轮询等它，最多 20 次（~4s），到了就只刷这一行，不整体重绘，
-         免得把右栏的滚动位置和输入焦点冲掉。 */
-      line.textContent = name + "：地图数据加载中…";
-      var tries = 0;
-      var timer = setInterval(function () {
-        tries++;
-        var dd = window.TARKOV_MAPS && window.TARKOV_MAPS[S.map];
-        if (dd || tries > 20) {
-          clearInterval(timer);
-          if (dd && line.parentNode) paint();
-        }
-      }, 200);
-      return box;
-    }
-    var ex = d.extracts || [];
-    var free = ex.filter(function (e) { return !e.pay; }).length;
-    var paid = ex.length - free;
-    /* ⚠️ **口径必须是「未完成」**（2026-10-18 修）：原来 `n++` 数的是这张图上的
-       **全部**任务，于是同步完 73 条已完成之后，摘要还写着「活 80 票」——
-       而左栏地图条写的是未完成数，两处对不上，读者会以为同步没生效。
-       同理**钥匙也只算未完成的**：已完成的任务不用再带钥匙，把它算进去
-       等于让人多背一串钥匙进图。 */
-    var keys = 0, ready = 0, open = 0, done = 0;
-    if (S.idx && S.idx.tasks) {
-      for (var qid in S.idx.tasks) {
-        var t = taskOf(qid);
-        if (!t || (t.ms || []).indexOf(S.map) < 0) continue;
-        var st = stateOf(qid);
-        if (st === "ignored") continue;          /* 说过不做的，不算活也不算钥匙 */
-        if (st === "done") { done++; continue; }
-        open++;
-        keys += t.keys || 0;
-        if (st === "inhand") ready++;
-      }
-    }
-    line.textContent = name + "：撤离 自由 " + free + " ｜ 收费 " + paid
-      + " ｜ 未完成 " + open + " 票"
-      + (done ? "（已完成 " + done + "）" : "")
-      + " ｜ 钥匙约 " + keys + " 把"
-      + (ready ? " ｜ 手上 " + ready + " 票" : "");
-    return box;
-  }
 
   /* ------------------------------------------------------------ 图层开关 */
-  /* 与 map.js 的 layerToggles slug 一一对应（任务区域 / 撤离点 / 转场点 / 上锁 / 危险区）。
-     ⚠️ 状态**不在前端另存一份** —— 每次都从地图上真实按钮的 is-on 类读回来，
-     否则「两个开关各说各话」是迟早的事。 */
-  var LAYERS = [
-    ["quest", "目标"], ["extract", "撤离"], ["transit", "转场"],
-    ["lock", "上锁"], ["hazard", "危险区"],
-  ];
-  function buildLayers() {
-    var box = el("div", "tk-ops__layers");
-    box.appendChild(el("p", "tk-ops__cap", "图层"));
-    var P = window.TarkovProgress;
-    LAYERS.forEach(function (L) {
-      var b = el("button", "tk-ops__chip", L[1]);
-      b.type = "button";
-      b.dataset.layer = L[0];
-      /* 初始态 = 地图上那个按钮的真实状态；地图还没挂好时按「开」显示 */
-      var src = document.querySelector('#tk-map [data-tk-layer="' + L[0] + '"]');
-      b.setAttribute("aria-pressed",
-        (!src || src.classList.contains("is-on")) ? "true" : "false");
-      b.addEventListener("click", function () {
-        /* 复用 map.js 自己的图层开关（控件条按钮带 data-layer），不另写一套绘制。
-           ⚠️ 按钮必须在**点击那一刻**再查 —— 地图是异步挂载的，paint 时
-              控件条往往还不存在（实测：提前缓存 const 会永远拿到 null）。 */
-        var btn = document.querySelector('#tk-map [data-tk-layer="' + L[0] + '"]');
-        if (!btn) return;   /* 地图还没挂好：什么都不做，别假装切了 */
-        btn.click();
-        b.setAttribute("aria-pressed",
-          btn.classList.contains("is-on") ? "true" : "false");
-      });
-      box.appendChild(b);
-    });
-    return box;
-  }
 
   /* ------------------------------------------------------------ 出击清单 */
   function planIds() { return Object.keys(S.plan); }
+  function mapStats() {
+    var out = { total: 0, open: 0, inhand: 0, done: 0, ignored: 0, keys: 0 };
+    if (!S.idx || !S.idx.tasks) return out;
+    for (var qid in S.idx.tasks) {
+      var t = taskOf(qid);
+      if (!t || (t.ms || []).indexOf(S.map) < 0) continue;
+      out.total++;
+      var st = stateOf(qid);
+      if (st === "done") out.done++;
+      else if (st === "inhand") { out.inhand++; out.open++; }
+      else if (st === "ignored") out.ignored++;
+      else out.open++;
+      out.keys += (t.keys || 0);
+    }
+    return out;
+  }
+  /* 汇总带：一眼回答「这张图还剩多少活、我现在手上有几票」，
+     顺带给出唯一的显眼入口「进入这一局」（选中第一条没做完的活）。 */
+  function buildBriefBar(box) {
+    box.textContent = "";
+    var s = mapStats();
+    var name = (MAPS.find(function (m) { return m[0] === S.map; }) || [])[1] || S.map;
+    box.appendChild(el("b", "tk-ops__bname", name));
+    var pct = s.total ? Math.round(s.done / s.total * 100) : 0;
+    box.appendChild(el("span", "tk-ops__bmeta",
+      "未完成 " + s.open + " · 手上 " + s.inhand + " · 已完成 " + pct + "%"
+      + " · 钥匙 " + s.keys + " 把"));
+    var go = el("button", "tk-ops__cta", "进入这一局");
+    go.type = "button";
+    go.title = "跳到这张图第一条还没做完的活";
+    go.addEventListener("click", function () {
+      var rows = visibleTasks();
+      for (var i = 0; i < rows.length; i++) {
+        if (rows[i].st !== "done" && rows[i].st !== "ignored") {
+          S.row = i;
+          focusTask(rows[i].qid, null);
+          renderRightBody();
+          return;
+        }
+      }
+    });
+    box.appendChild(go);
+  }
+
   function buildPlan() {
     var box = el("div", "tk-ops__plan");
-    var head = el("p", "tk-ops__cap", "出击清单 · " + planIds().length);
-    box.appendChild(head);
     var ids = planIds();
+    var head = el("div", "tk-ops__planhead");
+    head.appendChild(el("span", "tk-ops__cap", "出击清单 · " + ids.length));
+    if (ids.length > 3) {
+      var tgl = el("button", "tk-ops__more", S.planAll ? "收起" : "全部 " + ids.length);
+      tgl.type = "button";
+      tgl.addEventListener("click", function () { S.planAll = !S.planAll; paint(); });
+      head.appendChild(tgl);
+    }
+    box.appendChild(head);
     if (!ids.length) {
-      box.appendChild(el("p", "tk-ops__muted", "右栏点「加入出击」把这一局要做的任务攒起来"));
+      box.appendChild(el("p", "tk-ops__muted", "中栏任务右侧点「＋出击」把这一局要做的攒起来"));
       return box;
     }
-    ids.slice(0, 6).forEach(function (q) {
+    var show = S.planAll ? ids : ids.slice(0, 3);
+    show.forEach(function (q) {
       var t = taskOf(q);
       var r = el("button", "tk-ops__planrow");
       r.type = "button";
@@ -388,10 +399,24 @@
       r.addEventListener("click", function () { delete S.plan[q]; paint(); });
       box.appendChild(r);
     });
-    if (ids.length > 6) box.appendChild(el("p", "tk-ops__muted", "还有 " + (ids.length - 6) + " 票"));
+    if (!S.planAll && ids.length > 3) {
+      box.appendChild(el("p", "tk-ops__muted", "还有 " + (ids.length - 3) + " 票（点「全部」展开）"));
+    }
+    var keys = ids.reduce(function (n, q) {
+      var t = taskOf(q);
+      return n + ((t && t.keys) || 0);
+    }, 0);
     var bar = el("div", "tk-ops__planbar");
-    var cp = el("button", "tk-ops__chip", "复制清单");
+    var go = el("button", "tk-ops__plango", "带这 " + ids.length + " 票进图 · 钥匙 " + keys + " 把");
+    go.type = "button";
+    go.addEventListener("click", function () {
+      var first = ids[0];
+      if (first) { focusTask(first, null); renderRightBody(); }
+    });
+    bar.appendChild(go);
+    var cp = el("button", "tk-ops__chip", "复制");
     cp.type = "button";
+    cp.title = "复制任务名与钥匙数";
     cp.addEventListener("click", function () {
       var txt = ids.map(function (q) {
         var t = taskOf(q);
@@ -399,12 +424,13 @@
       }).join("\n");
       if (navigator.clipboard) navigator.clipboard.writeText(txt);
       cp.textContent = "已复制";
-      setTimeout(function () { cp.textContent = "复制清单"; }, 1200);
+      setTimeout(function () { cp.textContent = "复制"; }, 1200);
     });
     var cl = el("button", "tk-ops__chip", "清空");
     cl.type = "button";
     cl.addEventListener("click", function () { S.plan = {}; paint(); });
-    bar.appendChild(cp); bar.appendChild(cl);
+    bar.appendChild(cp);
+    bar.appendChild(cl);
     box.appendChild(bar);
     return box;
   }
@@ -443,113 +469,102 @@
     return out;
   }
 
-  function renderList(list) {
-    list.textContent = "";
+  /* 中栏任务清单：一行一票，只留「是什么 / 什么状态 / 两件事能立刻做」。
+     目标明细搬进右栏 —— 一行任务挂 8 个复选框会把清单撑成墙（实测 80 行 / 405 个框）。 */
+  function renderTaskList(box) {
+    box.textContent = "";
     var rows = visibleTasks();
+    var head = el("div", "tk-ops__thead");
+    head.appendChild(el("b", "tk-ops__tcap", "这张图上的任务"));
+    head.appendChild(el("span", "tk-ops__tcount", rows.length + " 票"));
+    var doneN = rows.filter(function (r) { return r.st === "done"; }).length;
+    if (rows.length) {
+      var bar = el("span", "tk-ops__tbar");
+      var fill = el("i");
+      fill.style.width = Math.round(doneN / rows.length * 100) + "%";
+      bar.appendChild(fill);
+      head.appendChild(bar);
+      head.appendChild(el("span", "tk-ops__tn", doneN + " / " + rows.length + " 已完成"));
+    }
+    var tgl = el("button", "tk-ops__tgl", S.tasksOpen === false ? "展开" : "收起");
+    tgl.type = "button";
+    tgl.addEventListener("click", function () {
+      S.tasksOpen = S.tasksOpen === false;
+      renderTaskList(box);
+    });
+    head.appendChild(tgl);
+    box.appendChild(head);
+    if (S.tasksOpen === false) return;
     if (!rows.length) {
-      list.appendChild(el("p", "tk-ops__muted",
+      box.appendChild(el("p", "tk-ops__muted",
         S.q ? "没搜到。把范围切到「全站」再试。" : "这张图上没有符合条件的活。"));
       return;
     }
-    list.appendChild(el("p", "tk-ops__cap",
-      rows.length + " 票 ｜ ↑↓ 选行 ｜ 空格 勾选 ｜ 回车 定位"));
-    rows.forEach(function (r, i) {
+    var LIMIT = 20;
+    var shown = S.tasksAll ? rows : rows.slice(0, LIMIT);
+    var ST_TXT = { done: "已完成", inhand: "进行中", ignored: "已忽略" };
+    shown.forEach(function (r, i) {
       var t = r.t;
-      var row = el("div", "tk-ops__row" + (r.qid === S.selQ ? " is-sel" : "")
+      var row = el("div", "tk-ops__row tk-ops__row--flat" + (r.qid === S.selQ ? " is-sel" : "")
         + (r.st === "done" ? " is-done" : "")
         + (r.st === "ignored" ? " is-ignored" : ""));
       row.dataset.qid = r.qid;
       row.tabIndex = i === S.row ? 0 : -1;
 
-      var head = el("div", "tk-ops__rowhead");
-      var ST_TXT = { done: "已完成", inhand: "进行中", ignored: "已忽略" };
-      var st = el("span", "tk-ops__badge tk-ops__badge--" + r.st,
-        ST_TXT[r.st] || "未标记");
-      head.appendChild(st);
-      if (r.pinned) head.appendChild(el("span", "tk-ops__pin", "★"));
-      head.appendChild(el("b", "tk-ops__rowname", t.name || "（无中文名）"));
+      var body = el("div", "tk-ops__rowbody");
+      var head2 = el("div", "tk-ops__rowhead");
+      head2.appendChild(el("span", "tk-ops__badge tk-ops__badge--" + r.st,
+        ST_TXT[r.st] || "未标记"));
+      if (r.pinned) head2.appendChild(el("span", "tk-ops__pin", "★"));
+      head2.appendChild(el("b", "tk-ops__rowname", t.name || "（无中文名）"));
+      if (r.qid in S.plan) head2.appendChild(el("span", "tk-ops__planned", "出击"));
+      body.appendChild(head2);
+
+      var bits = [];
       var nobj = (t.oids || []).length;
-      if (nobj) {
-        head.appendChild(el("span", "tk-ops__objcount",
-          metCount(t, r.qid) + "/" + nobj + " 目标"));
-      }
-      if (r.qid in S.plan) head.appendChild(el("span", "tk-ops__planned", "出击"));
-      row.appendChild(head);
+      if (nobj) bits.push("目标 " + metCount(t, r.qid) + "/" + nobj);
+      if (t.keys) bits.push("钥匙 " + t.keys + " 把");
+      if (t.trader) bits.push(t.trader);
+      if (t.level) bits.push("Lv " + t.level);
+      var meta = el("div", "tk-ops__rowmeta", bits.join(" · "));
+      body.appendChild(meta);
+      row.appendChild(body);
 
-      /* 目标级：勾选写进同一份账本，地图上该区域同步转态。
-         ⚠️ 必须显示**目标原文**（2026-10-18 修）：此前只写「目标 1 / 目标 2」，
-            读者面对一排复选框不知道在勾什么 —— 于是问了「打钩是什么意思」。
-            文本来自索引的 otxt 列（与 oids 同序等长，生成器保证）。 */
-      var objs = el("ol", "tk-ops__objs");
-      var otexts = (t.otxt || "").split("|");
-      (t.oids || []).forEach(function (oid, oi) {
-        var li = el("li");
-        var cb = el("input");
-        cb.type = "checkbox";
-        cb.checked = objDone(r.qid, oid);
-        cb.addEventListener("change", function () { setObj(r.qid, oid, cb.checked); });
-        li.appendChild(cb);
-        var otxt = (otexts[oi] || "").trim();
-        var sp = el("span", "tk-ops__objtxt", otxt || ("目标 " + (oi + 1)));
-        if (otxt) sp.title = otxt + "　（点这一行 = 在图上定位这条目标）";
-        li.appendChild(sp);
-        if (cb.checked) li.classList.add("is-done");
-        if (oid === S.selO) li.classList.add("is-cur");
-        li.addEventListener("click", function (e) {
-          if (e.target === cb) return;
-          focusTask(r.qid, oid);
-        });
-        objs.appendChild(li);
-      });
-      if (!(t.oids || []).length) {
-        objs.appendChild(el("li", "tk-ops__muted", "这条任务上游没给目标明细"));
-      }
-      row.appendChild(objs);
-
-      var act = el("div", "tk-ops__rowact");
-      var loc = el("button", "tk-ops__chip", "定位");
+      var acts = el("div", "tk-ops__rowacts");
+      var loc = el("button", "tk-ops__mini", "定位");
       loc.type = "button";
-      loc.addEventListener("click", function () { focusTask(r.qid, null); });
-      var add = el("button", "tk-ops__chip", (r.qid in S.plan) ? "移出出击" : "加入出击");
+      loc.title = "在图上定位这条任务";
+      loc.addEventListener("click", function (e) { e.stopPropagation(); focusTask(r.qid, null); });
+      var add = el("button", "tk-ops__mini" + (r.qid in S.plan ? " is-on" : ""),
+        r.qid in S.plan ? "已加入" : "＋出击");
       add.type = "button";
-      add.addEventListener("click", function () {
+      add.title = "加入 / 移出出击清单";
+      add.addEventListener("click", function (e) {
+        e.stopPropagation();
         if (S.plan[r.qid]) delete S.plan[r.qid]; else S.plan[r.qid] = true;
         paint();
       });
-      var tg = el("button", "tk-ops__chip", r.st === "done" ? "标为未完成" : "标为已完成");
-      tg.type = "button";
-      tg.addEventListener("click", function () {
-        setState(r.qid, r.st === "done" ? "" : "done");
-      });
-      var pin = el("button", "tk-ops__chip" + (r.pinned ? " is-on" : ""),
-        r.pinned ? "★ 已钉" : "☆ 钉住");
-      pin.type = "button";
-      pin.title = "钉住 = 这条我要做（与「进行中」不同：那个是游戏里已经接了）";
-      pin.addEventListener("click", function (e) {
-        e.stopPropagation();
-        var P = window.TarkovProgress;
-        if (P && P.togglePin) { P.togglePin(r.qid, S.mode); paint(); }
-      });
-      var ig = el("button", "tk-ops__chip", r.st === "ignored" ? "取消忽略" : "忽略");
-      ig.type = "button";
-      ig.title = "忽略 = 这赛季不做。只影响统计口径，随时可撤销";
-      ig.addEventListener("click", function (e) {
-        e.stopPropagation();
-        var P = window.TarkovProgress;
-        if (P && P.toggleIgnore) { P.toggleIgnore(r.qid, S.mode); paint(); }
-      });
-      act.appendChild(loc); act.appendChild(add); act.appendChild(tg);
-      act.appendChild(pin); act.appendChild(ig);
-      row.appendChild(act);
+      acts.appendChild(loc);
+      acts.appendChild(add);
+      row.appendChild(acts);
 
       row.addEventListener("click", function () {
         S.row = i;
         S.selQ = r.qid;
+        S.selO = null;
         selectOnMap(r.qid);
         highlight();
+        renderRightBody();
       });
-      list.appendChild(row);
+      box.appendChild(row);
     });
+    if (!S.tasksAll && rows.length > LIMIT) {
+      var more = el("button", "tk-ops__more",
+        "还有 " + (rows.length - LIMIT) + " 票 —— 展开全部");
+      more.type = "button";
+      more.addEventListener("click", function () { S.tasksAll = true; renderTaskList(box); });
+      box.appendChild(more);
+    }
   }
 
   function focusTask(qid, oid) {
@@ -576,7 +591,7 @@
   }
 
   function highlight() {
-    var list = document.getElementById("tk-ops-list");
+    var list = document.getElementById("tk-ops-tasks");
     if (!list) return;
     Array.prototype.forEach.call(list.querySelectorAll(".tk-ops__row"), function (n) {
       n.classList.toggle("is-sel", n.dataset.qid === S.selQ);
@@ -597,9 +612,13 @@
     ensureTip();
     if (window.TarkovMap && typeof window.TarkovMap.mount === "function") {
       window.TarkovMap.mount();
+      compactMapBar();
+      foldLegend();
     } else {
       loadScript("map.js", null, function () {
         if (window.TarkovMap && window.TarkovMap.mount) window.TarkovMap.mount();
+        compactMapBar();
+        foldLegend();
       });
     }
   }
@@ -642,7 +661,7 @@
       S.selQ = qid;
       S.selO = d.oid || null;
       /* 点空白 = 取消选中：只取消高亮，不动筛选，别把列表刷没了 */
-      var list = document.getElementById("tk-ops-list");
+      var list = document.getElementById("tk-ops-tasks");
       if (list) {
         Array.prototype.forEach.call(list.querySelectorAll(".tk-ops__row"), function (n) {
           n.classList.toggle("is-sel", n.dataset.qid === qid);
@@ -678,7 +697,7 @@
         switchMode(MODES[+e.key - 1][0]); e.preventDefault(); return;
       }
       if (e.key === "?") { showHelp(); e.preventDefault(); return; }
-      var list = document.getElementById("tk-ops-list");
+      var list = document.getElementById("tk-ops-tasks");
       if (!list) return;
       var rows = Array.prototype.slice.call(list.querySelectorAll(".tk-ops__row"));
       if (!rows.length) return;
@@ -689,6 +708,7 @@
       if (!r) return;
       S.selQ = r.dataset.qid;
       highlight();
+      renderRightBody();
     });
   }
   function showHelp() {
@@ -874,17 +894,60 @@
   }
 
   /* ------------------------------------------------------------ 组装 */
+  /* 组装：左（地图/清单）、中（汇总带 + 地图 + 任务清单）、右（搜索/筛选 + 当前任务）。 */
+  /* 地图工具条去重（只在本页）：任务筛选/任务搜索与右栏重复 → 删；
+     图层开关收进「图层」折叠，工具条从 5 行降到 2 行（实测 218 → 90px）。
+     ⚠️ 只动 DOM、不改 map.js 逻辑：换图时 map.js 会重建工具条，
+        所以每次 mount 之后都调用一次（dataset 判重防重复包）。 */
+  function compactMapBar() {
+    var bar = document.querySelector("#tk-map .tk-map__bar");
+    if (!bar || bar.dataset.tkCompact === "1") return;
+    bar.dataset.tkCompact = "1";
+    var segs = Array.prototype.slice.call(bar.children);
+    segs.forEach(function (seg) {
+      if (!seg.classList || !seg.classList.contains("tk-map__seg")) return;
+      if (seg.querySelector("[data-tk-layer]")) {
+        seg.dataset.tkLayersMoved = "1";
+        var box = el("details", "tk-map__seg tk-ops__layerbox");
+        box.appendChild(el("summary", "tk-map__btn", "图层"));
+        var row = el("span", "tk-ops__layerrow");
+        row.appendChild(seg);
+        box.appendChild(row);
+        bar.appendChild(box);
+        return;
+      }
+      var t = seg.textContent || "";
+      if (t.indexOf("全部任务") >= 0 || seg.classList.contains("tk-map__seg--search")) {
+        seg.remove();
+      }
+    });
+  }
+
+  /* 图例与说明（128 + 48px 的常驻文字）收进一个折叠块：新读者要的时候点开，
+     老读者不用每次滚过它才能看到任务清单。 */
+  function foldLegend() {
+    var host = document.getElementById("tk-map");
+    if (!host) return;
+    var lg = host.querySelector(".tk-map__legend");
+    if (!lg || lg.closest(".tk-ops__legendbox")) return;
+    var nt = host.querySelector(".tk-map__note");
+    var box = el("details", "tk-ops__legendbox");
+    box.appendChild(el("summary", "tk-ops__sum", "图例与说明"));
+    var body = el("div", "tk-ops__legendbody");
+    body.appendChild(lg);
+    if (nt) body.appendChild(nt);
+    box.appendChild(body);
+    var bar = host.querySelector(".tk-map__bar");
+    if (bar && bar.parentNode === host) host.insertBefore(box, bar.nextSibling);
+    else host.appendChild(box);
+  }
+
   function paint() {
     var left = document.getElementById("tk-ops-left");
     var right = document.getElementById("tk-ops-right");
     if (!left || !right) return;
 
-    /* 整栏重建会连带销毁搜索框 —— 若读者此刻正在框里打字，焦点与光标都会丢。
-       输入事件已经改走 renderRightBody() 了，但**别的路径仍会全量重建**
-       （勾选目标、切筛选、切地图、进度同步…）。所以这里记下焦点与光标位置，
-       重建后原样还回去。**
-       2026-10-18：读者报「只能输入一个字符、要再点一下」，主因是 input 调了 paint；
-       这一层是兜底，防止以后又有人在输入过程中触发全量重绘。 */
+    /* 全量重建会销毁搜索框 —— 正在打字时记下焦点与光标，建完还回去。 */
     var prevSearch = document.querySelector(".tk-ops__search");
     var hadFocus = !!prevSearch && document.activeElement === prevSearch;
     var caret = null;
@@ -893,28 +956,28 @@
     }
 
     left.textContent = "";
-    left.appendChild(buildModeSeg());
     left.appendChild(buildMapList());
-    left.appendChild(buildBrief());
-    left.appendChild(buildLayers());
+    renderMapRows();   /* buildMapList 里的首绘发生在入 DOM 之前，这里补一次 */
     left.appendChild(buildPlan());
     left.appendChild(opsLogBox());
+
+    var brief = document.getElementById("tk-ops-briefbar");
+    if (brief) buildBriefBar(brief);
+    var tasks = document.getElementById("tk-ops-tasks");
+    if (tasks) renderTaskList(tasks);
 
     var search = el("input", "tk-ops__search");
     search.type = "search";
     search.placeholder = "搜任务 / 地名 / 物品（/ 聚焦）";
     search.value = S.q;
-    /* ⚠️ **输入时只能重绘右栏内容，绝不能调 paint()**（2026-10-18 修）：
-       paint() 第一件事是 `right.textContent = ""` —— 连搜索框自己一起销毁重建，
-       于是每敲一个字焦点就丢，读者必须再点一下才能输入下一个字符
-       （「只能输入一个字符」的那个反馈就是这么来的）。
-       这里只更新「跳转条 + 任务列表」，搜索框本身留在原地，焦点与光标都不动。 */
+    /* ⚠️ 输入时**绝不能调 paint()**（会销毁搜索框本身 → 「只能输入一个字符」）。
+       这里只重绘「中栏清单 + 右栏内容」，搜索框留在原地，焦点与光标都不动。 */
     var urlTimer = null;
     search.addEventListener("input", function () {
       S.q = search.value.trim();
+      var t = document.getElementById("tk-ops-tasks");
+      if (t) renderTaskList(t);
       renderRightBody();
-      /* URL 跟着更新（刷新能保留搜索词），但**必须节流**：
-         每敲一个字就 replaceState 一次，既不必要，浏览器也可能限流。 */
       if (urlTimer) clearTimeout(urlTimer);
       urlTimer = setTimeout(function () { urlTimer = null; syncUrl(); }, 400);
     });
@@ -941,16 +1004,15 @@
     });
     right.appendChild(sc);
 
-    /* 跳转条与列表放进固定容器 —— 它们随搜索词变化，搜索框不跟着重建。
-       两个 id 供 renderRightBody() 与键盘流（ArrowUp/Down）复用。 */
     var jumpBox = el("div", "tk-ops__jumpbox");
     jumpBox.id = "tk-ops-jumpbox";
     right.appendChild(jumpBox);
-    var list = el("div", "tk-ops__list");
-    list.id = "tk-ops-list";
-    right.appendChild(list);
+    var detail = el("div", "tk-ops__detail");
+    detail.id = "tk-ops-detail";
+    right.appendChild(detail);
 
     renderRightBody();
+    compactMapBar();
     document.querySelectorAll(".tk-ops__mode").forEach(function (b) {
       b.setAttribute("aria-pressed", b.dataset.mode === S.mode ? "true" : "false");
     });
@@ -966,15 +1028,100 @@
 
   /* 只重绘右栏**内容**（跳转条 + 任务列表），不动搜索框与筛选按钮。
      搜索框的 input 事件走这里 —— 详见 paint() 里那段注释。 */
+  /* 只重绘右栏**内容**（跳转条 + 任务明细），不动搜索框与筛选按钮。 */
+  /* 右栏 = 「当前这一票要做什么」：搜索/筛选在上，明细在下。
+     没有选中时只留一句引导，不塞列表（列表在中栏）。 */
+  function renderDetail(box) {
+    box.textContent = "";
+    var qid = S.selQ;
+    var t = qid ? taskOf(qid) : null;
+    if (!t) {
+      box.appendChild(el("p", "tk-ops__dempty", "点中栏任一任务，这里显示它的目标与要求。"));
+      box.appendChild(el("p", "tk-ops__muted", "↑↓ 选行 · 回车定位 · / 搜索"));
+      return;
+    }
+    box.scrollTop = 0;   /* 换一票就看新卡的开头，不保留上一票的滚动位置 */
+    var st = stateOf(qid);
+    var ST_TXT = { done: "已完成", inhand: "进行中", ignored: "已忽略" };
+    var head = el("div", "tk-ops__dhead");
+    head.appendChild(el("span", "tk-ops__badge tk-ops__badge--" + st, ST_TXT[st] || "未标记"));
+    head.appendChild(el("b", "tk-ops__dname", t.name || "（无中文名）"));
+    var close = el("button", "tk-ops__dclose", "×");
+    close.type = "button";
+    close.title = "取消选中";
+    close.addEventListener("click", function () {
+      S.selQ = null; S.selO = null; paint(); syncUrl();
+    });
+    head.appendChild(close);
+    box.appendChild(head);
+
+    var nobj = (t.oids || []).length;
+    var met = metCount(t, qid);
+    if (nobj) {
+      var pw = el("div", "tk-ops__dprog");
+      var pb = el("span", "tk-ops__dpbar");
+      var fill = el("i");
+      fill.style.width = Math.round(met / nobj * 100) + "%";
+      pb.appendChild(fill);
+      pw.appendChild(pb);
+      pw.appendChild(el("span", "tk-ops__dpn", met + "/" + nobj + " 目标"));
+      box.appendChild(pw);
+    }
+    var bits = [];
+    if (t.trader) bits.push("商人 " + t.trader);
+    if (t.level) bits.push("Lv " + t.level);
+    if (t.keys) bits.push("钥匙 " + t.keys + " 把");
+    if ((t.ms || []).length) bits.push("出现于 " + t.ms.length + " 张图");
+    box.appendChild(el("div", "tk-ops__dmeta", bits.join(" · ")));
+
+    var objs = el("ul", "tk-ops__dobjs");
+    var otexts = (t.otxt || "").split("|");
+    (t.oids || []).forEach(function (oid, oi) {
+      var li = el("li");
+      var cb = el("input");
+      cb.type = "checkbox";
+      cb.checked = objDone(qid, oid);
+      cb.addEventListener("change", function () { setObj(qid, oid, cb.checked); });
+      li.appendChild(cb);
+      var otxt = (otexts[oi] || "").trim();
+      var sp = el("span", "tk-ops__objtxt", otxt || ("目标 " + (oi + 1)));
+      sp.title = otxt || ("目标 " + (oi + 1));
+      li.appendChild(sp);
+      if (cb.checked) li.classList.add("is-done");
+      if (oid === S.selO) li.classList.add("is-cur");
+      li.addEventListener("click", function (e) {
+        if (e.target === cb) return;
+        focusTask(qid, oid);
+      });
+      objs.appendChild(li);
+    });
+    if (!nobj) objs.appendChild(el("li", "tk-ops__muted", "这条任务上游没给目标明细"));
+    box.appendChild(objs);
+
+    var acts = el("div", "tk-ops__dacts");
+    var loc = el("button", "tk-ops__chip", "地图定位");
+    loc.type = "button";
+    loc.addEventListener("click", function () { focusTask(qid, null); });
+    var add = el("button", "tk-ops__chip", qid in S.plan ? "移出出击" : "加入出击");
+    add.type = "button";
+    add.addEventListener("click", function () {
+      if (S.plan[qid]) delete S.plan[qid]; else S.plan[qid] = true;
+      paint(); syncUrl();
+    });
+    var tg = el("button", "tk-ops__chip", st === "done" ? "标为未完成" : "标为已完成");
+    tg.type = "button";
+    tg.addEventListener("click", function () { setState(qid, st === "done" ? "" : "done"); });
+    acts.appendChild(loc);
+    acts.appendChild(add);
+    acts.appendChild(tg);
+    box.appendChild(acts);
+  }
+
   function renderRightBody() {
     var jumpBox = document.getElementById("tk-ops-jumpbox");
-    var list = document.getElementById("tk-ops-list");
-    if (!list) return;
-
+    var detail = document.getElementById("tk-ops-detail");
     if (jumpBox) {
       jumpBox.textContent = "";
-      /* 搜地名 → 一条「图上飞过去」。地名不是任务，不该混进任务列表，
-         但读者搜它就是想去那个地方 —— 所以给一条独立的跳转条。 */
       if (S.q && S.scope === "map") {
         var hit = findCallout(S.q, S.map);
         if (hit) {
@@ -991,7 +1138,7 @@
         }
       }
     }
-    renderList(list);
+    if (detail) renderDetail(detail);
   }
 
   function boot() {
@@ -1010,9 +1157,24 @@
     loadScript("map.js", null, function () {
       remountMap();
       bindHover();
+      compactMapBar();
     });
     applyWidths();
     bindGrips();
+    /* map.js 的数据是异步到的：工具条会被重建（新节点 = 没有 tkCompact 标记）。
+       挂一个只看子树的观察者，重建一次就压一次；compactMapBar 自身幂等。 */
+    if (!window.__tkOpsBarWatch) {
+      window.__tkOpsBarWatch = true;
+      var root = document.getElementById(HOST);
+      if (root && window.MutationObserver) {
+        var queued = false;
+        new MutationObserver(function () {
+          if (queued) return;
+          queued = true;
+          setTimeout(function () { queued = false; compactMapBar(); foldLegend(); }, 80);
+        }).observe(root, { childList: true, subtree: true });
+      }
+    }
     bindMapToRight();
     bindHover();
     syncUrl();

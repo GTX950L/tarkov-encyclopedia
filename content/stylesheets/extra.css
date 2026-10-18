@@ -7331,3 +7331,255 @@ body:has(#tk-ops) .tk-ops__grid {
 @media (max-width: 44.9375em) {
   .tk-thead-float { display: none !important; }
 }
+
+/* ===== 作战台版面 v2（2026-10-18 · 控件归位）=====
+   设计口径：一屏回答三个问题 —— 看哪张图 / 这张图还剩什么 / 这一局带什么。
+   目标明细从「中栏每一行」搬进右栏「当前这一票」，清单因此从 405 个复选框
+   回到 80 行「一行一票」。颜色仍只用站内那几只变量。 */
+
+/* 汇总带：地图名 + 计数 + 唯一显眼入口 */
+.tk-ops__briefbar {
+  display: flex; align-items: center; gap: .5rem;
+  margin: 0 0 .4rem; padding: .3rem .5rem;
+  border: 1px solid var(--tk-line); border-left: 3px solid var(--tk-brand);
+  border-radius: .25rem; background: var(--tk-panel);
+  font-size: .68rem; color: var(--tk-ink-2); flex-wrap: wrap;
+}
+.tk-ops__bname { font-size: .78rem; color: var(--tk-ink); }
+.tk-ops__bmeta { flex: 1 1 auto; min-width: 12rem; }
+.tk-ops__cta {
+  appearance: none; cursor: pointer; font: inherit; font-size: .66rem;
+  font-weight: 700; padding: .22rem .6rem; margin-left: auto;
+  border: 1px solid var(--tk-brand); border-radius: .2rem;
+  background: var(--tk-brand); color: #fff;
+}
+.tk-ops__cta:hover { background: var(--tk-brand-dark); }
+
+/* 左栏：模式段与地图清单合成一块，搜索只重绘清单 */
+.tk-ops__mapshead { display: flex; align-items: center; gap: .3rem; }
+.tk-ops__mapshead .tk-ops__modes { flex: 1; margin: 0 0 .3rem; }
+.tk-ops__mapsq {
+  width: 100%; font: inherit; font-size: .66rem; padding: .2rem .35rem;
+  margin: 0 0 .25rem; border: 1px solid var(--tk-line);
+  border-radius: .2rem; background: #fff; color: var(--tk-ink);
+}
+.tk-ops__mapline { display: flex; align-items: baseline; gap: .3rem; }
+.tk-ops__mapline b { flex: 1; }
+.tk-ops__mapn { font-size: .66rem; color: var(--tk-brand); font-variant-numeric: tabular-nums; }
+.tk-ops__more {
+  display: block; width: 100%; appearance: none; cursor: pointer;
+  font: inherit; font-size: .62rem; margin: .2rem 0 0; padding: .16rem .3rem;
+  border: 1px dashed var(--tk-line-2); border-radius: .2rem;
+  background: transparent; color: var(--tk-ink-2);
+}
+.tk-ops__more:hover { border-style: solid; color: var(--tk-brand); }
+
+/* 中栏任务清单 */
+.tk-ops__tasklist { margin-top: .45rem; }
+.tk-ops__thead {
+  display: flex; align-items: center; gap: .45rem; flex-wrap: wrap;
+  padding: .25rem .1rem .35rem; border-bottom: 1px solid var(--tk-line);
+  font-size: .66rem; color: var(--tk-ink-2);
+}
+.tk-ops__tcap { font-size: .74rem; color: var(--tk-ink); }
+.tk-ops__tbar {
+  flex: 0 0 7rem; height: .34rem; border-radius: 1rem;
+  background: var(--tk-line); overflow: hidden;
+}
+.tk-ops__tbar i { display: block; height: 100%; background: var(--tk-brand); }
+.tk-ops__tgl {
+  appearance: none; cursor: pointer; font: inherit; font-size: .62rem;
+  margin-left: auto; padding: .1rem .4rem;
+  border: 1px solid var(--tk-line); border-radius: .2rem;
+  background: #fff; color: var(--tk-ink-2);
+}
+.tk-ops__row--flat {
+  display: flex; align-items: flex-start; gap: .4rem;
+  margin: .22rem 0; padding: .3rem .45rem;
+}
+.tk-ops__row--flat .tk-ops__rowbody { flex: 1 1 auto; min-width: 0; }
+.tk-ops__rowmeta { font-size: .62rem; color: var(--tk-ink-2); margin-top: .1rem; }
+.tk-ops__rowacts { display: flex; gap: .22rem; flex: 0 0 auto; align-self: center; }
+.tk-ops__mini {
+  appearance: none; cursor: pointer; font: inherit; font-size: .62rem;
+  padding: .16rem .4rem; border: 1px solid var(--tk-line);
+  border-radius: .2rem; background: #fff; color: var(--tk-brand);
+  white-space: nowrap;
+}
+.tk-ops__mini:hover { background: var(--tk-brand-soft); }
+.tk-ops__mini.is-on { background: var(--tk-brand); border-color: var(--tk-brand); color: #fff; }
+
+/* 右栏：当前这一票 */
+.tk-ops__detail { margin-top: .4rem; }
+.tk-ops__dhead { display: flex; align-items: center; gap: .3rem; flex-wrap: wrap; }
+.tk-ops__dname { font-size: .8rem; color: var(--tk-ink); flex: 1 1 auto; }
+.tk-ops__dclose {
+  appearance: none; cursor: pointer; font: inherit; font-size: .9rem;
+  line-height: 1; padding: 0 .3rem; border: 0; background: transparent;
+  color: var(--tk-ink-2);
+}
+.tk-ops__dclose:hover { color: var(--tk-brand); }
+.tk-ops__dprog { display: flex; align-items: center; gap: .35rem; margin: .35rem 0 .2rem; }
+.tk-ops__dpbar {
+  flex: 1; height: .36rem; border-radius: 1rem;
+  background: var(--tk-line); overflow: hidden;
+}
+.tk-ops__dpbar i { display: block; height: 100%; background: var(--tk-brand); }
+.tk-ops__dpn { font-size: .62rem; color: var(--tk-ink-2); white-space: nowrap; }
+.tk-ops__dmeta { font-size: .62rem; color: var(--tk-ink-2); margin-bottom: .25rem; }
+.tk-ops__dobjs { list-style: none; margin: .2rem 0 0; padding: 0; }
+.tk-ops__dobjs li {
+  display: flex; align-items: flex-start; gap: .3rem;
+  font-size: .66rem; color: var(--tk-ink-2); padding: .16rem 0; cursor: pointer;
+}
+.tk-ops__dobjs li.is-cur { color: var(--tk-brand); font-weight: 700; }
+.tk-ops__dobjs li.is-done .tk-ops__objtxt { text-decoration: line-through; opacity: .55; }
+.tk-ops__dobjs .tk-ops__objtxt {
+  white-space: normal; display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+.tk-ops__dacts { display: flex; gap: .25rem; flex-wrap: wrap; margin-top: .45rem; }
+.tk-ops__dempty { margin: .5rem 0 .2rem; font-size: .68rem; color: var(--tk-ink-2); }
+
+/* 出击清单：默认三行 + 一个整宽 CTA（清单是「这一局」的全部，所以它值得一行按钮） */
+.tk-ops__planhead { display: flex; align-items: center; gap: .3rem; }
+.tk-ops__planhead .tk-ops__cap { flex: 1; }
+.tk-ops__planbar { display: flex; gap: .22rem; margin-top: .3rem; }
+.tk-ops__plango {
+  flex: 1 1 auto; appearance: none; cursor: pointer; font: inherit;
+  font-size: .64rem; font-weight: 700; padding: .24rem .35rem;
+  border: 1px solid var(--tk-brand); border-radius: .2rem;
+  background: var(--tk-brand); color: #fff;
+}
+.tk-ops__plango:hover { background: var(--tk-brand-dark); }
+
+/* 中栏地图高度：下面还要放清单，地图控制在半屏多一点 */
+body:has(#tk-ops) .tk-ops__col--mid .tk-map__canvas { max-height: 52vh; }
+body:has(#tk-ops) .tk-ops__grid {
+  grid-template-columns:
+    var(--tk-ops-left, 226px) minmax(0, 1fr) var(--tk-ops-right, 320px);
+}
+.tk-ops__grip--l { left: calc(var(--tk-ops-left, 226px) + 3px); }
+.tk-ops__grip--r { right: calc(var(--tk-ops-right, 320px) + 3px); }
+
+@media (max-width: 1080px) {
+  .tk-ops__tasklist { margin-top: .35rem; }
+  .tk-ops__rowacts { align-self: flex-start; }
+}
+
+/* ===== 作战台 v2：地图控件去重（只在本页生效，13 个地图页不受影响）=====
+   map.js 自带的「任务列表卡 + 任务筛选 + 任务搜索」与右栏/中栏重复，
+   本页隐藏它们；楼层、地名、图层、缩放仍由地图自己负责。 */
+body:has(#tk-ops) .tk-map__panel { display: none; }
+body:has(#tk-ops) .tk-map__bar > .tk-map__seg:nth-child(3) { display: none; }
+body:has(#tk-ops) .tk-map__bar > .tk-map__seg--search { display: none; }
+/* 行合并：剩下的按钮按一两个 36px 行排完，172px → ~80px */
+body:has(#tk-ops) .tk-map__bar {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: .22rem; padding: .25rem .3rem;
+}
+body:has(#tk-ops) .tk-map__bar > * { margin: 0 !important; }
+body:has(#tk-ops) .tk-map__bar > .tk-map__seg { display: flex; flex-wrap: wrap; gap: .18rem; }
+body:has(#tk-ops) .tk-map__seg .tk-map__btn { padding: .16rem .4rem; }
+
+/* 模式段：三个按钮一行放得下，别让「赛季 PvP」折成两行 */
+.tk-ops__mode { white-space: nowrap; font-size: .62rem; padding: .24rem .1rem; }
+.tk-ops__mapshead .tk-ops__modes { flex-wrap: nowrap; }
+
+/* 工具条去重后的补充（ops-board.js compactMapBar 已在 DOM 层删掉重复段） */
+body:has(#tk-ops) .tk-map__count { display: none; }
+.tk-ops__layerbox { position: relative; }
+.tk-ops__layerbox > summary {
+  cursor: pointer; list-style: none; display: inline-flex; align-items: center;
+  gap: .25rem; padding: .16rem .45rem; font-size: .66rem;
+  border: 1px solid var(--tk-line); border-radius: .2rem;
+  background: #fff; color: var(--tk-brand);
+}
+.tk-ops__layerbox > summary::-webkit-details-marker { display: none; }
+.tk-ops__layerbox > summary::after { content: "▾"; font-size: .7em; }
+.tk-ops__layerbox[open] > summary::after { content: "▴"; }
+.tk-ops__layerrow { display: flex; flex-wrap: wrap; gap: .18rem; padding: .25rem 0 .1rem; }
+.tk-ops__layerrow .tk-map__seg { display: flex; flex-wrap: wrap; gap: .18rem; }
+
+/* 地图自己的「区域详情卡」在作战台也是重复：右栏已经显示当前任务的目标。
+   本页只保留地图高亮与悬停浮条。 */
+body:has(#tk-ops) .tk-map__card { display: none; }
+
+/* 图例与说明：折叠块（内容仍是地图自己的节点，只是换了容器） */
+.tk-ops__legendbox { margin: 0 0 .4rem; }
+.tk-ops__legendbox > summary {
+  cursor: pointer; list-style: none; display: inline-flex; align-items: center;
+  gap: .3rem; font-size: .66rem; color: var(--tk-ink-2);
+  border-bottom: 1px dashed var(--tk-line-2);
+}
+.tk-ops__legendbox > summary::-webkit-details-marker { display: none; }
+.tk-ops__legendbox > summary::before { content: "▸"; }
+.tk-ops__legendbox[open] > summary::before { content: "▾"; }
+.tk-ops__legendbody { padding: .35rem 0 .1rem; }
+
+/* ===== 作战台 v2：暗色（2026-10-18）=====
+   旧规则里这些控件写死 background:#fff，而 slate 把文字改成了浅色 —
+   白底白字实测 1:1。统一改成暗面板，选中态用浅一档的蓝灰。 */
+[data-md-color-scheme="slate"] .tk-ops__map,
+[data-md-color-scheme="slate"] .tk-ops__mapsq,
+[data-md-color-scheme="slate"] .tk-ops__search,
+[data-md-color-scheme="slate"] .tk-ops__mode,
+[data-md-color-scheme="slate"] .tk-ops__segb,
+[data-md-color-scheme="slate"] .tk-ops__chip,
+[data-md-color-scheme="slate"] .tk-ops__mini,
+[data-md-color-scheme="slate"] .tk-ops__tgl,
+[data-md-color-scheme="slate"] .tk-ops__planrow,
+[data-md-color-scheme="slate"] .tk-ops__layerbox > summary {
+  background: #2B3133; color: #C6D2DE; border-color: #4A473F;
+}
+[data-md-color-scheme="slate"] .tk-ops__map:hover,
+[data-md-color-scheme="slate"] .tk-ops__mini:hover,
+[data-md-color-scheme="slate"] .tk-ops__chip:hover { background: #38403F; }
+[data-md-color-scheme="slate"] .tk-ops__map b,
+[data-md-color-scheme="slate"] .tk-ops__rowname,
+[data-md-color-scheme="slate"] .tk-ops__dname,
+[data-md-color-scheme="slate"] .tk-ops__bname,
+[data-md-color-scheme="slate"] .tk-ops__tcap { color: #F5F4F0; }
+[data-md-color-scheme="slate"] .tk-ops__map.is-on,
+[data-md-color-scheme="slate"] .tk-ops__row--flat.is-sel {
+  background: #33404E; border-color: #9FB0C4;
+}
+[data-md-color-scheme="slate"] .tk-ops__row--flat { background: #23282A; border-color: #4A473F; }
+[data-md-color-scheme="slate"] .tk-ops__mode[aria-pressed="true"],
+[data-md-color-scheme="slate"] .tk-ops__segb[aria-pressed="true"],
+[data-md-color-scheme="slate"] .tk-ops__chip[aria-pressed="true"],
+[data-md-color-scheme="slate"] .tk-ops__mini.is-on,
+[data-md-color-scheme="slate"] .tk-ops__cta,
+[data-md-color-scheme="slate"] .tk-ops__plango {
+  background: #4E6280; border-color: #4E6280; color: #F5F4F0;
+}
+[data-md-color-scheme="slate"] .tk-ops__cta:hover,
+[data-md-color-scheme="slate"] .tk-ops__plango:hover { background: #5C7292; }
+[data-md-color-scheme="slate"] .tk-ops__mode {
+  background: #2B3133; color: #C6D2DE;
+}
+[data-md-color-scheme="slate"] .tk-ops__mode[aria-pressed="true"] { color: #F5F4F0; }
+[data-md-color-scheme="slate"] .tk-ops__mapmeta,
+[data-md-color-scheme="slate"] .tk-ops__bmeta { color: #C6D2DE; }
+
+/* 右栏常驻：任务清单一长，读者往下看清单时仍能读到「当前这一票」的目标。
+   左栏同理但只吸到视口底（它自己的内容也可能很长）。 */
+@media (min-width: 1081px) {
+  body:has(#tk-ops) .tk-ops__col--right {
+    position: sticky; top: 3.8rem;
+    max-height: calc(100vh - 4.4rem);
+    overflow-y: auto;
+  }
+}
+/* 打开就能看见清单：地图再让一点高度（13 个地图页不受影响） */
+body:has(#tk-ops) .tk-map__canvas { max-height: 46vh; }
+
+/* 窄屏：v2 的三栏必须退回单栏（否则 390px 下中栏被挤成一条缝） */
+@media (max-width: 1080px) {
+  body:has(#tk-ops) .tk-ops__grid { grid-template-columns: minmax(0, 1fr); }
+  body:has(#tk-ops) .tk-ops__col--right {
+    position: static; max-height: none; overflow: visible;
+  }
+  body:has(#tk-ops) .tk-ops__briefbar { flex-wrap: wrap; }
+}
+@media (max-width: 1080px) { body:has(#tk-ops) .tk-ops__grip { display: none; } }

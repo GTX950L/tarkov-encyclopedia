@@ -15,9 +15,11 @@ title: 作战台
 
 <!-- ── 中栏：地图 ────────────────────────────────────────── -->
 <section class="tk-ops__col tk-ops__col--mid">
+  <div class="tk-ops__briefbar" id="tk-ops-briefbar"></div>
   <div id="tk-map" data-map="customs" data-mode="pve" data-tk-hover-tip="1">
     <p>地图加载中…（这一段不会一直留着）</p>
   </div>
+  <div class="tk-ops__tasklist" id="tk-ops-tasks"></div>
 </section>
 
 <!-- ── 右栏 ──────────────────────────────────────────────── -->
