@@ -3043,6 +3043,14 @@
       + "在**本页内存**里解析：不上传、不保存、不联网。藏身处、等级、目标级勾选与物品数量"
       + "日志里没有，仍需手勾。日志位置：Steam 版 `…\\Escape from Tarkov\\build\\Logs`，独立版 `…\\EFT\\Logs`。"));
 
+    /* 自动同步要**说清条件**：它不是魔法，取决于浏览器怎么授权。
+       不写清的话，读者只会觉得「说好的自动呢」。 */
+    logBox.appendChild(richEl("p", "tk-board__lognote",
+      "**能不能自动，取决于授权时的那一下**：浏览器问「允许本次 / 每次访问都允许」时，"
+      + "选后者 → 以后打开这一页就自动补上新增（不用再点）；选前者 → 每次点一下按钮。"
+      + "增量只读变化过的文件，第二次起通常是一瞬间。两种情况都**只读**，且"
+      + "**只补不降**（不会把已完成的改回未完成）。"));
+
     var logBar = el("div", "tk-board__logbar");
     var logDirBtn = el("button", "tk-board__btn", "选择 Logs 文件夹");
     logDirBtn.type = "button";
@@ -3053,10 +3061,42 @@
     logForget.hidden = true;
     logForget.title = "清除已保存的 Logs 目录句柄与同步记录；不会删除任何日志文件";
     var logCount = el("span", "tk-board__filtercount");
+    /* 自动并入开关（2026-10-18）：默认**关**。
+       自动读取+预览是无害的（只是显示），自动**写账本**必须由读者明示愿意 ——
+       所以做成显式勾选，勾了才在自动同步时直接写入。 */
+    var AUTO_KEY = "tarkov_log_automerge";
+    /* ⚠️ **绝对不要用 <label>**（2026-10-18 踩过）：MkDocs Material 的页签组件
+       靠 `.tabbed-set label` 选择器工作 —— 页面里任何一个 `<label>` 都会被当成
+       一个 tab 处理，于是这个开关被赋上 tab 的隐藏样式，**高度 0、读者根本点不到**
+       （实测 `offsetParent: null`、`getBoundingClientRect()` 全 0）。
+       改用 div + span，点击事件自己绑。 */
+    var autoWrap = document.createElement("div");
+    autoWrap.className = "tk-board__auto";
+    var autoChk = document.createElement("input");
+    autoChk.type = "checkbox";
+    autoChk.id = "tk-log-automerge";
+    try { autoChk.checked = localStorage.getItem(AUTO_KEY) === "1"; } catch (e) { /* 隐私模式 */ }
+    var autoTxt = document.createElement("span");
+    autoTxt.textContent = "自动并入（不用再点按钮）";
+    autoTxt.addEventListener("click", function () {
+      autoChk.checked = !autoChk.checked;
+      autoChk.dispatchEvent(new Event("change"));
+    });
+    autoWrap.appendChild(autoChk);
+    autoWrap.appendChild(autoTxt);
+    autoWrap.title = "开启后，自动同步会直接把结果写进账本（只补不降）。"
+      + "关闭时只准备预览，仍需你点一次「并入我的进度」。";
+    autoChk.addEventListener("change", function () {
+      try { localStorage.setItem(AUTO_KEY, autoChk.checked ? "1" : "0"); } catch (e) { /* 忽略 */ }
+    });
     logBar.appendChild(logDirBtn);
     logBar.appendChild(logFileBtn);
     logBar.appendChild(logForget);
+    logBar.appendChild(autoWrap);
     logBar.appendChild(logCount);
+    function autoMergeOn() {
+      try { return localStorage.getItem(AUTO_KEY) === "1"; } catch (e) { return false; }
+    }
     logBox.appendChild(logBar);
 
     var dirInput = document.createElement("input");
@@ -3095,6 +3135,11 @@
           return;
         }
         window.TarkovLogSync.run(files, logOut, {
+          /* 自动同步：无新增时只说一句「已是最新」，不铺开整段解释。 */
+          quiet: !!(opts && opts.auto),
+          /* 只有「自动触发」时才谈自动并入 —— 手动点按钮的场景下
+             读者就在等预览，替他写账本是越权。 */
+          autoMerge: !!(opts && opts.auto) && autoMergeOn(),
           onMerged: function (at) {
             logCount.textContent = at ? "上次同步 " + at : "";
             refreshLogBtn();
@@ -3118,11 +3163,43 @@
       });
     }
 
-    /* 初始化：读回上次的目录句柄（不弹权限框，只更新按钮文案）。 */
+    /* ---- 自动同步（2026-10-18）------------------------------------------
+       目标：读者**不用再点按钮**。能不能做到，全看这一条浏览器规则：
+
+         · Chrome 122+ 在选择目录时会问「允许本次 / 每次访问都允许 / 不允许」。
+           选了「每次访问都允许」→ 权限是**持久**的，之后 `queryPermission()`
+           直接返回 granted，**不需要任何用户手势**就能读盘。
+         · 只选了「允许本次」→ 关闭标签页后权限回到 prompt，
+           `requestPermission()` 必须由点击触发 —— 那就只能提示读者点一下。
+
+       所以自动同步是**条件触发**而不是魔法：条件不满足时按钮文案会说明原因，
+       不假装在自动。绝不静默改账本 —— 只在有新增内容时才提示，且给出撤销入口。 */
+    var autoTried = false;
+    function autoSyncOnce() {
+      if (autoTried || !logHandle || !logHandle.queryPermission) return;
+      autoTried = true;
+      logHandle.queryPermission({ mode: "read" }).then(function (p) {
+        if (p !== "granted") {
+          /* 权限没持久化：按钮保持「同步新增」，等读者点一下。 */
+          logDirBtn.title = "浏览器没有长期保留授权 —— 点一次即可同步（"
+            + "下次选目录时选「每次访问都允许」就能自动同步）";
+          return;
+        }
+        logCount.textContent = "正在自动同步…";
+        return collectDir(logHandle).then(function (files) {
+          onLogFiles(files, { fromHandle: true, auto: true });
+        });
+      }).catch(function () { /* 自动同步失败不该弹错：按钮还在，读者可以手动点 */ });
+    }
+
+    /* 初始化：读回上次的目录句柄（不弹权限框，只更新按钮文案）。
+       若权限已经是持久的（读者上次选了「每次访问都允许」），**直接同步一次** ——
+       这就是「打开进度页就自动补上」的来源。 */
     if (window.indexedDB) {
       idbGet("logs").then(function (h) {
         logHandle = h || null;
         refreshLogBtn();
+        autoSyncOnce();
       }).catch(function () { refreshLogBtn(); });
     } else {
       refreshLogBtn();
@@ -3150,10 +3227,15 @@
     logForget.addEventListener("click", function () {
       idbDel("logs").catch(function () {});
       try { localStorage.removeItem(LOG_WM); } catch (e) { /* 隐私模式 */ }
+      /* 累积的地图场次也一并清掉 —— 不然断开后换一个目录，还会看到上一份
+         日志的统计，读者会以为新目录里有那些场次。 */
+      if (window.TarkovLogSync && window.TarkovLogSync.clearRaids) {
+        try { window.TarkovLogSync.clearRaids(); } catch (e) { /* 忽略 */ }
+      }
       logHandle = null;
       logOut.textContent = "";
       refreshLogBtn();
-      toast(host, "已断开 Logs 目录连接，并清除同步记录。下次会重新读取全部日志。", true);
+      toast(host, "已断开 Logs 目录连接，并清除同步记录与地图场次统计。下次会重新读取全部日志。", true);
     });
 
     host.appendChild(logBox);

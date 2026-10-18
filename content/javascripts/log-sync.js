@@ -93,6 +93,13 @@
      水印只在读者点「并入我的进度」之后才写：预览到一半关页面，下次还能重来。
      -------------------------------------------------------------------------- */
   var WM_KEY = "tarkov_log_sync_v1";
+  /* 地图场次记录必须**单独持久化**（2026-10-18）。
+     原因：它此前只活在本次扫描的内存里 —— 而本版起 application 日志也会被
+     增量跳过（指纹没变就不读）。不落盘的话，跳过几个文件，历史场次就从统计里
+     消失了，读者会看到「我的场次从 100 场变成 10 场」。
+     去重键含会话名，所以重复读到同一行不会重复计数；上限 4000 条防止无限增长。 */
+  var RAID_KEY = "tarkov_raids_v1";
+  var RAID_MAX = 4000;
 
   function readWM() {
     try {
@@ -102,7 +109,23 @@
     } catch (e) { return { at: "", files: {} }; }
   }
 
-  function writeWM(files) {
+  /* 水位标记的结构（v2 · 2026-10-18）：
+       files[文件名] = { s: 字节数, m: 修改时间, mode: "pve"|"pvp"|"season"|"" }
+     为什么要把 mode 一起存：application 日志只在**开头**写 `Session mode:`，
+     一旦支持「只读新增部分」（见下面的增量读取），就读不到那一行了 ——
+     模式必须缓存下来，否则同一个会话第二次同步会被判成 PvP。
+     ⚠️ v1 的格式是字符串 "size|lastModified"。读的时候要能认出来（见 wmEntry），
+        否则升级当天所有人都会被判成「全部文件都没同步过」。 */
+  function wmEntry(wm, name) {
+    var v = wm && wm.files && wm.files[name];
+    if (!v) return null;
+    if (typeof v === "string") {
+      return { s: parseInt(v, 10) || 0, m: 0, mode: "" };   // v1 兼容
+    }
+    return { s: v.s || 0, m: v.m || 0, mode: v.mode || "" };
+  }
+
+  function writeWM(files, modes) {
     try {
       var old = readWM(), map = {};
       // 只保留最近 800 个文件，防止 localStorage 无限长（日志会被游戏轮转）
@@ -111,7 +134,13 @@
       (files || []).forEach(function (f) {
         var r = roleOf(f.name);
         if (!r) return;
-        map[f.name] = f.size + "|" + f.lastModified;
+        var prev = wmEntry(old, f.name);
+        map[f.name] = {
+          s: f.size,
+          m: f.lastModified,
+          /* 模式优先取本次解析到的；本次没解析（增量跳过）就沿用旧的。 */
+          mode: (modes && modes[f.name]) || (prev && prev.mode) || "",
+        };
       });
       window.localStorage.setItem(WM_KEY, JSON.stringify({
         at: new Date().toISOString(), files: map,
@@ -120,6 +149,44 @@
   }
 
   function fpOf(f) { return f.size + "|" + f.lastModified; }
+
+  function loadRaids() {
+    try {
+      var raw = window.localStorage.getItem(RAID_KEY);
+      var o = raw ? JSON.parse(raw) : null;
+      if (o && Array.isArray(o.list)) {
+        return { list: o.list, seen: o.seen || {}, trunc: !!o.trunc };
+      }
+    } catch (e) { /* 坏数据当作没有：宁可重算，也不要让统计整块消失 */ }
+    return { list: [], seen: {}, trunc: false };
+  }
+
+  function saveRaids(raids) {
+    try {
+      var list = raids.list;
+      if (list.length > RAID_MAX) {
+        /* 只保留最近的：list 是按扫描顺序追加的，前段是最旧的会话。
+           seen 不裁剪会让它无限长大，所以**随 list 一起重建**。 */
+        list = list.slice(list.length - RAID_MAX);
+        var seen = {};
+        for (var i = 0; i < list.length; i++) {
+          var r = list[i];
+          seen[r.session + "|" + r.date + " " + r.time + "|" + r.key] = 1;
+        }
+        raids.list = list;
+        raids.seen = seen;
+        raids.trunc = true;
+      }
+      window.localStorage.setItem(RAID_KEY, JSON.stringify({
+        list: raids.list, seen: raids.seen, trunc: raids.trunc,
+        at: new Date().toISOString(),
+      }));
+    } catch (e) { /* 配额满：本次统计仍在页面上显示，只是不跨会话累积 */ }
+  }
+
+  function clearRaids() {
+    try { window.localStorage.removeItem(RAID_KEY); } catch (e) { /* 忽略 */ }
+  }
 
   function lastSyncText() {
     var wm = readWM();
@@ -395,13 +462,16 @@
     })));
 
     /* —— 口径（必须写，否则会被读成「我一共只打过这么多场」）—— */
-    box.appendChild(richEl("p", "tk-board__mapnote",
-      "口径：以上只统计**这份日志覆盖到的范围** —— 游戏会清理旧会话，"
-      + "所以这里的场次不等于你的总场次。地图按日志里的场景加载记录计，"
-      + "**一次转场会各记一条**（实测 111 条加载 vs 106 次 LocationLoaded），"
-      + "所以场次可能略多于实际战局数。地图名由场景名映射到站内条目，"
-      + "没有列进映射表的会原样显示。与任务进度一样：解析只在本页内存里完成，"
-      + "不上传、不保存、不联网。"));
+    var raidNote = "口径：统计**从你第一次同步起累积**在本机（记录存在这个浏览器里），"
+      + "所以即使游戏后来清理了旧会话，已经记下的场次不会消失。"
+      + "地图按日志里的场景加载记录计，**一次转场会各记一条**"
+      + "（实测 111 条加载 vs 106 次 LocationLoaded），所以场次可能略多于实际战局数。"
+      + "地图名由场景名映射到站内条目，没有列进映射表的会原样显示。"
+      + "与任务进度一样：日志原文只在本页内存里解析，不上传、不联网。";
+    if (raids.trunc) {
+      raidNote += "**只保留最近 " + RAID_MAX + " 场** —— 更早的记录为了控制存储已滚出。";
+    }
+    box.appendChild(richEl("p", "tk-board__mapnote", raidNote));
 
     host.appendChild(box);
   }
@@ -424,15 +494,32 @@
     });
   }
 
-  function readText(file) {
+  /* 读文件文本。fromByte > 0 时**只读尾部** —— 「游戏边写边同步」的关键：
+     application 日志动辄几 MB，每次全读等于把整段历史重新解析一遍。
+     ⚠️ 从字节偏移切会切断多字节字符与半行，所以**丢弃第一行**（见 cutHead）——
+        这对 `scene preset path` 这种整行记录是安全的，对跨行的 JSON 块**不安全**，
+        所以只有 application 日志用增量，push-notifications 永远整读（见 run）。 */
+  function readText(file, fromByte) {
     return new Promise(function (resolve) {
       try {
+        var blob = (fromByte > 0 && fromByte < file.size) ? file.slice(fromByte) : file;
         var fr = new FileReader();
         fr.onload = function () { resolve(String(fr.result || "")); };
         fr.onerror = function () { resolve(""); };
-        fr.readAsText(file);
+        fr.readAsText(blob);
       } catch (e) { resolve(""); }
     });
+  }
+
+  /* 增量读时，首行可能是被切断的半行 —— 但**不能无条件丢**：
+     实测「只追加一行」的情况下，从旧 size 开始读恰好就是那一整行，
+     无条件丢会把这条记录吃掉（第 3 轮追加的 Woods 加载记录就这么丢过）。
+     日志每行都以 `2026-10-18 10:00:01.000|…` 开头，所以按**行首时间戳**判定
+     是否完整：像时间戳就留下，不像才丢。 */
+  function dropBrokenHead(text) {
+    var i = text.indexOf("\n");
+    if (i < 0) return text;
+    return LINE_TS_RE.test(text) ? text : text.slice(i + 1);
   }
 
   /* --------------------------------------------------------------------------
@@ -444,30 +531,58 @@
     opts = opts || {};
     host.textContent = "";
 
-    /* 增量过滤：application 永远读（判模式），其余按指纹跳过。 */
+    /* ── 增量过滤（v2 · 2026-10-18 重做）─────────────────────────────
+       旧版是「application 永远整读」—— 因为要在里面找 `Session mode:`。
+       实测代价很大：一个会话的 application 日志动辄几 MB，54 个会话就是几百 MB，
+       而绝大多数内容上次已经解析过了。现在分三种情况：
+
+         · 指纹没变           → 整个跳过（application 也一样）
+         · 指纹变了且只是变大 → **只读新增的尾巴**（模式从水位标记里取）
+         · 变小 / 首次 / 没法比 → 整读（文件被轮转或重写，旧偏移不可信）
+
+       ⚠️ push-notifications **不做尾部增量**：它的事件是一个跨多行的 JSON 块，
+          从任意字节切开会把 JSON 劈成半截，解析静默失败 —— 比慢更糟。
+          它只会「指纹没变就跳过」，变了就整读（那正是正在玩的那个会话，通常很小）。 */
     var origFiles = Array.prototype.slice.call(files || []);
-    var wm = readWM(), skipped = 0, kept = [];
+    var wm = readWM(), skipped = 0, kept = [], tailOnly = 0;
     origFiles.forEach(function (f) {
       var r = roleOf(f.name);
-      if (r && r.key !== "app" && wm.files && wm.files[f.name] === fpOf(f)) {
+      if (!r) return;
+      var prev = wmEntry(wm, f.name);
+      if (prev && prev.s === f.size && prev.m === f.lastModified) {
         skipped++;
-      } else {
-        kept.push(f);
+        return;
       }
+      var from = 0;
+      if (r.key === "app" && prev && prev.s > 0 && f.size > prev.s && prev.mode) {
+        from = prev.s;          // 只读新增部分；模式用缓存的那份
+        tailOnly++;
+      }
+      kept.push({ f: f, from: from, mode: prev ? prev.mode : "" });
     });
     files = kept;
 
     if (!files.length) {
+      /* quiet（自动同步）时只说一句「已是最新」——
+         每次打开页面都刷一大段「没有新增日志…」是噪音。 */
       var none = el("p", "tk-board__logline",
-        "没有新增日志 —— 上次同步是 " + (lastSyncText() || "—")
-        + "，选中的 " + origFiles.length + " 个文件都已处理过。"
-        + "如需重读全部，先点下方「断开连接」清除同步记录。");
+        opts.quiet
+          ? "日志已是最新（上次同步 " + (lastSyncText() || "—") + "）"
+          : "没有新增日志 —— 上次同步是 " + (lastSyncText() || "—")
+            + "，选中的 " + origFiles.length + " 个文件都已处理过。"
+            + "如需重读全部，先点下方「断开连接」清除同步记录。");
       host.appendChild(none);
       return;
     }
 
     var box = el("div", "tk-board__logrun");
-    var line = el("p", "tk-board__logline", "正在整理文件清单…");
+    var scope = "正在整理文件清单…";
+    if (skipped || tailOnly) {
+      scope = "增量：" + skipped + " 个文件没变、直接跳过"
+        + (tailOnly ? "，" + tailOnly + " 个只读新增部分" : "")
+        + "；本次需处理 " + files.length + " 个。";
+    }
+    var line = el("p", "tk-board__logline", scope);
     var prog = el("div", "tk-board__logprog");
     var fill = el("i");
     prog.appendChild(fill);
@@ -475,10 +590,11 @@
     box.appendChild(prog);
     host.appendChild(box);
 
-    /* —— ① 分组：会话前缀 → { app, notif, out } —— */
+    /* —— ① 分组：会话前缀 → { app, notif, out } ——
+       文件项是 { f: File, from: 起始字节, mode: 缓存的模式 }（见上面的增量过滤）。 */
     var bySess = {}, matched = 0, i;
     for (i = 0; i < files.length; i++) {
-      var r = roleOf(files[i].name);
+      var r = roleOf(files[i].f.name);
       if (!r) continue;
       matched++;
       var g = bySess[r.session] || (bySess[r.session] = { app: [], notif: [], out: [] });
@@ -500,12 +616,12 @@
     for (i = 0; i < sessKeys.length; i++) {
       var s = sessKeys[i], g2 = bySess[s], a;
       if (!g2.app.length) noApp++;
-      for (a = 0; a < g2.app.length; a++) queue.push([g2.app[a], s, "app"]);
+      for (a = 0; a < g2.app.length; a++) queue.push(g2.app[a]);
       if (g2.notif.length) {
-        for (a = 0; a < g2.notif.length; a++) queue.push([g2.notif[a], s, "notif"]);
+        for (a = 0; a < g2.notif.length; a++) queue.push(g2.notif[a]);
       } else if (g2.out.length) {
         fallbackOut++;
-        for (a = 0; a < g2.out.length; a++) queue.push([g2.out[a], s, "out"]);
+        for (a = 0; a < g2.out.length; a++) queue.push(g2.out[a]);
       }
     }
 
@@ -521,7 +637,8 @@
 
       var modeOf = {};
       /* 地图记录与任务事件**共用这一趟文件读取** —— 不为地图再读一遍磁盘。 */
-      var raids = { list: [], seen: {} };
+      /* 从本机累积记录起步（见 RAID_KEY 的说明）——跳过文件不会丢历史场次。 */
+      var raids = loadRaids();
       var sink = {
         seen: {}, modes: {}, events: 0, outside: 0, fails: 0, mode: "pvp",
         isTask: function (qid) { return !!tasks[qid]; },
@@ -536,15 +653,23 @@
         idx++;
         line.textContent = "正在读取 " + idx + " / " + total + " 个文件…";
         fill.style.width = Math.round(idx / total * 100) + "%";
-        readText(item[0]).then(function (text) {
-          if (item[2] === "app") {
+        var fobj = item.f, sessKey = roleOf(fobj.name).session;
+        var keyRole = roleOf(fobj.name).key;
+        readText(fobj, item.from).then(function (rawText) {
+          /* 尾部增量读会把第一行切成半截 —— 丢掉它（模式/地图行都是整行记录，
+             丢一行不影响正确性；不丢才可能解析出半个字段）。 */
+          var text = item.from > 0 ? dropBrokenHead(rawText) : rawText;
+          if (keyRole === "app") {
+            /* 模式：整读时从 `Session mode:` 取；增量读时**用缓存的** ——
+               那一行在文件开头，尾部里根本没有。 */
             var m = MODE_RE.exec(text);
             var mapped = m ? MODE_MAP[String(m[1]).toLowerCase()] : "";
-            if (mapped) modeOf[item[1]] = mapped;
+            if (mapped) modeOf[sessKey] = mapped;
+            else if (item.mode) modeOf[sessKey] = item.mode;
             /* 同一份文本里顺手抽地图加载记录（见文件头「第二件事」）。 */
-            collectRaids(text, item[1], raids);
+            collectRaids(text, sessKey, raids);
           } else {
-            sink.mode = modeOf[item[1]] || "pvp";   // 判不出模式时按 PVP 处理，并在摘要里说明
+            sink.mode = modeOf[sessKey] || "pvp";   // 判不出模式时按 PVP 处理，并在摘要里说明
             scanText(text, sink);
           }
           /* 每 6 个文件让出一次主线程，进度条才有机会重绘。 */
@@ -554,6 +679,10 @@
 
       function finish() {
         prog.hidden = true;
+
+        /* 地图场次立刻落盘：它是**只读事实**，没有「待确认」的语义，
+           不需要等读者点并入。任务状态另走下面的合并按钮。 */
+        saveRaids(raids);
 
         /* —— ④ 收敛：同一任务「先接取、后完成」时，完成胜出。—— */
         var modes = Object.keys(sink.modes);
@@ -575,7 +704,9 @@
           + (fallbackOut ? "；" + fallbackOut + " 个会话缺通知文件，已回退读 output" : "")
           + (noApp ? "；" + noApp + " 个会话没有模式记录，按 PVP 计" : "")
           + (skipped ? "；跳过 " + skipped + " 个已处理文件" : "")
-          + (raids.list.length ? "；另读到 " + raids.list.length + " 条地图加载记录" : "");
+          /* 这里是**累积**条数（含以前同步过、这次因没变而跳过的会话）——
+             写成「本次读到」会让人以为跳过的文件没进统计。 */
+          + (raids.list.length ? "；累计 " + raids.list.length + " 场地图记录" : "");
 
         /* ⚠️ 地图统计**放在「有没有任务事件」这个分支之前**：
            它的数据来源与任务事件无关（地图行每场都写，任务事件可能一场都没有）。
@@ -589,6 +720,17 @@
               ? "没有可并入的任务状态 —— 这段时间的日志里没有任务接取 / 完成事件"
                 + "（上面的地图统计不受影响）。"
               : "没有可并入的任务状态 —— 可能这份日志里本来就没有任务事件，或选的不是塔科夫日志。"));
+          /* 没有待确认的任务状态 → **可以推进水位**（2026-10-18）：
+             否则下一轮还会把同一批文件重读一遍。地图记录已在上面落盘，
+             任务侧本来就没有东西可丢，所以这次推进是安全的。
+             ⚠️ 反过来不成立：**有**任务事件时必须等读者点并入才推进，
+                否则他会「预览过就算同步过」，账本里一条也没有。 */
+          var modeByName2 = {};
+          origFiles.forEach(function (f) {
+            var rr = roleOf(f.name);
+            if (rr && modeOf[rr.session]) modeByName2[f.name] = modeOf[rr.session];
+          });
+          writeWM(origFiles, modeByName2);
           return;
         }
 
@@ -615,7 +757,9 @@
         var acts = el("div", "tk-board__logbar");
         var btnMerge = el("button", "tk-board__btn", "并入我的进度");
         btnMerge.type = "button";
-        btnMerge.addEventListener("click", function () {
+        /* 并入动作抽成函数：手动点按钮与「自动并入」共用同一条路径 ——
+           两条路径分开写迟早会分叉（一边补了水位、另一边忘了）。 */
+        function doMerge(auto) {
           var parts = [];
           for (var pi = 0; pi < plans.length; pi++) {
             var rr = TP.mergeTasks(plans[pi].entries, plans[pi].mode);
@@ -623,12 +767,21 @@
               + " 已完成 +" + rr.done + " · 进行中 +" + rr.inhand
               + (rr.kept ? "（" + rr.kept + " 条已有标记未动）" : ""));
           }
-          btnMerge.disabled = true;
-          btnMerge.style.opacity = "0.55";
+          if (!auto) {
+            btnMerge.disabled = true;
+            btnMerge.style.opacity = "0.55";
+          }
           sum.appendChild(el("p", "tk-board__logok", "已并入：" + parts.join("；")
             + "。如需退回：先用上方「导出进度」备份，再「清空已完成任务 / 清空进行中任务」。"));
           /* 并入成功后才推进水印 —— 预览到一半关页面，下次仍能重来。 */
-          writeWM(origFiles);
+          /* 把「会话前缀 → 模式」换算成「文件名 → 模式」再写水位，
+             下次增量读 application 时才能直接拿到模式。 */
+          var modeByName = {};
+          origFiles.forEach(function (f) {
+            var rr = roleOf(f.name);
+            if (rr && modeOf[rr.session]) modeByName[f.name] = modeOf[rr.session];
+          });
+          writeWM(origFiles, modeByName);
           if (typeof opts.onMerged === "function") {
             try { opts.onMerged(lastSyncText()); } catch (e) { /* 界面刷新失败不影响账本 */ }
           }
@@ -642,9 +795,23 @@
               + "」—— 在页面顶部的进度模式条切到「" + want.join(" / ")
               + "」，即可看到刚并入的进度。"));
           }
-        });
+        }
+        btnMerge.addEventListener("click", function () { doMerge(false); });
         acts.appendChild(btnMerge);
         box.appendChild(acts);
+
+        /* 自动并入（默认关，读者自己在同步区勾选）：
+           直接走同一条 doMerge —— 只补不降，且会给出「已并入 …」的说明。 */
+        if (opts.autoMerge) {
+          acts.appendChild(el("p", "tk-board__logline",
+            "自动并入已开启 —— 已直接写入，无需再点按钮。"));
+          try { doMerge(true); } catch (e) { /* 失败时按钮仍可点，读者手动重试 */ }
+          /* 写完之后把按钮禁掉：留着它等于邀请读者再点一次，
+             虽然 mergeTasks 幂等（已有标记不动），但没有任何收益。 */
+          btnMerge.disabled = true;
+          btnMerge.style.opacity = "0.45";
+          btnMerge.textContent = "已自动并入";
+        }
       }
 
       step();
@@ -655,6 +822,9 @@
      做往返与规则验证 —— 只靠「点按钮 + 看界面」定位不到出错的那一步。 */
   window.TarkovLogSync = {
     run: run,
+    /* 给「断开连接」用：一并清掉累积的地图场次记录。
+       不清的话，读者点了断开、重新选一个目录，还会看到上一份日志的场次。 */
+    clearRaids: clearRaids,
     _scanText: scanText,
     _roleOf: roleOf,
     _collectRaids: collectRaids,

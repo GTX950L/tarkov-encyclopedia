@@ -7162,3 +7162,24 @@ body:has(#tk-ops) .tk-ops__grid {
   color: var(--tk-ink-2);
   opacity: .85;
 }
+
+/* 「自动并入」开关（2026-10-18）：与按钮同一行，但视觉上要显得「轻」——
+   它是可选设置，不是主操作。 */
+.tk-board__auto {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  font-size: .72rem;
+  color: var(--tk-ink-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.tk-board__auto input[type="checkbox"] {
+  margin: 0;
+  width: .95em;
+  height: .95em;
+  cursor: pointer;
+}
+
+.tk-board__auto:hover { color: var(--tk-ink); }
