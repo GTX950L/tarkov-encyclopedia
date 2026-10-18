@@ -640,7 +640,42 @@ def main() -> int:
                 f"quests.json 实际 {n_tasks} / {n_obj}"
             )
 
-    # 5. tags.md 与 frontmatter 实际统计是否一致
+    # 4g. 任务区域数：maps_site*.json 是唯一事实源（2026-10-19 新增）
+    #     起因：`maps/index.md` 写「实测本站 589 条任务区域占图面积」，而数据里
+    #     `sum(len(questZones))` 两条模式都是 522 —— 差 67 条，没有任何检查器在看。
+    #     这一类「正文里的规模数字」此前只在四个固定位置被对账（条目/图鉴/任务/首页卡），
+    #     换一个名词（区域、点位、撤离点）就又成了盲区。
+    zone_decls: dict[str, int] = {}
+    for key in ("maps_site.json", "maps_site_pvp.json"):
+        zf = ROOT / "scripts" / "data" / key
+        if not zf.exists():
+            continue
+        zd = json.loads(zf.read_text(encoding="utf-8"))
+        n_zone = sum(len((m or {}).get("questZones") or []) for m in zd.values())
+        zone_decls[key] = n_zone
+    if zone_decls:
+        n_zone = max(zone_decls.values())
+        if len(set(zone_decls.values())) > 1:
+            errors.append(
+                "任务区域数据自相矛盾：" + "、".join(f"{k}={v}" for k, v in zone_decls.items())
+            )
+        ZONE_RE = re.compile(r"(\d+)\s*(?:条|个)\s*任务区域")
+        for md in md_files:
+            # CHANGELOG 是历史记录：那里写的是「当时线上是多少」，不跟着数据走
+            # （与 4b 条目数检查对 CHANGELOG 的豁免同一条理由）。
+            if md.name == "CHANGELOG.md":
+                continue
+            text = md.read_text(encoding="utf-8")
+            for hit in ZONE_RE.finditer(text):
+                got = int(hit.group(1))
+                if got != n_zone:
+                    line_no = text[: hit.start()].count("\n") + 1
+                    errors.append(
+                        f"任务区域数不一致: {md.relative_to(ROOT)}:{line_no} 写的是 {got}，"
+                        f"maps_site*.json 实际 {n_zone} 条"
+                    )
+
+
     tagmap: dict[str, set[str]] = defaultdict(set)
     for md in md_files:
         for t in read_frontmatter_tags(md):
