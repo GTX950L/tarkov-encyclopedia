@@ -18,8 +18,8 @@ tags:
 | 项 | 数量 |
 |----|------|
 | 地名锚点 | 24 |
-| 任务目标区域 | 116 |
-| 涉及任务 | 31 |
+| 任务目标区域 | 104 |
+| 涉及任务 | 35 |
 | 提及任务（无坐标） | 50 |
 | 撤离点 | 28 |
 | 转场点 | 4 |
@@ -27,43 +27,47 @@ tags:
 | 危险区 | 5 |
 | 楼层 | 5 |
 
-## 🎯 这张图上的任务（31 个）
+## 🎯 这张图上的任务（35 个）
 
 > **打开地图时若你有进行中的任务，图上默认只画它们**—— 进度读的是你[我的进度](../quests/progress.md)里的记录（本机存储，两页实时同步）；也能「只看未完成」、按任务名或地名搜索，地图下方还有一张带进度三态的清单，勾几个任务还能同时上图。搜索框在控件条里（中文或英文都能搜）。下面这张表是给不开脚本、或地图没加载出来时用的。
 
 | 商人 | 任务 | 目标类型 | 区域数 | 目标 |
 |------|------|----------|--------|------|
 | [BTR 司机](../quests/btr-driver.md) | 风火轮 | 放置物品 | 19 | 尽快达成主要任务 |
-| [Fence](../quests/fence.md) | 两害相权（PVP） | 到访 | 2 | 返回海关的前冠军藏身处 |
-| [Fence](../quests/fence.md) | 良心作祟 - 1（PVP） | 到访 | 4 | 在海关找到前冠军的房间 |
+| [Fence](../quests/fence.md) | 两害相权（PVE） | 到访 | 1 | 返回海关的前冠军藏身处 |
+| [Fence](../quests/fence.md) | 两害相权（PVP） | 到访 | 1 | 返回海关的前冠军藏身处 |
+| [Fence](../quests/fence.md) | 良心作祟 - 1（PVE） | 到访 | 2 | 在海关找到前冠军的房间 |
+| [Fence](../quests/fence.md) | 良心作祟 - 1（PVP） | 到访 | 2 | 在海关找到前冠军的房间 |
 | [Fence](../quests/fence.md) | 这是什么梗？ | 放置物品 | 3 | 在海关的水桶头人偶处安装 WI-FI 摄像头 |
 | [Jaeger](../quests/jaeger.md) | 事倍功半 | 到访 | 3 | 在海关找到秘密撤离点 |
 | [Jaeger](../quests/jaeger.md) | 猎人之路 - 愤怒守望者 | 击杀／射击 | 1 | 在海关宿舍楼区域击杀PMC |
 | [Jaeger](../quests/jaeger.md) | 猎人必修课 | 到访 | 1 | 在海关三层宿舍楼楼梯间处找到合适的绊线布设点位 |
 | [Jaeger](../quests/jaeger.md) | 试炼之路 | 击杀／射击 | 2 | 在海关的老加油站击杀 Scav |
-| [Lightkeeper](../quests/lightkeeper.md) | 天降大礼 [PVP ZONE] | 到访 | 2 | 返回海关的前冠军藏身处 |
+| [Lightkeeper](../quests/lightkeeper.md) | 天降大礼 [PVP ZONE] | 到访 | 1 | 返回海关的前冠军藏身处 |
+| [Lightkeeper](../quests/lightkeeper.md) | 天降大礼（PVE） | 到访 | 1 | 返回海关的前冠军藏身处 |
 | [Mechanic](../quests/mechanic.md) | 同好俱乐部 | 到访 | 5 | 找到被抢货物所在的检查站 |
 | [Mechanic](../quests/mechanic.md) | 急先锋 | 放置物品 | 1 | 将 1 个 Trijicon REAP-IR 瞄准镜藏匿在海关新加油站垃圾箱后方 |
-| [Mechanic](../quests/mechanic.md) | 挖矿 | 到访 | 2 | 在海关找到罚没品仓库 |
+| [Mechanic](../quests/mechanic.md) | 挖矿 | 到访 | 1 | 在海关找到罚没品仓库 |
 | [Peacekeeper](../quests/peacekeeper.md) | 化学实验 | 放置物品 | 2 | 在海关实验楼的医学实验室内藏匿波纹软管 |
 | [Peacekeeper](../quests/peacekeeper.md) | 猎虎行动 | 标记 | 3 | 在海关使用 MS2000 指示器标记任意一辆 UN“虎”装甲车 |
-| [Prapor](../quests/prapor.md) | 大客户 | 到访 | 4 | 找到装有化学品的载具 |
-| [Prapor](../quests/prapor.md) | 掠地攻城 | 击杀／射击 | 2 | 在海关、海岸线或森林的指定 Scav 营地内消灭 PMC 行动人员 |
-| [Prapor](../quests/prapor.md) | 探囊取物 | 到访 | 2 | 设法进入宿舍214房间 |
+| [Prapor](../quests/prapor.md) | 大客户 | 到访 | 2 | 找到装有化学品的载具 |
+| [Prapor](../quests/prapor.md) | 掠地攻城 | 击杀／射击 | 1 | 在海关、海岸线或森林的指定 Scav 营地内消灭 PMC 行动人员 |
+| [Prapor](../quests/prapor.md) | 探囊取物 | 到访 | 1 | 设法进入宿舍214房间 |
 | [Prapor](../quests/prapor.md) | 油料快车 | 标记 | 4 | 在海关使用 MS2000 指示器标记任意一辆油罐车 |
 | [Ragman](../quests/ragman.md) | 浑水摸鱼 | 放置物品 | 4 | 在海关指定位置藏匿 DVL-10 狙击步枪 |
 | [Ref](../quests/ref.md) | 收视灵药 | 放置物品 | 5 | 在海关的工厂厂房内安装第一个 WI-FI 摄像头 |
-| [Skier](../quests/skier.md) | 化学品 - 1 | 到访 | 2 | 在海关找到化工厂前安全副官的住处 |
-| [Skier](../quests/skier.md) | 化学品 - 4 | 到访 | 4 | 在海关找到装有化学品的载具 |
-| [Skier](../quests/skier.md) | 口干舌燥 - 送货服务 | 到访 | 4 | 在海关找到指定埋藏点 |
+| [Skier](../quests/skier.md) | 化学品 - 1 | 到访 | 1 | 在海关找到化工厂前安全副官的住处 |
+| [Skier](../quests/skier.md) | 化学品 - 4 | 到访 | 2 | 在海关找到装有化学品的载具 |
+| [Skier](../quests/skier.md) | 口干舌燥 - 送货服务 | 到访 | 2 | 在海关找到指定埋藏点 |
 | [Skier](../quests/skier.md) | 愿者上钩 | 放置物品 | 1 | 在海关将金项链藏到宿舍楼三楼的微波炉里 |
-| [Skier](../quests/skier.md) | 敲诈者 | 到访 | 4 | 在海关找到信使的尸体 |
+| [Skier](../quests/skier.md) | 敲诈者 | 到访 | 2 | 在海关找到信使的尸体 |
+| [Skier](../quests/skier.md) | 赚点快钱 - 1（PVE） | 放置物品 | 5 | 将竞技场广告海报安放在海关 Scav 营地 |
 | [Skier](../quests/skier.md) | 赚点快钱 - 1（PVP） | 放置物品 | 5 | 将竞技场广告海报安放在海关 Scav 营地 |
 | [Skier](../quests/skier.md) | 金色失物 | 放置物品 | 1 | 在海关宿舍 303 房间藏匿一个普通 Zibbo 打火机 |
-| [Therapist](../quests/therapist.md) | 出于好奇 | 到访 | 4 | 在海关找到装有化学品的载具 |
+| [Therapist](../quests/therapist.md) | 出于好奇 | 到访 | 2 | 在海关找到装有化学品的载具 |
 | [Therapist](../quests/therapist.md) | 无主货物 | 标记 | 14 | 在海关使用 MS2000 指示器标记任意一个 TerraGroup 特殊货箱 |
-| [Therapist](../quests/therapist.md) | 水瓶座行动 | 到访 | 2 | 在海关找到被藏在宿舍楼里的水 |
-| [Therapist](../quests/therapist.md) | 药剂师 | 到访 | 4 | 在海关找到急救员的车 |
+| [Therapist](../quests/therapist.md) | 水瓶座行动 | 到访 | 1 | 在海关找到被藏在宿舍楼里的水 |
+| [Therapist](../quests/therapist.md) | 药剂师 | 到访 | 2 | 在海关找到急救员的车 |
 
 ## 🧭 提到本图、但画不出位置（50 个）
 

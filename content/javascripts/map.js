@@ -437,6 +437,7 @@
        现有 13 个地图页都是 PvP（host 上没写 data-mode）→ 默认 pvp。
        ⚠️ **别忘了这行**：不过滤的话 PvP 海关页会多画出几十个 PvE 专属点位。 */
     var pageMode = host.getAttribute("data-mode") || "pvp";
+    var mapKey = host.getAttribute("data-map") || "customs";
     var qzAll = (data.questZones || []).filter(function (z) {
       return !z.m || z.m === pageMode;
     });
@@ -484,6 +485,12 @@
           class: "tk-zq tk-zq--" + (z.k || "other") + (z.sz ? " tk-zq-" + z.sz : ""),
           "data-q": z.q,
           "data-oid": z.oid || "",
+          /* 悬停浮条的数据（2026-10-18）：任务名+类型 / 精确坐标 / 最近地标。
+             一并挂在节点上，浮条逻辑就不必反查 qzAll。 */
+          "data-label": z.n + " · " + (z.t || ""),
+          "data-wp": z.z && z.z.length === 3
+            ? (z.z[0] + " / " + z.z[1] + " / " + z.z[2]) : "",
+          "data-nl": z.nl || "",
         });
         var tip = z.n + "（" + z.t + "）";
         if (z.px >= 20) {
@@ -847,12 +854,69 @@
       if (refreshPlanUI) refreshPlanUI();
     }
 
+    /* 对外钩子（2026-10-18，作战台用）：map.js 是 13 个地图页共用的整页脚本，
+       **行为不能因作战台而变**。所以这里只做「把已经发生的事广播出去」，
+       没有钩子时这两行等于空转 —— 现有页面零影响。 */
+    /* ⚠️ **必须防重入**（2026-10-18 实测踩过）：外部监听器收到 tk:map:select
+       之后往往反过来再调 selectTask（作战台右栏就是这么做的），于是
+       selectTask → emit → onSelect → selectTask → … 直接爆栈
+       （RangeError: Maximum call stack size exceeded，页面卡死）。 */
+    var _emitting = false;
+    function emit(name, detail) {
+      if (_emitting) return;
+      _emitting = true;
+      try {
+        window.dispatchEvent(new CustomEvent("tk:map:" + name, { detail: detail }));
+      } catch (e) {
+        /* 老浏览器没有 CustomEvent：静默降级，不影响选区本身 */
+      } finally {
+        _emitting = false;
+      }
+    }
+
+    /* 外部驱动（作战台）：选中 + 定位。监听放在闭包内 —— focusZone 与
+       selectTask 只有这里够得着。重复挂载时先解绑旧的那对，避免叠放。 */
+    if (window.__tkMapUnbind) window.__tkMapUnbind();
+    (function () {
+      var onFocus = function (e) {
+        var d = (e && e.detail) || {};
+        if (d.qid) focusZone(d.qid, d.oid || null);
+      };
+      var onSelect = function (e) {
+        var d = (e && e.detail) || {};
+        if (d.qid) selectTask(d.qid, d.oid || null);
+      };
+      window.addEventListener("tk:map:focus", onFocus);
+      window.addEventListener("tk:map:select", onSelect);
+      window.__tkMapUnbind = function () {
+        window.removeEventListener("tk:map:focus", onFocus);
+        window.removeEventListener("tk:map:select", onSelect);
+      };
+    })();
+
+    /* 外部驱动：飞到某个像素点（作战台搜地名用）。
+       复用本文件已有的 focusPoint —— 它处理了留边与最小缩放。 */
+    if (window.__tkMapUnbind2) window.__tkMapUnbind2();
+    (function () {
+      var onPoint = function (e) {
+        var d = (e && e.detail) || {};
+        if (typeof d.x === "number" && typeof d.y === "number") {
+          if (typeof focusPoint === "function") focusPoint(d.x, d.y);
+        }
+      };
+      window.addEventListener("tk:map:focusPoint", onPoint);
+      window.__tkMapUnbind2 = function () {
+        window.removeEventListener("tk:map:focusPoint", onPoint);
+      };
+    })();
+
     function selectTask(qid, oid) {
       hideZonePicker();
       selected = qid || null;
       selectedObj = oid || null;
       applyQzFilter();
       renderCard();
+      emit("select", { qid: selected, oid: selectedObj, map: mapKey });
       /* 清单里那把选中的行标出来 —— 图上只剩它，清单里也要能找到它 */
       rowEls.forEach(function (r) {
         r.el.classList.toggle("is-sel", selected === r.q);
@@ -1689,14 +1753,17 @@
         .join(" / ");
     }
 
+    /* 第四个元素是**稳定 slug**（2026-10-18 加）：作战台的图层 chip 靠它
+       定位到具体按钮。以前只能按文本匹配（"撤离点 28"），文本带条数、
+       一变就匹配不上 —— slug 不随数量变。 */
     var layerToggles = [
       /* 任务区域也是一层：想纯看地形时整个关掉 ——
          「百来个彩色方框全开」是默认视图糊成一片的另一半原因。 */
-      ["任务区域", qlayer, qzAll.length, ""],
-      ["撤离点", exLayer, (data.extracts || []).length, tally(data.extracts || [], "fzh")],
-      ["转场点", trLayer, (data.transits || []).length, ""],
-      ["上锁", lockLayer, (data.locks || []).length, tally(data.locks || [], "tzh")],
-      ["危险区", hazLayer, (data.hazards || []).length, ""],
+      ["任务区域", qlayer, qzAll.length, "", "quest"],
+      ["撤离点", exLayer, (data.extracts || []).length, tally(data.extracts || [], "fzh"), "extract"],
+      ["转场点", trLayer, (data.transits || []).length, "", "transit"],
+      ["上锁", lockLayer, (data.locks || []).length, tally(data.locks || [], "tzh"), "lock"],
+      ["危险区", hazLayer, (data.hazards || []).length, "", "hazard"],
     ].filter(function (t) {
       return t[1] && t[1].children.length;
     });
@@ -1711,6 +1778,7 @@
         b.type = "button";
         b.textContent = t[2] ? t[0] + " " + t[2] : t[0];
         b.title = t[0] + " " + t[2] + (t[3] ? "：" + t[3] : "") + "　（点击开关这一层）";
+        if (t[4]) b.setAttribute("data-tk-layer", t[4]);
         b.classList.add("is-on"); // 三个图层默认都开
         b.addEventListener("click", function () {
           var on = !b.classList.contains("is-on");
@@ -2326,6 +2394,12 @@
         });
     });
   }
+
+  /* 对外 API（2026-10-18，作战台用）。map.js 本来只服务于「挂载点存在即挂」，
+     这里把三件事交给外部驱动：**重挂**（换图）、**定位**（跳到某目标）、
+     **选中**（右栏点一行让图上跟着高亮）。三个函数只在被调用时才做事，
+     没人调用时 map.js 的行为与之前一模一样。 */
+  window.TarkovMap = { mount: mount };
 
   if (window.document$ && typeof window.document$.subscribe === "function") {
     window.document$.subscribe(mount);

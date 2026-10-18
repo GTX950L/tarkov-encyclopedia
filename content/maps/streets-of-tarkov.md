@@ -18,7 +18,7 @@ tags:
 | 项 | 数量 |
 |----|------|
 | 地名锚点 | 46 |
-| 任务目标区域 | 85 |
+| 任务目标区域 | 84 |
 | 涉及任务 | 34 |
 | 提及任务（无坐标） | 45 |
 | 撤离点 | 19 |
@@ -59,7 +59,7 @@ tags:
 | [Ragman](../quests/ragman.md) | 花花公子 | 放置物品 | 2 | 在塔科夫街区的理发店里藏匿Bomber 无檐小便帽 |
 | [Ragman](../quests/ragman.md) | 高保真 | 到访 | 1 | 在塔科夫街区找到音乐人集会点 |
 | [Skier](../quests/skier.md) | 偏离路线 | 标记 | 6 | 在塔科夫街区使用 MS2000 标记器标记“倒塌的吊车”BTR 站点 |
-| [Skier](../quests/skier.md) | 发财计划 | 标记 | 12 | 在塔科夫街区使用 MS2000 指示器标记 Klimov 大道上的任意一台 ATM 机 |
+| [Skier](../quests/skier.md) | 发财计划 | 标记 | 11 | 在塔科夫街区使用 MS2000 指示器标记 Klimov 大道上的任意一台 ATM 机 |
 | [Skier](../quests/skier.md) | 老赖 | 到访 | 2 | 在塔科夫街区找到老赖 |
 | [Skier](../quests/skier.md) | 软禁 | 到访 | 2 | 在塔科夫街区找到失踪小队被关押的位置 |
 | [Skier](../quests/skier.md) | 软禁 - 2 | 到访 | 2 | 调查看守者的遭遇 |

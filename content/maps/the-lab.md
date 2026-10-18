@@ -18,7 +18,7 @@ tags:
 | 项 | 数量 |
 |----|------|
 | 地名锚点 | 31 |
-| 任务目标区域 | 9 |
+| 任务目标区域 | 8 |
 | 涉及任务 | 4 |
 | 提及任务（无坐标） | 20 |
 | 撤离点 | 6 |
@@ -34,7 +34,7 @@ tags:
 |------|------|----------|--------|------|
 | [Lightkeeper](../quests/lightkeeper.md) | 按图索骥 | 到访 | 2 | 搜索实验室的武器测试区域 |
 | [Peacekeeper](../quests/peacekeeper.md) | TerraGroup 雇员 | 到访 | 1 | 在实验室找到 Sanitar 的工作室 |
-| [Therapist](../quests/therapist.md) | 医疗隐私 - 6 | 放置任务物品 | 2 | 在实验室将血液样本藏匿在 Sanitar 的办公室里 |
+| [Therapist](../quests/therapist.md) | 医疗隐私 - 6 | 放置任务物品 | 1 | 在实验室将血液样本藏匿在 Sanitar 的办公室里 |
 | [Therapist](../quests/therapist.md) | 街区之下 | 到访 | 4 | 在同场战局中侦查实验室的服务器机房 |
 
 ## 🧭 提到本图、但画不出位置（20 个）

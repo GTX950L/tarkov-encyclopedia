@@ -65,6 +65,7 @@ import argparse
 import difflib
 import re
 import subprocess
+import time
 import sys
 from pathlib import Path
 
@@ -114,9 +115,21 @@ GENERATORS: list[list[str]] = [
     ["scripts/gen_medical_values.py"],
     ["scripts/gen_boss_values.py"],
     ["scripts/gen_achievements.py"],      # ⑩ 成就全表
-    ["scripts/gen_maps.py"],              # ⑪ 交互地图：底图换肤 + 点位投影（独立，不依赖其他生成器）
+    # ⑪ 交互地图：底图换肤 + 点位投影（独立，不依赖其他生成器）。
+    # ⚠️ **必须跑完整三步**（2026-10-18）：maps_site.json 是「pvp 基底 + pve 补充 + merge」
+    #    三步的合成结果。只跑 pvp 那一轮会把合并版覆盖回**单模式**，
+    #    于是门禁自己就把线上产物打坏了 —— 症状是每次 build_all 都要先手动跑
+    #    gen_maps 才能过 ⑤c。
+    ["scripts/gen_maps.py"],
+    ["scripts/gen_maps.py", "--mode", "pve"],
+    ["scripts/gen_maps.py", "--merge"],
     ["scripts/gen_map_pages.py"],        # ⑫ 13 个地图页（读 gen_maps 的产物，故在后）
     ["scripts/gen_quest_tree.py"],        # ⑬ 任务全景图数据（读 quests.json + quest-graph.json，独立）
+    # ⑭ 作战台任务索引（2026-10-18）。**两模式都要在门禁里** —— 只盯 pvp 的话，
+    #     改了 gen_ops_index.py 而忘了重跑 pve 那份，线上作战台默认是 PvE（模式段第一格），
+    #     会直接读到旧索引。
+    ["scripts/gen_ops_index.py", "--mode", "pvp"],
+    ["scripts/gen_ops_index.py", "--mode", "pve"],
 ]
 
 # 豁免清单：这些文件**不用「重跑比对」来判定**。
@@ -201,6 +214,8 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="生成物防漂移门禁")
     ap.add_argument("--no-run", action="store_true",
                     help="不重跑生成器，只说明本脚本做什么")
+    ap.add_argument("--no-warm", action="store_true",
+                    help="跳过预热（调试用；正常跑不要加，本机会有文件可见性抖动）")
     args = ap.parse_args()
 
     if args.no_run:
@@ -209,6 +224,24 @@ def main() -> int:
         return 0
 
     print(f"拍跑前快照 → 重跑 {len(GENERATORS)} 支离线生成器 ×2 遍 → 拍跑后快照…")
+    # ── 预热（2026-10-18）────────────────────────────────────────────────
+    # 本机有一个顽固现象：**一个进程刚写的文件，下一个进程可能还看不见**
+    # （同命令内 ls 正常、下一条命令就少几个）。它让「跑前快照」漏掉一批刚写好的
+    # 产物，于是门禁把一直存在的文件报成「本次生成器新产出」——
+    # 症状是同一命令连跑两次、第一次红第二次绿，而数据完全一致。
+    #
+    # 老办法是「连跑两次，第二次绿即通过」，但那是把机器的毛病摊给读者去记。
+    # 这里改成**先自己预热一遍**：跑一趟全部生成器，让所有产物都落盘稳定，
+    # 再拍 before。代价是多花约 20 秒，换来「一次就绿」。
+    if not args.no_warm:
+        print("  预热：先把全部生成器跑一遍，让产物落盘稳定…")
+        for cmd in GENERATORS:
+            r = run(cmd)
+            if r.returncode != 0:
+                print("[错误] 预热阶段生成器失败：" + " ".join(cmd), file=sys.stderr)
+                print((r.stderr or "")[-800:], file=sys.stderr)
+                return 1
+        time.sleep(2.0)
     before = snapshot()
 
     for rnd in (1, 2):

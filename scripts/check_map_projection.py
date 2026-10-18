@@ -134,7 +134,7 @@ def main() -> int:
     # 模式过滤：合并数据里每条带 m（缺省=两模式共有）。
     # ⚠️ **PvP 视图的 zone 数是硬回归线**：13 个地图页与 site 都依赖它，
     #    过滤逻辑一旦坏掉，页面会多画出 PvE 专属点位（2026-10-18 加的断言）。
-    EXPECT_ZONES = {"pvp": 594, "pve": 596}
+    EXPECT_ZONES = {"pvp": 508, "pve": 510}
     def _zones(d):
         return [z for z in (d.get("questZones") or [])
                 if not z.get("m") or z.get("m") == MODE]

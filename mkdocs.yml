@@ -112,6 +112,9 @@ extra_javascript:
   #    只有带 #tk-map 的地图页需要。map-loader.js 检测到挂载点才注入它，
   #    其余 150 多页不再为地图付下载（2026-10-17）。
   - javascripts/map-loader.js
+  # 作战台（2026-10-18）：只在 /ops/ 页面有意义，但体量小（~14 KB），
+  # 与 toolbox 同级加载；真正的重货（map.js / ops-index-*.js）由它按需拉。
+  - javascripts/ops-board.js
   - javascripts/toolbox.js
 
 nav:
@@ -219,6 +222,10 @@ nav:
           - 彩蛋与制作组的恶意: entries/easter-eggs.md
           - 世界观与阵营背景: entries/worldview.md
   - 查阅栏目:
+      # 作战台（2026-10-18）：一站式工作面 —— 选图 / 搜任务 / 勾目标 / 定位 /
+      # 出击清单全在同一屏，按 PvE → 赛季 → PvP 排序。**默认入口不换**，
+      # 与三个老页面并列，用顺了再考虑提为默认。
+      - 作战台（一站式）: ops/index.md
       - 第九篇 · 物品图鉴:
           - 总览与检索: catalog/index.md
           - 物品详情（单件）: catalog/item.md

@@ -18,8 +18,8 @@ tags:
 | 项 | 数量 |
 |----|------|
 | 地名锚点 | 13 |
-| 任务目标区域 | 33 |
-| 涉及任务 | 10 |
+| 任务目标区域 | 25 |
+| 涉及任务 | 11 |
 | 提及任务（无坐标） | 32 |
 | 撤离点 | 6 |
 | 转场点 | 1 |
@@ -27,7 +27,7 @@ tags:
 | 危险区 | 18 |
 | 楼层 | 5 |
 
-## 🎯 这张图上的任务（10 个）
+## 🎯 这张图上的任务（11 个）
 
 > **打开地图时若你有进行中的任务，图上默认只画它们**—— 进度读的是你[我的进度](../quests/progress.md)里的记录（本机存储，两页实时同步）；也能「只看未完成」、按任务名或地名搜索，地图下方还有一张带进度三态的清单，勾几个任务还能同时上图。搜索框在控件条里（中文或英文都能搜）。下面这张表是给不开脚本、或地图没加载出来时用的。
 
@@ -37,12 +37,13 @@ tags:
 | [Jaeger](../quests/jaeger.md) | 危机四伏塔科夫 | 到访 | 2 | 在中心区找到阔剑地雷 |
 | [Mechanic](../quests/mechanic.md) | 大海捞针 | 到访 | 2 | 在中心区调查调查 TerraGroup 总部门前的公园 |
 | [Mechanic](../quests/mechanic.md) | 影子雇员 | 到访 | 2 | 在中心区找到 Knossos LLC 高级经理的轿车 |
-| [Mechanic](../quests/mechanic.md) | 救援行动 | 到访 | 6 | 获得钥匙并进入科学家办公室 |
+| [Mechanic](../quests/mechanic.md) | 救援行动 | 到访 | 3 | 获得钥匙并进入科学家办公室 |
 | [Peacekeeper](../quests/peacekeeper.md) | 新路线，新机遇 | 到访 | 4 | 在同场战局中侦察中心区 Mira 大道和高架路的交汇路口 |
-| [Prapor](../quests/prapor.md) | 奢靡人生 | 到访 | 3 | 在中心区找到酒商店 |
-| [Prapor](../quests/prapor.md) | 打靶训练 | 到访 | 4 | 在中心区找到 KORD Utyos 机枪 |
-| [Ref](../quests/ref.md) | 声东击西 - 1（PVP） | 放置物品 | 2 | 在中心区区域的咖啡馆二楼安放TP-200 砖型TNT |
-| [Therapist](../quests/therapist.md) | 新手上路 | 到访 | 2 | 在中心区找到 Emercom 站点 |
+| [Prapor](../quests/prapor.md) | 奢靡人生 | 到访 | 1 | 在中心区找到酒商店 |
+| [Prapor](../quests/prapor.md) | 打靶训练 | 到访 | 2 | 在中心区找到 KORD Utyos 机枪 |
+| [Ref](../quests/ref.md) | 声东击西 - 1（PVE） | 放置物品 | 1 | 在中心区区域的咖啡馆二楼安放 TP-200 砖型 TNT |
+| [Ref](../quests/ref.md) | 声东击西 - 1（PVP） | 放置物品 | 1 | 在中心区区域的咖啡馆二楼安放TP-200 砖型TNT |
+| [Therapist](../quests/therapist.md) | 新手上路 | 到访 | 1 | 在中心区找到 Emercom 站点 |
 
 ## 🧭 提到本图、但画不出位置（32 个）
 

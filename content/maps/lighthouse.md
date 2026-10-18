@@ -18,7 +18,7 @@ tags:
 | 项 | 数量 |
 |----|------|
 | 地名锚点 | 22 |
-| 任务目标区域 | 48 |
+| 任务目标区域 | 52 |
 | 涉及任务 | 24 |
 | 提及任务（无坐标） | 46 |
 | 撤离点 | 12 |
@@ -43,7 +43,7 @@ tags:
 | [Mechanic](../quests/mechanic.md) | 直播 - 1 | 到访 | 2 | 在灯塔找到隐蔽的录制室 |
 | [Mechanic](../quests/mechanic.md) | 能源危机 | 标记 | 4 | 在灯塔找到一组油罐，并使用MS2000指示器标记 |
 | [Peacekeeper](../quests/peacekeeper.md) | 人口过剩 | 击杀／射击 | 1 | 在灯塔度假村区域消灭任意敌对目标 |
-| [Peacekeeper](../quests/peacekeeper.md) | 无中生有 - 灯塔 | 标记 | 4 | 在灯塔找到第一辆BRDM装甲车，并使用MS2000指示器标记 |
+| [Peacekeeper](../quests/peacekeeper.md) | 无中生有 - 灯塔 | 标记 | 8 | 在灯塔找到第一辆BRDM装甲车，并使用MS2000指示器标记 |
 | [Peacekeeper](../quests/peacekeeper.md) | 来自塔科夫的礼物 | 标记 | 1 | 在灯塔的海边找到TerraGroup的货物 |
 | [Prapor](../quests/prapor.md) | 小菜一碟 | 到访 | 3 | 在灯塔的污水处理厂找到直升机 |
 | [Prapor](../quests/prapor.md) | 小菜一碟 - 2 | 击杀／射击 | 1 | 消灭灯塔污水处理厂直升机周围的任意敌人 |

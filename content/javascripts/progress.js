@@ -21,11 +21,11 @@
 
    存储结构（localStorage 键 `tarkov_progress_v1`）：
      {
-       v: 6,
+       v: 7,
        mode: "pvp" | "pve" | "season",
        modes: { <模式>: { quests, inhand, objectives, items, hideout, storyline, … } }
      }
-     （各轨的完整键值说明见下方「存储层」；历史版本 v1→v6 的演进也在那里。）
+     （各轨的完整键值说明见下方「存储层」；历史版本 v1→v7 的演进也在那里。）
 
    两个刻意的选择：
      · **值存商人 slug**，于是「按商人汇总」不需要另建一张 id→商人 的表；
@@ -54,7 +54,7 @@
 
      结构（v6；演进：v2 三条轨 → v3 物品改件数 → v5 加目标与门槛 → v6 加剧情章节）：
        {
-         v: 6,
+         v: 7,
          mode: "pvp" | "pve" | "season",
          modes: { <模式>: { quests, inhand, objectives, items, hideout, storyline, … } }
        }
@@ -72,11 +72,18 @@
 
   /* v6 新增 storyline 轨（剧情章节三态）。旧数据无需转换 —— load() 会把缺失的
      键补成空表：v5 之前存下的进度照常读入，只是这条轨从「全是未标记」开始。 */
-  var SCHEMA_VERSION = 6;
+  var SCHEMA_VERSION = 7;
 
   function blankMode() {
     return {
       quests: {}, inhand: {}, items: {}, hideout: {}, objectives: {},
+      /* 五态里的另外两态（v7 · 2026-10-18）：
+         · pinned  —— 「这条我要做」，比 inhand 更主动（inhand 是"游戏里已经接了"）
+         · ignored —— 「这赛季不做」。它只影响**统计口径**，不改任务本身：
+           被忽略的任务不计入「未完成」，列表里以灰行显示、可随时撤销。
+         凭什么要它：504 个任务没人做得完，不给出口的话「未完成 380 个」
+         这个数字对多数人是噪音，进度页的核心数字就失去意义了。 */
+      pinned: {}, ignored: {},
       storyline: {},           // 剧情章节：{ <站内章节id>: "inhand" | "done" }
       ll: {},                 // 商人忠诚度：{ <商人slug>: "1".."4" }
       fence: null,             // Fence 声望：**负值刻度**（如亡羊补牢要求 ≤ −3），与上面的 ll 不是一把尺。null = 未填
@@ -138,6 +145,8 @@
            目标 id 来自官方端点（不是下标）—— 重抓数据时目标顺序会变，
            用下标当键会让「勾过的目标」跑到别的目标上。 */
         objectives: cleanMap(src.objectives),
+        pinned: cleanMap(src.pinned),
+        ignored: cleanMap(src.ignored),
         /* 剧情章节轨：值只允许 "inhand" / "done"（下面统一过滤），
            键是站内清单 id —— 与生成器 progress-manifest.js 的 storyline 段同源。 */
         storyline: cleanMap(src.storyline),
@@ -365,6 +374,51 @@
        跑到同任务的另一个目标上。 */
 
     objKey: function (qid, oid) { return String(qid) + "|" + String(oid); },
+
+    /* ---- 钉住 / 忽略（v7 · 2026-10-18）------------------------------------
+       这两态与三态**正交**，不是第四、第五个互斥状态：
+         · pinned 可以与 inhand / done 并存（"我钉住了这条，而且它正在做"）；
+         · ignored 与 done **互斥** —— 已完成的没有"不做"可言，标忽略时清 done，
+           标完成时清 ignored。
+       这样「未完成」= 未完成 − 已忽略，一个数字就能说清还剩多少活。 */
+    isPinned: function (qid, m) {
+      if (!qid) return false;
+      var d = load();
+      return Object.prototype.hasOwnProperty.call(
+        (d.modes[m || d.mode] || {}).pinned || {}, qid);
+    },
+    togglePin: function (qid, m) {
+      if (!qid) return false;
+      var d = load();
+      var md = d.modes[m || d.mode];
+      var on = !md.pinned[qid];
+      if (on) md.pinned[qid] = "1"; else delete md.pinned[qid];
+      save(d); emit();
+      return on;
+    },
+    isIgnored: function (qid, m) {
+      if (!qid) return false;
+      var d = load();
+      return Object.prototype.hasOwnProperty.call(
+        (d.modes[m || d.mode] || {}).ignored || {}, qid);
+    },
+    toggleIgnore: function (qid, m) {
+      if (!qid) return false;
+      var d = load();
+      var md = d.modes[m || d.mode];
+      var on = !md.ignored[qid];
+      if (on) {
+        /* 忽略与已完成互斥：标忽略就把 done 摘掉，否则两边同时为真，
+           计数会既算「已完成」又算「不做」，怎么读都是错的。 */
+        md.ignored[qid] = "1";
+        delete md.quests[qid];
+        delete md.inhand[qid];
+      } else {
+        delete md.ignored[qid];
+      }
+      save(d); emit();
+      return on;
+    },
 
     objDone: function (qid, oid, m) {
       if (!qid || !oid) return false;

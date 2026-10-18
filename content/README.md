@@ -47,7 +47,7 @@
 <a class="tk-stat__card" href="maps/index.md">
 <b class="tk-stat__n">13<em>张</em></b>
 <span class="tk-stat__l">交互地图</span>
-<span class="tk-stat__d">594 个任务区域 · 可筛进度</span>
+<span class="tk-stat__d">522 个任务区域 · 可筛进度</span>
 </a>
 <a class="tk-stat__card" href="quests/index.md">
 <b class="tk-stat__n">504<em>个</em></b>

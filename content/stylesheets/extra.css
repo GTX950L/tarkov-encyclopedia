@@ -6907,3 +6907,216 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 [data-md-color-scheme="slate"] .tk-item-icon {
   border: 1px solid rgba(255, 255, 255, .22);
 }
+
+/* ===== 作战台（2026-10-18 · /ops/）=====
+   PC 优先：三栏常驻、悬停即读、键盘流。窄屏折叠成单栏（不做抽屉）。
+   变量只用站内已有的那几只，不新造颜色。 */
+.tk-ops__noscript {
+  margin: 1rem 0; padding: .8rem 1rem;
+  border: 1px solid var(--tk-line); border-radius: .3rem;
+  background: var(--tk-panel); font-size: .8rem;
+}
+.tk-ops__grid {
+  display: grid;
+  grid-template-columns: 226px minmax(0, 1fr) 320px;
+  gap: .6rem; align-items: start; margin: .6rem 0 1rem;
+}
+.tk-ops__col { min-width: 0; }
+.tk-ops__col--left, .tk-ops__col--right {
+  background: var(--tk-panel); border: 1px solid var(--tk-line);
+  border-radius: .3rem; padding: .5rem .55rem .7rem;
+  max-height: 78vh; overflow-y: auto;
+}
+.tk-ops__col--mid { min-height: 60vh; }
+
+.tk-ops__modes { display: flex; gap: .25rem; margin-bottom: .5rem; }
+.tk-ops__mode {
+  flex: 1; appearance: none; cursor: pointer; font: inherit;
+  font-size: .68rem; padding: .28rem .2rem;
+  border: 1px solid var(--tk-line); border-radius: .2rem;
+  background: #fff; color: var(--tk-ink-2);
+}
+.tk-ops__mode[aria-pressed="true"] {
+  background: var(--tk-brand); border-color: var(--tk-brand);
+  color: #fff; font-weight: 700;
+}
+.tk-ops__cap {
+  margin: .5rem 0 .25rem; font-size: .66rem;
+  font-weight: 700; color: var(--tk-ink-2);
+}
+.tk-ops__muted { margin: .2rem 0; font-size: .64rem; color: var(--tk-ink-2); }
+
+.tk-ops__map {
+  display: block; width: 100%; text-align: left; appearance: none;
+  cursor: pointer; font: inherit; margin: 0 0 .18rem;
+  padding: .26rem .4rem; border: 1px solid transparent;
+  border-radius: .2rem; background: #fff;
+}
+.tk-ops__map:hover { border-color: var(--tk-brand); }
+.tk-ops__map.is-on { background: var(--tk-brand-soft); border-color: var(--tk-brand); }
+.tk-ops__map b { font-size: .72rem; color: var(--tk-ink); }
+.tk-ops__mapmeta { display: block; font-size: .61rem; color: var(--tk-ink-2); }
+.tk-ops__briefline {
+  margin: .15rem 0 0; font-size: .66rem; line-height: 1.6; color: var(--tk-ink);
+}
+
+.tk-ops__layers { display: flex; flex-wrap: wrap; gap: .22rem; }
+.tk-ops__layers .tk-ops__cap { flex: 1 0 100%; }
+.tk-ops__chip {
+  appearance: none; cursor: pointer; font: inherit; font-size: .64rem;
+  padding: .14rem .42rem; border: 1px solid var(--tk-line);
+  border-radius: .2rem; background: #fff; color: var(--tk-brand);
+}
+.tk-ops__chip:hover { background: var(--tk-brand-soft); }
+.tk-ops__chip[aria-pressed="true"] {
+  background: var(--tk-brand); border-color: var(--tk-brand); color: #fff;
+}
+
+.tk-ops__planrow {
+  display: block; width: 100%; text-align: left; appearance: none;
+  cursor: pointer; font: inherit; font-size: .65rem; margin: .12rem 0;
+  padding: .18rem .34rem; border: 1px dashed #c8b28a;
+  border-radius: .2rem; background: #fffaf2; color: #7c5a20;
+}
+.tk-ops__planrow:hover { border-style: solid; }
+.tk-ops__planbar { display: flex; gap: .25rem; margin-top: .35rem; }
+
+.tk-ops__search {
+  width: 100%; font: inherit; font-size: .7rem; padding: .28rem .4rem;
+  border: 1px solid var(--tk-line); border-radius: .2rem;
+  background: #fff; color: var(--tk-ink);
+}
+.tk-ops__seg, .tk-ops__scope { display: flex; gap: .2rem; margin: .32rem 0 .2rem; }
+.tk-ops__segb {
+  flex: 1; appearance: none; cursor: pointer; font: inherit; font-size: .64rem;
+  padding: .2rem .1rem; border: 1px solid var(--tk-line);
+  border-radius: .2rem; background: #fff; color: var(--tk-ink-2);
+}
+.tk-ops__segb[aria-pressed="true"] {
+  background: var(--tk-brand); border-color: var(--tk-brand); color: #fff;
+}
+
+.tk-ops__list { margin-top: .3rem; }
+.tk-ops__row {
+  padding: .34rem .4rem; margin-bottom: .28rem;
+  border: 1px solid var(--tk-line); border-left-width: 3px;
+  border-radius: .2rem; background: #fff; cursor: pointer;
+}
+.tk-ops__row.is-sel {
+  border-color: var(--tk-brand); border-left-color: var(--tk-brand);
+  background: var(--tk-brand-soft);
+}
+.tk-ops__row.is-done { opacity: .62; }
+.tk-ops__rowhead {
+  display: flex; align-items: center; gap: .3rem; flex-wrap: wrap;
+}
+.tk-ops__rowname { font-size: .74rem; color: var(--tk-ink); }
+.tk-ops__badge {
+  font-size: .58rem; padding: .05em .34em; border-radius: .18rem;
+  background: var(--tk-line); color: var(--tk-ink-2); white-space: nowrap;
+}
+.tk-ops__badge--inhand { background: #fde68a; color: #78350f; }
+.tk-ops__badge--done { background: #bbf7d0; color: #14532d; }
+.tk-ops__planned {
+  font-size: .58rem; color: #b45309; border: 1px solid #fcd34d;
+  border-radius: .18rem; padding: 0 .28em;
+}
+.tk-ops__objs { list-style: none; margin: .24rem 0 0; padding: 0; }
+.tk-ops__objs li {
+  display: flex; align-items: center; gap: .3rem; font-size: .65rem;
+  color: var(--tk-ink-2); padding: .1rem 0; cursor: pointer;
+}
+.tk-ops__objs li.is-cur { color: var(--tk-brand); font-weight: 700; }
+.tk-ops__rowact { display: flex; gap: .25rem; margin-top: .3rem; }
+
+.tk-ops__keys { font-size: .7rem; color: var(--tk-ink-2); }
+.tk-ops__keys code {
+  background: var(--tk-panel); padding: .05em .3em; border-radius: .18rem;
+}
+.tk-ops__note {
+  margin: .5rem 0; padding: .5rem .7rem; border: 1px solid var(--tk-line);
+  border-radius: .3rem; background: var(--tk-panel); font-size: .76rem;
+}
+
+.tk-map__hovertip {
+  position: absolute; z-index: 40; pointer-events: none;
+  max-width: 18rem; padding: .3rem .5rem;
+  background: rgba(17, 24, 39, .92); color: #F5F4F0;
+  border-radius: .2rem; font-size: .66rem; line-height: 1.55;
+  box-shadow: 0 .2rem .6rem rgba(0, 0, 0, .25);
+}
+
+@media (max-width: 1080px) {
+  .tk-ops__grid { grid-template-columns: 1fr; }
+  .tk-ops__col--mid { order: -1; min-height: 46vh; }
+  .tk-ops__col--left, .tk-ops__col--right { max-height: none; }
+}
+
+/* ===== 五态补充（2026-10-18）：钉住 / 忽略 ===== */
+.tk-ops__pin { color: #b45309; font-size: .72rem; }
+.tk-ops__row.is-ignored { opacity: .5; }
+.tk-ops__row.is-ignored .tk-ops__rowname { text-decoration: line-through; }
+.tk-ops__badge--ignored { background: #e5e7eb; color: #6b7280; }
+.tk-ops__chip.is-on { background: var(--tk-brand); border-color: var(--tk-brand); color: #fff; }
+/* 筛选段变多，允许换行 —— 六个按钮挤一行在窄栏里会压成读不出的字 */
+.tk-ops__seg { flex-wrap: wrap; }
+.tk-ops__segb { flex: 1 0 auto; min-width: 3.2rem; }
+
+/* ===== 作战台：地名跳转条 + 悬停浮条（2026-10-18） ===== */
+.tk-ops__jump {
+  display: block; width: 100%; text-align: left; appearance: none;
+  cursor: pointer; font: inherit; font-size: .68rem;
+  margin: .3rem 0 .1rem; padding: .3rem .45rem;
+  border: 1px solid #a7c4f0; border-radius: .2rem;
+  background: var(--tk-brand-soft); color: var(--tk-brand);
+}
+.tk-ops__jump:hover { background: #e2edff; }
+/* 浮条要能压在地图上层，且不能被地图容器裁掉 */
+#tk-map { position: relative; }
+.tk-map__hovertip {
+  position: absolute; z-index: 60; pointer-events: none;
+  max-width: 20rem; padding: .34rem .55rem;
+  background: rgba(17, 24, 39, .94); color: #F5F4F0;
+  border-radius: .2rem; font-size: .66rem; line-height: 1.6;
+  box-shadow: 0 .2rem .7rem rgba(0, 0, 0, .28);
+  white-space: normal;
+}
+
+/* 浮条改挂 body + fixed：position:fixed 才跟视口坐标对得上 */
+.tk-map__hovertip { position: fixed; }
+
+/* ===== 作战台：版面（2026-10-18）=====
+   作战台是「工作面」不是「读物」：三栏并排才成立。
+   主题默认给正文列限宽、右侧还挂一个目录 —— 两者都会把中栏地图压到 500px 上下
+   （实测 1680 屏只有 508px，地图读不出来）。这里只对**含 #tk-ops 的页面**放宽。
+   用 :has() 而不是给 body 加类：mkdocs 没提供 per-page class，而 :has() 在
+   2026 年的主流浏览器都已可用；不支持时只是回到默认窄版，功能不受影响。 */
+body:has(#tk-ops) .md-sidebar--secondary { display: none; }
+body:has(#tk-ops) .md-content { max-width: none; }
+body:has(#tk-ops) .md-content__inner { max-width: none; margin: 0; padding: .4rem 0 0; }
+body:has(#tk-ops) .md-grid { max-width: 108rem; }
+
+/* 中栏地图：限制高度并允许内部滚动 —— 地图本身有缩放拖拽，
+   不限制的话一张海关会把页面拉到 1500px 高，下面的任务栏要滚很久才看得到。 */
+body:has(#tk-ops) .tk-ops__col--mid .tk-map__canvas {
+  max-height: 62vh;
+  overflow: auto;
+}
+body:has(#tk-ops) .tk-ops__col--mid { min-height: 0; }
+
+/* 三栏列宽用变量，供拖拽手柄改写（见 ops-board.js 的分栏拖拽） */
+body:has(#tk-ops) .tk-ops__grid {
+  grid-template-columns:
+    var(--tk-ops-left, 236px) minmax(0, 1fr) var(--tk-ops-right, 360px);
+  position: relative;
+}
+
+/* 拖拽手柄：贴在左右栏的内侧边缘，6px 宽，悬停变色 */
+.tk-ops__grip {
+  position: absolute; top: 0; bottom: 0; width: 7px;
+  cursor: col-resize; z-index: 12;
+  background: transparent;
+}
+.tk-ops__grip:hover { background: rgba(28, 78, 216, .18); }
+.tk-ops__grip--l { left: calc(var(--tk-ops-left, 236px) + 3px); }
+.tk-ops__grip--r { right: calc(var(--tk-ops-right, 360px) + 3px); }

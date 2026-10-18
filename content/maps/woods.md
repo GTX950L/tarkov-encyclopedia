@@ -18,7 +18,7 @@ tags:
 | 项 | 数量 |
 |----|------|
 | 地名锚点 | 16 |
-| 任务目标区域 | 57 |
+| 任务目标区域 | 52 |
 | 涉及任务 | 30 |
 | 提及任务（无坐标） | 49 |
 | 撤离点 | 20 |
@@ -47,7 +47,7 @@ tags:
 | [Mechanic](../quests/mechanic.md) | 稳定信号 | 标记 | 5 | 在森林使用 MS2000 指示器标记任意一个气象站 |
 | [Mechanic](../quests/mechanic.md) | 航空包裹 | 使用物品 | 1 | 在森林的旧锯木厂发射一枚红色信号弹 |
 | [Peacekeeper](../quests/peacekeeper.md) | 徒步旅行 | 击杀／射击 | 1 | 在森林 USEC 营地、Scav 营地、旧锯木厂或废弃村庄消灭 Scav |
-| [Peacekeeper](../quests/peacekeeper.md) | 悬结已解 | 放置任务物品 | 2 | 在森林的旧锯木厂中藏匿日志 |
+| [Peacekeeper](../quests/peacekeeper.md) | 悬结已解 | 放置任务物品 | 1 | 在森林的旧锯木厂中藏匿日志 |
 | [Peacekeeper](../quests/peacekeeper.md) | 武器流通 | 标记 | 2 | 用 MS2000 指示器标记森林的第一处仪式地点 |
 | [Prapor](../quests/prapor.md) | 忠实观众 | 放置物品 | 1 | 在森林山上的悬崖处安装 WI-FI 摄像头 |
 | [Prapor](../quests/prapor.md) | 掠地攻城 | 击杀／射击 | 1 | 在海关、海岸线或森林的指定 Scav 营地内消灭 PMC 行动人员 |
@@ -55,10 +55,10 @@ tags:
 | [Prapor](../quests/prapor.md) | 特别联络 | 放置物品 | 1 | 在森林 RUAF 大门旁的巨石处藏匿军用电缆 |
 | [Ragman](../quests/ragman.md) | 再次延误 | 到访 | 1 | 在森林找到失踪的送货人员 |
 | [Ragman](../quests/ragman.md) | 小事大帮忙 | 标记 | 3 | 在森林找到第一个燃料堆，并使用MS2000指示器标记 |
-| [Ragman](../quests/ragman.md) | 感恩的心 | 放置物品 | 4 | 将绿色提花头巾藏匿在森林锯木厂的码头上 |
+| [Ragman](../quests/ragman.md) | 感恩的心 | 放置物品 | 2 | 将绿色提花头巾藏匿在森林锯木厂的码头上 |
 | [Skier](../quests/skier.md) | 一报还一报 | 放置物品 | 1 | 在森林 Prapor 安放 WI-FI 摄像头的地点藏匿金公鸡雕像 |
 | [Skier](../quests/skier.md) | 公道价 - 2 | 到访 | 1 | 找到埋藏地点 |
-| [Skier](../quests/skier.md) | 口干舌燥 - 送货服务 | 到访 | 4 | 在森林找到指定埋藏点 |
+| [Skier](../quests/skier.md) | 口干舌燥 - 送货服务 | 到访 | 2 | 在森林找到指定埋藏点 |
 | [Skier](../quests/skier.md) | 后知后觉 | 放置物品 | 4 | 在地堡内藏匿第一包俄制口径穿甲弹药包 |
 | [Skier](../quests/skier.md) | 情报就是力量 | 放置物品 | 1 | 在森林安装无线摄像头以监视伐木场码头 |
 | [Skier](../quests/skier.md) | 愿者上钩 | 放置物品 | 1 | 在森林将金项链藏到伐木场宿舍区的中间小屋内 |

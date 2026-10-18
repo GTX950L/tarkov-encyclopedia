@@ -79,8 +79,11 @@ def apply_mode() -> None:
                    else ROOT / "scripts" / "data" / f"quest_zones_{MODE}.json")
     LOCAL_QUESTS = (ROOT / "scripts" / "data" / "quests.json" if MODE == "pvp"
                     else ROOT / "scripts" / "data" / f"quests_{MODE}.json")
-    OUT_JSON = (ROOT / "scripts" / "data" / "maps_site.json" if MODE == "pvp"
-                else ROOT / "scripts" / "data" / f"maps_site_{MODE}.json")
+    # ⚠️ **每个模式写自己的文件，谁都不碰 maps_site.json**（2026-10-18 修）：
+    #    maps_site.json 是 **merge 的产物**（两种模式合一）。原先 pvp 直接写它，
+    #    于是「pvp 一轮」会把合并版覆盖回单模式 —— ⑤c 每轮都把产物打坏，
+    #    表现为「每次 build_all 都得先手动跑一次 gen_maps 才能过」。
+    OUT_JSON = ROOT / "scripts" / "data" / f"maps_site_{MODE}.json"
 
 
 # 模式名 → 上游端点名（同 gen_quests.EP_NAME：站内 pvp = 上游 regular）
@@ -96,8 +99,7 @@ def _sfx() -> str:
 CACHE = ROOT / "scripts" / "data" / "maps_source.json"
 RAW_DIR = ROOT / "scripts" / "data" / "maps_raw"
 SVG_DIR = ROOT / "content" / "assets" / "maps"
-OUT_JSON = (ROOT / "scripts" / "data" / "maps_site.json" if MODE == "pvp"
-            else ROOT / "scripts" / "data" / f"maps_site_{MODE}.json")
+OUT_JSON = ROOT / "scripts" / "data" / f"maps_site_{MODE}.json"
 OUT_JS_DIR = ROOT / "content" / "javascripts"
 # 旧的单体 content/javascripts/maps-data.js（2026-10-17 起拆分为每图一个文件）
 OLD_OUT_JS = ROOT / "content" / "javascripts" / "maps-data.js"
@@ -1348,6 +1350,80 @@ def write_dropped(maps: dict) -> None:
         log(f"   → {out.relative_to(ROOT)}：{len(ids)} 个任务有坐标区但画不出")
 
 
+CALL_FILE = ROOT / "scripts" / "data" / "map_callouts.json"
+
+
+def attach_callouts(maps: dict) -> dict:
+    """把别名表挂到地名锚点上（Callout 层 · 2026-10-18）。
+
+    为什么放在地图侧而不是搜索侧：别名是**地标的属性**，不是搜索框的属性。
+    挂在这里，地图（悬停 / 标签 / 搜索）、作战台、以后的任务页都能读同一份，
+    不会出现「地图上叫宿舍区、搜索里叫 Dorms」两种叫法。
+
+    只挂**对得上**的：别名表的键必须是 labels[].en 的原值。对不上的记一条警告
+    —— 上游改名后别名会静默失效，不报就等于没维护。
+    """
+    if not CALL_FILE.exists():
+        log("  （无 map_callouts.json —— 地标别名这一层跳过）")
+        return maps
+    raw = json.loads(CALL_FILE.read_text(encoding="utf-8"))
+    total = miss = 0
+    for key, table in raw.items():
+        if key.startswith("_") or key not in maps:
+            continue
+        labels = maps[key].get("labels") or []
+        by_en = {}
+        for lb in labels:
+            by_en[(lb.get("en") or "").strip()] = lb
+        for en, aliases in table.items():
+            lb = by_en.get(en)
+            if lb is None:
+                miss += 1
+                continue
+            if not aliases:
+                continue
+            lb["al"] = aliases
+            total += 1
+    log(f"   → 地标别名：{total} 个地标挂上别名"
+        + (f"；{miss} 条对不上（上游改名或拼写不符，需人工核对）" if miss else ""))
+    return maps
+
+
+def dedupe_zones(maps: dict) -> dict:
+    """合并「同一任务 + 同一坐标 + 同类型」的重复区域（2026-10-18）。
+
+    实测（合并两模式后）：全站 596 个 zone 里有一批是**完全重叠**的 ——
+    同一个任务在同一个点上给了两条一模一样的「到访」，甚至 4 条
+    （海关「化学品 - 4」→ 2 个到访 + 2 个标记，坐标完全相同）。
+    它们在图上就是几个方框叠在一个点上，读者看到的是「这块地方特别红」，
+    而不是「这里有 4 件事」—— 既糊又骗人。
+
+    规则（保守，只动**确凿的**）：
+      · 同 (q, oid, 中心点, 类型) → 只留一条；
+      · **不同类型不合并**（到访 vs 标记是两回事，语义不同），
+        它们会继续叠着 —— 但那种情况极少，且保留语义比图面干净更重要。
+    合并不是"优化"，是**纠正上游的重复条目**：条数因此略减（596 → 约 580），
+    页面上的「本图 N 个任务目标」也跟着变准。
+    """
+    n_before = n_after = 0
+    for key in maps:
+        zs = maps[key].get("questZones") or []
+        n_before += len(zs)
+        seen = {}
+        out = []
+        for z in zs:
+            sig = (z.get("q"), z.get("oid"), tuple(z.get("c") or ()), z.get("k"), z.get("m"))
+            if sig in seen:
+                continue
+            seen[sig] = 1
+            out.append(z)
+        maps[key]["questZones"] = out
+        n_after += len(out)
+    if n_before != n_after:
+        log(f"合并重叠目标：{n_before} → {n_after}（去掉 {n_before - n_after} 条重复）")
+    return maps
+
+
 def write_js(maps: dict) -> None:
     """写出**每图一个 JS**（页面按需加载）+ 一份合并 JSON（构建期消费者读）。
 
@@ -1456,7 +1532,7 @@ def merge_modes() -> int:
     同键但坐标不同的：**两条都留**，各自带 ``m`` —— 不做「谁覆盖谁」的判断，
     因为两种坐标都来自上游，我们没有依据说哪个对。
     """
-    base_p = ROOT / "scripts" / "data" / "maps_site.json"
+    base_p = ROOT / "scripts" / "data" / "maps_site_pvp.json"
     base_e = ROOT / "scripts" / "data" / "maps_site_pve.json"
     if not (base_p.exists() and base_e.exists()):
         print("[错误] 需要先跑完 pvp 与 pve 两轮，再跑 --merge", file=sys.stderr)
@@ -1468,7 +1544,7 @@ def merge_modes() -> int:
     # 再拿它当 pvp 基底跑一次 merge，统计就会飘（实测 579/51 而不是 577/17）。
     # 所以基底里已经带 m 的，必须先重跑一次 pvp 轮重建干净基底。
     if any(z.get("m") for d in a.values() for z in (d.get("questZones") or [])):
-        print("[错误] maps_site.json 里已经有模式标记 —— 它是上一轮 merge 的产物，"
+        print("[错误] maps_site_pvp.json 里已经有模式标记 —— 它是上一轮 merge 的产物，"
               "不能直接当 pvp 基底。请按顺序重跑：", file=sys.stderr)
         print("  python scripts/gen_maps.py            # pvp 基底（干净）")
         print("  python scripts/gen_maps.py --mode pve  # pve 补充")
@@ -1536,11 +1612,12 @@ def merge_modes() -> int:
         merged.sort(key=lambda z: (z.get("m") or "", z.get("n") or "",
                                    z.get("oi") if z.get("oi") is not None else 0))
         a[key]["questZones"] = merged
-    base_p.write_text(json.dumps(a, ensure_ascii=False, separators=(",", ":")) + "\n",
-                      encoding="utf-8")
+    merged_json = ROOT / "scripts" / "data" / "maps_site.json"
+    merged_json.write_text(json.dumps(a, ensure_ascii=False, separators=(",", ":")) + "\n",
+                           encoding="utf-8")
     log(f"合并两模式：共有 {stats['common']} 条｜PvP 专属 {stats['pvp']} 条"
         f"｜PvE 专属 {stats['pve']} 条｜同键坐标不同（各留一条）{stats['split']} 组")
-    log(f"  产物仍是一份：{base_p.name}（{base_p.stat().st_size / 1024:.0f} KB）")
+    log(f"  产物仍是一份：{merged_json.name}（{merged_json.stat().st_size / 1024:.0f} KB）")
 
     # 用合并结果重出分片（write_js 读的是内存里的 maps，这里从 json 再来一遍）
     write_js(a)
@@ -1593,6 +1670,8 @@ def main() -> int:
     data = json.loads(CACHE.read_text(encoding="utf-8"))
     log(f"\n② 换肤并投影（{len(_svg_sources(data))} 张）…")
     maps = build_maps(data)
+    maps = attach_callouts(maps)
+    maps = dedupe_zones(maps)
     write_js(maps)
     write_key_locations(maps)
     write_dropped(maps)

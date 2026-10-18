@@ -18,7 +18,7 @@ tags:
 | 项 | 数量 |
 |----|------|
 | 地名锚点 | 27 |
-| 任务目标区域 | 71 |
+| 任务目标区域 | 44 |
 | 涉及任务 | 14 |
 | 提及任务（无坐标） | 31 |
 | 撤离点 | 10 |
@@ -33,18 +33,18 @@ tags:
 | 商人 | 任务 | 目标类型 | 区域数 | 目标 |
 |------|------|----------|--------|------|
 | [Fence](../quests/fence.md) | 这是什么梗？ | 放置物品 | 14 | 在工厂消防员烧书取乐处安装WI-FI摄像头 |
-| [Jaeger](../quests/jaeger.md) | 幽闭恐惧症 | 击杀／射击 | 9 | 在工厂的老旧地下通道内消灭任意目标 |
+| [Jaeger](../quests/jaeger.md) | 幽闭恐惧症 | 击杀／射击 | 5 | 在工厂的老旧地下通道内消灭任意目标 |
 | [Jaeger](../quests/jaeger.md) | 猎人必修课 | 到访 | 2 | 在工厂需要破门的位置找到合适的绊线布设点位 |
-| [Mechanic](../quests/mechanic.md) | 侦查 | 到访 | 8 | 找到第一个工厂撤离点 |
+| [Mechanic](../quests/mechanic.md) | 侦查 | 到访 | 5 | 找到第一个工厂撤离点 |
 | [Mechanic](../quests/mechanic.md) | 化工厂的秘密 | 放置任务物品 | 2 | 在工厂的实验室储藏间藏匿精密工具 |
-| [Mechanic](../quests/mechanic.md) | 投机第一步 | 放置物品 | 8 | 在工厂使用一套工具修复第一块控制面板 |
-| [Mechanic](../quests/mechanic.md) | 黑天鹅计划 | 标记 | 6 | 在工厂使用 MS2000 指示器标记任意一个热交换器 |
-| [Prapor](../quests/prapor.md) | 往事速递 | 放置任务物品 | 2 | 将包裹藏匿在工厂 3 号门旁的二层铁皮休息室内 |
+| [Mechanic](../quests/mechanic.md) | 投机第一步 | 放置物品 | 2 | 在工厂使用一套工具修复第一块控制面板 |
+| [Mechanic](../quests/mechanic.md) | 黑天鹅计划 | 标记 | 3 | 在工厂使用 MS2000 指示器标记任意一个热交换器 |
+| [Prapor](../quests/prapor.md) | 往事速递 | 放置任务物品 | 1 | 将包裹藏匿在工厂 3 号门旁的二层铁皮休息室内 |
 | [Prapor](../quests/prapor.md) | 忠实观众 | 放置物品 | 1 | 在工厂的办公区走廊处安装WI-FI摄像头 |
-| [Prapor](../quests/prapor.md) | 罪证 | 到访 | 2 | 设法进入工厂办公区三楼的上锁房间 |
+| [Prapor](../quests/prapor.md) | 罪证 | 到访 | 1 | 设法进入工厂办公区三楼的上锁房间 |
 | [Skier](../quests/skier.md) | 一报还一报 | 放置物品 | 1 | 在工厂 Prapor 安放 WI-FI 摄像头的地点藏匿金公鸡雕像 |
-| [Skier](../quests/skier.md) | 隔墙有“眼” | 放置物品 | 6 | 在工厂的第一个起重机驾驶室内安装WI-FI摄像头 |
-| [Therapist](../quests/therapist.md) | 医疗隐私 - 5 | 到访 | 8 | 在夜间工厂找到交货点 |
+| [Skier](../quests/skier.md) | 隔墙有“眼” | 放置物品 | 3 | 在工厂的第一个起重机驾驶室内安装WI-FI摄像头 |
+| [Therapist](../quests/therapist.md) | 医疗隐私 - 5 | 到访 | 2 | 在夜间工厂找到交货点 |
 | [Therapist](../quests/therapist.md) | 卫生标准 | 放置物品 | 2 | 在日间工厂的医学实验室内藏匿气体分析仪 |
 
 ## 🧭 提到本图、但画不出位置（31 个）
