@@ -484,6 +484,10 @@ def assert_md_header(slug):
     want = len(spec["cols"]) + 1
     if n != want:
         return [f"[错误] {slug}: Markdown 表头 {n} 列 ≠ 列规格 {want} 列（含序号列）"]
+    # 缩略图并进「名称」格（page_markdown 里按下标 1 拼）—— 列规格换了首列就会
+    # 把图塞进别的单元格，而 Markdown 不会报错，只会静默错位。写盘前拦住。
+    if spec["cols"][0][0] != "name":
+        return [f"[错误] {slug}: 列规格首列必须是 name（缩略图并进名称格）"]
     return []
 
 
@@ -582,6 +586,23 @@ def fmt_num(x, suffix="", digits=None):
             s = f"{x:g}"
         return clean(s + suffix)
     return clean(str(x))
+
+
+def icon_tag(it) -> str:
+    """行首缩略图（官方图，64×64 透明底 WebP，由 gen_item_icons.py 下载）。
+
+    ⚠️ 路径是**相对当前页**的 ``../../assets/…``：图鉴页构建后落在
+       ``/catalog/<slug>/index.html``，往上两级才是站点根。
+       写成绝对路径会在 ``site_url`` 带子目录（/tarkov-encyclopedia/）时 404。
+    ⚠️ 用裸 ``<img>`` 而不是 Markdown 图片语法：Markdown 图片在表格单元格里
+       会变成块级元素、与相邻文字错位；且这里要的是固定 28 px 小图标，
+       不该被正文图片样式（圆角、居中、图注）接走。
+    """
+    iid = it.get("id")
+    if not iid:
+        return ""
+    return (f'<img class="tk-ic" src="../../assets/items/icons/{iid}.webp" '
+            f'alt="" width="28" height="28" loading="lazy" decoding="async"> ')
 
 
 def cell_md(it, field) -> str:
@@ -1366,8 +1387,13 @@ def page_markdown(page, leaves, buckets, total_items, kl_stat=None) -> str:
         out.append(spec["header"])
         out.append(spec["sep"])
         for n, it in enumerate(items, 1):
-            out.append("| " + " | ".join(
-                [str(n)] + [cell_md(it, c[0]) for c in spec["cols"]]) + " |")
+            cells = [str(n)] + [cell_md(it, c[0]) for c in spec["cols"]]
+            # 缩略图并进「名称」列的第一格，而不是新加一列：
+            # 加列要同步改 16 份表头/分隔行常量（assert_md_header 只校验数量，
+            # 校验不了「新列插在哪」），而读者扫表时本来就把图和名字当一件事。
+            cells[1] = icon_tag(it) + cells[1]
+
+            out.append("| " + " | ".join(cells) + " |")
         out.append("")
         out.append("</div>")
         out.append("")
@@ -1716,7 +1742,10 @@ def item_page_markdown(total_items, with_desc) -> str:
     out.append("| **价格** | **商人最低售价 / 最高回收**，静态快照；**不含跳蚤价**"
                "（站内不联网、不收实时价，与[配方速查表](../docs/recipes.md)同口径） |")
     out.append("| **占地** | 宽 × 高，即游戏内的格子数（不是体积、不是重量） |")
-    out.append("| **外部链接** | 指向官方 Wiki 的对应条目；本站不收录配图（沿用全站约定） |")
+    out.append(f"| **配图** | 官方 `assets.tarkov.dev` 的 64×64 透明底原图，"
+               "全量 5,480 件，文件名即物品 ID（`assets/items/icons/<id>.webp`）；"
+               "图鉴表、本页、任务页共用同一份文件 |")
+    out.append("| **外部链接** | 指向官方 Wiki 的对应条目 |")
     out.append("")
     out.append("---")
     out.append("")

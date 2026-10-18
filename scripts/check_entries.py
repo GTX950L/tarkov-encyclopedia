@@ -546,6 +546,9 @@ def main() -> int:
     # 4e. 资源事实 ↔ 身份声明：仓库里有图标/底图时，正文不得再声称“不使用任何美术资源”
     #     这条断言来自 2026-10-17 的审查：803 个图标已入库，而 citation/README/llms
     #     五处仍写“本站不使用任何游戏美术资源”——文字与仓库事实相反，且没有任何门禁在看。
+    #     v1.137 起图标是全量 5,480 件（原先只有任务相关 803 件），所以不再要求
+    #     「文件数 == 映射数」，改成两头都验：映射里的每个 id 必须有图；每个图必须是
+    #     物品库 id 或任务专属道具的映射 id（后者不在 items 端点里，只能靠映射认领）。
     icon_dir = CONTENT / "assets" / "items" / "icons"
     icon_files = {p.stem for p in icon_dir.glob("*.webp")} if icon_dir.exists() else set()
     if icon_files:
@@ -555,16 +558,23 @@ def main() -> int:
         if not mapped:
             errors.append("物品图标已入库，但 item-icons.js 缺失或没有解析到任何 id")
         else:
-            if len(mapped) != len(icon_files):
+            missing = mapped - icon_files
+            if missing:
                 errors.append(
-                    f"图标文件与映射数量不一致: icons {len(icon_files)} 个 / 映射 {len(mapped)} 条"
+                    "映射引用了不存在的图标文件: "
+                    + "、".join(sorted(missing)[:5])
+                    + ("…" if len(missing) > 5 else "")
                 )
-            if icon_files - mapped:
-                errors.append(
-                    "存在没有被映射引用的孤儿图标: "
-                    + "、".join(sorted(icon_files - mapped)[:5])
-                    + ("…" if len(icon_files - mapped) > 5 else "")
-                )
+            items_file = ROOT / "scripts" / "data" / "items_full.json"
+            if items_file.exists():
+                item_ids = set(json.loads(items_file.read_text(encoding="utf-8"))["items"]["items"])
+                orphans = icon_files - item_ids - mapped
+                if orphans:
+                    errors.append(
+                        "存在既不在物品库、也没被映射引用的孤儿图标: "
+                        + "、".join(sorted(orphans)[:5])
+                        + ("…" if len(orphans) > 5 else "")
+                    )
         for path in [
             CONTENT / "docs" / "citation.md",
             CONTENT / "README.md",

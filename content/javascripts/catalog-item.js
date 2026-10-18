@@ -166,6 +166,22 @@ function siteRoot() {
 
     /* ---- 标题与标识 ---- */
     host.appendChild(h(3, it.n));
+
+    /* ---- 配图（官方 64×64 透明底原图，与图鉴表同一份文件）----
+       图只放大到 96 px：原图最大就是 64 px，再放只会糊。
+       onerror 兜底成不显示 —— 图没下载成功的物品不该留一个破图框。 */
+    var art = el("div", "tk-item__art");
+    var pic = document.createElement("img");
+    pic.src = siteRoot() + "assets/items/icons/" + id + ".webp";
+    pic.alt = it.n || "";
+    pic.width = 96;
+    pic.height = 96;
+    pic.loading = "lazy";
+    pic.decoding = "async";
+    pic.addEventListener("error", function () { art.style.display = "none"; });
+    art.appendChild(pic);
+    host.appendChild(art);
+
     var ident = el("p", null, "");
     if (it.e) {
       ident.appendChild(document.createTextNode("英文名 "));

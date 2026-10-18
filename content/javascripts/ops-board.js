@@ -1221,7 +1221,7 @@
   }
 
   /* 进入/离开 /ops/ 的三个时机都要覆盖：
-       · 直接打开（或刷新）—— 脚本由 ops-loader.js 注入，readyState 可能已是 complete；
+       · 直接打开（或刷新）—— 脚本由 mount-loader.js 注入，readyState 可能已是 complete；
        · 首次加载 —— DOMContentLoaded；
        · instant 换页 —— 不重跑脚本、不触发 DOMContentLoaded，靠 document$。 */
   function bootIfNeeded() {

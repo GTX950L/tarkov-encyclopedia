@@ -34,6 +34,39 @@
 
 > 🎮 **完全新手？** 先打印[新手开局检查清单](docs/starter-checklist.md) 贴着勾——进图前、撤离前各过一遍；或照[新手成长路线](docs/progression.md) 的「**前 10 局脚本**」走，**每局只练一件事**。
 
+<div class="tk-home-ops" id="tk-home-ops">
+<div class="tk-home-ops__head">
+<b class="tk-home-ops__title">🗺️ 作战台</b>
+<span class="tk-home-ops__modes">
+<button type="button" class="tk-home-ops__mode" data-mode="pve">PvE</button>
+<button type="button" class="tk-home-ops__mode" data-mode="season">赛季</button>
+<button type="button" class="tk-home-ops__mode is-on" data-mode="pvp">PvP</button>
+</span>
+</div>
+<p class="tk-home-ops__lead">选一张图，看这张图上还有哪些任务没做；勾一下就算记下了。目标逐条、前置是否满足、地图上的点位，在<a href="ops/index.md">完整作战台</a>。</p>
+<div class="tk-home-ops__maps">
+<a class="tk-home-ops__map" data-map="customs" href="ops/?map=customs">海关</a>
+<a class="tk-home-ops__map" data-map="factory" href="ops/?map=factory">工厂</a>
+<a class="tk-home-ops__map" data-map="ground-zero" href="ops/?map=ground-zero">中心区</a>
+<a class="tk-home-ops__map" data-map="reserve" href="ops/?map=reserve">储备站</a>
+<a class="tk-home-ops__map" data-map="shoreline" href="ops/?map=shoreline">海岸线</a>
+<a class="tk-home-ops__map" data-map="woods" href="ops/?map=woods">森林</a>
+<a class="tk-home-ops__map" data-map="lighthouse" href="ops/?map=lighthouse">灯塔</a>
+<a class="tk-home-ops__map" data-map="interchange" href="ops/?map=interchange">立交桥</a>
+<a class="tk-home-ops__map" data-map="streets-of-tarkov" href="ops/?map=streets-of-tarkov">街区</a>
+<a class="tk-home-ops__map" data-map="terminal" href="ops/?map=terminal">终点站</a>
+<a class="tk-home-ops__map" data-map="icebreaker" href="ops/?map=icebreaker">破冰船</a>
+<a class="tk-home-ops__map" data-map="the-lab" href="ops/?map=the-lab">实验室</a>
+<a class="tk-home-ops__map" data-map="the-labyrinth" href="ops/?map=the-labyrinth">迷宫</a>
+</div>
+<div class="tk-home-ops__body">
+<p class="tk-home-ops__hint">上面选一张图 —— 这张图上还有哪些任务、各要几级，一屏看完。</p>
+</div>
+<noscript><p class="tk-home-ops__hint">任务清单需要 JavaScript；不过每个地图按钮都能直接打开<a href="ops/index.md">完整作战台</a>的对应地图。</p></noscript>
+</div>
+
+
+
 <!-- AUTO-GEN:HOME-STATS:START -->
 
 <div class="tk-stat">

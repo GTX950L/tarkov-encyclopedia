@@ -81,13 +81,15 @@ zensical serve                       # ② 打开 http://localhost:8000
 **改了任务数据之后，还要手动重跑一次物品图标**：
 
 ```bash
-python scripts/gen_item_icons.py     # 联网抓 assets.tarkov.dev，约一两分钟
+python scripts/gen_item_icons.py     # 联网抓 assets.tarkov.dev，全量约 5,500 张、十分钟以内
 ```
 
 它**故意不进 `build_all.py` / `check_gen_drift.py`**：要联网、非确定性，放进每次构建会让门禁变慢变脆。
-漏跑的后果是**新任务物品没有图标** —— 前端 `onerror` 兜底成「不显示」，不破版、也不报错，很难发现。
-判据：`content/assets/items/icons/` 的文件数必须等于 `item-icons.js` 的映射条数 ——
-`check_entries.py` 已替你对这条账（数量不等或出现孤儿图标会直接报错）。
+漏跑的后果是**新增物品没有配图** —— 前端 `onerror` 兜底成「不显示」，不破版、也不报错，很难发现。
+配图是全量口径：`icons/` 里每个文件的名字就是物品 ID，数量等于物品库件数 + 那几十个任务专属道具
+（只在任务端点里、不在 `items` 端点里）。判据是**两头闭合**：`item-icons.js` 映射到的每个 id 必须有
+对应文件；`icons/` 里不允许出现既不在 `scripts/data/items_full.json`、也没被映射引用的孤儿 ——
+`check_entries.py` 已替你对这条账。
 
 **重抓任务数据（会改全站计数，按顺序跑）**：
 
