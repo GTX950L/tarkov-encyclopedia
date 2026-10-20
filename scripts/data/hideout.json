@@ -1,10 +1,11 @@
 {
- "fetched": "2026-10-06",
+ "fetched": "2026-10-21",
  "source": "json.tarkov.dev/regular（官方数据端点，二级）+ hideout_zh / items_zh（同一套译名）",
  "gameMode": "regular（持久 PvP）",
  "count": 26,
  "levelCount": 68,
  "itemCount": 317,
+ "bonusCount": 80,
  "stations": [
   {
    "id": "5d494a315b56502f18c98a0a",
@@ -15,6 +16,7 @@
     {
      "level": 1,
      "time": 172800,
+     "desc": "空气过滤系统，连接到公共通风系统。它能过滤有害杂质，使空气尽可能干净。",
      "stations": [
       {
        "level": 3,
@@ -49,6 +51,26 @@
        "count": 5,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "SkillGroupLevelingBoost",
+       "value": 0.4,
+       "skill": "Physical",
+       "passive": false,
+       "production": true,
+       "slots": []
+      },
+      {
+       "type": "AdditionalSlots",
+       "value": 3,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": [
+        "FP-100过滤吸收器"
+       ]
+      }
      ]
     }
    ]
@@ -62,6 +84,7 @@
     {
      "level": 1,
      "time": 122400,
+     "desc": "带有 10 个单元的基础比特币矿场，整套系统可以利用显卡的计算能力生产实体比特币。",
      "stations": [
       {
        "level": 2,
@@ -96,11 +119,24 @@
        "count": 2,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "AdditionalSlots",
+       "value": 10,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": [
+        "显示卡"
+       ]
+      }
      ]
     },
     {
      "level": 2,
      "time": 180000,
+     "desc": "带有 25 个单元的升级版比特币矿场，整套系统可以利用显卡的计算能力生产实体比特币。",
      "stations": [
       {
        "level": 1,
@@ -140,11 +176,24 @@
        "count": 5,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "AdditionalSlots",
+       "value": 15,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": [
+        "显示卡"
+       ]
+      }
      ]
     },
     {
      "level": 3,
      "time": 381600,
+     "desc": "带有全套水冷系统的大型比特币矿场，容量达到了 50 个单元，整套系统可以利用显卡的计算能力生产实体比特币。",
      "stations": [
       {
        "level": 2,
@@ -189,6 +238,18 @@
        "count": 2,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "AdditionalSlots",
+       "value": 25,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": [
+        "显示卡"
+       ]
+      }
      ]
     }
    ]
@@ -202,6 +263,7 @@
     {
      "level": 1,
      "time": 172800,
+     "desc": "私酒蒸馏器让你能在藏身处自行酿造烈酒。",
      "stations": [
       {
        "level": 3,
@@ -251,7 +313,8 @@
        "count": 5,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     }
    ]
   },
@@ -264,6 +327,7 @@
     {
      "level": 1,
      "time": 3600,
+     "desc": "带有诡异图案和元素的仪式圈。邪教徒在这样的圈中进行仪式。你要不试试在圈里放点东西...？",
      "stations": [
       {
        "level": 1,
@@ -303,6 +367,18 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "AdditionalSlots",
+       "value": 1,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": [
+        "神圣护身符"
+       ]
+      }
      ]
     }
    ]
@@ -316,6 +392,7 @@
     {
      "level": 1,
      "time": 0,
+     "desc": "一堵起皮的墙。现在没什么大不了的，不过以后可能是个隐患。",
      "stations": [
       {
        "level": 1,
@@ -329,11 +406,13 @@
       }
      ],
      "skills": [],
-     "items": []
+     "items": [],
+     "bonuses": []
     },
     {
      "level": 2,
      "time": 43200,
+     "desc": "一堵严重渗漏的墙，不断有水渗出。你必须得做点什么了，起码得擦擦地板了。",
      "stations": [
       {
        "level": 1,
@@ -342,11 +421,54 @@
       }
      ],
      "skills": [],
-     "items": []
+     "items": [],
+     "bonuses": [
+      {
+       "type": "FuelConsumption",
+       "value": 0.05,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "EnergyRegeneration",
+       "value": -0.05,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "HealthRegeneration",
+       "value": -0.05,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "ExperienceRate",
+       "value": -0.03,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "SkillGroupLevelingBoost",
+       "value": -0.03,
+       "skill": "Physical",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
+     ]
     },
     {
      "level": 3,
      "time": 86400,
+     "desc": "一堵严重破损的墙，已经部分掉漆了，不断有水渗出。墙后面似乎有什么东西。",
      "stations": [
       {
        "level": 2,
@@ -355,11 +477,54 @@
       }
      ],
      "skills": [],
-     "items": []
+     "items": [],
+     "bonuses": [
+      {
+       "type": "FuelConsumption",
+       "value": 0.05,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "EnergyRegeneration",
+       "value": -0.05,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "HealthRegeneration",
+       "value": -0.05,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "ExperienceRate",
+       "value": -0.03,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "SkillGroupLevelingBoost",
+       "value": -0.03,
+       "skill": "Physical",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
+     ]
     },
     {
      "level": 4,
      "time": 10800,
+     "desc": "墙里原来有一扇门，但是被砌死了。你并不知道这件好事到底是谁干的，至于原因更是无从问起；但是很显然，要想重新打通这扇门需要工具。此外，还得再擦擦地收拾一番。",
      "stations": [
       {
        "level": 3,
@@ -374,11 +539,54 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "FuelConsumption",
+       "value": 0.05,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "EnergyRegeneration",
+       "value": -0.05,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "HealthRegeneration",
+       "value": -0.05,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "ExperienceRate",
+       "value": -0.03,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "SkillGroupLevelingBoost",
+       "value": -0.03,
+       "skill": "Physical",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 5,
      "time": 10800,
+     "desc": "墙体损坏的部位结果是通往隐藏房间的通道。房间里只有成堆的垃圾和一具尸体，得花上很多时间才能把它收拾得像样了。",
      "stations": [
       {
        "level": 4,
@@ -398,11 +606,54 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "FuelConsumption",
+       "value": 0.05,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "EnergyRegeneration",
+       "value": -0.05,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "HealthRegeneration",
+       "value": -0.05,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "ExperienceRate",
+       "value": -0.03,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "SkillGroupLevelingBoost",
+       "value": -0.03,
+       "skill": "Physical",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 6,
      "time": 43200,
+     "desc": "新房间的通道，已经整理干净了。",
      "stations": [
       {
        "level": 5,
@@ -452,6 +703,48 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "FuelConsumption",
+       "value": -0.2,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "EnergyRegeneration",
+       "value": 0.2,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "HealthRegeneration",
+       "value": 0.2,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "ExperienceRate",
+       "value": 0.12,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "SkillGroupLevelingBoost",
+       "value": 0.12,
+       "skill": "Physical",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     }
    ]
@@ -465,6 +758,7 @@
     {
      "level": 1,
      "time": 21600,
+     "desc": "装有武器支架的假人。你可以为它穿上作战所需的装备。",
      "stations": [
       {
        "level": 6,
@@ -519,11 +813,13 @@
        "count": 1,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     },
     {
      "level": 2,
      "time": 43200,
+     "desc": "两个假人，现在你不仅可以提前准备战斗装备，还可以放一些酷酷的东西了。真棒。",
      "stations": [
       {
        "level": 1,
@@ -578,11 +874,13 @@
        "count": 5,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     },
     {
      "level": 3,
      "time": 86400,
+     "desc": "很多个假人。有了这样的衣柜，想都不敢想出门穿衣服有多简单。",
      "stations": [
       {
        "level": 2,
@@ -637,7 +935,8 @@
        "count": 10,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     }
    ]
   },
@@ -650,6 +949,7 @@
     {
      "level": 1,
      "time": 0,
+     "desc": "一个简单的燃油发电机，可以为庇护所设备提供基础电力。是您庇护所的心脏。需要燃料来维持整个电网的运转需求。",
      "stations": [
       {
        "level": 1,
@@ -669,11 +969,25 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "AdditionalSlots",
+       "value": 2,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": [
+        "野营燃料桶",
+        "金属燃料桶"
+       ]
+      }
      ]
     },
     {
      "level": 2,
      "time": 3600,
+     "desc": "一款高性能发电机。更高的输出功率意味着藏身处现在可以使用更多更先进电子设备，此外还拥有额外槽位容纳更多燃料。",
      "stations": [
       {
        "level": 1,
@@ -713,11 +1027,25 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "AdditionalSlots",
+       "value": 2,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": [
+        "野营燃料桶",
+        "金属燃料桶"
+       ]
+      }
      ]
     },
     {
      "level": 3,
      "time": 57600,
+     "desc": "工业级发电机能够确保生产设施的自主运行，此外还配备额外的槽位用于容纳更多燃料桶。",
      "stations": [
       {
        "level": 3,
@@ -762,6 +1090,19 @@
        "count": 10,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "AdditionalSlots",
+       "value": 2,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": [
+        "野营燃料桶",
+        "金属燃料桶"
+       ]
+      }
      ]
     }
    ]
@@ -775,6 +1116,7 @@
     {
      "level": 1,
      "time": 14400,
+     "desc": "设备齐全的健身区，它能让你保持好身材。",
      "stations": [
       {
        "level": 6,
@@ -829,7 +1171,8 @@
        "count": 1,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     }
    ]
   },
@@ -842,6 +1185,7 @@
     {
      "level": 1,
      "time": 43207,
+     "desc": "荣耀展柜是一个特制的架子，你可以在上面放你的奖杯和收藏品。",
      "stations": [
       {
        "level": 6,
@@ -886,11 +1230,22 @@
        "count": 5,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "SkillGroupLevelingBoost",
+       "value": 0,
+       "skill": "Combat",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 2,
      "time": 64800,
+     "desc": "从IDEA搞来的精致柜子，可以放下所有从战局里找到的收藏小人，还能展示一些从PMC身上取来的狗牌。",
      "stations": [
       {
        "level": 1,
@@ -945,11 +1300,22 @@
        "count": 2,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "SkillGroupLevelingBoost",
+       "value": 0,
+       "skill": "Combat",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 3,
      "time": 86400,
+     "desc": "在藏身处开辟的一整块区域，专门用来展示收藏品。",
      "stations": [
       {
        "level": 2,
@@ -999,6 +1365,16 @@
        "count": 5,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "SkillGroupLevelingBoost",
+       "value": 0,
+       "skill": "Combat",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     }
    ]
@@ -1012,6 +1388,7 @@
     {
      "level": 1,
      "time": 0,
+     "desc": "一个简单的烧火桶，补充木柴即可维持温度。这是为藏身处供暖最基础的方案，但也存在一氧化碳中毒的风险。",
      "stations": [],
      "skills": [],
      "items": [
@@ -1025,11 +1402,22 @@
        "count": 2,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "EnergyRegeneration",
+       "value": 0.04,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 2,
      "time": 3600,
+     "desc": "金属材质的大肚炉能够高效地为房间供暖，曾在二十世纪上半叶流行一时。只要能与通风系统相连及时排出燃烧的废气，那么它绝对称得上是藏身处的必备宝物。",
      "stations": [
       {
        "level": 1,
@@ -1069,11 +1457,22 @@
        "count": 2,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "EnergyRegeneration",
+       "value": 0.08,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 3,
      "time": 28800,
+     "desc": "为整个藏身处额外加装电暖器。全新的加热设备配合大肚炉，让藏身处再无寒冷之虞。",
      "stations": [
       {
        "level": 2,
@@ -1113,6 +1512,24 @@
        "count": 10,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "EnergyRegeneration",
+       "value": 0.12,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "DebuffEndDelay",
+       "value": -0.5,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     }
    ]
@@ -1126,6 +1543,7 @@
     {
      "level": 1,
      "time": 0,
+     "desc": "使用石蜡蜡烛提供基础照明，光线昏暗且不均匀。",
      "stations": [],
      "skills": [],
      "items": [
@@ -1139,11 +1557,13 @@
        "count": 1,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     },
     {
      "level": 2,
      "time": 0,
+     "desc": "用白炽灯泡为藏身处提供照明。光比蜡烛更均匀更明亮。",
      "stations": [
       {
        "level": 1,
@@ -1168,11 +1588,13 @@
        "count": 10,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     },
     {
      "level": 3,
      "time": 21600,
+     "desc": "使用荧光灯为藏身处提供最佳照明，光线明亮又均匀。",
      "stations": [
       {
        "level": 2,
@@ -1212,7 +1634,8 @@
        "count": 12,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     }
    ]
   },
@@ -1225,6 +1648,7 @@
     {
      "level": 1,
      "time": 0,
+     "desc": "如果发电机是藏身处的心脏，那么情报中心就是它的大脑。到目前为止，这只是一张用来分析各种信息的旧桌椅，可以帮助你逃离塔科夫。",
      "stations": [
       {
        "level": 1,
@@ -1274,11 +1698,30 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "ScavCooldownTimer",
+       "value": -0.15,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "QuestMoneyReward",
+       "value": 0.05,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 2,
      "time": 3600,
+     "desc": "配备笔记本电脑的高级情报中心，新增设的桌子带来了更多的工作空间。多亏了 Mechanic，现在你可以连接到一个独立的计算机网络——即使在塔科夫遭受 EMP 袭击与层层封锁后，这套网络仍然奇迹般地保持完好。",
      "stations": [
       {
        "level": 2,
@@ -1328,11 +1771,30 @@
        "count": 3,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "QuestMoneyReward",
+       "value": 0.1,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "InsuranceReturnTime",
+       "value": -0.2,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 3,
      "time": 86400,
+     "desc": "一座设备齐全的情报中心，配有计算机设备、无线电装置和一切必要的分析工具。成功逃离仿佛已经近在咫尺。",
      "stations": [
       {
        "level": 3,
@@ -1382,6 +1844,24 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "ScavCooldownTimer",
+       "value": -0.2,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "RagfairCommission",
+       "value": -0.3,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     }
    ]
@@ -1395,6 +1875,7 @@
     {
      "level": 1,
      "time": 0,
+     "desc": "最原始的马桶，除此之外的任何便利设施就别想了。只有一个桶和一个垃圾箱来维持藏身处的基本卫生条件。",
      "stations": [],
      "skills": [],
      "items": [
@@ -1423,11 +1904,22 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "UnlockArmorRepair",
+       "value": 1,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 2,
      "time": 3600,
+     "desc": "带有户外用木质马桶的基础卫生间，还有一个连到供水系统的洗脸台。这些简易设备有助于提升藏身处的清洁状况和卫生水平。",
      "stations": [
       {
        "level": 1,
@@ -1472,11 +1964,22 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "RepairArmorBonus",
+       "value": 0.03,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 3,
      "time": 25200,
+     "desc": "配备干湿分离卫生间、淋浴设施和垃圾桶的高级浴室。您所需要的一切设施都与下水系统相连，能够以最高性价比保障个人卫生。",
      "stations": [
       {
        "level": 2,
@@ -1516,6 +2019,16 @@
        "count": 6,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "RepairArmorBonus",
+       "value": 0.06,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     }
    ]
@@ -1529,6 +2042,7 @@
     {
      "level": 1,
      "time": 194400,
+     "desc": "拥有各种小说和科普书籍和杂志的家庭图书馆。",
      "stations": [
       {
        "level": 3,
@@ -1578,6 +2092,24 @@
        "count": 5,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "ExperienceRate",
+       "value": 0.15,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "SkillGroupLevelingBoost",
+       "value": 0.3,
+       "skill": "Practical",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     }
    ]
@@ -1591,6 +2123,7 @@
     {
      "level": 1,
      "time": 0,
+     "desc": "持续可靠的药物供给意味着获得战局后更大的生存机会。几个基本医疗护理用的医疗储存箱。",
      "stations": [],
      "skills": [],
      "items": [
@@ -1619,11 +2152,22 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "HealthRegeneration",
+       "value": 0.06,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 2,
      "time": 3600,
+     "desc": "由一张桌子、一把椅子和一个滴瓶组成的医疗单元。提供更快的战局后治疗过程。",
      "stations": [
       {
        "level": 1,
@@ -1668,11 +2212,22 @@
        "count": 2,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "HealthRegeneration",
+       "value": 0.12,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 3,
      "time": 43200,
+     "desc": "藏身处的一个完备的实验室。这里有你在这个困难时期用以治疗、制造药物和保持健康的一切东西。",
      "stations": [
       {
        "level": 2,
@@ -1717,6 +2272,16 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "HealthRegeneration",
+       "value": 0.2,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     }
    ]
@@ -1730,6 +2295,7 @@
     {
      "level": 1,
      "time": 0,
+     "desc": "藏身处的食物满足你未来进入战局时所需的能量。一个基础的营养站，有一个旧冰箱和一个吃饭的地方，可以让你更快地恢复能量。",
      "stations": [
       {
        "level": 1,
@@ -1759,11 +2325,22 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "EnergyRegeneration",
+       "value": 0.1,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 2,
      "time": 0,
+     "desc": "一个更好的营养站，配有更现代化的冰箱、餐饮配件、炉子和水槽，提供更好的食物。使你能量恢复得更快。",
      "stations": [
       {
        "level": 2,
@@ -1798,11 +2375,30 @@
        "count": 2,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "EnergyRegeneration",
+       "value": 0.2,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "HealthRegeneration",
+       "value": 0.07,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 3,
      "time": 50400,
+     "desc": "一个功能齐全的厨房，有一个舒适的炉子、一个改进过的水槽、一个电水壶、一个微波炉，以及在战局外的高品质餐饮和快餐烹饪所需的一切。当然你可不能不遵守饮食规范！",
      "stations": [
       {
        "level": 2,
@@ -1852,6 +2448,24 @@
        "count": 5,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "EnergyRegeneration",
+       "value": 0.3,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "HydrationRegeneration",
+       "value": 0.2,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     }
    ]
@@ -1865,6 +2479,7 @@
     {
      "level": 1,
      "time": 0,
+     "desc": "休息是非常重要的，尤其是在围困中的塔科夫。台子上的床垫是非常基础的，可以帮助PMC们在激情大战后放松。",
      "stations": [
       {
        "level": 1,
@@ -1889,11 +2504,22 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "DebuffEndDelay",
+       "value": -0.1,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 2,
      "time": 3600,
+     "desc": "一个供人放松的地方，配有一张普通的床、床头柜甚至一台旧电视。它创造了一种舒适的感觉，给人一种怀旧的前世回忆。",
      "stations": [
       {
        "level": 1,
@@ -1928,11 +2554,30 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "EnergyRegeneration",
+       "value": 0.05,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "HealthRegeneration",
+       "value": 0.05,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 3,
      "time": 7200,
+     "desc": "带有沙发的休息室，还有带普利卡电视台和立体声系统的液晶电视。很难想象，当整个世界飞向深渊时，这样的舒适能在地下掩体中建立起来。",
      "stations": [
       {
        "level": 2,
@@ -1962,6 +2607,35 @@
        "count": 4,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "HealthRegeneration",
+       "value": 0.1,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "MaximumEnergyReserve",
+       "value": 10,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "AdditionalSlots",
+       "value": 1,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": [
+        "硬盘 1",
+        "正式版游戏光盘"
+       ]
+      }
      ]
     }
    ]
@@ -1975,6 +2649,7 @@
     {
      "level": 1,
      "time": 288000,
+     "desc": "一个特别的箱子，专门雇来的 Scav 会把他们找到的各种物品放在里面。",
      "stations": [
       {
        "level": 2,
@@ -2019,7 +2694,8 @@
        "count": 1,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     }
    ]
   },
@@ -2032,6 +2708,7 @@
     {
      "level": 1,
      "time": 0,
+     "desc": "一扇最基本的大门，这样各种各样的傻瓜就不能来给你送见面礼了。气流和潮气仍然能渗进来，但起码这扇门能让你感觉藏身处正慢慢走上正轨，成为一个可以安顿下来的地方。",
      "stations": [],
      "skills": [],
      "items": [
@@ -2045,11 +2722,13 @@
        "count": 1,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     },
     {
      "level": 2,
      "time": 3600,
+     "desc": "改造后的门厅，设有加固大门、一个衣架和其他家居物品。这样的门可没法一脚踢开，让人安心不少。",
      "stations": [
       {
        "level": 1,
@@ -2089,11 +2768,13 @@
        "count": 1,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     },
     {
      "level": 3,
      "time": 61200,
+     "desc": "一套高级庇护所安保系统，包含装甲掩体门、视频监控摄像机、对讲机系统、灭火设施、以及增加墙壁和天花板结构强度的特殊装置。",
      "stations": [
       {
        "level": 3,
@@ -2128,7 +2809,8 @@
        "count": 8,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     }
    ]
   },
@@ -2141,6 +2823,7 @@
     {
      "level": 1,
      "time": 3600,
+     "desc": "专门用来试射武器枪械的地方。为了方便评估射击效果，靶场在近距离设置有击倒式金属靶，远处设有纸靶。",
      "stations": [
       {
        "level": 1,
@@ -2170,11 +2853,13 @@
        "count": 1,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     },
     {
      "level": 2,
      "time": 86400,
+     "desc": "升级后的靶场在天花板处增设了移动标靶导轨，能够以三档速度移动，供使用者练习枪法。",
      "stations": [
       {
        "level": 3,
@@ -2244,11 +2929,13 @@
        "count": 3,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     },
     {
      "level": 3,
      "time": 86400,
+     "desc": "设施完备的现代化靶场，设有多功能弹出式标靶，以及用于设置参数的笔记本电脑。可对任意导轨上的纸靶和铁靶进行射击训练，最终得分会显示在电脑屏幕上。",
      "stations": [
       {
        "level": 2,
@@ -2303,6 +2990,16 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "SkillGroupLevelingBoost",
+       "value": 0.1,
+       "skill": "Combat",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     }
    ]
@@ -2316,6 +3013,7 @@
     {
      "level": 1,
      "time": 259200,
+     "desc": "太阳能电池板电池可以改善整个藏身处的电网。",
      "stations": [
       {
        "level": 3,
@@ -2360,6 +3058,16 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "FuelConsumption",
+       "value": -0.5,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     }
    ]
@@ -2373,13 +3081,33 @@
     {
      "level": 1,
      "time": 0,
+     "desc": "小型仓库",
      "stations": [],
      "skills": [],
-     "items": []
+     "items": [],
+     "bonuses": [
+      {
+       "type": "StashSize",
+       "value": 300,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "UnlockWeaponModification",
+       "value": 1,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
+     ]
     },
     {
      "level": 2,
      "time": 3600,
+     "desc": "中型仓库",
      "stations": [
       {
        "level": 1,
@@ -2419,11 +3147,22 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "StashSize",
+       "value": 400,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 3,
      "time": 43200,
+     "desc": "大型仓库",
      "stations": [
       {
        "level": 2,
@@ -2463,11 +3202,22 @@
        "count": 2,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "StashSize",
+       "value": 500,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 4,
      "time": 345600,
+     "desc": "最大尺寸仓库",
      "stations": [
       {
        "level": 3,
@@ -2522,6 +3272,16 @@
        "count": 8,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "StashSize",
+       "value": 680,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     }
    ]
@@ -2535,6 +3295,7 @@
     {
      "level": 1,
      "time": 0,
+     "desc": "悬挂在天花板上的通风管道能够将房间连通起来，使空气自然流动。良好的通风对于从封闭的地下掩体中排出废气与烟雾相当重要，特别是掩体内设有明火的情况。",
      "stations": [],
      "skills": [],
      "items": [
@@ -2543,11 +3304,13 @@
        "count": 25000,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     },
     {
      "level": 2,
      "time": 3600,
+     "desc": "为地堡基础的通风系统增加了额外的通风管道，能够带来更多气流。通风系统现在不仅能及时排出燃烧后的废气，还能为藏身处带来新鲜空气。",
      "stations": [
       {
        "level": 1,
@@ -2577,11 +3340,13 @@
        "count": 1,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     },
     {
      "level": 3,
      "time": 36000,
+     "desc": "通风管道配有电动风扇，能够有效增加空气流量。这套完备的空气循环系统能够满足一切高级物资生产与化学研究的需求。",
      "stations": [
       {
        "level": 1,
@@ -2626,7 +3391,8 @@
        "count": 5,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     }
    ]
   },
@@ -2639,6 +3405,7 @@
     {
      "level": 1,
      "time": 0,
+     "desc": "用于收集地下水的基础供水系统。包括几个用于收集净化水的滤水器和容器。是庇护所里最为重要的维生系统。",
      "stations": [],
      "skills": [],
      "items": [
@@ -2662,11 +3429,22 @@
        "count": 3,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "HydrationRegeneration",
+       "value": 0.1,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 2,
      "time": 7200,
+     "desc": "一个复杂的水收集系统，带有额外的管道、过滤器和更大的容器。通过安装水泵以提高管道中的压力，从而提高水压。",
      "stations": [
       {
        "level": 1,
@@ -2706,11 +3484,22 @@
        "count": 2,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "HydrationRegeneration",
+       "value": 0.2,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 3,
      "time": 57600,
+     "desc": "先进的地下水和雨水收集系统。它包括各种清洁过滤器，一个电动水泵和遍布整个藏身处的广域供水系统。一个附加的过滤和浓缩系统可以让你得到非常干净的高质量水。",
      "stations": [
       {
        "level": 3,
@@ -2750,6 +3539,27 @@
        "count": 10,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "HydrationRegeneration",
+       "value": 0.3,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      },
+      {
+       "type": "AdditionalSlots",
+       "value": 1,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": [
+        "滤水器",
+        "Everclear 两级净水器"
+       ]
+      }
      ]
     }
    ]
@@ -2763,6 +3573,7 @@
     {
      "level": 1,
      "time": 43200,
+     "desc": "小型武器架。方便了枪械的储存，还能展示武器。",
      "stations": [
       {
        "level": 3,
@@ -2812,11 +3623,13 @@
        "count": 5,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     },
     {
      "level": 2,
      "time": 64800,
+     "desc": "中型武器架。方便了枪械的储存，还能展示武器。",
      "stations": [
       {
        "level": 2,
@@ -2886,11 +3699,13 @@
        "count": 3,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     },
     {
      "level": 3,
      "time": 86400,
+     "desc": "大型武器架。方便了枪械的储存，还能展示武器。",
      "stations": [
       {
        "level": 3,
@@ -2950,7 +3765,8 @@
        "count": 5,
        "fir": false
       }
-     ]
+     ],
+     "bonuses": []
     }
    ]
   },
@@ -2963,6 +3779,7 @@
     {
      "level": 1,
      "time": 0,
+     "desc": "所有人都需要一个趁手的地方才能让工具发挥用途。即使是简单的工作台也足以让您对自己的武器进行基础改造，或是拆解科技产品回收原料。",
      "stations": [],
      "skills": [],
      "items": [
@@ -2981,11 +3798,22 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "UnlockWeaponRepair",
+       "value": 1,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 2,
      "time": 3600,
+     "desc": "升级后的工作台不仅拥有生产简易弹药所需的一切工具，还能为升级藏身处所需要进行的复杂技术工作创造条件。",
      "stations": [
       {
        "level": 1,
@@ -3025,11 +3853,22 @@
        "count": 1,
        "fir": false
       }
+     ],
+     "bonuses": [
+      {
+       "type": "RepairWeaponBonus",
+       "value": 0.03,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
+      }
      ]
     },
     {
      "level": 3,
      "time": 39604,
+     "desc": "由枪匠大师倾力打造的完备工具平台。让使用者能够制作更加高级的弹药，为涉足高科技任务创造了条件，还能够自行组装和拆卸复杂的电子设备和机械系统。",
      "stations": [
       {
        "level": 2,
@@ -3068,6 +3907,16 @@
        "name": "罐装铝热剂",
        "count": 5,
        "fir": false
+      }
+     ],
+     "bonuses": [
+      {
+       "type": "RepairWeaponBonus",
+       "value": 0.06,
+       "skill": "",
+       "passive": true,
+       "production": false,
+       "slots": []
       }
      ]
     }

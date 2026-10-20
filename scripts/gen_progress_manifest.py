@@ -13,7 +13,7 @@
     gen_quests.py            → content/quests/*.md（data-qid）
     gen_quest_items.py       → content/quests/index.md（物品需求反查表）
     gen_hideout.py --fetch   → scripts/data/hideout.json
-    gen_hideout.py           → content/entries/hideout-modules.md（§7 材料清单）
+    gen_hideout.py           → content/entries/hideout-modules.md（§8 逐级档案）
     gen_progress_manifest.py → content/javascripts/progress-manifest.js
 
 产物：content/javascripts/progress-manifest.js
@@ -25,7 +25,7 @@
     ② 物品：清单条数 == quests/index.md 的「物品需求反查」表行数；
     ③ 藏身处：清单条数 == scripts/data/hideout.json 的站点数，
        且**每个模块名都能在 hideout-modules.md 找到**、
-       该页 §7 的「模块总表」行数与清单条数相等；
+       该页 §8 的「模块总表」行数与清单条数相等；
     ④ 剧情章节：清单条数 == story-chapters.md §2.1 表的行数，且**每章的名称、
        目标数与主线标记**都能在表里逐条对上（见 check_story_page）。
     这四处一旦漂移，读者看到的完成度分母就是错的 —— 而分母错比没有进度更糟。
@@ -246,7 +246,19 @@ def build_hideout() -> tuple[dict, dict]:
             "name": s["name"],
             "layer": gh.LAYER_OF.get(s["en"], None),
             "alias": gh.ALIASES.get(s["en"], None),
-            "levels": s["levels"],
+            # 只带「进度看板用得到」的四个字段：等级 / 施工 / 前置 / 材料。
+            # 2026-10-21 加 `bonuses` 后若整块照搬，清单会凭空多出 873 行、
+            # 却一个字段都没被前端用过 —— 数据层加字段不该让另一个页面变胖。
+            "levels": [
+                {
+                    "level": lv["level"],
+                    "time": lv["time"],
+                    "stations": lv["stations"],
+                    "skills": lv["skills"],
+                    "items": lv["items"],
+                }
+                for lv in s["levels"]
+            ],
         })
     # 层的展示顺序照搬页面的 §1
     out.sort(key=lambda x: (gh.LAYER_ORDER.index(x["layer"]) if x["layer"] in gh.LAYER_ORDER else 99,
@@ -724,13 +736,13 @@ def main() -> int:
         else:
             blk = text.split(gh.START, 1)[1].split(gh.END, 1)[0]
             if "**模块总表**" not in blk:
-                problems.append("hideout-modules.md §7 里找不到「模块总表」")
+                problems.append("hideout-modules.md §8 里找不到「模块总表」")
             else:
                 tbl = blk.split("**模块总表**", 1)[1]
                 hut_pages = count_md_table_rows(tbl, drop_header="模块", first_table_only=True)
 
     if hut_pages >= 0 and hut_pages != hideout["total"]:
-        problems.append(f"§7「模块总表」有 {hut_pages} 行，清单 {hideout['total']} 个模块")
+        problems.append(f"§8「模块总表」有 {hut_pages} 行，清单 {hideout['total']} 个模块")
     if hut_raw.get("count") != hideout["total"]:
         problems.append(f"hideout.json 站点数 {hut_raw.get('count')}，清单 {hideout['total']}")
 
@@ -744,7 +756,7 @@ def main() -> int:
         return 1
 
     print(f"对账通过：任务 data-qid {page_total} 处 / 唯一 {page_uniq} 个；"
-          f"物品表 {item_rows} 行；藏身处 §7 模块总表 {hut_pages} 行；"
+          f"物品表 {item_rows} 行；藏身处 §8 模块总表 {hut_pages} 行；"
           f"剧情章节 §2.1 表 {story['total']} 行；"
           f"前置树 {graph_n} 个节点。")
     return 0

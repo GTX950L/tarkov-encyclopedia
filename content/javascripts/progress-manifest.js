@@ -774,7 +774,7 @@ window.TARKOV_PROGRESS_MANIFEST = {
     "levelCount": 68,
     "itemCount": 317,
     "source": "json.tarkov.dev/regular（官方数据端点，二级）+ hideout_zh / items_zh（同一套译名）",
-    "baseline": "2026-10-06",
+    "baseline": "2026-10-21",
     "note": "「材料」是该等级需要的建材与数量；「战局中」标记的必须自己带出，跳蚤市场买的不算数。",
     "list": [
       {

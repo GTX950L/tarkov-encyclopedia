@@ -46,7 +46,7 @@ tags:
 
 ## 🔗 相关条目
 
-- [藏身处模块详解](../entries/hideout-modules.md) — 各设施的升级材料与逐级清单
+- [藏身处模块详解](../entries/hideout-modules.md) — 每个设施**哪一级解锁多少条配方**、以及升级要的材料与增益（[§8 逐级档案](../entries/hideout-modules.md#materials)）
 - [以物换物](../entries/barter.md) — 交换划不划算的判断方法（本表给清单，那篇给算法）
 - [藏身处](../entries/hideout.md) — 设施功能位与建造优先级
 - [商人系统](../entries/traders.md) — 忠诚度等级怎么涨
