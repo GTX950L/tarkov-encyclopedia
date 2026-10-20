@@ -22,6 +22,14 @@ content/javascripts/catalog-data.js
 # 与 catalog-data.js 同理，不入仓；CI 在 build 前会重新生成。
 content/javascripts/catalog-item-*.js
 
+# gen_maps.py 的**中间产物**（2026-10-20 补）：
+# 「pvp 基底 → pve 补充 → merge」三步里的第二步产物。merge 成功时生成器自己会
+# glob 掉它们（见 gen_maps.py 末尾），所以正常情况下工作区看不到。
+# 但 merge 一旦被中断（实测：本机安全机制拦截批量删除），这 13 个 js + 1 个 json
+# 就留在工作区变成 untracked —— 一次 `git add -A` 会把约 700 KB 的中间产物提交进仓库。
+content/javascripts/maps-data-pve-*.js
+scripts/data/maps_site_pve.json
+
 # ⚠️ **不要**把 content/javascripts/quest-detail-*.js 加进来（2026-10-11 实测踩过）。
 #    它看着像生成物，但**必须入仓**：CI 的 deploy job 只跑
 #    build_glossary / gen_items_catalog / gen_quest_carrier，**不跑 gen_quests.py**，

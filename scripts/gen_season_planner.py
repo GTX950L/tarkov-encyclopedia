@@ -24,6 +24,9 @@ import sys
 from datetime import date
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _data import source_month  # noqa: E402  产物日期取数据源，不取 today()
+
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "content" / "entries" / "season-modifiers.md"
 OUT = ROOT / "content" / "javascripts" / "season-planner-data.js"
@@ -133,7 +136,8 @@ def main():
         sys.exit(1)
 
     payload = {
-        "generated": date.today().isoformat(),
+        # 数据源是站内 md（无 fetched 字段），取它页脚的「最后更新」月份。
+        "generated": source_month(SRC),
         "source": "content/entries/season-modifiers.md",
         "positive": pos,
         "negative": neg,
@@ -156,7 +160,8 @@ def main():
         + json.dumps(payload, ensure_ascii=False, indent=1)
         + ";\n"
     )
-    OUT.write_text(js, encoding="utf-8")
+    # LF，不是平台默认：`.gitattributes` 对 content/javascripts/*.js 声明了 eol=lf。
+    OUT.write_text(js, encoding="utf-8", newline="\n")
 
     print(f"✓ 已生成 {OUT.relative_to(ROOT)}")
     print(f"  正面 {len(pos)} 项 / 消耗 {payload['summary']['cost']} ｜ "

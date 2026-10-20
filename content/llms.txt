@@ -1,10 +1,10 @@
 # 逃离塔科夫百科全书
 
-> 面向玩家与 AI 智能体的《逃离塔科夫》中文结构化资料库：88 个条目 + 参考页，分十二篇组织 —— **前八篇是条目主线**，后四篇是查阅型栏目（第九篇物品图鉴 4,983 件 / 第十篇任务图鉴 503 个 / 第十一篇参考区 / 第十二篇交互地图）。
+> 面向玩家与 AI 智能体的《逃离塔科夫》中文结构化资料库：89 个条目 + 参考页，分十二篇组织 —— **前八篇是条目主线**，后四篇是查阅型栏目（第九篇物品图鉴 4,983 件 / 第十篇任务图鉴 503 个 / 第十一篇参考区 / 第十二篇交互地图）。
 > 静态事实对照官方来源核验；动态数值标注实时口径；以文字与表格为主体（图形素材仅交互地图底图与任务/物品页图标，权利边界见下），弱网环境可流畅阅读。
 
 版本基线：2026 年 10 月
-游戏版本基准：Escape from Tarkov 1.2.0.0（第一赛季 KORD BREACH）
+游戏版本基准：Escape from Tarkov 1.2.5.0（第一赛季 KORD BREACH；线上 build 1.2.5.0.48146，核对于 2026-10-20）
 最后更新：2026-10-19
 
 > ⓘ **本站是非官方粉丝资料站**，由爱好者独立维护，与 Battlestate Games 无隶属或合作关系；「Escape from Tarkov」「逃离塔科夫」及相关名称、标志与游戏内容的商标权与著作权归 Battlestate Games 及其关联方所有。站内**文字内容**以 CC BY-NC-SA 4.0 授权；交互地图底图来自 Shebuka / tarkov-dev-svg-maps（同协议），任务与物品页图标为游戏内素材、版权归 Battlestate Games，**不在本站 CC 授权范围内**。
@@ -13,7 +13,7 @@
 
 ## 篇目录
 
-- [百科条目总览](https://gtx950l.github.io/tarkov-encyclopedia/entries/)：全部 88 个条目的索引，含按标签浏览
+- [百科条目总览](https://gtx950l.github.io/tarkov-encyclopedia/entries/)：全部 89 个条目的索引，含按标签浏览
 - [第一篇 · 入门机制](https://gtx950l.github.io/tarkov-encyclopedia/entries/spawn-and-opening/)：开局与出生点、撤离机制与撤离点、生命与身体部位、食物与水分、医疗、保险、背包与容器、PMC 与 Scav
 - [第二篇 · 地图](https://gtx950l.github.io/tarkov-encyclopedia/entries/ground-zero/)：13 张地图逐图条目 + 转场与 BTR
 - [第三篇 · 装备与枪械](https://gtx950l.github.io/tarkov-encyclopedia/entries/ammo/)：弹药与穿深、弹道、护甲与头盔、载具、耳机、枪械改装与图鉴、钥匙

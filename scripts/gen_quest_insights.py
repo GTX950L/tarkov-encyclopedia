@@ -385,7 +385,9 @@ def main() -> int:
     rows.sort(key=lambda r: (r[2], -r[13], r[0]))
 
     payload = {
-        "generated": date.today().isoformat(),
+        # 数据源日期，不是 `date.today()` —— 否则每跑一次产物就变一天，
+        # 工作区必脏，而 check_gen_drift 会把日期归一化掉（等于没人看）。
+        "generated": fetched,
         "baseline": cache.get("generated") or fetched,
         "source": cache.get("source") or "",
         "total": len(rows),
@@ -408,7 +410,11 @@ def main() -> int:
         "window.TARKOV_QUEST_INDEX = "
         + json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
         + ";\n",
-        encoding="utf-8",   # newline 留空 = Windows 上写成 CRLF，与站内其余文件一致
+        encoding="utf-8", newline="\n",
+        # 必须是 LF：`.gitattributes` 对 `content/javascripts/*.js` 声明了
+        # `text eol=lf`，生成器若写 CRLF，工作区与索引的约定就不一致 ——
+        # 表现是 git 常驻一个「diff 为空、status 却是 M」的假修改
+        # （2026-10-20 实测：quests-index-data.js 与 season-planner-data.js 两处）。
     )
 
     # —— 对账②：写出去的行数 / 解锁口径自洽 ——

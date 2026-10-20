@@ -106,7 +106,8 @@ def build(mode: str) -> int:
     #    TARKOV_OPS_INDEX_<MODE> 取的。2026-10-18 实测：写成无后缀 → 前端读不到，
     #    右栏永远空、还看不出报错（脚本加载成功、只是名字对不上）。
     gname = f"TARKOV_OPS_INDEX_{mode.upper()}"
-    out.write_text(header + f"window.{gname} = {body};\n", encoding="utf-8")
+    # LF，不是平台默认：`.gitattributes` 对 content/javascripts/*.js 声明了 eol=lf。
+    out.write_text(header + f"window.{gname} = {body};\n", encoding="utf-8", newline="\n")
     size = out.stat().st_size / 1024
 
     # ── 首页精简版：只留「哪张图上有哪些任务」需要的四列 ────────────────
@@ -126,7 +127,7 @@ def build(mode: str) -> int:
     lite_out.write_text(
         header.replace("作战台任务索引", "首页作战台精简索引")
         + f"window.TARKOV_OPS_LITE_{mode.upper()} = {lite_body};\n",
-        encoding="utf-8")
+        encoding="utf-8", newline="\n")
     lite_size = lite_out.stat().st_size / 1024
     print(f"已写 {out.relative_to(ROOT)}（{size:.0f} KB，{len(nodes)} 个任务）")
     print(f"已写 {lite_out.relative_to(ROOT)}（{lite_size:.0f} KB，{len(lite)} 条" 

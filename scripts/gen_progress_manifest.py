@@ -442,7 +442,9 @@ def build_graph(tasks: list[dict]) -> int:
             detail[tid] = {"o": obj_detail, "p": prep, "po": prep_obj}
 
     body = json.dumps({
-        "generated": date.today().isoformat(),
+        # 与下面 baseline 同源：数据文件自己的 fetched，不用 today()
+        # （否则每跑一次这一支，产物日期就变一天，工作区必脏）。
+        "generated": raw.get("fetched"),
         "source": raw.get("source"),
         "baseline": raw.get("fetched"),
         # ⚠️ 这是**上游数据源自带的状态词频**（该任务在数据端点里被标成
@@ -662,7 +664,7 @@ def main() -> int:
         return 1
 
     body = json.dumps({
-        "generated": date.today().isoformat(),
+        "generated": g.FETCH_DATE,
         "source": "scripts/data/quests.json（json.tarkov.dev/regular，持久 PvP）"
                   " + scripts/data/hideout.json（同源，含 hideout_zh / items_zh 译名）"
                   " + scripts/data/storylines.json（手维护，与剧情页对账）",
