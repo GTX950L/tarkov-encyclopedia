@@ -87,7 +87,7 @@ python scripts/check_entries.py      # 含「中文正文不留直引号」「�
 python scripts/check_icons.py        # 图标计数 —— 见下方坑 1
 python scripts/check_promises.py
 python scripts/skills_consistency.py
-python scripts/check_gen_drift.py    # 改了生成器 / 缓存后必跑：重跑 24 支离线生成器，
+python scripts/check_gen_drift.py    # 改了生成器 / 缓存后必跑：重跑 25 支离线生成器，
                                      # 看**入库产物**有没有跟上（改了源忘了重跑不会让别的门禁变红）
 ```
 

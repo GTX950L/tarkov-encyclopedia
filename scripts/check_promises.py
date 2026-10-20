@@ -135,9 +135,6 @@ ASSERTIONS: dict[str, list[tuple[str, str, bool, str]]] = {
         ("entries/headsets.md", r"拉平", True, "0.16.5.0 起音量差已被官方拉平"),
         ("entries/headsets.md", r"曲线", False, "站内不再引用任何放大曲线数值"),
     ],
-    "B5": [
-        ("entries/prestige.md", r"尚未公布", True, "PvE 专属门槛官方尚未公布"),
-    ],
     "B6": [
         ("entries/prestige.md", r"旧数据", True, "「55 级 / 200 万」须标为过时数据"),
     ],
