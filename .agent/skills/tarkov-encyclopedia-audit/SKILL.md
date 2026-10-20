@@ -16,7 +16,7 @@ python scripts/check_entries.py      # ③ 内容一致性（硬错误，CI 门�
 python scripts/check_icons.py        # ④ 图标语义表对账（硬错误，CI 门禁）
 python scripts/check_promises.py     # ⑤ 未决项承诺对账（硬错误，CI 门禁）
 python scripts/skills_consistency.py # ⑥ 手册一致性（硬错误，CI 门禁）
-python scripts/check_gen_drift.py    # ⑦ 生成物防漂移（硬错误，CI 门禁；会重跑 24 支生成器，约 20 秒）
+python scripts/check_gen_drift.py    # ⑦ 生成物防漂移（硬错误，CI 门禁；会重跑 25 支生成器，约 20 秒）
 python scripts/check_js_lint.py      # ⑧ 前端脚本结构（硬错误，CI 门禁；重复定义 / 死代码 / 全局泄漏）
 python -m pytest tests -q            # ⑨ 单测（硬错误，CI 门禁；纯函数 + 内容不变量 + 产物冒烟，约 2 秒）
 ```
@@ -32,7 +32,7 @@ python -m pytest tests -q            # ⑨ 单测（硬错误，CI 门禁；纯�
 | `scripts/check_icons.py` | **图标有没有各写各的** —— 内容里用了表外的 emoji、表里有悬空项、template.md 的统计数字过期、**同一标题在全站用了不同图标**（2026-10-16 起的第 4 项） | 是（CI 部署前置） |
 | `scripts/check_promises.py` | **《引用说明》第三节的承诺还算不算数** —— 每条未决项的「现行处理方式」在正文里是否真的落实（含「不得出现某数字」的阴性断言） | 是（CI 部署前置） |
 | `scripts/skills_consistency.py` | **这套手册自己有没有过期** —— 引用的路径是否还在、声称的 CI 门禁是否属实 | 是（CI 部署前置） |
-| `scripts/check_gen_drift.py` | **产物有没有跟上源** —— 重跑 24 支离线生成器，看**入库**产物是否与生成器输出一致。改了源数据或生成器却忘了重跑，构建与其它门禁**都不会红** | 是（CI 部署前置） |
+| `scripts/check_gen_drift.py` | **产物有没有跟上源** —— 重跑 25 支离线生成器，看**入库**产物是否与生成器输出一致。改了源数据或生成器却忘了重跑，构建与其它门禁**都不会红** | 是（CI 部署前置） |
 | `scripts/check_js_lint.py` | **前端脚本有没有重复定义 / 死代码 / 全局泄漏** —— 同一 IIFE 顶层声明两次函数、声明了没人调用、没有 IIFE 包裹却声明顶层函数（2026-10-18 审查抓到的 `bindMapToRight()` 双份 + `buildRight()` 死代码） | 是（CI 部署前置） |
 | `pytest tests/`（`tests/` 目录） | **纯函数与内容不变量还成不成立** —— 基线解析、漂移取值、穿深判据的边界、弹药表的 200×6 格、「一页一个 h1 / canonical / sitemap 对齐」；不需要浏览器，约 2 秒 | 是（CI 部署前置） |
 

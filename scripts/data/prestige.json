@@ -1,0 +1,834 @@
+{
+ "fetched": "2026-10-21",
+ "source": "json.tarkov.dev/<mode>/tasks 的 data.prestige（官方数据端点，二级）",
+ "modes": {
+  "pvp": {
+   "levelCount": 6,
+   "levels": [
+    {
+     "level": 1,
+     "conditions": [
+      {
+       "type": "playerLevel",
+       "optional": false,
+       "level": 25
+      },
+      {
+       "type": "taskStatus",
+       "optional": false,
+       "task": "新起点",
+       "status": [
+        "complete"
+       ]
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "情报中心",
+       "stationLevel": 1
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "休息区",
+       "stationLevel": 2
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "营养部",
+       "stationLevel": 2
+      },
+      {
+       "type": "haveItem",
+       "optional": false,
+       "items": [
+        "卢布"
+       ],
+       "count": 10000000
+      }
+     ],
+     "rewards": [
+      {
+       "name": "What You Seek 海报",
+       "count": 1
+      },
+      {
+       "name": "臂带（转生等级1）",
+       "count": 1
+      }
+     ]
+    },
+    {
+     "level": 2,
+     "conditions": [
+      {
+       "type": "playerLevel",
+       "optional": false,
+       "level": 30
+      },
+      {
+       "type": "taskStatus",
+       "optional": false,
+       "task": "新起点",
+       "status": [
+        "complete"
+       ]
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Strength",
+       "skillLevel": 10
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Endurance",
+       "skillLevel": 10
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Charisma",
+       "skillLevel": 7
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "情报中心",
+       "stationLevel": 1
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "休息区",
+       "stationLevel": 2
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "营养部",
+       "stationLevel": 2
+      },
+      {
+       "type": "haveItem",
+       "optional": false,
+       "items": [
+        "卢布"
+       ],
+       "count": 15000000
+      }
+     ],
+     "rewards": [
+      {
+       "name": "“鲨鱼”推刃匕首",
+       "count": 1
+      },
+      {
+       "name": "I Bear Loot 海报",
+       "count": 1
+      },
+      {
+       "name": "臂带（转生等级2）",
+       "count": 1
+      }
+     ]
+    },
+    {
+     "level": 3,
+     "conditions": [
+      {
+       "type": "playerLevel",
+       "optional": false,
+       "level": 35
+      },
+      {
+       "type": "taskStatus",
+       "optional": false,
+       "task": "新起点",
+       "status": [
+        "complete"
+       ]
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Strength",
+       "skillLevel": 10
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Endurance",
+       "skillLevel": 10
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Charisma",
+       "skillLevel": 7
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "情报中心",
+       "stationLevel": 1
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "休息区",
+       "stationLevel": 2
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "营养部",
+       "stationLevel": 2
+      },
+      {
+       "type": "haveItem",
+       "optional": false,
+       "items": [
+        "卢布"
+       ],
+       "count": 15000000
+      }
+     ],
+     "rewards": [
+      {
+       "name": "PMC 起源玩偶",
+       "count": 1
+      },
+      {
+       "name": "“干点正经事”海报",
+       "count": 1
+      },
+      {
+       "name": "臂带（转生等级3）",
+       "count": 1
+      }
+     ]
+    },
+    {
+     "level": 4,
+     "conditions": [
+      {
+       "type": "playerLevel",
+       "optional": false,
+       "level": 40
+      },
+      {
+       "type": "taskStatus",
+       "optional": false,
+       "task": "新起点",
+       "status": [
+        "complete"
+       ]
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Strength",
+       "skillLevel": 15
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Endurance",
+       "skillLevel": 15
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Charisma",
+       "skillLevel": 12
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "情报中心",
+       "stationLevel": 1
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "休息区",
+       "stationLevel": 2
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "营养部",
+       "stationLevel": 2
+      },
+      {
+       "type": "haveItem",
+       "optional": false,
+       "items": [
+        "卢布"
+       ],
+       "count": 15000000
+      }
+     ],
+     "rewards": [
+      {
+       "name": "臂带（转生等级4）",
+       "count": 1
+      },
+      {
+       "name": "汪汪拳海报",
+       "count": 1
+      }
+     ]
+    },
+    {
+     "level": 5,
+     "conditions": [
+      {
+       "type": "playerLevel",
+       "optional": false,
+       "level": 47
+      },
+      {
+       "type": "taskStatus",
+       "optional": false,
+       "task": "收藏家",
+       "status": [
+        "complete"
+       ]
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Strength",
+       "skillLevel": 20
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Endurance",
+       "skillLevel": 20
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Charisma",
+       "skillLevel": 20
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "情报中心",
+       "stationLevel": 2
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "安保",
+       "stationLevel": 3
+      },
+      {
+       "type": "haveItem",
+       "optional": false,
+       "items": [
+        "卢布"
+       ],
+       "count": 20000000
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "休息区",
+       "stationLevel": 3
+      }
+     ],
+     "rewards": [
+      {
+       "name": "臂带（转生等级5）",
+       "count": 1
+      },
+      {
+       "name": "Killa妹海报",
+       "count": 1
+      },
+      {
+       "name": "NKVD 芬卡工具刀",
+       "count": 1
+      }
+     ]
+    },
+    {
+     "level": 6,
+     "conditions": [
+      {
+       "type": "playerLevel",
+       "optional": false,
+       "level": 47
+      },
+      {
+       "type": "taskStatus",
+       "optional": false,
+       "task": "收藏家",
+       "status": [
+        "complete"
+       ]
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Strength",
+       "skillLevel": 20
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Endurance",
+       "skillLevel": 20
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Charisma",
+       "skillLevel": 20
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "情报中心",
+       "stationLevel": 2
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "安保",
+       "stationLevel": 3
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "休息区",
+       "stationLevel": 3
+      },
+      {
+       "type": "haveItem",
+       "optional": false,
+       "items": [
+        "卢布"
+       ],
+       "count": 20000000
+      }
+     ],
+     "rewards": [
+      {
+       "name": "Ryzhy 编年史海报",
+       "count": 1
+      },
+      {
+       "name": "Gamma 安全箱（路易伪登）",
+       "count": 1
+      },
+      {
+       "name": "硬汉 PMC 玩偶",
+       "count": 1
+      },
+      {
+       "name": "臂带（转生等级6）",
+       "count": 1
+      }
+     ]
+    }
+   ]
+  },
+  "pve": {
+   "levelCount": 6,
+   "levels": [
+    {
+     "level": 1,
+     "conditions": [
+      {
+       "type": "playerLevel",
+       "optional": false,
+       "level": 15
+      },
+      {
+       "type": "haveItem",
+       "optional": false,
+       "items": [
+        "卢布"
+       ],
+       "count": 5000000
+      }
+     ],
+     "rewards": [
+      {
+       "name": "“路途”海报",
+       "count": 1
+      },
+      {
+       "name": "臂带（转生等级1）",
+       "count": 1
+      }
+     ]
+    },
+    {
+     "level": 2,
+     "conditions": [
+      {
+       "type": "playerLevel",
+       "optional": false,
+       "level": 25
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Strength",
+       "skillLevel": 10
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Endurance",
+       "skillLevel": 10
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Charisma",
+       "skillLevel": 7
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "情报中心",
+       "stationLevel": 1
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "休息区",
+       "stationLevel": 2
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "营养部",
+       "stationLevel": 2
+      },
+      {
+       "type": "haveItem",
+       "optional": false,
+       "items": [
+        "卢布"
+       ],
+       "count": 10000000
+      }
+     ],
+     "rewards": [
+      {
+       "name": "“杀人鲸”推刃匕首",
+       "count": 1
+      },
+      {
+       "name": "“深渊”海报",
+       "count": 1
+      },
+      {
+       "name": "臂带（转生等级2）",
+       "count": 1
+      }
+     ]
+    },
+    {
+     "level": 3,
+     "conditions": [
+      {
+       "type": "playerLevel",
+       "optional": false,
+       "level": 35
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Strength",
+       "skillLevel": 10
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Endurance",
+       "skillLevel": 10
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Charisma",
+       "skillLevel": 7
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "情报中心",
+       "stationLevel": 1
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "休息区",
+       "stationLevel": 2
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "营养部",
+       "stationLevel": 2
+      },
+      {
+       "type": "haveItem",
+       "optional": false,
+       "items": [
+        "卢布"
+       ],
+       "count": 15000000
+      }
+     ],
+     "rewards": [
+      {
+       "name": "PMC 起源玩偶",
+       "count": 1
+      },
+      {
+       "name": "“早日滚蛋”海报",
+       "count": 1
+      },
+      {
+       "name": "臂带（转生等级3）",
+       "count": 1
+      }
+     ]
+    },
+    {
+     "level": 4,
+     "conditions": [
+      {
+       "type": "playerLevel",
+       "optional": false,
+       "level": 40
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Strength",
+       "skillLevel": 15
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Endurance",
+       "skillLevel": 15
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Charisma",
+       "skillLevel": 12
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "情报中心",
+       "stationLevel": 1
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "休息区",
+       "stationLevel": 2
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "营养部",
+       "stationLevel": 2
+      },
+      {
+       "type": "haveItem",
+       "optional": false,
+       "items": [
+        "卢布"
+       ],
+       "count": 15000000
+      }
+     ],
+     "rewards": [
+      {
+       "name": "臂带（转生等级4）",
+       "count": 1
+      },
+      {
+       "name": "“早日康复”海报",
+       "count": 1
+      }
+     ]
+    },
+    {
+     "level": 5,
+     "conditions": [
+      {
+       "type": "playerLevel",
+       "optional": false,
+       "level": 47
+      },
+      {
+       "type": "taskStatus",
+       "optional": false,
+       "task": "收藏家",
+       "status": [
+        "complete"
+       ]
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Strength",
+       "skillLevel": 20
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Endurance",
+       "skillLevel": 20
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Charisma",
+       "skillLevel": 20
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "情报中心",
+       "stationLevel": 2
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "安保",
+       "stationLevel": 3
+      },
+      {
+       "type": "haveItem",
+       "optional": false,
+       "items": [
+        "卢布"
+       ],
+       "count": 20000000
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "休息区",
+       "stationLevel": 3
+      }
+     ],
+     "rewards": [
+      {
+       "name": "臂带（转生等级5）",
+       "count": 1
+      },
+      {
+       "name": "“宿舍楼地头蛇”海报",
+       "count": 1
+      },
+      {
+       "name": "NKVD 芬卡工具刀",
+       "count": 1
+      }
+     ]
+    },
+    {
+     "level": 6,
+     "conditions": [
+      {
+       "type": "playerLevel",
+       "optional": false,
+       "level": 47
+      },
+      {
+       "type": "taskStatus",
+       "optional": false,
+       "task": "收藏家",
+       "status": [
+        "complete"
+       ]
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Strength",
+       "skillLevel": 20
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Endurance",
+       "skillLevel": 20
+      },
+      {
+       "type": "skill",
+       "optional": false,
+       "skill": "Charisma",
+       "skillLevel": 20
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "情报中心",
+       "stationLevel": 2
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "安保",
+       "stationLevel": 3
+      },
+      {
+       "type": "hideoutStation",
+       "optional": false,
+       "station": "休息区",
+       "stationLevel": 3
+      },
+      {
+       "type": "haveItem",
+       "optional": false,
+       "items": [
+        "卢布"
+       ],
+       "count": 20000000
+      }
+     ],
+     "rewards": [
+      {
+       "name": "“丫喜欢修勾吗？”海报",
+       "count": 1
+      },
+      {
+       "name": "Gamma 安全箱（巴伦赛加）",
+       "count": 1
+      },
+      {
+       "name": "PMC 硬汉玩偶",
+       "count": 1
+      },
+      {
+       "name": "臂带（转生等级6）",
+       "count": 1
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

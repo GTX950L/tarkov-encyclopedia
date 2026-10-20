@@ -103,6 +103,7 @@ GENERATORS: list[list[str]] = [
     ["scripts/gen_quest_items.py"],       # ② 任务图鉴：物品反查 / 速查（与 ③ 同页，顺序敏感）
     ["scripts/gen_quest_insights.py"],    # ③ 任务图鉴：优先级速查 + 交互数据
     ["scripts/gen_hideout.py"],           # ④ 藏身处材料清单
+    ["scripts/gen_prestige.py"],          # ④b 转生逐档门槛与奖励（读 quests*.json + hideout.json 的译名，故在其后）
     ["scripts/gen_recipes.py"],           # ⑤ 配方数据
     ["scripts/gen_season_planner.py"],    # ⑥ 赛季特质模拟器数据
     ["scripts/gen_progress_manifest.py"], # ⑦ 「我的进度」清单 + 任务图 + 分块明细
