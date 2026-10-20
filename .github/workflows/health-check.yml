@@ -3,13 +3,17 @@ name: 定期巡检
 # 为什么需要它
 # ------------
 # 站点的内容与代码，由 push 时的四道门禁守着（见 deploy-pages.yml 的 validate job）。
-# 但有两件事**不发生在 push 时**，门禁永远看不到：
+# 但有三件事**不发生在 push 时**，门禁永远看不到：
 #
 #   ① **上游数据端点静默变了** —— 站内所有数值表都是 json.tarkov.dev 的快照，
 #      BSG 发了补丁、端点增删了条目，站内缓存不会自己知道（站规：不许自动重抓，
 #      差异要人判断，见 content/docs/roadmap.md）。
 #   ② **线上站点坏了** —— Pages 故障、某个页面 404、search.json 或静态资源被删。
 #      这类问题本地构建全绿，只有真的 curl 线上才发现。
+#   ③ **客户端版本号变了** —— `citation.md` 那行「线上客户端 build」是全站唯一
+#      一个「上游一变就一定过期」的字段（其余版本信息都有韧性：页眉只写月份、
+#      图鉴页写抓取日版本）。2026-10-20 审查实测它就落后了一个版本，而当时
+#      全仓没有任何脚本在看它 —— 所以补了 ②b 这一步。
 #
 # 这个 workflow 每周把「时间维度」的问题捞出来，**用 Issue 提醒，不阻断任何流程**。
 # 它的脚本都是信息性的（check_drift / check-freshness），退出码恒为 0 ——
@@ -66,6 +70,27 @@ jobs:
           python scripts/check-freshness.py >> "$GITHUB_STEP_SUMMARY" || true
           echo '```' >> "$GITHUB_STEP_SUMMARY"
 
+      # ---- ②b 客户端版本（全站唯一一个「上游一变就一定过期」的字段） ----
+      # 2026-10-20 加：审查实测 citation.md 的 build 行已经落后一个版本
+      # （站内 1.2.0.0.47965 / 上游 1.2.5.0.48146），而全仓没有任何脚本在看它。
+      - name: 客户端版本
+        id: version
+        continue-on-error: true
+        run: |
+          python scripts/check_client_version.py --json > version.json
+          cat version.json >> "$GITHUB_STEP_SUMMARY"
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          d = json.load(open("version.json", encoding="utf-8"))
+          print("drift=" + ("true" if d.get("drift") else "false"))
+          print("blank=" + ("false" if d.get("checked") else "true"))
+          if d.get("checked"):
+              print("lines=站内 %s（核对于 %s）→ 上游 %s"
+                    % (d["declared"], d["declared_date"], d["upstream"]))
+          else:
+              print("lines=本次没取到上游版本号")
+          PY
+
       # ---- ③ 线上可用性（本地构建全绿也可能线上是坏的） ----
       - name: 线上页面存活
         id: live
@@ -87,7 +112,7 @@ jobs:
 
       # ---- ④ 有问题才开 Issue（幂等：已有同名开着的不重复开） ----
       - name: 有问题则开 Issue
-        if: steps.drift.outputs.drift == 'true' || steps.drift.outputs.blank == 'true' || steps.live.outputs.bad == '1'
+        if: steps.drift.outputs.drift == 'true' || steps.drift.outputs.blank == 'true' || steps.version.outputs.drift == 'true' || steps.version.outputs.blank == 'true' || steps.live.outputs.bad == '1'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -110,6 +135,17 @@ jobs:
               echo "- 处理流程见 \`content/docs/roadmap.md\`（**不许自动重抓**；重抓前先读 \`content/docs/citation.md\`）"
             else
               echo "- ✓ 未检测到漂移"
+            fi
+            echo
+            echo "### 客户端版本"
+            echo
+            if [ "${{ steps.version.outputs.blank }}" = "true" ]; then
+              echo "- ⚠️ 本次没取到上游版本号 —— 这一项**什么都没验证**，不要读成「版本一致」"
+            elif [ "${{ steps.version.outputs.drift }}" = "true" ]; then
+              echo "- ⚠️ 版本漂移：${{ steps.version.outputs.lines }}"
+              echo "- 处置：改 \`citation.md\` 的 build 行与核对日期，\`llms.txt\` 的版本基准跟着核；先判断该版是否含数值改动（**不含就只改声明，别抬全站基线**）"
+            else
+              echo "- ✓ 版本一致"
             fi
             echo
             echo "### 线上可用性"

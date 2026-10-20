@@ -99,7 +99,26 @@ else:
 # 端点前缀由 api_base() 运行时给出（见 MODE）——**不要**再写死这一个常量。
 # 抓取日：**写盘用**。离线生成时由 generate() 从数据文件里的 fetched 回填，
 # 否则重跑一次页面就会把「抓取日期」改成今天（数据没变、日期却变了）。
-FETCH_DATE = date.today().isoformat()
+def _initial_fetch_date() -> str:
+    """模块级初值 = **数据文件里的抓取日**，不是今天。
+
+    为什么初值就要读文件：`gen_quest_graph` / `gen_progress_manifest` /
+    `gen_quest_insights` 都直接 `import gen_quests` 取这个常量写进自己的产物，
+    而它们**不调用** `generate()` —— 于是拿不到 generate() 里那次回填。
+    2026-10-20 实测：重跑这三支，产物的 `generated` / `baseline` 就从
+    10-19 变成 10-20，工作区必脏；而 `check_gen_drift` 会把日期归一化掉，
+    等于**没有任何检查器在看这件事**。
+
+    `--fetch` 路径不受影响：main() 在抓取前会把它显式设成今天。
+    """
+    try:
+        raw = json.loads(DATA_FILE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return date.today().isoformat()      # 首次抓取前没有文件，只能是今天
+    return raw.get("fetched") or date.today().isoformat()
+
+
+FETCH_DATE = _initial_fetch_date()
 # 站点基线（版本 + 快照月）从 citation.md 读，**不在生成器里硬编码** ——
 # 2026-10-11 那轮漂移就是 7 个生成器各自写死 1.1.5.1 造成的。
 BASELINE = (read_baseline()[0], baseline_label())
@@ -1908,7 +1927,7 @@ def generate() -> None:
 
 
 def main() -> int:
-    global MODE, DATA_ONLY
+    global MODE, DATA_ONLY, FETCH_DATE
     ap = argparse.ArgumentParser(description="任务图鉴数据层与页面生成器")
     ap.add_argument("--fetch", action="store_true", help="先从 json.tarkov.dev 抓取并精简数据")
     ap.add_argument("--mode", choices=["pvp", "pve"], default="pvp",
@@ -1918,6 +1937,8 @@ def main() -> int:
     MODE = args.mode
     DATA_ONLY = (MODE != "pvp")
     if args.fetch:
+        # 抓取日 = 今天。只在真正抓取时把初值顶掉；离线生成一律用数据文件里的 fetched。
+        FETCH_DATE = date.today().isoformat()
         fetch()
     if not data_file().exists():
         print(f"[错误] 找不到 {data_file()}，先跑一次 --fetch --mode {MODE}", file=sys.stderr)

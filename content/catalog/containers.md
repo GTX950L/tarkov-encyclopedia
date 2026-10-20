@@ -40,7 +40,7 @@ tags:
 |---|------|--------|------|----------|----------|--------------|--------------|
 | 1 | <img class="tk-ic" src="../../assets/items/icons/68d55968ca9935b3f10607a9.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 腰包（路易伪登） | `fanny-pack-loui-peeton` | 0.4 千克 | 容量 6 格 | — | — | — |
 | 2 | <img class="tk-ic" src="../../assets/items/icons/5732ee6a24597719ae0c0281.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 腰部安全包 | `waist-pouch` | 0.4 千克 | 容量 6 格 | — | — | — |
-| 3 | <img class="tk-ic" src="../../assets/items/icons/544a11ac4bdc2d470e8b456a.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> Alpha 安全箱 | `secure-container-alpha` | 0.6 千克 | 容量 4 格 | 商人出售 | 1,584,488 卢布，需 Peacekeeper 2 级 | — |
+| 3 | <img class="tk-ic" src="../../assets/items/icons/544a11ac4bdc2d470e8b456a.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> Alpha 安全箱 | `secure-container-alpha` | 0.6 千克 | 容量 4 格 | 商人出售 | 1,582,695 卢布，需 Peacekeeper 2 级 | — |
 | 4 | <img class="tk-ic" src="../../assets/items/icons/5857a8b324597729ab0a0e7d.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> Beta 安全箱 | `secure-container-beta` | 0.8 千克 | 容量 6 格 | 以物换物 | — | — |
 | 5 | <img class="tk-ic" src="../../assets/items/icons/59db794186f77448bc595262.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> Epsilon 安全箱 | `secure-container-epsilon` | 1.1 千克 | 容量 8 格 | — | — | — |
 | 6 | <img class="tk-ic" src="../../assets/items/icons/5857a8bc2459772bad15db29.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> Gamma 安全箱 | `secure-container-gamma` | 1.2 千克 | 容量 9 格 | 制作 | — | — |
@@ -119,7 +119,7 @@ tags:
 | 23 | <img class="tk-ic" src="../../assets/items/icons/5aafbcd986f7745e590fff23.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 医疗物品箱 | `medicine-case` | 6.35 千克 | 容量 64 格 | 商人出售 / 以物换物 | 876,578 卢布，需 Therapist 3 级 | 243,653 卢布（4 家最高） |
 | 24 | <img class="tk-ic" src="../../assets/items/icons/6a997c025aec2a3abc08b152.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 医疗物品箱 | `medicine-case-1` | 6.35 千克 | 容量 64 格 | — | — | — |
 | 25 | <img class="tk-ic" src="../../assets/items/icons/66bc98a01a47be227a5e956e.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 主播物品箱 | `streamer-item-case` | 7 千克 | 容量 88 格 | — | — | — |
-| 26 | <img class="tk-ic" src="../../assets/items/icons/59fb042886f7746c5005a7b2.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 物品箱 | `item-case` | 7 千克 | 容量 64 格 | 商人出售 / 以物换物 | 3,633,158 卢布，需 Therapist 3 级 | 627,296 卢布（4 家最高） |
+| 26 | <img class="tk-ic" src="../../assets/items/icons/59fb042886f7746c5005a7b2.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 物品箱 | `item-case` | 7 千克 | 容量 64 格 | 商人出售 / 以物换物 | 3,631,801 卢布，需 Therapist 3 级 | 627,296 卢布（4 家最高） |
 | 27 | <img class="tk-ic" src="../../assets/items/icons/6a997ccf7343f4360100abe6.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 物品箱 | `item-case-1` | 7 千克 | 容量 64 格 | — | — | — |
 | 28 | <img class="tk-ic" src="../../assets/items/icons/59fb023c86f7746d0d4b423c.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 武器箱 | `weapon-case` | 9 千克 | 容量 50 格 | 以物换物 | — | 557,535 卢布（4 家最高） |
 | 29 | <img class="tk-ic" src="../../assets/items/icons/6a997c6e21aaf68dc6045d88.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 武器箱 | `weapon-case-1` | 9 千克 | 容量 50 格 | — | — | — |

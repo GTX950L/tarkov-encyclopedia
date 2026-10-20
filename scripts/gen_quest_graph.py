@@ -75,7 +75,8 @@ def fetch() -> int:
             obj_n += len(objs)
 
     payload = {
-        "fetched": date.today().isoformat(),
+        # 沿用 gen_quests 的数据快照日（= quests.json 的 fetched），不用 today()。
+        "fetched": g.FETCH_DATE,
         "source": "json.tarkov.dev/regular/tasks（官方数据端点，二级）",
         "gameMode": "regular（持久 PvP）",
         "statusVocab": dict(vocab.most_common()),

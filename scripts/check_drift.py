@@ -97,7 +97,7 @@ ENDPOINTS: list[dict] = [
 
 # 缓存文件里没有、或口径需另写一句的基线
 KNOWN_BASELINE: dict[str, tuple[int, str]] = {
-    "achievements": (127, "content/entries/achievements.md 声明 127 个成就"),
+    "achievements": (128, "content/entries/achievements.md 声明 128 个成就（2026-10-20 补入「灾厄侦探」）"),
     "crafts": (214, "recipes.json -> len(crafts)"),
     "barters": (855, "recipes.json -> len(barters)"),
     "traders": (16, "traders 端点：16 位（含 Ref / BTR Driver / Lightkeeper）"),

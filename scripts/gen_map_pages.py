@@ -34,6 +34,17 @@ DATA_JS = ROOT / "scripts" / "data" / "maps_site.json"
 QUESTS_JSON = ROOT / "scripts" / "data" / "quests.json"
 MAPS_DIR = ROOT / "content" / "maps"
 
+
+def _entry_count() -> int:
+    """条目数**现数**，不写死。
+
+    2026-10-20 踩过：页脚那句原本写死 `88`。加第 89 个条目时改了全部条目页脚，
+    唯独地图页被本生成器重写回 `88` —— 门禁红在「maps/*.md 写的是 88，实际 89」。
+    教训：**写死的数字，改一处就会漏一处**；能现数的就别抄。
+    """
+    entries = ROOT / "content" / "entries"
+    return len([p for p in entries.glob("*.md") if p.name != "index.md"])
+
 # 图 → (中文名, 站内条目, 一句话定性)
 # 「一句话」写的是**这张图用来干什么**，不是地形描述 —— 地形在条目里讲。
 META: dict[str, tuple[str, str, str]] = {
@@ -291,7 +302,7 @@ def page(key: str, data: dict, quests: list[dict]) -> str:
     out.append("")
     out.append("## 📚 所有条目")
     out.append("")
-    out.append("📖 [查看全部 88 个条目](../entries/index.md)")
+    out.append(f"📖 [查看全部 {_entry_count()} 个条目](../entries/index.md)")
     out.append("")
     out.append('⬆️ **[回到顶部](#top)**')
     out.append("")
