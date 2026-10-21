@@ -763,6 +763,73 @@ body:has(#tk-ops) .tk-map__card { display: none; }
   font-size: .58rem; color: var(--tk-ink-2);
 }
 
+/* ===== 作战台：精简版控件（v1.145.2 / 2026-10-21）=====
+   这一批不是新增功能，是把「常驻但低频」的东西收进下拉：
+   筛选 7→4 + 更多、地图视图 5 个按钮、出击清单的复制/清空、日志同步。
+   下拉一律用 <details>（无脚本、键盘可达、点外面不会莫名关闭）。 */
+
+/* 「更多」筛选：summary 长得跟旁边的筛选按钮一样，但要去掉 details 的三角 */
+.tk-ops__moreseg { position: relative; flex: 0 0 auto; width: 3.7rem; }
+.tk-ops__moreseg > summary {
+  display: block; list-style: none; cursor: pointer; text-align: center;
+  text-decoration: none;
+}
+.tk-ops__moreseg > summary::-webkit-details-marker { display: none; }
+.tk-ops__moreseg > summary::marker { content: ""; }
+.tk-ops__moreseg[open] > summary { background: var(--tk-brand-soft); border-color: var(--tk-brand); }
+/* 就地展开，不做浮层（2026-10-21 第二版）：
+   浮层要绝对定位 + 父级 overflow:visible，而地图容器有 overflow 裁切、details
+   的关闭态又无法用 CSS 强制展开验证 —— 与其赌，不如让它把容器撑开一行。 */
+.tk-ops__moreseg[open] { width: 100%; }
+.tk-ops__morebody {
+  display: flex; flex-wrap: wrap; gap: .22rem; padding-top: .24rem;
+}
+.tk-ops__morebody .tk-ops__segb { flex: 1 1 0; text-align: center; }
+/* summary 没有 aria-pressed，用 .is-on 表达「当前筛选就在这一档」 */
+.tk-ops__segb.is-on {
+  background: var(--tk-brand); border-color: var(--tk-brand); color: #fff;
+}
+
+/* 地图工具条的「视图」：缩放 / 重置 / 测距 / 全屏 收在这里 */
+/* 地图工具条的两个下拉（图层 / 视图）。
+   ⚠️ 不能沿用 `.tk-map__seg` 这个 class：它自带 `display:inline-flex; overflow:hidden`，
+   details 套上去之后 summary 会被压成 40px 的空方块、下拉会被 overflow 裁掉
+   （2026-10-21 截图实测）。所以这里另起 `tk-ops__drop`，样式自足、不依赖父容器的裁剪。 */
+body:has(#tk-ops) .tk-ops__drop { position: relative; flex: 0 0 auto; display: inline-block; }
+body:has(#tk-ops) .tk-ops__drop > summary {
+  display: inline-block; white-space: nowrap; cursor: pointer;
+  list-style: none; padding: .18rem .6rem;
+  background: var(--tk-panel); color: var(--tk-ink-2);
+  border: 1px solid var(--tk-line); border-radius: .2rem;
+  font: inherit; font-size: .7rem; line-height: 1.6;
+  /* summary 在部分主题里会继承下划线（截图实测有），这里明确关掉 */
+  text-decoration: none;
+}
+body:has(#tk-ops) .tk-ops__drop > summary::-webkit-details-marker { display: none; }
+body:has(#tk-ops) .tk-ops__drop > summary::marker { content: ""; }
+body:has(#tk-ops) .tk-ops__drop > summary:hover { background: #E7E3DA; }
+body:has(#tk-ops) .tk-ops__drop[open] > summary { background: var(--tk-brand); color: #fff; }
+.tk-ops__viewrow {
+  display: flex; align-items: center; gap: .24rem; flex-wrap: wrap;
+  padding-top: .24rem;
+}
+.tk-ops__drop[open] { flex: 1 1 100%; }
+.tk-ops__viewrow .tk-map__seg { display: flex; gap: .22rem; margin: 0; }
+.tk-ops__viewrow .tk-map__seg button { white-space: nowrap; }
+
+/* 出击清单的 ⋯ 菜单：向上弹出（它在左栏底部） */
+.tk-ops__planmenu { position: relative; flex: 0 0 auto; }
+.tk-ops__planmenu > summary { list-style: none; cursor: pointer; }
+.tk-ops__planmenu > summary::-webkit-details-marker { display: none; }
+.tk-ops__planmenu > summary::marker { content: ""; }
+.tk-ops__planmbody {
+  display: flex; flex-direction: column; gap: .22rem; padding-top: .24rem;
+}
+
+/* 日志同步挪到页面底部：一条细线隔开，不抢左栏位置 */
+.tk-ops__foot { margin: 1.4rem 0 0; padding-top: .7rem; border-top: 1px dashed var(--tk-line); }
+.tk-ops__foot .tk-ops__logs { margin: 0; }
+
 /* ===== 作战台 v2：暗色（2026-10-18）=====
    旧规则里这些控件写死 background:#fff，而 slate 把文字改成了浅色 —
    白底白字实测 1:1。统一改成暗面板，选中态用浅一档的蓝灰。 */
@@ -827,6 +894,16 @@ body:has(#tk-ops) .tk-map__card { display: none; }
 }
 [data-md-color-scheme="slate"] .tk-ops__kflag { color: #D9A94A; border-color: #7A6A3A; }
 [data-md-color-scheme="slate"] .tk-ops__chainhint { color: #D9A94A; }
+
+/* 精简版新增的下拉面板（2026-10-21） */
+/* 下拉改成就地展开后，不再需要暗色背景覆盖（面板自身是透明的） */
+[data-md-color-scheme="slate"] .tk-ops__segb.is-on {
+  background: #4E6280; border-color: #4E6280; color: #F5F4F0;
+}
+[data-md-color-scheme="slate"] .tk-ops__moreseg[open] > summary {
+  background: #38403F; border-color: #9FB0C4;
+}
+[data-md-color-scheme="slate"] .tk-ops__foot { border-color: #4A473F; }
 
 /* 右栏常驻：任务清单一长，读者往下看清单时仍能读到「当前这一票」的目标。
    左栏同理但只吸到视口底（它自己的内容也可能很长）。 */
