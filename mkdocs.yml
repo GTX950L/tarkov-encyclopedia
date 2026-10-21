@@ -310,6 +310,7 @@ nav:
           - 标签分类: tags.md
           - 条目模板: template.md
           - 更新日志: CHANGELOG.md
+          - 更新日志归档: CHANGELOG-archive.md
           - 贡献指南: CONTRIBUTING.md
           - 待收录清单: docs/roadmap.md
       - 第十二篇 · 交互地图:
