@@ -43,8 +43,10 @@
     mode: "pve",
     map: "customs",
     q: "",
-    filter: "open",      // open | ready | all | inhand | done | ignored | pinned
-    scope: "map",        // map | all
+    /* 2026-10-21 精简：filter 从 7 档收到 4 档（open/ready/done/all），
+       inhand/pinned/ignored 收进「更多」——它们加起来只占实测量的 3%。
+       scope 两档（仅本图/全站）直接删掉：规则改成「有搜索词就跨图」。 */
+    filter: "open",      // open | ready | done | all | inhand | pinned | ignored
     selQ: null,
     selO: null,
     row: 0,              // 键盘当前行
@@ -419,25 +421,8 @@
     box.appendChild(el("span", "tk-ops__bmeta",
       "未完成 " + s.open + " · 可接 " + s.ready + " · 手上 " + s.inhand
       + " · 已完成 " + pct + "%" + " · 钥匙 " + s.keys + " 把"));
-    var go = el("button", "tk-ops__cta", "进入这一局");
-    go.type = "button";
-    go.title = "跳到这张图第一条还没做完的活";
-    go.addEventListener("click", function () {
-      var rows = visibleTasks();
-      for (var i = 0; i < rows.length; i++) {
-        if (rows[i].st !== "done" && rows[i].st !== "ignored") {
-          S.row = i;
-          focusTask(rows[i].qid, null);
-          renderRightBody();
-          /* 「进入这一局」= 选中第一条 + 把清单滚进视野。只选中不滚动的话，
-             读者点完什么也看不见（清单在第一屏之下）。 */
-          var tb = document.getElementById("tk-ops-tasks");
-          if (tb && tb.scrollIntoView) tb.scrollIntoView({ block: "start", behavior: "smooth" });
-          return;
-        }
-      }
-    });
-    box.appendChild(go);
+    /* 「进入这一局」删掉（2026-10-21）：它做的就是「选中第一条未完成的票」，
+       与直接点列表第一行完全等价 —— 一个纯仪式按钮，占着简报条最显眼的位置。 */
   }
 
   function buildPlan() {
@@ -453,7 +438,8 @@
     }
     box.appendChild(head);
     if (!ids.length) {
-      box.appendChild(el("p", "tk-ops__muted", "中栏任务右侧点「＋出击」把这一局要做的攒起来"));
+      box.appendChild(el("p", "tk-ops__muted",
+        "双击中栏的任务，把这一局要做的票攒起来（详情卡里也有「加入出击」）"));
       return box;
     }
     var show = S.planAll ? ids : ids.slice(0, 3);
@@ -475,12 +461,17 @@
     var bar = el("div", "tk-ops__planbar");
     var go = el("button", "tk-ops__plango", "带这 " + ids.length + " 票进图 · 钥匙 " + keys + " 把");
     go.type = "button";
+    go.title = "选中清单里第一条（不会真的进游戏）";
     go.addEventListener("click", function () {
       var first = ids[0];
       if (first) { focusTask(first, null); renderRightBody(); }
     });
     bar.appendChild(go);
-    var cp = el("button", "tk-ops__chip", "复制");
+    /* 「复制 / 清空」收进 ⋯（2026-10-21）：两个低频动作原来各占一个按钮位置。 */
+    var menu = el("details", "tk-ops__planmenu");
+    menu.appendChild(el("summary", "tk-ops__chip", "⋯"));
+    var mbody = el("div", "tk-ops__planmbody");
+    var cp = el("button", "tk-ops__chip", "复制清单");
     cp.type = "button";
     cp.title = "复制任务名与钥匙数";
     cp.addEventListener("click", function () {
@@ -490,13 +481,15 @@
       }).join("\n");
       if (navigator.clipboard) navigator.clipboard.writeText(txt);
       cp.textContent = "已复制";
-      setTimeout(function () { cp.textContent = "复制"; }, 1200);
+      setTimeout(function () { cp.textContent = "复制清单"; }, 1200);
     });
     var cl = el("button", "tk-ops__chip", "清空");
     cl.type = "button";
     cl.addEventListener("click", function () { S.plan = {}; paint(); });
-    bar.appendChild(cp);
-    bar.appendChild(cl);
+    mbody.appendChild(cp);
+    mbody.appendChild(cl);
+    menu.appendChild(mbody);
+    bar.appendChild(menu);
     box.appendChild(bar);
     return box;
   }
@@ -508,7 +501,11 @@
     for (var qid in S.idx.tasks) {
       var t = taskOf(qid);
       if (!t) continue;
-      if (S.scope === "map" && (t.ms || []).indexOf(S.map) < 0) continue;
+      /* 图过滤（2026-10-21 合并了原来的「仅本图 / 全站」两档）：
+         没有搜索词 = 只看本图；一旦开始搜，就自动跨图 —— 读者真正需要跨图的
+         场合只有「我记得有这一票，它在哪张图上」。 */
+      var inMap = (t.ms || []).indexOf(S.map) >= 0;
+      if (!inMap && !S.q) continue;
       if (S.q) {
         var hay = (t.name + " " + (t.en || "") + " " + (t.oids || []).join(" ")).toLowerCase();
         if (hay.indexOf(S.q.toLowerCase()) < 0) continue;
@@ -570,7 +567,7 @@
     if (S.tasksOpen === false) return;
     if (!rows.length) {
       box.appendChild(el("p", "tk-ops__muted",
-        S.q ? "没搜到。把范围切到「全站」再试。" : "这张图上没有符合条件的活。"));
+        S.q ? "没搜到。换个词试试 —— 搜索会自动跨图。" : "这张图上没有符合条件的活。"));
       return;
     }
     var LIMIT = 20;
@@ -594,10 +591,10 @@
          它不是「状态」，是这条任务属于哪条终局线 —— 与 done/inhand 不是同一维度。 */
       if (t.flags === "k") head2.appendChild(el("span", "tk-ops__kflag", "Kappa"));
       else if (t.flags === "l") head2.appendChild(el("span", "tk-ops__kflag", "LK"));
-      /* 可接 / 锁在哪：只对「还没做完、也没忽略」的票显示 —— 已完成的票再标「可接」是噪音。 */
+      /* 只标「锁住」的，不标「可接」—— 80 票里 58 票都可接，全标等于没标（2026-10-21）。
+         想知道「哪些能接」用筛选里的「可接」，那是主动查询，不是常驻噪音。 */
       if (r.st !== "done" && r.st !== "ignored" && r.g) {
-        if (r.g.ok) head2.appendChild(el("span", "tk-ops__ready", "可接"));
-        else if (r.g.lvShort) head2.appendChild(el("span", "tk-ops__locked", "需 Lv " + t.level));
+        if (r.g.lvShort) head2.appendChild(el("span", "tk-ops__locked", "需 Lv " + t.level));
         else if (r.g.miss.length) head2.appendChild(el("span", "tk-ops__locked", "缺前置 " + r.g.miss.length));
       }
       if (r.qid in S.plan) head2.appendChild(el("span", "tk-ops__planned", "出击"));
@@ -609,27 +606,16 @@
       if (t.keys) bits.push("钥匙 " + t.keys + " 把");
       if (t.trader) bits.push(t.trader);
       if (t.level) bits.push("Lv " + t.level);
+      /* 搜索会跨图：不标一下，读者会以为这张图上真有这票。 */
+      if ((t.ms || []).indexOf(S.map) < 0) bits.push("不在本图");
       var meta = el("div", "tk-ops__rowmeta", bits.join(" · "));
       body.appendChild(meta);
       row.appendChild(body);
 
-      var acts = el("div", "tk-ops__rowacts");
-      var loc = el("button", "tk-ops__mini", "定位");
-      loc.type = "button";
-      loc.title = "在图上定位这条任务";
-      loc.addEventListener("click", function (e) { e.stopPropagation(); focusTask(r.qid, null); });
-      var add = el("button", "tk-ops__mini" + (r.qid in S.plan ? " is-on" : ""),
-        r.qid in S.plan ? "已加入" : "＋出击");
-      add.type = "button";
-      add.title = "加入 / 移出出击清单";
-      add.addEventListener("click", function (e) {
-        e.stopPropagation();
-        if (S.plan[r.qid]) delete S.plan[r.qid]; else S.plan[r.qid] = true;
-        paint();
-      });
-      acts.appendChild(loc);
-      acts.appendChild(add);
-      row.appendChild(acts);
+      /* 行内不再放「定位 / ＋出击」两个按钮（2026-10-21）：
+         定位 = 点整行，出击 = 双击（详情卡里也有一份）。20 行 × 2 个按钮是首屏
+         噪声的最大来源，实测占全部按钮的 28%。 */
+      row.title = "单击：定位到图上 · 双击：加入 / 移出出击清单";
 
       row.addEventListener("click", function () {
         S.row = i;
@@ -638,6 +624,11 @@
         selectOnMap(r.qid);
         highlight();
         renderRightBody();
+      });
+      row.addEventListener("dblclick", function (e) {
+        e.preventDefault();
+        if (S.plan[r.qid]) delete S.plan[r.qid]; else S.plan[r.qid] = true;
+        paint();
       });
       box.appendChild(row);
     });
@@ -711,7 +702,6 @@
     var p = [];
     p.push("map=" + encodeURIComponent(S.map));
     p.push("mode=" + encodeURIComponent(S.mode));
-    if (S.scope === "all") p.push("scope=all");
     if (S.filter !== "open") p.push("f=" + S.filter);
     if (S.q) p.push("q=" + encodeURIComponent(S.q));
     if (S.selQ) p.push("sel=" + S.selQ);
@@ -722,7 +712,6 @@
     var q = new URLSearchParams(location.search);
     if (q.get("map")) S.map = q.get("map");
     if (q.get("mode")) S.mode = q.get("mode");
-    if (q.get("scope") === "all") S.scope = "all";
     if (q.get("f")) S.filter = q.get("f");
     if (q.get("q")) S.q = q.get("q");
     if (q.get("sel")) S.selQ = q.get("sel");
@@ -976,6 +965,22 @@
     return logBoxEl;
   }
 
+  /* 日志同步的落点：`#tk-ops` 末尾、帮助折叠块之前（2026-10-21）。
+     logBoxEl 是单例，appendChild 只是把它从旧位置搬到新位置，节点状态不丢。 */
+  function mountFooterLog() {
+    var host = document.getElementById(HOST);
+    if (!host) return;
+    var foot = document.getElementById("tk-ops-foot");
+    if (!foot) {
+      foot = el("div", "tk-ops__foot");
+      foot.id = "tk-ops-foot";
+      var help = document.getElementById("tk-ops-help");
+      if (help && help.parentNode === host) host.insertBefore(foot, help);
+      else host.appendChild(foot);
+    }
+    foot.appendChild(opsLogBox());
+  }
+
   /* ------------------------------------------------------------ 组装 */
   /* 组装：左（地图/清单）、中（汇总带 + 地图 + 任务清单）、右（搜索/筛选 + 当前任务）。 */
   /* 地图工具条去重（只在本页）：任务筛选/任务搜索与右栏重复 → 删；
@@ -983,6 +988,12 @@
      ⚠️ 只动 DOM、不改 map.js 逻辑：换图时 map.js 会重建工具条，
         所以每次 mount 之后都调用一次（dataset 判重防重复包）。 */
   function compactMapBar() {
+    /* ① 地图自带的任务清单面板在本页隐藏（2026-10-21）。
+       中栏已经有一份任务清单（80 票），面板里还有一份「这张图上的任务 · 31 个」
+       —— 两套清单口径不同（任务 vs 任务区域），并列只会让人不知道该信哪个。
+       地图页不受影响：这个函数只由 ops-board.js 调用。 */
+    var panel = document.querySelector("#tk-map .tk-map__panel");
+    if (panel) panel.hidden = true;
     var bar = document.querySelector("#tk-map .tk-map__bar");
     if (!bar || bar.dataset.tkCompact === "1") return;
     bar.dataset.tkCompact = "1";
@@ -991,7 +1002,7 @@
       if (!seg.classList || !seg.classList.contains("tk-map__seg")) return;
       if (seg.querySelector("[data-tk-layer]")) {
         seg.dataset.tkLayersMoved = "1";
-        var box = el("details", "tk-map__seg tk-ops__layerbox");
+        var box = el("details", "tk-ops__drop tk-ops__layerbox");
         box.appendChild(el("summary", "tk-map__btn", "图层"));
         var row = el("span", "tk-ops__layerrow");
         row.appendChild(seg);
@@ -1000,6 +1011,18 @@
         return;
       }
       var t = seg.textContent || "";
+      /* ② 缩放 / 重置 / 测距 / 全屏 收进「视图」（2026-10-21）：
+         滚轮与拖拽已经覆盖缩放平移，测距与全屏一个月用不到一次，
+         但它们常驻占着工具条一整段。楼层与图层不在此列 —— 那是选图必看的东西。 */
+      if (t.indexOf("放大") >= 0 && t.indexOf("缩小") >= 0) {
+        var vbox = el("details", "tk-ops__drop tk-ops__viewbox");
+        vbox.appendChild(el("summary", "tk-map__btn", "视图"));
+        var vrow = el("span", "tk-ops__viewrow");
+        vrow.appendChild(seg);
+        vbox.appendChild(vrow);
+        bar.appendChild(vbox);
+        return;
+      }
       if (t.indexOf("全部任务") >= 0 || seg.classList.contains("tk-map__seg--search")) {
         seg.remove();
       }
@@ -1042,7 +1065,9 @@
     left.appendChild(buildMapList());
     renderMapRows();   /* buildMapList 里的首绘发生在入 DOM 之前，这里补一次 */
     left.appendChild(buildPlan());
-    left.appendChild(opsLogBox());
+    /* 日志同步从「左栏底部」挪到「页面底部」（2026-10-21）：它是一次性设置，
+       原来占着左栏最黄金的位置，每次选图都要滚过它。 */
+    mountFooterLog();
 
     var brief = document.getElementById("tk-ops-briefbar");
     if (brief) buildBriefBar(brief);
@@ -1067,8 +1092,10 @@
     right.textContent = "";
     right.appendChild(search);
     var seg = el("div", "tk-ops__seg");
-    [["open", "未完成"], ["ready", "可接"], ["inhand", "进行中"], ["pinned", "钉住"],
-     ["done", "已完成"], ["ignored", "已忽略"], ["all", "全部"]]
+    /* 常驻 4 档（2026-10-21）：未完成 / 可接 / 已完成 / 全部。
+       原来 7 档平铺，其中「进行中」是「未完成」的子集、「钉住」「已忽略」是
+       读者自己标的极少数票 —— 三档合计不到 3%，却各占一个按钮的位置。 */
+    [["open", "未完成"], ["ready", "可接"], ["done", "已完成"], ["all", "全部"]]
       .forEach(function (p) {
         var b = el("button", "tk-ops__segb", p[1]);
         b.type = "button";
@@ -1084,16 +1111,31 @@
         });
         seg.appendChild(b);
       });
-    right.appendChild(seg);
-    var sc = el("div", "tk-ops__scope");
-    [["map", "仅本图"], ["all", "全站"]].forEach(function (p) {
-      var b = el("button", "tk-ops__segb", p[1]);
+    /* 「更多」：进行中 / 钉住 / 已忽略。当前若正处在这三档之一，summary 直接显示
+       那一档的名字 —— 否则读者会以为自己在「未完成」，实际在看「已忽略」。 */
+    var LOW = [["inhand", "进行中"], ["pinned", "钉住"], ["ignored", "已忽略"]];
+    var curLow = LOW.filter(function (p) { return p[0] === S.filter; })[0];
+    var more = el("details", "tk-ops__moreseg");
+    more.appendChild(el("summary", "tk-ops__segb" + (curLow ? " is-on" : ""),
+      curLow ? curLow[1] : "更多"));
+    var mbody = el("div", "tk-ops__morebody");
+    LOW.forEach(function (p) {
+      var b = el("button", "tk-ops__segb" + (p[0] === S.filter ? " is-on" : ""), p[1]);
       b.type = "button";
-      b.setAttribute("aria-pressed", p[0] === S.scope ? "true" : "false");
-      b.addEventListener("click", function () { S.scope = p[0]; paint(); syncUrl(); });
-      sc.appendChild(b);
+      b.addEventListener("click", function () {
+        S.filter = p[0];
+        paint();
+        syncUrl();
+        var tb = document.getElementById("tk-ops-tasks");
+        if (tb && tb.scrollIntoView) tb.scrollIntoView({ block: "start", behavior: "smooth" });
+      });
+      mbody.appendChild(b);
     });
-    right.appendChild(sc);
+    more.appendChild(mbody);
+    seg.appendChild(more);
+    right.appendChild(seg);
+    /* 「仅本图 / 全站」两档删掉（2026-10-21）：规则改成「有搜索词就跨图」，
+       见 visibleTasks()。少两个常驻按钮，而跨图这件事只在该搜的时候才发生。 */
 
     /* 「我的等级」（2026-10-21）：填了才判「等级够不够」，不填一律算够。
        只存在本机（localStorage），不上传、不进 URL —— 它是个人状态，不是分享态。
@@ -1356,9 +1398,8 @@
     box.appendChild(objs);
 
     var acts = el("div", "tk-ops__dacts");
-    var loc = el("button", "tk-ops__chip", "地图定位");
-    loc.type = "button";
-    loc.addEventListener("click", function () { focusTask(qid, null); });
+    /* 「地图定位」删掉（2026-10-21）：点中栏那一行就已经定位了，详情卡里再放一个
+       是同一动作的第二个入口。保留两个真正有副作用的：加入出击、标完成。 */
     var add = el("button", "tk-ops__chip", qid in S.plan ? "移出出击" : "加入出击");
     add.type = "button";
     add.addEventListener("click", function () {
@@ -1368,7 +1409,6 @@
     var tg = el("button", "tk-ops__chip", st === "done" ? "标为未完成" : "标为已完成");
     tg.type = "button";
     tg.addEventListener("click", function () { setState(qid, st === "done" ? "" : "done"); });
-    acts.appendChild(loc);
     acts.appendChild(add);
     acts.appendChild(tg);
     box.appendChild(acts);
@@ -1379,7 +1419,7 @@
     var detail = document.getElementById("tk-ops-detail");
     if (jumpBox) {
       jumpBox.textContent = "";
-      if (S.q && S.scope === "map") {
+      if (S.q) {
         var hit = findCallout(S.q, S.map);
         if (hit) {
           var jump = el("button", "tk-ops__jump");
