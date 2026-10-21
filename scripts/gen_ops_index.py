@@ -5,14 +5,18 @@
 ------------------------------------------
 那份是给「任务树 + 可接判定」用的：前置边、门槛 gates、页内链接锚点。
 作战台的右栏只要「这张图上有哪些活、每条做什么、目标到第几个、缺什么」，
-前置与门槛用不上。为了它再抓一份 quest-graph（PvE 的 edges/objectives）
-是多余的活，所以这里直接读已经有的精简任务文件，**只取右栏真正要用的列**。
+前置与门槛原来用不上 —— 但 2026-10-21 的改版把它用上了（v1.145.0）：
+「这一票为什么还接不了」是选任务时最常问的一句，所以索引补了 **pr（前置）** 一列。
+只补 id、不补状态说明：状态是四种（完成 / 进行中 / 失败 / 二者皆可），
+前端只按「必须完成」判，其余三种不进 pr（口径写在 build() 里）。
 
-体积：PvE 500 条约 60 KB（vs quests-graph 的 75 KB），且不引入新依赖。
+体积：PvE 500 条约 60 KB（vs quests-graph 的 75 KB），加 pr 后约 65 KB。
 
-⚠️ **flags（Kappa / Lightkeeper）从 PvP 的 quest-graph.json 继承**：那两条线
-   是**同一套任务**（477 条共有任务里绝大多数 Kappa 任务都在两边），上游没给
-   PvE 专属的标记。查不到的（PvE 专属的 23 条）就没有 flags，不编。
+⚠️ **flags（Kappa / Lightkeeper）改从任务自身取**（2026-10-21）：
+   旧实现读 quest-graph.json 的 `nodes`，而那份文件**根本没有 nodes 键**
+   （只有 edges / objectives）—— 于是 flags 一直是空串，前端也从没显示过。
+   现在直接读 quests_{mode}.json 的 `kappa` / `lightkeeper` 布尔字段
+   （PvP 13 条 Kappa、PvE 13 条，Lightkeeper 当前 0 条）。
 
 产物：content/javascripts/ops-index-<mode>.js
 """
@@ -31,20 +35,53 @@ from _map_links import task_map_keys  # noqa: E402
 OUT_DIR = ROOT / "content" / "javascripts"
 # 列顺序写在这里，客户端按下标读 —— 紧凑格式的代价就是这一句必须准确。
 # otxt 紧跟 oids：两者**同序等长**，前端按下标配对。
-COLS = ["name", "en", "trader", "level", "ms", "oids", "otxt", "nObj", "keys", "flags"]
+# pr 放最后：新增列只追加、不插队，旧前端读到 undefined 时当作「无前置」，
+# 不会因为下标前移而把钥匙数当成前置列表。
+COLS = ["name", "en", "trader", "level", "ms", "oids", "otxt", "nObj", "keys", "flags", "pr"]
 
 
-def load_flags() -> dict[str, str]:
-    """从 PvP 的 quest-graph.json 借 flags（Kappa=k / Lightkeeper=l）。"""
-    src = ROOT / "scripts" / "data" / "quest-graph.json"
-    out: dict[str, str] = {}
-    if not src.exists():
-        return out
-    raw = json.loads(src.read_text(encoding="utf-8"))
-    for qid, node in (raw.get("nodes") or {}).items():
-        if isinstance(node, list) and len(node) > 4 and node[4]:
-            out[qid] = node[4]
+def load_prereqs(tasks: list[dict]) -> dict[str, list[str]]:
+    """任务前置 → {qid: [前置 id, …]}，**只收「必须完成」那一档**。
+
+    口径（2026-10-21 实测 222 条边）：
+      · status 为空 —— 195 条，必须完成 → 收；
+      · 「只要处于进行中」12 条 / 「只要求失败过」2 条 / 「完成或失败皆可」3 条 /
+        「完成或进行中」10 条 —— 不是「完成才算」，一律不收。
+    不把这些混进 pr，是为了让前端的「缺前置 N 个」只反映**真的没做完**，
+    而不是把「先接取即可」也报成缺。
+
+    ⚠️ prereqs 里只给 `name` + `trader`，**没有 id**；而且 trader 是首字母大写
+       （`Mechanic`），任务表里是小写（`mechanic`）—— 拿 (name, trader) 当键会**全 miss**
+       （2026-10-21 实测 0/222 命中）。这里只按 name 建索引：503 条任务里没有重名，
+       命中率 195/195。
+    """
+    by_name: dict[str, str] = {}
+    for t in tasks:
+        nm = (t.get("name") or "").strip()
+        if nm:
+            by_name.setdefault(nm, t["id"])
+
+    out: dict[str, list[str]] = {}
+    for t in tasks:
+        pres: list[str] = []
+        for p in (t.get("prereqs") or []):
+            if (p.get("status") or "").strip():
+                continue
+            pid = by_name.get((p.get("name") or "").strip())
+            if pid:
+                pres.append(pid)
+        if pres:
+            out[t["id"]] = pres
     return out
+
+
+def flag_of(t: dict) -> str:
+    """Kappa=k / Lightkeeper=l（两者都有的极端情况取 k，前端只画一个角标）。"""
+    if t.get("kappa"):
+        return "k"
+    if t.get("lightkeeper"):
+        return "l"
+    return ""
 
 
 def build(mode: str) -> int:
@@ -56,7 +93,7 @@ def build(mode: str) -> int:
             return 1
     payload = json.loads(src.read_text(encoding="utf-8"))
     tasks = payload.get("tasks") or []
-    flags = load_flags()
+    pres = load_prereqs(tasks)
 
     nodes: dict[str, list] = {}
     for t in tasks:
@@ -80,7 +117,8 @@ def build(mode: str) -> int:
             otxt,
             len(objs),
             len(t.get("keys") or []),
-            flags.get(t["id"], ""),
+            flag_of(t),
+            pres.get(t["id"], []),
         ]
 
     body = json.dumps({
@@ -96,8 +134,9 @@ def build(mode: str) -> int:
         "/* 由 scripts/gen_ops_index.py 生成，请勿手工编辑。\n"
         f"   作战台任务索引 · {mode} ｜ 列：{' / '.join(COLS)}\n"
         f"   站点基线：{baseline_label()} ｜ 数据来源：json.tarkov.dev/{mode}/tasks\n"
-        "   flags 列（Kappa=k / Lightkeeper=l）继承自 PvP 的 quest-graph.json ——\n"
-        "   上游未给 PvE 专属标记，PvE 独占的 23 条没有 flags，留空不编。 */\n"
+        "   flags 列（Kappa=k / Lightkeeper=l）取自任务自身的 kappa / lightkeeper 字段；\n"
+        "   pr 列是「必须完成」类前置的任务 id —— 上游 prereqs 里 status 为空的那一批，\n"
+        "   另有 27 条「进行中 / 失败」类特殊条件**不进这一列**（口径见脚本 docstring）。 */\n"
     )
     out = OUT_DIR / f"ops-index-{mode}.js"
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -130,6 +169,9 @@ def build(mode: str) -> int:
         encoding="utf-8", newline="\n")
     lite_size = lite_out.stat().st_size / 1024
     print(f"已写 {out.relative_to(ROOT)}（{size:.0f} KB，{len(nodes)} 个任务）")
+    print(f"  其中带前置的 {len(pres)} 条（前置 id 共 {sum(len(v) for v in pres.values())} 个）"
+          f"、带 Kappa/Lightkeeper 标记的 "
+          f"{sum(1 for n in nodes.values() if n[9])} 条")
     print(f"已写 {lite_out.relative_to(ROOT)}（{lite_size:.0f} KB，{len(lite)} 条" 
           f"带地图的任务）")
     return 0

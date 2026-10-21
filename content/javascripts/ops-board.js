@@ -37,13 +37,13 @@
     ["season", "赛季 PvP", "赛季模式：任务库与 PvP 相同，进度独立分轨"],
     ["pvp", "PvP", "持久 PvP：504 条标准任务"],
   ];
-  var COLS = ["name", "en", "trader", "level", "ms", "oids", "otxt", "nObj", "keys", "flags"];
+  var COLS = ["name", "en", "trader", "level", "ms", "oids", "otxt", "nObj", "keys", "flags", "pr"];
 
   var S = {
     mode: "pve",
     map: "customs",
     q: "",
-    filter: "open",      // open | all | inhand | done
+    filter: "open",      // open | ready | all | inhand | done | ignored | pinned
     scope: "map",        // map | all
     selQ: null,
     selO: null,
@@ -55,6 +55,7 @@
     planAll: false,      // 出击清单是否全展开
     tasksOpen: true,     // 中栏任务清单是否展开
     tasksAll: false,     // 任务清单是否展开到全部（默认 20 行）
+    lv: 0,               // 「我的等级」：0 = 不限，用于可接判定（存 localStorage）
     base: null,          // 进度账本
   };
 
@@ -203,6 +204,66 @@
     paint();
   }
 
+  /* ---------------------------------------------------------- 可接判定 */
+  /* 一个任务「现在能不能接」只由两件事决定：等级够不够、必须完成的前置做完没有。
+     其余条件（商人声望、藏身处等级、otherReqs 的特殊状态）上游虽然有字段，
+     但口径太碎且随版本变，作战台**不算** —— 判据写在这里，免得下次有人以为算了。
+     S.lv 为 0 表示「不限」：没填等级时，等级一项一律算通过。 */
+  var NEXT = null;              // qid → [把它当前置的任务]，惰性建、切模式清
+  function gate(qid) {
+    var t = taskOf(qid);
+    if (!t) return { ok: false, miss: [], unknown: [], lvShort: false };
+    var miss = [], unknown = [];
+    (t.pr || []).forEach(function (p) {
+      if (!S.idx || !S.idx.tasks || !S.idx.tasks[p]) { unknown.push(p); return; }
+      if (stateOf(p) !== "done") miss.push(p);
+    });
+    var lvShort = !!(S.lv && t.level && S.lv < t.level);
+    return { ok: !lvShort && !miss.length, miss: miss, unknown: unknown, lvShort: lvShort };
+  }
+  function nextOf(qid) {
+    if (!NEXT) {
+      NEXT = {};
+      if (S.idx && S.idx.tasks) {
+        for (var k in S.idx.tasks) {
+          var t = taskOf(k);
+          (t.pr || []).forEach(function (p) { (NEXT[p] = NEXT[p] || []).push(k); });
+        }
+      }
+    }
+    return NEXT[qid] || [];
+  }
+
+  /* 「我的等级」：只存在本机，用来把「等级不够」从「前置没做」里分出来。
+     不填 = 不限（0），避免默认值把一堆任务误标成锁住。 */
+  var LV_KEY = "tk.ops.lv";
+  function loadLv() {
+    try {
+      var v = parseInt(window.localStorage.getItem(LV_KEY) || "0", 10);
+      return isFinite(v) && v > 0 ? v : 0;
+    } catch (e) { return 0; }
+  }
+  function saveLv(v) {
+    try {
+      if (v > 0) window.localStorage.setItem(LV_KEY, String(v));
+      else window.localStorage.removeItem(LV_KEY);
+    } catch (e) { /* 隐私模式下 localStorage 会抛 —— 不阻断作战 */ }
+  }
+
+  /* 跳到另一张图上的任务：前置链跨图是常态（海关的票常挂在森林/街区上），
+     不能只在本图里找，否则「缺前置」点进去是一片空白。 */
+  function gotoTask(qid) {
+    var t = taskOf(qid);
+    if (!t) return;
+    var ms = t.ms || [];
+    if (ms.length && ms.indexOf(S.map) < 0) { S.map = ms[0]; remountMap(); }
+    S.selQ = qid; S.selO = null;
+    paint();
+    selectOnMap(qid);
+    highlight();
+    syncUrl();
+  }
+
   /* ------------------------------------------------------------ 左栏：模式 */
   function buildModeSeg() {
     var box = el("div", "tk-ops__modes");
@@ -223,6 +284,7 @@
     if (mode === S.mode) return;
     S.mode = mode;
     S.selQ = null; S.selO = null;
+    NEXT = null;              // 任务库换了，后续索引必须重建
     /* 赛季与 PvP 共用任务库 —— 上游没有赛季端点（实测 404），如实说明。 */
     loadScript("ops-index-" + (mode === "season" ? "pvp" : mode) + ".js",
       "TARKOV_OPS_INDEX_" + mode.toUpperCase(), function () {
@@ -331,7 +393,7 @@
   /* ------------------------------------------------------------ 出击清单 */
   function planIds() { return Object.keys(S.plan); }
   function mapStats() {
-    var out = { total: 0, open: 0, inhand: 0, done: 0, ignored: 0, keys: 0 };
+    var out = { total: 0, open: 0, ready: 0, inhand: 0, done: 0, ignored: 0, keys: 0 };
     if (!S.idx || !S.idx.tasks) return out;
     for (var qid in S.idx.tasks) {
       var t = taskOf(qid);
@@ -341,7 +403,7 @@
       if (st === "done") out.done++;
       else if (st === "inhand") { out.inhand++; out.open++; }
       else if (st === "ignored") out.ignored++;
-      else out.open++;
+      else { out.open++; if (gate(qid).ok) out.ready++; }
       out.keys += (t.keys || 0);
     }
     return out;
@@ -355,8 +417,8 @@
     box.appendChild(el("b", "tk-ops__bname", name));
     var pct = s.total ? Math.round(s.done / s.total * 100) : 0;
     box.appendChild(el("span", "tk-ops__bmeta",
-      "未完成 " + s.open + " · 手上 " + s.inhand + " · 已完成 " + pct + "%"
-      + " · 钥匙 " + s.keys + " 把"));
+      "未完成 " + s.open + " · 可接 " + s.ready + " · 手上 " + s.inhand
+      + " · 已完成 " + pct + "%" + " · 钥匙 " + s.keys + " 把"));
     var go = el("button", "tk-ops__cta", "进入这一局");
     go.type = "button";
     go.title = "跳到这张图第一条还没做完的活";
@@ -367,6 +429,10 @@
           S.row = i;
           focusTask(rows[i].qid, null);
           renderRightBody();
+          /* 「进入这一局」= 选中第一条 + 把清单滚进视野。只选中不滚动的话，
+             读者点完什么也看不见（清单在第一屏之下）。 */
+          var tb = document.getElementById("tk-ops-tasks");
+          if (tb && tb.scrollIntoView) tb.scrollIntoView({ block: "start", behavior: "smooth" });
           return;
         }
       }
@@ -448,18 +514,25 @@
         if (hay.indexOf(S.q.toLowerCase()) < 0) continue;
       }
       var st = stateOf(qid);
-      /* 「未完成」= 还没做完、且我没说「这赛季不做」。忽略的单独一档。 */
+      /* 「未完成」= 还没做完、且我没说「这赛季不做」。忽略的单独一档。
+         「可接」= 未完成 + 等级够 + 必须完成的前置都做完了（gate 只判这两项）。 */
       if (S.filter === "open" && (st === "done" || st === "ignored")) continue;
       if (S.filter === "inhand" && st !== "inhand") continue;
       if (S.filter === "done" && st !== "done") continue;
       if (S.filter === "ignored" && st !== "ignored") continue;
       if (S.filter === "pinned" && !isPinned(qid)) continue;
-      out.push({ qid: qid, t: t, st: st, pinned: isPinned(qid) });
+      var g = gate(qid);
+      if (S.filter === "ready" && (st === "done" || st === "ignored" || !g.ok)) continue;
+      out.push({ qid: qid, t: t, st: st, pinned: isPinned(qid), g: g });
     }
     out.sort(function (a, b) {
-      /* 进行中最前，其次钉住，其余按目标数；同名按中文序，保证稳定 */
+      /* 进行中最前，其次钉住，再其次「现在就能接」，其余按目标数；
+         同名按中文序，保证稳定 */
       var rank = function (x) {
-        return x.st === "inhand" ? 0 : (x.pinned ? 1 : 2);
+        if (x.st === "inhand") return 0;
+        if (x.pinned) return 1;
+        if (x.g && x.g.ok) return 2;
+        return 3;
       };
       var d = rank(a) - rank(b);
       if (d) return d;
@@ -517,6 +590,16 @@
         ST_TXT[r.st] || "未标记"));
       if (r.pinned) head2.appendChild(el("span", "tk-ops__pin", "★"));
       head2.appendChild(el("b", "tk-ops__rowname", t.name || "（无中文名）"));
+      /* Kappa / Lightkeeper 角标：数据列一直有，但前端从没画过（2026-10-21 补上）。
+         它不是「状态」，是这条任务属于哪条终局线 —— 与 done/inhand 不是同一维度。 */
+      if (t.flags === "k") head2.appendChild(el("span", "tk-ops__kflag", "Kappa"));
+      else if (t.flags === "l") head2.appendChild(el("span", "tk-ops__kflag", "LK"));
+      /* 可接 / 锁在哪：只对「还没做完、也没忽略」的票显示 —— 已完成的票再标「可接」是噪音。 */
+      if (r.st !== "done" && r.st !== "ignored" && r.g) {
+        if (r.g.ok) head2.appendChild(el("span", "tk-ops__ready", "可接"));
+        else if (r.g.lvShort) head2.appendChild(el("span", "tk-ops__locked", "需 Lv " + t.level));
+        else if (r.g.miss.length) head2.appendChild(el("span", "tk-ops__locked", "缺前置 " + r.g.miss.length));
+      }
       if (r.qid in S.plan) head2.appendChild(el("span", "tk-ops__planned", "出击"));
       body.appendChild(head2);
 
@@ -984,13 +1067,21 @@
     right.textContent = "";
     right.appendChild(search);
     var seg = el("div", "tk-ops__seg");
-    [["open", "未完成"], ["inhand", "进行中"], ["pinned", "钉住"],
+    [["open", "未完成"], ["ready", "可接"], ["inhand", "进行中"], ["pinned", "钉住"],
      ["done", "已完成"], ["ignored", "已忽略"], ["all", "全部"]]
       .forEach(function (p) {
         var b = el("button", "tk-ops__segb", p[1]);
         b.type = "button";
         b.setAttribute("aria-pressed", p[0] === S.filter ? "true" : "false");
-        b.addEventListener("click", function () { S.filter = p[0]; paint(); syncUrl(); });
+        b.addEventListener("click", function () {
+          S.filter = p[0];
+          paint();
+          syncUrl();
+          /* 清单在地图下面：换了筛选却不滚下去，读者会以为「点了没反应」
+             （实测 1680×1150 下清单从第二屏开始）。只滚这一下，不动布局。 */
+          var tb = document.getElementById("tk-ops-tasks");
+          if (tb && tb.scrollIntoView) tb.scrollIntoView({ block: "start", behavior: "smooth" });
+        });
         seg.appendChild(b);
       });
     right.appendChild(seg);
@@ -1003,6 +1094,32 @@
       sc.appendChild(b);
     });
     right.appendChild(sc);
+
+    /* 「我的等级」（2026-10-21）：填了才判「等级够不够」，不填一律算够。
+       只存在本机（localStorage），不上传、不进 URL —— 它是个人状态，不是分享态。
+       ⚠️ input 事件里**不能 paint()**：那会把这个输入框本身重建掉，
+          症状和搜索框一模一样（输一个数字就丢焦点）。 */
+    var lvRow = el("label", "tk-ops__lv");
+    lvRow.appendChild(el("span", "tk-ops__lvlabel", "我的等级"));
+    var lvIn = el("input", "tk-ops__lvin");
+    lvIn.type = "number";
+    lvIn.min = "1";
+    lvIn.max = "79";
+    lvIn.placeholder = "不限";
+    lvIn.value = S.lv ? String(S.lv) : "";
+    lvIn.title = "填了才判断「等级够不够」（只存在本机）";
+    lvIn.addEventListener("input", function () {
+      var v = parseInt(lvIn.value, 10);
+      S.lv = isFinite(v) && v > 0 ? v : 0;
+      saveLv(S.lv);
+      var tb = document.getElementById("tk-ops-tasks");
+      if (tb) renderTaskList(tb);
+      renderRightBody();
+      var brief2 = document.getElementById("tk-ops-briefbar");
+      if (brief2) buildBriefBar(brief2);
+    });
+    lvRow.appendChild(lvIn);
+    right.appendChild(lvRow);
 
     var jumpBox = el("div", "tk-ops__jumpbox");
     jumpBox.id = "tk-ops-jumpbox";
@@ -1031,13 +1148,66 @@
   /* 只重绘右栏**内容**（跳转条 + 任务明细），不动搜索框与筛选按钮。 */
   /* 右栏 = 「当前这一票要做什么」：搜索/筛选在上，明细在下。
      没有选中时只留一句引导，不塞列表（列表在中栏）。 */
+  /* 右栏空态 = 「本图下一步」（2026-10-21）
+     未选中任何票时，右栏原来只有一句引导 —— 那是一整列 300px 的空白。
+     读者真正的下一个问题不是「我该点什么」，而是「这张图我现在该做哪几票」。
+     推荐口径（不猜、不玩排序玄学）：本图 + 未完成/未忽略 + 可接（等级够、前置齐），
+     按目标数从多到少 —— 目标多 = 一局能推进的进度多。最多 3 条。 */
+  function buildNextUp(box) {
+    var cands = [];
+    if (S.idx && S.idx.tasks) {
+      for (var qid in S.idx.tasks) {
+        var t = taskOf(qid);
+        if (!t || (t.ms || []).indexOf(S.map) < 0) continue;
+        var st = stateOf(qid);
+        if (st === "done" || st === "ignored") continue;
+        if (!gate(qid).ok) continue;
+        cands.push({ qid: qid, t: t, st: st, n: (t.oids || []).length });
+      }
+    }
+    cands.sort(function (a, b) { return b.n - a.n; });
+    var head = el("div", "tk-ops__nuhead");
+    head.appendChild(el("b", null, "这张图现在能接的"));
+    head.appendChild(el("span", "tk-ops__chainn", cands.length ? cands.length + " 票" : "0"));
+    box.appendChild(head);
+    if (!cands.length) {
+      box.appendChild(el("p", "tk-ops__dempty",
+        S.lv ? "按你填的等级，这张图上没有可接的活 —— 降低等级，或看「未完成」里缺前置的票。"
+             : "这张图上没有可接的活 —— 填一下「我的等级」，或看「未完成」里缺前置的票。"));
+      box.appendChild(el("p", "tk-ops__muted", "↑↓ 选行 · 回车定位 · / 搜索 · 1 2 3 切模式"));
+      return;
+    }
+    var list = el("div", "tk-ops__nulist");
+    cands.slice(0, 3).forEach(function (c, i) {
+      var card = el("button", "tk-ops__nucard");
+      card.type = "button";
+      var top = el("span", "tk-ops__nutop");
+      top.appendChild(el("span", "tk-ops__nun", String(i + 1)));
+      top.appendChild(el("b", "tk-ops__nuname", c.t.name || "（无中文名）"));
+      card.appendChild(top);
+      var meta = [];
+      if (c.t.trader) meta.push(c.t.trader);
+      if (c.n) meta.push("目标 " + metCount(c.t, c.qid) + "/" + c.n);
+      if (c.t.level) meta.push("Lv " + c.t.level);
+      if (c.t.keys) meta.push("钥匙 " + c.t.keys);
+      card.appendChild(el("span", "tk-ops__numeta", meta.join(" · ")));
+      card.addEventListener("click", function () { gotoTask(c.qid); });
+      list.appendChild(card);
+    });
+    box.appendChild(list);
+    if (cands.length > 3) {
+      box.appendChild(el("p", "tk-ops__muted",
+        "另有 " + (cands.length - 3) + " 票可接 —— 在右栏「可接」里看全部。"));
+    }
+    box.appendChild(el("p", "tk-ops__muted", "点一张就定位到图上 · ↑↓ 选行 · 回车定位 · / 搜索"));
+  }
+
   function renderDetail(box) {
     box.textContent = "";
     var qid = S.selQ;
     var t = qid ? taskOf(qid) : null;
     if (!t) {
-      box.appendChild(el("p", "tk-ops__dempty", "点中栏任一任务，这里显示它的目标与要求。"));
-      box.appendChild(el("p", "tk-ops__muted", "↑↓ 选行 · 回车定位 · / 搜索"));
+      buildNextUp(box);
       return;
     }
     box.scrollTop = 0;   /* 换一票就看新卡的开头，不保留上一票的滚动位置 */
@@ -1046,6 +1216,8 @@
     var head = el("div", "tk-ops__dhead");
     head.appendChild(el("span", "tk-ops__badge tk-ops__badge--" + st, ST_TXT[st] || "未标记"));
     head.appendChild(el("b", "tk-ops__dname", t.name || "（无中文名）"));
+    if (t.flags === "k") head.appendChild(el("span", "tk-ops__kflag", "Kappa"));
+    else if (t.flags === "l") head.appendChild(el("span", "tk-ops__kflag", "LK"));
     var close = el("button", "tk-ops__dclose", "×");
     close.type = "button";
     close.title = "取消选中";
@@ -1073,6 +1245,91 @@
     if (t.keys) bits.push("钥匙 " + t.keys + " 把");
     if ((t.ms || []).length) bits.push("出现于 " + t.ms.length + " 张图");
     box.appendChild(el("div", "tk-ops__dmeta", bits.join(" · ")));
+
+    /* 这一票现在能不能接：一行说清（行里已经有角标，但详情卡要能独立读懂）。
+       已完成的票不再标「可接」—— 那是噪音。 */
+    if (st !== "done" && st !== "ignored") {
+      var g1 = gate(qid);
+      var gline = el("div", "tk-ops__dgate");
+      if (g1.ok) gline.appendChild(el("span", "tk-ops__ready", "现在可接"));
+      else if (g1.lvShort) gline.appendChild(el("span", "tk-ops__locked", "等级不够 · 需 Lv " + t.level));
+      else gline.appendChild(el("span", "tk-ops__locked", "缺 " + g1.miss.length + " 个前置"));
+      if (g1.unknown.length) {
+        gline.appendChild(el("span", "tk-ops__muted",
+          "另有 " + g1.unknown.length + " 个前置不在本模式任务库"));
+      }
+      box.appendChild(gline);
+    }
+
+    /* ---- 前置 / 后续（2026-10-21）----------------------------------------
+       这一块回答的是「这一票为什么还接不了」—— 选任务时最常问的一句。
+       数据来源：ops-index 的 pr 列（只含「必须完成」类前置）。
+       ⚠️ 不用 ✓ / ○ 做状态点：U+2713 与 U+25CB 都落在图标统计块里，
+          `check_icons.py` 会把它们算成「表外图标」并卡住 CI。改用 CSS 圆点。 */
+    var pres = t.pr || [];
+    var chain = el("div", "tk-ops__chain");
+    var cHead = el("div", "tk-ops__chainhead");
+    cHead.appendChild(el("b", null, "前置"));
+    var preDone = pres.filter(function (p) { return stateOf(p) === "done"; }).length;
+    cHead.appendChild(el("span", "tk-ops__chainn",
+      pres.length ? (preDone + " / " + pres.length + " 已完成") : "无"));
+    chain.appendChild(cHead);
+    if (!pres.length) {
+      chain.appendChild(el("p", "tk-ops__muted",
+        "上游没给这条任务的「必须完成」类前置 —— 可能是起始票，也可能只在特殊条件下才锁。"));
+    } else {
+      var ul = el("ul", "tk-ops__chainlist");
+      pres.forEach(function (p) {
+        var pt = taskOf(p);
+        var done = stateOf(p) === "done";
+        var li = el("li", done ? "is-done" : "");
+        var b = el("button", "tk-ops__chainbtn");
+        b.type = "button";
+        b.appendChild(el("i", "tk-ops__dot" + (done ? " is-done" : "")));
+        b.appendChild(el("span", "tk-ops__chainname",
+          pt ? (pt.name || "（无中文名）") : "（不在本模式任务库）"));
+        if (pt && pt.trader) b.appendChild(el("span", "tk-ops__chaintrader", pt.trader));
+        if (pt) b.addEventListener("click", function () { gotoTask(p); });
+        else b.disabled = true;
+        li.appendChild(b);
+        ul.appendChild(li);
+      });
+      chain.appendChild(ul);
+      var leftN = pres.filter(function (p) { return stateOf(p) !== "done"; }).length;
+      if (leftN) {
+        chain.appendChild(el("p", "tk-ops__chainhint",
+          "还差 " + leftN + " 个前置 —— 点名字跳过去，跨图会自动换图。"));
+      }
+    }
+    box.appendChild(chain);
+
+    /* 后续不单开一节：它只在「做完了这一票能开什么」时有用，取前 5 个就够，
+       多了会把详情卡撑过一屏。 */
+    var nx = nextOf(qid);
+    if (nx.length) {
+      var nbox = el("div", "tk-ops__chain tk-ops__chain--next");
+      var nHead = el("div", "tk-ops__chainhead");
+      nHead.appendChild(el("b", null, "后续"));
+      nHead.appendChild(el("span", "tk-ops__chainn", "解锁 " + nx.length + " 个"));
+      nbox.appendChild(nHead);
+      var ul2 = el("ul", "tk-ops__chainlist");
+      nx.slice(0, 5).forEach(function (nq) {
+        var nt = taskOf(nq);
+        var li = el("li");
+        var b = el("button", "tk-ops__chainbtn");
+        b.type = "button";
+        b.appendChild(el("i", "tk-ops__dot is-next"));
+        b.appendChild(el("span", "tk-ops__chainname",
+          nt ? (nt.name || "（无中文名）") : nq));
+        if (nt && nt.trader) b.appendChild(el("span", "tk-ops__chaintrader", nt.trader));
+        b.addEventListener("click", function () { gotoTask(nq); });
+        li.appendChild(b);
+        ul2.appendChild(li);
+      });
+      nbox.appendChild(ul2);
+      if (nx.length > 5) nbox.appendChild(el("p", "tk-ops__muted", "另有 " + (nx.length - 5) + " 个"));
+      box.appendChild(nbox);
+    }
 
     var objs = el("ul", "tk-ops__dobjs");
     var otexts = (t.otxt || "").split("|");
@@ -1143,6 +1400,7 @@
 
   function boot() {
     readUrl();
+    S.lv = loadLv();          // 「我的等级」只在本机，不进 URL
     var m = document.getElementById("tk-map");
     if (m) {
       m.setAttribute("data-map", S.map);
