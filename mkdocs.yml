@@ -222,7 +222,14 @@ nav:
           - 赛季与修改器: entries/seasons.md
           - 赛季修改器逐项: entries/season-modifiers.md
           - 联赛系统: entries/leagues.md
-          - 竞技场: entries/arena.md
+          # 竞技场栏目（v1.144.0）：由单页扩为 4 页。总览承接原来的介绍，
+          # 另三页分别管「模式与场地」「段位/通行证/预设」「练技能」——
+          # 最后一页是这次扩栏目的主因：竞技场是站内唯一能低成本练战斗类技能的场所。
+          - 竞技场:
+              - 总览: entries/arena.md
+              - 模式与场地: entries/arena-modes.md
+              - 段位·通行证·预设: entries/arena-progress.md
+              - 练技能手册: entries/arena-training.md
           - PvE 模式: entries/pve.md
           - EXFIL Brothers 计划: entries/exfil-brothers.md
           - 限时事件与活动: entries/limited-events.md

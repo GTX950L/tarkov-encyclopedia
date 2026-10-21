@@ -2,12 +2,12 @@
 
 <a id="top"></a>
 
-离线可用的《逃离塔科夫》中文百科。88 篇条目讲规则、地图与数值，图鉴收 4,983 件物品、503 个任务，13 张交互地图和进度工具全部在浏览器里跑 —— 不登录，也不上传任何东西。
+离线可用的《逃离塔科夫》中文百科。92 篇条目讲规则、地图与数值，图鉴收 4,983 件物品、503 个任务，13 张交互地图和进度工具全部在浏览器里跑 —— 不登录，也不上传任何东西。
 
 <div class="tk-launch">
 <a class="tk-launch__card tk-launch--read" href="entries/spawn-and-opening.md">
 <span class="tk-launch__title">📖 读 · 从零上手</span>
-<span class="tk-launch__desc">89 个条目分十二篇：先懂规则，再看地图，最后吃透装备与经济。</span>
+<span class="tk-launch__desc">92 个条目分十二篇：先懂规则，再看地图，最后吃透装备与经济。</span>
 <ul class="tk-launch__list">
 <li><span class="tk-launch__row"><b>① 先活下来</b><i>撤离 · 保险 · 健康</i></span></li>
 <li><span class="tk-launch__row"><b>② 再认识地图</b><i>十三张图逐张讲</i></span></li>
@@ -71,7 +71,7 @@
 <div class="tk-stat__head">本站速览<i>数字由数据文件生成，随内容自动更新</i></div>
 <div class="tk-stat__grid">
 <a class="tk-stat__card" href="entries/index.md">
-<b class="tk-stat__n">89<em>篇</em></b>
+<b class="tk-stat__n">92<em>篇</em></b>
 <span class="tk-stat__l">百科条目</span>
 <span class="tk-stat__d">8 篇主线 · 4 篇查阅栏目</span>
 </a>
@@ -120,7 +120,7 @@
 
 <!-- AUTO-GEN:HOME-STATS:END -->
 
-《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **89 个**条目，分十二篇组织 —— **前八篇**是“从零上手”的主线，**第九篇 · [物品图鉴](catalog/index.md)** 收录 **4,983 件**物品的属性与商人价，**第十篇 · [任务图鉴](quests/index.md)** 把 **503 个任务**的要求、奖励与接取门槛逐条列全，**第十一篇 · [参考](docs/index.md)** 收齐速查表与站务工具页，**第十二篇 · [交互地图](maps/index.md)** 把点位信息从条目正文里接出来。
+《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **92 个**条目，分十二篇组织 —— **前八篇**是“从零上手”的主线，**第九篇 · [物品图鉴](catalog/index.md)** 收录 **4,983 件**物品的属性与商人价，**第十篇 · [任务图鉴](quests/index.md)** 把 **503 个任务**的要求、奖励与接取门槛逐条列全，**第十一篇 · [参考](docs/index.md)** 收齐速查表与站务工具页，**第十二篇 · [交互地图](maps/index.md)** 把点位信息从条目正文里接出来。
 
 > 💡 本站**以文字与表格为主体**（仅交互地图底图与任务/物品页图标为图形素材，权利边界见下方声明），弱网环境可流畅阅读。所有数值描述以“机制原理”为主，具体数值随版本变动，请以游戏内为准。
 
@@ -143,7 +143,7 @@
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s6" href="entries/raid-flow.md"><b>第六篇</b><em>战局内行为手册</em><i>6 篇</i></a>
 <span class="tk-arrow">→</span>
-<a class="tk-step tk-s7" href="entries/seasons.md"><b>第七篇</b><em>赛季与衍生内容</em><i>7 篇</i></a>
+<a class="tk-step tk-s7" href="entries/seasons.md"><b>第七篇</b><em>赛季与衍生内容</em><i>10 篇</i></a>
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s8" href="entries/weather.md"><b>第八篇</b><em>世界与背景</em><i>4 篇</i></a>
 <span class="tk-arrow">→</span>
@@ -349,7 +349,7 @@
 
 ---
 
-📖 [查看全部 89 个条目](entries/index.md)
+📖 [查看全部 92 个条目](entries/index.md)
 
 📋 [进入任务图鉴：503 个任务的逐条要求与奖励](quests/index.md)
 
