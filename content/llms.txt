@@ -69,7 +69,7 @@
 - [标签分类](https://gtx950l.github.io/tarkov-encyclopedia/tags/)
 - [条目模板](https://gtx950l.github.io/tarkov-encyclopedia/template/)
 - [贡献指南](https://gtx950l.github.io/tarkov-encyclopedia/CONTRIBUTING/)
-- [更新日志](https://gtx950l.github.io/tarkov-encyclopedia/CHANGELOG/)
+- [更新日志](https://gtx950l.github.io/tarkov-encyclopedia/CHANGELOG/)：当月条目；更早的见[归档](https://gtx950l.github.io/tarkov-encyclopedia/CHANGELOG-archive/)（分页只为控制单页体积，内容原样）
 
 ## 引用口径（摘要，完整版见引用说明页）
 

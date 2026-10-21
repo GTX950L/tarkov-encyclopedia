@@ -355,7 +355,9 @@ def main() -> int:
     for md in md_files:
         # CHANGELOG 里出现的是历史记录（“当时全站尾行更新为 N 个条目”），
         # 描述的是那一次的现状而不是当前口径——历史记录不改写，也不参与计数校验。
-        if md.name == "CHANGELOG.md":
+        # 2026-10-21：CHANGELOG 拆成「当月主页 + 历史归档」两页（单页 gzip 曾到 401 KB，
+        # 越过 400 KB 预算线），两页都是历史记录，同一条豁免对两者都成立。
+        if md.name.startswith("CHANGELOG"):
             # 但**必须查重复版本标题**（2026-10-18 加）：写 CHANGELOG 的脚本
             # 常以「在文件开头插一段」的方式实现，脚本重跑一次就会插两遍。
             # 症状很隐蔽：页面照常渲染、计数门禁全不响，而 `release.py` 是从
@@ -663,7 +665,8 @@ def main() -> int:
         for md in md_files:
             # CHANGELOG 是历史记录：那里写的是「当时线上是多少」，不跟着数据走
             # （与 4b 条目数检查对 CHANGELOG 的豁免同一条理由）。
-            if md.name == "CHANGELOG.md":
+            # 2026-10-21 起含归档页（同一条理由，见 4b 处注释）。
+            if md.name.startswith("CHANGELOG"):
                 continue
             text = md.read_text(encoding="utf-8")
             for hit in ZONE_RE.finditer(text):
