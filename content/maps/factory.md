@@ -118,7 +118,7 @@ tags:
 
 ## 📚 所有条目
 
-📖 [查看全部 89 个条目](../entries/index.md)
+📖 [查看全部 92 个条目](../entries/index.md)
 
 ⬆️ **[回到顶部](#top)**
 
