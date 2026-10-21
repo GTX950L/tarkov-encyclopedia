@@ -40,7 +40,7 @@ OUT_DIR = ROOT / "content" / "javascripts"
 COLS = ["name", "en", "trader", "level", "ms", "oids", "otxt", "nObj", "keys", "flags", "pr"]
 
 
-def load_prereqs(tasks: list[dict]) -> dict[str, list[str]]:
+def load_prereqs(tasks: list[dict]) -> tuple[dict[str, list[str]], dict[str, int]]:
     """任务前置 → {qid: [前置 id, …]}，**只收「必须完成」那一档**。
 
     口径（2026-10-21 实测 222 条边）：
@@ -52,27 +52,52 @@ def load_prereqs(tasks: list[dict]) -> dict[str, list[str]]:
 
     ⚠️ prereqs 里只给 `name` + `trader`，**没有 id**；而且 trader 是首字母大写
        （`Mechanic`），任务表里是小写（`mechanic`）—— 拿 (name, trader) 当键会**全 miss**
-       （2026-10-21 实测 0/222 命中）。这里只按 name 建索引：503 条任务里没有重名，
-       命中率 195/195。
+       （2026-10-21 实测 0/222 命中）。所以键只能用 name。
+
+    ⚠️ **重名是存在的**（2026-10-21 更正）：本函数原先写「503 条任务里没有重名」，
+       实测 PvE 有 9 组 18 条、PvP 有 9 组 20 条（人靠衣装 - 1 / 纺织业 - 2 /
+       平衡之力 - 2（PVE） / 独立的代价 …）。旧实现用 setdefault 静默取第一条，
+       后果是「平衡之力 - 2（PVE）」的前置被解析成它自己的**同名孪生**，
+       详情卡于是显示「要完成『平衡之力 - 2』才能接『平衡之力 - 2』」。
+       现在的口径（三步，全部确定、不静默）：
+         1. 名字只对应一条 → 直接用；
+         2. 名字对应多条 → **先排除任务自己**；剩一条就用它（这正是同名接续的情形）；
+         3. 仍多于一条（真·同名不同票，如两个「纺织业 - 1」）→ 按 id 序取第一条，
+            并计入 `ambiguous` 让调用方打印出来。
+    返回值第二项是消歧统计，供 build() 打印 —— **歧义不该只活在代码注释里**。
     """
-    by_name: dict[str, str] = {}
+    by_name: dict[str, list[str]] = {}
     for t in tasks:
         nm = (t.get("name") or "").strip()
         if nm:
-            by_name.setdefault(nm, t["id"])
+            by_name.setdefault(nm, []).append(t["id"])
 
     out: dict[str, list[str]] = {}
+    stat = {"exact": 0, "ambiguous": 0, "self_only": 0}
     for t in tasks:
         pres: list[str] = []
         for p in (t.get("prereqs") or []):
             if (p.get("status") or "").strip():
                 continue
-            pid = by_name.get((p.get("name") or "").strip())
-            if pid:
+            cands = by_name.get((p.get("name") or "").strip()) or []
+            if not cands:
+                continue
+            if len(cands) == 1:
+                pid = cands[0]
+                stat["exact"] += 1
+            else:
+                others = [c for c in cands if c != t["id"]]
+                if not others:
+                    stat["self_only"] += 1
+                    continue
+                pid = sorted(others)[0]
+                if len(others) > 1:
+                    stat["ambiguous"] += 1
+            if pid != t["id"]:
                 pres.append(pid)
         if pres:
             out[t["id"]] = pres
-    return out
+    return out, stat
 
 
 def flag_of(t: dict) -> str:
@@ -93,7 +118,7 @@ def build(mode: str) -> int:
             return 1
     payload = json.loads(src.read_text(encoding="utf-8"))
     tasks = payload.get("tasks") or []
-    pres = load_prereqs(tasks)
+    pres, pstat = load_prereqs(tasks)
 
     nodes: dict[str, list] = {}
     for t in tasks:
@@ -172,6 +197,10 @@ def build(mode: str) -> int:
     print(f"  其中带前置的 {len(pres)} 条（前置 id 共 {sum(len(v) for v in pres.values())} 个）"
           f"、带 Kappa/Lightkeeper 标记的 "
           f"{sum(1 for n in nodes.values() if n[9])} 条")
+    # 同名消歧统计：**必须打印**，否则「按 id 序取第一条」这件事又变成静默行为
+    print(f"  前置名解析：唯一 {pstat['exact']} 条"
+          f" ｜ 同名多条按 id 序取一 {pstat['ambiguous']} 条"
+          f" ｜ 只剩同名自身、已跳过 {pstat['self_only']} 条")
     print(f"已写 {lite_out.relative_to(ROOT)}（{lite_size:.0f} KB，{len(lite)} 条" 
           f"带地图的任务）")
     return 0

@@ -29,15 +29,31 @@
     ["streets-of-tarkov", "街区"], ["terminal", "终点站"],
     ["icebreaker", "破冰船"], ["the-lab", "实验室"], ["the-labyrinth", "迷宫"],
   ];
-  /* 模式段：PvE 第一 / 赛季第二 / PvP 第三（用户定的优先级）。
-     ⚠️ 赛季**没有独立数据源**（上游 /season/tasks 实测 404），所以它共用 PvP
-        的任务库、只把进度分轨独立开出来 —— 界面上如实标注，不假装有专属数据。 */
+  /* PvE / 赛季 / PvP。赛季**没有独立数据源**（上游 /season/tasks 实测 404），
+     共用 PvP 任务库、只把进度分轨 —— 如实标注。
+     ⚠️ 提示里不写死条数（2026-10-21）：原写 500 / 504，实测 499 / 503，已过期。 */
   var MODES = [
-    ["pve", "PvE", "PvE 剧情：独立任务库（500 条，含 23 条 PvE 独占）"],
+    ["pve", "PvE", "PvE 剧情：独立任务库（含 PvE 独占票）"],
     ["season", "赛季 PvP", "赛季模式：任务库与 PvP 相同，进度独立分轨"],
-    ["pvp", "PvP", "持久 PvP：504 条标准任务"],
+    ["pvp", "PvP", "持久 PvP：标准任务库（与赛季共用）"],
   ];
   var COLS = ["name", "en", "trader", "level", "ms", "oids", "otxt", "nObj", "keys", "flags", "pr"];
+
+  /* 「无地图」伪图（2026-10-21）：上游有 156 票没有 ms（枪匠系列、纯上交类），
+     命中不了任何一张图 → 在作战台里根本列不出来（PvE 占 31%）。给它一个入口。 */
+  var NOMAP = "__nomap";
+  var MAP_KEYS = MAPS.map(function (m) { return m[0]; });
+  var MODE_KEYS = MODES.map(function (m) { return m[0]; });
+  var FILTERS = ["open", "ready", "done", "all", "inhand", "pinned", "ignored"];
+
+  /* 文件名与导出名是两件事（2026-10-21 修）：赛季共用 ops-index-pvp.js、导出名也只有
+     _PVP；原来直接拼 mode.toUpperCase() 取到全仓不存在的 _SEASON → 赛季三栏全空。 */
+  function idxKey(mode) {
+    return "TARKOV_OPS_INDEX_" + (mode === "season" ? "PVP" : mode.toUpperCase());
+  }
+  function idxFile(mode) {
+    return "ops-index-" + (mode === "season" ? "pvp" : mode) + ".js";
+  }
 
   var S = {
     mode: "pve",
@@ -58,7 +74,9 @@
     tasksOpen: true,     // 中栏任务清单是否展开
     tasksAll: false,     // 任务清单是否展开到全部（默认 20 行）
     lv: 0,               // 「我的等级」：0 = 不限，用于可接判定（存 localStorage）
-    base: null,          // 进度账本
+    planOnly: false,     // 中栏只显示出击清单里的票
+    notice: "",          // 一次性提示（非法 URL 参数 / 索引载入失败）
+    idxError: false,     // 索引脚本没载入成功（≠「这张图真没任务」）
   };
 
   /* 当前已初始化的挂载点。**按节点身份判重**，不按「本脚本是否跑过」判重：
@@ -113,35 +131,43 @@
     return o;
   }
 
-  /* ---- Callout 别名索引（2026-10-18）------------------------------------
-     地名可以有好几个叫法：上游英文名、站内中文译名、玩家口语俗称。
-     搜索三者都要命中 —— 「搜宿舍区」和「搜 Dorms」是同一件事。
-     索引在第一次用到时建一次，来源是 maps-data 里已挂好的 labels[].al。 */
-  var CALL_IDX = null;
-  function calloutIndex() {
-    if (CALL_IDX) return CALL_IDX;
-    CALL_IDX = {};
-    var maps = window.TARKOV_MAPS || {};
-    for (var mk in maps) {
-      var labels = (maps[mk] || {}).labels || [];
-      for (var i = 0; i < labels.length; i++) {
-        var lb = labels[i];
-        var names = [];
-        if (lb.en) names.push(lb.en);
-        if (lb.cn) names.push(lb.cn);
-        (lb.al || []).forEach(function (a) { names.push(a); });
-        if (!names.length) continue;
-        var rec = CALL_IDX[mk] || (CALL_IDX[mk] = []);
-        rec.push({ names: names, x: lb.x, y: lb.y, cn: lb.cn || lb.en });
-      }
+  /* 这一票算不算在本图上。唯一口径（2026-10-21）：原来 4 处各写一遍，加「无地图」档漏一处就对不上。 */
+  function inMap(t) {
+    var ms = (t && t.ms) || [];
+    return S.map === NOMAP ? !ms.length : ms.indexOf(S.map) >= 0;
+  }
+
+  /* ---- 地名别名索引（2026-10-18）----
+     ⚠️ 必须按图分建并按图判「建过没有」（2026-10-21 修）：maps-data 懒加载，原来
+        一次性缓存 → 只有首图进索引，切到别的图搜地名永远没有跳转条。 */
+  var CALL_IDX = null;   // mapKey → [{names, x, y, cn}]
+  var CALL_DONE = null;  // mapKey → true（这张图的 labels 已扫过）
+  function calloutIndex(mapKey) {
+    CALL_IDX = CALL_IDX || {};
+    CALL_DONE = CALL_DONE || {};
+    if (CALL_DONE[mapKey]) return CALL_IDX;
+    var d = (window.TARKOV_MAPS || {})[mapKey];
+    if (!d) return CALL_IDX;   /* 数据还没到，不标记「建过」，下次再试 */
+    var labels = d.labels || [];
+    var rec = [];
+    for (var i = 0; i < labels.length; i++) {
+      var lb = labels[i];
+      var names = [];
+      if (lb.en) names.push(lb.en);
+      if (lb.cn) names.push(lb.cn);
+      (lb.al || []).forEach(function (a) { names.push(a); });
+      if (!names.length) continue;
+      rec.push({ names: names, x: lb.x, y: lb.y, cn: lb.cn || lb.en });
     }
+    CALL_IDX[mapKey] = rec;
+    CALL_DONE[mapKey] = true;
     return CALL_IDX;
   }
   /* 搜地名：命中就返回该地标（含坐标，用来在图上飞过去） */
   function findCallout(q, mapKey) {
     var ql = (q || "").toLowerCase();
     if (!ql) return null;
-    var rows = calloutIndex()[mapKey] || [];
+    var rows = calloutIndex(mapKey)[mapKey] || [];
     for (var i = 0; i < rows.length; i++) {
       for (var j = 0; j < rows[i].names.length; j++) {
         if (String(rows[i].names[j]).toLowerCase().indexOf(ql) >= 0) return rows[i];
@@ -258,11 +284,10 @@
     var t = taskOf(qid);
     if (!t) return;
     var ms = t.ms || [];
-    if (ms.length && ms.indexOf(S.map) < 0) { S.map = ms[0]; remountMap(); }
     S.selQ = qid; S.selO = null;
+    if (ms.length && ms.indexOf(S.map) < 0) { S.map = ms[0]; remountMap(); }
     paint();
-    selectOnMap(qid);
-    highlight();
+    locateTask(qid, null);
     syncUrl();
   }
 
@@ -286,13 +311,15 @@
     if (mode === S.mode) return;
     S.mode = mode;
     S.selQ = null; S.selO = null;
+    S.row = 0; S.tasksAll = false; S.planOnly = false;
     NEXT = null;              // 任务库换了，后续索引必须重建
     /* 赛季与 PvP 共用任务库 —— 上游没有赛季端点（实测 404），如实说明。 */
-    loadScript("ops-index-" + (mode === "season" ? "pvp" : mode) + ".js",
-      "TARKOV_OPS_INDEX_" + mode.toUpperCase(), function () {
-        S.idx = window["TARKOV_OPS_INDEX_" + mode.toUpperCase()];
-        paint();
-      });
+    loadScript(idxFile(mode), idxKey(mode), function (ok) {
+      S.idx = ok ? window[idxKey(mode)] : null;
+      /* 载入失败 ≠ 这张图没有任务：必须能分开（2026-10-21） */
+      S.idxError = !ok;
+      paint();
+    });
     /* 地图挂载点换模式：map.js 会重读 zone.m */
     var m = document.getElementById("tk-map");
     if (m) m.setAttribute("data-mode", mode === "season" ? "pvp" : mode);
@@ -301,35 +328,58 @@
   }
 
   /* ---------------------------------------------------------- 左栏：地图条 */
-  function mapRows() {
-    var rows = [];
-    MAPS.forEach(function (m) {
-      var key = m[0];
-      var n = 0, inhand = 0, done = 0;
-      if (S.idx && S.idx.tasks) {
-        for (var qid in S.idx.tasks) {
-          var t = taskOf(qid);
-          if (!t || (t.ms || []).indexOf(key) < 0) continue;
-          var st = stateOf(qid);
-          if (st === "done") { done++; continue; }
-          if (st === "inhand") { inhand++; n++; continue; }
-          n++;
-        }
+  /* 13 张图 + 无地图的分档计数，**一次遍历算完**（2026-10-21 合并：原来
+     mapRows 循环 13 遍、无地图再单跑一遍）。 */
+  function mapCounts() {
+    var out = {};
+    MAP_KEYS.concat([NOMAP]).forEach(function (k) { out[k] = { n: 0, inhand: 0, done: 0 }; });
+    if (!S.idx || !S.idx.tasks) return out;
+    for (var qid in S.idx.tasks) {
+      var t = taskOf(qid);
+      if (!t) continue;
+      var st = stateOf(qid);
+      var keys = (t.ms || []).length ? t.ms : [NOMAP];
+      for (var i = 0; i < keys.length; i++) {
+        var c = out[keys[i]];
+        if (!c) continue;
+        if (st === "done") c.done++;
+        else { c.n++; if (st === "inhand") c.inhand++; }
       }
-      rows.push({ key: key, name: m[1], n: n, inhand: inhand, done: done });
-    });
-    rows.sort(function (a, b) {
+    }
+    return out;
+  }
+  function mapRows() {
+    var cnt = mapCounts();
+    return MAPS.map(function (m) {
+      var c = cnt[m[0]];
+      return { key: m[0], name: m[1], n: c.n, inhand: c.inhand, done: c.done };
+    }).sort(function (a, b) {
       var d = (b.n + b.inhand) - (a.n + a.inhand);
-      return d !== 0 ? d : (MAPS.findIndex(function (m) { return m[0] === a.key; })
-        - MAPS.findIndex(function (m) { return m[0] === b.key; }));
+      return d !== 0 ? d : (MAP_KEYS.indexOf(a.key) - MAP_KEYS.indexOf(b.key));
     });
-    return rows;
   }
   function mapMatch(r) {
     if (!S.mapq) return true;
     return (r.name + " " + r.key).toLowerCase().indexOf(S.mapq.toLowerCase()) >= 0;
   }
-  /* 只重绘地图清单本身 —— 搜索框不能跟着重建，否则又是「输一个字丢一次焦点」。 */
+  /* 一行地图按钮。「无地图」复用同一套结构 —— 它只是没有 ms，不该长得像另一类东西。 */
+  function mapBtn(key, name, n, inhand, done, onPick) {
+    var b = el("button", "tk-ops__map" + (key === S.map ? " is-on" : ""));
+    b.type = "button";
+    b.dataset.map = key;
+    var line = el("span", "tk-ops__mapline");
+    line.appendChild(el("b", null, name));
+    line.appendChild(el("span", "tk-ops__mapn", n ? String(n) : (done ? "✓" : "—")));
+    b.appendChild(line);
+    var meta = el("span", "tk-ops__mapmeta");
+    meta.textContent = n
+      ? ("未完成 " + n + (inhand ? " · 进行中 " + inhand : ""))
+      : (done ? ("已完成 " + done) : "没有记录");
+    b.appendChild(meta);
+    b.addEventListener("click", onPick);
+    return b;
+  }
+  /* 只重绘地图清单本身：搜索框跟着重建就会「输一个字丢一次焦点」。 */
   function renderMapRows() {
     var box = document.getElementById("tk-ops-maplist");
     if (!box) return;
@@ -338,20 +388,7 @@
     var LIMIT = 6;
     var all = S.mapsAll || !!S.mapq || rows.length <= LIMIT;
     rows.slice(0, all ? rows.length : LIMIT).forEach(function (r) {
-      var b = el("button", "tk-ops__map" + (r.key === S.map ? " is-on" : ""));
-      b.type = "button";
-      b.dataset.map = r.key;
-      var line = el("span", "tk-ops__mapline");
-      line.appendChild(el("b", null, r.name));
-      line.appendChild(el("span", "tk-ops__mapn", r.n ? String(r.n) : (r.done ? "✓" : "—")));
-      b.appendChild(line);
-      var meta = el("span", "tk-ops__mapmeta");
-      meta.textContent = r.n
-        ? ("未完成 " + r.n + (r.inhand ? " · 进行中 " + r.inhand : ""))
-        : (r.done ? ("已完成 " + r.done) : "没有记录");
-      b.appendChild(meta);
-      b.addEventListener("click", function () { switchMap(r.key); });
-      box.appendChild(b);
+      box.appendChild(mapBtn(r.key, r.name, r.n, r.inhand, r.done, function () { switchMap(r.key); }));
     });
     if (!rows.length) box.appendChild(el("p", "tk-ops__muted", "没有匹配的地图"));
     if (!S.mapq && rows.length > LIMIT) {
@@ -360,6 +397,12 @@
       more.type = "button";
       more.addEventListener("click", function () { S.mapsAll = !S.mapsAll; renderMapRows(); });
       box.appendChild(more);
+    }
+    /* 「无地图」排在最后且不受「只列 6 张」折叠影响 —— 它是那 156 票唯一的入口。 */
+    var nm = mapCounts()[NOMAP];
+    if ((nm.n + nm.done) && (!S.mapq || "无地图".indexOf(S.mapq) >= 0)) {
+      box.appendChild(el("p", "tk-ops__cap", "没有地图的票"));
+      box.appendChild(mapBtn(NOMAP, "无地图", nm.n, nm.inhand, nm.done, function () { switchMap(NOMAP); }));
     }
   }
   function buildMapList() {
@@ -379,18 +422,19 @@
     var list = el("div", "tk-ops__maplist");
     list.id = "tk-ops-maplist";
     box.appendChild(list);
-    renderMapRows();
+    /* ⚠️ 这里**不**调 renderMapRows()（2026-10-21 清）：此刻 list 还没入 document，
+       getElementById 找不到它，白跑一遍 13 图 × 500 票的统计。真正那一遍在
+       paint() 里，入 DOM 之后补——留在外面那一处就够了。 */
     return box;
   }
   function switchMap(key) {
     S.map = key; S.selQ = null; S.selO = null;
+    S.row = 0; S.tasksAll = false; S.planOnly = false;
     remountMap();
     paint();
     syncUrl();
   }
 
-
-  /* ------------------------------------------------------------ 图层开关 */
 
   /* ------------------------------------------------------------ 出击清单 */
   function planIds() { return Object.keys(S.plan); }
@@ -399,30 +443,31 @@
     if (!S.idx || !S.idx.tasks) return out;
     for (var qid in S.idx.tasks) {
       var t = taskOf(qid);
-      if (!t || (t.ms || []).indexOf(S.map) < 0) continue;
+      if (!t || !inMap(t)) continue;
       out.total++;
       var st = stateOf(qid);
-      if (st === "done") out.done++;
-      else if (st === "inhand") { out.inhand++; out.open++; }
-      else if (st === "ignored") out.ignored++;
-      else { out.open++; if (gate(qid).ok) out.ready++; }
+      /* 钥匙数只算没做完的（2026-10-21 修：原来在状态分支外累加，做完的也在数） */
+      if (st === "done") { out.done++; continue; }
+      if (st === "ignored") { out.ignored++; continue; }
       out.keys += (t.keys || 0);
+      out.open++;
+      if (st === "inhand") out.inhand++;
+      else if (gate(qid).ok) out.ready++;
     }
     return out;
   }
-  /* 汇总带：一眼回答「这张图还剩多少活、我现在手上有几票」，
-     顺带给出唯一的显眼入口「进入这一局」（选中第一条没做完的活）。 */
+  /* 汇总带：未完成 = 可接 + 手上 + 缺前置，同口径（2026-10-21 修；原来两处差 1）。 */
   function buildBriefBar(box) {
     box.textContent = "";
     var s = mapStats();
-    var name = (MAPS.find(function (m) { return m[0] === S.map; }) || [])[1] || S.map;
+    var name = S.map === NOMAP ? "无地图任务"
+      : ((MAPS.find(function (m) { return m[0] === S.map; }) || [])[1] || S.map);
     box.appendChild(el("b", "tk-ops__bname", name));
     var pct = s.total ? Math.round(s.done / s.total * 100) : 0;
     box.appendChild(el("span", "tk-ops__bmeta",
       "未完成 " + s.open + " · 可接 " + s.ready + " · 手上 " + s.inhand
       + " · 已完成 " + pct + "%" + " · 钥匙 " + s.keys + " 把"));
-    /* 「进入这一局」删掉（2026-10-21）：它做的就是「选中第一条未完成的票」，
-       与直接点列表第一行完全等价 —— 一个纯仪式按钮，占着简报条最显眼的位置。 */
+    /* 「进入这一局」删掉（2026-10-21）：它等于「点列表第一行」，纯仪式按钮。 */
   }
 
   function buildPlan() {
@@ -438,6 +483,7 @@
     }
     box.appendChild(head);
     if (!ids.length) {
+      S.planOnly = false;   /* 清单空了就不能还停在「只看这些」—— 那样永远出不去 */
       box.appendChild(el("p", "tk-ops__muted",
         "双击中栏的任务，把这一局要做的票攒起来（详情卡里也有「加入出击」）"));
       return box;
@@ -459,12 +505,22 @@
       return n + ((t && t.keys) || 0);
     }, 0);
     var bar = el("div", "tk-ops__planbar");
-    var go = el("button", "tk-ops__plango", "带这 " + ids.length + " 票进图 · 钥匙 " + keys + " 把");
+    /* 「带这 N 票进图」→「只看这 N 票」（2026-10-21）：原名承诺了它没做的事
+       （只选中第一条），换成它真能做到的：把中栏收成清单里的票。 */
+    var go = el("button", "tk-ops__plango",
+      (S.planOnly ? "取消只看 · " : "只看这 ") + ids.length + " 票 · 钥匙 " + keys + " 把");
     go.type = "button";
-    go.title = "选中清单里第一条（不会真的进游戏）";
+    go.title = S.planOnly
+      ? "恢复显示这张图的全部任务"
+      : "中栏只列出清单里的票，方便开局前对着看";
     go.addEventListener("click", function () {
-      var first = ids[0];
-      if (first) { focusTask(first, null); renderRightBody(); }
+      S.planOnly = !S.planOnly;
+      if (S.planOnly) {
+        S.selQ = ids[0]; S.selO = null;
+        selectOnMap(ids[0]);
+      }
+      paint();
+      syncUrl();
     });
     bar.appendChild(go);
     /* 「复制 / 清空」收进 ⋯（2026-10-21）：两个低频动作原来各占一个按钮位置。 */
@@ -501,25 +557,26 @@
     for (var qid in S.idx.tasks) {
       var t = taskOf(qid);
       if (!t) continue;
+      /* 「只看这些」优先于一切：读者按下它就是要「别给我看别的」。 */
+      if (S.planOnly && !S.plan[qid]) continue;
       /* 图过滤（2026-10-21 合并了原来的「仅本图 / 全站」两档）：
          没有搜索词 = 只看本图；一旦开始搜，就自动跨图 —— 读者真正需要跨图的
          场合只有「我记得有这一票，它在哪张图上」。 */
-      var inMap = (t.ms || []).indexOf(S.map) >= 0;
-      if (!inMap && !S.q) continue;
+      if (!inMap(t) && !S.q) continue;
       if (S.q) {
         var hay = (t.name + " " + (t.en || "") + " " + (t.oids || []).join(" ")).toLowerCase();
         if (hay.indexOf(S.q.toLowerCase()) < 0) continue;
       }
       var st = stateOf(qid);
-      /* 「未完成」= 还没做完、且我没说「这赛季不做」。忽略的单独一档。
-         「可接」= 未完成 + 等级够 + 必须完成的前置都做完了（gate 只判这两项）。 */
+      /* 「未完成」= 没做完且没标忽略。「可接」= 未完成 + 等级够 + 前置齐，
+         **不含「手上」**（2026-10-21 统一口径：已接的再算可接就是同一票算两次）。 */
       if (S.filter === "open" && (st === "done" || st === "ignored")) continue;
       if (S.filter === "inhand" && st !== "inhand") continue;
       if (S.filter === "done" && st !== "done") continue;
       if (S.filter === "ignored" && st !== "ignored") continue;
       if (S.filter === "pinned" && !isPinned(qid)) continue;
       var g = gate(qid);
-      if (S.filter === "ready" && (st === "done" || st === "ignored" || !g.ok)) continue;
+      if (S.filter === "ready" && (st === "done" || st === "ignored" || st === "inhand" || !g.ok)) continue;
       out.push({ qid: qid, t: t, st: st, pinned: isPinned(qid), g: g });
     }
     out.sort(function (a, b) {
@@ -543,9 +600,13 @@
      目标明细搬进右栏 —— 一行任务挂 8 个复选框会把清单撑成墙（实测 80 行 / 405 个框）。 */
   function renderTaskList(box) {
     box.textContent = "";
+    /* 标题随上下文走（2026-10-21）：跨图搜索时列表里混着别的图的票 */
+    var title = S.planOnly ? "出击清单里的票"
+      : (S.q ? "搜索结果（跨图）"
+        : (S.map === NOMAP ? "上游没给地图的任务" : "这张图上的任务"));
     var rows = visibleTasks();
     var head = el("div", "tk-ops__thead");
-    head.appendChild(el("b", "tk-ops__tcap", "这张图上的任务"));
+    head.appendChild(el("b", "tk-ops__tcap", title));
     head.appendChild(el("span", "tk-ops__tcount", rows.length + " 票"));
     var doneN = rows.filter(function (r) { return r.st === "done"; }).length;
     if (rows.length) {
@@ -564,13 +625,29 @@
     });
     head.appendChild(tgl);
     box.appendChild(head);
-    if (S.tasksOpen === false) return;
-    if (!rows.length) {
-      box.appendChild(el("p", "tk-ops__muted",
-        S.q ? "没搜到。换个词试试 —— 搜索会自动跨图。" : "这张图上没有符合条件的活。"));
+
+    /* 一次性提示（非法 URL 参数等）：说一次就够，下次重绘自动消失。 */
+    if (S.notice) box.appendChild(el("p", "tk-ops__warn", S.notice));
+
+    /* 载入中 / 载入失败 / 真没任务必须分开（2026-10-21）：原来三者同一句话，
+       于是「赛季取错全局量」这种整块失效被伪装成「这张图恰好没活」。 */
+    if (!S.idx) {
+      box.appendChild(el("p", "tk-ops__warn", S.idxError
+        ? "任务索引没载入成功（网络或脚本被拦截）—— 刷新一次再试。地图与进度账本不受影响。"
+        : "正在载入任务索引…"));
       return;
     }
-    var LIMIT = 20;
+
+    if (S.tasksOpen === false) return;
+    if (!rows.length) {
+      var empty;
+      if (S.planOnly) empty = "出击清单里的票都被当前筛选挡掉了 —— 点左栏「取消只看」回去。";
+      else if (S.q) empty = "没搜到。换个词试试 —— 搜索会自动跨图。";
+      else if (S.map === NOMAP) empty = "没有符合条件的不带地图任务。";
+      else empty = "这张图上没有符合条件的活。";
+      box.appendChild(el("p", "tk-ops__muted", empty));
+      return;
+    }    var LIMIT = 20;
     var shown = S.tasksAll ? rows : rows.slice(0, LIMIT);
     var ST_TXT = { done: "已完成", inhand: "进行中", ignored: "已忽略" };
     shown.forEach(function (r, i) {
@@ -606,8 +683,9 @@
       if (t.keys) bits.push("钥匙 " + t.keys + " 把");
       if (t.trader) bits.push(t.trader);
       if (t.level) bits.push("Lv " + t.level);
-      /* 搜索会跨图：不标一下，读者会以为这张图上真有这票。 */
-      if ((t.ms || []).indexOf(S.map) < 0) bits.push("不在本图");
+      /* 搜索会跨图：不标一下，读者会以为这张图上真有这票。
+         「无地图」视图下反过来说 —— 那里出现的带图票才是例外。 */
+      if (!inMap(t)) bits.push(S.map === NOMAP ? "有地图" : "不在本图");
       var meta = el("div", "tk-ops__rowmeta", bits.join(" · "));
       body.appendChild(meta);
       row.appendChild(body);
@@ -619,11 +697,7 @@
 
       row.addEventListener("click", function () {
         S.row = i;
-        S.selQ = r.qid;
-        S.selO = null;
-        selectOnMap(r.qid);
-        highlight();
-        renderRightBody();
+        locateTask(r.qid, null);
       });
       row.addEventListener("dblclick", function (e) {
         e.preventDefault();
@@ -657,10 +731,39 @@
     syncUrl();
   }
 
+  /* 单击/回车 = 在图上定位：选中与飞过去要一起做（2026-10-21）—— 只选中不飞，
+     区域可能缩在角落，读者会以为「右栏换了、图上没动」。窄屏顺带把详情滚进视野。 */
+  function locateTask(qid, oid) {
+    S.selQ = qid; S.selO = oid || null;
+    selectOnMap(qid);
+    focusTask(qid, oid || null);
+    renderRightBody();
+    if (window.matchMedia && window.matchMedia("(max-width: 1080px)").matches) {
+      var d = document.getElementById("tk-ops-detail");
+      if (d && d.scrollIntoView) d.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }
+  }
+
   function selectOnMap(qid) {
     try {
       window.dispatchEvent(new CustomEvent("tk:map:select",
         { detail: { qid: qid, oid: null, map: S.map } }));
+    } catch (e) {}
+  }
+
+  /* 把当前选中的票推到地图上。⚠️ 地图异步挂好：区域没建出来时 applyQzFilter 直接
+     return，于是「右栏有卡、图上没高亮」—— 等 .tk-zq 出现再发，最多 3 秒。 */
+  function applySelToMap(tries) {
+    if (!S.selQ || S.map === NOMAP) return;
+    var n = typeof tries === "number" ? tries : 15;
+    if (!document.querySelectorAll("#tk-map .tk-zq").length && n > 0) {
+      setTimeout(function () { applySelToMap(n - 1); }, 200);
+      return;
+    }
+    selectOnMap(S.selQ);
+    try {
+      window.dispatchEvent(new CustomEvent("tk:map:focus",
+        { detail: { qid: S.selQ, oid: S.selO || null } }));
     } catch (e) {}
   }
 
@@ -678,6 +781,16 @@
   function remountMap() {
     var m = document.getElementById("tk-map");
     if (!m) return;
+    /* 「无地图」不是一张图：不挂 map.js，只说明原因（硬挂会去请求不存在的 maps-data） */
+    if (S.map === NOMAP) {
+      m.dataset.tkMounted = "0";
+      m.dataset.tkMapBusy = "0";
+      m.textContent = "";
+      m.appendChild(el("p", "tk-ops__nomap",
+        "这批任务上游没给地图（多为「交给商人 / 交某个物品」型），没有可定位的点。"
+        + "中栏照样能勾目标、记进度；在左栏随便选一张图就回到地图。"));
+      return;
+    }
     /* map.js 用 data-mounted 防重入；换图必须清掉再让它重新挂一次 */
     m.dataset.tkMounted = "0";
     m.dataset.tkMapBusy = "0";
@@ -693,8 +806,12 @@
         if (window.TarkovMap && window.TarkovMap.mount) window.TarkovMap.mount();
         compactMapBar();
         foldLegend();
+        applySelToMap();
       });
     }
+    /* 深链：把当前选中的票补到图上。⚠️ 必须在 if/else **之外**调 —— boot 里 map.js
+       是先前装好再进 remountMap 的，走同步那一支，只写在 else 里实测无效。 */
+    applySelToMap();
   }
 
   /* ------------------------------------------------------------ URL 状态 */
@@ -703,19 +820,44 @@
     p.push("map=" + encodeURIComponent(S.map));
     p.push("mode=" + encodeURIComponent(S.mode));
     if (S.filter !== "open") p.push("f=" + S.filter);
-    if (S.q) p.push("q=" + encodeURIComponent(S.q));
+    /* 搜索词用 sq，不能叫 q（2026-10-21 实测）：map.js 把 ?q= 当任务 id 深链，
+       搜「宿舍」再切图会冒出「该任务在图上没有画出目标区域…看任务详情 →」。
+       「只看这些」**不进 URL** —— 出击清单是会话级的，分享出去对面是空清单。 */
+    if (S.q) p.push("sq=" + encodeURIComponent(S.q));
     if (S.selQ) p.push("sel=" + S.selQ);
     if (S.selO) p.push("o=" + S.selO);
     try { history.replaceState(null, "", "?" + p.join("&")); } catch (e) {}
   }
   function readUrl() {
-    var q = new URLSearchParams(location.search);
-    if (q.get("map")) S.map = q.get("map");
-    if (q.get("mode")) S.mode = q.get("mode");
-    if (q.get("f")) S.filter = q.get("f");
-    if (q.get("q")) S.q = q.get("q");
+    var q;
+    try { q = new URLSearchParams(location.search); } catch (e) { return; }
+    var bad = [];
+    /* 参数先校验再采纳（2026-10-21）：静默回退会让页面变空白，读者分不清是链接
+       坏了还是站点坏了（实测 ?map=atlantis 会把「atlantis」当图名显示）。 */
+    var vMap = q.get("map");
+    if (vMap) {
+      if (vMap === NOMAP || MAP_KEYS.indexOf(vMap) >= 0) S.map = vMap;
+      else bad.push("地图「" + vMap + "」");
+    }
+    var vMode = q.get("mode");
+    if (vMode) {
+      if (MODE_KEYS.indexOf(vMode) >= 0) S.mode = vMode;
+      else bad.push("模式「" + vMode + "」");
+    }
+    var vF = q.get("f");
+    if (vF && FILTERS.indexOf(vF) >= 0) S.filter = vF;
+    /* 兼容旧链接：v1.145 及更早用 q= 存搜索词（当时还没发现和地图撞名） */
+    var vQ = q.get("sq");
+    if (vQ == null) {
+      var leg = q.get("q");
+      if (leg && !/^[0-9a-f]{24}$/i.test(leg)) vQ = leg;
+    }
+    if (vQ) S.q = vQ;
     if (q.get("sel")) S.selQ = q.get("sel");
     if (q.get("o")) S.selO = q.get("o");
+    if (bad.length) {
+      S.notice = "链接里的" + bad.join("、") + "不认识，已回到默认视图。";
+    }
   }
 
   /* -------------------------------------------------- 地图 → 右栏（反向联动）
@@ -741,6 +883,8 @@
         var cur = list.querySelector(".tk-ops__row.is-sel");
         if (cur && cur.scrollIntoView) cur.scrollIntoView({ block: "nearest" });
       }
+      /* 右栏跟着换：否则从地图上点了一票，右栏还停在上一票的详情（或空态） */
+      renderRightBody();
       syncUrl();
     };
     window.addEventListener("tk:map:select", window.__tkOpsMapSync);
@@ -750,6 +894,10 @@
   /* ------------------------------------------------------------ 键盘流 */
   function bindKeys() {
     document.addEventListener("keydown", function (e) {
+      /* ⚠️ 本页守卫必须在第一行（2026-10-21 实测）：监听挂在 document 上、只在第一次
+         boot 时绑一次，instant 换页不重建 JS 上下文 → 一直活到整页刷新。没有这一行，
+         离开 /ops/ 后 `/` 被吞（全站搜索快捷键失效）、按 1/2/3 还会改写当前页 URL。 */
+      if (!document.getElementById(HOST)) return;
       var tag = (e.target && e.target.tagName) || "";
       var typing = tag === "INPUT" || tag === "TEXTAREA";
       if (e.key === "/" && !typing) {
@@ -761,7 +909,7 @@
       if (e.key === "Escape") {
         /* 先 blur 再局部重绘：直接 paint() 会「恢复焦点」，把这次的 blur 抵消掉 */
         if (typing) { e.target.value = ""; S.q = ""; e.target.blur(); renderRightBody(); syncUrl(); }
-        else { S.selQ = null; S.selO = null; paint(); }
+        else { S.selQ = null; S.selO = null; paint(); syncUrl(); }
         return;
       }
       if (typing) return;
@@ -773,6 +921,19 @@
       if (!list) return;
       var rows = Array.prototype.slice.call(list.querySelectorAll(".tk-ops__row"));
       if (!rows.length) return;
+      /* 回车定位（2026-10-21 补）：文案从 v1.134.0 起就写「回车定位」，却一直没有
+         Enter 分支 —— ↑↓ 只换右栏、不动地图。判定用「别抢有默认动作的控件」。 */
+      if (e.key === "Enter") {
+        var tEl = e.target || document.activeElement;
+        var tg = (tEl && tEl.tagName) || "";
+        if (tg === "BUTTON" || tg === "A" || tg === "SUMMARY" ||
+          tg === "INPUT" || tg === "TEXTAREA" || tg === "SELECT") return;
+        var cur0 = rows[S.row];
+        if (!cur0 || !cur0.dataset.qid) return;
+        e.preventDefault();
+        locateTask(cur0.dataset.qid, null);
+        return;
+      }
       if (e.key === "ArrowDown") { S.row = Math.min(rows.length - 1, S.row + 1); e.preventDefault(); }
       else if (e.key === "ArrowUp") { S.row = Math.max(0, S.row - 1); e.preventDefault(); }
       else return;
@@ -781,6 +942,8 @@
       S.selQ = r.dataset.qid;
       highlight();
       renderRightBody();
+      /* 焦点跟到行上：回车才有落点（行是 div，focus 不会触发任何默认动作） */
+      try { r.focus({ preventScroll: true }); } catch (err) { /* 老浏览器忽略参数 */ }
     });
   }
   function showHelp() {
@@ -1063,7 +1226,9 @@
 
     left.textContent = "";
     left.appendChild(buildMapList());
-    renderMapRows();   /* buildMapList 里的首绘发生在入 DOM 之前，这里补一次 */
+    /* buildMapList 建的是**还没入 DOM** 的节点，它内部那次 renderMapRows 拿不到
+       #tk-ops-maplist，等于空转 —— 真正这一遍在这里（2026-10-21 去掉了内部那次）。 */
+    renderMapRows();
     left.appendChild(buildPlan());
     /* 日志同步从「左栏底部」挪到「页面底部」（2026-10-21）：它是一次性设置，
        原来占着左栏最黄金的位置，每次选图都要滚过它。 */
@@ -1073,6 +1238,8 @@
     if (brief) buildBriefBar(brief);
     var tasks = document.getElementById("tk-ops-tasks");
     if (tasks) renderTaskList(tasks);
+    /* 提示只说一次：已经画进 DOM 了，下一次重绘就不该再出现 */
+    S.notice = "";
 
     var search = el("input", "tk-ops__search");
     search.type = "search";
@@ -1185,24 +1352,19 @@
     }
   }
 
-  /* 只重绘右栏**内容**（跳转条 + 任务列表），不动搜索框与筛选按钮。
-     搜索框的 input 事件走这里 —— 详见 paint() 里那段注释。 */
-  /* 只重绘右栏**内容**（跳转条 + 任务明细），不动搜索框与筛选按钮。 */
-  /* 右栏 = 「当前这一票要做什么」：搜索/筛选在上，明细在下。
-     没有选中时只留一句引导，不塞列表（列表在中栏）。 */
-  /* 右栏空态 = 「本图下一步」（2026-10-21）
-     未选中任何票时，右栏原来只有一句引导 —— 那是一整列 300px 的空白。
-     读者真正的下一个问题不是「我该点什么」，而是「这张图我现在该做哪几票」。
-     推荐口径（不猜、不玩排序玄学）：本图 + 未完成/未忽略 + 可接（等级够、前置齐），
-     按目标数从多到少 —— 目标多 = 一局能推进的进度多。最多 3 条。 */
+  /* ---------------------------------------------------------- 右栏：内容 */
+  /* 右栏空态 = 「本图下一步」（2026-10-21）：未选中时不再只留一句引导，而给
+     本图未完成且可接的票，按目标数从多到少 —— 目标多 = 一局能推进的进度多。 */
   function buildNextUp(box) {
     var cands = [];
     if (S.idx && S.idx.tasks) {
       for (var qid in S.idx.tasks) {
         var t = taskOf(qid);
-        if (!t || (t.ms || []).indexOf(S.map) < 0) continue;
+        if (!t || !inMap(t)) continue;
         var st = stateOf(qid);
-        if (st === "done" || st === "ignored") continue;
+        /* 与「可接」同一口径（2026-10-21）：手上已有的票不算「能接」，
+           否则这一栏的票数与简报条 / 筛选档三处永远对不上。 */
+        if (st === "done" || st === "ignored" || st === "inhand") continue;
         if (!gate(qid).ok) continue;
         cands.push({ qid: qid, t: t, st: st, n: (t.oids || []).length });
       }
@@ -1213,9 +1375,20 @@
     head.appendChild(el("span", "tk-ops__chainn", cands.length ? cands.length + " 票" : "0"));
     box.appendChild(head);
     if (!cands.length) {
-      box.appendChild(el("p", "tk-ops__dempty",
-        S.lv ? "按你填的等级，这张图上没有可接的活 —— 降低等级，或看「未完成」里缺前置的票。"
-             : "这张图上没有可接的活 —— 填一下「我的等级」，或看「未完成」里缺前置的票。"));
+      /* 「0 票可接」有两种原因，不能共用一句话（2026-10-21）：等级/前置卡住，
+         或这张图的活已经全接在手上了。 */
+      var st0 = mapStats();
+      var msg;
+      if (st0.inhand) {
+        msg = "这张图能接的都接了 —— 手上还有 " + st0.inhand + " 票在做，看「更多 › 进行中」。";
+      } else if (st0.open) {
+        msg = S.lv
+          ? "按你填的等级，这张图上没有可接的活 —— 降低等级，或看「未完成」里缺前置的票。"
+          : "这张图上没有可接的活 —— 填一下「我的等级」，或看「未完成」里缺前置的票。";
+      } else {
+        msg = "这张图上没有未完成的活了。";
+      }
+      box.appendChild(el("p", "tk-ops__dempty", msg));
       box.appendChild(el("p", "tk-ops__muted", "↑↓ 选行 · 回车定位 · / 搜索 · 1 2 3 切模式"));
       return;
     }
@@ -1242,6 +1415,14 @@
         "另有 " + (cands.length - 3) + " 票可接 —— 在右栏「可接」里看全部。"));
     }
     box.appendChild(el("p", "tk-ops__muted", "点一张就定位到图上 · ↑↓ 选行 · 回车定位 · / 搜索"));
+  }
+
+  /* 同名任务在前置链上会读成「要完成 X 才能接 X」（2026-10-21 实测）：
+     上游确实有 9 组重名（人靠衣装 - 1 / 纺织业 - 2 / 平衡之力 - 2（PVE）…），
+     它们是**两条不同的票**，不是渲染错。加一句说明，读者才看得懂。 */
+  function chainName(name, selfName) {
+    if (!name) return "（无中文名）";
+    return name === (selfName || "") ? name + "（同名另一条）" : name;
   }
 
   function renderDetail(box) {
@@ -1329,7 +1510,7 @@
         b.type = "button";
         b.appendChild(el("i", "tk-ops__dot" + (done ? " is-done" : "")));
         b.appendChild(el("span", "tk-ops__chainname",
-          pt ? (pt.name || "（无中文名）") : "（不在本模式任务库）"));
+          pt ? chainName(pt.name, t.name) : "（不在本模式任务库）"));
         if (pt && pt.trader) b.appendChild(el("span", "tk-ops__chaintrader", pt.trader));
         if (pt) b.addEventListener("click", function () { gotoTask(p); });
         else b.disabled = true;
@@ -1362,7 +1543,7 @@
         b.type = "button";
         b.appendChild(el("i", "tk-ops__dot is-next"));
         b.appendChild(el("span", "tk-ops__chainname",
-          nt ? (nt.name || "（无中文名）") : nq));
+          nt ? chainName(nt.name, t.name) : nq));
         if (nt && nt.trader) b.appendChild(el("span", "tk-ops__chaintrader", nt.trader));
         b.addEventListener("click", function () { gotoTask(nq); });
         li.appendChild(b);
@@ -1441,22 +1622,36 @@
   function boot() {
     readUrl();
     S.lv = loadLv();          // 「我的等级」只在本机，不进 URL
+    var bootMode = S.mode;
     var m = document.getElementById("tk-map");
     if (m) {
-      m.setAttribute("data-map", S.map);
-      m.setAttribute("data-mode", S.mode === "season" ? "pvp" : S.mode);
+      /* 「无地图」不设 data-map：设了 map.js 会去取 maps-data-__nomap.js（404） */
+      if (S.map !== NOMAP) m.setAttribute("data-map", S.map);
+      m.setAttribute("data-mode", bootMode === "season" ? "pvp" : bootMode);
       m.setAttribute("data-tk-hover-tip", "1");
     }
-    loadScript("ops-index-" + (S.mode === "season" ? "pvp" : S.mode) + ".js",
-      "TARKOV_OPS_INDEX_" + S.mode.toUpperCase(), function (ok) {
-        S.idx = ok ? window["TARKOV_OPS_INDEX_" + S.mode.toUpperCase()] : null;
-        paint();
-      });
-    loadScript("map.js", null, function () {
-      remountMap();
-      bindHover();
-      compactMapBar();
+    loadScript(idxFile(bootMode), idxKey(bootMode), function (ok) {
+      if (S.mode !== bootMode) return;      // 载入期间读者已切模式：让那次的结果说了算
+      S.idx = ok ? window[idxKey(bootMode)] : null;
+      S.idxError = !ok;
+      paint();
     });
+    if (S.map === NOMAP) {
+      /* 伪图：没有地图可挂，remountMap 只渲染一句说明；不必为它下 93 KB 的 map.js */
+      remountMap();
+    } else {
+      loadScript("map.js", null, function () {
+        remountMap();
+        compactMapBar();
+      });
+    }
+    /* 操作说明的可见入口（2026-10-21）：帮助块原来只有 `?` 键能开，
+       鼠标读者永远看不到「三个手势」与「可接怎么算」—— 那恰好是最该被看见的两段。 */
+    var hb = document.querySelector("[data-tk-help]");
+    if (hb && hb.dataset.tkHelpBound !== "1") {
+      hb.dataset.tkHelpBound = "1";
+      hb.addEventListener("click", showHelp);
+    }
     applyWidths();
     bindGrips();
     /* map.js 的数据是异步到的：工具条会被重建（新节点 = 没有 tkCompact 标记）。

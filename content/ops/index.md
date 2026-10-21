@@ -31,8 +31,9 @@ title: 作战台
 
 <p class="tk-ops__keys">
   <b>键盘</b>：<code>/</code> 聚焦搜索 · <code>↑</code><code>↓</code> 选行 ·
-  <code>1</code><code>2</code><code>3</code> 切模式 · <code>Esc</code> 清筛选 ·
-  <code>?</code> 快捷键 · 鼠标悬停区域即出小提示，点开才是完整卡
+  <code>Enter</code> 定位 · <code>1</code><code>2</code><code>3</code> 切模式 ·
+  <code>Esc</code> 清选中 / 清搜索 · 鼠标悬停区域即出小提示，点开才是完整卡
+  <button class="tk-ops__helpbtn" type="button" data-tk-help>这一页在做什么</button>
 </p>
 
 <details class="tk-ops__note" id="tk-ops-help" hidden>
@@ -67,7 +68,7 @@ title: 作战台
   <ul>
     <li><a href="../maps/">交互地图</a> —— 每张图的点位、撤离点、图层与静态任务表</li>
     <li><a href="../quests/">任务图鉴</a> —— 504 个任务的逐条要求、奖励与<strong>精确坐标</strong></li>
-    <li><a href="../quests/progress/">我的进度</a> —— 进度账本与出击清单</li>
+    <li><a href="../quests/progress/">我的进度</a> —— 进度账本与出发前准备清单</li>
     <li><a href="../quests/item-lookup/">物品反查</a> —— 手上这个要不要留</li>
   </ul>
 </div>

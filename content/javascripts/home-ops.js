@@ -26,10 +26,15 @@
   "use strict";
 
   var HOST = "tk-home-ops";
-  var LITE = { pve: "ops-lite-pve.js", pvp: "ops-lite-pvp.js" };
+  var LITE = { pve: "ops-lite-pve.js", pvp: "ops-lite-pvp.js", season: "ops-lite-pvp.js" };
+  /* 文件名与导出名是两件事：赛季共用 pvp 的 lite 数据，导出名也只有 _PVP。
+     直接拼 mode.toUpperCase() 会拿 TARKOV_OPS_LITE_SEASON（不存在）→ 清单永远空。 */
+  var LITE_KEY = { pve: "TARKOV_OPS_LITE_PVE", pvp: "TARKOV_OPS_LITE_PVP", season: "TARKOV_OPS_LITE_PVP" };
   var LIMIT = 24;
-  var cached = {};      /* mode → 数据 */
+  var cached = {};      /* 缓存键 = 文件名去掉 .js（pve / pvp），season 与 pvp 共用 */
   var loading = null;   /* 正在加载的模式 */
+
+  function liteCacheKey(mode) { return mode === "season" ? "pvp" : mode; }
 
   /* 商人 slug → 站内一贯的写法（与左栏 nav 一致：Mechanic / BTR 司机）。
      lite 索引里存的是 slug（小写），直接显示会出现一节 "prapor"，与站内其它
@@ -83,17 +88,18 @@
   /* --------------------------------------------------------- 数据加载 */
 
   function loadLite(mode, cb) {
-    if (cached[mode]) { cb(cached[mode]); return; }
+    var key = liteCacheKey(mode);
+    if (cached[key]) { cb(cached[key]); return; }
     if (loading && loading.mode === mode) { loading.cbs.push(cb); return; }
     loading = { mode: mode, cbs: [cb] };
     var s = document.createElement("script");
     s.src = root() + "javascripts/" + LITE[mode];
     s.async = true;
     s.onload = function () {
-      var g = window["TARKOV_OPS_LITE_" + mode.toUpperCase()];
+      var g = window[LITE_KEY[mode]];
       var pend = loading ? loading.cbs : [];
       loading = null;
-      if (g) cached[mode] = g;
+      if (g) cached[key] = g;
       for (var i = 0; i < pend.length; i++) pend[i](g || null);
     };
     s.onerror = function () {
@@ -150,7 +156,7 @@
       return;
     }
 
-    var data = cached[S.mode];
+    var data = cached[liteCacheKey(S.mode)];
     if (!data) {
       body.textContent = "";
       body.appendChild(el("p", "tk-home-ops__hint", "正在载入任务清单…"));
@@ -241,8 +247,9 @@
 
   function repaintCounts() {
     var host = hostEl();
-    if (!host || !cached[S.mode] || !S.map) return;
-    var st = summary(cached[S.mode], S.map);
+    var key = liteCacheKey(S.mode);
+    if (!host || !cached[key] || !S.map) return;
+    var st = summary(cached[key], S.map);
     var head = host.querySelector(".tk-home-ops__sum strong");
     if (head) head.textContent = "本图 " + st.n + " 个任务";
     var tail = host.querySelector(".tk-home-ops__sum");
@@ -259,7 +266,7 @@
     var host = hostEl();
     var body = host && host.querySelector(".tk-home-ops__body");
     if (body) body.setAttribute("data-loading", "1");
-    if (cached[S.mode]) { renderList(); }
+    if (cached[liteCacheKey(S.mode)]) { renderList(); }
     else {
       renderList();
       loadLite(S.mode, function (data) {
@@ -301,7 +308,14 @@
     host.addEventListener("click", function (e) {
       var chip = e.target.closest ? e.target.closest("[data-map]") : null;
       if (chip) {
+        /* ⚠️ **必须 stopPropagation**（2026-10-21 实测）：
+           胶囊本身是 <a href="ops/?map=…">（无脚本时的兜底），而站点开了
+           navigation.instant —— 主题在 document.body 上另有一个 click 订阅，
+           直接 history.replaceState + pushState，**不看 defaultPrevented**。
+           只 preventDefault 的话两个 handler 都会跑、主题赢：这一块从上线起
+           就退化成「13 个跳转链接」，原地清单一次都没渲染出来过。 */
         e.preventDefault();
+        e.stopPropagation();
         var k = chip.getAttribute("data-map");
         select(k === S.map ? "" : k, true);
         return;
@@ -309,6 +323,7 @@
       var tab = e.target.closest ? e.target.closest("[data-mode]") : null;
       if (tab) {
         e.preventDefault();
+        e.stopPropagation();
         setMode(tab.getAttribute("data-mode"));
       }
     });
