@@ -159,7 +159,7 @@
 .tk-ops__chip.is-on { background: var(--tk-brand); border-color: var(--tk-brand); color: #fff; }
 /* 筛选段变多，允许换行 —— 六个按钮挤一行在窄栏里会压成读不出的字 */
 .tk-ops__seg { flex-wrap: wrap; }
-.tk-ops__segb { flex: 1 0 auto; min-width: 3.2rem; }
+.tk-ops__segb { flex: 1 0 auto; min-width: 2.45rem; }
 
 /* ===== 作战台：地名跳转条 + 悬停浮条（2026-10-18） ===== */
 .tk-ops__jump {
@@ -661,6 +661,108 @@ body:has(#tk-ops) .tk-map__card { display: none; }
 .tk-ops__legendbox[open] > summary::before { content: "▾"; }
 .tk-ops__legendbody { padding: .35rem 0 .1rem; }
 
+/* ===== 作战台：可接判定 / 前置链 / 空态推荐（2026-10-21）=====
+   这一批全部是「信息层」的新增：不改地图、不改筛选逻辑，
+   只在已有的行与详情卡里补三种读者最需要的信息 —— 能不能接、缺什么、下一步做哪票。
+   颜色一律走变量（纸色 / 军绿 / 琥珀 / 品牌蓝），暗色段在文件末尾统一覆盖。 */
+
+/* Kappa / Lightkeeper：终局线归属，不是状态 —— 所以用描边而不是实底徽章，
+   避免与 done / inhand 那组实底徽章混成同一档。 */
+.tk-ops__kflag {
+  font-size: .52rem; letter-spacing: .02em; padding: .04em .3em;
+  border: 1px solid var(--tk-amber); color: var(--tk-amber);
+  border-radius: .16rem; white-space: nowrap;
+}
+/* 「可接」用军绿实底（正向、可行动）；「缺前置 / 需 Lv」用虚线描边（受限，但不是错误）。 */
+.tk-ops__ready {
+  font-size: .56rem; padding: .04em .3em; border-radius: .16rem;
+  background: var(--tk-grn-bg); color: var(--tk-grn); border: 1px solid #c3d0a6;
+  white-space: nowrap;
+}
+.tk-ops__locked {
+  font-size: .56rem; padding: .04em .3em; border-radius: .16rem;
+  background: var(--tk-panel-2); color: var(--tk-ink-2);
+  border: 1px dashed var(--tk-line-2); white-space: nowrap;
+}
+
+.tk-ops__dgate {
+  display: flex; align-items: center; gap: .3rem; flex-wrap: wrap;
+  margin: .18rem 0 0;
+}
+
+/* 前置 / 后续：一个虚线分隔的小节，不抢目标清单的位置 */.tk-ops__chain {
+  margin: .32rem 0 0; padding-top: .26rem;
+  border-top: 1px dashed var(--tk-line);
+}
+.tk-ops__chainhead {
+  display: flex; align-items: baseline; gap: .4rem;
+  font-size: .62rem; color: var(--tk-ink-2);
+}
+.tk-ops__chainhead b { color: var(--tk-ink); font-size: .64rem; }
+.tk-ops__chainn { font-size: .56rem; color: var(--tk-ink-2); }
+.tk-ops__chainlist { list-style: none; margin: .14rem 0 0; padding: 0; }
+.tk-ops__chainlist li { margin: 0; }
+.tk-ops__chainbtn {
+  display: flex; align-items: center; gap: .32rem; width: 100%;
+  appearance: none; background: none; border: 0; padding: .12rem .1rem;
+  font: inherit; font-size: .62rem; color: var(--tk-ink);
+  text-align: left; cursor: pointer; border-radius: .2rem;
+}
+.tk-ops__chainbtn:hover { background: var(--tk-brand-soft); }
+.tk-ops__chainbtn:disabled { cursor: default; color: var(--tk-ink-2); }
+/* 状态点用 CSS 画，不用 ✓ / ○ —— 那两个码位落在图标统计块里，会被 check_icons 算成表外图标 */
+.tk-ops__dot {
+  width: .42rem; height: .42rem; border-radius: 50%; flex: 0 0 auto;
+  border: 1px solid var(--tk-line-3); background: transparent;
+}
+.tk-ops__dot.is-done { background: var(--tk-grn); border-color: var(--tk-grn); }
+.tk-ops__dot.is-next { background: var(--tk-brand-soft); border-color: var(--tk-brand); }
+.tk-ops__chainname {
+  flex: 1 1 auto; min-width: 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.tk-ops__chainlist li.is-done .tk-ops__chainname {
+  color: var(--tk-ink-2); text-decoration: line-through;
+}
+.tk-ops__chaintrader { font-size: .54rem; color: var(--tk-ink-2); white-space: nowrap; }
+.tk-ops__chainhint { margin: .18rem 0 0; font-size: .58rem; color: var(--tk-amber); }
+
+/* 「我的等级」：一行，不占筛选段的位置 */
+.tk-ops__lv {
+  display: flex; align-items: center; gap: .36rem;
+  font-size: .6rem; color: var(--tk-ink-2); margin: .1rem 0 .3rem;
+}
+.tk-ops__lvin {
+  width: 4.2rem; font: inherit; font-size: .62rem; padding: .1rem .3rem;
+  border: 1px solid var(--tk-line-2); border-radius: .2rem;
+  background: #fff; color: var(--tk-ink);
+}
+.tk-ops__lvin::placeholder { color: #9a927f; }
+
+/* 空态：本图下一步 */
+.tk-ops__nuhead {
+  display: flex; align-items: baseline; gap: .4rem;
+  font-size: .66rem; color: var(--tk-ink); margin: .1rem 0 .26rem;
+}
+.tk-ops__nulist { display: flex; flex-direction: column; gap: .28rem; }
+.tk-ops__nucard {
+  display: block; width: 100%; text-align: left; appearance: none; cursor: pointer;
+  border: 1px solid var(--tk-line); border-radius: .24rem;
+  background: #fff; padding: .34rem .4rem; font: inherit; color: var(--tk-ink);
+}
+.tk-ops__nucard:hover { border-color: var(--tk-brand); background: var(--tk-brand-soft); }
+.tk-ops__nutop { display: flex; align-items: center; gap: .34rem; }
+.tk-ops__nun {
+  flex: 0 0 auto; width: 1.05rem; height: 1.05rem; border-radius: 50%;
+  background: var(--tk-brand); color: #fff;
+  font-size: .58rem; line-height: 1.05rem; text-align: center;
+}
+.tk-ops__nuname { font-size: .66rem; }
+.tk-ops__numeta {
+  display: block; margin-top: .12rem;
+  font-size: .58rem; color: var(--tk-ink-2);
+}
+
 /* ===== 作战台 v2：暗色（2026-10-18）=====
    旧规则里这些控件写死 background:#fff，而 slate 把文字改成了浅色 —
    白底白字实测 1:1。统一改成暗面板，选中态用浅一档的蓝灰。 */
@@ -705,6 +807,26 @@ body:has(#tk-ops) .tk-map__card { display: none; }
 [data-md-color-scheme="slate"] .tk-ops__mode[aria-pressed="true"] { color: #F5F4F0; }
 [data-md-color-scheme="slate"] .tk-ops__mapmeta,
 [data-md-color-scheme="slate"] .tk-ops__bmeta { color: #C6D2DE; }
+
+/* 2026-10-21 新增控件（等级输入 / 空态卡 / 前置链）的暗色覆盖 ——
+   这几处默认写死 #fff，slate 下会变成白底浅字。 */
+[data-md-color-scheme="slate"] .tk-ops__lvin,
+[data-md-color-scheme="slate"] .tk-ops__nucard {
+  background: #2B3133; color: #C6D2DE; border-color: #4A473F;
+}
+[data-md-color-scheme="slate"] .tk-ops__nucard:hover { background: #38403F; border-color: #9FB0C4; }
+[data-md-color-scheme="slate"] .tk-ops__nun { background: #4E6280; color: #F5F4F0; }
+[data-md-color-scheme="slate"] .tk-ops__nuname { color: #F5F4F0; }
+[data-md-color-scheme="slate"] .tk-ops__chainbtn { color: #E6E4DF; }
+[data-md-color-scheme="slate"] .tk-ops__chainbtn:hover { background: #38403F; }
+[data-md-color-scheme="slate"] .tk-ops__ready {
+  background: #2C3524; color: #C7D6A8; border-color: #4E5C39;
+}
+[data-md-color-scheme="slate"] .tk-ops__locked {
+  background: #2B3133; color: #A9B4BE; border-color: #565D57;
+}
+[data-md-color-scheme="slate"] .tk-ops__kflag { color: #D9A94A; border-color: #7A6A3A; }
+[data-md-color-scheme="slate"] .tk-ops__chainhint { color: #D9A94A; }
 
 /* 右栏常驻：任务清单一长，读者往下看清单时仍能读到「当前这一票」的目标。
    左栏同理但只吸到视口底（它自己的内容也可能很长）。 */
