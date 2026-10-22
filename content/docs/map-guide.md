@@ -72,7 +72,7 @@ tags:
 
 ## ⚠️ 三类“设计好的死亡”
 
-这些不是 bug，是**刻意设置的边界与机关**。认得出就能绕开（完整规则见[彩蛋与制作组的恶意](../entries/easter-eggs.md)）：
+这些不是 bug，是**刻意设置的边界与机关**。认得出就能绕开（完整规则见[彩蛋与设计陷阱](../entries/easter-eggs.md)）：
 
 | 类型 | 在哪 | 关键规则 |
 |------|------|----------|
@@ -98,7 +98,7 @@ tags:
 - [战利品分布与热点](../entries/loot.md) — 为什么条目正文不列坐标
 - [撤离点详解](../entries/extraction-points.md) — 各图的撤离条件
 - [转场与 BTR](../entries/transit.md) — 一局连打多张图
-- [彩蛋与制作组的恶意](../entries/easter-eggs.md) — 雷区、阔剑与彩蛋点位
+- [彩蛋与设计陷阱](../entries/easter-eggs.md) — 雷区、阔剑与彩蛋点位
 
 ⬆️ **[回到顶部](#top)**
 

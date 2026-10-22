@@ -166,7 +166,7 @@ Kollontay 是前警察上校，武器从冲锋枪到霰弹枪到轻机枪都有�
 - [**交互地图 · 街区**](../maps/streets-of-tarkov.md) — 把本页讲到的区域画在图上的那一张
 - [Boss 图鉴](bosses.md) — Kaban / Kollontay / Partisan 的完整对照
 - [钥匙与钥匙房](keys.md) — 车行钥匙与街区内高价值房间
-- [彩蛋与制作组的恶意](easter-eggs.md) — 克莱莫地雷的规则
+- [彩蛋与设计陷阱](easter-eggs.md) — 克莱莫地雷的规则
 - [地图对照速查](../docs/map-guide.md) — 与其余 12 张图的横向对照
 
 ---
