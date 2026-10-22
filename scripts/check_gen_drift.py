@@ -110,6 +110,7 @@ GENERATORS: list[list[str]] = [
     ["scripts/gen_home_stats.py"],        # ⑧ 首页速览（读上面几支的产物，故在后）
     ["scripts/gen_ammo_values.py"],       # ⑨ 数值表 ×7
     ["scripts/gen_armor_values.py"],
+    ["scripts/gen_plate_guide.py"],       # ⑨b 插板选型：材质横评 / 适配族 / 预算分档
     ["scripts/gen_weapon_values.py"],
     ["scripts/gen_gear_values.py"],
     ["scripts/gen_food_values.py"],
