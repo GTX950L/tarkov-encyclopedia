@@ -7,7 +7,7 @@
 <div class="tk-launch">
 <a class="tk-launch__card tk-launch--read" href="entries/spawn-and-opening.md">
 <span class="tk-launch__title">📖 读 · 从零上手</span>
-<span class="tk-launch__desc">92 个条目分十二篇：先懂规则，再看地图，最后吃透装备与经济。</span>
+<span class="tk-launch__desc">92 个条目分十二篇：前八篇按顺序读，先懂规则、再看地图、最后吃透装备与经济。</span>
 <ul class="tk-launch__list">
 <li><span class="tk-launch__row"><b>① 先活下来</b><i>撤离 · 保险 · 健康</i></span></li>
 <li><span class="tk-launch__row"><b>② 再认识地图</b><i>十三张图逐张讲</i></span></li>
@@ -19,13 +19,10 @@
 <div class="tk-launch__card tk-launch--tools">
 <span class="tk-launch__head"><span class="tk-launch__title">🧰 用 · 工具箱</span><span class="tk-launch__badge">离线可用 · 无需登录</span></span>
 <ul class="tk-launch__list">
-<li><a href="maps/index.md"><b>交互地图</b><i>13 张图 · 任务区域与进度联动</i></a></li>
+<li><a href="ops/index.md"><b>作战台</b><i>选图 → 勾目标 → 定位，一屏做完</i></a></li>
 <li><a href="quests/progress.md"><b>我的进度</b><i data-tk-toolstat>任务 · 剧情 · 物品 · 藏身处</i></a></li>
-<li><a href="quests/index.md"><b>任务图鉴</b><i>逐条要求与奖励 · 可筛选</i></a></li>
-<li><a href="entries/season-modifiers.md"><b>赛季特质模拟器</b><i>点选构筑 · 互斥校验</i></a></li>
-<li><a href="docs/recipes.md"><b>配方速查</b><i>制作与交换配方</i></a></li>
-<li><a href="docs/glossary.md"><b>术语与黑话</b><i>全称 / 缩写双向查</i></a></li>
-<li><a href="docs/mechanics.md"><b>机制速查表</b><i>一页看完核心规则</i></a></li>
+<li><a href="maps/index.md"><b>交互地图</b><i>13 张图 · 任务区域与进度联动</i></a></li>
+<li><a href="quests/item-lookup.md"><b>物品反查</b><i>手上这个要不要留</i></a></li>
 </ul>
 <a class="tk-launch__cta tk-launch__cta--primary" href="quests/progress.md">打开我的进度</a>
 </div>
@@ -73,7 +70,7 @@
 <a class="tk-stat__card" href="entries/index.md">
 <b class="tk-stat__n">92<em>篇</em></b>
 <span class="tk-stat__l">百科条目</span>
-<span class="tk-stat__d">8 篇主线 · 4 篇查阅栏目</span>
+<span class="tk-stat__d">8 篇主线 · 4 篇图鉴与参考</span>
 </a>
 <a class="tk-stat__card" href="maps/index.md">
 <b class="tk-stat__n">13<em>张</em></b>
@@ -120,7 +117,7 @@
 
 <!-- AUTO-GEN:HOME-STATS:END -->
 
-《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **92 个**条目，分十二篇组织 —— **前八篇**是“从零上手”的主线，**第九篇 · [物品图鉴](catalog/index.md)** 收录 **4,983 件**物品的属性与商人价，**第十篇 · [任务图鉴](quests/index.md)** 把 **503 个任务**的要求、奖励与接取门槛逐条列全，**第十一篇 · [参考](docs/index.md)** 收齐速查表与站务工具页，**第十二篇 · [交互地图](maps/index.md)** 把点位信息从条目正文里接出来。
+《逃离塔科夫》（Escape from Tarkov）是 Battlestate Games 开发的硬核战术撤离射击游戏。这个百科的目标是：**把“死得莫名其妙”变成“死得明白”**——每一篇条目都解释一个系统“是什么、为什么、怎么用”。目前已收录 **92 个**条目，分十二篇组织 —— **前八篇**是“从零上手”的主线，**第九篇 · [物品图鉴](catalog/index.md)** 收录 **4,983 件**物品的属性与商人价，**第十篇 · [任务图鉴](quests/index.md)** 把 **503 个任务**的要求、奖励与接取门槛逐条列全，**第十一篇 · [参考](docs/citation.md)** 收齐速查表与口径，**第十二篇 · [交互地图](maps/index.md)** 把点位信息从条目正文里接出来。另有三个工具不占篇目：**作战台、我的进度、物品反查**。
 
 > 💡 本站**以文字与表格为主体**（仅交互地图底图与任务/物品页图标为图形素材，权利边界见下方声明），弱网环境可流畅阅读。所有数值描述以“机制原理”为主，具体数值随版本变动，请以游戏内为准。
 
@@ -128,8 +125,12 @@
 
 ---
 
-## 🧭 推荐学习路径
+## 🧭 怎么读这一站
 
+站里就三件事：**读**（按顺序从零上手）、**用**（会算、会联动本机进度的工具）、**查**（图鉴与速查表）。
+侧栏是这三栏，首页也是这三栏。
+
+<div class="tk-path__h">读 · 从零上手（按顺序）</div>
 <div class="tk-path">
 <a class="tk-step tk-s1" href="entries/spawn-and-opening.md"><b>第一篇</b><em>入门机制</em><i>12 篇</i></a>
 <span class="tk-arrow">→</span>
@@ -139,27 +140,37 @@
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s4" href="entries/traders.md"><b>第四篇</b><em>经济与成长</em><i>19 篇</i></a>
 <span class="tk-arrow">→</span>
-<a class="tk-step tk-s5" href="entries/stamina.md"><b>第五篇</b><em>进阶战斗机制</em><i>13 篇</i></a>
+<a class="tk-step tk-s5" href="entries/stamina.md"><b>第五篇</b><em>进阶战斗机制</em><i>15 篇</i></a>
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s6" href="entries/raid-flow.md"><b>第六篇</b><em>战局内行为手册</em><i>6 篇</i></a>
 <span class="tk-arrow">→</span>
 <a class="tk-step tk-s7" href="entries/seasons.md"><b>第七篇</b><em>赛季与衍生内容</em><i>10 篇</i></a>
 <span class="tk-arrow">→</span>
-<a class="tk-step tk-s8" href="entries/weather.md"><b>第八篇</b><em>世界与背景</em><i>4 篇</i></a>
+<a class="tk-step tk-s8" href="entries/easter-eggs.md"><b>第八篇</b><em>世界与背景</em><i>2 篇</i></a>
+</div>
+
+<div class="tk-path__h">用 · 工具箱（不按顺序，随时打开）</div>
+<div class="tk-path">
+<a class="tk-step tk-s9" href="ops/index.md"><b>工具</b><em>作战台</em><i>选图 · 勾目标</i></a>
 <span class="tk-arrow">→</span>
+<a class="tk-step tk-s9" href="quests/progress.md"><b>工具</b><em>我的进度</em><i>本机账本</i></a>
+<span class="tk-arrow">→</span>
+<a class="tk-step tk-s11" href="maps/index.md"><b>第十二篇</b><em>交互地图</em><i>14 篇</i></a>
+</div>
+
+<div class="tk-path__h">查 · 图鉴与速查（按关键词找，不按顺序）</div>
+<div class="tk-path">
 <a class="tk-step tk-s9" href="catalog/index.md"><b>第九篇</b><em>物品图鉴</em><i>27 篇</i></a>
-<span class="tk-arrow">→</span>
-<a class="tk-step tk-s10" href="quests/index.md"><b>第十篇</b><em>任务图鉴</em><i>17 篇</i></a>
-<span class="tk-arrow">→</span>
-<a class="tk-step tk-s11" href="docs/index.md"><b>第十一篇</b><em>参考</em><i>19 篇</i></a>
-<span class="tk-arrow">→</span>
-<a class="tk-step tk-s12" href="maps/index.md"><b>第十二篇</b><em>交互地图</em><i>14 篇</i></a>
+<span class="tk-arrow">·</span>
+<a class="tk-step tk-s10" href="quests/index.md"><b>第十篇</b><em>任务图鉴</em><i>15 篇</i></a>
+<span class="tk-arrow">·</span>
+<a class="tk-step tk-s11" href="docs/citation.md"><b>第十一篇</b><em>参考</em><i>15 篇</i></a>
 </div>
 
 <div class="tk-reason">
-<b>为什么这样排</b>
-<p>先懂撤离与保险，才敢进图 → 知道死在哪，才懂该练什么 → 看懂穿深与护甲，才明白为什么死 → 把每一条命变成资产，才有本钱练 → 同一套装备为什么打出不同结局，想通这个才谈得上进阶 → 机制吃透了，再把知识变成动作 → 会玩了、想换规则重来，才用得上赛季 → 最后补上设定与环境，才算看懂战场。</p>
-<p>前八篇是这条顺序；<b>第九至第十二篇不在其中</b>——它们是随查随用的查阅型栏目（查物品翻第九篇，卡任务翻第十篇，查速查表与站务页翻第十一篇，查点位翻第十二篇），侧栏里收在「查阅栏目」一组下，所以那四张卡用中性色，不参与“从入门到终局”的难度梯度。</p>
+<b>为什么这么分</b>
+<p>「读」是一条有先后的线：先懂撤离与保险，才敢进图 → 知道死在哪，才懂该练什么 → 看懂穿深与护甲，才明白为什么死 → 把每一条命变成资产，才有本钱练 → 同一套装备为什么打出不同结局，想通这个才谈得上进阶 → 机制吃透了，再把知识变成动作 → 会玩了、想换规则重来，才用得上赛季 → 最后补上设定，才算看懂战场。</p>
+<p>「用」和「查」<b>没有先后</b>。它们原先散在五个篇里（作战台单挂在顶层、我的进度与物品反查在第十篇、地图在第十二篇、配方与术语在第十一篇），要找一个工具得先记得它被归到哪一篇 —— 那是编纂的分类法，不是你的。2026-10-22 起三栏分开：<b>找工具看侧栏第二栏，查数据看第三栏</b>。</p>
 </div>
 
 路径图只是建议。已经在玩的玩家可以直接跳到对应条目查漏补缺——**兴趣驱动的跳跃式阅读也是常见的打开方式**。
@@ -178,134 +189,11 @@
 
 ## 📚 推荐阅读顺序
 
-### 第一篇：入门机制（先搞懂规则，再谈枪法）
+**不在这页了** —— 87 行逐条顺序表与总览页的 92 条索引是同一批链接的两种排法，
+并排放等于让读者挑一个看。
 
-| 顺序 | 条目 | 为什么这样排 |
-|------|------|-------------|
-| 1 | [开局与出生点](entries/spawn-and-opening.md) | 从出生点开始就把两条撤离线连起来 |
-| 2 | [撤离机制](entries/extraction.md) | 塔科夫唯一的胜利条件——搜刮再多，没撤离就等于零 |
-| 3 | [撤离点详解](entries/extraction-points.md) | 条件型撤离点速查：钥匙、信号弹、合作、付费 |
-| 4 | [生命与身体部位系统](entries/health.md) | 理解“为什么突然黑屏”——七部位血量与状态异常是生存的底层逻辑 |
-| 5 | [食物与水分](entries/food-and-water.md) | 两条隐形资源里，先见底的一定是水 |
-| 6 | [食物与饮料图鉴](entries/food-catalog.md) | 先认清“能量高但扣水”的那几样，再谈带什么 |
-| 7 | [医疗物资](entries/medical.md) | 先认功能再挑型号——伤情处置的取舍逻辑 |
-| 8 | [医疗物资图鉴](entries/medical-catalog.md) | 单次治疗量比总容量重要：胸腔治不满就是一枪死 |
-| 9 | [保险机制](entries/insurance.md) | 新手最容易被忽略的“后悔药”，决定了你敢带什么进图（赛季中可能被禁用） |
-| 10 | [背包与容器系统](entries/inventory.md) | 安全箱与背包管理，是收益差距的第一来源 |
-| 11 | [安全箱与容器](entries/containers.md) | 六个安全箱型号的尺寸与获取路径，以及专用容器怎么扩仓库 |
-| 12 | [PMC 与 Scav](entries/pmc-scav.md) | 弄清两条命、两套规则，Scav 是新手的免费练习券 |
-
-### 第二篇：地图（按推荐阶段分四组：新手 → 常规 → 进阶 → 终局）
-
-| 顺序 | 条目 | 为什么这样排 |
-|------|------|-------------|
-| 13 | [中心区](entries/ground-zero.md) | 面向低等级玩家的市区图，任务起点 |
-| 14 | [工厂](entries/factory.md) | 最小最乱的 CQB 图，练近战的课堂 |
-| 15 | [海关](entries/customs.md) | 经典中的经典，开局任务最集中的中型图 |
-| 16 | [森林](entries/woods.md) | 大型开阔图，狙击与听声辨位的考场 |
-| 17 | [立交桥](entries/interchange.md) | 全室内商城，光线昏暗、背身刺杀频发 |
-| 18 | [储备站](entries/reserve.md) | 军事基地与地下掩体，高价值任务枢纽 |
-| 19 | [海岸线](entries/shoreline.md) | 疗养院垂直攻防与远距离交火并存 |
-| 20 | [灯塔](entries/lighthouse.md) | 重做后的海岸军事图，Lightkeeper 线起点 |
-| 21 | [街区](entries/streets.md) | 全游戏最大的城市图，双 Boss 与地雷区 |
-| 22 | [实验室](entries/labs.md) | 无 Scav、全 PMC 的顶级风险区 |
-| 23 | [终点站](entries/terminal.md) | 1.0 主线压轴，剧情向的终局场景 |
-| 24 | [破冰船](entries/icebreaker.md) | 全 PvE 终局场景，辐射与黑师 |
-| 25 | [迷宫](entries/labyrinth.md) | 不在选图列表里的解谜型场景，保险不生效 |
-| 26 | [转场与 BTR](entries/transit.md) | 不结束战局也能换图，经验倍率与物流通道 |
-
-### 第三篇：装备与枪械（看懂数值，才知道为什么死）
-
-| 顺序 | 条目 | 为什么这样排 |
-|------|------|-------------|
-| 27 | [弹药与穿深等级](entries/ammo.md) | **塔科夫第一真理：子弹比枪重要** |
-| 28 | [弹药选型速查表](entries/ammo-table.md) | 按对手的护甲等级反推今天带哪盒弹 |
-| 29 | [弹道与穿透机制](entries/ballistics.md) | 穿深、护甲伤害、有效性衰减的底层规则 |
-| 30 | [护甲与头盔](entries/armor.md) | 护甲等级、材质与耐久，护住哪里才划算 |
-| 31 | [护甲与头盔图鉴](entries/armor-catalog.md) | 载体 + 软质层 + 插板的三层结构与代表型号 |
-| 32 | [护甲修复与耐久](entries/armor-repair.md) | 上限只降不升：什么时候该修、什么时候该换 |
-| 33 | [载具图鉴：背包与胸挂](entries/loadout-carriers.md) | 先定这一局带什么，再挑装得下它的最小载具——格数、布局、重量、叠加 |
-| 34 | [耳机与听力装备](entries/headsets.md) | 每局都用的装备决策：0.16.5.0 起各款只剩音色差异，选完就别频繁换 |
-| 35 | [武器故障与耐久维护](entries/weapon-maintenance.md) | 卡壳不是运气，是耐久与过热的账 |
-| 36 | [枪械改装](entries/gunsmith.md) | 人机工效、后坐力、精度的改装三角 |
-| 37 | [枪械图鉴](entries/weapons.md) | 按口径与枪型选主武器，先弹后枪 |
-| 38 | [特殊槽装备与工具](entries/special-equipment.md) | 三个格子的真正价值：放进去就不掉，一次投入永久可用 |
-| 39 | [服装与外观](entries/clothing.md) | 不挡子弹，但影响别人的第一次判断 |
-| 40 | [钥匙与钥匙房](entries/keys.md) | 消耗品属性与房间价值的换算 |
-
-### 第四篇：经济与成长（把每一条命变成资产）
-
-| 顺序 | 条目 | 为什么这样排 |
-|------|------|-------------|
-| 41 | [商人系统](entries/traders.md) | 八位商人各有分工，声望就是购买力（1.1 起售价整体上调） |
-| 42 | [以物换物](entries/barter.md) | 物品换物品：怎么把配方材料折算成钱再决定值不值 |
-| 43 | [跳蚤市场](entries/flea-market.md) | 玩家经济的中枢，变现与捡漏的主战场 |
-| 44 | [跳蚤定价与手续费](entries/flea-pricing.md) | 费率公式、底价反推与定价算法 |
-| 45 | [邮件与领取](entries/mail.md) | 保险返还、货款与奖励的取件柜——会过期 |
-| 46 | [藏身处](entries/hideout.md) | 离线收益与被动技能，穷人的复利 |
-| 47 | [藏身处模块详解](entries/hideout-modules.md) | 二十余个模块的功能与建造优先级 |
-| 48 | [任务系统](entries/quests.md) | 1.1 后改为忠诚度解锁，Kappa 门槛同步降低 |
-| 49 | [商人任务线图鉴](entries/trader-questlines.md) | 八条任务线的特征、代表任务与回报 |
-| 50 | [剧情章节与主线任务](entries/story-chapters.md) | Tour / Falling Skies / The Ticket：主线分叉与四个结局 |
-| 51 | [经济周期](entries/economic-cycle.md) | 一个赛季内价格的四阶段规律与应对 |
-| 52 | [战利品分布与热点](entries/loot.md) | 按区域类型判断收益，用“每格价值”做取舍 |
-| 53 | [声望与 Karma](entries/karma.md) | 逐项加减分与声望影响的全部面向 |
-| 54 | [等级与经验体系](entries/levels.md) | 等级是钥匙不是属性——先搞懂“升级到底解锁了什么” |
-| 55 | [技能系统](entries/skills.md) | 用行为练出来的被动加成，隐形战力差 |
-| 56 | [武器掌握](entries/weapon-mastery.md) | 命中换来的换弹动作升级，L3 可瞄具内换弹 |
-| 57 | [成就系统](entries/achievements.md) | 任务之外的长期目标，以及“绝版”的含义 |
-| 58 | [Prestige 转生](entries/prestige.md) | 自愿把角色打回 1 级，换永久奖励——不可逆 |
-
-### 第五篇：进阶战斗机制（同一套装备，不同的结局）
-
-| 顺序 | 条目 | 为什么这样排 |
-|------|------|-------------|
-| 59 | [耐力与移速](entries/stamina.md) | 负重与机动性的定价，决定你能不能跑掉 |
-| 60 | [姿态、移动与射击](entries/movement.md) | 站蹲卧的取舍、慢走如何关掉地形噪音、侧身怎么用 |
-| 61 | [手雷与投掷物](entries/grenades.md) | 逼位与封路，最便宜的重武器 |
-| 62 | [夜视与热成像](entries/night-vision.md) | 夜间视野的军备竞赛与反制 |
-| 63 | [听声辨位与音频机制](entries/audio.md) | 耳机决定的信息差，先听见的人先开枪 |
-| 64 | [组队与协作](entries/squads.md) | 没有 HUD 标识的小队规则与友伤代价 |
-| 65 | [敌我识别与身份判断](entries/iff.md) | 没有名字标签、也没有队友点位时，怎么判断对面是谁 |
-| 66 | [阵营关系与交战规则](entries/engagement-rules.md) | 每一枪分别记在哪本账上 |
-| 67 | [AI 行为逻辑](entries/ai-behavior.md) | 感知三环节、0.16.1.3 侦测重做与声响诱导 |
-| 68 | [Scav 互动与叛徒判定](entries/scav-relations.md) | 一枪作废的中立协议与声望后果 |
-| 69 | [Scav 指挥与随从系统](entries/scav-command.md) | 声望换来的指挥权：六个指令与随从 |
-| 70 | [Boss 图鉴](entries/bosses.md) | 首领对照、护卫编队与刷新概率的两层结构 |
-| 71 | [战斗复盘与常见死因](entries/death-review.md) | 用结算界面上的五个数字，找出自己重复犯的那个错误 |
-
-### 第六篇：战局内行为手册（把机制变成动作）
-
-| 顺序 | 条目 | 为什么这样排 |
-|------|------|-------------|
-| 72 | [战局流程与节奏](entries/raid-flow.md) | 先拿到全局：四段结构、搜刮动线、什么时候必须撤 |
-| 73 | [搜刮效率与战利品取舍](entries/looting.md) | 到了地方之后，怎么在最短的暴露时间里拿完 |
-| 74 | [遇敌处置与接战决策](entries/contact-drill.md) | 遇到人的前 3 秒：打、躲，还是走 |
-| 75 | [交火中的技术动作](entries/firefight.md) | 打起来之后手上怎么做：探头、掩体、换弹、切副武器、进房 |
-| 76 | [投掷物来袭处置](entries/grenade-response.md) | 拔销声能骗人、也能被趁虚而入；引信决定你躲不躲得掉 |
-| 77 | [战中伤情处置](entries/combat-medical.md) | 受伤之后先做什么——顺序错了，等于没治 |
-
-### 第七篇：赛季与衍生内容（1.1 之后的新规则）
-
-| 顺序 | 条目 | 为什么这样排 |
-|------|------|-------------|
-| 78 | [赛季与修改器](entries/seasons.md) | 三种档案（持久 / 赛季 / PvE）与赛季规则 |
-| 79 | [赛季修改器逐项](entries/season-modifiers.md) | 全局 6 项 + 33 张个人卡的点数市场 |
-| 80 | [联赛系统](entries/leagues.md) | 每周 50 人的经验值天梯 |
-| 81 | [竞技场](entries/arena.md) | 独立进度的纯对抗模式 |
-| 82 | [PvE 模式](entries/pve.md) | 没有真人对手、永不 wipe 的持久档案 |
-| 83 | [EXFIL Brothers 计划](entries/exfil-brothers.md) | 老带新的双向奖励计划（1.2.0.0 新增） |
-
-### 第八篇：世界与背景（环境、元内容与设定三条线索）
-
-| 顺序 | 条目 | 为什么这样排 |
-|------|------|-------------|
-| 84 | [天气与时间系统](entries/weather.md) | 七倍速时钟、进图两个档位与天气的双向作用 |
-| 85 | [光照与夜战](entries/lighting.md) | 光源是双刃剑：照亮与被照亮只差一秒 |
-| 86 | [彩蛋与制作组的恶意](entries/easter-eggs.md) | 制作组藏在图里的玩笑，以及那些“设计好的死亡”——雷区、阔剑、不生效的保险 |
-| 87 | [世界观与阵营背景](entries/worldview.md) | 诺文斯克为什么被封锁、USEC 与 BEAR 从哪来——解释“你为什么出不去” |
-
-> 第九至第十二篇没有“先后”——物品图鉴、任务图鉴、参考与交互地图都是查阅型栏目：查物品翻[物品图鉴](catalog/index.md)，卡任务翻[任务图鉴](quests/index.md)，查数值口径与速查表翻下方「📁 其他资源」。
+- 想按顺序读：看上面「读 · 从零上手」的八段，**篇内从上往下就是推荐顺序**；
+- 想按主题挑：[百科条目总览](entries/index.md) 按篇列全 92 条，每条一句「它解决什么」。
 
 ---
 
@@ -319,20 +207,11 @@
 
 ## 📁 其他资源
 
-- [任务图鉴](quests/index.md) — **503 个任务**逐条列出要求、奖励、接取门槛与前置（不含坐标与攻略），卡任务时从这里查
-- [新手成长路线](docs/progression.md) — 1 级到满级该干什么，每阶段都有可验证的毕业标准
-- [新手开局检查清单](docs/starter-checklist.md) — 一张可打印的勾选表：每局进图前、撤离前照着勾一遍
-- [机制速查表](docs/mechanics.md) — 一页看懂所有核心规则
-- [地图对照速查](docs/map-guide.md) — 逐图对照：打什么、产什么、有什么坑、什么时候来
-- [术语与黑话速查](docs/glossary.md) — 新手第一站：把攻略里的黑话翻译成人话
-- [购买指南（地区与版本）](docs/buying-guide.md) — 还没入手？先看清版本、渠道与地区定价
-- [配置与性能](docs/performance.md) — 官方配置要求、真实的性能瓶颈与值得动的设置
-- [操作与设置](docs/game-settings.md) — 灵敏度、键位、音频与画质里哪些真的影响战斗
-- [重大版本更新史](docs/version-history.md) — 2016 至今的版本变迁、作用与玩家反馈
-- [待收录清单](docs/roadmap.md) — 下一批条目的规划
+侧栏「查 · 图鉴与速查」已经把这些列全了，这里只留三个最常被单独找的：
+
 - [数据口径与引用说明](docs/citation.md) — **引用或转载本站前先读**：三档口径、已知未决项、来源分级
-- [标签分类](tags.md) — 30 个标签的词表与覆盖范围
-- [条目模板](template.md) — 想贡献新条目从这里开始
+- [新手成长路线](docs/progression.md) · [新手开局检查清单](docs/starter-checklist.md) — 前 10 局怎么走、每局进图前勾什么
+- [待收录清单](docs/roadmap.md) — 下一批收什么（编纂侧；完整台账在仓库根 `ROADMAP-LEDGER.md`）
 
 ## 🤖 引用本站与交给 AI
 

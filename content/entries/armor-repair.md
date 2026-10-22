@@ -147,7 +147,7 @@ tags:
 ## 📖 延伸阅读
 
 - [护甲与头盔](armor.md) — 防护等级与命中区域机制
-- [护甲与头盔图鉴](armor-catalog.md) — 各档护甲与材质对照
+- [护甲与头盔选型指南](armor-catalog.md) — 各档护甲与材质对照
 - [藏身处模块详解](hideout-modules.md) — 修理包与相关模块
 
 ---

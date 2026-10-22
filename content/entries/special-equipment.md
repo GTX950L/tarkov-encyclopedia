@@ -126,7 +126,7 @@ tags:
 ## 🔗 相关条目
 
 - [背包与容器系统](inventory.md) — 格子经济学与安全箱
-- [载具图鉴：背包与胸挂](loadout-carriers.md) — 身上的另两层收纳
+- [载具选型指南：背包与胸挂](loadout-carriers.md) — 身上的另两层收纳
 - [商人系统](traders.md) — 工具类的获取渠道与声望门槛
 - [藏身处](hideout.md) — 多功能工具的另一个去向
 

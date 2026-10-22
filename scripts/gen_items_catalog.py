@@ -1469,7 +1469,7 @@ def index_markdown(plan, total_items, leaves_zh) -> str:
     out.append("| 项目 | 说明 |")
     out.append("|------|------|")
     out.append(f"| **收录件数** | **{total_items:,} 件**（不含枪械预配方案） |")
-    out.append(f"| **分类页** | {len(plan)} 页，按官方 `itemCategories` 树的顶层组归并 |")
+    out.append(f"| **分类页** | {len(plan)} 个分类，按官方 `itemCategories` 树的顶层组归并；过长的分类另拆分册（分册页与总览页在导航里单独列出） |")
     out.append("| **收录依据** | 全量收录 —— 只收录任务物品或热门物品会让读者「查不到就是没有」，"
                "而图鉴的价值恰恰在于查得到 |")
     out.append("| **数据来源** | `json.tarkov.dev`（二级来源，直读游戏文件）；分类名取自游戏内译名 |")

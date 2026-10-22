@@ -1,6 +1,8 @@
 # 逃离塔科夫百科全书
 
-> 面向玩家与 AI 智能体的《逃离塔科夫》中文结构化资料库：92 个条目 + 参考页，分十二篇组织 —— **前八篇是条目主线**，后四篇是查阅型栏目（第九篇物品图鉴 4,983 件 / 第十篇任务图鉴 503 个 / 第十一篇参考区 / 第十二篇交互地图）。
+> 面向玩家与 AI 智能体的《逃离塔科夫》中文结构化资料库：92 个条目 + 参考页，分十二篇组织，**读者侧按「读 / 用 / 查」三栏摆放** ——
+> **读**：前八篇条目主线（从零上手的顺序）；**用**：作战台 / 我的进度 / 物品反查 / 交互地图（本机运行的工具）；
+> **查**：第九篇物品图鉴 4,983 件 / 第十篇任务图鉴 503 个 / 第十一篇参考区。
 > 静态事实对照官方来源核验；动态数值标注实时口径；以文字与表格为主体（图形素材仅交互地图底图与任务/物品页图标，权利边界见下），弱网环境可流畅阅读。
 
 版本基线：2026 年 10 月
@@ -24,7 +26,7 @@
 - [第八篇 · 世界与背景](https://gtx950l.github.io/tarkov-encyclopedia/entries/weather/)：天气与时间、光照与夜战、彩蛋、世界观与阵营背景
 - [第九篇 · 物品图鉴](https://gtx950l.github.io/tarkov-encyclopedia/catalog/)：4,983 件物品的全量属性与商人买卖价，按 86 个官方分类归并成 **25 个内容页**（15 个分类页 + 10 个分册，父页保留为总览；nav 共 27 页，含总览与单件详情）；单件物品的完整页面（官方介绍、数值、获取途径、任务需求）走[物品详情](https://gtx950l.github.io/tarkov-encyclopedia/catalog/item/) —— 一个按物品 ID 渲染的视图页 —— **查阅型栏目，不属前八篇的学习顺序**
 - [第十篇 · 任务图鉴](https://gtx950l.github.io/tarkov-encyclopedia/quests/)：503 个任务的逐条要求、奖励、接取门槛、前置与失败条件 —— **查阅型栏目，不属前八篇的学习顺序**。单个任务的完整页面（**商人台词**、前置与后续、目标清单、完成奖励、出发前必带）走[任务详情](https://gtx950l.github.io/tarkov-encyclopedia/quests/quest/)（一个按任务 ID 渲染的视图页）。另有[限时与活动任务补遗](https://gtx950l.github.io/tarkov-encyclopedia/quests/event-quests/)收录随版本挂载、到期即消失的那类任务（不在 503 条口径内）
-- [第十一篇 · 参考](https://gtx950l.github.io/tarkov-encyclopedia/docs/)：项目欢迎页、数据口径与引用说明、新手成长路线、机制速查表及其余站务页 —— **查阅型栏目，不属前八篇的学习顺序**
+- [第十一篇 · 参考](https://gtx950l.github.io/tarkov-encyclopedia/docs/citation/)：数据口径与引用说明、新手成长路线、机制速查表、配方与术语速查及其余参考页（15 页）—— **查阅型栏目，不属前八篇的学习顺序**
 - [第十二篇 · 交互地图](https://gtx950l.github.io/tarkov-encyclopedia/maps/)：**13 张图全部上线** —— 矢量底图 + 任务区域 / 撤离点 / 转场 / 上锁 / 危险区五类图层（可开关），与「我的进度」本机联动 —— **查阅型栏目，不属前八篇的学习顺序**
 
 ## 物品图鉴（第九篇 · 全量物品数据）
@@ -66,10 +68,9 @@
 - [重大版本更新史](https://gtx950l.github.io/tarkov-encyclopedia/docs/version-history/)
 - [游戏数值变更台账](https://gtx950l.github.io/tarkov-encyclopedia/docs/value-changes/)：某个值在哪一版上从多少变成了多少（数值级，区别于版本级的更新史）
 - [待收录清单](https://gtx950l.github.io/tarkov-encyclopedia/docs/roadmap/)：含「版本敏感内容（收录前需复核）」完整清单
-- [标签分类](https://gtx950l.github.io/tarkov-encyclopedia/tags/)
-- [条目模板](https://gtx950l.github.io/tarkov-encyclopedia/template/)
+- [标签分类](https://gtx950l.github.io/tarkov-encyclopedia/tags/) · [条目模板](https://gtx950l.github.io/tarkov-encyclopedia/template/)：**编纂附件**，2026-10-22 起从读者侧栏撤出，只从贡献指南进
 - [贡献指南](https://gtx950l.github.io/tarkov-encyclopedia/CONTRIBUTING/)
-- [更新日志](https://gtx950l.github.io/tarkov-encyclopedia/CHANGELOG/)：当月条目；更早的见[归档](https://gtx950l.github.io/tarkov-encyclopedia/CHANGELOG-archive/)（分页只为控制单页体积，内容原样）
+- [更新日志](https://gtx950l.github.io/tarkov-encyclopedia/CHANGELOG/)：当月条目；更早的版本看 [GitHub Releases](https://github.com/GTX950L/tarkov-encyclopedia/releases)（站内归档页 2026-10-22 移出构建 —— 2,690 行历史不值得让每个读者付一次下载）
 
 ## 引用口径（摘要，完整版见引用说明页）
 

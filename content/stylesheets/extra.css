@@ -520,6 +520,17 @@ body[data-md-color-scheme="default"] {
    ② 梯度本身有语义 —— 越靠后越难，正好契合「入门 → 进阶 → 终局」的推进。
    -------------------------------------------------------------------------- */
 
+/* 路径图的分栏小标题（2026-10-22 读 / 用 / 查三分）。
+   三块共用 .tk-path，靠这行小字分组；不用新容器，是因为 flex-wrap 已经把
+   12 张卡自动折行，多套一层反而会在窄屏上多出一层缩进。 */
+.tk-path__h {
+  margin: 1.25em 0 -.55em;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--tk-ink-2);
+}
+
 .tk-path {
   display: flex;
   flex-wrap: wrap;

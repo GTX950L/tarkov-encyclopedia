@@ -147,7 +147,7 @@ def counts() -> dict[str, int]:
 
 CARDS = [
     # (数字键, 单位, 标签, 说明, 链接)
-    ("entries", "篇", "百科条目", "{content_groups} 篇主线 · {column_groups} 篇查阅栏目", "entries/index.md"),
+    ("entries", "篇", "百科条目", "{content_groups} 篇主线 · {column_groups} 篇图鉴与参考", "entries/index.md"),
     # 交互地图放在第二位：它是本站的旗舰工具，此前只在条目里间接出现，
     # 读者反馈「藏的有点深」—— 首页速览给它一个直接入口（2026-10-14）。
     ("maps", "张", "交互地图", "{mapzones} 个任务区域 · 可筛进度", "maps/index.md"),

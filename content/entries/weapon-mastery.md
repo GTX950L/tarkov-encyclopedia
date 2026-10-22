@@ -143,7 +143,7 @@ tags:
 ## 🔗 相关条目
 
 - [Prestige 转生](prestige.md) — 按比例保留精通
-- [枪械图鉴](weapons.md) — 各平台家族的分组依据
+- [枪械选型指南](weapons.md) — 各平台家族的分组依据
 - [弹药与穿深等级](ammo.md) — 命中后能否穿甲的另一半变量
 - [耐力与移速](stamina.md) — 另一个影响射击稳定的角色属性
 - [武器故障与耐久维护](weapon-maintenance.md) — 最容易被与本篇混淆的那个技能
