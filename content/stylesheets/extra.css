@@ -6708,6 +6708,47 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 
 .tk-hz:hover { fill-opacity: .26; }
 
+/* —— 标记图标（官方 PNG，2026-10-18 上线）尺寸 ——
+   来源：The Official Escape From Tarkov Wiki 的地图标记图标，经 tarkov.dev
+   打包分发（该仓库 MIT；图标本身是游戏素材，社区工具通用，站内已署名）。
+   文件在 content/assets/map-icons/，共 6 个、合计约 9 KB。
+
+   尺寸一律 `calc(Npx / var(--tk-k))` = **屏幕像素恒定**：工厂（viewBox 130）
+   与街区（viewBox 3000+）上图钉一样大，与文字避让同一套纪律。
+
+   锚点分两类，这是位图替代色块最容易做错的地方：
+   · **针形**（撤离点 / 转场）—— 图标底部有个尖，尖才是实际坐标。
+     实测源图 60×60，针尖在最后一行 (x=29.5, y=59)，所以 x 取 -H/2、y 取 -H，
+     让**底边**贴住点位。按中心对齐的话，图钉会浮在真实位置上方半个身位。
+   · **徽章 / 三角**（锁 / 危险区）—— 居中即可。
+
+   ⚠️ 这三条**必须留在全局 extra.css**（2026-10-23 修复）：地图页 /maps/* 不加载
+      tk-ops.css（那张表由 mount-loader.js 按 #tk-ops 挂载点注入），规则一旦只存在
+      tk-ops.css 里，地图页的 <image> 就拿不到 width/height —— SVG 规范默认 100%，
+      图标会直接铺满整张地图。v1.138.0 拆样式时把它们误当「/ops/ 版面」搬走过一次。 */
+.tk-ex__ico {
+  x: calc(-8px / var(--tk-k, 1));
+  y: calc(-16px / var(--tk-k, 1));
+  width: calc(16px / var(--tk-k, 1));
+  height: calc(16px / var(--tk-k, 1));
+}
+
+.tk-lk__ico {
+  x: calc(-5.5px / var(--tk-k, 1));
+  y: calc(-5.5px / var(--tk-k, 1));
+  width: calc(11px / var(--tk-k, 1));
+  height: calc(11px / var(--tk-k, 1));
+}
+
+.tk-hz__ico {
+  x: calc(-8px / var(--tk-k, 1));
+  y: calc(-8px / var(--tk-k, 1));
+  width: calc(16px / var(--tk-k, 1));
+  height: calc(16px / var(--tk-k, 1));
+}
+
+.tk-hz-ico { pointer-events: none; }   /* 点击穿透到下面的危险区多边形 */
+
 .tk-lk:hover .tk-lk__ico { filter: brightness(1.15) drop-shadow(0 0 2px rgba(0, 0, 0, .5)); }
 
 /* 钥匙深链（?key=<物品id>）高亮：匹配的锁点**放大变实**、其余降透明 ——
@@ -6795,6 +6836,38 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 .tk-lg-hz {
   background: repeating-linear-gradient(45deg, #dd5a52, #dd5a52 3px, #f6cfcb 3px, #f6cfcb 6px);
   border-radius: .1rem;
+}
+
+/* 图例：四类点位改用与图上**同一套图标**（覆盖上面的色块）。
+   必须带 .tk-map__legend 前缀 —— 上面的 `.tk-lg-ex` 是 background 简写，
+   提特异性才盖得住。同样必须留在全局 CSS，理由见上方 `.tk-ex__ico` 的说明。 */
+.tk-map__legend .tk-lg-ex,
+.tk-map__legend .tk-lg-tr,
+.tk-map__legend .tk-lg-lock,
+.tk-map__legend .tk-lg-hz {
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 0;
+  box-shadow: none;
+  clip-path: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.tk-map__legend .tk-lg-ex { background-image: url("../assets/map-icons/extract_pmc.png"); }
+.tk-map__legend .tk-lg-tr { background-image: url("../assets/map-icons/extract_transit.png"); }
+.tk-map__legend .tk-lg-lock { background-image: url("../assets/map-icons/lock.png"); }
+.tk-map__legend .tk-lg-hz { background-image: url("../assets/map-icons/hazard.png"); }
+
+/* 图标来源署名：放在图例末尾，小字，不抢戏但可查（CC BY-NC-SA 要求的署名） */
+.tk-map__credit {
+  margin: .3rem 0 0;
+  font-size: .62rem;
+  line-height: 1.5;
+  color: var(--tk-ink-2);
+  opacity: .85;
 }
 
 /* 打印：地图整块不要被切成两半 */
