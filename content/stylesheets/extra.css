@@ -7099,3 +7099,135 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   .tk-home-ops__meta { display: none; }
   .tk-home-ops__row { grid-template-columns: 1.1rem minmax(0, 1fr) 1.1rem; }
 }
+
+/* ==========================================================================
+   65. 跨页共享组件：日志同步条 + 长表表头吸顶栏
+   --------------------------------------------------------------------------
+   ⚠️ 这两组样式 2026-10-23 从 tk-ops.css 迁回。判据与 §63 的地图标记图标
+      完全一样：**看使用它的页面有没有 `#tk-ops`**，不看它长得像不像作战台。
+
+        · .tk-logsrc*  —— log-source.js 被两处按需加载：/ops/（--compact）
+          与「我的进度」页（完整版）。进度页没有 #tk-ops，样式留在按需表里
+          等于那一页的日志同步块裸奔。
+        · .tk-thead-float —— table-sticky.js 在 extra_javascript 里**全站加载**，
+          39 个长表页都吃这条规则；只对 /ops/ 生效等于其余 38 页白装这个脚本。
+
+   tk-ops.css 只装 /ops/ 独有的版面。以后新增样式先问一句「哪个页面用」。
+   ========================================================================== */
+
+/* —— 65.1 日志同步共享层（2026-10-18 · log-source.js）——
+   两个页面共用：进度页（完整版）与作战台（--compact）。
+   样式前缀 tk-logsrc 与 tk-board 分开 —— 作战台不加载看板那套变量。 */
+.tk-logsrc { margin: 0; }
+
+.tk-logsrc__cap {
+  margin: .5rem 0 .2rem;
+  font-size: .66rem; font-weight: 700; color: var(--tk-ink-2);
+}
+
+.tk-logsrc__note {
+  margin: .35rem 0;
+  font-size: .74rem; line-height: 1.75; color: var(--tk-ink-2);
+}
+.tk-logsrc__note b { color: var(--tk-ink); }
+
+.tk-logsrc--compact .tk-logsrc__note {
+  font-size: .64rem; line-height: 1.6; margin: .2rem 0 .35rem;
+}
+
+.tk-logsrc__bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .35rem;
+  margin: .35rem 0 .1rem;
+}
+
+.tk-logsrc__btn {
+  appearance: none; cursor: pointer; font: inherit;
+  font-size: .7rem; padding: .22rem .55rem;
+  border: 1px solid var(--tk-brand); border-radius: .2rem;
+  background: var(--tk-brand); color: #fff;
+}
+.tk-logsrc__btn:hover { background: var(--tk-brand-dark, #1c4ed8); }
+.tk-logsrc__btn--ghost {
+  background: #fff; color: var(--tk-brand); border-color: var(--tk-line);
+}
+.tk-logsrc__btn--ghost:hover { background: var(--tk-brand-soft); }
+
+.tk-logsrc--compact .tk-logsrc__btn {
+  font-size: .64rem; padding: .16rem .45rem;
+}
+
+/* 自动并入开关：用 div + span（**不能用 label**，会被 MkDocs 页签组件吃掉） */
+.tk-logsrc__auto {
+  display: inline-flex; align-items: center; gap: .28rem;
+  font-size: .68rem; color: var(--tk-ink-2);
+  cursor: pointer; user-select: none;
+}
+.tk-logsrc__auto input { margin: 0; width: .95em; height: .95em; cursor: pointer; }
+.tk-logsrc__auto:hover { color: var(--tk-ink); }
+
+.tk-logsrc__count {
+  font-size: .64rem; color: var(--tk-ink-2);
+}
+
+.tk-logsrc__out { margin-top: .3rem; }
+
+.tk-logsrc__toast {
+  margin: .35rem 0 0; padding: .3rem .5rem;
+  font-size: .68rem; line-height: 1.6;
+  border-left: 3px solid var(--tk-brand);
+  background: var(--tk-brand-soft); color: var(--tk-ink);
+}
+.tk-logsrc__toast.is-bad {
+  border-left-color: #b91c1c; background: #fef2f2; color: #7f1d1d;
+}
+
+/* —— 65.2 长表表头吸顶栏（2026-10-18）—— 由 content/javascripts/table-sticky.js 驱动
+   --------------------------------------------------------------------------
+   为什么不是 CSS：全站唯一的横向滚动容器是 `.md-typeset__table`（见 §3），
+   它的高度等于内容高度、永不纵向滚动，所以 thead 的 sticky 没有可粘的参照系。
+   封高度让它自己滚又会把 300 多行藏进 700px 的盒子（实测）—— 用一条 fixed
+   克隆栏代替。
+
+   样式必须重写一遍：克隆栏挂在 body 下、不在 `.md-typeset` 里，
+   主题与本站对表头的选择器（`.md-typeset table:not([class]) thead th`，§3）
+   都够不到它。数值与 §3 那条表头规则保持一致，改表头时两处一起改。 */
+.tk-thead-float {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;                 /* 页头是 4：栏永远在页头之下 */
+  display: none;
+  overflow: hidden;           /* 表比视口宽，露出来的部分由 transform 平移决定 */
+  pointer-events: none;       /* 纯装饰：不挡点击、不接滚轮 */
+  background: var(--tk-paper);
+  box-shadow: 0 10px 14px -12px rgba(0, 0, 0, .55);
+  border-bottom: 1px solid var(--tk-line-3);
+}
+.tk-thead-float.is-on { display: block; }
+.tk-thead-float > table {
+  width: max-content;
+  margin: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: .74rem;
+  line-height: 1.55;
+}
+.tk-thead-float th {
+  padding: .5em .75em;
+  background: var(--tk-fiord);
+  color: #F5F4F0;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid var(--tk-fiord);
+  border-bottom: 2px solid var(--tk-brand-dark);
+}
+[data-md-color-scheme="slate"] .tk-thead-float th { color: #E6E4DF; }
+
+/* 窄屏：页头 + 吸顶栏会吃掉近 1/5 屏高，且手机上横向滚动更频繁、
+   读者本来就看不清整行 —— 这条优化只在桌面生效。 */
+@media (max-width: 44.9375em) {
+  .tk-thead-float { display: none !important; }
+}
