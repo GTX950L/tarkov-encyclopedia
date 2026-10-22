@@ -20,14 +20,14 @@ tags:
 | **排序** | 按**等级门槛升序**，同级按任务名 |
 | **分档** | 每 10 级一档（Lv0–9 …），与[总览](index.md)「按等级门槛」同口径 |
 | **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |
-| **💬 商人台词** | **每个任务都有** —— 点明细块里的「💬 台词与完整明细 →」，看商人接取时说的话与任务完成对话，另外还能顺着**前置／后续任务**（可点击）走任务链 |
+| **💬 商人台词** | **每个任务都有** —— 点明细块里的「💬 商人台词 →」，看商人接取时说的话与任务完成对话，另外还能顺着**前置／后续任务**（可点击）走任务链 |
 | **数据口径** | 官方任务数据（二级），**持久 PvP**，2026-10-17 抓取；**不含坐标**，字段判读见[任务图鉴总览](index.md)；台词为**三级来源**（玩家维基），见[任务详情](quest.md) 的口径表 |
 
 ---
 
 ## 🔎 任务索引 ｜ 53 项
 
-点任务名跳到下方明细。**每个明细块里都有「💬 台词与完整明细 →」**，点开是该任务的完整页面（商人台词 · 前置与后续 · 目标 · 奖励 · 出发前必带）。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
+点任务名跳到下方明细。**每个明细块里都有「💬 商人台词 →」**，点开是该任务的完整页面（商人台词 · 前置与后续 · 目标 · 奖励 · 出发前必带）。**标记列只列影响出发前准备的项**——`必须战局内找到`（跳蚤市场买的不算数）、**`需自备物品`**（要**从仓库带进图**再放置／标记／使用，漏带＝白跑一趟）、`需钥匙`、`Kappa`／`Lightkeeper`（算不算那两条主线）、`仅 BEAR/USEC`、`威望`（需先转生）、`前置 ×N`（N ≥ 3 时才标）、`可重接`、`接取延迟`（先接上再去做别的，别白等）、`有失败条件`（动手前先读失败条件）、`端点重复条目`（数据源里有另一条同 id 不同、**内容完全相同**的记录，**不是你看错**）。
 
 <details markdown="1"><summary>📋 任务索引表（53 项）—— 点开浏览，点任务名跳到下方明细</summary>
 
@@ -99,7 +99,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **General Wares**
 
-<a href="quest.md?id=596a1e6c86f7741ddc2d3206">💬 台词与完整明细 →</a>
+<a href="quest.md?id=596a1e6c86f7741ddc2d3206">💬 商人台词 →</a>
 
 **接取条件**
 
@@ -118,7 +118,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Supply Plans**
 
-<a href="quest.md?id=596a0e1686f7741ddf17dbee">💬 台词与完整明细 →</a>
+<a href="quest.md?id=596a0e1686f7741ddf17dbee">💬 商人台词 →</a>
 
 `地图：森林`
 
@@ -144,7 +144,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Invasive Therapy**
 
-<a href="quest.md?id=6a7ae35b2dbf91eb050af95a">💬 台词与完整明细 →</a>
+<a href="quest.md?id=6a7ae35b2dbf91eb050af95a">💬 商人台词 →</a>
 
 `地图：灯塔`
 
@@ -175,7 +175,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **A Healthy Alternative**
 
-<a href="quest.md?id=669fa3910c828825de06d69f">💬 台词与完整明细 →</a>
+<a href="quest.md?id=669fa3910c828825de06d69f">💬 商人台词 →</a>
 
 **接取条件**
 
@@ -196,7 +196,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pets Wont Need It**
 
-<a href="quest.md?id=64f731ab83cfca080a361e42">💬 台词与完整明细 →</a>
+<a href="quest.md?id=64f731ab83cfca080a361e42">💬 商人台词 →</a>
 
 `地图：塔科夫街区`
 
@@ -227,7 +227,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Pets Wont Need It Part 2**
 
-<a href="quest.md?id=6573387d0b26ed4fde798de3">💬 台词与完整明细 →</a>
+<a href="quest.md?id=6573387d0b26ed4fde798de3">💬 商人台词 →</a>
 
 `地图：塔科夫街区`
 
@@ -249,7 +249,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Health Care Privacy Part 1**
 
-<a href="quest.md?id=5a68661a86f774500f48afb0">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5a68661a86f774500f48afb0">💬 商人台词 →</a>
 
 `地图：海岸线`
 
@@ -273,7 +273,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Sanitary Standards**
 
-<a href="quest.md?id=59689ee586f7740d1570bbd5">💬 台词与完整明细 →</a>
+<a href="quest.md?id=59689ee586f7740d1570bbd5">💬 商人台词 →</a>
 
 `地图：工厂`
 
@@ -300,7 +300,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Urban Medicine**
 
-<a href="quest.md?id=639135e0fa894f0a866afde6">💬 台词与完整明细 →</a>
+<a href="quest.md?id=639135e0fa894f0a866afde6">💬 商人台词 →</a>
 
 `地图：塔科夫街区`
 
@@ -322,7 +322,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **The Tarkov Butcher**
 
-<a href="quest.md?id=67a09673972c11a3f507731d">💬 台词与完整明细 →</a>
+<a href="quest.md?id=67a09673972c11a3f507731d">💬 商人台词 →</a>
 
 **出发前必带**
 
@@ -346,7 +346,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Tarkov Style Diplomacy**
 
-<a href="quest.md?id=5edaba7c0c502106f869bc02">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5edaba7c0c502106f869bc02">💬 商人台词 →</a>
 
 `地图：海岸线`
 
@@ -375,7 +375,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Blood in the Water**
 
-<a href="quest.md?id=5968eb3186f7741dde183a4d">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5968eb3186f7741dde183a4d">💬 商人台词 →</a>
 
 `地图：海关`
 
@@ -394,7 +394,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Closer to the People**
 
-<a href="quest.md?id=675c04f4db8807b75d0f38e8">💬 台词与完整明细 →</a>
+<a href="quest.md?id=675c04f4db8807b75d0f38e8">💬 商人台词 →</a>
 
 `地图：海关`
 
@@ -414,7 +414,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Paramedic**
 
-<a href="quest.md?id=64f3176921045e77405d63b5">💬 台词与完整明细 →</a>
+<a href="quest.md?id=64f3176921045e77405d63b5">💬 商人台词 →</a>
 
 `地图：塔科夫街区`
 
@@ -435,7 +435,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **War Never Changes**
 
-<a href="quest.md?id=69ce204c8702b378f9091e4b">💬 台词与完整明细 →</a>
+<a href="quest.md?id=69ce204c8702b378f9091e4b">💬 商人台词 →</a>
 
 `地图：破冰船`
 
@@ -450,7 +450,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Abandoned Cargo**
 
-<a href="quest.md?id=675c03d1f7da9792a405549a">💬 台词与完整明细 →</a>
+<a href="quest.md?id=675c03d1f7da9792a405549a">💬 商人台词 →</a>
 
 `地图：海关`
 
@@ -483,7 +483,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Operation Aquarius**
 
-<a href="quest.md?id=59689fbd86f7740d137ebfc4">💬 台词与完整明细 →</a>
+<a href="quest.md?id=59689fbd86f7740d137ebfc4">💬 商人台词 →</a>
 
 `地图：海关`
 
@@ -510,7 +510,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Car Repair**
 
-<a href="quest.md?id=596a218586f77420d232807c">💬 台词与完整明细 →</a>
+<a href="quest.md?id=596a218586f77420d232807c">💬 商人台词 →</a>
 
 **接取条件**
 
@@ -531,7 +531,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Seaside Vacation**
 
-<a href="quest.md?id=6179ad56c760af5ad2053587">💬 台词与完整明细 →</a>
+<a href="quest.md?id=6179ad56c760af5ad2053587">💬 商人台词 →</a>
 
 `地图：灯塔`
 
@@ -551,7 +551,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Biochemistry**
 
-<a href="quest.md?id=69ce213a298a6529b30d7134">💬 台词与完整明细 →</a>
+<a href="quest.md?id=69ce213a298a6529b30d7134">💬 商人台词 →</a>
 
 `地图：破冰船`
 
@@ -570,7 +570,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Disease History**
 
-<a href="quest.md?id=60896e28e4a85c72ef3fa301">💬 台词与完整明细 →</a>
+<a href="quest.md?id=60896e28e4a85c72ef3fa301">💬 商人台词 →</a>
 
 `地图：储备站`
 
@@ -599,7 +599,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shortage**
 
-<a href="quest.md?id=5967733e86f774602332fc84">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5967733e86f774602332fc84">💬 商人台词 →</a>
 
 **接取条件**
 
@@ -618,7 +618,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Fall Ailment**
 
-<a href="quest.md?id=6a5424ae135497b9df0c68be">💬 台词与完整明细 →</a>
+<a href="quest.md?id=6a5424ae135497b9df0c68be">💬 商人台词 →</a>
 
 **接取条件**
 
@@ -636,7 +636,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Drug Trafficking**
 
-<a href="quest.md?id=626bd75b05f287031503c7f6">💬 台词与完整明细 →</a>
+<a href="quest.md?id=626bd75b05f287031503c7f6">💬 商人台词 →</a>
 
 `地图：灯塔`
 
@@ -663,7 +663,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **A Difficult Choice**
 
-<a href="quest.md?id=5edac34d0bb72a50635c2bfa">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5edac34d0bb72a50635c2bfa">💬 商人台词 →</a>
 
 **接取条件**
 
@@ -690,7 +690,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Pharmacist**
 
-<a href="quest.md?id=5969f9e986f7741dde183a50">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5969f9e986f7741dde183a50">💬 商人台词 →</a>
 
 `地图：海关`
 
@@ -719,7 +719,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ **无前置** ｜ 英文名 **Shipment Tracking**
 
-<a href="quest.md?id=675c047fa46173572a0bd878">💬 台词与完整明细 →</a>
+<a href="quest.md?id=675c047fa46173572a0bd878">💬 商人台词 →</a>
 
 `地图：海关`
 
@@ -746,7 +746,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Postman Pat Part 2**
 
-<a href="quest.md?id=596760e186f7741e11214d58">💬 台词与完整明细 →</a>
+<a href="quest.md?id=596760e186f7741e11214d58">💬 商人台词 →</a>
 
 `**Kappa 必需**`
 
@@ -765,7 +765,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv1** ｜ **无前置** ｜ 英文名 **First in Line**
 
-<a href="quest.md?id=657315ddab5a49b71f098853">💬 台词与完整明细 →</a>
+<a href="quest.md?id=657315ddab5a49b71f098853">💬 商人台词 →</a>
 
 `地图：中心区`
 
@@ -785,7 +785,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv5** ｜ **无前置** ｜ 英文名 **Population Census**
 
-<a href="quest.md?id=639135d89444fb141f4e6eea">💬 台词与完整明细 →</a>
+<a href="quest.md?id=639135d89444fb141f4e6eea">💬 商人台词 →</a>
 
 `地图：塔科夫街区`
 
@@ -805,7 +805,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv5** ｜ **无前置** ｜ 英文名 **All Is Revealed**
 
-<a href="quest.md?id=669fa39ee749756c920d02c8">💬 台词与完整明细 →</a>
+<a href="quest.md?id=669fa39ee749756c920d02c8">💬 商人台词 →</a>
 
 `地图：工厂`
 
@@ -825,7 +825,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv5** ｜ 前置 **1** 个 ｜ 英文名 **Health Care Privacy Part 2**
 
-<a href="quest.md?id=5a68663e86f774501078f78a">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5a68663e86f774501078f78a">💬 商人台词 →</a>
 
 `地图：海岸线`
 
@@ -854,7 +854,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv5** ｜ 前置 **1** 个 ｜ 英文名 **Health Care Privacy Part 3**
 
-<a href="quest.md?id=5a68665c86f774255929b4c7">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5a68665c86f774255929b4c7">💬 商人台词 →</a>
 
 `地图：森林`
 
@@ -875,7 +875,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv5** ｜ **无前置** ｜ 英文名 **Aid Stations**
 
-<a href="quest.md?id=59c9392986f7742f6923add2">💬 台词与完整明细 →</a>
+<a href="quest.md?id=59c9392986f7742f6923add2">💬 商人台词 →</a>
 
 **接取条件**
 
@@ -899,7 +899,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv8** ｜ 前置 **1** 个 ｜ 英文名 **Sanitary Standards Part 2**
 
-<a href="quest.md?id=596a204686f774576d4c95de">💬 台词与完整明细 →</a>
+<a href="quest.md?id=596a204686f774576d4c95de">💬 商人台词 →</a>
 
 **接取条件**
 
@@ -917,7 +917,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Out of Curiosity**
 
-<a href="quest.md?id=597a160786f77477531d39d2">💬 台词与完整明细 →</a>
+<a href="quest.md?id=597a160786f77477531d39d2">💬 商人台词 →</a>
 
 `地图：海关`
 
@@ -948,7 +948,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Thirsty Echo**
 
-<a href="quest.md?id=665eeca45d86b6c8aa03c79d">💬 台词与完整明细 →</a>
+<a href="quest.md?id=665eeca45d86b6c8aa03c79d">💬 商人台词 →</a>
 
 `地图：海岸线`
 
@@ -968,7 +968,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv9** ｜ 前置 **1** 个 ｜ 英文名 **Thirsty Secrets**
 
-<a href="quest.md?id=665eeca92f7aedcc900b0437">💬 台词与完整明细 →</a>
+<a href="quest.md?id=665eeca92f7aedcc900b0437">💬 商人台词 →</a>
 
 **接取条件**
 
@@ -988,7 +988,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv12** ｜ 前置 **1** 个 ｜ 英文名 **Quality Standard**
 
-<a href="quest.md?id=666314b696a9349baa021bac">💬 台词与完整明细 →</a>
+<a href="quest.md?id=666314b696a9349baa021bac">💬 商人台词 →</a>
 
 `地图：实验室`
 
@@ -1008,7 +1008,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv15** ｜ 前置 **1** 个 ｜ 英文名 **Dangerous Road**
 
-<a href="quest.md?id=63ab180c87413d64ae0ac20a">💬 台词与完整明细 →</a>
+<a href="quest.md?id=63ab180c87413d64ae0ac20a">💬 商人台词 →</a>
 
 `地图：塔科夫街区`
 
@@ -1027,7 +1027,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv18** ｜ 前置 **1** 个 ｜ 英文名 **An Apple a Day Keeps the Doctor Away**
 
-<a href="quest.md?id=5d6fb2c086f77449da599c24">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5d6fb2c086f77449da599c24">💬 商人台词 →</a>
 
 **接取条件**
 
@@ -1044,7 +1044,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv18** ｜ 前置 **1** 个 ｜ 英文名 **Health Care Privacy Part 4**
 
-<a href="quest.md?id=5a68667486f7742607157d28">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5a68667486f7742607157d28">💬 商人台词 →</a>
 
 **接取条件**
 
@@ -1062,7 +1062,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv18** ｜ 前置 **1** 个 ｜ 英文名 **Health Care Privacy Part 5**
 
-<a href="quest.md?id=5a68669a86f774255929b4d4">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5a68669a86f774255929b4d4">💬 商人台词 →</a>
 
 `地图：夜间工厂`
 
@@ -1088,7 +1088,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv18** ｜ **无前置** ｜ 英文名 **Colleagues**
 
-<a href="quest.md?id=5edab736cc183c769d778bc2">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5edab736cc183c769d778bc2">💬 商人台词 →</a>
 
 `地图：海岸线`
 
@@ -1110,7 +1110,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv18** ｜ **无前置** ｜ 英文名 **Charity**
 
-<a href="quest.md?id=5969f90786f77420d2328015">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5969f90786f77420d2328015">💬 商人台词 →</a>
 
 **接取条件**
 
@@ -1128,7 +1128,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv18** ｜ **无前置** ｜ 英文名 **Lost Contact**
 
-<a href="quest.md?id=6179afd0bca27a099552e040">💬 台词与完整明细 →</a>
+<a href="quest.md?id=6179afd0bca27a099552e040">💬 商人台词 →</a>
 
 `地图：灯塔`
 
@@ -1150,7 +1150,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv26** ｜ 前置 **1** 个 ｜ 英文名 **This Tape Sucks**
 
-<a href="quest.md?id=67a0972e77dd677f600804bd">💬 台词与完整明细 →</a>
+<a href="quest.md?id=67a0972e77dd677f600804bd">💬 商人台词 →</a>
 
 `地图：迷宫`
 
@@ -1172,7 +1172,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv30** ｜ 前置 **1** 个 ｜ 英文名 **Athlete**
 
-<a href="quest.md?id=5c0d0d5086f774363760aef2">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5c0d0d5086f774363760aef2">💬 商人台词 →</a>
 
 **接取条件**
 
@@ -1190,7 +1190,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv35** ｜ 前置 **1** 个 ｜ 英文名 **Private Clinic**
 
-<a href="quest.md?id=5c0be5fc86f774467a116593">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5c0be5fc86f774467a116593">💬 商人台词 →</a>
 
 **接取条件**
 
@@ -1210,7 +1210,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv37** ｜ 前置 **1** 个 ｜ 英文名 **Health Care Privacy Part 6**
 
-<a href="quest.md?id=669fa3a3ad7f1eac2607ed48">💬 台词与完整明细 →</a>
+<a href="quest.md?id=669fa3a3ad7f1eac2607ed48">💬 商人台词 →</a>
 
 `地图：工厂`
 
@@ -1240,7 +1240,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv37** ｜ **无前置** ｜ 英文名 **Decontamination Service**
 
-<a href="quest.md?id=5c0d1c4cd0928202a02a6f5c">💬 台词与完整明细 →</a>
+<a href="quest.md?id=5c0d1c4cd0928202a02a6f5c">💬 商人台词 →</a>
 
 `地图：实验室`
 
@@ -1262,7 +1262,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv37** ｜ **无前置** ｜ 英文名 **Beneath the Streets**
 
-<a href="quest.md?id=66aba85403e0ee3101042877">💬 台词与完整明细 →</a>
+<a href="quest.md?id=66aba85403e0ee3101042877">💬 商人台词 →</a>
 
 **接取条件**
 
@@ -1288,7 +1288,7 @@ tags:
 
 **Therapist** ｜ 需 **Lv38** ｜ **无前置** ｜ 英文名 **Crisis**
 
-<a href="quest.md?id=60e71c48c1bfa3050473b8e5">💬 台词与完整明细 →</a>
+<a href="quest.md?id=60e71c48c1bfa3050473b8e5">💬 商人台词 →</a>
 
 **接取条件**
 

@@ -67,7 +67,7 @@ title: 作战台
   <p>不跑脚本也有替代路径：</p>
   <ul>
     <li><a href="../maps/">交互地图</a> —— 每张图的点位、撤离点、图层与静态任务表</li>
-    <li><a href="../quests/">任务图鉴</a> —— 504 个任务的逐条要求、奖励与<strong>精确坐标</strong></li>
+    <li><a href="../quests/">任务图鉴</a> —— 503 个任务的逐条要求、奖励与<strong>精确坐标</strong></li>
     <li><a href="../quests/progress/">我的进度</a> —— 进度账本与出发前准备清单</li>
     <li><a href="../quests/item-lookup/">物品反查</a> —— 手上这个要不要留</li>
   </ul>

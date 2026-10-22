@@ -545,6 +545,60 @@ def main() -> int:
                     f"{hit.group(1)}，图鉴总览实际 {items_total:,} 件"
                 )
 
+    # 4d2. 任务数与目标数：数据文件是唯一事实源
+    #     2026-10-22 产品审查实测：citation.md 已把口径记成 503 / 1416，正文仍有 10 处
+    #     写 504，散在 6 个页面里 —— 这一类计数此前只有「条目数」与「图鉴件数」在看，
+    #     任务数完全没人管（gen_home_stats.py 只生成首页那一处）。
+    #
+    #     判据：凡「N 个任务」的**当前口径**表述，都必须等于 quests.json 的条数。
+    #     两类合法例外，都显式登记，不靠模糊匹配：
+    #       ① 子集口径（筛出 255 个 / 有台词 464 个 / 本图 116 个 / FiR 目标 349 条）——
+    #          逐文件登记，新增一处必须在这里加一行，否则会红（这正是目的）；
+    #       ② 历史引述（「504 个任务 / 1418 条目标」）—— 站规要求历史记录不改写，
+    #          站内引述旧值一律用「」，所以先把「」与反引号整体遮掉再扫。
+    quests_json = ROOT / "scripts" / "data" / "quests.json"
+    if quests_json.exists():
+        qdata = json.loads(quests_json.read_text(encoding="utf-8"))
+        qtasks = qdata.get("tasks") or {}
+        qlist = list(qtasks.values()) if isinstance(qtasks, dict) else list(qtasks)
+        n_tasks = int(qdata.get("count") or len(qlist))
+        n_objectives = sum(len(t.get("objectives") or []) for t in qlist)
+
+        # 子集口径：文件 → 允许出现的「个任务」/「条目标」数字（每个都在正文里有出处）
+        SUBSET_TASKS = {
+            "quests/index.md": {255},            # 「按条件筛」里某一档的命中数
+            "entries/trader-profiles.md": {464},  # 带商人台词的任务数
+            "entries/customs.md": {116},         # 本图任务目标区域涉及的条目数
+        }
+        SUBSET_OBJECTIVES = {
+            "quests/index.md": {349},            # 含「必须战局内找到」的目标数
+        }
+        for md in md_files:
+            if md.name.startswith("CHANGELOG"):
+                continue
+            rel = md.relative_to(CONTENT).as_posix()
+            raw = md.read_text(encoding="utf-8")
+            masked = re.sub(r"「[^」\n]*」", "「」", raw)
+            masked = re.sub(r"`[^`\n]*`", "``", masked)
+            for hit in re.finditer(r"(\d{3}) 个任务(?!区域|目标)", masked):
+                value = int(hit.group(1))
+                if value == n_tasks or value in SUBSET_TASKS.get(rel, ()):
+                    continue
+                line_no = masked[:hit.start()].count("\n") + 1
+                errors.append(
+                    f"任务数不一致: {md.relative_to(ROOT)}:{line_no} 写的是 {value} 个任务，"
+                    f"quests.json 实际 {n_tasks}（子集口径请登记到 SUBSET_TASKS）"
+                )
+            for hit in re.finditer(r"(\d{3,4}) 条(?:任务)?目标", masked):
+                value = int(hit.group(1))
+                if value == n_objectives or value in SUBSET_OBJECTIVES.get(rel, ()):
+                    continue
+                line_no = masked[:hit.start()].count("\n") + 1
+                errors.append(
+                    f"任务目标数不一致: {md.relative_to(ROOT)}:{line_no} 写的是 {value} 条目标，"
+                    f"quests.json 实际 {n_objectives}（子集口径请登记到 SUBSET_OBJECTIVES）"
+                )
+
     # 4e. 资源事实 ↔ 身份声明：仓库里有图标/底图时，正文不得再声称“不使用任何美术资源”
     #     这条断言来自 2026-10-17 的审查：803 个图标已入库，而 citation/README/llms
     #     五处仍写“本站不使用任何游戏美术资源”——文字与仓库事实相反，且没有任何门禁在看。

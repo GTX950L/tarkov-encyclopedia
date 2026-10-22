@@ -343,7 +343,7 @@ tags:
 
 ## 🔗 相关条目
 
-- [任务图鉴](../quests/index.md) — 504 个任务逐条要求与奖励
+- [任务图鉴](../quests/index.md) — 503 个任务逐条要求与奖励
 - [我的进度](../quests/progress.md) — 地图筛选读的就是它
 - [物品图鉴](../catalog/index.md) — 上锁点位点进去就是这里
 

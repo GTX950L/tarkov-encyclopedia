@@ -56,7 +56,7 @@ tags:
 | **头戴式耳罩** | GSSh-01、Peltor Tactical Sport、Opsmen Earmor M32、Walker's Razor Digital / Slim、MSA Sordin Supreme Pro XL、Safariland Liberator HP 20、Peltor ComTac 各代、Ops-Core FAST RAC | 传统军用形态，主流选择 |
 | **入耳式耳塞** | CENS Proflex DX5、Peltor TEP-300 | 不占头部两侧空间，与**全覆面头盔**的兼容性更好 |
 
-**两类之间没有绝对优劣，只有一个判断**：你**是否长期戴全覆面头盔**（Altyn、Vulkan-5、Rys-T 一类）。这类头盔会**压缩听力**，而耳罩式耳机在它下面往往戴不进去或效果打折——这就是为什么「**面罩与耳机经常二选一**」（见[护甲与头盔图鉴](armor-catalog.md)）。
+**两类之间没有绝对优劣，只有一个判断**：你**是否长期戴全覆面头盔**（Altyn、Vulkan-5、Rys-T 一类）。这类头盔会**压缩听力**，而耳罩式耳机在它下面往往戴不进去或效果打折——这就是为什么「**面罩与耳机经常二选一**」（见[护甲与头盔选型指南](armor-catalog.md)）。
 
 ### 4. 台面型号（按价位档）
 
@@ -156,7 +156,7 @@ tags:
 ## 📖 延伸阅读
 
 - [听声辨位与音频机制](audio.md) — 声音怎么传播、听到 X 该做什么
-- [护甲与头盔图鉴](armor-catalog.md) — 全覆面头盔与面部装备的取舍
+- [护甲与头盔选型指南](armor-catalog.md) — 全覆面头盔与面部装备的取舍
 
 ---
 

@@ -402,13 +402,13 @@ tags:
 
 - [弹药与穿深等级](ammo.md) — 穿深与护甲伤害的原理
 - [弹道与穿透机制](ballistics.md) — 结算细节
-- [护甲与头盔图鉴](armor-catalog.md) — 弹药的对手清单
+- [护甲与头盔选型指南](armor-catalog.md) — 弹药的对手清单
 
 ---
 
 ## 🔗 相关条目
 
-- [枪械图鉴](weapons.md) — 口径与枪型的搭配
+- [枪械选型指南](weapons.md) — 口径与枪型的搭配
 - [经济周期](economic-cycle.md) — 什么时候囤弹最划算
 - [藏身处模块详解](hideout-modules.md) — 工作台制造弹药的成本线
 - [战斗复盘与常见死因](death-review.md) — “命中却没击杀”怎么排查
