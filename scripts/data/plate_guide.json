@@ -1,0 +1,868 @@
+{
+ "fetched": "2026-10-08",
+ "plates": [
+  {
+   "id": "656fa99800d62bcd2e024088",
+   "name": "Cult Termite防弹插板",
+   "class": 6,
+   "dur": 65,
+   "mat": "钛",
+   "mat_en": "Titan",
+   "w": 3.85,
+   "blunt": 0.14,
+   "speed": -0.02,
+   "turn": -0.015,
+   "ergo": -0.01,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": null,
+   "sell": {
+    "price": 38509,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "64afdcb83efdfea28601d041",
+   "name": "ESAPI IV 级防弹插板",
+   "class": 6,
+   "dur": 55,
+   "mat": "陶瓷",
+   "mat_en": "Ceramic",
+   "w": 3.2,
+   "blunt": 0.3,
+   "speed": -0.015,
+   "turn": -0.005,
+   "ergo": -0.015,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": null,
+   "sell": {
+    "price": 36213,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "64afdb577bb3bfe8fe03fd1d",
+   "name": "ESBI IV 级防弹插板（侧边）",
+   "class": 6,
+   "dur": 18,
+   "mat": "陶瓷",
+   "mat_en": "Ceramic",
+   "w": 1.15,
+   "blunt": 0.3,
+   "speed": -0.005,
+   "turn": -0.005,
+   "ergo": 0,
+   "family": "SSAPI 侧",
+   "slot_kind": "侧",
+   "carriers": 53,
+   "buy": null,
+   "sell": {
+    "price": 8060,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656faf0ca0dce000a2020f77",
+   "name": "GAC 4sss2防弹插板",
+   "class": 6,
+   "dur": 50,
+   "mat": "超高分子量聚乙烯",
+   "mat_en": "UHMWPE",
+   "w": 2.7,
+   "blunt": 0.26,
+   "speed": -0.015,
+   "turn": -0.005,
+   "ergo": -0.015,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": null,
+   "sell": {
+    "price": 42501,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656f63c027aed95beb08f62c",
+   "name": "Granit 4RS防弹插板（前部）",
+   "class": 6,
+   "dur": 55,
+   "mat": "陶瓷",
+   "mat_en": "Ceramic",
+   "w": 3.5,
+   "blunt": 0.28,
+   "speed": -0.025,
+   "turn": -0.02,
+   "ergo": -0.015,
+   "family": "Korund 前",
+   "slot_kind": "前",
+   "carriers": 8,
+   "buy": null,
+   "sell": {
+    "price": 25701,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "654a4a964b446df1ad03f192",
+   "name": "Granit 4RS防弹插板（背部）",
+   "class": 6,
+   "dur": 50,
+   "mat": "陶瓷",
+   "mat_en": "Ceramic",
+   "w": 3.8,
+   "blunt": 0.29,
+   "speed": -0.02,
+   "turn": -0.01,
+   "ergo": -0.01,
+   "family": "6B13 后",
+   "slot_kind": "后",
+   "carriers": 4,
+   "buy": null,
+   "sell": {
+    "price": 24813,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "64afc71497cf3a403c01ff38",
+   "name": "Granit Br5防弹插板",
+   "class": 6,
+   "dur": 60,
+   "mat": "陶瓷",
+   "mat_en": "Ceramic",
+   "w": 3.3,
+   "blunt": 0.28,
+   "speed": -0.02,
+   "turn": -0.015,
+   "ergo": -0.015,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 47,
+   "buy": null,
+   "sell": {
+    "price": 30977,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "64afd81707e2cf40e903a316",
+   "name": "Granit 防弹插板（侧边）",
+   "class": 6,
+   "dur": 20,
+   "mat": "陶瓷",
+   "mat_en": "Ceramic",
+   "w": 1.3,
+   "blunt": 0.28,
+   "speed": -0.0075,
+   "turn": -0.0075,
+   "ergo": 0,
+   "family": "SSAPI 侧",
+   "slot_kind": "侧",
+   "carriers": 40,
+   "buy": null,
+   "sell": {
+    "price": 7260,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656fafe3498d1b7e3e071da4",
+   "name": "KITECO SC-IV SA防弹插板",
+   "class": 6,
+   "dur": 45,
+   "mat": "超高分子量聚乙烯",
+   "mat_en": "UHMWPE",
+   "w": 2.45,
+   "blunt": 0.26,
+   "speed": -0.015,
+   "turn": -0.005,
+   "ergo": -0.015,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": null,
+   "sell": {
+    "price": 34852,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656fa76500d62bcd2e024080",
+   "name": "Kiba Arms Steel防弹插板",
+   "class": 6,
+   "dur": 50,
+   "mat": "装甲钢",
+   "mat_en": "ArmoredSteel",
+   "w": 5.1,
+   "blunt": 0.18,
+   "speed": -0.03,
+   "turn": -0.015,
+   "ergo": -0.015,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": null,
+   "sell": {
+    "price": 26450,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656fa61e94b480b8a500c0e8",
+   "name": "NESCO 4400-SA-MC防弹插板",
+   "class": 6,
+   "dur": 60,
+   "mat": "复合材料",
+   "mat_en": "Combined",
+   "w": 3.6,
+   "blunt": 0.22,
+   "speed": -0.025,
+   "turn": -0.01,
+   "ergo": -0.01,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": null,
+   "sell": {
+    "price": 34108,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656f66b5c6baea13cd07e108",
+   "name": "刚玉-VM-K 防弹插板（前部）",
+   "class": 6,
+   "dur": 60,
+   "mat": "陶瓷",
+   "mat_en": "Ceramic",
+   "w": 4,
+   "blunt": 0.29,
+   "speed": -0.03,
+   "turn": -0.01,
+   "ergo": -0.02,
+   "family": "Korund 前",
+   "slot_kind": "前",
+   "carriers": 5,
+   "buy": null,
+   "sell": {
+    "price": 26765,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "657b28d25f444d6dff0c6c77",
+   "name": "刚玉-VM-K 防弹插板（背部）",
+   "class": 6,
+   "dur": 45,
+   "mat": "陶瓷",
+   "mat_en": "Ceramic",
+   "w": 2.7,
+   "blunt": 0.29,
+   "speed": -0.015,
+   "turn": -0.01,
+   "ergo": -0.01,
+   "family": "SAPI 后",
+   "slot_kind": "后",
+   "carriers": 5,
+   "buy": null,
+   "sell": {
+    "price": 21320,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656fa8d700d62bcd2e024084",
+   "name": "Cult Locust防弹插板",
+   "class": 5,
+   "dur": 60,
+   "mat": "钛",
+   "mat_en": "Titan",
+   "w": 2.56,
+   "blunt": 0.14,
+   "speed": -0.015,
+   "turn": -0.01,
+   "ergo": -0.01,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": null,
+   "sell": {
+    "price": 20177,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656fae5f7c2d57afe200c0d7",
+   "name": "GAC 3s15m防弹插板",
+   "class": 5,
+   "dur": 45,
+   "mat": "超高分子量聚乙烯",
+   "mat_en": "UHMWPE",
+   "w": 0.97,
+   "blunt": 0.26,
+   "speed": -0.01,
+   "turn": 0,
+   "ergo": -0.01,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": null,
+   "sell": {
+    "price": 26900,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656f611f94b480b8a500c0db",
+   "name": "Granit 4防弹插板（前部）",
+   "class": 5,
+   "dur": 50,
+   "mat": "陶瓷",
+   "mat_en": "Ceramic",
+   "w": 3.05,
+   "blunt": 0.28,
+   "speed": -0.02,
+   "turn": -0.015,
+   "ergo": -0.01,
+   "family": "Korund 前",
+   "slot_kind": "前",
+   "carriers": 8,
+   "buy": {
+    "price": 59558,
+    "trader": "Prapor",
+    "level": 4,
+    "task": true
+   },
+   "sell": {
+    "price": 17378,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656efaf54772930db4031ff5",
+   "name": "Granit 4防弹插板（背部）",
+   "class": 5,
+   "dur": 45,
+   "mat": "陶瓷",
+   "mat_en": "Ceramic",
+   "w": 3.3,
+   "blunt": 0.29,
+   "speed": -0.01,
+   "turn": -0.01,
+   "ergo": -0.01,
+   "family": "6B13 后",
+   "slot_kind": "后",
+   "carriers": 4,
+   "buy": null,
+   "sell": {
+    "price": 16351,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "65573fa5655447403702a816",
+   "name": "Granit Br4防弹插板",
+   "class": 5,
+   "dur": 55,
+   "mat": "陶瓷",
+   "mat_en": "Ceramic",
+   "w": 2.9,
+   "blunt": 0.28,
+   "speed": -0.015,
+   "turn": -0.01,
+   "ergo": -0.01,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 47,
+   "buy": null,
+   "sell": {
+    "price": 19573,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "655746010177119f4a097ff7",
+   "name": "SAPI III+ 级防弹插板",
+   "class": 5,
+   "dur": 50,
+   "mat": "陶瓷",
+   "mat_en": "Ceramic",
+   "w": 1.82,
+   "blunt": 0.3,
+   "speed": -0.01,
+   "turn": -0.005,
+   "ergo": -0.015,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": null,
+   "sell": {
+    "price": 18542,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "6557458f83942d705f0c4962",
+   "name": "SSAPI III+ 级防弹插板（侧边）",
+   "class": 5,
+   "dur": 15,
+   "mat": "陶瓷",
+   "mat_en": "Ceramic",
+   "w": 1,
+   "blunt": 0.3,
+   "speed": -0.005,
+   "turn": -0.005,
+   "ergo": 0,
+   "family": "SSAPI 侧",
+   "slot_kind": "侧",
+   "carriers": 53,
+   "buy": {
+    "price": 16471,
+    "trader": "Peacekeeper",
+    "level": 3,
+    "task": false
+   },
+   "sell": {
+    "price": 4402,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656fa53d94b480b8a500c0e4",
+   "name": "TallCom Guardian防弹插板",
+   "class": 5,
+   "dur": 55,
+   "mat": "复合材料",
+   "mat_en": "Combined",
+   "w": 3.5,
+   "blunt": 0.18,
+   "speed": -0.02,
+   "turn": -0.005,
+   "ergo": -0.015,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": null,
+   "sell": {
+    "price": 18403,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "654a4f8bc721968a4404ef18",
+   "name": "刚玉-VM 防弹插板（侧边）",
+   "class": 5,
+   "dur": 25,
+   "mat": "装甲钢",
+   "mat_en": "ArmoredSteel",
+   "w": 1.1,
+   "blunt": 0.18,
+   "speed": -0.005,
+   "turn": 0,
+   "ergo": 0,
+   "family": "Korund 侧",
+   "slot_kind": "侧",
+   "carriers": 3,
+   "buy": {
+    "price": 13485,
+    "trader": "Prapor",
+    "level": 4,
+    "task": false
+   },
+   "sell": {
+    "price": 3813,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656f664200d62bcd2e024077",
+   "name": "刚玉-VM 防弹插板（前部）",
+   "class": 5,
+   "dur": 60,
+   "mat": "装甲钢",
+   "mat_en": "ArmoredSteel",
+   "w": 3.4,
+   "blunt": 0.18,
+   "speed": -0.02,
+   "turn": -0.01,
+   "ergo": -0.01,
+   "family": "Korund 前",
+   "slot_kind": "前",
+   "carriers": 5,
+   "buy": {
+    "price": 57956,
+    "trader": "Prapor",
+    "level": 4,
+    "task": false
+   },
+   "sell": {
+    "price": 16390,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "657b2797c3dbcb01d60c35ea",
+   "name": "刚玉-VM 防弹插板（背部）",
+   "class": 5,
+   "dur": 40,
+   "mat": "装甲钢",
+   "mat_en": "ArmoredSteel",
+   "w": 2.3,
+   "blunt": 0.18,
+   "speed": -0.01,
+   "turn": -0.005,
+   "ergo": -0.01,
+   "family": "SAPI 后",
+   "slot_kind": "后",
+   "carriers": 5,
+   "buy": {
+    "price": 48724,
+    "trader": "Prapor",
+    "level": 3,
+    "task": false
+   },
+   "sell": {
+    "price": 13269,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656efd66034e8e01c407f35c",
+   "name": "6B13定制防弹插板（黑色）",
+   "class": 4,
+   "dur": 45,
+   "mat": "装甲钢",
+   "mat_en": "ArmoredSteel",
+   "w": 4.1,
+   "blunt": 0.18,
+   "speed": -0.025,
+   "turn": 0,
+   "ergo": -0.005,
+   "family": "6B13 后",
+   "slot_kind": "后",
+   "carriers": 4,
+   "buy": null,
+   "sell": {
+    "price": 6019,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "657b22485f444d6dff0c6c2f",
+   "name": "6B23-2防弹插板（黑色）",
+   "class": 4,
+   "dur": 40,
+   "mat": "装甲钢",
+   "mat_en": "ArmoredSteel",
+   "w": 3.5,
+   "blunt": 0.18,
+   "speed": -0.015,
+   "turn": 0,
+   "ergo": -0.005,
+   "family": "SAPI 后",
+   "slot_kind": "后",
+   "carriers": 5,
+   "buy": {
+    "price": 15234,
+    "trader": "Prapor",
+    "level": 2,
+    "task": false
+   },
+   "sell": {
+    "price": 5600,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656f603f94b480b8a500c0d6",
+   "name": "6B33防弹插板（前部）",
+   "class": 4,
+   "dur": 50,
+   "mat": "装甲钢",
+   "mat_en": "ArmoredSteel",
+   "w": 3.7,
+   "blunt": 0.18,
+   "speed": -0.025,
+   "turn": -0.01,
+   "ergo": -0.01,
+   "family": "Korund 前",
+   "slot_kind": "前",
+   "carriers": 8,
+   "buy": {
+    "price": 20682,
+    "trader": "Prapor",
+    "level": 3,
+    "task": false
+   },
+   "sell": {
+    "price": 7603,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656fa0fb498d1b7e3e071d9c",
+   "name": "Global Armor’s Steel防弹插板",
+   "class": 4,
+   "dur": 45,
+   "mat": "装甲钢",
+   "mat_en": "ArmoredSteel",
+   "w": 3.4,
+   "blunt": 0.18,
+   "speed": -0.015,
+   "turn": -0.005,
+   "ergo": -0.01,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": {
+    "price": 23154,
+    "trader": "Skier",
+    "level": 3,
+    "task": false
+   },
+   "sell": {
+    "price": 8039,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656fa25e94b480b8a500c0e0",
+   "name": "Kiba Arms Titan防弹插板",
+   "class": 4,
+   "dur": 55,
+   "mat": "钛",
+   "mat_en": "Titan",
+   "w": 2.25,
+   "blunt": 0.14,
+   "speed": -0.01,
+   "turn": -0.005,
+   "ergo": -0.005,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": null,
+   "sell": {
+    "price": 10810,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656fad8c498d1b7e3e071da0",
+   "name": "Monoclete III 级 PE 防弹插板",
+   "class": 4,
+   "dur": 40,
+   "mat": "超高分子量聚乙烯",
+   "mat_en": "UHMWPE",
+   "w": 1.35,
+   "blunt": 0.26,
+   "speed": -0.01,
+   "turn": 0,
+   "ergo": -0.01,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": null,
+   "sell": {
+    "price": 9310,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656fb21fa0dce000a2020f7c",
+   "name": "NewSphereTech III 级防弹插板",
+   "class": 4,
+   "dur": 45,
+   "mat": "铝",
+   "mat_en": "Aluminium",
+   "w": 2.15,
+   "blunt": 0.27,
+   "speed": -0.01,
+   "turn": -0.005,
+   "ergo": -0.01,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": {
+    "price": 36234,
+    "trader": "Peacekeeper",
+    "level": 3,
+    "task": false
+   },
+   "sell": {
+    "price": 8421,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656fb0bd7c2d57afe200c0dc",
+   "name": "SPRTN Elaphros防弹插板",
+   "class": 4,
+   "dur": 45,
+   "mat": "陶瓷",
+   "mat_en": "Ceramic",
+   "w": 1.6,
+   "blunt": 0.3,
+   "speed": -0.01,
+   "turn": 0,
+   "ergo": -0.015,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": {
+    "price": 38088,
+    "trader": "Peacekeeper",
+    "level": 3,
+    "task": false
+   },
+   "sell": {
+    "price": 8627,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656f9fa0498d1b7e3e071d98",
+   "name": "SPRTN Omega防弹插板",
+   "class": 4,
+   "dur": 50,
+   "mat": "复合材料",
+   "mat_en": "Combined",
+   "w": 4.39,
+   "blunt": 0.18,
+   "speed": -0.015,
+   "turn": -0.005,
+   "ergo": -0.005,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": {
+    "price": 26268,
+    "trader": "Skier",
+    "level": 3,
+    "task": false
+   },
+   "sell": {
+    "price": 9120,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "654a4dea7c17dec2f50cc86a",
+   "name": "6B12防弹插板（前部）",
+   "class": 3,
+   "dur": 50,
+   "mat": "装甲钢",
+   "mat_en": "ArmoredSteel",
+   "w": 4.6,
+   "blunt": 0.18,
+   "speed": -0.03,
+   "turn": -0.01,
+   "ergo": -0.015,
+   "family": "Korund 前",
+   "slot_kind": "前",
+   "carriers": 5,
+   "buy": {
+    "price": 16889,
+    "trader": "Prapor",
+    "level": 2,
+    "task": false
+   },
+   "sell": {
+    "price": 6209,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656f9d5900d62bcd2e02407c",
+   "name": "AR500 Legacy Plate防弹插板",
+   "class": 3,
+   "dur": 45,
+   "mat": "复合材料",
+   "mat_en": "Combined",
+   "w": 3.85,
+   "blunt": 0.18,
+   "speed": -0.02,
+   "turn": -0.01,
+   "ergo": -0.01,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": {
+    "price": 18116,
+    "trader": "Skier",
+    "level": 2,
+    "task": false
+   },
+   "sell": {
+    "price": 6290,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656fac30c6baea13cd07e10c",
+   "name": "PRTCTR轻量化防弹插板",
+   "class": 3,
+   "dur": 35,
+   "mat": "超高分子量聚乙烯",
+   "mat_en": "UHMWPE",
+   "w": 0.43,
+   "blunt": 0.26,
+   "speed": -0.01,
+   "turn": 0,
+   "ergo": -0.01,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": null,
+   "sell": {
+    "price": 6509,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "656f57dc27aed95beb08f628",
+   "name": "Zhuk-3防弹插板（前部）",
+   "class": 3,
+   "dur": 40,
+   "mat": "超高分子量聚乙烯",
+   "mat_en": "UHMWPE",
+   "w": 2.4,
+   "blunt": 0.24,
+   "speed": -0.02,
+   "turn": -0.015,
+   "ergo": -0.01,
+   "family": "Korund 前",
+   "slot_kind": "前",
+   "carriers": 8,
+   "buy": null,
+   "sell": {
+    "price": 5092,
+    "trader": "Ragman"
+   }
+  },
+  {
+   "id": "6943c85be2f21398e70378cc",
+   "name": "Tac-Kek SAPI Level III+ 防弹插板（仿制品）",
+   "class": 1,
+   "dur": 90,
+   "mat": "超高分子量聚乙烯",
+   "mat_en": "UHMWPE",
+   "w": 1.1,
+   "blunt": 0.33,
+   "speed": -0.005,
+   "turn": -0.0025,
+   "ergo": -0.005,
+   "family": "SAPI 前后",
+   "slot_kind": "前 / 后",
+   "carriers": 88,
+   "buy": null,
+   "sell": {
+    "price": 2175,
+    "trader": "Ragman"
+   }
+  }
+ ]
+}
