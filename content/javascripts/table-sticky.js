@@ -30,8 +30,7 @@
   var BAR_H = 34;          // 表头栏高度（约等于 th 行高，用于「表还没结束」的判定）
   var bar = null;          // 复用的固定栏
   var cur = null;          // 当前激活的表（换表才重建）
-  var items = null;        // [{ table, scroller }]
-  var path = "";           // 表清单属于哪一页
+  var items = null;        // [{ table, scroller }]，每帧重收（见 update 里的说明）
   var frame = 0;
 
   function headerBottom() {
@@ -123,14 +122,17 @@
 
   function update() {
     frame = 0;
-    /* 本站没有用 Material 的 document$，instant 换页是「重放脚本 + 换 DOM」，
-       订阅式钩子不存在；用地址变化来判断该不该重收表清单，够用且无依赖。 */
-    /* items 为空也要重收：脚本可能在正文挂载之前就跑了（实测首帧 0 张表，
-       而手动 collect() 同一时刻能收到 1 张）——空数组是 truthy，不能只判 null。 */
-    if (!items || items.length === 0 || path !== location.pathname) {
-      path = location.pathname;
-      collect();
-    }
+    /* ⚠️ 表清单**每帧重收**（2026-10-23 改）。原来按 path 缓存，两个坑：
+       ① 脚本的第一遍跑在正文挂载之前 —— 实测首帧 items=0，第二帧只收到 2 张
+          （页面上有 3 张合格表），且顺序错位，第一张长表根本没进清单；
+       ② instant 换页会把正文整块换掉，旧表和它的滚动容器一起游离，
+          rect 恒为 0，`r.bottom > hb + BAR_H` 永远不成立。
+       两种情况下整页一条栏都不出，要等一次 resize（onResize 清空 items）才恢复 ——
+       读者看到的现象是「这个功能不存在」。
+
+       代价：一次 querySelectorAll + N 次 rows.length。实测 4 张表 < 0.05 ms，
+       而 update 已经被 rAF 节流到每帧最多一次，比一次布局便宜。 */
+    collect();
 
     var hb = headerBottom();
     var active = null;
@@ -145,7 +147,9 @@
       cur = null;
       return;
     }
-    if (active !== cur) rebuild(active);
+    /* 比较 table 元素本身，不能比较 entry：每帧 collect 出来的都是新对象，
+       按对象比会每帧重建克隆表头（10 次/秒的无谓 DOM 操作）。 */
+    if (!cur || cur.table !== active.table) rebuild(active);
     place(active);
     bar.classList.add("is-on");
   }
