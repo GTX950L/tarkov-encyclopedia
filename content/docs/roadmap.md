@@ -123,7 +123,7 @@ search:
 | **官方本地化字典**（一级） | **中心区** / **中心区 21+** | `json.tarkov.dev/regular/maps_zh`：内部名 `Sandbox` → `中心区`、`Sandbox_high` → `中心区 21+`；教程图 `Sandbox_start` 官方**未译**，字典值是「Ground Zero 教程」 |
 | **站内手写正文**（自拟） | 地面零点 | Ground Zero 的字面直译，**从未登记过**（[更新日志](../CHANGELOG.md) / 本页 / [引用说明](citation.md) 三处原为 **0 处**） |
 
-**两条判据都指向统一**：① 站内纪律是「**译名一律从官方本地化字典查、不自己编**」（见[贡献指南](../CONTRIBUTING.md) 与[数据口径与引用说明](citation.md)）；② 改名判据要的那条铁证也在站内 —— [彩蛋与制作组的恶意](../entries/easter-eggs.md) 写「中心区（Ground Zero）」、[术语与黑话速查](glossary.md) 写「地面零点 ｜ Ground Zero」，**英文注相同、中文名不同**。
+**两条判据都指向统一**：① 站内纪律是「**译名一律从官方本地化字典查、不自己编**」（见[贡献指南](../CONTRIBUTING.md) 与[数据口径与引用说明](citation.md)）；② 改名判据要的那条铁证也在站内 —— [彩蛋与设计陷阱](../entries/easter-eggs.md) 写「中心区（Ground Zero）」、[术语与黑话速查](glossary.md) 写「地面零点 ｜ Ground Zero」，**英文注相同、中文名不同**。
 
 **覆盖率清单（旧名 66 处，逐一判定）：改 43 ｜ 不改写 23。**完整表见[更新日志](../CHANGELOG.md) 的 v1.93.0 条目，此处只记三类非显然项：
 
