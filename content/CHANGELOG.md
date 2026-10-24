@@ -14,6 +14,41 @@ search:
 > 📚 **分页口径**：本页只保留**当月**条目；跨月时把上个月整段移入仓库根的 `CHANGELOG-archive.md`（**内容原样搬，不改写一个字**）。
 > 归档自 2026-10-22 起**移出站点构建** —— 更新日志是发布记录，不是资料页；读者要翻更早的版本看 GitHub Releases 即可，站内不再为 2,690 行历史付一次页面下载。
 
+## 2026-10（v1.147.4）— 全站物品图标裂图：路径多爬一级，4,983 张图全部 404
+
+**触发**：读者报「配图看不见」。实测线上图鉴页，浏览器请求的是
+`https://gtx950l.github.io/assets/items/icons/<id>.webp` → **404**，
+而文件真实地址是 `https://gtx950l.github.io/tarkov-encyclopedia/assets/items/icons/<id>.webp` → **200**。
+图没丢、仓库里 5,574 张 WebP 一张不少，错的是页面上的地址。
+
+**根因**：`scripts/gen_items_catalog.py` 的 `icon_tag()` 把图标地址写死成
+`../../assets/items/icons/<id>.webp`。源文件在 `content/catalog/<slug>.md`，
+到 `content/assets/` 只有一级，正确写法是 `../assets/`。多写的那一级，
+MkDocs 构建时还会按 directory-urls 再补一层（页面被当目录处理），于是三级出站：
+
+| 环节 | 实际值 |
+|---|---|
+| 源文件 | `../../assets/…` |
+| 构建产物 | `../../../assets/…` |
+| 浏览器从 `/tarkov-encyclopedia/catalog/ammo-1/` 解析 | `https://gtx950l.github.io/assets/…` → 404 |
+
+原注释把判断依据写成「图鉴页落在 `/catalog/<slug>/index.html`，往上两级才是站点根」——
+按**最终 URL** 算这句没错，但 MkDocs 认的是**源文件相对位置**，两者差一层。
+注释已改写成踩坑说明，免得以后又被「修正」回 `../../`。
+
+**影响面**：21 个图鉴页 / **4,983 个图标**，自 v1.137.0（10-19，`f1d1981`）引入起上线即裂。
+地图缩略图没事 —— `content/maps/index.md` 本来就写 `../assets/`，是全站唯一写对的参照。
+
+**为什么五天门禁全绿**：`check_entries` / `check_icons` / `check_promises` /
+`check_catalog_consistency` / `check_gen_drift` 没有一条检查 HTML `<img src>` 能不能解析；
+`health-check` 的「线上页面存活」只查页面本身 200，不查页面内资源。
+「页面 200 + 图 404」正好落在两条判据的缝隙里。
+
+**验证**：`build_all` 八道全绿（含 ⑤c 的 26 支生成器两遍一致）；产物
+`site/catalog/ammo-1/index.html` 的 src 已变为 `../../assets/…`，
+浏览器解析落在 `/tarkov-encyclopedia/assets/`；22 个文件改动（21 页 + 1 生成器），
+除图标路径外 **0 行其他变动**。
+
 ## 2026-10（v1.147.3）— 每页 JS 上限 74 → 80 KB（借来的 6.7 KB，附还款条件）
 
 **触发**：`check_budget.py` 报每页 JS 73.3 KB，**余量只剩 0.7 KB** —— 这条线实际上
