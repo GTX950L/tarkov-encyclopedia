@@ -601,9 +601,13 @@ def fmt_num(x, suffix="", digits=None):
 def icon_tag(it) -> str:
     """行首缩略图（官方图，64×64 透明底 WebP，由 gen_item_icons.py 下载）。
 
-    ⚠️ 路径是**相对当前页**的 ``../../assets/…``：图鉴页构建后落在
-       ``/catalog/<slug>/index.html``，往上两级才是站点根。
-       写成绝对路径会在 ``site_url`` 带子目录（/tarkov-encyclopedia/）时 404。
+    ⚠️ 路径必须写成 **content 内的相对源文件路径** ``../assets/…``
+       （源文件 ``content/catalog/<slug>.md`` → ``content/assets/``）。
+       MkDocs 构建时会再按 directory-urls 加一层，运行时才变成
+       ``/tarkov-encyclopedia/catalog/<slug>/`` 下的 ``../../assets/…``。
+       若这里直接写 ``../../assets/…``，MkDocs 会重写成 ``../../../assets/…``，
+       浏览器解析到 ``https://<user>.github.io/assets/…`` → 全站 404（v1.147.3 实测）。
+       写成绝对路径 ``/assets/…`` 同理会在 ``site_url`` 带子目录时 404。
     ⚠️ 用裸 ``<img>`` 而不是 Markdown 图片语法：Markdown 图片在表格单元格里
        会变成块级元素、与相邻文字错位；且这里要的是固定 28 px 小图标，
        不该被正文图片样式（圆角、居中、图注）接走。
@@ -611,7 +615,7 @@ def icon_tag(it) -> str:
     iid = it.get("id")
     if not iid:
         return ""
-    return (f'<img class="tk-ic" src="../../assets/items/icons/{iid}.webp" '
+    return (f'<img class="tk-ic" src="../assets/items/icons/{iid}.webp" '
             f'alt="" width="28" height="28" loading="lazy" decoding="async"> ')
 
 

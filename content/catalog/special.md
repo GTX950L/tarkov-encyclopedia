@@ -38,7 +38,7 @@ tags:
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 获取方式 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|----------|--------------|--------------|
-| 1 | <img class="tk-ic" src="../../assets/items/icons/5f4f9eb969cdc30ff33f09db.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> EYE MK.2 手持指南针专业版 | `eye-mk2-professional-hand-held-compass` | 0.106 千克 | — | 商人出售 | 253,898 卢布，需 Jaeger 1 级 | 29,565 卢布（3 家最高） |
+| 1 | <img class="tk-ic" src="../assets/items/icons/5f4f9eb969cdc30ff33f09db.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> EYE MK.2 手持指南针专业版 | `eye-mk2-professional-hand-held-compass` | 0.106 千克 | — | 商人出售 | 253,898 卢布，需 Jaeger 1 级 | 29,565 卢布（3 家最高） |
 
 </div>
 
@@ -60,7 +60,7 @@ EYE MK.2 手持指南针专业版
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 获取方式 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|----------|--------------|--------------|
-| 1 | <img class="tk-ic" src="../../assets/items/icons/61605e13ffa6e502ac5e7eef.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> Vortex Ranger 1500测距仪 | `vortex-ranger-1500-rangefinder` | 0.218 千克 | — | 商人出售 | 11,790 卢布，需 Jaeger 1 级 | 4,050 卢布（3 家最高） |
+| 1 | <img class="tk-ic" src="../assets/items/icons/61605e13ffa6e502ac5e7eef.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> Vortex Ranger 1500测距仪 | `vortex-ranger-1500-rangefinder` | 0.218 千克 | — | 商人出售 | 11,790 卢布，需 Jaeger 1 级 | 4,050 卢布（3 家最高） |
 
 </div>
 
@@ -82,11 +82,11 @@ Vortex Ranger 1500测距仪
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 获取方式 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|----------|--------------|--------------|
-| 1 | <img class="tk-ic" src="../../assets/items/icons/6819f8df28294ec0730db6b4.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> SZ-1 炸药 | `sz-1-explosive-charge` | 1.4 千克 | — | — | — | 6,265 卢布（3 家最高） |
-| 2 | <img class="tk-ic" src="../../assets/items/icons/69a0174087a75d2cbd0842e8.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> SZ-1 炸药 | `sz-1-explosive-charge-1` | 1.4 千克 | — | 商人出售 | 212,160 卢布，需 Prapor 1 级 | 70,200 卢布（3 家最高） |
-| 3 | <img class="tk-ic" src="../../assets/items/icons/6a8c4c7999baf8bd5802f7fe.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> Sudak-Tudak 船用维修工具包 | `sudak-tudak-marine-repair-kit` | 4.5 千克 | — | — | — | 36,000 卢布（1 家最高） |
-| 4 | <img class="tk-ic" src="../../assets/items/icons/5910968f86f77425cf569c32.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 武器维修套件 | `weapon-repair-kit` | 7 千克 | — | 以物换物 / 制作 | — | 31,500 卢布（3 家最高） |
-| 5 | <img class="tk-ic" src="../../assets/items/icons/591094e086f7747caa7bb2ef.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 防弹衣维修套件 | `body-armor-repair-kit` | 14 千克 | — | 以物换物 / 制作 | — | 90,000 卢布（3 家最高） |
+| 1 | <img class="tk-ic" src="../assets/items/icons/6819f8df28294ec0730db6b4.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> SZ-1 炸药 | `sz-1-explosive-charge` | 1.4 千克 | — | — | — | 6,265 卢布（3 家最高） |
+| 2 | <img class="tk-ic" src="../assets/items/icons/69a0174087a75d2cbd0842e8.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> SZ-1 炸药 | `sz-1-explosive-charge-1` | 1.4 千克 | — | 商人出售 | 212,160 卢布，需 Prapor 1 级 | 70,200 卢布（3 家最高） |
+| 3 | <img class="tk-ic" src="../assets/items/icons/6a8c4c7999baf8bd5802f7fe.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> Sudak-Tudak 船用维修工具包 | `sudak-tudak-marine-repair-kit` | 4.5 千克 | — | — | — | 36,000 卢布（1 家最高） |
+| 4 | <img class="tk-ic" src="../assets/items/icons/5910968f86f77425cf569c32.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 武器维修套件 | `weapon-repair-kit` | 7 千克 | — | 以物换物 / 制作 | — | 31,500 卢布（3 家最高） |
+| 5 | <img class="tk-ic" src="../assets/items/icons/591094e086f7747caa7bb2ef.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 防弹衣维修套件 | `body-armor-repair-kit` | 14 千克 | — | 以物换物 / 制作 | — | 90,000 卢布（3 家最高） |
 
 </div>
 
@@ -108,15 +108,15 @@ SZ-1 炸药　SZ-1 炸药　Sudak-Tudak 船用维修工具包　武器维修套�
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 获取方式 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|----------|--------------|--------------|
-| 1 | <img class="tk-ic" src="../../assets/items/icons/6a5f9c49b8281c31a1062aea.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 14-4 KORD 固态硬盘 | `14-4-kord-ssd` | 0.04 千克 | — | — | — | 29,250 卢布（3 家最高） |
-| 2 | <img class="tk-ic" src="../../assets/items/icons/68e63a53371639e1e4004b6e.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 本地网络黑客入侵装置 | `local-network-hacking-device` | 0.12 千克 | — | 以物换物 | — | 14,436 卢布（3 家最高） |
-| 3 | <img class="tk-ic" src="../../assets/items/icons/5991b51486f77447b112d44f.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> MS2000指示器 | `ms2000-marker` | 0.15 千克 | — | 商人出售 | 18,936 卢布，需 Prapor 1 级 | 6,265 卢布（3 家最高） |
-| 4 | <img class="tk-ic" src="../../assets/items/icons/62e910aaf957f2915e0a5e36.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> Digital secure DSP无线电收发器 | `digital-secure-dsp-radio-transmitter` | 0.17 千克 | — | 制作 | — | — |
-| 5 | <img class="tk-ic" src="../../assets/items/icons/6655e35b6bc645cb7b059912.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> “明眼”迫击炮袭告警装置 | `the-eye-mortar-strike-signaling-device` | 0.2 千克 | — | — | — | — |
-| 6 | <img class="tk-ic" src="../../assets/items/icons/5ac78a9b86f7741cca0bbd8d.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 信号干扰器 | `signal-jammer` | 0.3 千克 | — | 商人出售 | 21,852 卢布，需 Mechanic 1 级 | 7,866 卢布（3 家最高） |
-| 7 | <img class="tk-ic" src="../../assets/items/icons/5b4391a586f7745321235ab2.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> WIFI摄像头 | `wi-fi-camera` | 0.5 千克 | — | 商人出售 / 以物换物 | 62,959 卢布，需 Mechanic 1 级 | 15,791 卢布（3 家最高） |
-| 8 | <img class="tk-ic" src="../../assets/items/icons/63a0b2eabea67a6d93009e52.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 无线电中继器 | `radio-repeater` | 0.5 千克 | — | 制作 | — | 7,866 卢布（3 家最高） |
-| 9 | <img class="tk-ic" src="../../assets/items/icons/6a5f9c25e8c84d8b0602f22a.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 黑色军团加固手提电脑 | `black-division-rugged-laptop` | 2.5 千克 | — | — | — | 49,500 卢布（3 家最高） |
+| 1 | <img class="tk-ic" src="../assets/items/icons/6a5f9c49b8281c31a1062aea.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 14-4 KORD 固态硬盘 | `14-4-kord-ssd` | 0.04 千克 | — | — | — | 29,250 卢布（3 家最高） |
+| 2 | <img class="tk-ic" src="../assets/items/icons/68e63a53371639e1e4004b6e.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 本地网络黑客入侵装置 | `local-network-hacking-device` | 0.12 千克 | — | 以物换物 | — | 14,436 卢布（3 家最高） |
+| 3 | <img class="tk-ic" src="../assets/items/icons/5991b51486f77447b112d44f.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> MS2000指示器 | `ms2000-marker` | 0.15 千克 | — | 商人出售 | 18,936 卢布，需 Prapor 1 级 | 6,265 卢布（3 家最高） |
+| 4 | <img class="tk-ic" src="../assets/items/icons/62e910aaf957f2915e0a5e36.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> Digital secure DSP无线电收发器 | `digital-secure-dsp-radio-transmitter` | 0.17 千克 | — | 制作 | — | — |
+| 5 | <img class="tk-ic" src="../assets/items/icons/6655e35b6bc645cb7b059912.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> “明眼”迫击炮袭告警装置 | `the-eye-mortar-strike-signaling-device` | 0.2 千克 | — | — | — | — |
+| 6 | <img class="tk-ic" src="../assets/items/icons/5ac78a9b86f7741cca0bbd8d.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 信号干扰器 | `signal-jammer` | 0.3 千克 | — | 商人出售 | 21,852 卢布，需 Mechanic 1 级 | 7,866 卢布（3 家最高） |
+| 7 | <img class="tk-ic" src="../assets/items/icons/5b4391a586f7745321235ab2.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> WIFI摄像头 | `wi-fi-camera` | 0.5 千克 | — | 商人出售 / 以物换物 | 62,959 卢布，需 Mechanic 1 级 | 15,791 卢布（3 家最高） |
+| 8 | <img class="tk-ic" src="../assets/items/icons/63a0b2eabea67a6d93009e52.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 无线电中继器 | `radio-repeater` | 0.5 千克 | — | 制作 | — | 7,866 卢布（3 家最高） |
+| 9 | <img class="tk-ic" src="../assets/items/icons/6a5f9c25e8c84d8b0602f22a.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 黑色军团加固手提电脑 | `black-division-rugged-laptop` | 2.5 千克 | — | — | — | 49,500 卢布（3 家最高） |
 
 </div>
 
@@ -138,8 +138,8 @@ SZ-1 炸药　SZ-1 炸药　Sudak-Tudak 船用维修工具包　武器维修套�
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 获取方式 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|----------|--------------|--------------|
-| 1 | <img class="tk-ic" src="../../assets/items/icons/64d0b40fbe2eed70e254e2d4.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 神圣护身符 | `sacred-amulet` | 0.1 千克 | — | — | — | — |
-| 2 | <img class="tk-ic" src="../../assets/items/icons/67d2c2aec4d4d19af00f9ba8.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 神圣护身符 | `sacred-amulet-1` | 0.1 千克 | — | — | — | — |
+| 1 | <img class="tk-ic" src="../assets/items/icons/64d0b40fbe2eed70e254e2d4.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 神圣护身符 | `sacred-amulet` | 0.1 千克 | — | — | — | — |
+| 2 | <img class="tk-ic" src="../assets/items/icons/67d2c2aec4d4d19af00f9ba8.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 神圣护身符 | `sacred-amulet-1` | 0.1 千克 | — | — | — | — |
 
 </div>
 
@@ -161,8 +161,8 @@ SZ-1 炸药　SZ-1 炸药　Sudak-Tudak 船用维修工具包　武器维修套�
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 获取方式 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|----------|--------------|--------------|
-| 1 | <img class="tk-ic" src="../../assets/items/icons/68d152b9915f131d4e05ee6c.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> Voevoda 的录音机 | `voevodas-audio-recorder` | 0.6 千克 | — | — | — | — |
-| 2 | <img class="tk-ic" src="../../assets/items/icons/6526909b539ee574cb624991.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 录音机 | `audio-recorder` | 0.6 千克 | — | 以物换物 | — | 1,539 卢布（3 家最高） |
+| 1 | <img class="tk-ic" src="../assets/items/icons/68d152b9915f131d4e05ee6c.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> Voevoda 的录音机 | `voevodas-audio-recorder` | 0.6 千克 | — | — | — | — |
+| 2 | <img class="tk-ic" src="../assets/items/icons/6526909b539ee574cb624991.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 录音机 | `audio-recorder` | 0.6 千克 | — | 以物换物 | — | 1,539 卢布（3 家最高） |
 
 </div>
 
@@ -184,7 +184,7 @@ Voevoda 的录音机　录音机
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 获取方式 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|----------|--------------|--------------|
-| 1 | <img class="tk-ic" src="../../assets/items/icons/65ddcc9cfa85b9f17d0dfb07.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 无名者之声 | `mark-of-the-unheard` | 0.35 千克 | — | — | — | — |
+| 1 | <img class="tk-ic" src="../assets/items/icons/65ddcc9cfa85b9f17d0dfb07.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 无名者之声 | `mark-of-the-unheard` | 0.35 千克 | — | — | — | — |
 
 </div>
 
@@ -206,7 +206,7 @@ Voevoda 的录音机　录音机
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 获取方式 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|----------|--------------|--------------|
-| 1 | <img class="tk-ic" src="../../assets/items/icons/666b11055a706400b717cfa5.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 绊线布设装置 | `tripwire-installation-kit` | 0.35 千克 | — | 商人出售 | 30,667 卢布，需 Jaeger 3 级 | 11,088 卢布（3 家最高） |
+| 1 | <img class="tk-ic" src="../assets/items/icons/666b11055a706400b717cfa5.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> 绊线布设装置 | `tripwire-installation-kit` | 0.35 千克 | — | 商人出售 | 30,667 卢布，需 Jaeger 3 级 | 11,088 卢布（3 家最高） |
 
 </div>
 
@@ -228,7 +228,7 @@ Voevoda 的录音机　录音机
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 获取方式 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|----------|--------------|--------------|
-| 1 | <img class="tk-ic" src="../../assets/items/icons/544fb5454bdc2df8738b456a.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> Leatherman多功能工具钳 | `leatherman-multitool` | 0.142 千克 | — | 商人出售 | 14,594 卢布，需 Mechanic 1 级 | 6,912 卢布（3 家最高） |
+| 1 | <img class="tk-ic" src="../assets/items/icons/544fb5454bdc2df8738b456a.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> Leatherman多功能工具钳 | `leatherman-multitool` | 0.142 千克 | — | 商人出售 | 14,594 卢布，需 Mechanic 1 级 | 6,912 卢布（3 家最高） |
 
 </div>
 
