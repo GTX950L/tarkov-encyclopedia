@@ -2,13 +2,22 @@
 """投影自检 —— gen_maps.py / build_tile_maps.py / maps-data.js 三处注释里
 引用的那个「锚点自检」脚本（承诺了一直没落盘，2026-10-15 复查时补上）。
 
-两件事，全部离线：
+四件事，全部离线：
 
   ① 重算比对：用 `gen_maps.project()` 对上游世界坐标**重算**，与入库的
      maps-data.js 逐点比对 —— 验证「入库坐标 = 当前公式」的一致性。
      改了 project() 或换上游数据后跑它，公式与数据谁漂了立刻知道。
   ② viewBox 对账：maps-data.js 里记录的 viewBox 与底图 SVG 文件的实际
      viewBox 一致 —— 投影帧与显示帧不能脱节（脱节 = 所有叠加点整体偏移）。
+  ③ 定位 ↔ 测距自洽：`project()` 的「1 米 = N 像素」与 `mpp` 的「1 像素 = M 米」
+     相乘必须等于 1。两者口径分叉时，点位位置与测距读数会互相矛盾。
+  ④ 矢量底图比例：底图宽高比与 bounds 投影宽高比必须相等（真实地图等比例）。
+     不等 = 方向性拉伸，点位会随位置漂移。
+
+⚠️ **①② 是自证**：都拿同一个 `project()` 重算再比对，公式本身错了照样全绿。
+   能抓「公式没漂」，抓不到「公式错了」。2026-10-25 的瓦片图错位（实验室 27.7%、
+   破冰船 26%）就是被这两条放过的 —— 当时 ①② 全绿。③④ 是对外判据，不依赖真值。
+   其中 ④ 只对矢量图生效（瓦片图的 viewBox 是裁剪框，与 bounds 声明范围无约束）。
 
 口径与容差
 ----------
@@ -25,6 +34,7 @@ from __future__ import annotations
 from _console import setup as _setup_console
 
 import json
+import math
 import re
 import sys
 from pathlib import Path
@@ -36,19 +46,52 @@ from gen_maps import project  # noqa: E402  全站唯一坐标换算，被检对
 from _map_links import MAP_ID_TO_KEY, map_key_of_cn  # noqa: E402
 
 TOL = 0.11  # 入库 round(...,1) 的容差
+SCALE_TOL = 0.03   # 定位 ↔ 测距自洽容差
+RATIO_TOL = 0.03   # 底图宽高比 ↔ bounds 投影宽高比容差
 
 
 def load_meta() -> dict[str, dict]:
     src = ROOT / "scripts" / "data" / "maps_source.json"
     data = json.loads(src.read_text(encoding="utf-8"))
+    # 瓦片图要带上 zoom —— project() / mpp_of() 靠它分辨「直连网格」与「矢量归一化」。
+    # 不带就会被当成矢量图归一化，本脚本反而会「验证」那个错误公式（自证陷阱）。
+    tiles: dict[str, dict] = {}
+    tp = ROOT / "scripts" / "data" / "tile_maps.json"
+    if tp.exists():
+        tiles = json.loads(tp.read_text(encoding="utf-8"))
     out: dict[str, dict] = {}
     for group in data:
         for m in group.get("maps", []):
-            out[m["key"]] = m
+            rec = dict(m)
+            if m["key"] in tiles:
+                rec["zoom"] = tiles[m["key"]]["zoom"]
+            out[m["key"]] = rec
     return out
 
 
 MODE = "pvp"
+
+
+def _layer_span(meta: dict) -> tuple[float, float]:
+    """bounds 四角在 layer 空间的包围盒跨度。
+
+    **刻意绕开 project()**：这条判据要独立于被检函数，否则又是自证
+    （project 的矢量分支就是把 bounds 塞进 viewBox，比出来的比例恒等）。
+    """
+    b = meta["bounds"]
+    tf = meta["transform"]
+    rot = math.radians(meta.get("coordinateRotation") or 0)
+    a, bb, c, d = tf[0], tf[1], -(tf[2]), tf[3]
+
+    def pt(wx: float, wz: float) -> tuple[float, float]:
+        rx = wx * math.cos(rot) - wz * math.sin(rot)
+        ry = wx * math.sin(rot) + wz * math.cos(rot)
+        return (a * rx + bb, c * ry + d)
+
+    corners = [pt(wx, wz) for wx in (b[1][0], b[0][0]) for wz in (b[0][1], b[1][1])]
+    xs = [p[0] for p in corners]
+    ys = [p[1] for p in corners]
+    return (max(xs) - min(xs), max(ys) - min(ys))
 
 
 def _mp(rel: str) -> Path:
@@ -114,7 +157,71 @@ def main() -> int:
         if act != exp:
             problems.append(f"{key}: viewBox 脱节 data={exp} vs svg={act}")
 
-    # ── ③ 任务 ↔ 地图接线（2026-10-17 新增）─────────────────────────────
+    # ── ③ 定位 ↔ 测距自洽（2026-10-25 新增）─────────────────────────
+    # project() 说「1 米 = N 像素」，mpp 说「1 像素 = M 米」，N·M 必须 = 1。
+    # 两者同源时恒等；一旦某一方换了口径（瓦片图的 mpp 曾用整幅网格做分母），
+    # 测距读数就会跟点位位置打架 —— 这正是 2026-10-25 查出的那批偏差。
+    scale_checked = 0
+    for key, d in data.items():
+        meta = metas.get(key)
+        mp = d.get("mpp") or []
+        if not meta or not meta.get("bounds") or len(mp) != 2:
+            continue
+        pmeta = {**meta, "viewBox": d["viewBox"]}
+        b = meta["bounds"]
+        x0 = (b[0][0] + b[1][0]) / 2
+        z0 = (b[0][1] + b[1][1]) / 2
+        o = project(x0, z0, pmeta)
+        ex = project(x0 + 1, z0, pmeta)
+        ez = project(x0, z0 + 1, pmeta)
+        lx = math.hypot(ex[0] - o[0], ex[1] - o[1])
+        lz = math.hypot(ez[0] - o[0], ez[1] - o[1])
+        if lx < 1e-9 or lz < 1e-9:
+            problems.append(f"{key}: 投影退化为零位移，比例尺无法核对")
+            continue
+        # 旋转 90/270 会让 x/z 与像素轴互换，排序后逐分量比
+        implied = sorted([1.0 / lx, 1.0 / lz])
+        rec = sorted(float(v) for v in mp)
+        if not rec[0]:
+            problems.append(f"{key}: mpp 含 0，测距会除零")
+            continue
+        dev = max(abs(implied[i] / rec[i] - 1) for i in range(2))
+        scale_checked += 1
+        if dev > SCALE_TOL:
+            problems.append(
+                f"{key}: 定位与测距不自洽 {dev * 100:.1f}%"
+                f"（定位 {implied[0]:.5f}/{implied[1]:.5f} m/px vs mpp {rec[0]}/{rec[1]}）"
+                " —— project() 与 mpp_of() 口径分叉"
+            )
+
+    # ── ④ 矢量底图宽高比 ↔ bounds 投影宽高比（2026-10-25 新增）──────
+    # 真实地图等比例绘制；上游导出的 SVG 就是按 bounds 范围画的，两者宽高比必须相等。
+    # 不等 = 方向性拉伸，点位会随位置漂移。瓦片图跳过 —— 它的 viewBox 是裁剪框，
+    # 与 bounds 声明范围本来就没约束关系（直连投影不依赖它）。
+    ratio_checked = 0
+    for key, d in data.items():
+        meta = metas.get(key)
+        if not meta or not meta.get("bounds") or meta.get("zoom") is not None:
+            continue
+        span_u, span_v = _layer_span(meta)
+        if span_u <= 0 or span_v <= 0:
+            continue
+        vb = d["viewBox"]
+        if min(vb[2], vb[3]) <= 0:
+            continue
+        # 用长宽比（不分方向），避开 90/270 的轴互换
+        r_svg = max(vb[2], vb[3]) / min(vb[2], vb[3])
+        r_world = max(span_u, span_v) / min(span_u, span_v)
+        dev = abs(r_svg / r_world - 1)
+        ratio_checked += 1
+        if dev > RATIO_TOL:
+            problems.append(
+                f"{key}: 底图宽高比与 bounds 投影差 {dev * 100:.2f}%"
+                f"（SVG {r_svg:.4f} vs 投影 {r_world:.4f}）"
+                " —— 底图与坐标数据不同源，点位会按位置漂移"
+            )
+
+    # ── ⑤ 任务 ↔ 地图接线（2026-10-17 新增）─────────────────────────────
     # 这一节盯的是「有坐标区 ≠ 有入口 / 有入口 ≠ 画得出」的四类漂移：
     #   ① 有区域但图上没有（且不在投影丢弃名单里）；
     #   ② 有区域但任务的 ms 数组漏了那张图（筛选与入口仍缺）；
@@ -193,7 +300,10 @@ def main() -> int:
     print(f"接线校验：{len(zone_keys)} 个有坐标区任务 / {len(site_tasks)} 个上图任务 / "
           f"{len(dropped)} 个投影丢弃")
 
-    print(f"投影自检：重算比对 {checked} 个锚点（容差 {TOL}px）+ viewBox 对账 {len(data)} 图")
+    print(f"投影自检：重算比对 {checked} 个锚点（容差 {TOL}px）"
+          f" + viewBox 对账 {len(data)} 图"
+          f" + 比例尺自洽 {scale_checked} 图"
+          f" + 底图比例 {ratio_checked} 图")
     if problems:
         print(f"✗ {len(problems)} 个问题：")
         for p in problems:
