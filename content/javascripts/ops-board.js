@@ -65,9 +65,17 @@
     filter: "open",      // open | ready | done | all | inhand | pinned | ignored
     selQ: null,
     selO: null,
-    row: 0,              // 键盘当前行
+    /* 键盘当前行用**任务 id** 而不是数组下标（2026-10-25）：
+       下标在列表重建后指向别人 —— 标完一票它从「未完成」里消失、列表重算，
+       下标 N 就落到原来第 N+1 票上。写「连续结算会跳票」的根因。 */
+    rowQid: "",
     idx: null,           // 当前模式的 ops index
-    plan: {},            // 出击清单（会话级，与进度严格分开）
+    /* 出击清单：按模式分账本存 localStorage（2026-10-25）。此前是会话级，
+       刷新 / 换标签页 / 浏览器崩一次就没了 —— 而它本来就是「这两晚要打哪几票」，
+       跨局跨小时。与进度账本仍是**两个键**，互不污染。 */
+    plan: {},
+    planUndo: null,      // 刚移出的清单项 {qid, name} —— 6 秒内可撤销
+    nextAllFor: "",      // 详情卡「后续」展开到全部的票（换票自动收起）
     mapq: "",            // 左栏地图名过滤
     mapsAll: false,      // 地图清单是否全展开
     planAll: false,      // 出击清单是否全展开
@@ -196,9 +204,29 @@
     var P = window.TarkovProgress;
     try { return !!(P && P.isPinned && P.isPinned(qid, S.mode)); } catch (e) { return false; }
   }
+  /* 本地写入的「静默窗」（2026-10-25）。
+     TarkovProgress 每次写入都会 emit，作战台订阅了它 → 触发 200 ms 节流的 paint()。
+     不拦的话，setState 里做的局部刷新会立刻被整块重绘覆盖（左栏滚动、详情卡位置
+     照样丢），等于白做。所以本地写入时开一个 420 ms 的窗（> 200 ms 节流窗口），
+     窗内忽略**自己**这次 emit；跨标签页 / 进度页的外部变更仍照常整块重绘。 */
+  var selfEditUntil = 0;
+  function markSelfEdit() { selfEditUntil = Date.now() + 420; }
+
+  /* 一票的状态变了之后只刷**受影响**的地方，不整块重建。 */
+  function refreshAfterState(qid) {
+    refreshRow(qid);
+    var brief = document.getElementById("tk-ops-briefbar");
+    if (brief) buildBriefBar(brief);
+    var detail = document.getElementById("tk-ops-detail");
+    if (detail && S.selQ === qid) renderDetail(detail, true);
+    /* 当前筛选把它排除掉了 → 它本该从列表里消失。这时才重建列表。 */
+    if (!rowStillVisible(qid)) relistTasks();
+  }
+
   function setState(qid, v) {
     var P = window.TarkovProgress;
     if (!P) return;
+    markSelfEdit();
     try {
       P.setTaskState(qid, v, undefined, S.mode);
       /* 状态与目标勾选必须一致（2026-10-18 修）：把任务标为「已完成」时一并
@@ -208,7 +236,9 @@
       var t = taskOf(qid);
       if (t && P.alignObjectives) P.alignObjectives(qid, t.oids || [], v, S.mode);
     } catch (e) { /* 无进度模块时不阻断 */ }
-    paint();
+    /* 局部刷新（2026-10-25）：原来一律 paint()，标一票就把左栏滚动、详情卡位置、
+       键盘行全冲掉。换图 / 切模式才需要整块重建。 */
+    refreshAfterState(qid);
   }
   function objDone(qid, oid) {
     var P = window.TarkovProgress;
@@ -223,13 +253,15 @@
   function setObj(qid, oid, v) {
     var P = window.TarkovProgress;
     if (!P) return;
+    markSelfEdit();
     try { P.setObjective(qid, oid, v, S.mode); } catch (e) { return; }
     var t = taskOf(qid);
     var ids = (t && t.oids) || [];
     var met = metCount(t, qid);
     if (ids.length && met === ids.length) P.setTaskState(qid, "done", undefined, S.mode);
     else if (met > 0) P.setTaskState(qid, "inhand", undefined, S.mode);
-    paint();
+    /* 勾一个目标就整页重绘，是「勾到第 5 个突然跳回卡片顶部」的原因（2026-10-25） */
+    refreshAfterState(qid);
   }
 
   /* ---------------------------------------------------------- 可接判定 */
@@ -309,9 +341,12 @@
   }
   function switchMode(mode) {
     if (mode === S.mode) return;
+    savePlan();               // 旧模式的清单先落盘（按模式分账本，不能串）
     S.mode = mode;
     S.selQ = null; S.selO = null;
-    S.row = 0; S.tasksAll = false; S.planOnly = false;
+    S.rowQid = ""; S.tasksAll = false; S.planOnly = false;
+    S.plan = loadPlan(mode);
+    S.planUndo = null;        // 撤销条属于上一本清单，不能带到新账本里
     NEXT = null;              // 任务库换了，后续索引必须重建
     /* 赛季与 PvP 共用任务库 —— 上游没有赛季端点（实测 404），如实说明。 */
     loadScript(idxFile(mode), idxKey(mode), function (ok) {
@@ -429,7 +464,7 @@
   }
   function switchMap(key) {
     S.map = key; S.selQ = null; S.selO = null;
-    S.row = 0; S.tasksAll = false; S.planOnly = false;
+    S.rowQid = ""; S.tasksAll = false; S.planOnly = false;
     remountMap();
     paint();
     syncUrl();
@@ -437,7 +472,61 @@
 
 
   /* ------------------------------------------------------------ 出击清单 */
+  /* 清单存哪：`tk.ops.plan` = { pve: {qid:1}, pvp: {}, season: {} }。
+     ⚠️ 与进度账本（`tarkov_progress_v1`）**分开两个键**是刻意的：
+        清空进度不该把「今晚打哪几票」一起清掉，反之亦然。
+     隐私模式下 localStorage 会抛，一律静默降级 —— 那时清单退回会话级，
+     与旧行为一致，不弹错（站内一贯口径）。 */
+  var PLAN_KEY = "tk.ops.plan";
+
+  function loadPlan(mode) {
+    try {
+      var raw = window.localStorage.getItem(PLAN_KEY);
+      var o = raw ? JSON.parse(raw) : null;
+      var v = o && o[mode];
+      return (v && typeof v === "object") ? v : {};
+    } catch (e) { return {}; }
+  }
+  function savePlan() {
+    try {
+      var raw = window.localStorage.getItem(PLAN_KEY);
+      var o = raw ? JSON.parse(raw) : null;
+      if (!o || typeof o !== "object") o = {};
+      o[S.mode] = S.plan;
+      window.localStorage.setItem(PLAN_KEY, JSON.stringify(o));
+    } catch (e) { /* 隐私模式 / 配额满：清单退回会话级 */ }
+  }
+
   function planIds() { return Object.keys(S.plan); }
+
+  /* 加入 / 移出清单的唯一入口 —— 双击、详情卡按钮、撤销三处都走这里。
+     分三条路径各写一遍「谁 savePlan」迟早分叉（本项目在日志同步上吃过这个亏）。 */
+  function togglePlan(qid) {
+    if (!qid) return;
+    if (S.plan[qid]) { dropFromPlan(qid); return; }
+    S.plan[qid] = true;
+    S.planUndo = null;
+    savePlan();
+    /* 局部刷新，不 paint()：双击加票时整块重绘会把左栏滚回顶部，
+       读者刚翻到第 15 行挑票，一加就回到顶上（2026-10-25）。 */
+    refreshPlanViews(qid);
+    syncUrl();
+  }
+  function dropFromPlan(qid) {
+    if (!S.plan[qid]) return;
+    var t = taskOf(qid);
+    S.planUndo = { qid: qid, name: t ? (t.name || qid) : qid };
+    delete S.plan[qid];
+    savePlan();
+    refreshPlanViews(qid);
+    /* 6 秒后撤掉「撤销」条：只摘节点、不重绘 —— 重绘会把读者正在看的位置再冲一次 */
+    setTimeout(function () {
+      if (!S.planUndo || S.planUndo.qid !== qid) return;
+      S.planUndo = null;
+      var u = document.getElementById("tk-ops-planundo");
+      if (u && u.parentNode) u.parentNode.removeChild(u);
+    }, 6000);
+  }
   function mapStats() {
     var out = { total: 0, open: 0, ready: 0, inhand: 0, done: 0, ignored: 0, keys: 0 };
     if (!S.idx || !S.idx.tasks) return out;
@@ -483,7 +572,10 @@
     }
     box.appendChild(head);
     if (!ids.length) {
-      S.planOnly = false;   /* 清单空了就不能还停在「只看这些」—— 那样永远出不去 */
+      /* 清单空了就不能还停在「只看这些」—— 那样永远出不去。
+         关掉时要**同时写 URL**（2026-10-25）：否则分享/刷新出去的链接
+         还带着「只看清单」，但页面上根本没有清单，读者会看到空列表。 */
+      if (S.planOnly) { S.planOnly = false; syncUrl(); }
       box.appendChild(el("p", "tk-ops__muted",
         "双击中栏的任务，把这一局要做的票攒起来（详情卡里也有「加入出击」）"));
       return box;
@@ -494,9 +586,27 @@
       var r = el("button", "tk-ops__planrow");
       r.type = "button";
       r.textContent = (t ? t.name : q) + "　×";
-      r.addEventListener("click", function () { delete S.plan[q]; paint(); });
+      r.title = "点击移出清单（6 秒内可撤销）";
+      r.addEventListener("click", function () { dropFromPlan(q); });
       box.appendChild(r);
     });
+    /* 撤销条（2026-10-25）：清单是手挑出来的，误点一下不该直接丢 ——
+       而这条又是最容易被误点的（整行都是删除按钮）。 */
+    if (S.planUndo) {
+      var undo = el("div", "tk-ops__planundo");
+      undo.id = "tk-ops-planundo";
+      undo.appendChild(el("span", null, "已移出：" + S.planUndo.name));
+      var ub = el("button", "tk-ops__chip", "撤销");
+      ub.type = "button";
+      ub.addEventListener("click", function () {
+        if (!S.planUndo) return;
+        S.plan[S.planUndo.qid] = true;
+        S.planUndo = null;
+        savePlan(); paint();
+      });
+      undo.appendChild(ub);
+      box.appendChild(undo);
+    }
     if (!S.planAll && ids.length > 3) {
       box.appendChild(el("p", "tk-ops__muted", "还有 " + (ids.length - 3) + " 票（点「全部」展开）"));
     }
@@ -507,8 +617,11 @@
     var bar = el("div", "tk-ops__planbar");
     /* 「带这 N 票进图」→「只看这 N 票」（2026-10-21）：原名承诺了它没做的事
        （只选中第一条），换成它真能做到的：把中栏收成清单里的票。 */
+    /* 文案固定成等长（「取消只看」/「只看清单」都是 4 字）：原来两种长度差 1 字，
+       点一下按钮宽度就跳，鼠标停在原位会误点到旁边的 ⋯（2026-10-25）。 */
     var go = el("button", "tk-ops__plango",
-      (S.planOnly ? "取消只看 · " : "只看这 ") + ids.length + " 票 · 钥匙 " + keys + " 把");
+      (S.planOnly ? "取消只看" : "只看清单")
+      + " · " + ids.length + " 票 · 钥匙 " + keys + " 把");
     go.type = "button";
     go.title = S.planOnly
       ? "恢复显示这张图的全部任务"
@@ -535,13 +648,25 @@
         var t = taskOf(q);
         return (t ? t.name : q) + "（钥匙 " + (t ? t.keys : 0) + "）";
       }).join("\n");
-      if (navigator.clipboard) navigator.clipboard.writeText(txt);
-      cp.textContent = "已复制";
-      setTimeout(function () { cp.textContent = "复制清单"; }, 1200);
+      /* 如实回报（2026-10-25）：原来无条件把按钮改成「已复制」——
+         隐私模式 / 权限拒绝 / 非安全上下文时，剪贴板根本没写进去。 */
+      var back = function (label) {
+        cp.textContent = label;
+        setTimeout(function () { cp.textContent = "复制清单"; }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(
+          function () { back("已复制"); },
+          function () { cp.title = "浏览器拒绝了剪贴板权限 —— 可手动选中清单文字复制"; back("复制失败"); }
+        );
+      } else {
+        cp.title = "这个浏览器不支持剪贴板 API —— 请手动选中清单文字复制";
+        back("复制失败");
+      }
     });
     var cl = el("button", "tk-ops__chip", "清空");
     cl.type = "button";
-    cl.addEventListener("click", function () { S.plan = {}; paint(); });
+    cl.addEventListener("click", function () { S.plan = {}; S.planUndo = null; savePlan(); paint(); });
     mbody.appendChild(cp);
     mbody.appendChild(cl);
     menu.appendChild(mbody);
@@ -564,7 +689,11 @@
          场合只有「我记得有这一票，它在哪张图上」。 */
       if (!inMap(t) && !S.q) continue;
       if (S.q) {
-        var hay = (t.name + " " + (t.en || "") + " " + (t.oids || []).join(" ")).toLowerCase();
+        /* 匹配 **目标文本**（`otxt`），不是 `oids`（2026-10-25 修）。
+           `oids` 是 24 位目标 id，拿它做 hay 等于搜一串十六进制 ——
+           搜索框写着「搜任务 / 地名 / 物品」，而「电线」「螺丝」这类
+           物品名一条都搜不到（实测 PVE 499 票里 otxt 含「电线」2 票）。 */
+        var hay = (t.name + " " + (t.en || "") + " " + (t.otxt || "")).toLowerCase();
         if (hay.indexOf(S.q.toLowerCase()) < 0) continue;
       }
       var st = stateOf(qid);
@@ -580,6 +709,11 @@
       out.push({ qid: qid, t: t, st: st, pinned: isPinned(qid), g: g });
     }
     out.sort(function (a, b) {
+      /* **本图优先**（2026-10-25）：搜索会自动跨图，但读者多数时候要找的
+         就在脚下这张图上 —— 原来只按状态与目标数排，本图与外图的票混着出，
+         前 20 行里一半是别图的。 */
+      var am = inMap(a.t) ? 0 : 1, bm = inMap(b.t) ? 0 : 1;
+      if (am !== bm) return am - bm;
       /* 进行中最前，其次钉住，再其次「现在就能接」，其余按目标数；
          同名按中文序，保证稳定 */
       var rank = function (x) {
@@ -594,6 +728,105 @@
       return d !== 0 ? d : (a.t.name || "").localeCompare(b.t.name || "", "zh");
     });
     return out;
+  }
+
+  /* 状态文案：清单行、详情卡、局部刷新三处共用一份。 */
+  var ST_TXT = { done: "已完成", inhand: "进行中", ignored: "已忽略" };
+
+  /* 一行任务的 meta 文本。整行渲染与局部刷新**共用这一个函数** ——
+     两处各写一份，改一处就会漂（本项目的老毛病：口径不一致）。 */
+  function rowBits(t, qid) {
+    var bits = [];
+    var nobj = (t.oids || []).length;
+    if (nobj) bits.push("目标 " + metCount(t, qid) + "/" + nobj);
+    if (t.keys) bits.push("钥匙 " + t.keys + " 把");
+    if (t.trader) bits.push(t.trader);
+    if (t.level) bits.push("Lv " + t.level);
+    /* 搜索会跨图：不标一下，读者会以为这张图上真有这票。
+       「无地图」视图下反过来说 —— 那里出现的带图票才是例外。 */
+    if (!inMap(t)) bits.push(S.map === NOMAP ? "有地图" : "不在本图");
+    /* 命中的是**目标文本**而不是任务名时，说明一下为什么这票上榜
+       （否则读者搜「电线」看到一票叫「电工」的任务，会以为搜错了）。 */
+    if (S.q) {
+      var qq = S.q.toLowerCase();
+      var inName = (t.name || "").toLowerCase().indexOf(qq) >= 0
+        || (t.en || "").toLowerCase().indexOf(qq) >= 0;
+      if (!inName) {
+        var segs = String(t.otxt || "").split("|");
+        for (var si = 0; si < segs.length; si++) {
+          if (segs[si].toLowerCase().indexOf(qq) >= 0) {
+            var s = segs[si].trim();
+            bits.push("目标里有：" + (s.length > 16 ? s.slice(0, 16) + "…" : s));
+            break;
+          }
+        }
+      }
+    }
+    return bits.join(" · ");
+  }
+
+  /* 局部刷新一行（状态色条 + 徽章 + meta），不重建列表。
+     点徽章换状态、勾目标后目标数变 —— 这两种高频动作原来都走 paint()。 */
+  function refreshRow(qid) {
+    var row = document.querySelector('.tk-ops__row[data-qid="' + qid + '"]');
+    if (!row) return;
+    var t = taskOf(qid);
+    if (!t) return;
+    var st = stateOf(qid);
+    row.className = "tk-ops__row tk-ops__row--flat"
+      + (qid === S.selQ ? " is-sel" : "")
+      + (st === "done" ? " is-done" : "")
+      + (st === "ignored" ? " is-ignored" : "");
+    var badge = row.querySelector(".tk-ops__badge");
+    if (badge) {
+      badge.className = "tk-ops__badge tk-ops__badge--" + st;
+      badge.textContent = ST_TXT[st] || "未标记";
+      badge.title = st === "ignored"
+        ? "点一下取消忽略"
+        : "点一下切换：未标记 → 进行中 → 已完成";
+    }
+    var meta = row.querySelector(".tk-ops__rowmeta");
+    if (meta) meta.textContent = rowBits(t, qid);
+  }
+
+  /* 只更新一行上的「出击」角标（清单增删时用） */
+  function refreshRowPlan(qid) {
+    var row = document.querySelector('.tk-ops__row[data-qid="' + qid + '"]');
+    if (!row) return;
+    var head = row.querySelector(".tk-ops__rowhead");
+    if (!head) return;
+    var cur = head.querySelector(".tk-ops__planned");
+    var inPlan = !!S.plan[qid];
+    if (inPlan && !cur) head.appendChild(el("span", "tk-ops__planned", "出击"));
+    else if (!inPlan && cur && cur.parentNode) cur.parentNode.removeChild(cur);
+  }
+
+  /* 清单变了之后只重画「清单 + 那一行的角标 + 详情卡按钮」：
+     不动中栏列表、不动左栏与详情的滚动位置。 */
+  function refreshPlanViews(qid) {
+    var left = document.getElementById("tk-ops-left");
+    if (left) {
+      var old = left.querySelector(".tk-ops__plan");
+      var fresh = buildPlan();
+      if (old) left.replaceChild(fresh, old); else left.appendChild(fresh);
+    }
+    var brief = document.getElementById("tk-ops-briefbar");
+    if (brief) buildBriefBar(brief);
+    refreshRowPlan(qid);
+    var detail = document.getElementById("tk-ops-detail");
+    if (detail && S.selQ === qid) renderDetail(detail, true);
+  }
+
+  function relistTasks() {
+    var box = document.getElementById("tk-ops-tasks");
+    if (box) renderTaskList(box);
+  }
+
+  /* 当前筛选还容得下这票吗 —— 容不下才重建列表（一票标成完成后它就该校消失） */
+  function rowStillVisible(qid) {
+    var rows = visibleTasks();
+    for (var i = 0; i < rows.length; i++) if (rows[i].qid === qid) return true;
+    return false;
   }
 
   /* 中栏任务清单：一行一票，只留「是什么 / 什么状态 / 两件事能立刻做」。
@@ -647,21 +880,48 @@
       else empty = "这张图上没有符合条件的活。";
       box.appendChild(el("p", "tk-ops__muted", empty));
       return;
-    }    var LIMIT = 20;
+    }
+    var LIMIT = 20;
     var shown = S.tasksAll ? rows : rows.slice(0, LIMIT);
-    var ST_TXT = { done: "已完成", inhand: "进行中", ignored: "已忽略" };
+    /* 键盘行按**任务 id** 回找（2026-10-25）：列表重建后下标会指到别人 ——
+       「标完一票它从『未完成』里消失、按 ↓ 落到别票上」就是这么来的。
+       找不到（这票被筛掉了）就退到第 0 行。 */
+    var curRow = 0;
+    for (var ri = 0; ri < shown.length; ri++) {
+      if (shown[ri].qid === S.rowQid) { curRow = ri; break; }
+    }
     shown.forEach(function (r, i) {
       var t = r.t;
       var row = el("div", "tk-ops__row tk-ops__row--flat" + (r.qid === S.selQ ? " is-sel" : "")
         + (r.st === "done" ? " is-done" : "")
         + (r.st === "ignored" ? " is-ignored" : ""));
       row.dataset.qid = r.qid;
-      row.tabIndex = i === S.row ? 0 : -1;
+      row.tabIndex = i === curRow ? 0 : -1;
 
       var body = el("div", "tk-ops__rowbody");
       var head2 = el("div", "tk-ops__rowhead");
-      head2.appendChild(el("span", "tk-ops__badge tk-ops__badge--" + r.st,
-        ST_TXT[r.st] || "未标记"));
+      /* 行内状态徽章**可点**（2026-10-25）：结算一票不必再进详情卡。
+         三态循环（未标记 → 进行中 → 已完成 → 未标记），一次点击一步；
+         「已忽略」的行点一下回到未标记（等于取消忽略）。
+         ⚠️ 徽章本来就在，改成按钮**不增加任何视觉噪声** —— 这是 v1.145.2
+            删掉行内「定位 / ＋出击」之后空出来的地方。 */
+      var badge = el("button", "tk-ops__badge tk-ops__badge--" + r.st,
+        ST_TXT[r.st] || "未标记");
+      badge.type = "button";
+      badge.title = r.st === "ignored"
+        ? "点一下取消忽略"
+        : "点一下切换：未标记 → 进行中 → 已完成";
+      badge.setAttribute("aria-label", (t.name || "该任务") + "：当前"
+        + (ST_TXT[r.st] || "未标记") + "，点击切换");
+      badge.addEventListener("click", function (e) {
+        /* 不要连带触发整行的「定位」—— 徽章在行内，事件会冒泡到 row */
+        e.stopPropagation();
+        /* ⚠️ `r.st` 对未标记返回的是 `"none"` 不是 `""` —— 不归一的话
+           「未标记」那一步会切到 `""`（还是未标记），读起来像点了没反应。 */
+        var cur = r.st === "none" ? "" : r.st;
+        setState(r.qid, cur === "" ? "inhand" : (cur === "inhand" ? "done" : ""));
+      });
+      head2.appendChild(badge);
       if (r.pinned) head2.appendChild(el("span", "tk-ops__pin", "★"));
       head2.appendChild(el("b", "tk-ops__rowname", t.name || "（无中文名）"));
       /* Kappa / Lightkeeper 角标：数据列一直有，但前端从没画过（2026-10-21 补上）。
@@ -677,32 +937,22 @@
       if (r.qid in S.plan) head2.appendChild(el("span", "tk-ops__planned", "出击"));
       body.appendChild(head2);
 
-      var bits = [];
-      var nobj = (t.oids || []).length;
-      if (nobj) bits.push("目标 " + metCount(t, r.qid) + "/" + nobj);
-      if (t.keys) bits.push("钥匙 " + t.keys + " 把");
-      if (t.trader) bits.push(t.trader);
-      if (t.level) bits.push("Lv " + t.level);
-      /* 搜索会跨图：不标一下，读者会以为这张图上真有这票。
-         「无地图」视图下反过来说 —— 那里出现的带图票才是例外。 */
-      if (!inMap(t)) bits.push(S.map === NOMAP ? "有地图" : "不在本图");
-      var meta = el("div", "tk-ops__rowmeta", bits.join(" · "));
+      var meta = el("div", "tk-ops__rowmeta", rowBits(t, r.qid));
       body.appendChild(meta);
       row.appendChild(body);
 
       /* 行内不再放「定位 / ＋出击」两个按钮（2026-10-21）：
          定位 = 点整行，出击 = 双击（详情卡里也有一份）。20 行 × 2 个按钮是首屏
          噪声的最大来源，实测占全部按钮的 28%。 */
-      row.title = "单击：定位到图上 · 双击：加入 / 移出出击清单";
+      row.title = "单击：定位到图上 · 双击：加入 / 移出出击清单 · 点状态徽章：换状态";
 
       row.addEventListener("click", function () {
-        S.row = i;
+        S.rowQid = r.qid;
         locateTask(r.qid, null);
       });
       row.addEventListener("dblclick", function (e) {
         e.preventDefault();
-        if (S.plan[r.qid]) delete S.plan[r.qid]; else S.plan[r.qid] = true;
-        paint();
+        togglePlan(r.qid);
       });
       box.appendChild(row);
     });
@@ -775,6 +1025,18 @@
     });
     var cur = list.querySelector(".tk-ops__row.is-sel");
     if (cur && cur.scrollIntoView) cur.scrollIntoView({ block: "nearest" });
+  }
+
+  /* 换筛选后把清单带进视野 —— 但**只在它不在视野里时**才滚（2026-10-25）。
+     原来无条件 smooth 滚动：连切两档就被甩下去两次，正在看地图时尤其打断。
+     键盘选行不走这里：highlight() 已经用 block:"nearest" 做了最小滚动。 */
+  function revealTasks() {
+    var tb = document.getElementById("tk-ops-tasks");
+    if (!tb || !tb.scrollIntoView) return;
+    var r = tb.getBoundingClientRect();
+    var vh = window.innerHeight || document.documentElement.clientHeight || 0;
+    if (r.top >= 0 && r.top < vh - 120) return;   // 已经在视野里，别动
+    tb.scrollIntoView({ block: "start", behavior: "smooth" });
   }
 
   /* ------------------------------------------------------------ 地图挂载 */
@@ -909,7 +1171,13 @@
       if (e.key === "Escape") {
         /* 先 blur 再局部重绘：直接 paint() 会「恢复焦点」，把这次的 blur 抵消掉 */
         if (typing) { e.target.value = ""; S.q = ""; e.target.blur(); renderRightBody(); syncUrl(); }
-        else { S.selQ = null; S.selO = null; paint(); syncUrl(); }
+        else {
+          S.selQ = null; S.selO = null;
+          /* 只清选中 —— 不必整块重绘，那会把左栏与详情卡的滚动位置一起冲掉 */
+          highlight();
+          renderRightBody();
+          syncUrl();
+        }
         return;
       }
       if (typing) return;
@@ -928,17 +1196,24 @@
         var tg = (tEl && tEl.tagName) || "";
         if (tg === "BUTTON" || tg === "A" || tg === "SUMMARY" ||
           tg === "INPUT" || tg === "TEXTAREA" || tg === "SELECT") return;
-        var cur0 = rows[S.row];
+        var cur0 = list.querySelector(".tk-ops__row.is-sel") || rows[0];
         if (!cur0 || !cur0.dataset.qid) return;
         e.preventDefault();
         locateTask(cur0.dataset.qid, null);
         return;
       }
-      if (e.key === "ArrowDown") { S.row = Math.min(rows.length - 1, S.row + 1); e.preventDefault(); }
-      else if (e.key === "ArrowUp") { S.row = Math.max(0, S.row - 1); e.preventDefault(); }
+      /* 上下移动按**任务 id**定位（2026-10-25）：下标在列表重建后会指到别人，
+         表现为「标完一票按 ↓ 落到别票上」。 */
+      var curIdx = 0;
+      for (var qj = 0; qj < rows.length; qj++) {
+        if (rows[qj].dataset.qid === S.rowQid) { curIdx = qj; break; }
+      }
+      if (e.key === "ArrowDown") { curIdx = Math.min(rows.length - 1, curIdx + 1); e.preventDefault(); }
+      else if (e.key === "ArrowUp") { curIdx = Math.max(0, curIdx - 1); e.preventDefault(); }
       else return;
-      var r = rows[S.row];
+      var r = rows[curIdx];
       if (!r) return;
+      S.rowQid = r.dataset.qid;
       S.selQ = r.dataset.qid;
       highlight();
       renderRightBody();
@@ -1221,6 +1496,11 @@
     var right = document.getElementById("tk-ops-right");
     if (!left || !right) return;
 
+    /* 左栏是独立滚动容器（`tk-ops.css` 的 max-height:78vh + overflow-y:auto）。
+       整块重建会把 scrollTop 归零 —— 「滚下去挑票，一点就跳回顶上」的根因。
+       与搜索框焦点同一处理方式：先存后还（2026-10-25）。 */
+    var leftTop = left.scrollTop;
+
     /* 全量重建会销毁搜索框 —— 正在打字时记下焦点与光标，建完还回去。 */
     var prevSearch = document.querySelector(".tk-ops__search");
     var hadFocus = !!prevSearch && document.activeElement === prevSearch;
@@ -1238,6 +1518,8 @@
     /* 日志同步从「左栏底部」挪到「页面底部」（2026-10-21）：它是一次性设置，
        原来占着左栏最黄金的位置，每次选图都要滚过它。 */
     mountFooterLog();
+    /* 还回去（内容变短时浏览器会自己 clamp，不会抛） */
+    left.scrollTop = leftTop;
 
     var brief = document.getElementById("tk-ops-briefbar");
     if (brief) buildBriefBar(brief);
@@ -1276,10 +1558,7 @@
           S.filter = p[0];
           paint();
           syncUrl();
-          /* 清单在地图下面：换了筛选却不滚下去，读者会以为「点了没反应」
-             （实测 1680×1150 下清单从第二屏开始）。只滚这一下，不动布局。 */
-          var tb = document.getElementById("tk-ops-tasks");
-          if (tb && tb.scrollIntoView) tb.scrollIntoView({ block: "start", behavior: "smooth" });
+          revealTasks();
         });
         seg.appendChild(b);
       });
@@ -1298,8 +1577,7 @@
         S.filter = p[0];
         paint();
         syncUrl();
-        var tb = document.getElementById("tk-ops-tasks");
-        if (tb && tb.scrollIntoView) tb.scrollIntoView({ block: "start", behavior: "smooth" });
+        revealTasks();
       });
       mbody.appendChild(b);
     });
@@ -1324,7 +1602,9 @@
     lvIn.title = "填了才判断「等级够不够」（只存在本机）";
     lvIn.addEventListener("input", function () {
       var v = parseInt(lvIn.value, 10);
-      S.lv = isFinite(v) && v > 0 ? v : 0;
+      /* clamp 到 1–79：input 的 max 只是浏览器提示，手输 200 一样能进来，
+         那会让「可接」判定把所有等级门槛都放过去（2026-10-25）。 */
+      S.lv = isFinite(v) && v > 0 ? Math.min(79, v) : 0;
       saveLv(S.lv);
       var tb = document.getElementById("tk-ops-tasks");
       if (tb) renderTaskList(tb);
@@ -1398,11 +1678,14 @@
       return;
     }
     var list = el("div", "tk-ops__nulist");
-    cands.slice(0, 3).forEach(function (c, i) {
+    /* 卡片左侧不再画 ①②③（2026-10-25）：那个编号看着像「按 1 选第一张」，
+       而数字键 1/2/3 实际是**切模式** —— 视觉暗示与键位行为正好错开。
+       改成纯装饰点，排序含义靠「目标 N/M」自己表达。 */
+    cands.slice(0, 3).forEach(function (c) {
       var card = el("button", "tk-ops__nucard");
       card.type = "button";
       var top = el("span", "tk-ops__nutop");
-      top.appendChild(el("span", "tk-ops__nun", String(i + 1)));
+      top.appendChild(el("span", "tk-ops__nun tk-ops__nun--dot"));
       top.appendChild(el("b", "tk-ops__nuname", c.t.name || "（无中文名）"));
       card.appendChild(top);
       var meta = [];
@@ -1430,7 +1713,9 @@
     return name === (selfName || "") ? name + "（同名另一条）" : name;
   }
 
-  function renderDetail(box) {
+  function renderDetail(box, keepScroll) {
+    /* 清空会把 scrollTop 归零，所以先存下来（keepScroll = 同票原地刷新） */
+    var keepTop = keepScroll ? box.scrollTop : 0;
     box.textContent = "";
     var qid = S.selQ;
     var t = qid ? taskOf(qid) : null;
@@ -1438,9 +1723,12 @@
       buildNextUp(box);
       return;
     }
-    box.scrollTop = 0;   /* 换一票就看新卡的开头，不保留上一票的滚动位置 */
     var st = stateOf(qid);
-    var ST_TXT = { done: "已完成", inhand: "进行中", ignored: "已忽略" };
+    /* 「未标记」有两种写法：`stateOf()` 返回 `"none"`，而三态控件用 `""`
+       （账本里没这个键）。不归一的话 `st === ""` 永不成立 —— 三态按钮一个都不高亮，
+       点徽章也会在「未标记 → 未标记」之间空转（2026-10-25 headless 实测抓到）。 */
+    var stKey = st === "none" ? "" : st;
+
     var head = el("div", "tk-ops__dhead");
     head.appendChild(el("span", "tk-ops__badge tk-ops__badge--" + st, ST_TXT[st] || "未标记"));
     head.appendChild(el("b", "tk-ops__dname", t.name || "（无中文名）"));
@@ -1541,7 +1829,10 @@
       nHead.appendChild(el("span", "tk-ops__chainn", "解锁 " + nx.length + " 个"));
       nbox.appendChild(nHead);
       var ul2 = el("ul", "tk-ops__chainlist");
-      nx.slice(0, 5).forEach(function (nq) {
+      /* 默认只列前 5 个（多了会把详情卡撑过一屏），但给一条「展开」——
+         原来是一句死文案「另有 N 个」，想看也看不到（2026-10-25）。 */
+      var nxShow = (S.nextAllFor === qid) ? nx : nx.slice(0, 5);
+      nxShow.forEach(function (nq) {
         var nt = taskOf(nq);
         var li = el("li");
         var b = el("button", "tk-ops__chainbtn");
@@ -1555,7 +1846,16 @@
         ul2.appendChild(li);
       });
       nbox.appendChild(ul2);
-      if (nx.length > 5) nbox.appendChild(el("p", "tk-ops__muted", "另有 " + (nx.length - 5) + " 个"));
+      if (nx.length > 5 && S.nextAllFor !== qid) {
+        var nxMore = el("button", "tk-ops__more",
+          "另有 " + (nx.length - 5) + " 个 —— 展开");
+        nxMore.type = "button";
+        nxMore.addEventListener("click", function () {
+          S.nextAllFor = qid;
+          renderRightBody();
+        });
+        nbox.appendChild(nxMore);
+      }
       box.appendChild(nbox);
     }
 
@@ -1584,20 +1884,61 @@
     box.appendChild(objs);
 
     var acts = el("div", "tk-ops__dacts");
-    /* 「地图定位」删掉（2026-10-21）：点中栏那一行就已经定位了，详情卡里再放一个
-       是同一动作的第二个入口。保留两个真正有副作用的：加入出击、标完成。 */
+    /* 主状态：三态分段（2026-10-25）。此前只有一个「标为已完成 / 未完成」的
+       二态按钮 —— 而「接了这一票」（进行中）比「做完了」更高频，站内却没有入口，
+       只能跳去「我的进度」页。与进度页的三态控件同口径。 */
+    var stSeg = el("div", "tk-ops__stseg");
+    [["", "未标记"], ["inhand", "进行中"], ["done", "已完成"]]
+      .forEach(function (p) {
+        var b = el("button", "tk-ops__stb" + (stKey === p[0] ? " is-on" : ""), p[1]);
+        b.type = "button";
+        b.setAttribute("aria-pressed", stKey === p[0] ? "true" : "false");
+        b.addEventListener("click", function () { setState(qid, p[0]); });
+        stSeg.appendChild(b);
+      });
+    acts.appendChild(stSeg);
+
+    /* 次动作：加入出击 / 钉住 / 不做这票。
+       ⚠️ 钉住与忽略此前**全站没有写入入口**（`progress.js` 的 togglePin /
+          toggleIgnore 零调用点），于是筛选里那两档永远返回空
+          （2026-10-25 修）。 */
+    var chips = el("div", "tk-ops__dchips");
     var add = el("button", "tk-ops__chip", qid in S.plan ? "移出出击" : "加入出击");
     add.type = "button";
-    add.addEventListener("click", function () {
-      if (S.plan[qid]) delete S.plan[qid]; else S.plan[qid] = true;
-      paint(); syncUrl();
+    add.addEventListener("click", function () { togglePlan(qid); });
+    chips.appendChild(add);
+
+    var pinned = isPinned(qid);
+    var pin = el("button", "tk-ops__chip" + (pinned ? " is-on" : ""),
+      pinned ? "已钉住" : "钉住");
+    pin.type = "button";
+    pin.title = "钉住的任务排在清单前面（可与进行中 / 已完成并存）";
+    pin.addEventListener("click", function () {
+      var P = window.TarkovProgress;
+      if (!P || !P.togglePin) return;
+      markSelfEdit();
+      try { P.togglePin(qid, S.mode); } catch (e) { /* 无进度模块 */ }
+      refreshAfterState(qid);
     });
-    var tg = el("button", "tk-ops__chip", st === "done" ? "标为未完成" : "标为已完成");
-    tg.type = "button";
-    tg.addEventListener("click", function () { setState(qid, st === "done" ? "" : "done"); });
-    acts.appendChild(add);
-    acts.appendChild(tg);
+    chips.appendChild(pin);
+
+    var ign = el("button", "tk-ops__chip" + (st === "ignored" ? " is-on" : ""),
+      st === "ignored" ? "恢复这票" : "不做这票");
+    ign.type = "button";
+    ign.title = "标为「这赛季不做」：只影响统计口径，不改任务本身";
+    ign.addEventListener("click", function () {
+      var P = window.TarkovProgress;
+      if (!P || !P.toggleIgnore) return;
+      markSelfEdit();
+      try { P.toggleIgnore(qid, S.mode); } catch (e) { /* 无进度模块 */ }
+      refreshAfterState(qid);
+    });
+    chips.appendChild(ign);
+
+    acts.appendChild(chips);
     box.appendChild(acts);
+    /* 原地刷新时把滚动位置还回去（见函数开头 keepTop） */
+    if (keepScroll) box.scrollTop = keepTop;
   }
 
   function renderRightBody() {
@@ -1627,6 +1968,9 @@
   function boot() {
     readUrl();
     S.lv = loadLv();          // 「我的等级」只在本机，不进 URL
+    /* 出击清单按**模式**分账本（2026-10-25）：必须放在 readUrl 之后 ——
+       URL 可能已经把 S.mode 改成 pvp / season，先读就会拿到错的那本。 */
+    S.plan = loadPlan(S.mode);
     var bootMode = S.mode;
     var m = document.getElementById("tk-map");
     if (m) {
@@ -1682,6 +2026,9 @@
          策略：平时立即重绘（勾选要手感），200ms 内的后续变更合并成一次。 */
     var lastPaintAt = 0, paintPending = false;
     function repaintSoon() {
+      /* 自己刚写的那一下：显示已在 setState / setObj 里局部刷过，
+         这里再整块重绘只会把滚动位置与键盘行冲掉（见 markSelfEdit）。 */
+      if (Date.now() < selfEditUntil) return;
       var now = Date.now();
       if (now - lastPaintAt > 200) {
         lastPaintAt = now;
@@ -1728,6 +2075,11 @@
     host = h;
     boot();
   }
+
+  /* 给单测用（与 log-sync.js 的 `_scanText` 同一条约定）：这一层是纯逻辑，
+     不依赖真实 DOM —— 喂一份假索引就能验证「搜目标文本能不能命中」这类判据。
+     ⚠️ 命名带 `Test` 且只在 tests/ 里被引用，不是公开 API。 */
+  window.TarkovOpsTest = { _S: S, _visible: visibleTasks, _rowBits: rowBits };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", bootIfNeeded);
