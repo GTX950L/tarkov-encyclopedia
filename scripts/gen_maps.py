@@ -793,9 +793,7 @@ def restyle(svg_text: str, key: str) -> str:
 # #Gas_Station 两个具名图层做锚点反推验证：偏差 1.5–3.4%，方向一致（属边界留白的
 # 系统性偏差）。**改动此公式前必须重跑锚点自检**，见 scripts/check_map_projection.py。
 def project(x: float, z: float, meta: dict) -> tuple[float, float]:
-    """世界 (x, z) → 底图像素（SVG 或拼合后的瓦片图，同一套公式）。
-
-    **这是全站唯一一处坐标换算，改动前必读。**
+    """世界 (x, z) → 底图像素。**两条路径，按 meta 里有没有 `zoom` 分流。**
 
     来自上游 `src/pages/map/index.jsx` 的 Leaflet CRS：旋转是**绕原点**做的，
     之后才是 `L.Transformation` 的缩放平移：
@@ -805,28 +803,49 @@ def project(x: float, z: float, meta: dict) -> tuple[float, float]:
         layerX   = a·rotatedX + b        a = transform[0], b = transform[1]
         layerY   = c'·rotatedY + d       c' = −transform[2], d = transform[3]
 
-    把 bounds 四角换算成 layer 点取包围盒，再归一化到 [0,1]，最后铺到 viewBox 上。
+    ① **瓦片拼合图**（meta 带 `zoom`）—— `layerPoint = 2^zoom × (layerX, layerY)`。
+       这就是上游 Leaflet 的原式，**不做任何归一化**：Leaflet 的瓦片 (x,y) 天然占据
+       `[x·256, (x+1)·256)`，所以 layer 坐标乘上 scale 就是网格像素。
+       `build_tile_maps.py` 写出的包装 SVG 的 viewBox 正是「裁剪框在整幅网格中的坐标」，
+       两套坐标同一个空间，直接落位。
 
-    ⚠️ **一个曾长期存在的错误**：本站早先用的是「x 取反、z 不取反」的简化公式。
-    它对 `rotation = 180` 的图恰好等价（因为 180° 正好把两轴同时翻转），
+    ② **矢量图**（meta 无 `zoom`）—— bounds 包围盒 → viewBox 归一化。
+       上游导出的 SVG 本身就是按 bounds 范围画的（工厂实测比例差 0.05%），
+       所以归一化与上游等价。
+
+    ⚠️ **2026-10-25 修正：瓦片图曾误走路径 ②。** 归一化假设「bounds 投影包围盒 ==
+    视图框」，这对矢量图成立，对瓦片图不成立 —— 瓦片图的视图框是裁剪出来的
+    alpha bbox，与 bounds 声明范围毫无约束关系。实测偏差：迷宫 2.4%（边缘效应）、
+    实验室 27.7%、破冰船 26%（中位）。加 `zoom` 分流后归零。
+
+    ⚠️ **更早的一个长期错误**：本站曾用「x 取反、z 不取反」的简化公式。
+    它对 `rotation = 180` 的图恰好等价（180° 正好把两轴同时翻转），
     但 **rotation = 90 时轴是互换的** —— 于是**工厂图的标注一直是错的**
     （2026-10-14 用「底图宽高比 vs 变换框宽高比」判据查出来的：
     通用公式给出 0.926，与 Factory.svg 的宽高比精确相等；旧公式给出 1.080）。
     90/270 的图（工厂、实验室、迷宫）必须走通用公式。
     """
-    bounds = meta["bounds"]
-    vb = meta["viewBox"]                     # [x0, y0, w, h]
     tf = meta["transform"]
     rot = math.radians(meta.get("coordinateRotation") or 0)
     a, b, c, d = tf[0], tf[1], -(tf[2]), tf[3]
-    xmax, zmin = bounds[0][0], bounds[0][1]
-    xmin, zmax = bounds[1][0], bounds[1][1]
 
     def layer_pt(wx: float, wz: float) -> tuple[float, float]:
         rx = wx * math.cos(rot) - wz * math.sin(rot)
         ry = wx * math.sin(rot) + wz * math.cos(rot)
         return (a * rx + b, c * ry + d)
 
+    # ── ① 瓦片拼合图：直连网格像素，不回一化 ──
+    zoom = meta.get("zoom")
+    if zoom is not None:
+        s = 2 ** zoom
+        px, py = layer_pt(x, z)
+        return (px * s, py * s)
+
+    # ── ② 矢量图：bounds 包围盒 → viewBox ──
+    bounds = meta["bounds"]
+    vb = meta["viewBox"]                     # [x0, y0, w, h]
+    xmax, zmin = bounds[0][0], bounds[0][1]
+    xmin, zmax = bounds[1][0], bounds[1][1]
     cs = [layer_pt(wx, wz) for wx in (xmin, xmax) for wz in (zmin, zmax)]
     mnx, mxx = min(p[0] for p in cs), max(p[0] for p in cs)
     mny, mxy = min(p[1] for p in cs), max(p[1] for p in cs)
@@ -836,19 +855,31 @@ def project(x: float, z: float, meta: dict) -> tuple[float, float]:
     return (vb[0] + u * vb[2], vb[1] + v * vb[3])
 
 
-def mpp_of(meta: dict, view_box: list[float], grid: int | None = None) -> list[float]:
+def mpp_of(meta: dict, view_box: list[float]) -> list[float]:
     """每像素代表多少世界单位（底图的 u / v 两个方向）—— 测距用。
 
-    像素轴就是 layer 轴（旋转是正交变换、保长），所以「一格像素跨多少 layer 单位」
-    除以变换比例即得。**两个方向分开算、不取平均** —— bounds 与底图的宽高比本就
-    有微差（就是锚点自检里那 1.5–3.4% 的来源），取平均会让测距在两个方向各偏一点。
+    **必须与 project() 的路径一一对应**，否则「点落在哪」与「两点隔多远」互相矛盾。
 
-    `grid`：瓦片拼合图的网格边长（像素）；SVG 图传 None（用 viewBox 宽度）。
+    ① 瓦片图（meta 带 `zoom`）：1 网格像素 = `1 / (2^zoom · |a|)` 世界单位
+       —— layer 乘过 scale，所以像素与 layer 的比值就是 scale 本身。
+    ② 矢量图：像素轴就是 layer 轴（旋转是正交变换、保长），所以「一格像素跨多少
+       layer 单位」除以变换比例即得。**两个方向分开算、不取平均** —— SVG 导出比例
+       与 bounds 本就有微差（实测 0.02–1.41%），取平均会让测距在两个方向各偏一点。
+
+    ⚠️ 2026-10-25 修正：瓦片图曾用 `span_layer / (a · grid)` —— 那个式子的前提是
+    「bounds 投影 == 整幅网格」，三张图实际是 0.93 / 0.64 / 1.11 倍，于是测距读数
+    系统性偏小（实验室 33.5%、破冰船 80%）。改为直接由 scale 求，与投影同源。
     """
-    b = meta["bounds"]
     tf = meta["transform"]
-    rot = math.radians(meta.get("coordinateRotation") or 0)
     a, c = abs(tf[0]), abs(tf[2])
+
+    zoom = meta.get("zoom")
+    if zoom is not None:
+        s = 2 ** zoom
+        return [round(1.0 / (s * a), 6), round(1.0 / (s * c), 6)]
+
+    b = meta["bounds"]
+    rot = math.radians(meta.get("coordinateRotation") or 0)
     xmax, zmin = b[0][0], b[0][1]
     xmin, zmax = b[1][0], b[1][1]
 
@@ -860,9 +891,8 @@ def mpp_of(meta: dict, view_box: list[float], grid: int | None = None) -> list[f
     cs = [layer_pt(wx, wz) for wx in (xmin, xmax) for wz in (zmin, zmax)]
     span_u = max(p[0] for p in cs) - min(p[0] for p in cs)
     span_v = max(p[1] for p in cs) - min(p[1] for p in cs)
-    px_u = grid if grid else view_box[2]
-    px_v = grid if grid else view_box[3]
-    return [round(span_u / (a * px_u), 6), round(span_v / (c * px_v), 6)]
+    return [round(span_u / (a * view_box[2]), 6),
+            round(span_v / (c * view_box[3]), 6)]
 
 
 VIEWBOX_RE = re.compile(r'viewBox="([\d.\s\-]+)"')
@@ -974,11 +1004,13 @@ def build_maps(data: list) -> dict:
 
     out: dict[str, dict] = {}
     for key, meta, kind, tile_svg, z_mid in jobs:
-        grid_px: int | None = None
         if kind == "tile":
             styled = (SVG_DIR / tile_svg).read_text(encoding="utf-8")
             raw_path = Path(tile_svg)
-            grid_px = tile_cfg[key]["grid"]
+            # ⚠️ 注入 zoom：project() / mpp_of() 靠它分辨「瓦片直连」与「矢量归一化」。
+            # 少了这一句，瓦片图会被当成矢量图归一化到 bounds 包围盒 —— 实测破冰船
+            # 点位偏 26% 图宽、实验室偏 28%。**不要删。**
+            meta = {**meta, "zoom": tile_cfg[key]["zoom"]}
         else:
             raw_path = RAW_DIR / Path(meta["svgPath"]).name
             if not raw_path.exists():
@@ -1026,16 +1058,12 @@ def build_maps(data: list) -> dict:
         # 投影要用到 bounds / transform / rotation 三件，**不能只传 bounds** ——
         # 旋转感知的公式需要后两者（见 project() 的说明）。
         #
-        # ⚠️ **瓦片拼合图的投影帧是「整幅网格」，不是底图那个裁剪框**：
-        # 世界坐标经公式算出的是**网格像素**，而底图（及页面上的 viewBox）
-        # 只是网格的一个裁剪窗口。两者混用会让所有叠加点整体偏移 ——
-        # 实测破冰船的裁剪框偏离网格中心 40%，偏得最厉害。
-        # 包装 SVG 的 viewBox 已经写成「裁剪框在网格中的坐标」，所以这里
-        # 投影用 [0,0,grid,grid]，显示仍用解析出来的 view_box。
-        proj_frame = (
-            [0.0, 0.0, float(grid_px), float(grid_px)] if grid_px else view_box
-        )
-        pmeta = {**meta, "viewBox": proj_frame}
+        # ⚠️ **瓦片拼合图走直连**（project() 路径 ①）：世界坐标乘 2^zoom 就是网格像素，
+        # 而包装 SVG 的 viewBox 正好写成「裁剪框在网格中的坐标」，两者同空间。
+        # 这里传 view_box 只为保持签名一致 —— 直连分支不读它。
+        # （曾把瓦片图也按 bounds 归一化到 [0,0,grid,grid]，视图框与投影帧错配，
+        #   实测破冰船偏 26% 图宽、实验室偏 28%。2026-10-25 已改为直连。）
+        pmeta = {**meta, "viewBox": view_box}
         quest_zones: list[dict] = []
         for z in zc["zones"]:
             if MAP_ID_TO_KEY.get(z["map"]) != key:
@@ -1098,7 +1126,7 @@ def build_maps(data: list) -> dict:
             if labels:
                 lb = min(labels, key=lambda l: (l["x"] - CX) ** 2 + (l["y"] - CY) ** 2)
                 nl = lb.get("cn") or lb.get("en") or ""
-                mp = mpp_of(meta, view_box, grid_px)
+                mp = mpp_of(meta, view_box)
                 nd = round(math.hypot((lb["x"] - CX) * mp[0],
                                       (lb["y"] - CY) * mp[1]))
 
@@ -1305,7 +1333,7 @@ def build_maps(data: list) -> dict:
             # 通用算法：像素轴就是 layer 轴（旋转是正交的，保长），
             # 所以「一个像素跨多少 layer 单位」÷「变换比例」即得。
             # **不取平均**：两个方向的尺度本就不等（bounds 与 viewBox 的宽高比有微差）。
-            "mpp": mpp_of(meta, view_box, grid_px),
+            "mpp": mpp_of(meta, view_box),
             "floors": _floors(layers),
             "layers": layers,
             "labels": labels,
