@@ -159,8 +159,11 @@ def main() -> int:
 
     # ── ③ 定位 ↔ 测距自洽（2026-10-25 新增）─────────────────────────
     # project() 说「1 米 = N 像素」，mpp 说「1 像素 = M 米」，N·M 必须 = 1。
-    # 两者同源时恒等；一旦某一方换了口径（瓦片图的 mpp 曾用整幅网格做分母），
-    # 测距读数就会跟点位位置打架 —— 这正是 2026-10-25 查出的那批偏差。
+    #
+    # ⚠️ **只比这两者会漏掉「一起错」**：两边同源（都从 bounds 包围盒推）时恒等，
+    #    2026-10-25 的瓦片图错位正是这样 —— 当时两条判据全绿，点位却偏了 27%。
+    #    所以瓦片图再对一条**外部基准**：Leaflet 的网格是 `layerPoint = 2^zoom × layer`，
+    #    1 个网格像素必然是 `1/(2^zoom·|a|)` 世界单位。这条来自上游语义，不是自证。
     scale_checked = 0
     for key, d in data.items():
         meta = metas.get(key)
@@ -184,6 +187,29 @@ def main() -> int:
         rec = sorted(float(v) for v in mp)
         if not rec[0]:
             problems.append(f"{key}: mpp 含 0，测距会除零")
+            continue
+
+        zoom = meta.get("zoom")
+        if zoom is not None:
+            # 瓦片图：以 2^zoom 为基准，定位与记账两边都要对得上
+            s = 2 ** zoom
+            want = sorted([1.0 / (s * abs(meta["transform"][0])),
+                           1.0 / (s * abs(meta["transform"][2]))])
+            scale_checked += 1
+            d_rec = max(abs(rec[i] / want[i] - 1) for i in range(2))
+            if d_rec > SCALE_TOL:
+                problems.append(
+                    f"{key}: 测距比例尺偏离 2^zoom 基准 {d_rec * 100:.1f}%"
+                    f"（记录 {rec}，应为 {[round(w, 6) for w in want]}）"
+                    " —— 读数会系统性偏"
+                )
+            d_pos = max(abs(implied[i] / want[i] - 1) for i in range(2))
+            if d_pos > SCALE_TOL:
+                problems.append(
+                    f"{key}: 投影偏离 2^zoom 基准 {d_pos * 100:.1f}%"
+                    f"（定位 {[round(v, 6) for v in implied]}，应为 {[round(w, 6) for w in want]}）"
+                    " —— 点位整体错位"
+                )
             continue
         dev = max(abs(implied[i] / rec[i] - 1) for i in range(2))
         scale_checked += 1
