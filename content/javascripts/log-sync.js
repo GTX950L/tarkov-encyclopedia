@@ -148,6 +148,25 @@
     } catch (e) { /* 隐私模式 / 配额满：静默降级，不影响本次同步 */ }
   }
 
+  /* 从本机累积的地图场次起步 —— 与下面的 saveRaids 成对（存什么、读什么）。
+     ⚠️ 2026-10-18 的「清死函数」批次（v1.135.0）把它当成死代码删了，但
+        `run()` 的 ④ 之前仍在调它 —— 于是**每次同步都在读文件之前抛
+        ReferenceError**：页面停在「正在整理文件清单…」，一条都不写。
+        从 v1.135.0 到 v1.147.5（2026-10-25 修）这段时间，日志同步是死的。
+        check_js_lint 只查「定义了没人调用」，查不出「调用了没定义」——
+        这类崩溃只有真人点一次才会暴露，所以本次修复补了端到端用例
+        （tests/test_log_sync_flow.py：真的跑 run()，而不是只测纯函数）。 */
+  function loadRaids() {
+    try {
+      var raw = window.localStorage.getItem(RAID_KEY);
+      var o = raw ? JSON.parse(raw) : null;
+      if (o && Array.isArray(o.list)) {
+        return { list: o.list, seen: o.seen || {}, trunc: !!o.trunc };
+      }
+    } catch (e) { /* 坏数据当作没有：宁可重算，也不要让统计整块消失 */ }
+    return { list: [], seen: {}, trunc: false };
+  }
+
   function saveRaids(raids) {
     try {
       var list = raids.list;
@@ -651,11 +670,16 @@
       }
 
       var modeOf = {};
+      /* 判不出模式时的落点：**调用方给的当前页面模式**，而不是硬编码 PVP。
+         作战台传 S.mode、进度页传账本的 d.mode（见 log-source.js 的
+         currentMode）—— 读者在 PVE 页面同步，最可能就是在 PVE 玩。 */
+      var fallback = (opts.fallbackMode && MODE_LABEL[opts.fallbackMode]) ? opts.fallbackMode : "pvp";
       /* 地图记录与任务事件**共用这一趟文件读取** —— 不为地图再读一遍磁盘。 */
       /* 从本机累积记录起步（见 RAID_KEY 的说明）——跳过文件不会丢历史场次。 */
       var raids = loadRaids();
       var sink = {
-        seen: {}, modes: {}, events: 0, outside: 0, fails: 0, mode: "pvp",
+        seen: {}, modes: {}, events: 0, outside: 0, fails: 0, mode: fallback,
+        unknown: {},
         isTask: function (qid) { return !!tasks[qid]; },
         traderOf: function (qid) { var node = tasks[qid]; return node ? (node[1] || "") : ""; },
       };
@@ -684,7 +708,22 @@
             /* 同一份文本里顺手抽地图加载记录（见文件头「第二件事」）。 */
             collectRaids(text, sessKey, raids);
           } else {
-            sink.mode = modeOf[sessKey] || "pvp";   // 判不出模式时按 PVP 处理，并在摘要里说明
+            /* 兜底顺序（2026-10-25 修）：modeOf（本次 app 读到的）→ item.mode
+               （这个文件自己的水位里缓存的）→ 调用方给的当前模式 → PVP。
+
+               ⚠️ 原来只有第一级，第二级明明在手边却没用：一旦某会话的
+               application 没读到 `Session mode:`（日志轮转到 `_001`、或读者
+               只用「或选日志文件」没选 application），那一整批事件就被静默
+               写进 **PVP** 账本 —— PVE 读者同步完在 PVE 账本里一条也看不到。 */
+            if (!modeOf[sessKey]) {
+              if (item.mode) {
+                modeOf[sessKey] = item.mode;
+              } else {
+                modeOf[sessKey] = fallback;
+                sink.unknown[sessKey] = 1;
+              }
+            }
+            sink.mode = modeOf[sessKey];
             scanText(text, sink);
           }
           /* 每 6 个文件让出一次主线程，进度条才有机会重绘。 */
@@ -713,11 +752,22 @@
           plans.push({ mode: modes[mi], entries: entries, plan: TP.mergeTasks(entries, modes[mi], true) });
         }
 
+        /* 模式口径要分开说 —— 「没有 application 日志」和「有日志但读不到
+           Session mode」是两件事，合成一句会让读者以为自己的日志缺文件。
+           后者从 2026-10-25 起不再静默计 PVP，而是按当前页面模式并写明。 */
+        var unknownN = Object.keys(sink.unknown).length;
+        var modeNote = [];
+        if (noApp) modeNote.push(noApp + " 个会话没有 application 日志");
+        if (unknownN) {
+          modeNote.push(unknownN + " 个会话读不到模式，已按当前页面的「"
+            + (MODE_LABEL[fallback] || fallback) + "」计");
+        }
+
         line.textContent = "扫描完成：" + sessKeys.length + " 个会话 · 读到任务事件 " + sink.events + " 条（去重后）"
           + (sink.outside ? "，其中 " + sink.outside + " 条不在当前 " + Object.keys(tasks).length + " 任务表（日常 / 周常等），已跳过" : "")
           + (sink.fails ? "；另有 " + sink.fails + " 条失败事件（本站没有失败轨）" : "")
           + (fallbackOut ? "；" + fallbackOut + " 个会话缺通知文件，已回退读 output" : "")
-          + (noApp ? "；" + noApp + " 个会话没有模式记录，按 PVP 计" : "")
+          + (modeNote.length ? "；" + modeNote.join("、") : "")
           + (skipped ? "；跳过 " + skipped + " 个已处理文件" : "")
           /* 这里是**累积**条数（含以前同步过、这次因没变而跳过的会话）——
              写成「本次读到」会让人以为跳过的文件没进统计。 */

@@ -1106,6 +1106,11 @@
         }
         window.TarkovLogSource.mount(inner, {
           compact: true,
+          /* 日志判不出模式时的落点 = 左栏这个分段选的那个（2026-10-25）。
+             ⚠️ 必须传 S.mode：作战台切模式只改 S.mode，不写账本的 d.mode，
+                所以 log-source 里退回 `TarkovProgress.mode()` 会拿到一个
+                读者几个月前在进度页选的模式。 */
+          currentMode: function () { return S.mode; },
           onStatus: function (st) {
             /* 摘要行直接显示「已同步到几点」——不用展开就知道进度新不新。 */
             sum.textContent = st.connected

@@ -2984,6 +2984,10 @@
       }
       window.TarkovLogSource.mount(logBox, {
         toast: function (msg, ok) { toast(host, msg, ok !== false); },
+        /* 日志判不出 PVE / PVP 时写进哪个账本 —— 就用本页顶部选的那个模式。
+           传 `TP.mode()` 而不是固定 PVP：读者在这页选的就是 PVE 的话，
+           硬写 PVP 等于同步完什么都看不到（2026-10-25）。 */
+        currentMode: function () { return TP.mode(); },
       });
     });
 
