@@ -279,6 +279,11 @@ LABELS_ZH: dict[str, dict[str, str]] = {
         "Sniper Rock": "狙击石",
         "Convoy": "车队残骸",
     },
+    # 以下三张是瓦片拼合图，上游没有地名图层 —— 留空表表示「这张图没有可点名的锚点」，
+    # 不是「这张图没有地方」。战区纪事的区域卡因此在页面上写「以文字描述为准」。
+    "icebreaker": {},
+    "the-labyrinth": {},
+    "terminal": {},
 }
 
 # 撤离点名：`humanize_extract()` 剥掉 `ex_<图>_` 与阵营前缀后的**核心片段** → 中文。
