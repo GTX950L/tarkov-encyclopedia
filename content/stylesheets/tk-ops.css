@@ -798,3 +798,78 @@ body:has(#tk-ops) .tk-map__canvas { max-height: 46vh; }
   body:has(#tk-ops) .tk-ops__briefbar { flex-wrap: wrap; }
 }
 @media (max-width: 1080px) { body:has(#tk-ops) .tk-ops__grip { display: none; } }
+
+/* ==========================================================================
+   作战台 · 操作入口补齐（v1.147.7，2026-10-25）
+   --------------------------------------------------------------------------
+   这一组全部是「原来没有入口 / 入口藏起来」的补齐，不改版面分区：
+
+     · `button.tk-ops__badge` —— 行内状态徽章改成可点按钮（外观与 span 一致）
+     · `.tk-ops__stseg`       —— 详情卡主状态的三态分段（未标记 / 进行中 / 已完成）
+     · `.tk-ops__dchips`      —— 次动作一行（加入出击 / 钉住 / 不做这票）
+     · `.tk-ops__planundo`    —— 移出清单后的 6 秒撤销条
+     · `.tk-ops__nun--dot`    —— 「现在能接的」卡片左侧不再是 ①②③
+   ========================================================================== */
+
+/* —— 行内状态徽章：span → button，视觉必须**逐像素一致** ——
+   原来的 span 是「一行字 + 底色」，改成按钮后浏览器会加边框、内边距与字体，
+   于是同一行里徽章突然变宽、行高跳动。这里逐项归零，只留指针与 hover。 */
+button.tk-ops__badge {
+  appearance: none; -webkit-appearance: none;
+  border: 1px solid transparent;
+  font: inherit; font-size: .58rem; line-height: 1.6;
+  padding: .05em .34em; cursor: pointer;
+}
+button.tk-ops__badge:hover { filter: brightness(.94); }
+button.tk-ops__badge:focus-visible {
+  outline: 2px solid var(--tk-brand); outline-offset: 1px;
+}
+
+/* —— 详情卡动作区：主状态在上、次动作在下 —— */
+.tk-ops__dacts {
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: .3rem; flex-wrap: wrap; margin-top: .45rem;
+}
+.tk-ops__stseg { display: flex; }
+.tk-ops__stb {
+  appearance: none; -webkit-appearance: none; cursor: pointer; font: inherit;
+  font-size: .66rem; padding: .16rem .5rem;
+  border: 1px solid var(--tk-line); background: #fff; color: var(--tk-ink-2);
+  margin-left: -1px;
+}
+.tk-ops__stb:first-child { border-radius: .2rem 0 0 .2rem; margin-left: 0; }
+.tk-ops__stb:last-child { border-radius: 0 .2rem .2rem 0; }
+.tk-ops__stb:hover { background: var(--tk-brand-soft); color: var(--tk-brand); }
+.tk-ops__stb.is-on {
+  background: var(--tk-brand); border-color: var(--tk-brand); color: #fff;
+  position: relative; z-index: 1;        /* 盖住相邻那 -1px 的边框 */
+}
+.tk-ops__dchips { display: flex; gap: .25rem; flex-wrap: wrap; }
+
+/* —— 移出清单的撤销条 —— */
+.tk-ops__planundo {
+  display: flex; align-items: center; gap: .35rem;
+  margin: .2rem 0; padding: .18rem .35rem;
+  font-size: .62rem; color: var(--tk-ink-2);
+  background: var(--tk-brand-soft);
+  border-left: 2px solid var(--tk-brand);
+  border-radius: 0 .18rem .18rem 0;
+}
+
+/* —— 「现在能接的」卡片左侧标记：不再是数字 ——
+   原来写 ①②③，读者会以为「按 1 选第一张」，而数字键 1/2/3 是切模式。
+   改成与正文同高的小圆点，只做视觉锚点，不承担「第几」的含义。 */
+.tk-ops__nun--dot {
+  width: .34rem; height: .34rem; font-size: 0; align-self: center;
+  background: var(--tk-brand); opacity: .5;
+}
+
+/* —— 暗色（站点支持 slate；这两块新控件不写会露出浅色底）—— */
+[data-md-color-scheme="slate"] .tk-ops__stb {
+  background: #262A29; color: #C9CCC7; border-color: #3a403f;
+}
+[data-md-color-scheme="slate"] .tk-ops__stb:hover { background: #38403F; color: #F5F4F0; }
+[data-md-color-scheme="slate"] .tk-ops__stb.is-on {
+  background: var(--tk-brand); border-color: var(--tk-brand); color: #fff;
+}
+[data-md-color-scheme="slate"] .tk-ops__planundo { background: #2b3140; color: #C9CCC7; }
