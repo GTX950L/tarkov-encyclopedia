@@ -194,6 +194,13 @@
     try { window.localStorage.removeItem(RAID_KEY); } catch (e) { /* 忽略 */ }
   }
 
+  /* 只清「同步水位」—— 不动目录授权，也不动地图场次（2026-10-25）。
+     给「按日志重建任务轨」用：水位还在的话，同步会认为所有文件都处理过、
+     一句「没有新增日志」就打发了，重建出来是一本空账。 */
+  function resetWatermark() {
+    try { window.localStorage.removeItem(WM_KEY); } catch (e) { /* 隐私模式：忽略 */ }
+  }
+
   function lastSyncText() {
     var wm = readWM();
     if (!wm.at) return "";
@@ -237,6 +244,8 @@
   var SCENE_RE = /scene preset path:maps\/([A-Za-z0-9_]+)_preset\.bundle/;
   /* 行首时间戳：`2026-10-11 23:07:53.321|1.2.0.0.47965|Info|application|…` */
   var LINE_TS_RE = /^(\d{4})-(\d{2})-(\d{2}) (\d{2}:\d{2}):\d{2}/;
+  /* 事件时刻（精确到秒）。任务事件的先后必须靠它判断 —— 见 eat() 的说明。 */
+  var FULL_TS_RE = /^(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/;
 
   /* 内部场景名 → 站内地图条目。
      · 已在本机日志实测到的（2026-10-12，54 个会话）：bigmap / sandbox /
@@ -311,7 +320,9 @@
 
   /* 从一段日志文本里抽事件、喂给 sink。
      两处「块边界」防御：JSON 起点找不到 / 块尾找不到时**放弃这一条** ——
-     游戏边玩边写，读到半截 JSON 块是常态，不能把半截块当 JSON 解析。 */
+     游戏边玩边写，读到半截 JSON 块是常态，不能把半截块当 JSON 解析。
+     `_scanText` 供单测直接调用 —— **必须能拿到每条事件的时间戳**，
+     否则「转生后重新接取」会被当成「一直没完成」（见 eat 的说明）。 */
   function scanText(text, sink) {
     if (text.indexOf("ChatMessageReceived") < 0) return;   // 快速剔除：绝大多数行与它无关
     var lines = text.split("\n");
@@ -319,6 +330,12 @@
     var i = 0;
     while (i < n) {
       if (!NOTIF_RE.test(lines[i])) { i++; continue; }
+
+      /* 事件时刻取 `Got notification` 那行的行首（精确到秒）。
+         精确到分钟不够：同一分钟内「接取 → 完成」的连续事件会被判成同一时刻，
+         排序就退化成「谁先被读到谁赢」。 */
+      var tsm = FULL_TS_RE.exec(lines[i]);
+      var ts = tsm ? tsm[1] : "";
 
       /* 找 JSON 起点：理论上一行就到（实测如此），容忍 6 行杂项。 */
       var j = i + 1, tries = 0;
@@ -337,13 +354,13 @@
       if (k >= n || depth >= 400) break;                    // 到文件尾都没收尾：结束
 
       try {
-        eat(JSON.parse(lines.slice(j, k + 1).join("\n")), sink);
+        eat(JSON.parse(lines.slice(j, k + 1).join("\n")), sink, ts);
       } catch (e) { /* 半截 JSON：忽略这一条 */ }
       i = k + 1;
     }
   }
 
-  function eat(obj, sink) {
+  function eat(obj, sink, ts) {
     var msg = (obj && obj.message) || {};
     var type = msg.type;
     if (type !== 10 && type !== 11 && type !== 12) return;  // 跳蚤 / 保险 / TwitchDrop 等非任务事件
@@ -360,9 +377,22 @@
     var qid = m[1];
     sink.events++;
     if (!sink.isTask(qid)) { sink.outside++; return; }      // 当前任务表外（日常/周常等）
-    var bucket = sink.modes[sink.mode] || (sink.modes[sink.mode] = { done: {}, inhand: {} });
-    if (type === 12) bucket.done[qid] = sink.traderOf(qid);
-    else bucket.inhand[qid] = sink.traderOf(qid);
+
+    /* 每个任务只留**时间最晚**的那条事件（2026-10-25 改）。
+       原来是「完成优先」：同一批事件里只要有 type 12 就判已完成，不看先后。
+       这对普通推进没问题，但对**转生**是错的 —— 转生会把任务清空重来，
+       日志里就变成「10-02 完成 → 10-09 又接取」，而完成优先仍判已完成。
+       实测本机 90 个会话：完成优先得 104 完成 / 65 进行中，
+       按时间线取最后一条是 97 / 72 —— 差的 7 票全是「完成过又被重新接取」。
+
+       ⚠️ 文件处理顺序**不是**时间顺序（目录遍历顺序未定义、跨会话交错），
+          所以不能「后到者覆盖」，必须比时间戳。空时间戳按最旧处理。 */
+    var bucket = sink.modes[sink.mode] || (sink.modes[sink.mode] = { seen: {} });
+    var state = type === 12 ? "done" : "inhand";
+    var prev = bucket.seen[qid];
+    if (!prev || String(ts) >= String(prev.ts)) {
+      bucket.seen[qid] = { state: state, ts: ts, trader: sink.traderOf(qid) };
+    }
   }
 
   /* --------------------------------------------------------------------------
@@ -738,15 +768,22 @@
            不需要等读者点并入。任务状态另走下面的合并按钮。 */
         saveRaids(raids);
 
-        /* —— ④ 收敛：同一任务「先接取、后完成」时，完成胜出。—— */
+        /* —— ④ 展开：每个任务一条，状态已由 eat() 按**时间最晚**的事件定好。——
+           此前这里是「完成优先」的第二次覆盖：只要同一批里出现过 type 12 就判完成，
+           不看先后 —— 转生（任务清空重来）会被它算成「一直完成着」。
+           现在只做展开，不再二次裁决：裁决只有一个地方（eat）。 */
         var modes = Object.keys(sink.modes);
         var plans = [], mi, key;
         for (mi = 0; mi < modes.length; mi++) {
           var bucket = sink.modes[modes[mi]];
-          for (key in bucket.inhand) if (bucket.done[key]) delete bucket.inhand[key];
           var entries = [];
-          for (key in bucket.done) entries.push({ id: key, state: "done", trader: bucket.done[key] });
-          for (key in bucket.inhand) entries.push({ id: key, state: "inhand", trader: bucket.inhand[key] });
+          for (key in bucket.seen) {
+            entries.push({
+              id: key,
+              state: bucket.seen[key].state,
+              trader: bucket.seen[key].trader,
+            });
+          }
           if (!entries.length) continue;
           /* 预览用合并规则本身干跑一遍（dry）—— 不在本模块复制一份规则。 */
           plans.push({ mode: modes[mi], entries: entries, plan: TP.mergeTasks(entries, modes[mi], true) });
@@ -827,10 +864,19 @@
         function doMerge(auto) {
           var parts = [];
           for (var pi = 0; pi < plans.length; pi++) {
+            /* 「按日志重建」模式（2026-10-25）：先清空这一模式的任务轨，再整批写入。
+               ⚠️ 清空与写入必须在**同一个循环体**里紧接着做 —— 分开做的话，
+                  中途任何一步失败都会留下「清空了但没写进去」的空账本。
+               普通同步绝不清空（见 mergeTasks 的「只补不降」）。 */
+            var wiped = false;
+            if (opts.replaceTrack && TP.replaceTaskTrack) {
+              try { wiped = TP.replaceTaskTrack(plans[pi].mode); } catch (e) { wiped = false; }
+            }
             var rr = TP.mergeTasks(plans[pi].entries, plans[pi].mode);
             parts.push((MODE_LABEL[plans[pi].mode] || plans[pi].mode)
+              + (wiped ? "（已按日志重建）" : "")
               + " 已完成 +" + rr.done + " · 进行中 +" + rr.inhand
-              + (rr.kept ? "（" + rr.kept + " 条已有标记未动）" : ""));
+              + (rr.kept && !wiped ? "（" + rr.kept + " 条已有标记未动）" : ""));
           }
           if (!auto) {
             btnMerge.disabled = true;
@@ -890,6 +936,8 @@
     /* 给「断开连接」用：一并清掉累积的地图场次记录。
        不清的话，读者点了断开、重新选一个目录，还会看到上一份日志的场次。 */
     clearRaids: clearRaids,
+    /* 给「按日志重建」用：只清水位，保留目录授权与地图场次。 */
+    resetWatermark: resetWatermark,
     _scanText: scanText,
     _roleOf: roleOf,
     _collectRaids: collectRaids,

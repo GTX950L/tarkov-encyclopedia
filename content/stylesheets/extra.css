@@ -7203,6 +7203,30 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   border-left-color: #b91c1c; background: #fef2f2; color: #7f1d1d;
 }
 
+/* 「重建任务轨」的确认条（2026-10-25）—— 这是唯一会**主动清账本**的按钮，
+   所以用警示色与普通提示分开：它不是「同步」的同级动作，是破坏性的。
+   平时按钮本身收在 ghost 样式里，只有点开才出现这一块。 */
+.tk-logsrc__confirm {
+  margin: .4rem 0 .2rem; padding: .45rem .55rem;
+  border: 1px solid #fcd34d; border-left: 3px solid #d97706;
+  border-radius: .2rem; background: #fffbeb;
+}
+.tk-logsrc__confirm p {
+  margin: 0 0 .35rem; font-size: .72rem; line-height: 1.75; color: #7c2d12;
+}
+.tk-logsrc__confirm b { color: #7c2d12; }
+
+.tk-logsrc__btn--danger {
+  background: #b91c1c; border-color: #b91c1c; color: #fff;
+}
+.tk-logsrc__btn--danger:hover { background: #991b1b; }
+
+[data-md-color-scheme="slate"] .tk-logsrc__confirm {
+  background: #3a2a12; border-color: #7c5320; border-left-color: #d97706;
+}
+[data-md-color-scheme="slate"] .tk-logsrc__confirm p,
+[data-md-color-scheme="slate"] .tk-logsrc__confirm b { color: #f5d9a8; }
+
 /* —— 65.2 长表表头吸顶栏（2026-10-18）—— 由 content/javascripts/table-sticky.js 驱动
    --------------------------------------------------------------------------
    为什么不是 CSS：全站唯一的横向滚动容器是 `.md-typeset__table`（见 §3），
