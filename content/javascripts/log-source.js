@@ -290,6 +290,23 @@
       emitStatus();
     }
 
+    /* 当前页面选的模式 —— 判不出日志模式时的落点（2026-10-25）。
+       作战台传自己的 S.mode（它不写账本的 d.mode），进度页传账本的 mode()。
+       解析器不自己去猜：`TarkovProgress.mode()` 在作战台返回的是**账本**模式，
+       可能是读者几周前在进度页选的，比日志更不可信。 */
+    function currentMode() {
+      try {
+        if (typeof opts.currentMode === "function") {
+          var m = opts.currentMode();
+          if (m) return m;
+        }
+        if (window.TarkovProgress && typeof window.TarkovProgress.mode === "function") {
+          return window.TarkovProgress.mode() || "";
+        }
+      } catch (e) { /* 判不出就留空，解析器退回 PVP */ }
+      return "";
+    }
+
     /* 把 File[] 交给解析器 */
     function runFiles(list, o) {
       var files = Array.prototype.slice.call(list || []);
@@ -307,6 +324,8 @@
           /* 只有「自动触发」时才谈自动并入 —— 手动点按钮时读者在等预览，
              替他写账本是越权。 */
           autoMerge: !!o.auto && autoMergeOn(),
+          /* 日志里读不到 `Session mode:` 时写进哪个账本 —— 见 currentMode。 */
+          fallbackMode: currentMode(),
           onMerged: function (at) {
             count.textContent = at ? "上次同步 " + at : "";
             refresh();
