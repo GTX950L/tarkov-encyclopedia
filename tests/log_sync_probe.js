@@ -64,9 +64,9 @@ const QID_DONE = "5c51a1a486f7740a8609b6b5";
 const QID_HAND = "5c51a1a486f7740a8609b6b6";
 const SESS = "2026.10.25_20-00-00_1.2.5.0.48100";
 
-function notifBlock(eventId, type, qid) {
+function notifBlock(eventId, type, qid, ts) {
   return [
-    "2026-10-25 20:01:02.100|1.2.5.0.48100|Info|Default|Got notification | ChatMessageReceived",
+    (ts || "2026-10-25 20:01:02") + ".100|1.2.5.0.48100|Info|Default|Got notification | ChatMessageReceived",
     "{",
     '  "eventId": "' + eventId + '",',
     '  "message": {',
@@ -96,7 +96,7 @@ function buildEnv() {
     MODE_LABEL: { pvp: "PVP", pve: "PVE", season: "赛季" },
     mode: () => "pvp",
     mergeTasks(entries, m, dry) {
-      if (!dry) merged.push({ mode: m, n: entries.length });
+      if (!dry) merged.push({ mode: m, entries: entries.slice() });
       return {
         done: entries.filter(e => e.state === "done").length,
         inhand: entries.filter(e => e.state === "inhand").length,
@@ -153,13 +153,23 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 /* 跑一轮：喂文件 → 等解析 → 点「并入我的进度」→ 取写进的账本 */
 async function round(files, opts) {
+  const d = await roundDetail(files, opts);
+  return d ? d.mode : "";
+}
+async function roundDetail(files, opts) {
   const { win, merged } = buildEnv();
   const host = mkNode("div");
   win.TarkovLogSync.run(files, host, opts || { fallbackMode: "pve" });
   await sleep(160);
   const cb = findMergeHandler(host);
   if (cb) cb();
-  return merged.length ? merged[0].mode : "";
+  return merged.length ? merged[0] : null;
+}
+/* 某个任务最终被写成什么状态（找不到就是 undefined） */
+function stateOf(d, qid) {
+  if (!d) return "(no-merge)";
+  const e = (d.entries || []).filter(x => x.id === qid)[0];
+  return e ? e.state : "(absent)";
 }
 
 (async () => {
@@ -182,6 +192,45 @@ async function round(files, opts) {
     new FakeFile(SESS + " application_001.log", appLog(null), 3000),
     new FakeFile(SESS + " push-notifications_000.log", notifBlock("ev-11", 12, QID_DONE), 3000),
   ]);
+
+  /* ④ 转生：同一任务**先完成、后重新接取** —— 状态要取时间更晚的那条（inhand）。
+     这是 2026-10-25 修的那条：原来的「完成优先」会判成 done，
+     本机 90 个会话里因此多算 7 票已完成。 */
+  {
+    const d = await roundDetail([
+      new FakeFile(SESS + " application_000.log", appLog("Pve"), 4000),
+      new FakeFile(SESS + " push-notifications_000.log",
+        notifBlock("ev-21", 12, QID_DONE, "2026-10-02 20:01:02")     // 先完成
+        + notifBlock("ev-22", 10, QID_DONE, "2026-10-09 20:55:00"),  // 转生后又接取
+        4000),
+    ]);
+    out.afterPrestige = stateOf(d, QID_DONE);
+  }
+
+  /* ⑤ 正常推进：先接取、后完成 —— 结论必须是 done（别把 ④ 修过头） */
+  {
+    const d = await roundDetail([
+      new FakeFile(SESS + " application_000.log", appLog("Pve"), 5000),
+      new FakeFile(SESS + " push-notifications_000.log",
+        notifBlock("ev-31", 10, QID_HAND, "2026-10-25 20:00:00")
+        + notifBlock("ev-32", 12, QID_HAND, "2026-10-25 21:30:00"),
+        5000),
+    ]);
+    out.normalFlow = stateOf(d, QID_HAND);
+  }
+
+  /* ⑥ 文件处理顺序不是时间顺序 —— 时间更早的事件**后**被读到，不能覆盖状态。
+     目录遍历顺序未定义、跨会话还会交错，所以 eat() 必须比时间戳而不是「后到者赢」。 */
+  {
+    const d = await roundDetail([
+      new FakeFile("log_b application_000.log", appLog("Pve"), 6000),
+      new FakeFile("log_b push-notifications_000.log",
+        notifBlock("ev-41", 10, QID_DONE, "2026-10-20 10:00:00"), 6000),   // 晚的先进
+      new FakeFile("log_a push-notifications_000.log",
+        notifBlock("ev-42", 12, QID_DONE, "2026-10-01 10:00:00"), 6000),   // 早的后到
+    ]);
+    out.outOfOrder = stateOf(d, QID_DONE);
+  }
 
   process.stdout.write(JSON.stringify(out) + "\n");
 })().catch(e => {

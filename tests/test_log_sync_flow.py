@@ -128,3 +128,23 @@ def test_notif_only_falls_back_to_page_mode(probe_result: dict[str, str]) -> Non
 def test_rotated_application_falls_back_to_page_mode(probe_result: dict[str, str]) -> None:
     """application 轮转到 _001、开头没有 Session mode 行 —— 同上。"""
     assert probe_result["rotated"] == "pve"
+
+
+def test_prestige_reacquire_beats_earlier_done(probe_result: dict[str, str]) -> None:
+    """转生：同一任务先完成后重新接取 → 取时间更晚的那条（进行中）。
+
+    这是 2026-10-25 改的判据。原来「完成优先」，转生后账本降不下来：
+    本机 90 个会话实测，完成优先得 104 完成 / 65 进行中，
+    按时间线取最后一条是 97 / 72，差的 7 票全是「完成过又被重新接取」。
+    """
+    assert probe_result["afterPrestige"] == "inhand"
+
+
+def test_normal_flow_still_done(probe_result: dict[str, str]) -> None:
+    """反向守卫：先接取、后完成，结论必须是已完成（别把上一条修过头）。"""
+    assert probe_result["normalFlow"] == "done"
+
+
+def test_out_of_order_events_take_latest(probe_result: dict[str, str]) -> None:
+    """文件处理顺序不是时间顺序：更早的事件后读到，不能覆盖更晚的那条。"""
+    assert probe_result["outOfOrder"] == "inhand"

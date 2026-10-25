@@ -37,6 +37,10 @@
     autoTried: false,
     busy: false,
   };
+  /* 「按日志重建任务轨」的一次性标志（2026-10-25）。
+     它只对**紧接着的这一次**同步生效：读完就复位，否则下一次普通同步会顺手清账本。
+     转生后账本降不下来（mergeTasks 只补不降），读者点「重建」才清任务轨。 */
+  var pendingRebuild = false;
 
   /* ---------------------------------------------------------------- 小工具 */
   function el(tag, cls, text) {
@@ -218,6 +222,14 @@
     forgetBtn.hidden = true;
     forgetBtn.title = "清除已保存的 Logs 目录授权与同步记录；不会删除任何日志文件";
 
+    /* 「重建任务轨」（2026-10-25）：转生 / 换号后账本降不下来时的唯一正确出口。
+       平时收起 —— 它是破坏性动作，不该与日常同步并排抢位置。 */
+    var rebuildBtn = el("button", "tk-logsrc__btn tk-logsrc__btn--ghost", "重建任务轨");
+    rebuildBtn.type = "button";
+    rebuildBtn.hidden = true;
+    rebuildBtn.title = "清空当前模式的任务与目标记录，再全量重读日志、按事件时间线重建"
+      + "（转生 / 换号后用；手勾的任务会丢，建议先导出进度）";
+
     /* 自动并入开关（默认关）。**不能是 <label>** —— 见文件头。 */
     var autoWrap = el("div", "tk-logsrc__auto");
     var autoChk = document.createElement("input");
@@ -243,6 +255,7 @@
     bar.appendChild(dirBtn);
     bar.appendChild(fileBtn);
     bar.appendChild(forgetBtn);
+    bar.appendChild(rebuildBtn);
     bar.appendChild(autoWrap);
     bar.appendChild(count);
     host.appendChild(bar);
@@ -287,8 +300,48 @@
               : "同步新增日志")
         : "选择 Logs 文件夹";
       forgetBtn.hidden = !(state.handle || at);
+      /* 重建要能读到日志 —— 没有目录句柄就藏起来，否则点了只会得到一句「先选文件夹」 */
+      rebuildBtn.hidden = !state.handle;
       emitStatus();
     }
+
+    /* ---- 「重建任务轨」：确认 → 清水位 → 触发一次全量同步（2026-10-25）----
+       为什么不在普通同步里自动做：`mergeTasks` 的「只补不降」是保护手动记录的
+       安全网（日志只覆盖本机还留着的那段时间）。转生把游戏里的任务清空了，
+       账本就永远降不下来 —— 所以给一个**读者明确点过**的入口。 */
+    var confirmBox = null;
+    function closeConfirm() {
+      if (confirmBox && confirmBox.parentNode) confirmBox.parentNode.removeChild(confirmBox);
+      confirmBox = null;
+    }
+    function startRebuild() {
+      if (!state.handle) { notify("先选一次 Logs 文件夹，再重建。", false); return; }
+      pendingRebuild = true;
+      useHandle();
+    }
+    function askRebuild() {
+      closeConfirm();
+      var mode = (window.TarkovProgress && typeof window.TarkovProgress.mode === "function")
+        ? window.TarkovProgress.mode() : "";
+      var label = { pvp: "PVP", pve: "PVE", season: "赛季" }[mode] || "当前";
+      confirmBox = el("div", "tk-logsrc__confirm");
+      confirmBox.appendChild(richEl("p", null,
+        "**会清空「" + label + "」这一本账的任务与目标记录**，然后全量重读日志、"
+        + "按事件时间线重建。物品、藏身处、剧情、等级与门槛都不动。"
+        + "手勾过的任务会丢 —— 建议先在「进度管理」点一次「导出进度」留底。"));
+      var bar2 = el("div", "tk-logsrc__bar");
+      var yes = el("button", "tk-logsrc__btn tk-logsrc__btn--danger", "确认重建");
+      yes.type = "button";
+      yes.addEventListener("click", function () { closeConfirm(); startRebuild(); });
+      var no = el("button", "tk-logsrc__btn tk-logsrc__btn--ghost", "取消");
+      no.type = "button";
+      no.addEventListener("click", closeConfirm);
+      bar2.appendChild(yes);
+      bar2.appendChild(no);
+      confirmBox.appendChild(bar2);
+      host.insertBefore(confirmBox, out);
+    }
+    rebuildBtn.addEventListener("click", askRebuild);
 
     /* 当前页面选的模式 —— 判不出日志模式时的落点（2026-10-25）。
        作战台传自己的 S.mode（它不写账本的 d.mode），进度页传账本的 mode()。
@@ -312,18 +365,28 @@
       var files = Array.prototype.slice.call(list || []);
       if (!files.length) return;
       o = o || {};
+      /* 一次性：无论这次成不成功都复位，避免下一次普通同步误清账本 */
+      var isRebuild = pendingRebuild;
+      pendingRebuild = false;
       count.textContent = "已选 " + files.length + " 个文件";
       loadSyntax(function (ok) {
         if (!ok || !window.TarkovLogSync) {
           notify("解析模块没有载入成功（可能是网络中断）—— 刷新一次再试。", false);
           return;
         }
+        /* 水位必须在**解析器载入之后**清：TarkovLogSync 是惰性注入的，
+           在它到位之前调 resetWatermark 是空操作，同步照样会「没有新增日志」。 */
+        if (isRebuild && window.TarkovLogSync.resetWatermark) {
+          try { window.TarkovLogSync.resetWatermark(); } catch (e) { /* 隐私模式 */ }
+        }
         window.TarkovLogSync.run(files, out, {
           /* 自动同步：无新增时只说一句「已是最新」，不铺开整段解释。 */
-          quiet: !!o.auto,
+          quiet: !!o.auto && !isRebuild,
           /* 只有「自动触发」时才谈自动并入 —— 手动点按钮时读者在等预览，
-             替他写账本是越权。 */
-          autoMerge: !!o.auto && autoMergeOn(),
+             替他写账本是越权。重建例外：读者刚刚确认过「清空并重写」。 */
+          autoMerge: isRebuild || (!!o.auto && autoMergeOn()),
+          /* 重建：并入前先清空该模式的任务轨（转生场景，见 progress.js 的说明） */
+          replaceTrack: isRebuild,
           /* 日志里读不到 `Session mode:` 时写进哪个账本 —— 见 currentMode。 */
           fallbackMode: currentMode(),
           onMerged: function (at) {
@@ -347,6 +410,7 @@
         runFiles(files, {});
       }).catch(function (e) {
         state.busy = false;
+        pendingRebuild = false;   // 没读成：别让下一次普通同步顺手清账本
         if (e && e.name === "AbortError") return;
         notify("读取 Logs 目录失败：" + (e && e.message ? e.message : e)
           + "。可以改用「或选日志文件」。", false);
@@ -399,6 +463,8 @@
     fileBtn.addEventListener("click", function () { pickInput.click(); });
 
     forgetBtn.addEventListener("click", function () {
+      closeConfirm();
+      pendingRebuild = false;
       idbDel(IDB_KEY).catch(function () {});
       drop(WM_KEY);
       /* 累积的地图场次也一并清掉 —— 不然断开后换一个目录，还会看到
@@ -427,6 +493,8 @@
     return {
       refresh: refresh,
       syncNow: function () { if (state.handle) useHandle(); },
+      /* 给「重建任务轨」用：等同于点界面上那个按钮（含确认）—— 不静默清账本 */
+      askRebuild: askRebuild,
       forget: function () { forgetBtn.click(); },
       hasHandle: function () { return !!state.handle; },
       status: status,
