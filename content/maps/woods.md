@@ -9,7 +9,7 @@ tags:
 
 <a id="top"></a>
 
-> 开阔地形，远距离交火与狙击的主场。定性分析与打法见[森林](../entries/woods.md)。
+> 开阔地形，远距离交火与狙击的主场。定性分析与打法见[森林](../entries/woods.md)；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 郊野](../lore/outskirts.md)。
 
 <div id="tk-map" data-map="woods">交互地图加载中…（首次打开需要下载底图）<noscript>当前浏览器未启用 JavaScript，交互地图无法显示 —— 但下面那张「这张图上的任务」表是完整的，不开脚本也能读。</noscript></div>
 

@@ -9,7 +9,7 @@ tags:
 
 <a id="top"></a>
 
-> 城市巷战，室内外交替最频繁的一张。定性分析与打法见[街区](../entries/streets.md)。
+> 城市巷战，室内外交替最频繁的一张。定性分析与打法见[街区](../entries/streets.md)；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 城区](../lore/urban.md)。
 
 <div id="tk-map" data-map="streets-of-tarkov">交互地图加载中…（首次打开需要下载底图）<noscript>当前浏览器未启用 JavaScript，交互地图无法显示 —— 但下面那张「这张图上的任务」表是完整的，不开脚本也能读。</noscript></div>
 

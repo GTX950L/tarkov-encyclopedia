@@ -65,6 +65,24 @@ META: dict[str, tuple[str, str, str]] = {
 
 TAG_LINE = "  - 地图\n  - 速查"
 
+# 已收录「战区纪事」的图 → 提示行末尾的追加入口（键是条目 slug）。
+# 新增一张图的叙事页时在这里加一行即可 —— 地图页是生成物，不手改。
+LORE_ENTRY = {
+    "customs": "；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 工业带](../lore/industrial.md)。",
+    "factory": "；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 工业带](../lore/industrial.md)。",
+    "reserve": "；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 工业带](../lore/industrial.md)。",
+    "streets": "；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 城区](../lore/urban.md)。",
+    "ground-zero": "；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 城区](../lore/urban.md)。",
+    "interchange": "；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 城区](../lore/urban.md)。",
+    "shoreline": "；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 郊野](../lore/outskirts.md)。",
+    "woods": "；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 郊野](../lore/outskirts.md)。",
+    "lighthouse": "；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 郊野](../lore/outskirts.md)。",
+    "labs": "；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 封闭设施](../lore/facilities.md)。",
+    "icebreaker": "；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 封闭设施](../lore/facilities.md)。",
+    "labyrinth": "；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 封闭设施](../lore/facilities.md)。",
+    "terminal": "；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 封闭设施](../lore/facilities.md)。",
+}
+
 # 商人显示名 → 任务图鉴里的商人页文件名（静态表里把商人名链过去，
 # 任务本身不挂链接 —— 详情页是按 id 渲染的，断链校验认不出那种形式）
 TRADER_SLUG = {
@@ -151,7 +169,12 @@ def page(key: str, data: dict, quests: list[dict]) -> str:
     out.append('<a id="top"></a>')
     out.append("")
     if blurb:
-        out.append(f"> {blurb}。定性分析与打法见[{cn}](../entries/{entry}.md)。")
+        # 有战区纪事的图，在提示行末尾多给一个入口 —— 地图页回答「怎么走」，
+        # 战区纪事回答「这里以前是什么」，两类读者不该只能靠导航碰面。
+        extra = LORE_ENTRY.get(entry, "")
+        # 没有追加入口时保留句末句号 —— 否则 12 张图会各少一个「。」（v1.148 踩过）
+        tail = f"[{cn}](../entries/{entry}.md){extra}" if extra else f"[{cn}](../entries/{entry}.md)。"
+        out.append(f"> {blurb}。定性分析与打法见{tail}")
         out.append("")
 
     # 地图挂载点（静态降级文案在 <noscript> 里）

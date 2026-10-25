@@ -84,9 +84,14 @@ STEPS: list[tuple[str, list[str], str]] = [
      "生成器的七道对账会顺带校验分类清单是否仍与数据源闭合"),
     ("①c 生成任务全景图数据", [PY, "scripts/gen_quest_tree.py"],
      "quest-tree-data.js 未生成时，任务全景图页只剩降级文案"),
+    ("①d 生成战区纪事", [PY, "scripts/gen_region_lore.py"],
+     "lore/<战区>.md 未生成时，战区纪事只剩导航里的空页；生成器只排版，不判断真伪"),
     ("② 内容一致性", [PY, "scripts/check_entries.py"], "断链 / 计数漂移 / 骨架缺失 / 直引号 / 表格吞块"),
     ("③ 图标语义表", [PY, "scripts/check_icons.py"], "表外 emoji 与 template.md 的统计数字"),
     ("④ 引用承诺", [PY, "scripts/check_promises.py"], "《引用说明》第三节的每条承诺"),
+    ("④b 战区纪事证据回源", [PY, "scripts/check_region_lore.py"],
+     "每条引文逐字回源（A1 对台词、A2 对物品描述）；改一个字、编一句话都会红 —— "
+     "这是「不编」这条站规唯一能被机器验证的地方"),
     ("⑤ 手册一致性", [PY, "scripts/skills_consistency.py"], ".agent/skills/ 的路径与门禁声明"),
     ("⑤b 物品数值一致性", [PY, "scripts/check_catalog_consistency.py"],
      "既有图鉴条目（食物/载具/护甲/医疗）与物品图鉴的数值漂移 —— "

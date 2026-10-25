@@ -9,7 +9,7 @@ tags:
 
 <a id="top"></a>
 
-> 高投入高回报，入场要钥匙卡，Boss 密度全站最高。定性分析与打法见[实验室](../entries/labs.md)。
+> 高投入高回报，入场要钥匙卡，Boss 密度全站最高。定性分析与打法见[实验室](../entries/labs.md)；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 封闭设施](../lore/facilities.md)。
 
 <div id="tk-map" data-map="the-lab">交互地图加载中…（首次打开需要下载底图）<noscript>当前浏览器未启用 JavaScript，交互地图无法显示 —— 但下面那张「这张图上的任务」表是完整的，不开脚本也能读。</noscript></div>
 

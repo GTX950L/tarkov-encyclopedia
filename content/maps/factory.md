@@ -9,7 +9,7 @@ tags:
 
 <a id="top"></a>
 
-> 体量最小、节奏最快的一张图，20 分钟一局。定性分析与打法见[工厂](../entries/factory.md)。
+> 体量最小、节奏最快的一张图，20 分钟一局。定性分析与打法见[工厂](../entries/factory.md)；「这片区域以前是什么、谁在这里做过什么」见[战区纪事 · 工业带](../lore/industrial.md)。
 
 <div id="tk-map" data-map="factory">交互地图加载中…（首次打开需要下载底图）<noscript>当前浏览器未启用 JavaScript，交互地图无法显示 —— 但下面那张「这张图上的任务」表是完整的，不开脚本也能读。</noscript></div>
 
