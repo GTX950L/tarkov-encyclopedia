@@ -59,6 +59,11 @@ SKIP_PREFIXES = (
     "quest-needs-data",
     "quests-index-data",
     "glossary-term",
+    # bundle.js（2026-10-27）：10 个手写脚本的拼接产物，由 gen_bundle.py 生成。
+    # 扫它会把同一份代码报两遍（源文件本身仍在目录里、已被扫过），而且拼接后
+    # 顶层多出 4 个同名 `function siteRoot()`（原分居 4 个文件，各自生效；
+    # 合并后函数声明提升、最后一个赢）—— 那是合并的既定结果，不是重复定义。
+    "bundle",
 )
 
 # 只看 IIFE 顶层（缩进 ≤ 2）。嵌套函数（缩进 4+）属于闭包内部实现：

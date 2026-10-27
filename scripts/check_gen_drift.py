@@ -132,6 +132,11 @@ GENERATORS: list[list[str]] = [
     #     会直接读到旧索引。
     ["scripts/gen_ops_index.py", "--mode", "pvp"],
     ["scripts/gen_ops_index.py", "--mode", "pve"],
+    # ⑮ 全局脚本合并（2026-10-27）。**必须排在最后**：它读 progress-manifest.js，
+    #     而那份由第 ⑦ 支（gen_progress_manifest）生成。放前面的话，会拿上一轮的
+    #     旧数据打出一个过时的 bundle —— 而 bundle 是**入仓产物**，线上就一直跑旧逻辑。
+    #     它读的其余 9 份都是手写源文件，不受生成器顺序影响。
+    ["scripts/gen_bundle.py"],
 ]
 
 # 豁免清单：这些文件**不用「重跑比对」来判定**。
