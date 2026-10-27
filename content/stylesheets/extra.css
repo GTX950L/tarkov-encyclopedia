@@ -7447,10 +7447,19 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 }
 .tk-entry-map img {
   display: block;
+  /* 13 张缩略图实测**全部 480×320（比例 1.50）** —— 所以不用固定高度，
+     按宽度铺开、限一个最大宽度即可，既不裁也不放大失真。
+     ⚠️ 两种试过的错法，别再踩：
+        ① `height:140px + object-fit:cover` → 地图被裁成中间一条横带，
+           撤离点和上锁点全切掉（实测截图可见）；
+        ② `height:150px + object-fit:contain` → 图缩到 225 px 宽，
+           两侧大片留白，比裁切更差。
+     限宽 520 px = 原图放大 1.08 倍，几乎 1:1，清晰度与占屏的平衡点。 */
   width: 100%;
-  height: 140px;
-  object-fit: cover;
-  object-position: center;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  padding: 7px;
   transition: opacity .15s ease;
 }
 .tk-entry-map:hover img { opacity: .88; }

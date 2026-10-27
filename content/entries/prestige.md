@@ -8,7 +8,7 @@ tags:
 
 <div class="tk-ver" data-search-exclude markdown>
 
-> 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：`json.tarkov.dev` 的 `tasks` 端点（`data.prestige`，二级）、官方补丁说明（一级）
+> 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：`json.tarkov.dev` 的 `tasks` 端点（`data.prestige`，二级）、官方补丁说明（一级）  
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
 > ⚠️ 本页含未决项：**B6** —— 见[引用说明第三节](../docs/citation.md)
 
