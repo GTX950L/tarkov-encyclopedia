@@ -55,6 +55,42 @@ tags:
 
 **装满的背包不只是收益，也是风险**——这也是“搜到一定价值就该撤离”这条纪律的物理依据。
 
+<div class="tk-fig" data-search-exclude>
+
+<svg viewBox="0 0 680 216" width="100%" role="img" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+<title>超过负重上限后的四条连锁后果</title>
+<desc>负重超过上限后，移动速度下降、耐力消耗加快、噪音增大落地更响、跳跃与翻越变慢，四件事同时发生。这是「搜到一定价值就该撤离」这条纪律的物理依据。</desc>
+
+<text x="40" y="26" font-size="14" font-weight="500" fill="#1C1A17">背包装满不只是收益，也是风险</text>
+
+<rect x="250" y="60" width="180" height="46" fill="#FBF3DF" stroke="#D7B26A" stroke-width="0.5"/>
+<text x="340" y="88" font-size="12.5" font-weight="500" fill="#1C1A17" text-anchor="middle">超过负重上限</text>
+
+<path d="M340 106 L340 122 L112 122 L112 136" fill="none" stroke="#8F8368" stroke-width="1" marker-end="url(#a3)"/>
+<path d="M340 106 L340 122 L272 122 L272 136" fill="none" stroke="#8F8368" stroke-width="1" marker-end="url(#a3)"/>
+<path d="M340 106 L340 122 L432 122 L432 136" fill="none" stroke="#8F8368" stroke-width="1" marker-end="url(#a3)"/>
+<path d="M340 106 L340 122 L592 122 L592 136" fill="none" stroke="#8F8368" stroke-width="1" marker-end="url(#a3)"/>
+<rect x="40" y="140" width="145" height="56" fill="#FAECEC" stroke="#C99A9A" stroke-width="0.5"/>
+<text x="112" y="172" font-size="11" fill="#1C1A17" text-anchor="middle">移动速度下降</text>
+<rect x="200" y="140" width="145" height="56" fill="#FAECEC" stroke="#C99A9A" stroke-width="0.5"/>
+<text x="272" y="172" font-size="11" fill="#1C1A17" text-anchor="middle">耐力消耗加快</text>
+<rect x="360" y="140" width="145" height="56" fill="#FAECEC" stroke="#C99A9A" stroke-width="0.5"/>
+<text x="432" y="172" font-size="11" fill="#1C1A17" text-anchor="middle">噪音增大、落地更响</text>
+<rect x="520" y="140" width="145" height="56" fill="#FAECEC" stroke="#C99A9A" stroke-width="0.5"/>
+<text x="592" y="172" font-size="11" fill="#1C1A17" text-anchor="middle">跳跃与翻越变慢</text>
+
+<text x="40" y="210" font-size="10.5" fill="#5C5850">四条同时发生，不是逐条叠加 —— 所以「再搜一格」的边际代价是跳变的。</text>
+
+<defs>
+<marker id="a3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="#8F8368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+</svg>
+
+<span class="tk-fig__cap">这张图解释了「搜到一定价值就该撤离」为什么是纪律而不是心态：越过负重线的瞬间，四项能力一起打折，而你已经带着一堆值钱的东西。</span>
+</div>
+
 ### 3. 姿态改变一切
 
 | 姿态 | 速度 | 噪音 | 精度 |
