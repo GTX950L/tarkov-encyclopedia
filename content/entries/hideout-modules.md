@@ -243,6 +243,45 @@ Wiki 那种写法是**把两级相加**；端点是**每一级各自生效值**�
 > 到 6 级才整体翻正（燃料 −20%、能量回复 +12 EP/小时、生命回复系数 0.2、经验与生理 +12%）。
 > 换句话说它有且只有两个合理状态：**不建**，或者**一口气到 6 级**。停在 3、4 级是花钱买 DEBUFF，而且它还是成长层三个模块的硬前置。
 
+<div class="tk-fig" data-search-exclude>
+
+<svg viewBox="0 0 680 226" width="100%" role="img" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+<title>易碎墙 2-5 级与 6 级的四项指标对比</title>
+<desc>易碎墙 2 到 5 级每级都给燃料消耗增加 5%、能量回复减少 3 EP/小时、生命回复系数减少 0.05、经验与生理技能减少 3%；到 6 级整体翻正：燃料消耗减少 20%、能量回复增加 12 EP/小时、生命回复系数 0.2、经验与生理增加 12%。</desc>
+
+<text x="40" y="26" font-size="14" font-weight="500" fill="#1C1A17">易碎墙只有两个合理状态：不建，或者一口气到 6 级</text>
+<text x="40" y="44" font-size="10.5" fill="#5C5850">四项指标的「惩罚 : 奖励」比例实测全部是 1 : 4，所以左侧条统一画短</text>
+
+<text x="246" y="68" font-size="11" fill="#A32B2B" text-anchor="end">2–5 级 · 每级扣</text>
+<text x="344" y="68" font-size="11" fill="#4A5D2A">6 级 · 整体翻正</text>
+<line x1="290" y1="72" x2="290" y2="236" stroke="#8F8368" stroke-width="1"/>
+
+<text x="40" y="91" font-size="11.5" fill="#1C1A17">燃料消耗</text>
+<text x="168" y="91" font-size="10.5" fill="#A32B2B">−5%</text>
+<rect x="240" y="76" width="50" height="22" fill="#E8C4C4"/>
+<rect x="290" y="76" width="210" height="22" fill="#C7D8A8"/>
+<text x="510" y="91" font-size="10.5" fill="#4A5D2A">−20%</text>
+<text x="40" y="131" font-size="11.5" fill="#1C1A17">能量回复</text>
+<text x="168" y="131" font-size="10.5" fill="#A32B2B">−3 EP/小时</text>
+<rect x="240" y="116" width="50" height="22" fill="#E8C4C4"/>
+<rect x="290" y="116" width="210" height="22" fill="#C7D8A8"/>
+<text x="510" y="131" font-size="10.5" fill="#4A5D2A">+12 EP/小时</text>
+<text x="40" y="171" font-size="11.5" fill="#1C1A17">生命回复系数</text>
+<text x="168" y="171" font-size="10.5" fill="#A32B2B">−0.05</text>
+<rect x="240" y="156" width="50" height="22" fill="#E8C4C4"/>
+<rect x="290" y="156" width="210" height="22" fill="#C7D8A8"/>
+<text x="510" y="171" font-size="10.5" fill="#4A5D2A">+0.2</text>
+<text x="40" y="211" font-size="11.5" fill="#1C1A17">经验与生理技能</text>
+<text x="168" y="211" font-size="10.5" fill="#A32B2B">−3%</text>
+<rect x="240" y="196" width="50" height="22" fill="#E8C4C4"/>
+<rect x="290" y="196" width="210" height="22" fill="#C7D8A8"/>
+<text x="510" y="211" font-size="10.5" fill="#4A5D2A">+12%</text>
+
+</svg>
+
+<span class="tk-fig__cap">这张图回答「易碎墙建到几级」。它没有中间态：2–5 级每级都在扣，6 级一次全还回来还倒贴。中途停下，前面的钱就变成了负收益 —— 而且成长层那三个模块还得靠它开路。</span>
+</div>
+
 #### 6.2 三条路线
 
 | 路线 | 终点 | 建什么 | 明确不建 | 工期 |

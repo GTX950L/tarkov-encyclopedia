@@ -51,6 +51,47 @@ tags:
 
 也就是说，塔科夫里的“翻脸”是**一次性的、不可撤销的、全场的**。误伤一枪和蓄意屠杀在判定上没有区别——差别只在声望账本上。
 
+<div class="tk-fig" data-search-exclude>
+
+<svg viewBox="0 0 680 204" width="100%" role="img" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+<title>Scav 叛徒判定的三步</title>
+<desc>对任何非叛徒的 Scav、Scav Boss 或 Boss 护卫造成任何伤害，不需要杀死，就会被立即标记为叛徒，当局内所有 AI Scav 立刻转为敌对。这个判定是一次性的、不可撤销的、全场的。</desc>
+
+<text x="40" y="30" font-size="14" font-weight="500" fill="#1C1A17">打中一枪，全场就翻脸</text>
+
+<rect x="40" y="48" width="170" height="70" fill="#FBF3DF" stroke="#D7B26A" stroke-width="0.5"/>
+<text x="125" y="72" font-size="12.5" font-weight="500" fill="#1C1A17" text-anchor="middle">造成任何伤害</text>
+<text x="125" y="94" font-size="10.5" fill="#5C5850" text-anchor="middle">任何非叛徒的 Scav /</text>
+<text x="125" y="110" font-size="10.5" fill="#5C5850" text-anchor="middle">Boss / Boss 护卫</text>
+
+<path d="M212 83 L246 83" fill="none" stroke="#8F8368" stroke-width="1.2" marker-end="url(#a2)"/>
+
+<rect x="250" y="48" width="170" height="70" fill="#FAECEC" stroke="#C99A9A" stroke-width="0.5"/>
+<text x="335" y="72" font-size="12.5" font-weight="500" fill="#A32B2B" text-anchor="middle">立即标记为叛徒</text>
+<text x="335" y="94" font-size="10.5" fill="#5C5850" text-anchor="middle">不需要杀死，</text>
+<text x="335" y="110" font-size="10.5" fill="#5C5850" text-anchor="middle">打中就算</text>
+
+<path d="M422 83 L456 83" fill="none" stroke="#8F8368" stroke-width="1.2" marker-end="url(#a2)"/>
+
+<rect x="460" y="48" width="170" height="70" fill="#FAECEC" stroke="#C99A9A" stroke-width="0.5"/>
+<text x="545" y="72" font-size="12.5" font-weight="500" fill="#A32B2B" text-anchor="middle">全场 AI Scav 敌对</text>
+<text x="545" y="94" font-size="10.5" fill="#5C5850" text-anchor="middle">当局内立即生效，</text>
+<text x="545" y="110" font-size="10.5" fill="#5C5850" text-anchor="middle">不限于你打过的那只</text>
+
+<rect x="40" y="138" width="590" height="44" fill="#F4F2ED" stroke="#C2BAA6" stroke-width="0.5"/>
+<text x="58" y="158" font-size="11" fill="#1C1A17">一次性 · 不可撤销 · 全场</text>
+<text x="58" y="174" font-size="10.5" fill="#5C5850">误伤一枪和蓄意屠杀在判定上没有区别 —— 差别只在声望账本上。</text>
+
+<defs>
+<marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="#8F8368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+</svg>
+
+<span class="tk-fig__cap">很多人以为「打死才算叛徒」，实际判定只看**有没有造成伤害**。所以手滑打中队友、误伤路过的 Scav，后果和主动屠杀完全一样。</span>
+</div>
+
 ### 3. 被标记之后会发生什么
 
 - 视野内的 AI Scav 直接开火，不再有警告期；

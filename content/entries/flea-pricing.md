@@ -79,6 +79,51 @@ PR = VR ≤ VO ? log10(VR / VO) : ( log10(VR / VO) ) ^ 1.08
 | **费率是 U 形的，最低点在底价约 1.6 倍处（约 8.8%）** | 标到 1 倍是 10.0%、0.5 倍是 17.9%、3 倍是 10.2%、10 倍是 20.1%、20 倍是 31.6% |
 | **「标低」比「标高」罚得更重** | 同倍数偏离下，往下那一侧多一次 1.08 次方：标到 0.25 倍时费率已 46.8%，而标到 4 倍只有约 11.6% |
 
+<div class="tk-fig" data-search-exclude>
+
+<svg viewBox="0 0 680 250" width="100%" role="img" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+<title>跳蚤市场手续费随标价倍数的变化</title>
+<desc>横轴为标价与底价的倍数（对数刻度），纵轴为手续费率。曲线呈 U 形：标到 0.25 倍时 46.8%，1 倍时 10.0%，1.6 倍时最低约 8.8%，3 倍 10.2%，4 倍约 11.6%，10 倍 20.1%，20 倍 31.6%。标低比标高的惩罚更重。</desc>
+
+<text x="40" y="26" font-size="14" font-weight="500" fill="#1C1A17">手续费是 U 形的，最低点不在底价上</text>
+<text x="40" y="44" font-size="10.5" fill="#5C5850">横轴：标价 ÷ 底价（对数刻度）　纵轴：手续费率（费率常数 5%、无减免）</text>
+
+<line x1="70" y1="200" x2="620" y2="200" stroke="#E6E2D8" stroke-width="0.5"/>
+<text x="62" y="204" font-size="10" fill="#7A6E4F" text-anchor="end">0%</text>
+<line x1="70" y1="168" x2="620" y2="168" stroke="#E6E2D8" stroke-width="0.5"/>
+<text x="62" y="172" font-size="10" fill="#7A6E4F" text-anchor="end">10%</text>
+<line x1="70" y1="136" x2="620" y2="136" stroke="#E6E2D8" stroke-width="0.5"/>
+<text x="62" y="140" font-size="10" fill="#7A6E4F" text-anchor="end">20%</text>
+<line x1="70" y1="104" x2="620" y2="104" stroke="#E6E2D8" stroke-width="0.5"/>
+<text x="62" y="108" font-size="10" fill="#7A6E4F" text-anchor="end">30%</text>
+<line x1="70" y1="72" x2="620" y2="72" stroke="#E6E2D8" stroke-width="0.5"/>
+<text x="62" y="76" font-size="10" fill="#7A6E4F" text-anchor="end">40%</text>
+<line x1="70" y1="40" x2="620" y2="40" stroke="#E6E2D8" stroke-width="0.5"/>
+<text x="62" y="44" font-size="10" fill="#7A6E4F" text-anchor="end">50%</text>
+<line x1="70" y1="200" x2="620" y2="200" stroke="#8F8368" stroke-width="1"/>
+<text x="70" y="220" font-size="10" fill="#7A6E4F" text-anchor="middle">0.25×</text>
+<text x="157" y="220" font-size="10" fill="#7A6E4F" text-anchor="middle">0.5×</text>
+<text x="244" y="220" font-size="10" fill="#7A6E4F" text-anchor="middle">1×</text>
+<text x="303" y="220" font-size="10" fill="#7A6E4F" text-anchor="middle">1.6×</text>
+<text x="382" y="220" font-size="10" fill="#7A6E4F" text-anchor="middle">3×</text>
+<text x="418" y="220" font-size="10" fill="#7A6E4F" text-anchor="middle">4×</text>
+<text x="533" y="220" font-size="10" fill="#7A6E4F" text-anchor="middle">10×</text>
+<text x="620" y="220" font-size="10" fill="#7A6E4F" text-anchor="middle">20×</text>
+
+<polyline points="70.0,50.2 157.0,142.7 244.0,168.0 303.0,171.8 381.9,167.4 418.0,162.9 533.0,135.7 620.0,98.9" fill="none" stroke="#3D4A5C" stroke-width="1.8"/>
+<circle cx="70.0" cy="50.2" r="3" fill="#3D4A5C"/><circle cx="157.0" cy="142.7" r="3" fill="#3D4A5C"/><circle cx="244.0" cy="168.0" r="3" fill="#3D4A5C"/><circle cx="303.0" cy="171.8" r="3" fill="#3D4A5C"/><circle cx="381.9" cy="167.4" r="3" fill="#3D4A5C"/><circle cx="418.0" cy="162.9" r="3" fill="#3D4A5C"/><circle cx="533.0" cy="135.7" r="3" fill="#3D4A5C"/><circle cx="620.0" cy="98.9" r="3" fill="#3D4A5C"/>
+<circle cx="303.0" cy="171.8" r="5" fill="none" stroke="#4A5D2A" stroke-width="1.5"/>
+<text x="303" y="196" font-size="10.5" fill="#4A5D2A" text-anchor="middle">最低 8.8%</text>
+<text x="82" y="72" font-size="10.5" fill="#A32B2B">0.25× 时 46.8%</text>
+<text x="620" y="89" font-size="10.5" fill="#5C5850" text-anchor="end">20× 时 31.6%</text>
+
+
+<text x="70" y="242" font-size="10.5" fill="#5C5850">八个点全部取自本页正文的费率表；曲线在 1.6 倍处触底，两侧都往上走，但左侧陡得多。</text>
+</svg>
+
+<span class="tk-fig__cap">「标低」比「标高」罚得更重：标到 0.25 倍是 46.8%，标到 4 倍只有约 11.6%。原因在下标那段 —— 偏离方向不同，其中一侧要再取一次 1.08 次方。</span>
+</div>
+
 下面把公式补全成可调的——**改任一格，手续费、到手价与费率立刻跟着变**：
 
 <a id="flea-calc"></a>

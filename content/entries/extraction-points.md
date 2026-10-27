@@ -49,6 +49,45 @@ tags:
 
 > 记忆锚点：**要么有东西，要么有电，要么有信号，要么有别人。**
 
+<div class="tk-fig" data-search-exclude>
+
+<svg viewBox="0 0 680 246" width="100%" role="img" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+<title>撤离点的六种形态：各自需要什么</title>
+<desc>常规撤离点走到即可；道具型要钥匙或门禁卡、器械型要伞绳加 Red Rebel 冰镐；环境型要先接通电源；信号型要用绿色手持信号弹；合作型要 PMC 与 Scav 同时在区内；付费车辆型缴卢布后等约一分钟。</desc>
+
+<text x="40" y="30" font-size="14" font-weight="500" fill="#1C1A17">撤离点要什么，进图前就带什么</text>
+
+<rect x="40" y="52" width="195" height="80" fill="#FCFBF8" stroke="#8F8368" stroke-width="0.5"/>
+<rect x="40" y="52" width="3" height="80" fill="#8F8368"/>
+<text x="54" y="78" font-size="12.5" font-weight="500" fill="#1C1A17">常规</text>
+<text x="54" y="100" font-size="10.5" fill="#5C5850">走到即可</text>
+<rect x="245" y="52" width="195" height="80" fill="#FCFBF8" stroke="#4A596C" stroke-width="0.5"/>
+<rect x="245" y="52" width="3" height="80" fill="#4A596C"/>
+<text x="259" y="78" font-size="12.5" font-weight="500" fill="#1C1A17">有东西</text>
+<text x="259" y="100" font-size="10.5" fill="#5C5850">钥匙 / 门禁卡 · 伞绳 + 冰镐</text>
+<rect x="450" y="52" width="195" height="80" fill="#FCFBF8" stroke="#96671A" stroke-width="0.5"/>
+<rect x="450" y="52" width="3" height="80" fill="#96671A"/>
+<text x="464" y="78" font-size="12.5" font-weight="500" fill="#1C1A17">有电</text>
+<text x="464" y="100" font-size="10.5" fill="#5C5850">先接通电源、合闸</text>
+<rect x="40" y="144" width="195" height="80" fill="#FCFBF8" stroke="#4A5D2A" stroke-width="0.5"/>
+<rect x="40" y="144" width="3" height="80" fill="#4A5D2A"/>
+<text x="54" y="170" font-size="12.5" font-weight="500" fill="#1C1A17">有信号</text>
+<text x="54" y="192" font-size="10.5" fill="#5C5850">区域内用绿色手持信号弹</text>
+<rect x="245" y="144" width="195" height="80" fill="#FCFBF8" stroke="#A32B2B" stroke-width="0.5"/>
+<rect x="245" y="144" width="3" height="80" fill="#A32B2B"/>
+<text x="259" y="170" font-size="12.5" font-weight="500" fill="#1C1A17">有别人</text>
+<text x="259" y="192" font-size="10.5" fill="#5C5850">PMC 与 Scav 同时在区内</text>
+<rect x="450" y="144" width="195" height="80" fill="#FCFBF8" stroke="#6C6250" stroke-width="0.5"/>
+<rect x="450" y="144" width="3" height="80" fill="#6C6250"/>
+<text x="464" y="170" font-size="12.5" font-weight="500" fill="#1C1A17">有钱</text>
+<text x="464" y="192" font-size="10.5" fill="#5C5850">V-Ex：缴卢布，等约 1 分钟</text>
+
+<text x="40" y="238" font-size="10.5" fill="#5C5850">记忆锚点：要么有东西，要么有电，要么有信号，要么有别人。</text>
+</svg>
+
+<span class="tk-fig__cap">这张图回答的是「我进图前该不该多带一样东西」。只有「常规」是真·走到就走；其余五种都有一个前置条件，而条件不满足时撤离区就是个摆设。</span>
+</div>
+
 ### 2. 几条容易踩的判定细节
 
 - **绿信号弹的作用范围**：多数信号型撤离点是**“区域触发”**——在指定区域打出即生效；**组队时一人打弹即全队可用**（海关铁路通道即为此例）。
