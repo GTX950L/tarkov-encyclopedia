@@ -4980,6 +4980,30 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 .tk-il__verdict--partial { color: var(--tk-amber); border-color: var(--tk-amber); }
 .tk-il__verdict--sell { color: var(--tk-ink-2); border-color: var(--tk-line-3); }
 .tk-il__verdict--unknown { color: var(--tk-ink-2); border-color: var(--tk-line-3); }
+/* 藏身处要 · 留（2026-10-27）—— 与 keep（绿 = 任务要）刻意不同色：
+   两者都是「别出」，但理由不同，混成一色会让读者以为「任务还要」。
+   蓝灰是站内「信息 / 提示」的既有语义（--tk-brand），不与琥珀的「注意」抢。 */
+.tk-il__verdict--hold { color: var(--tk-brand); border-color: var(--tk-brand); }
+
+/* 藏身处需求明细：任务区块之上的一小段，模块 × 等级 × 数量 */
+.tk-il__why--hideout { color: var(--tk-brand); }
+.tk-il__hideout-list {
+  margin: .1em 0 .5em;
+  font-size: .72rem;
+  line-height: 1.9;
+  color: var(--tk-ink-2);
+}
+.tk-il__hideout-item { white-space: nowrap; }
+.tk-il__fir {
+  margin-left: .25em;
+  padding: 0 .25em;
+  border: 1px solid var(--tk-amber);
+  border-radius: 2px;
+  font-style: normal;
+  font-size: .62rem;
+  color: var(--tk-amber);
+  white-space: nowrap;
+}
 
 .tk-il__done { margin: .15em 0 .3em; font-size: .72rem; color: var(--tk-ink-2); }
 .tk-il__done summary { cursor: pointer; color: var(--tk-ink-2); }
@@ -4992,6 +5016,12 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   color: var(--tk-ink);
   font-size: .72rem;
   line-height: 1.6;
+}
+/* 「任务已清但藏身处还要」—— 左边框换成信息色，别再用绿色：
+   绿色在这块的语言是「可以出掉」，而这句话说的是「别出」。 */
+.tk-il__sell--hold {
+  border-left-color: var(--tk-brand);
+  background: var(--tk-brand-soft);
 }
 
 /* 批量判读（quest-items.js 的 #tk-item-batch）*/
@@ -5032,6 +5062,8 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 .tk-ilb__name { font-weight: 600; white-space: nowrap; }
 .tk-ilb__nm { color: var(--tk-ink); }
 .tk-ilb__num { text-align: right; font-variant-numeric: tabular-nums; }
+/* 藏身处列：比正文小一号 —— 它是旁注，不该和「判定」抢视线 */
+.tk-ilb__hold { font-size: .72rem; color: var(--tk-ink-2); white-space: nowrap; }
 
 .tk-il__why { margin: .1em 0; font-size: .74rem; line-height: 1.6; color: var(--tk-ink); }
 .tk-il__why--muted { color: var(--tk-ink-2); }

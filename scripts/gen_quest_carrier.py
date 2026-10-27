@@ -53,6 +53,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 QUESTS = ROOT / "scripts" / "data" / "quests.json"
 RECIPES = ROOT / "scripts" / "data" / "recipes.json"
+HIDEOUT = ROOT / "scripts" / "data" / "hideout.json"
 OUT_CARRIER = ROOT / "scripts" / "data" / "quests_carrier.json"
 OUT_ITEMS = ROOT / "scripts" / "data" / "items_index.json"
 
@@ -208,6 +209,66 @@ def main() -> None:
                     })
     coverage["matched"] = sum(1 for k in idx if k in trades)
 
+    # ── 方向三：物品 → 藏身处需求（2026-10-27 新增）──────────────────
+    #
+    # 读者场景与「方向二」是同一个动作：**手里拿着东西，决定留不留**。
+    # 此前本页只回答「任务要不要」，藏身处材料（317 条、119 种物品）在
+    # entries/hideout-modules.md 另成一页 —— 读者得自己翻表去对。
+    # 结果是「任务不要了 → 判『可出』→ 出掉 → 回头升工作台发现要 5 个」。
+    #
+    # 两个刻意的决定：
+    #   ① **藏身处独有物品也纳入索引**（任务里一次都没出现的，约 47 种）。
+    #      不纳入的话，「任务不要但藏身处要」恰恰是本页查不到的那一类 ——
+    #      而那正是要治的场景。它们 keep 为空，前端只看 h 字段。
+    #   ② 字段名用短键 `h`，值 `[[模块名, 等级, 数量, fir], …]`。
+    #      本文件是 464 个任务 + 3 个子表的合并数据，键名每个字节 × 900 次，
+    #      与既有的 `n` / `d` / `qid` 同一个理由。
+    hideout_req: dict[str, list] = {}
+    hideout_meta: dict = {}
+    if HIDEOUT.exists():
+        hd = json.loads(HIDEOUT.read_text(encoding="utf-8"))
+        hideout_meta = {
+            "fetched": hd.get("fetched") or "",
+            "stations": hd.get("count") or len(hd.get("stations") or []),
+            "levels": hd.get("levelCount") or 0,
+        }
+        for st in hd.get("stations") or []:
+            sname = st.get("name") or st.get("en") or ""
+            if not sname:
+                continue
+            for lv in st.get("levels") or []:
+                lvl = lv.get("level")
+                for it in lv.get("items") or []:
+                    nm = it.get("name")
+                    if not nm:
+                        continue
+                    hideout_req.setdefault(nm, []).append(
+                        [sname, lvl, it.get("count") or 1,
+                         1 if it.get("fir") else 0])
+        # 同一个模块同一级里若同名物品出现多次（实测没有，但数据端可能变），
+        # 合并数量 —— 前端按行展示，重复行会让读者以为是两个不同要求。
+        for nm, rows in hideout_req.items():
+            merged_h: dict[tuple, list] = {}
+            for s, lvl, cnt, f in rows:
+                k2 = (s, lvl)
+                if k2 in merged_h:
+                    merged_h[k2][2] += cnt
+                    merged_h[k2][3] = 1 if (merged_h[k2][3] or f) else 0
+                else:
+                    merged_h[k2] = [s, lvl, cnt, f]
+            hideout_req[nm] = list(merged_h.values())
+        n_new = 0
+        for nm in hideout_req:
+            if nm not in idx:
+                n_new += 1
+                slot(nm)                   # 只在缺失时新建，已有条目不覆盖
+        print(f"藏身处需求：{len(hideout_req)} 种物品 / "
+              f"{sum(len(v) for v in hideout_req.values())} 条，"
+              f"其中 {n_new} 种任务里从未出现（已并入索引）")
+    else:
+        print(f"⚠️ 找不到 {HIDEOUT.relative_to(ROOT)} —— 物品反查将不含藏身处需求。"
+              f"先跑 scripts/gen_hideout.py 生成它。")
+
     # ── 落盘 ─────────────────────────────────────────────────────────
     payload = {
         "fetched": fetched,
@@ -260,6 +321,10 @@ def main() -> None:
             "d": [[qid, qty, fir, sorted(t for t in tys if t)]
                   for qid, qty, fir, tys in by_qid.values()],
         }
+        # 藏身处需求**只在有值时才写这个键**：900 个物品里 119 个有，
+        # 空数组也要 6 字节 × 780 ≈ 5 KB，而前端 `rec.h || []` 本来就兜得住。
+        if hideout_req.get(name):
+            items[name]["h"] = hideout_req[name]
     # ── 物品 → 图鉴位置（供前端把物品名变成链接）─────────────────────
     #
     # 读者手上拿着一件物品时，下一跳通常是「这东西长什么样、还有什么属性」——
@@ -293,6 +358,10 @@ def main() -> None:
         "fetched": fetched,
         "tasksTotal": len(tasks),
         "coverage": coverage,
+        # 藏身处需求的来源元数据：前端在「口径」处引用，避免把两份不同抓取日
+        # 的数据混成一句「数据截至 X」。缺文件时为 None，前端按「无此栏」处理。
+        "hideout": (dict(hideout_meta, items=len(hideout_req))
+                    if hideout_meta else None),
         "note": ("barter 字段只对「出现在 recipes.json 的 names 里」的物品有值；"
                  "未命中不等于买不到，只表示不在本站收录的配方里"),
         "items": items,
