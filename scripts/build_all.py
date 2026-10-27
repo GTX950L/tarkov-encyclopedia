@@ -86,6 +86,10 @@ STEPS: list[tuple[str, list[str], str]] = [
      "quest-tree-data.js 未生成时，任务全景图页只剩降级文案"),
     ("①d 生成战区纪事", [PY, "scripts/gen_region_lore.py"],
      "lore/<战区>.md 未生成时，战区纪事只剩导航里的空页；生成器只排版，不判断真伪"),
+    ("①e 合并全局脚本", [PY, "scripts/gen_bundle.py"],
+     "bundle.js 落后于源时，页面加载的是**旧脚本** —— 改了源却忘了重跑，构建不报错、"
+     "页面也正常打开，只是逻辑还是老的（10 个源文件仍留在目录里，看着完全正常）。"
+     "⑤c 会用同一支生成器复查一遍"),
     ("② 内容一致性", [PY, "scripts/check_entries.py"], "断链 / 计数漂移 / 骨架缺失 / 直引号 / 表格吞块"),
     ("③ 图标语义表", [PY, "scripts/check_icons.py"], "表外 emoji 与 template.md 的统计数字"),
     ("④ 引用承诺", [PY, "scripts/check_promises.py"], "《引用说明》第三节的每条承诺"),

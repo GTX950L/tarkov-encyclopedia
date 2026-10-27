@@ -98,23 +98,39 @@ extra_css:
   - stylesheets/extra.css
 
 extra_javascript:
+  # ⚠️ 术语数据**必须排在 bundle.js 前面**：bundle 里的 glossary-tooltip.js 读
+  #    window.TARKOV_TERMS。该文件**未入仓**（.gitignore 第 11 行），由
+  #    build_glossary.py 在构建期生成，deploy job 里跑在 zensical build 之前。
   - javascripts/terms-data.js
-  - javascripts/scroll-fix.js
-  - javascripts/glossary-tooltip.js
-  - javascripts/search-ready.js
-  - javascripts/breadcrumb.js
-  - javascripts/nav-top.js
-  - javascripts/progress-manifest.js
-  - javascripts/progress.js
-  # 物品需求判定（读进度）：物品反查页与图鉴单件页共用同一份，避免两套口径。
-  - javascripts/quest-needs.js
-  # ⚠️ 地图脚本**不在这里直接加载**：map.js 约 93 KB（gzip 32 KB），
+  # 全局手写脚本**打包成一个**（2026-10-27）。原来是 13 个 <script src>，
+  # 各带一份 gzip 字典 —— 而它们讲的是同一批词汇（siteRoot / document$ /
+  # tk- 前缀 / 那一串 querySelector）。实测 74.46 → 68.67 KB，净省 5.79 KB。
+  # 这块成本**每页、每次打开都付**（170 页 × 每次访问），所以省下来的是真金白银：
+  # 弱 3G 下每页少等约 0.5 s。
+  #
+  # 由 scripts/gen_bundle.py 生成并**入仓**；改了下面任一源文件都必须重跑它
+  # （⑤c 生成物防漂移会查）。源文件仍留在同目录，各段以 `==== 源文件：x.js ====`
+  # 分隔，方便出错时就地定位。
+  #    scroll-fix / glossary-tooltip / search-ready / breadcrumb / nav-top /
+  #    progress-manifest / progress / quest-needs / table-sticky / toolbox
+  # 两条单独说明保留在这里（细节在各文件头注释）：
+  #   · quest-needs.js —— 物品需求判定（读进度），物品反查页与图鉴单件页共用
+  #     同一份，避免两套口径；
+  #   · table-sticky.js —— 长表表头吸顶，只对 ≥15 行的表生效，脚本自己找表，
+  #     没有表就什么都不做（为什么不能纯 CSS，见脚本头注释）。
+  - javascripts/bundle.js
+  # ⚠️ 下面两个 loader **不能并进 bundle**（2026-10-27 实测算过，省 2.7 KB 不值得）：
+  #    两者都靠 document.currentScript.src 反推同目录地址
+  #    （`src.replace(/map-loader\.js/, "map.js")`）。并进 bundle 后
+  #    currentScript 指向 bundle.js，正则匹配不到，注入地址还是 bundle.js 自己
+  #    —— 无限自注入。这与 2026-10-19「左右栏全空」是同一类故障（那次是内联
+  #    script 先于 extra_javascript 执行、DOM 里没有 javascripts/*.js 可反推），
+  #    所以各自保留、各付约 1.3 KB。
+  #
+  #    ⚠️ 地图脚本**不在这里直接加载**：map.js 约 93 KB（gzip 32 KB），
   #    只有带 #tk-map 的地图页需要。map-loader.js 检测到挂载点才注入它，
   #    其余 150 多页不再为地图付下载（2026-10-17）。
   - javascripts/map-loader.js
-  # 长表表头吸顶：只对 ≥15 行的表生效，脚本自己找表，没有表就什么都不做。
-  # 6.9 KB（gzip 3.2 KB）。为什么不能纯 CSS，见脚本头注释。
-  - javascripts/table-sticky.js
   # ⚠️ ops-board.js 也**不在这里**：约 48 KB（gzip 16 KB），全场只有 /ops/ 需要。
   #    留在这里 = 其余 166 页每页为它付一次下载（2026-10-18 实测：每页 JS 294 → 246 KB）。
   #    与地图同一套做法：mount-loader.js 检测到 #tk-ops 才注入。
@@ -124,7 +140,6 @@ extra_javascript:
   #    首页作战台（home-ops.js，gzip 3.5 KB）走同一个加载器：看到 #tk-home-ops 才注入。
   #    它曾在 2026-10-19 挂在这里一分钟 —— 每页 JS 立刻被顶到 76 KB，越过 74 KB 预算线。
   - javascripts/mount-loader.js
-  - javascripts/toolbox.js
 
 nav:
   - 首页: README.md
