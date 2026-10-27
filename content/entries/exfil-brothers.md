@@ -6,14 +6,20 @@ tags:
 ---
 # EXFIL Brothers 计划 (EXFIL Brothers Program)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -24,6 +30,8 @@ tags:
 | **适用范围** | **任意《逃离塔科夫》模式**通用，**与竞技场（Arena）无关** |
 | **绑定方式** | 官网（escapefromtarkov.com）的推荐链接，**不是游戏内功能** |
 | **身份门槛** | Operator：注册**满 7 天**且**任意模式达到 30 级**；Candidate：注册**不满 7 天** |
+
+</div>
 
 ---
 
@@ -41,7 +49,11 @@ tags:
 
 > **身份是自动判定的，不需要申请**：注册满 7 天 + 任意模式 30 级 = Operator；注册不满 7 天 = Candidate。
 
+<div class="tk-note tk-note--warn" markdown>
+
 > ⚠️ **Candidate 窗口只有 7 天，且不可续期。** 官方原文是「账号注册**少于 7 天**」——**过期之后再推荐就只能是 Operator 带 Operator，拿不到新人这一档奖励**。想帮朋友入坑，**要在他注册的第一周内完成绑定**。
+
+</div>
 
 <a id="xp"></a>
 

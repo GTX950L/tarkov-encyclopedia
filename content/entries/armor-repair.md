@@ -7,14 +7,20 @@ tags:
 ---
 # 护甲修复与耐久 (Armor Repair & Durability)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -24,6 +30,8 @@ tags:
 | **不可逆项** | 上限**永不回升**，卖出去也不会 |
 | **效果衰减** | 耐久比例越低，实际防护等级越低 |
 | **版本基线** | 1.2.0.0（商人整体价格已上调） |
+
+</div>
 
 ---
 

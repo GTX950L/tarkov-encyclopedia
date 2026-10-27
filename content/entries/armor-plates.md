@@ -6,14 +6,20 @@ tags:
 ---
 # 防弹插板选型 (Ballistic Plate Selection)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -25,6 +31,8 @@ tags:
 | **与图鉴的分工** | 逐款的完整属性、获取途径见[物品图鉴 · 防护装备](../catalog/gear-armor.md)；本页只做**比较与判断** |
 | **版本基线** | 1.2.0.0 |
 | **重要提醒** | 插槽白名单与价格随版本调整，下单前以游戏内装备面板为准 |
+
+</div>
 
 ---
 

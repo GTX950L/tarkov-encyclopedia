@@ -6,14 +6,27 @@ tags:
 ---
 # 街区 (Streets of Tarkov)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
+<div class="tk-entry-map" data-search-exclude>
+<a href="../maps/streets-of-tarkov.md">
+<img src="../assets/maps/thumbs/streets-of-tarkov.png" alt="streets 地图缩略图" loading="lazy" decoding="async">
+<span class="tk-entry-map__cap">交互地图 · 点击查看完整点位</span>
+</a>
+</div>
+
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -26,6 +39,8 @@ tags:
 | **保险** | **正常生效** ✅ |
 | **适合阶段** | 后期、团队作战、任务党与高价值搜刮 |
 | **标志性地点** | LexOs 车行、克里莫夫购物中心、内务部学院、公寓楼群、地下停车场 |
+
+</div>
 
 ---
 

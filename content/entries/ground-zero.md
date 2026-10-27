@@ -6,14 +6,27 @@ tags:
 ---
 # 中心区 (Ground Zero)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
+<div class="tk-entry-map" data-search-exclude>
+<a href="../maps/ground-zero.md">
+<img src="../assets/maps/thumbs/ground-zero.png" alt="ground-zero 地图缩略图" loading="lazy" decoding="async">
+<span class="tk-entry-map__cap">交互地图 · 点击查看完整点位</span>
+</a>
+</div>
+
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -26,6 +39,8 @@ tags:
 | **Boss** | 无固定 Boss；但**高等级版本会拉入强 AI 与全装玩家** |
 | **保险** | **正常生效** ✅ |
 | **适合阶段** | 1–20 级起步、任务密集期 |
+
+</div>
 
 ---
 
@@ -42,7 +57,11 @@ tags:
 | **低等级（1–20 级）** | **新手版** | 9–10 | 9 个 | 以同级玩家与 Scav 为主，是全游戏**最温和**的真人环境 |
 | **高等级（21 级起）** | **高难版** | 9–12 | **6 个** | 拉入**高等级玩家、更强的 AI 与更密的 PMC**——同一张图，难度陡增 |
 
+<div class="tk-note tk-note--data" markdown>
+
 > 📐 **高难版还有一处最容易忽略的变化**：**撤离点从 9 个减到 6 个**（官方数据）——**路线选择直接少掉三分之一**。20 级前背熟的撤离点，21 级后不一定还在，**进图先按 O 重新确认**。
+
+</div>
 
 **这条机制有两层后果**：
 

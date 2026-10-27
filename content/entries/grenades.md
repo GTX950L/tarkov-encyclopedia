@@ -6,14 +6,20 @@ tags:
 ---
 # 手雷与投掷物 (Grenades & Throwables)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -23,6 +29,8 @@ tags:
 | **投掷模式** | 高抛与低抛两种，决定落点与反弹路径 |
 | **新手须知** | 手雷会反弹——扔出去的东西，有概率回到你脚边 |
 | **配套条目** | [投掷物来袭处置](grenade-response.md) 讲**它来了怎么办**（三段声音、引信余量、拔销声的双向博弈）；本篇讲**它是什么、有哪几类、怎么用** |
+
+</div>
 
 ---
 

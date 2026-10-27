@@ -5,14 +5,20 @@ tags:
 ---
 # 武器故障与耐久维护 (Weapon Malfunctions & Maintenance)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -25,6 +31,8 @@ tags:
 | **维修方式** | **武器维修套件** + 藏身处**工作台**模块（**不能带进战局用**） |
 | **对应技能** | **武器保养**（Weapon Maintenance）——**不是**[武器掌握](weapon-mastery.md) |
 | **配套条目** | 护甲那一侧见[护甲修复与耐久](armor-repair.md)；0.13 的「维修套件与强化」是两个系统共用的 |
+
+</div>
 
 ---
 

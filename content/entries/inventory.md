@@ -6,14 +6,20 @@ tags:
 ---
 # 背包与容器系统 (Inventory & Containers)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -22,6 +28,8 @@ tags:
 | **安全容器** | 安全箱（Container）、弹匣盒、弹药包等——**箱内物品阵亡不掉** |
 | **背包嵌套** | 大包套小包，但嵌套有层级限制 |
 | **重量系统** | 超重影响移速、耐力与恢复 |
+
+</div>
 
 ---
 

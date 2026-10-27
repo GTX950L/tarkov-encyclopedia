@@ -5,14 +5,20 @@ tags:
 ---
 # 医疗物资 (Medical Supplies)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -21,6 +27,8 @@ tags:
 | **关键取舍** | 单价 × 用途 × 占格 |
 | **携带原则** | 功能覆盖比数量堆砌重要 |
 | **配套条目** | [战中伤情处置](combat-medical.md) 讲**在交火中按什么顺序治**；本篇讲**医疗物资本身的取舍** |
+
+</div>
 
 ---
 

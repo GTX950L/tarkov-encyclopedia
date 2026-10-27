@@ -6,14 +6,20 @@ tags:
 ---
 # 生命与身体部位系统 (Health System)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -22,6 +28,8 @@ tags:
 | **致死条件** | 头部血量归零 / 胸腔血量归零 / 脱水或饥饿耗尽 |
 | **状态异常** | 流血、骨折、疼痛、震颤、脑震荡、疲劳 |
 | **配套条目** | [战中伤情处置](combat-medical.md) 讲**受伤之后先做什么**；本篇讲**身体部位与伤害结算的机制** |
+
+</div>
 
 ---
 

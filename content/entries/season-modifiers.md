@@ -6,14 +6,20 @@ tags:
 ---
 # 赛季修改器逐项 (Season Modifiers)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -24,7 +30,13 @@ tags:
 | **适用范围** | 仅赛季角色；持久角色与 PvE 不参与 |
 | **跨赛季** | 每赛季重新设计，**上一季的数值与卡片不保证沿用** |
 
+</div>
+
+<div class="tk-note tk-note--time" markdown>
+
 > 📈 **时效提醒**：本页是**第一赛季 KORD BREACH** 的修改器清单（6 项全局 + 34 项个人：19 项正面 / 15 项负面）。它**每季重新设计**，赛季结束后整体失效——引用时必须附「第一赛季 / 1.1.5.1」，**不要把本季的卡片与点数当成跨赛季不变的设定**。
+
+</div>
 
 ---
 

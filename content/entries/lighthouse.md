@@ -6,14 +6,27 @@ tags:
 ---
 # 灯塔 (Lighthouse)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
+<div class="tk-entry-map" data-search-exclude>
+<a href="../maps/lighthouse.md">
+<img src="../assets/maps/thumbs/lighthouse.png" alt="lighthouse 地图缩略图" loading="lazy" decoding="async">
+<span class="tk-entry-map__cap">交互地图 · 点击查看完整点位</span>
+</a>
+</div>
+
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -27,6 +40,8 @@ tags:
 | **适合阶段** | 中后期、Lightkeeper 解锁线、高价值搜刮 |
 | **标志性地点** | 水处理厂、山间别墅（Rogues 新驻地）、灯塔半岛、南部码头 |
 | **特殊机制** | **BTR 全图巡逻**、地下通道、**通往破冰船的转场点** |
+
+</div>
 
 ---
 

@@ -7,14 +7,20 @@ tags:
 ---
 # Scav 互动与叛徒判定 (Scav Relations & Traitor)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -24,6 +30,8 @@ tags:
 | **判定基准** | **造成伤害**，不需要击杀 |
 | **持续时间** | 当局剩余时间（跨不过这一局） |
 | **配套账本** | Fence 声望（Karma） |
+
+</div>
 
 ---
 
