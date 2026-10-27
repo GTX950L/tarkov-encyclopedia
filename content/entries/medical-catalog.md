@@ -7,7 +7,7 @@ tags:
 
 <div class="tk-ver" data-search-exclude markdown>
 
-> 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
+> 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）  
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
 > **本页是「选型指南」，不是全量清单。** 这里只讲怎么挑（分组逻辑、代表型号、常见陷阱）；
 > 逐款的完整属性、商人买卖价与获取途径见[物品图鉴 · 医疗物资](../catalog/consumables.md) —— 两边的字段不同、口径也不同，
