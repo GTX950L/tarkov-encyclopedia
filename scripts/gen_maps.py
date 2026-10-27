@@ -358,14 +358,28 @@ LIGHT_STYLE = """.trees{fill:#bccfae}
 # 楼层图层：上游用 `<g id="...">` 给每一层分组，切换显示即可换层。
 # **注意区分 `Ground`（地面材质层，class="land"）与 `Ground_Level`（楼层容器）** ——
 # 前者不是楼层，加进这个表会让「地面」按钮把地形整个关掉。
+#
+# ⚠️ **词表是白名单，而顶层 `<g>` 是封闭集合**（每张图就那么几个）。
+#    2026-10-28 实测：13 张图顶层分组共 39 个，全部可归类。工厂曾因漏收
+#    `Ground_Floor` / `Basement`，只识别出「2 层 / 3 层」，另两层没有任何按钮能关
+#    —— 首屏是地下 + 1 层 + 2 层三层叠加，界面却写着「2 层」，看起来还「挺完整」。
+#    所以现在 `_floor_split()` **要求每个顶层 `<g>` 都有归属**：不在 FLOOR_ZH
+#    就必须进 FLOOR_STATIC，否则生成时直接报错。上游哪天改名，红的会是生成器，
+#    不是读者的屏幕。
+#
+# **顺序 = 按钮顺序 = 阅读顺序**：地下 → 地面 → 1 层 → 2 层 → …
+#    （2026-10-28 重排：此前 `Underground_Level` 排在 `Ground_Level` 之后，
+#     按钮读成「地面 → 地下 → 1 层」，地下夹在中间。）
 FLOOR_ZH: dict[str, str] = {
-    # 瓦片拼合图的层（实验室两层）—— 由 build_tile_maps.py 写在包装 SVG 的 <g id>
-    "1st": "1 层",
-    "2nd": "2 层",
+    "Underground_Level": "地下",
+    "Basement": "地下",          # 工厂：地下室
 
     "Ground_Level": "地面",
-    "Underground_Level": "地下",
+    "Ground_Floor": "1 层",      # 工厂：地面主层，游戏内叫「1 层」不是「地面」
+
+    "1st": "1 层",               # 瓦片拼合图（实验室）—— build_tile_maps.py 的包装层
     "First_Floor": "1 层",
+    "2nd": "2 层",
     "Second_Floor": "2 层",
     "Third_Floor": "3 层",
     "Fourth_Floor": "4 层",
@@ -373,11 +387,90 @@ FLOOR_ZH: dict[str, str] = {
 }
 FLOOR_ORDER = list(FLOOR_ZH)
 
+# 打开地图默认看哪一层：优先「地面类」。
+# ⚠️ **不能用 `floors[0]`** —— 重排后第一层是「地下」，一进页面就落在漆黑的地下室。
+# 工厂的 `Ground_Floor` 是它唯一的「地面」，实验室的 `1st` 同理。
+FLOOR_DEFAULT = ("Ground_Level", "Ground_Floor", "1st")
 
-def _floors(layer_ids: list[str]) -> list[dict]:
-    """从 SVG 实际存在的图层 id 里挑出楼层，按楼层顺序排。"""
-    present = [f for f in FLOOR_ORDER if f in layer_ids]
-    return [{"id": f, "cn": FLOOR_ZH[f]} for f in present]
+# 顶层 `<g>` 里**不是楼层**的容器：不参与换层互斥，永远显示。
+# 加进来的每一条都要写清为什么不是楼层 —— 这是豁免，不是垃圾桶。
+FLOOR_STATIC: dict[str, str] = {
+    "06_infirmary": "破冰船单层包装（build_tile_maps.py 生成，全图只有这一层）",
+    "main": "迷宫单层包装（同上）",
+    "Bunkers": "储备站地堡结构层——与 Ground_Level 并列，是建筑结构不是楼层",
+}
+
+# 顶层 `<g>`：按出现顺序取最外层分组。**跳过 `<defs>` 里的符号定义** ——
+# 那些不是画出来的内容，混进来会被当楼层。
+# 不用 `LAYER_RE`（那个抓所有层级的 id）：材质层 `Trees`/`River` 与楼层容器混在
+# 一起，回答不了「换一层该盖住哪些」。
+_TOP_TAG_RE = re.compile(r"<(/?)(g|defs)\b([^>]*)>")
+_ID_RE = re.compile(r'\bid="([^"]+)"')
+
+
+def top_groups(svg_text: str) -> list[dict]:
+    """返回最外层 `<g>` 的 [{id, keep}]；keep 是上游 `data-keep-with-group` 的解析结果。"""
+    out: list[dict] = []
+    depth = 0
+    in_defs = 0
+    for m in _TOP_TAG_RE.finditer(svg_text):
+        closing, tag, attrs = m.group(1) == "/", m.group(2), m.group(3)
+        if tag == "defs":
+            in_defs = max(0, in_defs + (-1 if closing else 1))
+            continue
+        if closing:
+            depth = max(0, depth - 1)
+            continue
+        self_closing = attrs.rstrip().endswith("/")
+        if depth == 0 and in_defs == 0:
+            mid = _ID_RE.search(attrs)
+            if mid:
+                keep = re.search(r'data-keep-with-group="([^"]+)"', attrs)
+                out.append(
+                    {
+                        "id": mid.group(1),
+                        "keep": [k.strip() for k in keep.group(1).split(",") if k.strip()]
+                        if keep
+                        else [],
+                    }
+                )
+        if not self_closing:
+            depth += 1
+    return out
+
+
+def _floor_split(top: list[dict], key: str) -> tuple[list[dict], list[str]]:
+    """把顶层分组分成「楼层」与「常显层」，并**要求每个都有归属**。
+
+    返回 (floors, floor_static)。floors 里标出 `default` 与上游声明的 `keep`。
+    """
+    ids = [g["id"] for g in top]
+    present = [f for f in FLOOR_ORDER if f in ids]
+    default = next((f for f in FLOOR_DEFAULT if f in present), present[0] if present else None)
+    keep_of = {g["id"]: g["keep"] for g in top}
+
+    known = set(present)
+    stray = [i for i in ids if i not in known and i not in FLOOR_STATIC]
+    if stray:
+        raise SystemExit(
+            f"[错误] {key}: SVG 顶层分组里有 {len(stray)} 个没有归属：{stray}\n"
+            f"  → 是楼层：加进 FLOOR_ZH（想清楚按钮上叫什么、排第几）；\n"
+            f"  → 不是楼层（结构层 / 材质容器）：加进 FLOOR_STATIC 并写明原因。\n"
+            f"  这条检查防的是「楼层漏收后永久叠加」—— 2026-10-28 的工厂就是这么坏的：\n"
+            f"  漏了 Basement/Ground_Floor 两层，它们没有按钮能关，首屏三层叠在一起。"
+        )
+
+    floors = []
+    for f in present:
+        rec = {"id": f, "cn": FLOOR_ZH[f]}
+        if f == default:
+            rec["default"] = True
+        # keep 组若本身不在楼层表里（上游标了个静态层），忽略 —— 那种情况它本来就常显
+        kept = [k for k in keep_of.get(f, []) if k in known]
+        if kept:
+            rec["keep"] = kept
+        floors.append(rec)
+    return floors, [i for i in ids if i in FLOOR_STATIC]
 
 
 # maps.json 的 key → 站内条目（用于页面回链与名称对照）
@@ -1032,6 +1125,10 @@ def build_maps(data: list) -> dict:
         # 图层：只留上游 <g id="..."> 里的顶层结构名（楼层 / 语义层）
         layers = LAYER_RE.findall(styled)
 
+        # 楼层 / 常显层：**只认最外层的 <g>**（材质层在楼层组内部，不在这一层）。
+        # 未归类的顶层分组会让生成器直接失败 —— 见 _floor_split() 的说明。
+        floors, floor_static = _floor_split(top_groups(styled), key)
+
         if kind == "svg":
             SVG_DIR.mkdir(parents=True, exist_ok=True)
             (SVG_DIR / raw_path.name).write_text(styled, encoding="utf-8")
@@ -1334,7 +1431,10 @@ def build_maps(data: list) -> dict:
             # 所以「一个像素跨多少 layer 单位」÷「变换比例」即得。
             # **不取平均**：两个方向的尺度本就不等（bounds 与 viewBox 的宽高比有微差）。
             "mpp": mpp_of(meta, view_box),
-            "floors": _floors(layers),
+            "floors": floors,
+            # 顶层分组里明确「不是楼层」的（储备站地堡结构层、瓦片图单层包装）：
+            # 换层时**不隐藏**它们。没有这一项，前端「全隐再显」会把地堡一起关掉。
+            "floorStatic": floor_static,
             "layers": layers,
             "labels": labels,
             "questZones": quest_zones,

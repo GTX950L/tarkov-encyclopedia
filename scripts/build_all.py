@@ -15,6 +15,7 @@
     python scripts/check_catalog_consistency.py  # ⑤b 既有图鉴与物品图鉴的数值对账
     python scripts/check_gen_drift.py        # ⑤c 生成物防漂移（重跑离线生成器）
     python scripts/check_map_projection.py   # ⑤d 地图投影自检
+    python scripts/check_map_floors.py       # ⑤e 地图楼层归属对账
     zensical build                           # ⑥ 真实构建
 
 ⚠️ 步骤数以 `STEPS` 为准 —— 别在文档里写死「五道」这类数字（2026-10-17 修：
@@ -109,6 +110,9 @@ STEPS: list[tuple[str, list[str], str]] = [
      "构建与其它门禁都不会红 —— 线上就一直留着旧产物"),
     ("⑤d 投影自检", [PY, "scripts/check_map_projection.py"],
      "入库锚点坐标与投影公式重算比对 + viewBox 对账 —— 公式或上游数据漂了立刻知道"),
+    ("⑤e 楼层归属", [PY, "scripts/check_map_floors.py"],
+     "SVG 顶层分组 ↔ FLOOR_ZH 词表 ↔ 产物 floors 三方对账 —— "
+     "词表漏一层，那层就没有按钮能关、永久叠在图上（工厂 2026-10-28 的故障形态）"),
 ]
 
 

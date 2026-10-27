@@ -405,23 +405,80 @@
 
     applyVB();
 
-    /* 楼层互斥：先只留第一层，避免所有楼层叠在一起 */
+    /* ── 楼层互斥（2026-10-28 重做）──
+       原实现只遍历 `data.floors`（词表认出来的层）改 display，词表之外的分组一律
+       不管。工厂因此坏了：SVG 顶层有 Basement / Ground_Floor / Second_Floor /
+       Third_Floor 四组，词表只认识后两个 → 地下与 1 层**没有按钮可关**，首屏三层
+       叠在一起，界面却写着「2 层」。
+
+       现在改成「先全隐、再开目标层」：
+         · `topGroups` = 底图自己的顶层分组（本文件后加的点位层带 `tk-map__` 前缀，
+           排除掉）；
+         · `data.floorStatic` 里的分组明确不是楼层（储备站地堡结构层、瓦片图的单层
+           包装），不参与互斥、永不隐藏 —— 少了这一步，储备站的 `Bunkers` 会被一起
+           关掉，而它没有任何按钮能叫回来；
+         · 词表哪天再漏一层，后果从「叠上来」降级成「少一个按钮」，两个都好排查，
+           但后者看得见。
+
+       默认层由 `data.floors[].default` 指定（生成器按 Ground_Level / Ground_Floor /
+       1st 的顺序挑）。**不能取 `[0]`**：按钮顺序是「地下在最前」，取第一个会让
+       读者一进页面就落在漆黑的地下室。 */
     var floorGroups = (data.floors || [])
       .map(function (f) {
-        return { id: f.id, cn: f.cn, el: svg.querySelector('g[id="' + f.id + '"]') };
+        return {
+          id: f.id,
+          cn: f.cn,
+          keep: f.keep || [],
+          def: !!f.default,
+          el: svg.querySelector('g[id="' + f.id + '"]'),
+        };
       })
       .filter(function (f) {
         return f.el;
       });
 
+    var staticIds = data.floorStatic || [];
+    var topGroups = [];
+    Array.prototype.forEach.call(svg.children, function (c) {
+      if (c.nodeType !== 1 || String(c.tagName).toLowerCase() !== "g") return;
+      var cls = c.getAttribute("class") || "";
+      if (cls.indexOf("tk-map__") === 0) return; // 本文件后加的点位层，不属于底图
+      if (staticIds.indexOf(c.id) >= 0) return; // 明确不是楼层
+      topGroups.push(c);
+    });
+
     function showFloor(id) {
+      topGroups.forEach(function (g) {
+        g.style.display = "none";
+        g.classList.remove("tk-map__floor-ref");
+      });
+      var target = null;
       floorGroups.forEach(function (f) {
-        var show = f.id === id;
-        f.el.style.display = show ? "" : "none";
-        if (show) loadLazyImages(f.el); // 切到哪层，哪层的位图才开始下载
+        if (f.id === id) target = f;
+      });
+      /* 传进来的 id 找不到时退回第一层 —— 宁可显示错层，也不要给一张白图。 */
+      if (!target) target = floorGroups[0];
+      if (!target) return;
+      target.el.style.display = "";
+      loadLazyImages(target.el);
+      /* keep：「这一层要和某层一起看」。上游 5 张图（海关 / 中心区 / 海岸线 /
+         街区 / 终点站）的 First_Floor 都标了 data-keep-with-group="Ground_Level"
+         —— 1 层的墙线要落在街道上才有参照，否则只剩一片悬空的墙。
+         参照层淡化显示（.tk-map__floor-ref）：两层同权重的话，读者分不清哪层
+         才是当前层。 */
+      (target.keep || []).forEach(function (kid) {
+        var g = svg.querySelector('g[id="' + kid + '"]');
+        if (!g) return;
+        g.style.display = "";
+        g.classList.add("tk-map__floor-ref");
+        loadLazyImages(g);
       });
     }
-    if (floorGroups.length) showFloor(floorGroups[0].id);
+    var defFloor = null;
+    floorGroups.forEach(function (f) {
+      if (f.def) defFloor = f.id;
+    });
+    if (floorGroups.length) showFloor(defFloor || floorGroups[0].id);
 
     /* ── 危险区（**最底层**：它是大面积多边形，画在任何东西下面都最合适）── */
     var hazLayer = el("g", { class: "tk-map__hazards" });
@@ -1453,7 +1510,9 @@
         var b = document.createElement("button");
         b.type = "button";
         b.textContent = f.cn;
-        if (i === 0) b.classList.add("is-on");
+        /* 高亮跟**实际的默认层**走，不是「第一个按钮」—— 按钮顺序是
+           「地下 → 地面 → …」，硬编码 i===0 会把高亮留在暗处。 */
+        if (f.def || (!defFloor && i === 0)) b.classList.add("is-on");
         b.addEventListener("click", function () {
           showFloor(f.id);
           Array.prototype.forEach.call(fl.children, function (c) {

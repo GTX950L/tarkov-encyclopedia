@@ -5888,6 +5888,12 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   touch-action: none;
 }
 
+/* 楼层「参照层」：上游 `data-keep-with-group` 声明的伴随层 —— 海关 / 中心区 /
+   海岸线 / 街区 / 终点站五张图的 1 层都要求带地面（墙线落在街道上才有参照）。
+   淡化它，让读者一眼分出「这层是参考、那层是当前」；不淡化时两层同权重，
+   看不出哪个按钮对应哪层（2026-10-28）。 */
+.tk-map__floor-ref { opacity: .45; }
+
 /* 点位：红点 + 白环；文字带白描边（paint-order 让描边在字之下） */
 .tk-map__pin circle {
   fill: #d0021b;
