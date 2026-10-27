@@ -47,42 +47,91 @@
     });
   }
 
+  /* 藏身处需求（2026-10-27 新增）。
+     数据形状（`items_index.json` 的 `h`）：
+       [[模块名, 等级, 数量, fir(0/1)], …]
+     `h` 只在有需求时才存在 —— 900 个物品里 119 个有，空数组会白占 5 KB。
+     缺失时 `rec.h || []` 兜住，不改变「任务需求」的任何既有判定。 */
+  function hideoutOf(rec) {
+    var h = (rec && rec.h) || [];
+    if (!h.length) return [];
+    return h.map(function (x) {
+      return {
+        station: x[0] || "",
+        level: x[1] || 0,
+        count: x[2] || 1,
+        fir: !!x[3],
+      };
+    });
+  }
+
   /* 返回：
-       cls   keep | partial | sell | unknown
-       text  要留 / 还需 N 个任务 / 任务已清 · 可出 / 任务里不需要
+       cls   keep | partial | sell | hold | unknown
+       text  要留 / 还需 N 个任务 / 任务已清 · 可出 / 藏身处要 · 留 / …
        total / done / inhand / remain / items / noProgress
-     `remain` 包含「重名未知」的条目 —— 保守，不把未知算成已完成。 */
+       hList / hStations / hFir
+     `remain` 包含「重名未知」的条目 —— 保守，不把未知算成已完成。
+
+     ⚠️ 三条文案的边界（2026-10-27 加藏身处后重排，改任何一条都要同步
+        `quests/item-lookup.md` 的判定表，否则页面说的和这里做的不一致）：
+        · 任务全清 + 藏身处要 → 「任务已清 · 藏身处还要」（**不能说「可出」**）
+        · 任务不要 + 藏身处要 → 「藏身处要 · 留」
+        · 两者都不要         → 「任务与藏身处都不需要」（**不能说「任务里不需要」**，
+          读者会读成「那可以出」） */
   function verdict(rec) {
     var items = listOf(rec);
     var total = items.length;
+    var hlist = hideoutOf(rec);
+    var hStations = [];
+    hlist.forEach(function (x) {
+      if (x.station && hStations.indexOf(x.station) < 0) hStations.push(x.station);
+    });
+    var hFir = hlist.some(function (x) { return x.fir; });
+    var hx = { hList: hlist, hStations: hStations, hFir: hFir };
+
+    function ret(o) {
+      o.hList = hx.hList; o.hStations = hx.hStations; o.hFir = hx.hFir;
+      return o;
+    }
+
     if (!total) {
-      return { cls: "unknown", text: "任务里不需要", total: 0, done: 0,
-               inhand: 0, remain: 0, items: items, noProgress: false };
+      if (hlist.length) {
+        return ret({ cls: "hold", text: "藏身处要 · 留", total: 0, done: 0,
+                     inhand: 0, remain: 0, items: items, noProgress: false });
+      }
+      return ret({ cls: "unknown", text: "任务与藏身处都不需要", total: 0,
+                   done: 0, inhand: 0, remain: 0, items: items, noProgress: false });
     }
     var known = items.filter(function (x) { return !!x.qid; });
     if (!known.length) {
-      return { cls: "keep", text: "要留", total: total, done: 0,
-               inhand: 0, remain: total, items: items, noProgress: true };
+      return ret({ cls: "keep", text: "要留", total: total, done: 0,
+                   inhand: 0, remain: total, items: items, noProgress: true });
     }
     var done = known.filter(function (x) { return x.state === "done"; }).length;
     var inhand = known.filter(function (x) { return x.state === "inhand"; }).length;
     var remain = total - done;
     if (remain === 0) {
-      return { cls: "sell", text: "任务已清 · 可出", total: total, done: done,
-               inhand: inhand, remain: 0, items: items, noProgress: false };
+      if (hlist.length) {
+        return ret({ cls: "hold", text: "任务已清 · 藏身处还要", total: total,
+                     done: done, inhand: inhand, remain: 0, items: items,
+                     noProgress: false });
+      }
+      return ret({ cls: "sell", text: "任务已清 · 可出", total: total, done: done,
+                   inhand: inhand, remain: 0, items: items, noProgress: false });
     }
     if (done || inhand) {
-      return { cls: "partial", text: "还需 " + remain + " 个任务", total: total,
-               done: done, inhand: inhand, remain: remain, items: items,
-               noProgress: false };
+      return ret({ cls: "partial", text: "还需 " + remain + " 个任务", total: total,
+                   done: done, inhand: inhand, remain: remain, items: items,
+                   noProgress: false });
     }
-    return { cls: "keep", text: "要留", total: total, done: 0, inhand: 0,
-             remain: remain, items: items, noProgress: false };
+    return ret({ cls: "keep", text: "要留", total: total, done: 0, inhand: 0,
+                 remain: remain, items: items, noProgress: false });
   }
 
   window.TKQuestNeeds = {
     verdict: verdict,
     listOf: listOf,
     stateOf: stateOf,
+    hideoutOf: hideoutOf,
   };
 })();

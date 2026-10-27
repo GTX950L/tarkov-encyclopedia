@@ -569,6 +569,9 @@ def main() -> int:
             "quests/index.md": {255},            # 「按条件筛」里某一档的命中数
             "entries/trader-profiles.md": {464},  # 带商人台词的任务数
             "entries/customs.md": {116},         # 本图任务目标区域涉及的条目数
+            # B15（台词来源与降级）：464 是「台词库 ∩ 任务库」的交集。
+            # 这里只登记「允许出现」，**对不对由 4d3 校验**（含 440 下限）。
+            "docs/citation.md": {464},
         }
         SUBSET_OBJECTIVES = {
             "quests/index.md": {349},            # 含「必须战局内找到」的目标数
@@ -597,6 +600,57 @@ def main() -> int:
                 errors.append(
                     f"任务目标数不一致: {md.relative_to(ROOT)}:{line_no} 写的是 {value} 条目标，"
                     f"quests.json 实际 {n_objectives}（子集口径请登记到 SUBSET_OBJECTIVES）"
+                )
+
+    # 4d3. 商人台词的覆盖率：数据文件与页面声明必须一致，且不得跌破下限
+    #
+    # 为什么单独看这一项（2026-10-27 加）：
+    #   台词是全站**唯一的三级来源**，且只挂在一个第三方站（eftarkov.com）。
+    #   它断掉时不会报错 —— gen_quests.py 的实现是「缺失即整栏不显示」，
+    #   页面照样构建成功、七道校验照样全绿，只有读者会发现台词没了。
+    #   这是全站唯一「坏了静默」的数据，所以这里补两件事：
+    #     ① 页面写的覆盖数必须等于数据文件实数（防「数据掉了、文案还写着旧数」）；
+    #     ② 实数不得低于下限（防「连文案一起改小」蒙混过去）。
+    #
+    #   注意：覆盖率下降**本身不是错** —— 口径就是「该站没有的任务不显示」，
+    #   新版本加了 20 个任务而对方还没收录，掉几个是正常的。
+    #   跌破下限才说明抓取链断了（改版 / 反爬 / ID 体系变了）。
+    DIALOGUE = ROOT / "scripts" / "data" / "quest_dialogue.json"
+    # 464 / 503 = 92.2%（2026-10-27 实测）。503 个任务全量抓过一次；
+    # 留 24 条的缓冲给「新版本加任务、对方还没收」这种正常滞后。
+    MIN_DIALOGUE_COVERAGE = 440
+    if DIALOGUE.exists() and quests_json.exists():
+        dd = json.loads(DIALOGUE.read_text(encoding="utf-8"))
+        qid_set = {t.get("id") for t in qlist if t.get("id")}
+        d_cov = len(set((dd.get("items") or {}).keys()) & qid_set)
+        if d_cov < MIN_DIALOGUE_COVERAGE:
+            errors.append(
+                f"商人台词覆盖跌破下限: quest_dialogue.json 只覆盖 {d_cov} 个任务，"
+                f"下限 {MIN_DIALOGUE_COVERAGE}。这是全站唯一的三级来源（eftarkov.com），"
+                f"跌破说明抓取链断了 —— 先跑 fetch_quest_dialogue.py --missing 看能否补回；"
+                f"确认对方站点不可用时，按 citation.md 的降级策略把这一栏整体下线，"
+                f"不要只改小这个数字"
+            )
+        # 三处声明同一件事，写法不同，各自匹配：
+        #   quests/quest.md               「覆盖 **464** 个任务」
+        #   entries/trader-profiles.md    「464 个任务带台词」
+        #   docs/citation.md（B15）       「464 个任务的进场 / 完成 / 失败对话」
+        DECLARED = (
+            ("quests/quest.md", r"覆盖\s*\*\*(\d+)\*\*\s*个任务"),
+            ("entries/trader-profiles.md", r"(\d+)\s*个任务带台词"),
+            ("docs/citation.md", r"(\d+)\s*个任务的进场"),
+        )
+        for rel, pat in DECLARED:
+            fp = CONTENT / rel
+            if not fp.exists():
+                continue
+            hit = re.search(pat, fp.read_text(encoding="utf-8"))
+            if hit and int(hit.group(1)) != d_cov:
+                line_no = fp.read_text(encoding="utf-8")[:hit.start()].count("\n") + 1
+                errors.append(
+                    f"台词覆盖数不一致: content/{rel}:{line_no} 写的是 "
+                    f"{hit.group(1)} 个，quest_dialogue.json 与 quests.json 实际交集 "
+                    f"{d_cov} 个（对不上的部分是该站有、本站任务库没有的历史条目）"
                 )
 
     # 4e. 资源事实 ↔ 身份声明：仓库里有图标/底图时，正文不得再声称“不使用任何美术资源”

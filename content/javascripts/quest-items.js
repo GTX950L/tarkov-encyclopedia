@@ -206,6 +206,20 @@ function siteRoot() {
     return (d && d.tasksTotal) ? d.tasksTotal : 0;
   }
 
+  /* 藏身处的一行摘要：批量表与「复制结果」共用同一份文本口径。
+     最多列 2 条 —— 批量表是横向的，某物品在 10 个模块要时
+     整列被撑开，其余行全跟着变宽，读起来反而更差。
+     完整清单在点开单条结果的卡片里。 */
+  function hShort(v) {
+    var list = (v && v.hList) || [];
+    if (!list.length) return "—";
+    var s = list.slice(0, 2).map(function (x) {
+      return x.station + " " + x.level + " 级 ×" + x.count;
+    });
+    if (list.length > 2) s.push("等 " + list.length + " 处");
+    return s.join("、");
+  }
+
   function resultCard(name, rec) {
     var card = el("div", "tk-il__card");
 
@@ -216,6 +230,31 @@ function siteRoot() {
     var v = verdict(rec);
     head.appendChild(el("span", "tk-il__verdict tk-il__verdict--" + v.cls, v.text));
     card.appendChild(head);
+
+    /* 藏身处需求（2026-10-27）：**放在任务区块之前**。
+       理由：一件东西「任务不要但藏身处要」时，任务区块会说「不需要」——
+       先看到藏身处这一栏，才不会顺着「不需要」把东西出掉。
+       与任务需求并列，是因为读者的动作是同一个：手里拿着东西，决定留不留。 */
+    if (v.hStations && v.hStations.length) {
+      var hwhy = el("p", "tk-il__why tk-il__why--hideout");
+      hwhy.appendChild(el("b", null, "藏身处要它"));
+      hwhy.appendChild(document.createTextNode(
+        "（" + v.hStations.length + " 个模块 · " + v.hList.length + " 条升级需求"
+        + (v.hFir ? "，其中带「战局中」的买不到" : "") + "）："));
+      card.appendChild(hwhy);
+
+      var hul = el("p", "tk-il__hideout-list");
+      v.hList.forEach(function (x, i) {
+        if (i) hul.appendChild(document.createTextNode("　·　"));
+        var b = el("span", "tk-il__hideout-item");
+        b.appendChild(document.createTextNode(x.station + " " + x.level + " 级 ×" + x.count));
+        if (x.fir) {
+          b.appendChild(el("i", "tk-il__fir", "战局中"));
+        }
+        hul.appendChild(b);
+      });
+      card.appendChild(hul);
+    }
 
     /* 要留 / 可出 —— 一句话说清「为什么」，并按**未完成任务**排序。
        已完成的沉到 <details> 里：它们不再影响「要不要留」这个决定。 */
@@ -256,11 +295,15 @@ function siteRoot() {
         card.appendChild(det);
       }
 
-      if (v.remain === 0) {
+      if (v.remain === 0 && !(v.hStations && v.hStations.length)) {
         var sell = el("p", "tk-il__sell");
-        sell.textContent = "这些任务都已标记完成 —— 从任务角度可以出掉。"
-          + "藏身处材料、以物换物配方另查；本页不判断那两类用途。";
+        sell.textContent = "这些任务都已标记完成，藏身处材料表里也没有它 —— 可以出掉。"
+          + "以物换物配方另查；本页不判断那一类用途。";
         card.appendChild(sell);
+      } else if (v.remain === 0) {
+        var holdp = el("p", "tk-il__sell tk-il__sell--hold");
+        holdp.textContent = "任务这条线已经清完，但藏身处升级还要它 —— 别出，留着用。";
+        card.appendChild(holdp);
       }
       if (v.noProgress) {
         card.appendChild(el("p", "tk-il__hint",
@@ -282,8 +325,15 @@ function siteRoot() {
       }
     } else {
       var none = el("p", "tk-il__why tk-il__why--muted");
-      none.textContent = "本页收录的 " + (dataTotal() || "当前") + " 个任务里没有它要上交或放置 —— " +
-        "若是装备类物品，请查护甲与弹药图鉴；这不等于它没用。";
+      if (v.hStations && v.hStations.length) {
+        /* 有藏身处需求时**不要**说「任务里不需要」就收尾 ——
+           读者会读成「那可以出」，而这一格恰恰是要他留。 */
+        none.textContent = "本页收录的任务里没有它要上交或放置 —— "
+          + "留它是为了藏身处，不是为任务。";
+      } else {
+        none.textContent = "本页收录的 " + (dataTotal() || "当前") + " 个任务里没有它要上交或放置，"
+          + "藏身处材料表里也没有 —— 若是装备类物品，请查护甲与弹药图鉴；这不等于它没用。";
+      }
       card.appendChild(none);
     }
 
@@ -497,7 +547,7 @@ function siteRoot() {
         var tbl = el("table", "tk-ilb__tbl");
         var thead = el("thead");
         var htr = el("tr");
-        ["物品", "判定", "未完成任务", "要几个", "必须局内找到", "已囤"].forEach(function (h) {
+        ["物品", "判定", "未完成任务", "要几个", "藏身处", "必须局内找到", "已囤"].forEach(function (h) {
           htr.appendChild(el("th", null, h));
         });
         thead.appendChild(htr);
@@ -522,6 +572,9 @@ function siteRoot() {
           if (!r.rem.length) tdTasks.textContent = "—";
           tr.appendChild(tdTasks);
           tr.appendChild(el("td", "tk-ilb__num", r.v.remain === 0 ? "—" : String(r.qty)));
+          /* 藏身处：与「要几个」并列（都是数量需求），但**不复用 remain** ——
+             藏身处那一半不读任务进度，恒为「还要准备」。 */
+          tr.appendChild(el("td", "tk-ilb__hold", hShort(r.v)));
           tr.appendChild(el("td", null, r.fir ? "是" : "否"));
           var have = 0;
           try {
@@ -531,7 +584,8 @@ function siteRoot() {
           tr.appendChild(el("td", "tk-ilb__num", have ? String(have) : "—"));
           tbody.appendChild(tr);
           lastRows.push([r.name, r.v.text, r.rem.map(function (x) { return x.name; }).join("、"),
-                         r.v.remain === 0 ? 0 : r.qty, r.fir ? "是" : "否", have]);
+                         r.v.remain === 0 ? 0 : r.qty, hShort(r.v),
+                         r.fir ? "是" : "否", have]);
         });
         tbl.appendChild(tbody);
         wrap.appendChild(tbl);
@@ -544,10 +598,10 @@ function siteRoot() {
     go.addEventListener("click", run);
     ta.addEventListener("input", function () { /* 手动点按钮再判，避免每键全表重算 */ });
     cp.addEventListener("click", function () {
-      var lines = ["物品\t判定\t未完成任务\t要几个\t必须局内找到\t已囤"];
+      var lines = ["物品\t判定\t未完成任务\t要几个\t藏身处\t必须局内找到\t已囤"];
       lastRows.forEach(function (r) {
         lines.push(r[0] + "\t" + r[1] + "\t" + (r[2] || "—") + "\t"
-          + (r[3] || "—") + "\t" + r[4] + "\t" + (r[5] || "—"));
+          + (r[3] || "—") + "\t" + (r[4] || "—") + "\t" + r[5] + "\t" + (r[6] || "—"));
       });
       var txt = lines.join("\n");
       if (navigator.clipboard && navigator.clipboard.writeText) {
