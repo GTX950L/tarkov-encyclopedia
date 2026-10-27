@@ -6,15 +6,28 @@ tags:
 ---
 # 实验室 (Labs / The Lab)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
 > ⚠️ 本页含未决项：**B9** —— 见[引用说明第三节](../docs/citation.md)
+
+</div>
 
 <a id="top"></a>
 
 ---
 
+<div class="tk-entry-map" data-search-exclude>
+<a href="../maps/the-lab.md">
+<img src="../assets/maps/thumbs/the-lab.png" alt="labs 地图缩略图" loading="lazy" decoding="async">
+<span class="tk-entry-map__cap">交互地图 · 点击查看完整点位</span>
+</a>
+</div>
+
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -29,6 +42,8 @@ tags:
 | **适合阶段** | 后期、高端装备局、夜视局 |
 | **准入门槛** | ⚠️ **部分入口需钥匙卡** |
 | **标志性地点** | 车库层、办公层、实验层、服务器层、雷达穹顶 |
+
+</div>
 
 ---
 
@@ -121,7 +136,11 @@ Raiders 会**拉枪线、会包抄、会补枪**——他们的战术素养接�
 
 > **为什么「一套码开全门」是这张图最大的变量**：常规版里，价值集中在**你带了哪几张卡**；「暗版」里，价值集中在**谁先摸到系统管理办公室**。于是路线从“开哪几个房”变成“**抢哪一条去办公室的路**”——而办公室里同时有**全部门禁码**与**两个撤离点的激活开关**，等于把「钥匙」与「出口」锁在同一间屋。
 
+<div class="tk-note tk-note--warn" markdown>
+
 > **⚠️ 一处社区口径**：有社区来源称，事件任务线的开场任务 Wrench and Waterboarding 另有**角色等级 30** 的门槛（未见于英文 EFT Wiki 的事件说明）——**引用时按社区口径处理**。
+
+</div>
 
 ---
 

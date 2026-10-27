@@ -6,14 +6,20 @@ tags:
 ---
 # 天气与时间系统 (Weather & Time)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -23,6 +29,8 @@ tags:
 | **例外地图** | 工厂（固定时刻）、实验室（地下无昼夜） |
 | **天气要素** | 雨、雾、云量、风力 |
 | **影响对象** | 能见度、音量掩蔽、AI 侦测、夜视与热成像表现 |
+
+</div>
 
 ---
 

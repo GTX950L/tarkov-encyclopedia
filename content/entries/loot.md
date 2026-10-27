@@ -6,14 +6,20 @@ tags:
 ---
 # 战利品分布与热点 (Loot Distribution)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -23,6 +29,8 @@ tags:
 | **版本敏感度** | 高——刷新点与房间内容随版本调整 |
 | **本页原则** | 讲**区域类型与判断方法**，不列逐点坐标 |
 | **配套条目** | [搜刮效率与战利品取舍](looting.md) 讲**到了地方之后怎么拿**；本篇讲**东西分布在哪些区域类型**（另见[钥匙与钥匙房](keys.md)、[撤离点详解](extraction-points.md)） |
+
+</div>
 
 ---
 

@@ -6,15 +6,21 @@ tags:
 ---
 # 商人系统 (Traders)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
 > ⚠️ 本页含未决项：**A3** —— 见[引用说明第三节](../docs/citation.md)
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -23,6 +29,8 @@ tags:
 | **成长要素** | 声望（Loyalty Level）→ 解锁更高档商品与服务 |
 | **声望来源** | 完成任务、消耗品购买、特定行为 |
 | **库存机制** | 每位商人**各自周期**补货；**全局库存**与**个人限购**是两套独立计时 |
+
+</div>
 
 ---
 

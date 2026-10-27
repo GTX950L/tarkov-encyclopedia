@@ -7,14 +7,20 @@ tags:
 ---
 # 听声辨位与音频机制 (Audio & Sound Cues)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -23,6 +29,8 @@ tags:
 | **相关技能** | 感知（Perception）——**它不是听力技能**，见下文澄清 |
 | **关键版本** | 0.16.5.0 对音量、混响与搜刮音做过一次系统调整 |
 | **实战价值** | 耳朵提供的信息量大于眼睛：**你先听见，才谈得上占位** |
+
+</div>
 
 ---
 

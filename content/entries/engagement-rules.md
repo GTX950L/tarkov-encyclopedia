@@ -6,15 +6,21 @@ tags:
 ---
 # 阵营关系与交战规则 (Factions & Rules of Engagement)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
 > ⚠️ 本页含未决项：**A6**、**B2**、**B3**、**B14** —— 见[引用说明第三节](../docs/citation.md)
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -26,6 +32,8 @@ tags:
 | **不属 Scav 阵营的 AI** | Raider、Rogue、邪教徒——击杀**不扣** Scav 业力 |
 | **口径来源** | 官方支持站 `knowledge/519`《Karma in Escape from Tarkov》、0.15.0.0 补丁说明、英文 EFT Wiki |
 | **配套条目** | [遇敌处置与接战决策](contact-drill.md) 讲**开火之前怎么决定**；本篇讲**开火之后记哪本账** |
+
+</div>
 
 ---
 
@@ -182,7 +190,11 @@ PMC 业力不管你和 Scav 的关系，它管的是**你在这一局里体面�
 
 **判定依据是两件事：bot 自己的“情绪状态”，以及对方阵营。**官方举的例子很说明问题——**AI BEAR 遇到 AI USEC，比遇到 AI BEAR 更容易打起来（但不是 100%）**；而且**地图不同，攻击性不同：中心区（20 级以下）的 AI 最友好，实验室的最具攻击性**。这套判断对**真人 Scav 与真人 PMC 都会做**，官方写明会在 **PvP 与 PvE 中一并持续实装与平衡**。
 
+<div class="tk-note tk-note--warn" markdown>
+
 > ⚠️ **上面那个「AI BEAR 遇 AI USEC 更容易打起来」的官方举例，是 1.2.0.0 之前的行为基线**。**1.2.0.0（2026-10-06）已显著提高 USEC 与 BEAR 的 PMC bot 结伴概率**（见第 9 节）——**四档态度这个机制本身没变，变的只是 bot 之间的阵营关系**，两者要分开读。
+
+</div>
 
 **推论有两条，都很实用：**
 

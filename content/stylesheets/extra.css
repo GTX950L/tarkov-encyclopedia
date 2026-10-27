@@ -7013,8 +7013,11 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
    表格会抖一下（CLS），而这两处恰恰是长列表。
    ========================================================================== */
 .tk-ic {
-  width: 28px; height: 28px;
-  vertical-align: -9px;          /* 让 28 px 的方块与 14 px 文字的中线对齐 */
+  /* 2026-10-27 从 28 → 40：图鉴行是「图标 + 名称」，28 px 时图标读不出是什么，
+     读者只能靠文字认物品 —— 而塔科夫的物品识别本来就靠图形。
+     基线偏移按 28:-9 的比例放大到 40:-13，保持与 14 px 文字中线对齐。 */
+  width: 40px; height: 40px;
+  vertical-align: -13px;
   margin-right: 7px;
   border-radius: 3px;
   background: rgba(0, 0, 0, .045);  /* 深色物体在纸面上才有边界 */
@@ -7308,4 +7311,235 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
    读者本来就看不清整行 —— 这条优化只在桌面生效。 */
 @media (max-width: 44.9375em) {
   .tk-thead-float { display: none !important; }
+}
+
+/* ==========================================================================
+   78. 阅读层组件（2026-10-27 · v1.151.0）
+   --------------------------------------------------------------------------
+   为什么单开一节：站内此前的自定义组件（tk-board / tk-map / tk-calc / tk-cat …）
+   **全部服务「工具」**，而 94 个条目页一个自定义块都没有 —— 读者感受到的
+   「满屏文字」正是这个落差的产物。这一节把 tk-* 体系延伸到阅读层。
+
+   三件东西：
+     78.1 .tk-ver      页首版本基线：从「灰底引用」降为「脚注注释」
+     78.2 .tk-kv-wrap  基本信息表：从「9 行两列表」改为「流式芯片」
+     78.3 .tk-note     语义提示块：按内容类型给颜色（4 类）
+
+   零 JS、零新增颜色 —— 全部复用 §1 的 --tk-* 变量，暗色方案自动跟随
+   （⚠️ 不写死颜色，原因见本文件 :root 顶部那条别名注释）。
+   ========================================================================== */
+
+/* —— 78.1 页首版本基线 ------------------------------------------------------
+   93 个条目页原来把版本基线写成 blockquote，读者首屏第一眼就是那块灰。
+   .tk-ver 保留**全部原文**（其中 19 页含链接），只收紧字号/行距/边框：
+   视觉上从「引言」降级为「脚注」，不再抢标题的注意力。
+   ⚠️ 不要在这里用 ::before 加「版本」标签 —— 原文已经以「版本基线：」开头，
+      重复一次反而更吵。 */
+.tk-ver {
+  margin: .9em 0 1.4em;
+  padding: .1em 0 .1em .85em;
+  border-left: 2px solid var(--tk-line-2);
+  font-size: .78rem;
+  line-height: 1.62;
+  color: var(--tk-ink-2);
+}
+/* ⚠️ 页眉原文是 blockquote —— check_entries 的页眉正则要求行首 `>`
+   （`^> 版本基线：`），所以 `>` 删不得，只能在外面加容器、在这里清掉引用外观。
+   实测：去掉 `>` 会让 93 篇全判「页眉缺失」+ 15 篇未决项编号对不上。 */
+.tk-ver blockquote,
+[dir="ltr"] .tk-ver blockquote {
+  border: 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font-size: 1em;
+}
+.tk-ver blockquote > p { margin: 0; }
+.tk-ver blockquote > p + p { margin-top: .18em; }
+.tk-ver p { margin: 0; }
+.tk-ver p + p { margin-top: .18em; }
+.tk-ver a { color: var(--tk-brand); text-decoration: underline; text-underline-offset: 2px; }
+.tk-ver strong { font-weight: 500; color: var(--tk-ink); }
+
+/* —— 78.2 基本信息 → 流式芯片 ------------------------------------------------
+   93 页的「基本信息」是一张 2 列小表（每页 3–11 行，字段名各页不同，
+   全站 340 种）。**不做字段特判**，只把表格重新布局成一行行芯片：
+   标签用等宽字压小、值占满剩余宽度、超长自动换行。
+
+   ⚠️ 为什么用 CSS 重排 table 而不是生成 HTML 芯片：
+      单元格里有 markdown（`**加粗**`、`[链接]()`），改写成 HTML span 会
+      **不再解析**（md_in_html 只对块级容器生效）。保留 <table> 让 markdown
+      照常渲染，只在 CSS 层改 display —— 零内容风险。 */
+.tk-kv-wrap { margin: 0 0 1.3em; }
+
+.md-typeset .tk-kv-wrap table,
+.tk-kv-wrap table {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: .92em;
+}
+.tk-kv-wrap thead { display: none; }
+.tk-kv-wrap tbody {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .42em;
+}
+.tk-kv-wrap tr {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .55em;
+  max-width: 100%;
+  border: .5px solid var(--tk-line-2);
+  background: var(--tk-panel-2);
+  padding: .3em .62em;
+}
+/* 单元格必须清掉表格样式（斑马纹、边框、内边距），否则会画出格子 */
+.md-typeset .tk-kv-wrap td,
+.tk-kv-wrap td {
+  display: block;
+  border: 0;
+  padding: 0;
+  background: none;
+  white-space: normal;
+  vertical-align: baseline;
+}
+.md-typeset .tk-kv-wrap td:first-child,
+.tk-kv-wrap td:first-child {
+  flex: 0 0 auto;
+  font-family: var(--tk-mono);
+  font-size: .82em;
+  letter-spacing: .2px;
+  color: var(--tk-khaki);
+  white-space: nowrap;
+}
+/* 原文的 **项目** 会被渲染成 <strong>；标签统一不加粗，靠等宽字与颜色区分 */
+.tk-kv-wrap td:first-child strong { font-weight: 400; }
+.tk-kv-wrap td:last-child { flex: 1 1 auto; min-width: 0; color: var(--tk-ink); }
+.tk-kv-wrap td:last-child p { display: inline; margin: 0; }
+
+/* 窄屏：芯片铺成单列更好读（桌面横向流在手机上会被挤成一字一行） */
+@media (max-width: 44.9375em) {
+  .tk-kv-wrap tbody { display: block; }
+  .tk-kv-wrap tr { display: flex; margin-bottom: .42em; }
+}
+
+/* —— 78.2b 地图条目页的视觉锚点 ---------------------------------------------
+   13 个地图条目页各配一条横向缩略图，复用 assets/maps/thumbs/（624 KB，
+   **零新增素材**）。其余 80 页没有可用插图，不做装饰性配图 —— 见
+   CHANGELOG v1.151.0 的说明：不是体积不够，是站内没有成品插图。 */
+.tk-entry-map {
+  display: block;
+  margin: 0 0 1.3em;
+  border: .5px solid var(--tk-line-3);
+  overflow: hidden;
+  background: var(--tk-panel-2);
+}
+/* 外层 div 只负责边框与出血，可点击的是内层 <a> —— 这样 <a> 不会被
+   markdown 包进 <p>（实测过：裸 <a> 会变成 `<p><a…></a></p>`，块级样式失效） */
+.tk-entry-map a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.tk-entry-map img {
+  display: block;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity .15s ease;
+}
+.tk-entry-map:hover img { opacity: .88; }
+.tk-entry-map__cap {
+  display: block;
+  padding: .32em .65em;
+  font-family: var(--tk-mono);
+  font-size: .7rem;
+  letter-spacing: .3px;
+  color: var(--tk-ink-2);
+  background: var(--tk-paper);
+  border-top: .5px solid var(--tk-line);
+}
+.tk-entry-map:hover .tk-entry-map__cap { color: var(--tk-brand-dark); }
+
+/* —— 78.3 语义提示块 --------------------------------------------------------
+   414 个引用块里，只有 ~70 个带 emoji 类型标记（📐 口径 / ⚠️ 警示 /
+   📈 时效 / 🎯 重点）。这些由生成器包成 <div class="tk-note tk-note--x" markdown>，
+   颜色本身承担识别 —— 读者扫一眼就知道哪条会要命、哪条只是口径说明。
+
+   ⚠️ 为什么不用 Material 的 admonition：实测 `!!! note` 可用，但
+      ① 默认样式是蓝色圆角卡，与「军用档案纸」方角冲突，要覆盖的 CSS 比自建还多；
+      ② 不写标题会自动生成英文 "Note"/"Warning"/"Danger"，中文站得每条显式给标题；
+      ③ `> [!NOTE]` 块式语法在本站**根本不渲染**（原样输出）。
+      自建 div 只需 40 行、且完全复用既有色板。
+   ⚠️ 不要把 .tk-note 挂到全局 blockquote 上：全站 775 处真引言 + 166 处页眉
+      共用 blockquote 元素（见 §5 注释），一挂就全变色。 */
+.tk-note {
+  margin: 1.1em 0;
+  padding: .62em .95em .62em .9em;
+  border-left: 3px solid var(--tk-line-3);
+  background: var(--tk-panel);
+  font-size: .95em;
+}
+/* 清掉内层 blockquote 的默认外观（原文以 `> ` 开头，包进来后仍是引用） */
+.tk-note blockquote,
+[dir="ltr"] .tk-note blockquote {
+  border: 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font-size: 1em;
+}
+.tk-note blockquote > p { margin: 0; }
+.tk-note blockquote > p + p { margin-top: .4em; }
+.tk-note > p { margin: 0; }
+.tk-note > p + p { margin-top: .4em; }
+
+.tk-note--warn { border-left-color: var(--tk-red);   background: var(--tk-red-bg); }
+.tk-note--data { border-left-color: var(--tk-fiord); background: var(--tk-brand-soft); }
+.tk-note--time { border-left-color: var(--tk-amber); background: var(--tk-amber-bg); }
+.tk-note--key  { border-left-color: var(--tk-grn);   background: var(--tk-grn-bg); }
+
+/* 提示块里的小标签：由生成器写成 `**标签**` 的首词不加粗，改用等宽字上色，
+   避免整段都在加粗（原文本来就有大量 **重点**，再加一层就分不出层级） */
+.tk-note__tag {
+  display: block;
+  font-family: var(--tk-mono);
+  font-size: .72rem;
+  letter-spacing: .6px;
+  margin-bottom: .25em;
+}
+.tk-note--warn .tk-note__tag { color: var(--tk-red); }
+.tk-note--data .tk-note__tag { color: var(--tk-brand); }
+.tk-note--time .tk-note__tag { color: var(--tk-amber); }
+.tk-note--key  .tk-note__tag { color: var(--tk-grn); }
+
+/* —— 78.4 内联图示 ----------------------------------------------------------
+   为什么用内联 SVG 而不是引图/图床：站点要能离线打开（首页就是这么承诺的），
+   外链图一断全站开天窗；而 SVG 是 markup，**不占 JS 预算、不发起请求、可打印**。
+   每张图都有 <title>/<desc>，读屏器能读，也是「图里的数字从哪来」的自证。
+
+   ⚠️ 为什么不用 mermaid：约 300 KB（gzip），是每页 JS 预算的 3 倍，且要 CDN。
+      本站图示只能走手写 SVG。 */
+.tk-fig {
+  margin: 1.4em 0;
+  border: .5px solid var(--tk-line);
+  background: #fff;
+  padding: .85em .7em .1em;
+  overflow: hidden;
+}
+.tk-fig svg { display: block; width: 100%; height: auto; }
+.tk-fig__cap {
+  display: block;
+  padding: .55em .3em .65em;
+  margin-top: .35em;
+  border-top: .5px dashed var(--tk-line);
+  font-size: .78rem;
+  line-height: 1.62;
+  color: var(--tk-ink-2);
 }

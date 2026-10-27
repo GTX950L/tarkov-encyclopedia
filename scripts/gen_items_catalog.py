@@ -609,14 +609,14 @@ def icon_tag(it) -> str:
        浏览器解析到 ``https://<user>.github.io/assets/…`` → 全站 404（v1.147.3 实测）。
        写成绝对路径 ``/assets/…`` 同理会在 ``site_url`` 带子目录时 404。
     ⚠️ 用裸 ``<img>`` 而不是 Markdown 图片语法：Markdown 图片在表格单元格里
-       会变成块级元素、与相邻文字错位；且这里要的是固定 28 px 小图标，
+       会变成块级元素、与相邻文字错位；且这里要的是固定 40 px 小图标（2026-10-27 从 28 放大，见 CHANGELOG v1.151.0），
        不该被正文图片样式（圆角、居中、图注）接走。
     """
     iid = it.get("id")
     if not iid:
         return ""
     return (f'<img class="tk-ic" src="../assets/items/icons/{iid}.webp" '
-            f'alt="" width="28" height="28" loading="lazy" decoding="async"> ')
+            f'alt="" width="40" height="40" loading="lazy" decoding="async"> ')
 
 
 def cell_md(it, field) -> str:

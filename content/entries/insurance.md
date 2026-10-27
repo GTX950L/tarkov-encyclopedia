@@ -6,14 +6,20 @@ tags:
 ---
 # 保险机制 (Insurance)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -23,6 +29,8 @@ tags:
 | **不保什么** | **安全箱 / 钥匙 / 近战武器 / 臂章 / 容器 / 热成像设备与瞄具 / 消耗品（食物、药品、弹药、手雷）** |
 | **承保地图** | **除实验室、迷宫、破冰船之外的全部地图**——这三张图丢失的物品，保险商不返还 |
 | **回收条件** | 阵亡后，若尸体未被其他玩家**完全搜刮**，物品会在延迟期后通过邮件返还 |
+
+</div>
 
 ---
 
@@ -40,6 +48,54 @@ tags:
 - **没人拿走**：尸体位置偏僻、或对手没翻你的包——物品原样返还；
 - **对方翻了但没拿完**：剩下的照样寄回；
 - **Scav 杀死你**：AI Scav 通常不搜刮装备，保险返还率极高。
+
+<div class="tk-fig" data-search-exclude>
+
+<svg viewBox="0 0 680 218" width="100%" role="img" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+<title>保险返还判定流程</title>
+<desc>进图前投保、raid 中阵亡之后，只有「物品还在尸体上」才返还。能拿回的三种情况是没人拿走、对手翻了但没拿完、被 Scav 杀死；拿不回的两种是被玩家搜刮拿走、以及 MIA 超时未撤离。</desc>
+
+<text x="40" y="26" font-size="14" font-weight="500" fill="#1C1A17">投保不等于一定赔：只有一种情况能拿回来</text>
+
+<rect x="40" y="44" width="150" height="46" fill="#F4F2ED" stroke="#B5AC96" stroke-width="0.5"/>
+<text x="115" y="72" font-size="12" fill="#1C1A17" text-anchor="middle" dominant-baseline="central">进图前投保</text>
+
+<path d="M190 67 L228 67" fill="none" stroke="#8F8368" stroke-width="1.2" marker-end="url(#ar)"/>
+
+<rect x="230" y="44" width="150" height="46" fill="#F4F2ED" stroke="#B5AC96" stroke-width="0.5"/>
+<text x="305" y="72" font-size="12" fill="#1C1A17" text-anchor="middle" dominant-baseline="central">raid 中阵亡</text>
+
+<path d="M380 67 L418 67" fill="none" stroke="#8F8368" stroke-width="1.2" marker-end="url(#ar)"/>
+
+<rect x="420" y="44" width="200" height="46" fill="#FBF3DF" stroke="#D7B26A" stroke-width="0.5"/>
+<text x="520" y="72" font-size="12" fill="#1C1A17" text-anchor="middle" dominant-baseline="central">物品还在尸体上？</text>
+
+<path d="M520 90 L520 102 L395 102 L395 108" fill="none" stroke="#4A5D2A" stroke-width="1.2" marker-end="url(#ar)"/>
+<path d="M520 90 L520 102 L575 102 L575 108" fill="none" stroke="#A32B2B" stroke-width="1.2" marker-end="url(#ar)"/>
+<text x="432" y="97" font-size="10" fill="#4A5D2A">是</text>
+<text x="588" y="97" font-size="10" fill="#A32B2B">否</text>
+
+<rect x="300" y="110" width="190" height="88" fill="#EEF2E2" stroke="#8FA86B" stroke-width="0.5"/>
+<text x="395" y="130" font-size="12" font-weight="500" fill="#4A5D2A" text-anchor="middle">能拿回</text>
+<text x="395" y="150" font-size="10.5" fill="#1C1A17" text-anchor="middle">没人拿走</text>
+<text x="395" y="167" font-size="10.5" fill="#1C1A17" text-anchor="middle">对手翻了但没拿完</text>
+<text x="395" y="184" font-size="10.5" fill="#1C1A17" text-anchor="middle">被 Scav 杀死</text>
+
+<rect x="510" y="110" width="130" height="88" fill="#FAECEC" stroke="#C99A9A" stroke-width="0.5"/>
+<text x="575" y="130" font-size="12" font-weight="500" fill="#A32B2B" text-anchor="middle">拿不回</text>
+<text x="575" y="150" font-size="10.5" fill="#1C1A17" text-anchor="middle">玩家搜刮拿走</text>
+<text x="575" y="167" font-size="10.5" fill="#1C1A17" text-anchor="middle">MIA 超时未撤离</text>
+<text x="575" y="184" font-size="10.5" fill="#8F8368" text-anchor="middle">尸体消失</text>
+
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="#8F8368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+</svg>
+
+<span class="tk-fig__cap">「投保」只解决「商人愿意赔」，不解决「东西还在不在」。左边三种都属于「东西没被拿走」，所以能寄回；右边两种不是价格问题，是根本没有物品可返。</span>
+</div>
 
 ### 3. 什么情况拿不回来
 
@@ -67,7 +123,11 @@ tags:
 | **「The Unheard」版** | **领取期翻倍** | 二级（英文 EFT Wiki） |
 | **热门地图与高峰时段** | 返还更慢——死于人挤人的图，寄回也更慢 | 社区口径 |
 
+<div class="tk-note tk-note--warn" markdown>
+
 > **⚠️ 一处来源分歧（登记待核）**：**中文 Wiki 与英文 Wiki 记的不是同一套数**——中文版写「Prapor **24–36 小时** / Therapist **12–24 小时**」且**没有 Jaeger**；英文版是本表这套。站内采信**英文版**（维护更勤）。**引用时请附版本基线，并以游戏内保险界面显示的时长为准。**
+
+</div>
 
 ### 5. 三类「以为保了、其实不赔」的例外
 

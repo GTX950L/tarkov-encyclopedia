@@ -6,14 +6,20 @@ tags:
 ---
 # 食物与水分 (Energy & Hydration)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -24,6 +30,8 @@ tags:
 | **最难的一条** | **水比食物难找**——食物满地都是，饮料不是 |
 | **与谁联动** | 止痛药与兴奋剂会**加速脱水**（见[医疗物资](medical.md)）；疼痛、出血、冲刺、负重同理 |
 | **配套条目** | 归零之后的身体反应见[生命与身体部位系统](health.md) |
+
+</div>
 
 ---
 

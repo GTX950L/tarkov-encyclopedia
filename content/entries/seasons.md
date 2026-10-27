@@ -6,14 +6,20 @@ tags:
 ---
 # 赛季与修改器 (Seasons & Modifiers)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | 信息 |
 |------|------|
@@ -24,7 +30,13 @@ tags:
 | **赛季长度** | 最短约 74 天，通常按 4–6 个月一轮规划 |
 | **适用范围** | 仅 PvP；PvE 没有赛季模式 |
 
+</div>
+
+<div class="tk-note tk-note--time" markdown>
+
 > 📈 **时效提醒**：本页绑定**第一赛季 KORD BREACH**。赛季修改器**每季重新设计**——赛季结束后本页内容整体失效，须按新赛季重写，**不要把本季的六项全局修改器当成永久规则**。复核触发点见[数据口径与引用说明](../docs/citation.md) 第七节。
+
+</div>
 
 ---
 

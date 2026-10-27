@@ -6,14 +6,20 @@ tags:
 ---
 # PMC 与 Scav (PMC vs Scav)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
 ---
 
 ## 📸 基本信息
+
+<div class="tk-kv-wrap" markdown>
 
 | 项目 | PMC | Scav |
 |------|-----|------|
@@ -23,6 +29,8 @@ tags:
 | **声望系统** | 各商人声望 | Fence 的 Scav 声望（Karma） |
 | **任务** | 承接商人任务线 | 无任务，纯搜刮 |
 | **敌我关系** | 其他 PMC 默认敌对 | 玩家 Scav 与 AI Scav 默认“暂时友好” |
+
+</div>
 
 ---
 

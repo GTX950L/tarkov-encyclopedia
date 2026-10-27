@@ -6,8 +6,12 @@ tags:
 ---
 # 弹药与穿深等级 (Ammo & Penetration)
 
+<div class="tk-ver" data-search-exclude markdown>
+
 > 版本基线：2026 年 10 月 ｜ 1.2.0.0（第一赛季 KORD BREACH）｜ 数据来源：官方补丁说明（一级）、英文 EFT Wiki 与 tarkov.dev（二级）
 > 本页数值随版本调整，引用时请附加「以当前版本为准」。
+
+</div>
 
 <a id="top"></a>
 
@@ -15,12 +19,16 @@ tags:
 
 ## 📸 基本信息
 
+<div class="tk-kv-wrap" markdown>
+
 | 项目 | 信息 |
 |------|------|
 | **类型** | 核心装备数值 |
 | **核心属性** | 穿透力（穿透等级）、伤害、护甲伤害、精度、后坐、子弹初速 |
 | **弹药分级** | 社区通行口径为 1–6 级穿透档位 |
 | **金科玉律** | **一把便宜的枪 + 顶级弹药 > 一把顶级枪 + 垃圾弹药** |
+
+</div>
 
 ---
 
@@ -41,11 +49,66 @@ tags:
 | 5 级 | 对四级甲有效 | 7.62x51 M62、5.56 M855A1 等 |
 | 6 级 | 对高甲依然致命 | 5.45 BS / 7N39、5.56 M995、7.62x51 M61 / M993 等顶级弹 |
 
+<div class="tk-fig" data-search-exclude>
+
+<svg viewBox="0 0 680 156" width="100%" role="img" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+<title>穿深值与可对付的护甲等级对照</title>
+<desc>横轴为弹药穿透力 0 到 70，色带按 P 大于等于 (N-1) 乘 10 的判据分成六档：无甲、2 级到 6 级。轴上标出 PS 28、M62 42、BS 54、M993 65 四款弹药的位置，与正文表格一致。</desc>
+
+<text x="40" y="26" font-size="14" font-weight="500" fill="#1C1A17">穿深值落在哪一段，就能打穿到哪一级甲</text>
+<text x="40" y="45" font-size="11" fill="#5C5850">判据：P ≥ (N−1) × 10　｜　轴上四个点取自正文档位表的示例</text>
+
+<rect x="60" y="58" width="80" height="34" fill="#EDEFF1" stroke="#C2BAA6" stroke-width="0.5"/>
+<rect x="140" y="58" width="80" height="34" fill="#DCE1E6" stroke="#C2BAA6" stroke-width="0.5"/>
+<rect x="220" y="58" width="80" height="34" fill="#C8D0D8" stroke="#C2BAA6" stroke-width="0.5"/>
+<rect x="300" y="58" width="80" height="34" fill="#AFBAC6" stroke="#C2BAA6" stroke-width="0.5"/>
+<rect x="380" y="58" width="80" height="34" fill="#93A2B2" stroke="#C2BAA6" stroke-width="0.5"/>
+<rect x="460" y="58" width="160" height="34" fill="#6E8199" stroke="#C2BAA6" stroke-width="0.5"/>
+
+<text x="100" y="79" font-size="11" fill="#5C5850" text-anchor="middle">无甲</text>
+<text x="180" y="79" font-size="11" fill="#1C1A17" text-anchor="middle">2 级</text>
+<text x="260" y="79" font-size="11" fill="#1C1A17" text-anchor="middle">3 级</text>
+<text x="340" y="79" font-size="11" fill="#1C1A17" text-anchor="middle">4 级</text>
+<text x="420" y="79" font-size="11" fill="#1C1A17" text-anchor="middle">5 级</text>
+<text x="540" y="79" font-size="11" fill="#F5F4F0" text-anchor="middle">6 级</text>
+
+<text x="60" y="108" font-size="10" fill="#7A6E4F" text-anchor="middle">0</text>
+<text x="140" y="108" font-size="10" fill="#7A6E4F" text-anchor="middle">10</text>
+<text x="220" y="108" font-size="10" fill="#7A6E4F" text-anchor="middle">20</text>
+<text x="300" y="108" font-size="10" fill="#7A6E4F" text-anchor="middle">30</text>
+<text x="380" y="108" font-size="10" fill="#7A6E4F" text-anchor="middle">40</text>
+<text x="460" y="108" font-size="10" fill="#7A6E4F" text-anchor="middle">50</text>
+<text x="620" y="108" font-size="10" fill="#7A6E4F" text-anchor="middle">70</text>
+
+<line x1="284" y1="58" x2="284" y2="120" stroke="#3D4A5C" stroke-width="1.5"/>
+<circle cx="284" cy="58" r="3.5" fill="#3D4A5C"/>
+<text x="284" y="136" font-size="10.5" fill="#1C1A17" text-anchor="middle">PS 28</text>
+
+<line x1="396" y1="58" x2="396" y2="120" stroke="#3D4A5C" stroke-width="1.5"/>
+<circle cx="396" cy="58" r="3.5" fill="#3D4A5C"/>
+<text x="396" y="136" font-size="10.5" fill="#1C1A17" text-anchor="middle">M62 42</text>
+
+<line x1="492" y1="58" x2="492" y2="120" stroke="#3D4A5C" stroke-width="1.5"/>
+<circle cx="492" cy="58" r="3.5" fill="#3D4A5C"/>
+<text x="492" y="136" font-size="10.5" fill="#1C1A17" text-anchor="middle">BS 54</text>
+
+<line x1="580" y1="58" x2="580" y2="120" stroke="#3D4A5C" stroke-width="1.5"/>
+<circle cx="580" cy="58" r="3.5" fill="#3D4A5C"/>
+<text x="580" y="136" font-size="10.5" fill="#1C1A17" text-anchor="middle">M993 65</text>
+</svg>
+
+<span class="tk-fig__cap">横轴为穿透力，色带为「能稳定对付的甲级」。同一款弹在 40 与 50 之间时，打 5 级甲已经够、打 6 级还不够 —— 这就是「档位」和「对甲判定」两套口径的分界。</span>
+</div>
+
+<div class="tk-note tk-note--warn" markdown>
+
 > ⚠️ 游戏内部是连续“穿深值”，1–6 级是社区归纳档位；具体数值每版本都可能调整，**进游戏看弹药明细再决定买哪盒**。
 >
 > 📐 **档位与甲级的换算关系**：**档位 N ≈ 能有效对付 N−1 级甲**，判据只有**下限**一步：`穿深 P ≥ (N−1) × 10`（所以 6 档能同时容下穿深 50 与 115 的弹）。本条 6 组示例全部符合这条换算：PS 28 → 3 档、BT 37 → 4 档、M62 42 → 5 档、M855A1 44 → 5 档、BS 54 → 6 档、M993 65 → 6 档。**要逐（弹 × 甲级）的原始判定，看[弹药选型速查表](ammo-table.md) 的「对 1–6 级护甲」一节** —— 那一节按官方补丁说明的口径算：「穿透力比护甲有效耐久高 15 即保证穿透」「完好甲的有效耐久 ≈ 甲级 × 10」。
 >
 > **两条口径不冲突、也不互相替代**：档位是**弹的档次**（社区归纳，用于选型对话），对甲判定是**逐格结论**（官方判据，用于「这条能不能打那件甲」）。
+
+</div>
 
 ### 3. 伤害与护甲伤害是两回事
 
