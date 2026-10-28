@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""楼层归属对账 —— 「哪些顶层分组是楼层」这件事，必须机器可查。
+"""楼层归属与开关点位对账 —— 「哪些顶层分组是楼层」「哪些开关要画」这两件事，
+必须机器可查。
 
 为什么需要它
 ------------
@@ -126,19 +127,61 @@ def main() -> int:
         if name not in svg_names:
             problems.append(f"{key}：产物指向的 {name} 不存在")
 
+    # ⑤ 开关 / 拉闸点（2026-10-28）
+    #    判据四条：数量对得上、每个都有中文名、坐标落在画布内、联动目标在同图里。
+    #    另加一条反向：SWITCH_ZH 里定义了但产物没用上的 —— 那就是上游改名了，
+    #    比「少画一个点」更值得提前发现（读者会以为那个闸不存在）。
+    sw_all = [(k, s) for k, m in site.items() for s in (m.get("switches") or [])]
+    expect_drawn = gm.SWITCH_EXPECT - len(gm.SWITCH_OUT_OF_CANVAS)
+    if len(sw_all) != expect_drawn:
+        problems.append(
+            f"开关点位应有 {expect_drawn} 个（上游 {gm.SWITCH_EXPECT} 个，"
+            f"其中 {len(gm.SWITCH_OUT_OF_CANVAS)} 个已知画不出），实得 {len(sw_all)} —— "
+            f"上游变了，还是 gen_maps.SWITCH_WANT 的筛选规则要跟着改？"
+        )
+    for key, s in sw_all:
+        if not s.get("n"):
+            problems.append(f"{key}：开关 {s.get('en')} 没有中文名")
+            continue
+        vb = site[key]["viewBox"]
+        px, py = s["p"]
+        if not (vb[0] - 1 <= px <= vb[0] + vb[2] + 1
+                and vb[1] - 1 <= py <= vb[1] + vb[3] + 1):
+            problems.append(
+                f"{key}：开关「{s['n']}」坐标 ({px}, {py}) 落在画布外 —— "
+                f"投影公式或底图换了？"
+            )
+        same = {x.get("n") for x in site[key]["switches"]}
+        for tgt in (s.get("acts") or []):
+            if tgt and tgt not in same:
+                problems.append(f"{key}：开关「{s['n']}」的联动目标「{tgt}」不在这张图的开关里")
+        if s.get("dep") and s["dep"] not in same:
+            problems.append(f"{key}：开关「{s['n']}」的依赖「{s['dep']}」不在这张图的开关里")
+    used = {s.get("en") for _, s in sw_all}
+    # 「已知画不出来」的那条不算冗余 —— 它是记在案的事实，不是漏画
+    unused = [k for k in gm.SWITCH_ZH
+              if k not in used and k not in gm.SWITCH_OUT_OF_CANVAS]
+    if unused:
+        problems.append(
+            f"SWITCH_ZH 里有 {len(unused)} 条没被任何产物用上（上游改名了？）：{unused}\n"
+            f"      → 若是改名：把新名字补进 SWITCH_ZH、删掉旧的；若是筛选规则改了："
+            f"同步改 SWITCH_EXPECT"
+        )
+
     if problems:
-        print(f"[失败] 楼层归属对账发现 {len(problems)} 处问题：\n")
+        print(f"[失败] 楼层归属 / 开关点位对账发现 {len(problems)} 处问题：\n")
         for i, p in enumerate(problems, 1):
             print(f"  {i}. {p}")
         print(
-            "\n这组判据防的是「楼层漏收 → 没有按钮能关 → 几层永久叠在一起」。"
-            "\n2026-10-28 工厂就是这么坏的，别再让它复发。"
+            "\n这组判据防的是两件事：①「楼层漏收 → 没有按钮能关 → 几层永久叠在一起」"
+            "\n（2026-10-28 工厂就是这么坏的）；②「开关没画 / 画错位置 / 上游改名后静默消失」。"
         )
         return 1
 
     print(
-        f"[通过] {n_svg} 张底图 ｜ 顶层分组 {n_top} 个 ｜ 楼层容器 {n_floor} 个 —— "
-        f"全部有归属，产物与源一致"
+        f"[通过] {n_svg} 张底图 ｜ 顶层分组 {n_top} 个 ｜ 楼层容器 {n_floor} 个 ｜ "
+        f"开关 {len(sw_all)} 个（另有 {len(gm.SWITCH_OUT_OF_CANVAS)} 个已知画不出）"
+        f" —— 全部有归属，产物与源一致"
     )
     return 0
 

@@ -6862,6 +6862,44 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   clip-path: polygon(50% 0, 100% 100%, 0 100%);
 }
 
+/* ── 开关 / 拉闸点（2026-10-28）───────────────────────────────────────────
+   自绘的几何符号：**橙圈 + 白心**。撤离点／转场／锁／危险区用的是 Wiki 的位图，
+   而这一类开关在游戏内地图上没有官方标记 —— 没有「原样」可抄。形状上刻意与
+   那几类都不同（针形／三角／方块／斜纹），一眼能分开。
+
+   尺寸与标注字号同源（`calc(Npx / var(--tk-k))`，--tk-k = 每用户单位多少屏幕
+   像素）：任何缩放下都是恒定屏幕像素，否则放大后一个圆圈会盖住半个房间。
+   ⚠️ **只用 `r`，不要给这些图形加 `transform: scale()`** —— 2026-10-28 实测，
+   `transform-box: fill-box` 在这版 Chromium 的 `<path>` 上会把包围盒算成
+   496×474 px，整组甩到视口外、图上空白且控制台无报错。circle 的 `r` 是 CSS
+   能直接控制的几何属性，没这个坑。
+   `r` 同时写在 HTML 属性上是兜底：不认 CSS 几何属性的浏览器退化成固定尺寸。 */
+.tk-sw__dot {
+  r: calc(7.2px / var(--tk-k, 1));
+  fill: #C9761A;
+  stroke: #fff;
+  stroke-width: calc(2px / var(--tk-k, 1));
+}
+
+.tk-sw__pip {
+  r: calc(3px / var(--tk-k, 1));
+  fill: #fff;
+}
+
+.tk-sw__lbl {
+  font-size: calc(10.5px / var(--tk-k, 1));
+  font-weight: 700;
+  fill: #7A4408;                 /* 深棕：白底 7.1:1，浅色底图上也能读 */
+  stroke: #fff;
+  stroke-width: calc(2.6px / var(--tk-k, 1));
+  paint-order: stroke;
+  pointer-events: none;
+}
+
+.tk-sw:hover .tk-sw__dot { fill: #E8890C; }
+.tk-sw:hover .tk-sw__lbl { fill: #A85A00; }
+.tk-lg-sw { background: #C9761A; border-radius: 50%; box-shadow: inset 0 0 0 2.5px #fff; }
+
 /* —— 测距 —— */
 .tk-rl-dot {
   fill: #111;
