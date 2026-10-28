@@ -167,13 +167,21 @@
     var cur = vb0.slice();
     var K_MIN = 1, K_MAX = 12; // 相对原始 viewBox 的放大上限（K_MIN=1 即不缩小，避免图缩成一小块）
 
-    function applyVB() {
+    function applyVB(rect) {
       svg.setAttribute(
         "viewBox",
         cur[0].toFixed(2) + " " + cur[1].toFixed(2) + " " + cur[2].toFixed(2) + " " + cur[3].toFixed(2)
       );
-      /* `--tk-k` 与全部标注布局都挪进 rAF（layoutLabels）里做：
-         getBoundingClientRect 会强制 reflow，滚轮缩放的高频路径上不能每次都读。 */
+      /* `--tk-k` **同步**更新，不等 rAF（2026-10-28 修）。
+         原来是写进 `scheduleLayout()` 的 rAF 里，于是缩放那一帧里 viewBox 已经
+         换了、标注还按**旧 k** 画 —— 实测滚一格代数差 15.3%，快速滚轮时连成一
+         片抖动，观感就是「缩放时图上的字和图标在跳」。
+         `rect` 由调用方给（缩放/拖动路径本来就要量一次），省掉一次强制 reflow；
+         没给就现量一次（resetView / focusPoint 这类低频路径）。 */
+      var w = (rect || svg.getBoundingClientRect()).width;
+      if (w) svg.style.setProperty("--tk-k", (w / cur[2]).toFixed(3));
+      /* 标注**排版**仍留在 rAF 里：逐字算屏幕盒与避让是重活，滚轮高频路径上
+         不能每帧都做 —— 那才是原注释里说的「不能每次都读」的东西。 */
       scheduleLayout();
     }
 
@@ -183,14 +191,40 @@
          锚点公式与宽高**必须用同一个方向**，否则缩放中心也会跟着错。 */
       var nw = cur[2] / k;
       var nh = cur[3] / k;
-      if (nw > vb0[2] || nw < vb0[2] / K_MAX) return; // 夹在 [原尺寸, 12×] 之间
+      /* 夹在 [原尺寸, 12×] —— 但**夹到边界，不是拒绝**（2026-10-28 修）。
+         原来写 `if (nw > vb0[2] ... ) return;`：缩到最后一格时 nw 是 130.7，
+         再缩一格算出来 158 > 130.8 被直接打回 —— 于是**永远停在比整图大 20%
+         的位置**（实测 108 vs 130.8），读者按「缩小」按到底也看不到完整地图。
+         同理放大到 12× 时停在 12.4× 或干脆不动。 */
+      var minW = vb0[2] / K_MAX;
+      var hitMin = false;
+      var hitMax = false;
+      if (nw > vb0[2]) {
+        nw = vb0[2];
+        nh = vb0[3];
+        hitMax = true;
+      } else if (nw < minW) {
+        nw = minW;
+        nh = vb0[3] / K_MAX;
+        hitMin = true;
+      }
       var r = svg.getBoundingClientRect();
       /* 屏幕坐标 → 当前 viewBox 内的用户坐标 */
       var ux = cur[0] + ((clientX - r.left) / r.width) * cur[2];
       var uy = cur[1] + ((clientY - r.top) / r.height) * cur[3];
       /* 让这个点缩放前后停在原地：新左上角 = 锚点 −（锚点到旧左上角的距离 ÷ k） */
       cur = [ux - (ux - cur[0]) / k, uy - (uy - cur[1]) / k, nw, nh];
-      applyVB();
+      /* 位置**夹回底图内**：只要视野不比底图大，左上角就不能跑到图外。
+         不夹的话，在边角处滚轮放大能把视图推出底图、露出大片空白（各图都
+         有这种角落，比如海关的西北角）。缩到整图时直接归位，不留亚像素残差。 */
+      if (hitMax) {
+        cur[0] = vb0[0];
+        cur[1] = vb0[1];
+      } else {
+        cur[0] = Math.max(vb0[0], Math.min(cur[0], vb0[0] + vb0[2] - nw));
+        cur[1] = Math.max(vb0[1], Math.min(cur[1], vb0[1] + vb0[3] - nh));
+      }
+      applyVB(r);   // 复用这一帧量好的 rect，不再强制 reflow
     }
 
     function resetView() {
@@ -281,7 +315,15 @@
       "wheel",
       function (e) {
         e.preventDefault(); // 否则页面会跟着滚，地图永远停在原地
-        zoomAt(e.clientX, e.clientY, e.deltaY > 0 ? 1 / 1.18 : 1.18);
+        /* 步长按 deltaY 的**幅度**走，不写死（2026-10-28 修）。
+           鼠标滚轮一格是 ±100~120，触控板一次滑动是几十个 ±3~10 的小事件 ——
+           固定 1.18 时前者要滚十几下才到位、后者一滑就顶到 12× 上限，
+           读者会直接判定「缩放失控 / 卡住不动」。
+           指数映射：±120 → 1.17（与旧行为几乎一致），±4 → 1.007（触控板细微），
+           ±500 以上封在 1.35。小步累加 ≈ 大步一次到位，两种设备手感一致。 */
+        var mag = Math.abs(e.deltaY || 0);
+        var step = Math.min(1.35, Math.max(1.005, Math.pow(1.00138, mag)));
+        zoomAt(e.clientX, e.clientY, e.deltaY > 0 ? 1 / step : step);
       },
       { passive: false }
     );
@@ -346,7 +388,7 @@
       var dx = ((e.clientX - drag.x) / r.width) * drag.vb[2];
       var dy = ((e.clientY - drag.y) / r.height) * drag.vb[3];
       cur = [drag.vb[0] - dx, drag.vb[1] - dy, drag.vb[2], drag.vb[3]];
-      applyVB();
+      applyVB(r);
     });
     function endDrag(e) {
       delete ptActive[e.pointerId];
