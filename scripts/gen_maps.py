@@ -473,6 +473,104 @@ def _floor_split(top: list[dict], key: str) -> tuple[list[dict], list[str]]:
     return floors, [i for i in ids if i in FLOOR_STATIC]
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+# 开关 / 拉闸点（2026-10-28）
+#
+# 上游 maps 端点的每张图都带 `switches` 数组，本站此前**一个字段都没取** ——
+# 所以地图上从来没有「拉闸点」，而内容页（entries/extraction-points.md）早在讲
+# 「环境型撤离点要先接通电源」。这是漏抓，不是上游没有。
+#
+# **只取撤离/供电这一类**：上游 39 个开关里，另外 24 个是报警控制台（3）、
+# 电梯呼叫按钮（6）、迷宫陷阱/阀门（12）、彩蛋按钮（3）。全画会让读者以为
+# 迷宫有 12 个撤离闸。正则挑出 15 个，不多不少（门禁会盯着这个数）。
+#
+# ⚠️ **不用上游的 `extract.switch` / `extract.switches`**：实测不可信 ——
+#    海关 28 个撤离点（含加油站、ZB-1011 这些根本不需要电的）全部指向同一个
+#    开关，而那个开关的 `activates` 是空的、不控制任何东西。这与《引用说明》
+#    B13 同一条纪律：**给坐标是记录，拿关联字段标「这个出口要拉闸」是估算。**
+SWITCH_WANT = re.compile(
+    r"electric_switcher|exfil|d2_lever|_power$|gatesbutton|buffer_trigger", re.I
+)
+
+# 中文名 —— **按「最近地名」或「上游联动」起，不按「它控制哪个出口」起**：后者
+# 上游没给，猜错比不标更糟。每条的依据写在行尾注释里，改名字时先看一眼依据还在
+# 不在（地名锚点变了、联动关系没了，名字就该重起）。
+# 名字与上游的对应关系是**人工整理的一次性快照**（同 LABELS_ZH 的纪律）：
+# 上游改名时 `_switches_of()` 会把名字丢掉、生成时报错，不会静默变成空白。
+SWITCH_ZH: dict[str, str] = {
+    # 海关：离「4 号库」地名 32 px
+    "switch_custom_DesignStuff_00034_reserve_electric_switcher_lever": "4 号库电源闸",
+    # 灯塔：两者同点（差 0.7 px），在「光明守护者岛」上，名字取上游的 Outer/Inner
+    "switch_outside_buffer_trigger_OuterSwitcher": "灯塔外闸",
+    "switch_inner_buffer_trigger_InnerSwitcher": "灯塔内闸",
+    # 储备站：D-2 那条闸杆的 activates 直接指向 GatesButton —— 联动关系是硬依据
+    "switch_autoId_00000_D2_LEVER_reserve_electric_switcher_lever": "D-2 闸杆",
+    "switch_00453_Node_GatesButton": "D-2 大门按钮",
+    # 储备站：离「白兵」64 px，名字取自上游的 EXFIL
+    "switch_autoId_00632_EXFIL_reserve_electric_switcher_lever": "白兵撤离闸",
+    # 立交桥：离「发电站」46 px —— 就是内容页说的「商场外的电力站」
+    "switch_Shopping_Mall_DesignStuff_00055_reserve_electric_switcher_lever": "发电站总闸",
+    # 立交桥：两个都贴着「Avokado」（22 / 26 px）
+    "switch_Shopping_Mall_DesignStuff_00060_Node_Start_Exfiltration": "Avokado 撤离开关",
+    "switch_Shopping_Mall_DesignStuff_00061_reserve_electric_switcher_lever": "Avokado 电力闸",
+    # 实验室：六个都按最近地名起 —— 方位法在这里失效（六个全挤在画布左上角）
+    "switch_00409_power": "服务器房电源闸",              # 服务器房 53 px
+    "switch_autoId_00632_EXFIL_Console": "控制室撤离台",  # 控制室 61 px
+    "switch_00404_Power": "行政办公室电源闸",            # 行政办公室 107 px
+    "switch_autoId_00014_EXFIL_Console_trigger": "1 号门厅撤离台",  # 1 号门厅 40 px
+    "switch_autoId_00007_EXFIL_Power": "测试间撤离电源",  # 测试间 86 px
+    # 离最近的地名 356 px（实验室这一带没有地名锚点），只能按它在画布最西侧描述
+    "switch_Use_reserve_electric_switcher": "西侧电力闸",
+}
+SWITCH_EXPECT = len(SWITCH_ZH)   # 15：门禁与生成日志都对它
+
+# 落在底图**裁剪框之外**的开关：上游有，但这张底图没覆盖到那片区域 —— 不画，
+# 但记住，别让它静默消失。
+# 2026-10-28 实测：实验室「行政办公室电源闸」投到 y=602，而 Labs.svg 的 viewBox
+# 从 y=721 起（瓦片图的裁剪框没盖到北侧那一条）。硬画会被裁掉、tooltip 也点不到。
+# 门禁把这批当「已知未画」，但打日志；哪天多出一个新的越界，生成器会直接报错 ——
+# 那说明上游挪了位置或换了底图，得人工看一眼。
+SWITCH_OUT_OF_CANVAS: dict[str, str] = {
+    "switch_00404_Power": "实验室底图北侧裁剪框外（投到 y=602，画布从 721 起）",
+}
+
+
+def _in_canvas(p: list[float], vb: list[float]) -> bool:
+    """点是否落在底图 viewBox 内（留 1 单位的边，压线的不算越界）。"""
+    return (vb[0] - 1 <= p[0] <= vb[0] + vb[2] + 1
+            and vb[1] - 1 <= p[1] <= vb[1] + vb[3] + 1)
+
+
+def _switches_of(one_map: dict) -> list[dict]:
+    """从一张图的上游记录里挑出「撤离/供电」开关。
+
+    ⚠️ 缓存里**只存上游名与坐标**，中文名留到生成阶段查 `SWITCH_ZH` ——
+    否则改一个译名就要重抓 8.7 MB 的 maps 端点，而"改名字"是最常发生的动作。
+    """
+    raw = [s for s in (one_map.get("switches") or [])
+           if SWITCH_WANT.search(s.get("name") or "")]
+    name_of = {s.get("id"): s.get("name") or "" for s in raw}
+    out = []
+    for s in raw:
+        p = s.get("position") or {}
+        if "x" not in p or "z" not in p:
+            continue
+        acts = []
+        for a in s.get("activates") or []:
+            tgt = name_of.get(a.get("switch")) or ""
+            if tgt:
+                acts.append(tgt)          # 存上游名；中文名在生成阶段查表
+        out.append({
+            "en": s.get("name") or "",
+            "t": s.get("switchType") or "",   # Open 拉一下 / Close 按一下
+            # 世界坐标只留一位：投影在生成阶段算，与其余点位同一条路数
+            "x": round(p["x"], 1), "y": round(p.get("y") or 0, 1), "z": round(p["z"], 1),
+            "acts": acts,                     # 拉它 → 解锁/开启谁（上游名）
+            "dep": name_of.get(s.get("activatedBy")) or "",   # 要先拉谁（上游名）
+        })
+    return out
+
+
 # maps.json 的 key → 站内条目（用于页面回链与名称对照）
 ENTRY_OF: dict[str, str] = {
     "ground-zero": "entries/ground-zero.md",
@@ -669,26 +767,32 @@ def fetch_pve_extract_pay() -> None:
     log(f"   → {PAY_CACHE.relative_to(ROOT)}：{n} 个缴费撤离点（PvE 侧）")
 
 
-def fetch_map_layers() -> None:
-    """抓 maps 端点，只留撤离点 / 上锁 / 危险区三个图层（理由见模块头部）。
+def fetch_map_layers(switches_only: bool = False) -> None:
+    """抓 maps 端点，只留撤离点 / 上锁 / 危险区 / 转场点 / 开关五个图层。
 
     坐标一律**只存世界坐标**，投影留给生成阶段 —— 与任务点位同一条路数，
     这样换底图或改公式时，缓存不用重抓。
+
+    `switches_only=True`：**只补 `switches`**（2026-10-28 新增），其余图层原样
+    保留 —— 老缓存没有这一项时用增量升级，避免整份重抓把撤离点数量之类的无关
+    变化一起带进来（2026-10-28 实测：全量重抓会让分片多出 14 条点位差异）。
     """
     import datetime
 
-    log("④ 抓 maps 端点（撤离点 / 上锁 / 危险区）…")
+    log("④ 抓 maps 端点（撤离点 / 上锁 / 危险区 / 开关）…")
     raw = http_get(MAPS_API, timeout=240)
     maps = json.loads(raw.decode("utf-8"))["data"]["maps"]
     items = list(maps.values()) if isinstance(maps, dict) else maps
 
     out: dict[str, dict] = {}
-    tot = {"extracts": 0, "locks": 0, "hazards": 0, "transits": 0}
+    tot = {"extracts": 0, "locks": 0, "hazards": 0, "transits": 0, "switches": 0}
     for m in items:
         mid = m.get("id")
         if mid not in MAP_ID_TO_KEY:
             continue
-        rec: dict[str, list] = {"extracts": [], "locks": [], "hazards": [], "transits": []}
+        rec: dict[str, list] = {
+            "extracts": [], "locks": [], "hazards": [], "transits": [], "switches": []
+        }
 
         for e in m.get("extracts") or []:
             p = e.get("position") or {}
@@ -751,6 +855,9 @@ def fetch_map_layers() -> None:
                 }
             )
 
+        # 开关 / 拉闸点（2026-10-28）：只取「撤离/供电」那一类，见 SWITCH_WANT 的说明
+        rec["switches"] = _switches_of(m)
+
         if not any(rec.values()):
             continue
         # **按本站 key 归并**：同一张图有多个版本（工厂日/夜、中心区三个）会给重复条目 ——
@@ -758,7 +865,8 @@ def fetch_map_layers() -> None:
         key = MAP_ID_TO_KEY[mid]
         dst = out.setdefault(
             key,
-            {"extracts": [], "locks": [], "hazards": [], "transits": [], "versions": []},
+            {"extracts": [], "locks": [], "hazards": [], "transits": [],
+             "switches": [], "versions": []},
         )
         if (m.get("nameId") or "") not in dst["versions"]:
             dst["versions"].append(m.get("nameId") or "")
@@ -791,20 +899,65 @@ def fetch_map_layers() -> None:
                 dst[kind].append(x)
                 tot[kind] += 1
 
+        # 开关按**上游名**去重：多版本图（工厂日/夜这种）会给同一批开关、位置一字
+        # 不差。名字是这里的天然主键，按整条签名去重也对，但读起来不如名字清楚。
+        sw_seen = {x["en"] for x in dst["switches"]}
+        for x in rec["switches"]:
+            if x["en"] in sw_seen:
+                continue
+            sw_seen.add(x["en"])
+            dst["switches"].append(x)
+            tot["switches"] += 1
+
     payload = {
+        # 缓存结构版本：3 = switches 只存上游名与坐标（中文名在生成阶段查表，
+        # 2026-10-28 定稿）。低于 3 → 走增量补抓，见 main() 里的 `_ensure_switches()`。
+        "schema": 3,
         "fetched": datetime.date.today().isoformat(),
         "source": f"json.tarkov.dev/{EP_NAME[MODE]}/maps",
         "count": tot,
         "maps": out,
     }
+    if switches_only:
+        # 增量升级：保留旧缓存里的其余图层，只把 switches 填进去。
+        # 这样「补一个字段」不会顺带改掉撤离点/上锁这些读者已经看惯的数据。
+        old = json.loads(LAYERS_CACHE.read_text(encoding="utf-8")) if LAYERS_CACHE.exists() else {}
+        for k, v in (old.get("maps") or {}).items():
+            if k in out:
+                for field in ("extracts", "locks", "hazards", "transits", "versions"):
+                    if field in v:
+                        out[k][field] = v[field]
+        old_count = (old.get("count") or {})
+        for field in ("extracts", "locks", "hazards", "transits"):
+            if field in old_count:
+                tot[field] = old_count[field]
+        payload["count"] = tot
+        payload["fetched"] = old.get("fetched") or payload["fetched"]
     LAYERS_CACHE.write_text(
         json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n",
         encoding="utf-8",
     )
     log(
         f"   → {LAYERS_CACHE.relative_to(ROOT)}：撤离点 {tot['extracts']} ｜ "
-        f"上锁 {tot['locks']} ｜ 危险区 {tot['hazards']} ｜ 转场点 {tot['transits']}"
+        f"上锁 {tot['locks']} ｜ 危险区 {tot['hazards']} ｜ 转场点 {tot['transits']} ｜ "
+        f"开关 {tot['switches']}"
     )
+
+
+def _ensure_switches() -> None:
+    """老缓存没有开关点位时，增量补抓一次（2026-10-28 新增 `switches` 字段）。
+
+    判据是结构版本号 `schema`，不是「文件里有没有 switches 这个词」—— 后者在
+    某张图开关为空时也会误判，而且 grep 字符串当判据这件事本身就该避免。
+    """
+    try:
+        lay = json.loads(LAYERS_CACHE.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001 —— 缓存坏了就走全量，别在这里拦
+        return
+    if (lay.get("schema") or 1) >= 3:
+        return
+    log("   缓存里的开关点位是旧格式，增量补抓 switches…")
+    fetch_map_layers(switches_only=True)
 
 
 def _svg_sources(data: list) -> list[tuple[str, str]]:
@@ -1420,6 +1573,49 @@ def build_maps(data: list) -> dict:
                 merged_transits.append(tr)
         transits = keep(merged_transits, lambda x: x["p"])
 
+        # ── 开关 / 拉闸点：投影 + 起名校验 ──
+        # 与其余点位同一条投影公式（储备站 D-2 闸杆投到 (568,447)，与那里
+        # 「后门」任务框中心只差 2.5px —— 2026-10-28 实测，可作投影锚点）。
+        switches = []
+        for s in lm.get("switches") or []:
+            sx, sy = project(s["x"], s["z"], {**meta, "viewBox": view_box})
+            switches.append({
+                # 中文名在这一步查表（缓存里只存上游名）—— 改译名不用重抓上游
+                "n": SWITCH_ZH.get(s["en"]) or "",
+                "en": s["en"], "t": s["t"],
+                "p": [round(sx, 1), round(sy, 1)],
+                "y": s["y"],
+                # 联动关系原样带出去：它回答「先拉哪根、再按哪个」，是这批数据里
+                # 唯一比坐标更值钱的东西（读者真正会问的就是顺序）。
+                "acts": [SWITCH_ZH.get(a) or "" for a in (s.get("acts") or [])],
+                "dep": SWITCH_ZH.get(s.get("dep") or "") or "",
+            })
+        switches = [s for s in switches if s["n"]]  # 没起名的下面统一报错
+
+        # 画布外的跳过；**新出现的**越界直接报错（已知的那一个记在 SWITCH_OUT_OF_CANVAS）
+        drawn = [s for s in switches if _in_canvas(s["p"], view_box)]
+        for s in switches:
+            if s in drawn:
+                continue
+            if s["en"] not in SWITCH_OUT_OF_CANVAS:
+                raise SystemExit(
+                    f"[错误] {key}: 开关「{s['n']}」投影到 {s['p']}，落在底图 viewBox "
+                    f"{[round(v, 1) for v in view_box]} 之外。\n"
+                    f"  → 上游挪了位置，或换了底图（裁剪框变了）。看一眼是真越界还是"
+                    f"投影出了问题；确认画不出来，就加进 gen_maps.SWITCH_OUT_OF_CANVAS "
+                    f"并写明原因。"
+                )
+        switches = drawn
+        unnamed = [s["en"] for s in (lm.get("switches") or [])
+                   if not SWITCH_ZH.get(s["en"])]
+        if unnamed:
+            raise SystemExit(
+                f"[错误] {key}: {len(unnamed)} 个开关没有中文名 → {unnamed}\n"
+                f"  → 加进 gen_maps.SWITCH_ZH。按「位置」（最近地名）或「上游联动」"
+                f"（activates/activatedBy）起，**别按「它控制哪个出口」起** —— "
+                f"那个上游没给，猜错比不标更糟。"
+            )
+
         out[key] = {
             "nameEn": meta.get("normalizedName") or key,
             "kind": kind,
@@ -1443,11 +1639,15 @@ def build_maps(data: list) -> dict:
             "locks": locks,
             "hazards": hazards,
             "transits": transits,
+            # 开关 / 拉闸点（撤离供电类 15 个，全站在 6 张图上）——
+            # 见 SWITCH_WANT 的说明：只取这一类，报警台/电梯/迷宫机关不进来。
+            "switches": switches,
         }
         log(
             f"   ✓ {key:<18} {raw_path.name:<20} labels={len(labels):<3} "
             f"任务点位={len(quest_zones):<4} 撤离点={len(extracts):<3} "
             f"上锁={len(locks):<3} 危险区={len(hazards):<3} 转场={len(transits)}"
+            + (f" 开关={len(switches)}" if switches else "")
         )
 
     if zstat["lost"]:
@@ -1793,6 +1993,8 @@ def main() -> int:
         if not LAYERS_CACHE.exists():
             log("缺图层缓存，单独补抓（不重下 SVG）")
             fetch_map_layers()
+        else:
+            _ensure_switches()
         if not PAY_CACHE.exists():
             log("缺 PvE 缴费缓存，单独补抓")
             fetch_pve_extract_pay()

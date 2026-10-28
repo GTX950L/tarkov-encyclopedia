@@ -120,6 +120,7 @@ def page(key: str, data: dict, quests: list[dict]) -> str:
     locks = data.get("locks") or []
     haz = data.get("hazards") or []
     trs = data.get("transits") or []
+    sws = data.get("switches") or []   # 开关/拉闸点（2026-10-28 起）
     floors = data.get("floors") or []
 
     # 任务去重（按 id），并统计每人处数
@@ -204,6 +205,8 @@ def page(key: str, data: dict, quests: list[dict]) -> str:
         row.append(("转场点", len(trs)))
     if locks:
         row.append(("上锁位置", len(locks)))
+    if sws:
+        row.append(("开关（拉闸点）", len(sws)))
     if haz:
         row.append(("危险区", len(haz)))
     if floors:
@@ -291,7 +294,7 @@ def page(key: str, data: dict, quests: list[dict]) -> str:
         "| **地图下方清单** | 这张图的任务按商人分组，带**进度三态**（未标记／进行中／已完成，与「我的进度」同步）、组内完成度条与**行前提示**（钥匙／自备）；可按进度筛；点一行，上面地图就只剩它并自动定位 |\n"
         "| **出击清单** | 清单行左侧的「+」把任务加进出击清单（可多选）—— 汇总条给出区域数与钥匙数，「只看这些」让地图**同时**显示这几个任务的区域，一次 raid 推进几票用 |\n"
         "| **点击地名 / 撤离点** | 弹小卡：这是什么 + 去哪读（地名 → 本图条目；撤离点 → 撤离点详解）—— 不直接翻页，防误点丢地图状态 |\n"
-        "| 图层按钮 | **任务区域** / 撤离点 / 转场点 / 上锁 / 危险区，各自可开关 —— 想纯看地形时把「任务区域」整个关掉 |\n"
+        "| 图层按钮 | **任务区域** / 撤离点 / 转场点 / 开关 / 上锁 / 危险区，各自可开关 —— 想纯看地形时把「任务区域」整个关掉 |\n"
         "| 悬停撤离点 | 看阵营，以及**要不要缴钱／缴物**；多版本图的出口会标注「仅某版有」，车辆撤离若两模式价格不同还会写出 PvE 的价 |\n"
         "| 测距 | 点两个点量**直线**距离（米）；画布左下角的比例尺与它同源 |\n"
         "| 全屏 | 铺满屏幕看细节 |"

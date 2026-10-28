@@ -1188,7 +1188,10 @@
       return it;
     }
 
-    var PRIO = { extract: 0, transit: 1, label: 2 };
+    /* 标注避让的优先级。开关排**在转场点之前**：它是「出口的前置条件」（没拉闸就撤
+       不了），比转场点和地名都更该先占位 —— 立交桥实测，排在转场之后时 3 个开关的
+       标签全被 77 个地名挤掉了，图上只剩 3 个认不出的橙点。 */
+    var PRIO = { extract: 0, switch: 1, transit: 2, label: 3 };
 
     var layoutPending = false;
     function scheduleLayout() {
@@ -1496,6 +1499,82 @@
       trLayer.appendChild(g);
     });
     if (trLayer.children.length) svg.appendChild(trLayer);
+
+    /* ── 开关 / 拉闸点（2026-10-28）──
+       内容页一直在讲「环境型撤离点要先接通电源」，但地图上从来没有这一类点位 ——
+       上游 maps 端点其实给了 39 个开关的坐标，本站此前一个字段都没取。这里只画
+       其中「撤离 / 供电」的 15 个：另外 24 个是报警台、电梯按钮、迷宫陷阱与彩蛋，
+       混进来会让人以为迷宫有 12 个撤离闸（筛选规则见 gen_maps.SWITCH_WANT）。
+
+       **图标是自绘的**（橙圆 + 白闪电）。撤离点/锁那些位图是 Wiki 的现成素材，
+       这类开关在游戏内地图上没有官方标记，抄不到「原样」，硬套一个语义不对的位图
+       反而更误导 —— 自绘一个几何符号，是这里唯一诚实的选择。
+
+       **不参与楼层过滤**：上游给了 `position.y`，但「哪一层对应哪段高度」没有任何
+       官方数据（各图原点不同 —— 海岸线低到 −57 米、立交桥高到 +32 米；实验室两层
+       还共用同一套平面坐标）。按高度归层就是估算，与《引用说明》B13 同一条纪律，
+       不干。高度写进 tooltip，读者自己判断。 */
+    var swLayer = el("g", { class: "tk-map__switches" });
+    var swPlaced = [];   // 已放下的点：同点位的开关要错开，否则被后来者盖住
+    (data.switches || []).forEach(function (s) {
+      var px = s.p[0], py = s.p[1];
+      /* 灯塔的内/外两个闸只差 0.7 px —— 不错开的话两枚图标叠在一起，点击只能
+         命中上面那枚，下面那个永远看不到。判据取 1% 画布：比转场点的 2% 更紧，
+         因为开关是点不是面。 */
+      for (var k = 1; k <= 5; k++) {
+        var clash = false;
+        for (var i = 0; i < swPlaced.length; i++) {
+          if (Math.abs(swPlaced[i][0] - px) < vb0[2] * 0.01 &&
+              Math.abs(swPlaced[i][1] - py) < vb0[3] * 0.01) {
+            clash = true;
+            break;
+          }
+        }
+        if (!clash) break;
+        px = s.p[0] + vb0[2] * 0.013 * k;
+        py = s.p[1] + vb0[3] * 0.013 * k;
+      }
+      swPlaced.push([px, py]);
+
+      var g = el("g", { class: "tk-sw", transform: "translate(" + px + "," + py + ")" });
+      /* 图标 = 橙圈 + 白心（两个 circle），尺寸全走 CSS 的 `r`。
+         ⚠️ **不要换成 SVG path + `transform: scale()` 那套**：2026-10-28 实测，
+         `transform-box: fill-box` 在这版 Chromium 的 `<path>` 上会算错包围盒 ——
+         一个 8 px 的闪电被撑成 496×474 px，整组被甩到视口外，图上什么都不显示，
+         控制台也不报错。circle 的 `r` 是 SVG2 几何属性，CSS 直接给，稳。
+         `r` 写在属性上是**兜底**：老浏览器不认 CSS 的 `r` 时退化成固定 6.4 用户
+         单位，仍然看得见，只是缩放时跟着变大。 */
+      g.appendChild(el("circle", { r: "7.2", class: "tk-sw__dot" }));
+      g.appendChild(el("circle", { r: "3", class: "tk-sw__pip" }));
+      g.appendChild(el("text", { x: 9, y: 4, class: "tk-sw__lbl" }, s.n));
+      regLabel(s, g.querySelector("text"), px, py, "switch", 9, 4);
+
+      var stip = s.n + "\n" + (s.t === "Close" ? "按一下" : "拉一下")
+        + " · 高度 " + s.y + " 米";
+      if (s.dep) stip += "\n⚠ 要先拉「" + s.dep + "」";
+      var sacts = (s.acts || []).filter(Boolean);
+      if (sacts.length) stip += "\n拉它 → 解锁「" + sacts.join("、") + "」";
+      stip += "\n（上游名：" + s.en + "）";
+      g.appendChild(el("title", {}, stip));
+      g.style.cursor = "pointer";
+      g.addEventListener("click", function (ev) {
+        ev.stopPropagation();
+        hideMarkerPop();
+        var it = labelIndex.get(s);
+        if (it) it._force = true;
+        focusPoint(px, py);
+        var lines = [(s.t === "Close" ? "按一下" : "拉一下") + " · 高度 " + s.y + " 米",
+                     "不是撤离点，是开关：环境型出口要先把它接通"];
+        if (s.dep) lines.push("⚠ 要先拉「" + s.dep + "」");
+        if (sacts.length) lines.push("拉它 → 解锁「" + sacts.join("、") + "」");
+        showMarkerPop(s.n, lines, [{
+          href: siteRoot() + "entries/extraction-points/",
+          text: "条件型撤离点 →",
+        }], ev.clientX, ev.clientY);
+      });
+      swLayer.appendChild(g);
+    });
+    if (swLayer.children.length) svg.appendChild(swLayer);
 
     /* ── 控件 ── */
     var bar = document.createElement("div");
@@ -1885,6 +1964,9 @@
       ["任务区域", qlayer, qzAll.length, "", "quest"],
       ["撤离点", exLayer, (data.extracts || []).length, tally(data.extracts || [], "fzh"), "extract"],
       ["转场点", trLayer, (data.transits || []).length, "", "transit"],
+      /* 开关排在撤离点后面：它是「出口的前置条件」，读者先找出口、再找闸 ——
+         顺序跟内容页那张条件型撤离点表的讲法一致。 */
+      ["开关", swLayer, (data.switches || []).length, "", "switch"],
       ["上锁", lockLayer, (data.locks || []).length, tally(data.locks || [], "tzh"), "lock"],
       ["危险区", hazLayer, (data.hazards || []).length, "", "hazard"],
     ].filter(function (t) {
@@ -2328,6 +2410,7 @@
       ["tk-lg-pin", "地名锚点 —— 点击查看条目", (data.labels || []).length],
       ["tk-lg-ex", "撤离点（PMC / Scav / 共用三种图标）—— 点击看条件", (data.extracts || []).length],
       ["tk-lg-tr", "转场点 —— 不结束战局直接换图", (data.transits || []).length],
+      ["tk-lg-sw", "开关（拉闸点）—— 环境型撤离点要先把它接通；悬停看高度与联动", (data.switches || []).length],
       ["tk-lg-lock", "上锁 —— 点击查需要哪把钥匙", (data.locks || []).length],
       ["tk-lg-hz", "危险区 —— 斜纹虚线是范围，图标标大片雷区", (data.hazards || []).length],
       ["tk-lg-task", "任务目标区域 —— 单击只看它、双击进详情", qzAll.length],
@@ -2343,13 +2426,17 @@
     host.appendChild(legend);
 
     /* 图标来源署名（2026-10-18）：只在**本图确实画了图标**时出现，
-       破冰船 / 终点站这类没有点位层的图不挂一句无用的话。 */
+       破冰船 / 终点站这类没有点位层的图不挂一句无用的话。
+       ⚠️ 2026-10-28 起要分开写：撤离点／转场／锁／危险区是 Wiki 的位图，
+       开关（橙圆 + 白闪电）是本站自绘的 —— 合用一句会把自绘也算进别人的署名。 */
     if ((data.extracts || []).length || (data.transits || []).length
-        || (data.locks || []).length || (data.hazards || []).length) {
+        || (data.locks || []).length || (data.hazards || []).length
+        || (data.switches || []).length) {
       var credit = document.createElement("p");
       credit.className = "tk-map__credit";
-      credit.textContent =
-        "地图标记图标：The Official Escape From Tarkov Wiki（经 tarkov.dev 分发）。";
+      credit.textContent = (data.switches || []).length
+        ? "地图标记图标：The Official Escape From Tarkov Wiki（经 tarkov.dev 分发）；开关图标为本站自绘。"
+        : "地图标记图标：The Official Escape From Tarkov Wiki（经 tarkov.dev 分发）。";
       host.appendChild(credit);
     }
 
