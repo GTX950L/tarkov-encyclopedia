@@ -5210,7 +5210,7 @@ window.TARKOV_PROGRESS_MANIFEST = {
       },
       {
         "id": "the-unheard",
-        "en": null,
+        "en": "The Unheard",
         "zh": "无名者",
         "objectives": 24,
         "axis": false,
@@ -5218,7 +5218,7 @@ window.TARKOV_PROGRESS_MANIFEST = {
       },
       {
         "id": "accidental-witness",
-        "en": null,
+        "en": "Accidental Witness",
         "zh": "意外证人",
         "objectives": 18,
         "axis": false,
@@ -5226,7 +5226,7 @@ window.TARKOV_PROGRESS_MANIFEST = {
       },
       {
         "id": "labyrinth",
-        "en": null,
+        "en": "The Labyrinth",
         "zh": "探秘“迷宫”",
         "objectives": 14,
         "axis": false,
@@ -5234,7 +5234,7 @@ window.TARKOV_PROGRESS_MANIFEST = {
       },
       {
         "id": "blue-fire",
-        "en": null,
+        "en": "Blue Fire",
         "zh": "神秘蓝焰",
         "objectives": 8,
         "axis": false,

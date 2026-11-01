@@ -107,11 +107,11 @@ ASSERTIONS: dict[str, list[tuple[str, str, bool, str]]] = {
     #   顺带查出四个结局的叙述在「是否真的离开」上存在来源分歧。**断言在实体页**
     #   （story-chapters.md），与 A1 / A6「断言不在实体页」的情况正好相反。
     "A12": [
-        ("entries/story-chapters.md", r"Escaped from Tarkov", True,
+        ("story/the-ticket.md", r"Escaped from Tarkov", True,
          "官方成就名含 Escape —— 站内按官方口径处理（旧债沉疴 / 陨落之人都算离开了）"),
-        ("entries/story-chapters.md", r"没能离开塔科夫", True,
+        ("story/the-ticket.md", r"没能离开塔科夫", True,
          "社区另说必须并列保留，不得只留官方一说"),
-        ("entries/story-chapters.md", r"把子任务名当成了结局", True,
+        ("story/the-ticket.md", r"把子任务名当成了结局", True,
          "必须点明分歧的来源：`\"Stay in Tarkov\"` 是债务的比喻，不是结局事实"),
     ],
     # A9（实验室暗版门槛）已于 2026-09-29 核实并**移出**第三节：按英文 EFT Wiki 的
@@ -153,9 +153,9 @@ ASSERTIONS: dict[str, list[tuple[str, str, bool, str]]] = {
     #   官方公布了结局名与成就文本，但**没有以文本形式公布结局演出**——
     #   「船长被击毙」「城市遭核打击」这类情节全部来自社区通关录像与媒体报道。
     "B10": [
-        ("entries/story-chapters.md", r"并未以文本形式公布", True,
+        ("story/the-ticket.md", r"并未以文本形式公布", True,
          "必须明写「结局演出没有官方文本」——这是本项存在的理由"),
-        ("entries/story-chapters.md", r"社区实录与媒体报道", True,
+        ("story/the-ticket.md", r"社区实录与媒体报道", True,
          "来源须标为社区实录与媒体报道，不得写成官方设定"),
     ],
     "B11": [

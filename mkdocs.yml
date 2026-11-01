@@ -355,6 +355,17 @@ nav:
           - Ref（竞技场裁判）: quests/ref.md
           - BTR 司机: quests/btr-driver.md
           - Lightkeeper: quests/lightkeeper.md
+          - 剧情线逐章讲解:
+              - 塔科夫之旅（Tour）: story/tour.md
+              - 陨落星辰（Falling Skies）: story/falling-skies.md
+              - 门票（The Ticket）: story/the-ticket.md
+              - 他们已经来了（They Are Already Here）: story/they-are-already-here.md
+              - Batya: story/batya.md
+              - Boreas: story/boreas.md
+              - 无名者（The Unheard）: story/the-unheard.md
+              - 意外证人（Accidental Witness）: story/accidental-witness.md
+              - 探秘“迷宫”（The Labyrinth）: story/labyrinth.md
+              - 神秘蓝焰（Blue Fire）: story/blue-fire.md
       - 第十一篇 · 参考:
           # 2026-10-22 瘦身：项目欢迎页（纯链接页，与首页「其他资源」重复）与
           # 更新日志归档（2,690 行历史，GitHub Releases 已有）移出站点；
