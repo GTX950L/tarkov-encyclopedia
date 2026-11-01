@@ -15,7 +15,7 @@ tags:
 
 | 项目 | 说明 |
 |------|------|
-| **收录件数** | **32 件**（全站物品图鉴共 4,983 件） |
+| **收录件数** | **32 件**（全站物品图鉴共 4,998 件） |
 | **叶子分类** | 2 个官方分类：[钱](#钱)、[刀](#刀) |
 | **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。本页 **10 / 32 件**有至少一条（商人出售 2 ｜ 以物换物 8 ｜ 制作 0）；`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— 那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|
 | **数据来源** | `json.tarkov.dev` 的 `itemCategories` 树与 `items` 接口，二级来源 |
@@ -39,8 +39,8 @@ tags:
 | # | 名称 | 英文名 | 重量 | 关键属性 | 获取方式 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|----------|--------------|--------------|
 | 1 | <img class="tk-ic" src="../assets/items/icons/5449016a4bdc2d6f028b456f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 卢布 | `roubles` | 0 千克 | — | — | — | — |
-| 2 | <img class="tk-ic" src="../assets/items/icons/569668774bdc2da2298b4568.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 欧元 | `euros` | 0 千克 | — | 商人出售 | 192 卢布，需 Skier 1 级 | — |
-| 3 | <img class="tk-ic" src="../assets/items/icons/5696686a4bdc2da3298b456a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 美元 | `dollars` | 0 千克 | — | 商人出售 | 169 卢布，需 Peacekeeper 1 级 | — |
+| 2 | <img class="tk-ic" src="../assets/items/icons/569668774bdc2da2298b4568.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 欧元 | `euros` | 0 千克 | — | 商人出售 | 186 卢布，需 Skier 1 级 | — |
+| 3 | <img class="tk-ic" src="../assets/items/icons/5696686a4bdc2da3298b456a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 美元 | `dollars` | 0 千克 | — | 商人出售 | 165 卢布，需 Peacekeeper 1 级 | — |
 | 4 | <img class="tk-ic" src="../assets/items/icons/5d235b4d86f7742e017bc88a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> GP币 | `gp-coin` | 0.01 千克 | — | — | — | — |
 | 5 | <img class="tk-ic" src="../assets/items/icons/69dd0de23dfe95d9e70b5ebb.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> TarCoin | `tarcoin` | 0.05 千克 | — | — | — | — |
 
