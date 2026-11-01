@@ -88,7 +88,7 @@
 <span class="tk-stat__d">可勾选，进度按前置反推</span>
 </a>
 <a class="tk-stat__card" href="entries/achievements.md">
-<b class="tk-stat__n">128<em>个</em></b>
+<b class="tk-stat__n">131<em>个</em></b>
 <span class="tk-stat__l">成就</span>
 <span class="tk-stat__d">含 25 个隐藏成就</span>
 </a>
