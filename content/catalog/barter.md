@@ -15,9 +15,9 @@ tags:
 
 | 项目 | 说明 |
 |------|------|
-| **收录件数** | **328 件**（全站物品图鉴共 4,983 件） |
+| **收录件数** | **333 件**（全站物品图鉴共 4,998 件） |
 | **叶子分类** | 9 个官方分类：[珠宝](#珠宝)、[电子产品](#电子产品)、[建筑材料](#建筑材料)、[工具](#工具)、[日常用品](#日常用品)、[医疗用品](#医疗用品)、[电池](#电池)、[其他](#其他)、[燃料](#燃料) |
-| **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。本页 **69 / 328 件**有至少一条（商人出售 1 ｜ 以物换物 18 ｜ 制作 62）；`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— 那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|
+| **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。本页 **69 / 333 件**有至少一条（商人出售 1 ｜ 以物换物 18 ｜ 制作 62）；`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— 那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|
 | **数据来源** | `json.tarkov.dev` 的 `itemCategories` 树与 `items` 接口，二级来源 |
 | **抓取日期** | 2026-10-08 |
 | **配套页面** | [物品图鉴总览](index.md) ｜ [任务需求物品反查](../quests/item-lookup.md) ｜ [配方速查表](../docs/recipes.md) |
@@ -43,7 +43,7 @@ tags:
 | 3 | <img class="tk-ic" src="../assets/items/icons/5df8a77486f77412672a1e3f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 圣诞树装饰球（紫） | `christmas-tree-ornament-violet` | 0.05 千克 | — | — | — | 10,200 卢布（4 家最高） |
 | 4 | <img class="tk-ic" src="../assets/items/icons/5df8a6a186f77412640e2e80.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 圣诞树装饰球（红） | `christmas-tree-ornament-red` | 0.05 千克 | — | — | — | 7,650 卢布（4 家最高） |
 | 5 | <img class="tk-ic" src="../assets/items/icons/5df8a72c86f77412640e2e83.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 圣诞树装饰球（银） | `christmas-tree-ornament-silver` | 0.05 千克 | — | — | — | 5,100 卢布（4 家最高） |
-| 6 | <img class="tk-ic" src="../assets/items/icons/59faff1d86f7746c51718c9c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 实体比特币 | `physical-bitcoin` | 0.05 千克 | — | 以物换物 / 制作 | — | 572,409 卢布（4 家最高） |
+| 6 | <img class="tk-ic" src="../assets/items/icons/59faff1d86f7746c51718c9c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 实体比特币 | `physical-bitcoin` | 0.05 千克 | — | 以物换物 / 制作 | — | 543,241 卢布（4 家最高） |
 | 7 | <img class="tk-ic" src="../assets/items/icons/68f119c6121d878a2303eee3.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 实体比特币的右半边 | `right-half-of-a-physical-bitcoin` | 0.05 千克 | — | — | — | 6,302 卢布（4 家最高） |
 | 8 | <img class="tk-ic" src="../assets/items/icons/68f11adfcd0babab2c0fb003.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 实体比特币的左半边 | `left-half-of-a-physical-bitcoin` | 0.05 千克 | — | 制作 | — | 6,302 卢布（4 家最高） |
 | 9 | <img class="tk-ic" src="../assets/items/icons/6937ed118715e9fd1b0f286d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 橘子 | `tangerine` | 0.07 千克 | — | — | — | 64,830 卢布（4 家最高） |
@@ -65,7 +65,7 @@ tags:
 | 25 | <img class="tk-ic" src="../assets/items/icons/68f261f6928cd23ddf0471fd.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Mastichin 玩偶 | `mastichin-figurine` | 0.2 千克 | — | — | — | 25,500 卢布（4 家最高） |
 | 26 | <img class="tk-ic" src="../assets/items/icons/68f25f1201fb9de974058be4.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Mechanic 玩偶 | `mechanic-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
 | 27 | <img class="tk-ic" src="../assets/items/icons/655c66e40b2de553b618d4b8.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Mutkevich 政客玩偶 | `politician-mutkevich-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
-| 28 | <img class="tk-ic" src="../assets/items/icons/6aa2d14dcff7211b380d9f6c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> PMC 逃离玩偶 | `pmc-escape-figurine` | 0.2 千克 | — | — | — | — |
+| 28 | <img class="tk-ic" src="../assets/items/icons/6aa2d14dcff7211b380d9f6c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> PMC 逃离玩偶 | `pmc-escape-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（3 家最高） |
 | 29 | <img class="tk-ic" src="../assets/items/icons/68f25eef19a2b503d70dc291.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Peacekeeper 玩偶 | `peacekeeper-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
 | 30 | <img class="tk-ic" src="../assets/items/icons/679b9d43597ba2ed120c3d44.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Petya Crooker 玩偶 | `petya-crooker-figurine` | 0.2 千克 | — | — | — | 38,250 卢布（4 家最高） |
 | 31 | <img class="tk-ic" src="../assets/items/icons/68f25c64b2b53abd200b954f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Prapor 玩偶 | `prapor-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
@@ -77,47 +77,50 @@ tags:
 | 37 | <img class="tk-ic" src="../assets/items/icons/66572cbdad599021091c611a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Tagilla 玩偶 | `tagilla-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
 | 38 | <img class="tk-ic" src="../assets/items/icons/68f25ce9b2b53abd200b9551.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Therapist 玩偶 | `therapist-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
 | 39 | <img class="tk-ic" src="../assets/items/icons/655c663a6689c676ce57af85.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> USEC 干员玩偶 | `usec-operative-figurine` | 0.2 千克 | — | — | — | 38,250 卢布（4 家最高） |
-| 40 | <img class="tk-ic" src="../assets/items/icons/68f26161b84c6e1f8a09d001.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “逃离”玩偶 | `escape-figurine` | 0.2 千克 | — | — | — | — |
-| 41 | <img class="tk-ic" src="../assets/items/icons/679b9d6390622daf9708da76.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 三角头玩偶 | `pointy-guy-figurine` | 0.2 千克 | — | — | — | 38,250 卢布（4 家最高） |
-| 42 | <img class="tk-ic" src="../assets/items/icons/679b9d4b3374fb14f40efe6d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 吸血鬼公爵玩偶 | `count-bloodsucker-figurine` | 0.2 千克 | — | — | — | 38,250 卢布（4 家最高） |
-| 43 | <img class="tk-ic" src="../assets/items/icons/655c67ab0d37ca5135388f4b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 圣诞老人玩偶 | `ded-moroz-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
-| 44 | <img class="tk-ic" src="../assets/items/icons/679b9d55708cfcb2060b9ae3.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 异形玩偶 | `xenoalien-figurine` | 0.2 千克 | — | — | — | 38,250 卢布（4 家最高） |
-| 45 | <img class="tk-ic" src="../assets/items/icons/68f26124b84c6e1f8a09cfff.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 无赖战士玩偶 | `walking-tank-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
-| 46 | <img class="tk-ic" src="../assets/items/icons/68f26063b2b53abd200b9553.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 竞技场裁判玩偶 | `ref-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
-| 47 | <img class="tk-ic" src="../assets/items/icons/68f260d7b84c6e1f8a09cffd.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 藏身处之猫玩偶 | `hideout-cat-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
-| 48 | <img class="tk-ic" src="../assets/items/icons/655c669103999d3c810c025b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 邪教徒玩偶 | `cultist-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
-| 49 | <img class="tk-ic" src="../assets/items/icons/62a09cfe4f842e1bd12da3e4.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 金蛋 | `golden-egg` | 0.2 千克 | — | — | — | 34,680 卢布（4 家最高） |
-| 50 | <img class="tk-ic" src="../assets/items/icons/679b9cce4e4ed4b3b40ae5c5.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 钉子头玩偶 | `nailhead-figurine` | 0.2 千克 | — | — | — | 38,250 卢布（4 家最高） |
-| 51 | <img class="tk-ic" src="../assets/items/icons/697cddb414e932098005748d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 鸭子玩偶 | `duck-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
-| 52 | <img class="tk-ic" src="../assets/items/icons/6638a5474e92f038531e210e.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Kerman先生的全息猫 | `mr-kermans-cat-hologram` | 0.3 千克 | — | — | — | — |
-| 53 | <img class="tk-ic" src="../assets/items/icons/6aa2d17e3fe081d16109ab7d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> PMC 硬汉玩偶 | `pmc-hardened-figurine` | 0.3 千克 | — | — | — | 38,250 卢布（3 家最高） |
-| 54 | <img class="tk-ic" src="../assets/items/icons/6841b6b674a3c16f5e03d653.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> PMC 起源玩偶 | `pmc-origins-figurine` | 0.3 千克 | — | — | — | — |
-| 55 | <img class="tk-ic" src="../assets/items/icons/6aa2d19ecff7211b380d9f6f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> PMC 起源玩偶 | `pmc-origins-figurine-1` | 0.3 千克 | — | — | — | 38,250 卢布（3 家最高） |
-| 56 | <img class="tk-ic" src="../assets/items/icons/68f11224197b61ffe703b16f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 硬汉 PMC 玩偶 | `hardened-pmc-figurine` | 0.3 千克 | — | — | — | — |
-| 57 | <img class="tk-ic" src="../assets/items/icons/62a091170b9d3c46de5b6cf2.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Axel鹦鹉雕像 | `axel-parrot-figurine` | 0.33 千克 | — | — | — | 26,010 卢布（4 家最高） |
-| 58 | <img class="tk-ic" src="../assets/items/icons/66b37eb4acff495a29492407.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Viibiin运动鞋 | `viibiin-sneaker` | 0.42 千克 | — | — | — | 28,939 卢布（4 家最高） |
-| 59 | <img class="tk-ic" src="../assets/items/icons/5e54f62086f774219b0f1937.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 乌鸦雕像 | `raven-figurine` | 0.42 千克 | — | — | — | 24,480 卢布（4 家最高） |
-| 60 | <img class="tk-ic" src="../assets/items/icons/66b37ea4c5d72b0277488439.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Tamatthi 苦无飞刀（仿制品） | `tamatthi-kunai-knife-replica` | 0.438 千克 | — | — | — | 43,677 卢布（4 家最高） |
-| 61 | <img class="tk-ic" src="../assets/items/icons/573478bc24597738002c6175.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 马雕像 | `horse-figurine` | 0.5 千克 | — | — | — | 5,838 卢布（4 家最高） |
-| 62 | <img class="tk-ic" src="../assets/items/icons/6a4ff1e23e95f68a650fcb13.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 破冰船模型套件 | `icebreaker-model` | 0.9 千克 | — | 制作 | — | — |
-| 63 | <img class="tk-ic" src="../assets/items/icons/67ea616a74f765cefd009fb7.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Tagilla 的“ZABEY”电焊面罩（仿制品） | `tagillas-welding-mask-zabey-replica` | 1 千克 | — | — | — | 38,250 卢布（4 家最高） |
-| 64 | <img class="tk-ic" src="../assets/items/icons/6a3d38063357ef2b260d1891.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 破冰船模型套件 | `icebreaker-model-kit` | 1 千克 | — | — | — | — |
-| 65 | <img class="tk-ic" src="../assets/items/icons/590de71386f774347051a052.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 古董茶壶 | `antique-teapot` | 1.1 千克 | — | — | — | 23,919 卢布（4 家最高） |
-| 66 | <img class="tk-ic" src="../assets/items/icons/590de7e986f7741b096e5f32.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 古董花瓶 | `antique-vase` | 2 千克 | — | — | — | 34,578 卢布（4 家最高） |
-| 67 | <img class="tk-ic" src="../assets/items/icons/59e3647686f774176a362507.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 木头钟 | `wooden-clock` | 3 千克 | — | — | — | 42,491 卢布（4 家最高） |
-| 68 | <img class="tk-ic" src="../assets/items/icons/59e3658a86f7741776641ac4.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 猫雕像 | `cat-figurine` | 3.1 千克 | — | — | — | 31,777 卢布（4 家最高） |
-| 69 | <img class="tk-ic" src="../assets/items/icons/6a4ce086b5644e9f0a08d08a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> LM KC-130 飞机模型 | `lm-kc-130-model-aircraft` | 3.8 千克 | — | — | — | 46,188 卢布（4 家最高） |
-| 70 | <img class="tk-ic" src="../assets/items/icons/5bc9bc53d4351e00367fbcee.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 金公鸡塑像 | `golden-rooster-figurine` | 3.8 千克 | — | — | — | 46,188 卢布（4 家最高） |
-| 71 | <img class="tk-ic" src="../assets/items/icons/59e3639286f7741777737013.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 青铜狮雕 | `bronze-lion-figurine` | 7.2 千克 | — | — | — | 83,096 卢布（4 家最高） |
-| 72 | <img class="tk-ic" src="../assets/items/icons/6937edb912d456a817083e82.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Mazoni 金色哑铃 | `mazoni-golden-dumbbell` | 46 千克 | — | — | — | 46,155 卢布（4 家最高） |
+| 40 | <img class="tk-ic" src="../assets/items/icons/6ad9cf0b5394c084310cac90.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Wedge 玩偶 | `wedge-figurine` | 0.2 千克 | — | — | — | 76,500 卢布（4 家最高） |
+| 41 | <img class="tk-ic" src="../assets/items/icons/68f26161b84c6e1f8a09d001.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “逃离”玩偶 | `escape-figurine` | 0.2 千克 | — | — | — | — |
+| 42 | <img class="tk-ic" src="../assets/items/icons/679b9d6390622daf9708da76.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 三角头玩偶 | `pointy-guy-figurine` | 0.2 千克 | — | — | — | 38,250 卢布（4 家最高） |
+| 43 | <img class="tk-ic" src="../assets/items/icons/679b9d4b3374fb14f40efe6d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 吸血鬼公爵玩偶 | `count-bloodsucker-figurine` | 0.2 千克 | — | — | — | 38,250 卢布（4 家最高） |
+| 44 | <img class="tk-ic" src="../assets/items/icons/655c67ab0d37ca5135388f4b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 圣诞老人玩偶 | `ded-moroz-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
+| 45 | <img class="tk-ic" src="../assets/items/icons/679b9d55708cfcb2060b9ae3.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 异形玩偶 | `xenoalien-figurine` | 0.2 千克 | — | — | — | 38,250 卢布（4 家最高） |
+| 46 | <img class="tk-ic" src="../assets/items/icons/68f26124b84c6e1f8a09cfff.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 无赖战士玩偶 | `walking-tank-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
+| 47 | <img class="tk-ic" src="../assets/items/icons/68f26063b2b53abd200b9553.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 竞技场裁判玩偶 | `ref-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
+| 48 | <img class="tk-ic" src="../assets/items/icons/68f260d7b84c6e1f8a09cffd.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 藏身处之猫玩偶 | `hideout-cat-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
+| 49 | <img class="tk-ic" src="../assets/items/icons/655c669103999d3c810c025b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 邪教徒玩偶 | `cultist-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
+| 50 | <img class="tk-ic" src="../assets/items/icons/62a09cfe4f842e1bd12da3e4.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 金蛋 | `golden-egg` | 0.2 千克 | — | — | — | 34,680 卢布（4 家最高） |
+| 51 | <img class="tk-ic" src="../assets/items/icons/679b9cce4e4ed4b3b40ae5c5.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 钉子头玩偶 | `nailhead-figurine` | 0.2 千克 | — | — | — | 38,250 卢布（4 家最高） |
+| 52 | <img class="tk-ic" src="../assets/items/icons/697cddb414e932098005748d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 鸭子玩偶 | `duck-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
+| 53 | <img class="tk-ic" src="../assets/items/icons/6ad9cce9e1f879d17605ca33.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 黑色军团小队指挥官玩偶 | `black-division-team-leader-figurine` | 0.2 千克 | — | — | — | 63,750 卢布（4 家最高） |
+| 54 | <img class="tk-ic" src="../assets/items/icons/6ad9cd192b8132e9720f993a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 黑色军团干员玩偶 | `black-division-operator-figurine` | 0.2 千克 | — | — | — | 63,750 卢布（4 家最高） |
+| 55 | <img class="tk-ic" src="../assets/items/icons/6638a5474e92f038531e210e.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Kerman先生的全息猫 | `mr-kermans-cat-hologram` | 0.3 千克 | — | — | — | — |
+| 56 | <img class="tk-ic" src="../assets/items/icons/6aa2d17e3fe081d16109ab7d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> PMC 硬汉玩偶 | `pmc-hardened-figurine` | 0.3 千克 | — | — | — | 38,250 卢布（3 家最高） |
+| 57 | <img class="tk-ic" src="../assets/items/icons/6841b6b674a3c16f5e03d653.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> PMC 起源玩偶 | `pmc-origins-figurine` | 0.3 千克 | — | — | — | — |
+| 58 | <img class="tk-ic" src="../assets/items/icons/6aa2d19ecff7211b380d9f6f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> PMC 起源玩偶 | `pmc-origins-figurine-1` | 0.3 千克 | — | — | — | 38,250 卢布（3 家最高） |
+| 59 | <img class="tk-ic" src="../assets/items/icons/68f11224197b61ffe703b16f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 硬汉 PMC 玩偶 | `hardened-pmc-figurine` | 0.3 千克 | — | — | — | — |
+| 60 | <img class="tk-ic" src="../assets/items/icons/62a091170b9d3c46de5b6cf2.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Axel鹦鹉雕像 | `axel-parrot-figurine` | 0.33 千克 | — | — | — | 26,010 卢布（4 家最高） |
+| 61 | <img class="tk-ic" src="../assets/items/icons/66b37eb4acff495a29492407.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Viibiin运动鞋 | `viibiin-sneaker` | 0.42 千克 | — | — | — | 28,939 卢布（4 家最高） |
+| 62 | <img class="tk-ic" src="../assets/items/icons/5e54f62086f774219b0f1937.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 乌鸦雕像 | `raven-figurine` | 0.42 千克 | — | — | — | 24,480 卢布（4 家最高） |
+| 63 | <img class="tk-ic" src="../assets/items/icons/66b37ea4c5d72b0277488439.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Tamatthi 苦无飞刀（仿制品） | `tamatthi-kunai-knife-replica` | 0.438 千克 | — | — | — | 43,677 卢布（4 家最高） |
+| 64 | <img class="tk-ic" src="../assets/items/icons/573478bc24597738002c6175.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 马雕像 | `horse-figurine` | 0.5 千克 | — | — | — | 5,838 卢布（4 家最高） |
+| 65 | <img class="tk-ic" src="../assets/items/icons/6a4ff1e23e95f68a650fcb13.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 破冰船模型套件 | `icebreaker-model` | 0.9 千克 | — | 制作 | — | — |
+| 66 | <img class="tk-ic" src="../assets/items/icons/67ea616a74f765cefd009fb7.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Tagilla 的“ZABEY”电焊面罩（仿制品） | `tagillas-welding-mask-zabey-replica` | 1 千克 | — | — | — | — |
+| 67 | <img class="tk-ic" src="../assets/items/icons/6a3d38063357ef2b260d1891.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 破冰船模型套件 | `icebreaker-model-kit` | 1 千克 | — | — | — | — |
+| 68 | <img class="tk-ic" src="../assets/items/icons/590de71386f774347051a052.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 古董茶壶 | `antique-teapot` | 1.1 千克 | — | — | — | 23,919 卢布（4 家最高） |
+| 69 | <img class="tk-ic" src="../assets/items/icons/590de7e986f7741b096e5f32.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 古董花瓶 | `antique-vase` | 2 千克 | — | — | — | 34,578 卢布（4 家最高） |
+| 70 | <img class="tk-ic" src="../assets/items/icons/59e3647686f774176a362507.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 木头钟 | `wooden-clock` | 3 千克 | — | — | — | 42,491 卢布（4 家最高） |
+| 71 | <img class="tk-ic" src="../assets/items/icons/59e3658a86f7741776641ac4.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 猫雕像 | `cat-figurine` | 3.1 千克 | — | — | — | 31,777 卢布（4 家最高） |
+| 72 | <img class="tk-ic" src="../assets/items/icons/6a4ce086b5644e9f0a08d08a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> LM KC-130 飞机模型 | `lm-kc-130-model-aircraft` | 3.8 千克 | — | — | — | 46,188 卢布（4 家最高） |
+| 73 | <img class="tk-ic" src="../assets/items/icons/5bc9bc53d4351e00367fbcee.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 金公鸡塑像 | `golden-rooster-figurine` | 3.8 千克 | — | — | — | 46,188 卢布（4 家最高） |
+| 74 | <img class="tk-ic" src="../assets/items/icons/59e3639286f7741777737013.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 青铜狮雕 | `bronze-lion-figurine` | 7.2 千克 | — | — | — | 83,096 卢布（4 家最高） |
+| 75 | <img class="tk-ic" src="../assets/items/icons/6937edb912d456a817083e82.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Mazoni 金色哑铃 | `mazoni-golden-dumbbell` | 46 千克 | — | — | — | 46,155 卢布（4 家最高） |
 
 </div>
 
-> 本分类 **72 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+> 本分类 **75 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
 
-<details><summary>本分类 72 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+<details><summary>本分类 75 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
 
-Veritas吉他拨片　黄金骷髅指环　圣诞树装饰球（紫）　圣诞树装饰球（红）　圣诞树装饰球（银）　实体比特币　实体比特币的右半边　实体比特币的左半边　橘子　Prokill带链奖章　传奇奖章　金项链　银徽章　项链　劳力土潜水金腕表　BEAR 干员玩偶　BTR 模型　Den 玩偶　Desmondpilak CD 专辑　Elvisvista 玩偶　Fence 玩偶　Jaeger 玩偶　Killa 玩偶　Lightkeeper 玩偶　Mastichin 玩偶　Mechanic 玩偶　Mutkevich 政客玩偶　PMC 逃离玩偶　Peacekeeper 玩偶　Petya Crooker 玩偶　Prapor 玩偶　Ragman 玩偶　Reshala 玩偶　Ryzhy 玩偶　Scav 玩偶　Skier 玩偶　Tagilla 玩偶　Therapist 玩偶　USEC 干员玩偶　“逃离”玩偶　三角头玩偶　吸血鬼公爵玩偶　圣诞老人玩偶　异形玩偶　无赖战士玩偶　竞技场裁判玩偶　藏身处之猫玩偶　邪教徒玩偶　金蛋　钉子头玩偶　鸭子玩偶　Kerman先生的全息猫　PMC 硬汉玩偶　PMC 起源玩偶　PMC 起源玩偶　硬汉 PMC 玩偶　Axel鹦鹉雕像　Viibiin运动鞋　乌鸦雕像　Tamatthi 苦无飞刀（仿制品）　马雕像　破冰船模型套件　Tagilla 的“ZABEY”电焊面罩（仿制品）　破冰船模型套件　古董茶壶　古董花瓶　木头钟　猫雕像　LM KC-130 飞机模型　金公鸡塑像　青铜狮雕　Mazoni 金色哑铃
+Veritas吉他拨片　黄金骷髅指环　圣诞树装饰球（紫）　圣诞树装饰球（红）　圣诞树装饰球（银）　实体比特币　实体比特币的右半边　实体比特币的左半边　橘子　Prokill带链奖章　传奇奖章　金项链　银徽章　项链　劳力土潜水金腕表　BEAR 干员玩偶　BTR 模型　Den 玩偶　Desmondpilak CD 专辑　Elvisvista 玩偶　Fence 玩偶　Jaeger 玩偶　Killa 玩偶　Lightkeeper 玩偶　Mastichin 玩偶　Mechanic 玩偶　Mutkevich 政客玩偶　PMC 逃离玩偶　Peacekeeper 玩偶　Petya Crooker 玩偶　Prapor 玩偶　Ragman 玩偶　Reshala 玩偶　Ryzhy 玩偶　Scav 玩偶　Skier 玩偶　Tagilla 玩偶　Therapist 玩偶　USEC 干员玩偶　Wedge 玩偶　“逃离”玩偶　三角头玩偶　吸血鬼公爵玩偶　圣诞老人玩偶　异形玩偶　无赖战士玩偶　竞技场裁判玩偶　藏身处之猫玩偶　邪教徒玩偶　金蛋　钉子头玩偶　鸭子玩偶　黑色军团小队指挥官玩偶　黑色军团干员玩偶　Kerman先生的全息猫　PMC 硬汉玩偶　PMC 起源玩偶　PMC 起源玩偶　硬汉 PMC 玩偶　Axel鹦鹉雕像　Viibiin运动鞋　乌鸦雕像　Tamatthi 苦无飞刀（仿制品）　马雕像　破冰船模型套件　Tagilla 的“ZABEY”电焊面罩（仿制品）　破冰船模型套件　古董茶壶　古董花瓶　木头钟　猫雕像　LM KC-130 飞机模型　金公鸡塑像　青铜狮雕　Mazoni 金色哑铃
 
 </details>
 
@@ -153,11 +156,11 @@ Veritas吉他拨片　黄金骷髅指环　圣诞树装饰球（紫）　圣诞�
 | 20 | <img class="tk-ic" src="../assets/items/icons/686666db646d47fec3018925.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 包含未知数据的光盘 | `disk-with-unknown-data` | 0.25 千克 | — | — | — | — |
 | 21 | <img class="tk-ic" src="../assets/items/icons/590a386e86f77429692b27ab.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 损坏的硬盘 | `damaged-hard-drive` | 0.25 千克 | — | — | — | 3,820 卢布（5 家最高） |
 | 22 | <img class="tk-ic" src="../assets/items/icons/5c06779c86f77426e00dd782.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 电线 | `bundle-of-wires` | 0.25 千克 | — | 制作 | — | 3,774 卢布（5 家最高） |
-| 23 | <img class="tk-ic" src="../assets/items/icons/6ac4cfbc99bdd7779608792f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Scourge's smartphone | `scourges-smartphone` | 0.3 千克 | — | — | — | 81,600 卢布（4 家最高） |
-| 24 | <img class="tk-ic" src="../assets/items/icons/5c05308086f7746b2101e90b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Virtex可编程处理器 | `virtex-programmable-processor` | 0.3 千克 | — | 制作 | — | 61,200 卢布（5 家最高） |
-| 25 | <img class="tk-ic" src="../assets/items/icons/590a3b0486f7743954552bdb.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 印制电路板 | `printed-circuit-board` | 0.3 千克 | — | 制作 | — | 6,501 卢布（5 家最高） |
-| 26 | <img class="tk-ic" src="../assets/items/icons/56742c324bdc2d150f8b456d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 损坏的GPhone | `broken-gphone-smartphone` | 0.3 千克 | — | 制作 | — | 9,527 卢布（5 家最高） |
-| 27 | <img class="tk-ic" src="../assets/items/icons/5c1265fc86f7743f896a21c2.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 损坏的GPhone X | `broken-gphone-x-smartphone` | 0.3 千克 | — | — | — | 16,320 卢布（5 家最高） |
+| 23 | <img class="tk-ic" src="../assets/items/icons/5c05308086f7746b2101e90b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Virtex可编程处理器 | `virtex-programmable-processor` | 0.3 千克 | — | 制作 | — | 61,200 卢布（5 家最高） |
+| 24 | <img class="tk-ic" src="../assets/items/icons/590a3b0486f7743954552bdb.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 印制电路板 | `printed-circuit-board` | 0.3 千克 | — | 制作 | — | 6,501 卢布（5 家最高） |
+| 25 | <img class="tk-ic" src="../assets/items/icons/56742c324bdc2d150f8b456d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 损坏的GPhone | `broken-gphone-smartphone` | 0.3 千克 | — | 制作 | — | 9,527 卢布（5 家最高） |
+| 26 | <img class="tk-ic" src="../assets/items/icons/5c1265fc86f7743f896a21c2.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 损坏的GPhone X | `broken-gphone-x-smartphone` | 0.3 千克 | — | — | — | 16,320 卢布（5 家最高） |
+| 27 | <img class="tk-ic" src="../assets/items/icons/6ac4cfbc99bdd7779608792f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 灾厄的智能手机 | `scourges-smartphone` | 0.3 千克 | — | — | — | 15,300 卢布（4 家最高） |
 | 28 | <img class="tk-ic" src="../assets/items/icons/5bc9b720d4351e450201234b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 金色1GPhone | `golden-1gphone-smartphone` | 0.3 千克 | — | — | — | 22,765 卢布（5 家最高） |
 | 29 | <img class="tk-ic" src="../assets/items/icons/5909e99886f7740c983b9984.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> USB适配器 | `usb-adapter` | 0.4 千克 | — | — | — | 885 卢布（5 家最高） |
 | 30 | <img class="tk-ic" src="../assets/items/icons/590a3efd86f77437d351a25b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 气体分析仪 | `gas-analyzer` | 0.4 千克 | — | 以物换物 / 制作 | — | 11,065 卢布（5 家最高） |
@@ -192,7 +195,7 @@ Veritas吉他拨片　黄金骷髅指环　圣诞树装饰球（紫）　圣诞�
 
 <details><summary>本分类 54 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
 
-微控制器电路板　完好的液晶显示屏　损坏的液晶显示屏　Memento 服务器内存模块　内存条　火花塞　电脑CPU　相位控制继电器　电灯泡　CPU风扇　电子元件　电容　Tetriz便携式游戏机　T形插座　NIXXOR镜头　军用电源滤波器　紫外线灯泡　节能灯泡　Iridium军用热成像模块　包含未知数据的光盘　损坏的硬盘　电线　Scourge's smartphone　Virtex可编程处理器　印制电路板　损坏的GPhone　损坏的GPhone X　金色1GPhone　USB适配器　气体分析仪　电磁铁　盖革-穆勒计数器　螺旋散热器　GPS信号放大单元　UHF RFID固定式读取器　军用电路板　DVD光驱　显示卡　电源线　军用电缆　GARY ZONT “保护伞”便携式电子战装置　VPX闪存模块　军用转速计　电钻　电动马达　供电单元　相控阵单元　军用COFDM无线信号发射器　KOSA无人机电子反制装置　Ultralink 卫星通讯模块　未知设备碎片　IBX Gigachad 加密处理器　直流变压器　雷达站备用零件
+微控制器电路板　完好的液晶显示屏　损坏的液晶显示屏　Memento 服务器内存模块　内存条　火花塞　电脑CPU　相位控制继电器　电灯泡　CPU风扇　电子元件　电容　Tetriz便携式游戏机　T形插座　NIXXOR镜头　军用电源滤波器　紫外线灯泡　节能灯泡　Iridium军用热成像模块　包含未知数据的光盘　损坏的硬盘　电线　Virtex可编程处理器　印制电路板　损坏的GPhone　损坏的GPhone X　灾厄的智能手机　金色1GPhone　USB适配器　气体分析仪　电磁铁　盖革-穆勒计数器　螺旋散热器　GPS信号放大单元　UHF RFID固定式读取器　军用电路板　DVD光驱　显示卡　电源线　军用电缆　GARY ZONT “保护伞”便携式电子战装置　VPX闪存模块　军用转速计　电钻　电动马达　供电单元　相控阵单元　军用COFDM无线信号发射器　KOSA无人机电子反制装置　Ultralink 卫星通讯模块　未知设备碎片　IBX Gigachad 加密处理器　直流变压器　雷达站备用零件
 
 </details>
 
@@ -329,23 +332,25 @@ Deadlyslob的胡须油　卫生纸　肥皂　Repellent杀虫剂　Ortodontox牙
 | 2 | <img class="tk-ic" src="../assets/items/icons/5d1b3f2d86f774253763b735.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 一次性注射器 | `disposable-syringe` | 0.06 千克 | — | 以物换物 / 制作 | — | 4,355 卢布（3 家最高） |
 | 3 | <img class="tk-ic" src="../assets/items/icons/5af0534a86f7743b6f354284.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 检眼镜 | `ophthalmoscope` | 0.067 千克 | — | — | — | 43,305 卢布（3 家最高） |
 | 4 | <img class="tk-ic" src="../assets/items/icons/5c0530ee86f774697952d952.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> LEDX皮肤透照仪 | `ledx-skin-transilluminator` | 0.083 千克 | — | 以物换物 / 制作 | — | 494,700 卢布（3 家最高） |
-| 5 | <img class="tk-ic" src="../assets/items/icons/59e361e886f774176c10a2a5.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 过氧化氢溶液（双氧水） | `bottle-of-hydrogen-peroxide` | 0.1 千克 | — | — | — | 6,205 卢布（3 家最高） |
-| 6 | <img class="tk-ic" src="../assets/items/icons/62a0a043cf4a99369e2624a5.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> OLOLO瓶装复合维生素 | `bottle-of-ololo-multivitamins` | 0.2 千克 | — | 以物换物 | — | 12,795 卢布（3 家最高） |
-| 7 | <img class="tk-ic" src="../assets/items/icons/5d1b3a5d86f774252167ba22.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 一堆药 | `pile-of-meds` | 0.2 千克 | — | 以物换物 / 制作 | — | 3,315 卢布（3 家最高） |
-| 8 | <img class="tk-ic" src="../assets/items/icons/5b4335ba86f7744d2837a264.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 医用输血工具 | `medical-bloodset` | 0.2 千克 | — | 制作 | — | 4,980 卢布（3 家最高） |
-| 9 | <img class="tk-ic" src="../assets/items/icons/619cc01e0a7c3a1a2731940c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 医疗工具 | `medical-tools` | 0.25 千克 | — | — | — | 3,825 卢布（3 家最高） |
-| 10 | <img class="tk-ic" src="../assets/items/icons/59e3606886f77417674759a5.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 盐水溶液 | `bottle-of-saline-solution` | 0.5 千克 | — | — | — | 4,339 卢布（3 家最高） |
-| 11 | <img class="tk-ic" src="../assets/items/icons/6389c6c7dbfd5e4b95197e68.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Aquapeps饮用水净化片 | `aquapeps-water-purification-tablets` | 1.1 千克 | — | — | — | 15,345 卢布（3 家最高） |
-| 12 | <img class="tk-ic" src="../assets/items/icons/5c052e6986f7746b207bc3c9.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 便携式除颤器 | `portable-defibrillator` | 1.5 千克 | — | 制作 | — | 114,546 卢布（3 家最高） |
-| 13 | <img class="tk-ic" src="../assets/items/icons/69bb435ff609db77390b0e25.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Aceso Xpress 半自动生化分析仪 | `aceso-xpress-semi-automatic-biochemical-analyzer` | 5.1 千克 | — | — | — | 890,511 卢布（3 家最高） |
+| 5 | <img class="tk-ic" src="../assets/items/icons/6acc4af5ada0d6309902b049.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 感染者组织样本 | `infected-tissue-sample` | 0.1 千克 | — | — | — | 84,150 卢布（1 家最高） |
+| 6 | <img class="tk-ic" src="../assets/items/icons/6acc4988059559342f0830d8.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 血液样本 | `blood-sample` | 0.1 千克 | — | — | — | 51,000 卢布（1 家最高） |
+| 7 | <img class="tk-ic" src="../assets/items/icons/59e361e886f774176c10a2a5.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 过氧化氢溶液（双氧水） | `bottle-of-hydrogen-peroxide` | 0.1 千克 | — | — | — | 6,205 卢布（3 家最高） |
+| 8 | <img class="tk-ic" src="../assets/items/icons/62a0a043cf4a99369e2624a5.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> OLOLO瓶装复合维生素 | `bottle-of-ololo-multivitamins` | 0.2 千克 | — | 以物换物 | — | 12,795 卢布（3 家最高） |
+| 9 | <img class="tk-ic" src="../assets/items/icons/5d1b3a5d86f774252167ba22.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 一堆药 | `pile-of-meds` | 0.2 千克 | — | 以物换物 / 制作 | — | 3,315 卢布（3 家最高） |
+| 10 | <img class="tk-ic" src="../assets/items/icons/5b4335ba86f7744d2837a264.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 医用输血工具 | `medical-bloodset` | 0.2 千克 | — | 制作 | — | 4,980 卢布（3 家最高） |
+| 11 | <img class="tk-ic" src="../assets/items/icons/619cc01e0a7c3a1a2731940c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 医疗工具 | `medical-tools` | 0.25 千克 | — | — | — | 3,825 卢布（3 家最高） |
+| 12 | <img class="tk-ic" src="../assets/items/icons/59e3606886f77417674759a5.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 盐水溶液 | `bottle-of-saline-solution` | 0.5 千克 | — | — | — | 4,339 卢布（3 家最高） |
+| 13 | <img class="tk-ic" src="../assets/items/icons/6389c6c7dbfd5e4b95197e68.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Aquapeps饮用水净化片 | `aquapeps-water-purification-tablets` | 1.1 千克 | — | — | — | 15,345 卢布（3 家最高） |
+| 14 | <img class="tk-ic" src="../assets/items/icons/5c052e6986f7746b207bc3c9.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 便携式除颤器 | `portable-defibrillator` | 1.5 千克 | — | 制作 | — | 114,546 卢布（3 家最高） |
+| 15 | <img class="tk-ic" src="../assets/items/icons/69bb435ff609db77390b0e25.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Aceso Xpress 半自动生化分析仪 | `aceso-xpress-semi-automatic-biochemical-analyzer` | 5.1 千克 | — | — | — | 890,511 卢布（3 家最高） |
 
 </div>
 
-> 本分类 **13 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+> 本分类 **15 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
 
-<details><summary>本分类 13 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+<details><summary>本分类 15 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
 
-Nooby Shield 碘化钾片　一次性注射器　检眼镜　LEDX皮肤透照仪　过氧化氢溶液（双氧水）　OLOLO瓶装复合维生素　一堆药　医用输血工具　医疗工具　盐水溶液　Aquapeps饮用水净化片　便携式除颤器　Aceso Xpress 半自动生化分析仪
+Nooby Shield 碘化钾片　一次性注射器　检眼镜　LEDX皮肤透照仪　感染者组织样本　血液样本　过氧化氢溶液（双氧水）　OLOLO瓶装复合维生素　一堆药　医用输血工具　医疗工具　盐水溶液　Aquapeps饮用水净化片　便携式除颤器　Aceso Xpress 半自动生化分析仪
 
 </details>
 
@@ -455,7 +460,7 @@ Nooby Shield 碘化钾片　一次性注射器　检眼镜　LEDX皮肤透照仪
 | 65 | <img class="tk-ic" src="../assets/items/icons/5e2af47786f7746d404f3aaa.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 绒布布料 | `fleece-fabric` | 0.05 千克 | — | 制作 | — | 2,040 卢布（5 家最高） |
 | 66 | <img class="tk-ic" src="../assets/items/icons/5e2af51086f7746d3f3c3402.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> UZRGM手榴弹引信 | `uzrgm-grenade-fuze` | 0.055 千克 | — | — | — | 4,131 卢布（4 家最高） |
 | 67 | <img class="tk-ic" src="../assets/items/icons/5e2af4a786f7746d3f3c3400.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 防撕布料 | `ripstop-fabric` | 0.09 千克 | — | 制作 | — | 2,958 卢布（5 家最高） |
-| 68 | <img class="tk-ic" src="../assets/items/icons/6ac4d528d8aa0d51df01995c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Precursor container | `precursor-container` | 0.1 千克 | — | — | — | 153,000 卢布（6 家最高） |
+| 68 | <img class="tk-ic" src="../assets/items/icons/6ac4d528d8aa0d51df01995c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 装有前体的容器 | `precursor-container` | 0.1 千克 | — | — | — | 25,500 卢布（6 家最高） |
 | 69 | <img class="tk-ic" src="../assets/items/icons/5e2af41e86f774755a234b67.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Cordura聚酰胺面料 | `cordura-polyamide-fabric` | 0.11 千克 | — | 制作 | — | 6,732 卢布（5 家最高） |
 | 70 | <img class="tk-ic" src="../assets/items/icons/62a09cb7a04c0c5c6e0a84f8.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 记者证（为NoiceGuy签发） | `press-pass-issued-for-noiceguy` | 0.12 千克 | — | — | — | 25,500 卢布（4 家最高） |
 | 71 | <img class="tk-ic" src="../assets/items/icons/5e2af4d286f7746d4159f07a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 芳纶纤维布料 | `aramid-fiber-fabric` | 0.14 千克 | — | 制作 | — | 4,488 卢布（4 家最高） |
@@ -503,7 +508,7 @@ Nooby Shield 碘化钾片　一次性注射器　检眼镜　LEDX皮肤透照仪
 
 <details><summary>本分类 108 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
 
-BD 狗牌 •｜ 红色　BD 狗牌 •｜ 绿色　BD 狗牌 •｜ 铁灰　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　带有标记的 BEAR 狗牌　带有标记的 BEAR 狗牌　带有标记的 BEAR 狗牌　带有标记的 BEAR 狗牌　带有标记的 USEC 狗牌　带有标记的 USEC 狗牌　带有标记的 USEC 狗牌　带有标记的 USEC 狗牌　箱子钥匙　云尔斯顿香烟　无彩香烟　阿波罗-联盟香烟　马宝路香烟　BEAR 两片式狗牌　USEC 两片式狗牌　绒布布料　UZRGM手榴弹引信　防撕布料　Precursor container　Cordura聚酰胺面料　记者证（为NoiceGuy签发）　芳纶纤维布料　42 Signature Blend英式茶　Loot Lord毛绒玩具　尼龙绳索　BEAR Buddy毛绒玩具　滤水器　破旧的古董书　密封的盒子　罐装 Majaica 咖啡豆　违禁品盒子　防毒面具滤罐　武器零件　“Eagle”火药　“Hawk”火药　“Kite”火药　罐装 Dr. Lupo 咖啡豆　Arseniy包装荞麦　OFZ 30x165毫米炮弹　一罐酸黄瓜　锁住的箱子　上锁的贵重物品箱（普通）　上锁的贵重物品箱（特等）　上锁的贵重物品箱（稀有）　Everclear 两级净水器　万能药物资箱　上锁的武器箱（普通）　上锁的武器箱（特等）　上锁的武器箱（稀有）　上锁的物资箱（普通）　上锁的物资箱（特等）　上锁的物资箱（稀有）　上锁的装备箱（普通）　上锁的装备箱（特等）　上锁的装备箱（稀有）　上锁的装备箱（通行证 0 赛季）　战争回声物资箱　瘟疫物资箱　FP-100过滤吸收器
+BD 狗牌 •｜ 红色　BD 狗牌 •｜ 绿色　BD 狗牌 •｜ 铁灰　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR 狗牌　BEAR狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　USEC 狗牌　带有标记的 BEAR 狗牌　带有标记的 BEAR 狗牌　带有标记的 BEAR 狗牌　带有标记的 BEAR 狗牌　带有标记的 USEC 狗牌　带有标记的 USEC 狗牌　带有标记的 USEC 狗牌　带有标记的 USEC 狗牌　箱子钥匙　云尔斯顿香烟　无彩香烟　阿波罗-联盟香烟　马宝路香烟　BEAR 两片式狗牌　USEC 两片式狗牌　绒布布料　UZRGM手榴弹引信　防撕布料　装有前体的容器　Cordura聚酰胺面料　记者证（为NoiceGuy签发）　芳纶纤维布料　42 Signature Blend英式茶　Loot Lord毛绒玩具　尼龙绳索　BEAR Buddy毛绒玩具　滤水器　破旧的古董书　密封的盒子　罐装 Majaica 咖啡豆　违禁品盒子　防毒面具滤罐　武器零件　“Eagle”火药　“Hawk”火药　“Kite”火药　罐装 Dr. Lupo 咖啡豆　Arseniy包装荞麦　OFZ 30x165毫米炮弹　一罐酸黄瓜　锁住的箱子　上锁的贵重物品箱（普通）　上锁的贵重物品箱（特等）　上锁的贵重物品箱（稀有）　Everclear 两级净水器　万能药物资箱　上锁的武器箱（普通）　上锁的武器箱（特等）　上锁的武器箱（稀有）　上锁的物资箱（普通）　上锁的物资箱（特等）　上锁的物资箱（稀有）　上锁的装备箱（普通）　上锁的装备箱（特等）　上锁的装备箱（稀有）　上锁的装备箱（通行证 0 赛季）　战争回声物资箱　瘟疫物资箱　FP-100过滤吸收器
 
 </details>
 

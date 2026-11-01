@@ -15,9 +15,9 @@ tags:
 
 | 项目 | 说明 |
 |------|------|
-| **收录件数** | **224 件**（全站物品图鉴共 4,983 件） |
+| **收录件数** | **232 件**（全站物品图鉴共 4,998 件） |
 | **叶子分类** | 6 个官方分类：[地图](#地图)、[磁带](#磁带)、[海报传单](#海报传单)、[笔记](#笔记)、[对话物品](#对话物品)、[赛季通行证文件](#赛季通行证文件) |
-| **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。本页 **16 / 224 件**有至少一条（商人出售 6 ｜ 以物换物 1 ｜ 制作 10）；`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— 那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|
+| **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。本页 **16 / 232 件**有至少一条（商人出售 6 ｜ 以物换物 1 ｜ 制作 10）；`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— 那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|
 | **数据来源** | `json.tarkov.dev` 的 `itemCategories` 树与 `items` 接口，二级来源 |
 | **抓取日期** | 2026-10-08 |
 | **配套页面** | [物品图鉴总览](index.md) ｜ [任务需求物品反查](../quests/item-lookup.md) ｜ [配方速查表](../docs/recipes.md) |
@@ -116,69 +116,73 @@ A.P. 会议录音带 - 1　A.P. 会议录音带 - 2　BEAR 指挥官留下的录
 | 16 | <img class="tk-ic" src="../assets/items/icons/675a04fdb8913ff13e0496bb.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Killa 与 Tagilla 海报 | `killa-and-tagilla-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
 | 17 | <img class="tk-ic" src="../assets/items/icons/68f0f8a1375a44d1ed01ea4b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Killa妹海报 | `killagirl-poster` | 0.1 千克 | — | — | — | — |
 | 18 | <img class="tk-ic" src="../assets/items/icons/67f924a9154a04c33b0a3c57.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Killa小迷妹海报 | `killa-fangirl-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 19 | <img class="tk-ic" src="../assets/items/icons/699f0b877c23862b4b0ee19c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Paradigm 航运海报 | `paradigm-shipping-poster` | 0.1 千克 | — | — | — | 13,500 卢布（1 家最高） |
-| 20 | <img class="tk-ic" src="../assets/items/icons/68f0f8f1a1e799f1c3027c71.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Ryzhy 编年史海报 | `chronicles-of-ryzhy-poster` | 0.1 千克 | — | — | — | — |
-| 21 | <img class="tk-ic" src="../assets/items/icons/675a0a91af26c56ee1090728.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> TerraGroup 实验室招募广告 | `terragroup-labs-advertisement` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
-| 22 | <img class="tk-ic" src="../assets/items/icons/675a213ff905bde03d0f8255.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> USEC 海报 | `usec-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
-| 23 | <img class="tk-ic" src="../assets/items/icons/6759bb94b8913ff13e049669.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> What You Seek 海报 | `what-you-seek-poster` | 0.1 千克 | — | — | — | — |
-| 24 | <img class="tk-ic" src="../assets/items/icons/675a1e502eac6c76e104ea1e.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “RUN”海报 | `run-poster` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
-| 25 | <img class="tk-ic" src="../assets/items/icons/6aa2d75c667ebebca605d8fe.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “丫喜欢修勾吗？”海报 | `dya-like-dags-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 26 | <img class="tk-ic" src="../assets/items/icons/6aa2d73de7613174f409815b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “宿舍楼地头蛇”海报 | `dorm-snake-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 27 | <img class="tk-ic" src="../assets/items/icons/6841b179322db20d190b4b99.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “干点正经事”海报 | `get-a-life-poster` | 0.1 千克 | — | — | — | — |
-| 28 | <img class="tk-ic" src="../assets/items/icons/6aa2d6d611d6c6361804dd5b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “早日康复”海报 | `get-well-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 29 | <img class="tk-ic" src="../assets/items/icons/6aa2d686667ebebca605d8fa.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “早日滚蛋”海报 | `get-lost-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 30 | <img class="tk-ic" src="../assets/items/icons/6aa2d653b30d09615d006ee7.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “深渊”海报 | `the-abyss-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 31 | <img class="tk-ic" src="../assets/items/icons/6aa2d63bcff7211b380d9f77.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “路途”海报 | `the-path-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 32 | <img class="tk-ic" src="../assets/items/icons/675a202b6aaafea7210915fd.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《伏击现场》海报 | `the-ambush-poster` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
-| 33 | <img class="tk-ic" src="../assets/items/icons/675a191f67c8eb5cd1035305.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《惊天枪战》海报 | `gunfight-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
-| 34 | <img class="tk-ic" src="../assets/items/icons/675a1a244ff23436160d8033.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《末路航班》海报 | `last-flight-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
-| 35 | <img class="tk-ic" src="../assets/items/icons/675a0d2d57dd12f0260c4a31.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《流亡之路》海报 | `exodus-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
-| 36 | <img class="tk-ic" src="../assets/items/icons/675a0eacf905bde03d0f8253.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《狼窝》海报 | `den-of-wolves-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
-| 37 | <img class="tk-ic" src="../assets/items/icons/675a20c83fb2de89670113b4.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《猎物》海报 | `the-hunted-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 38 | <img class="tk-ic" src="../assets/items/icons/675a1c129422e1708e0e9baa.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《瓦西里》海报 | `vasily-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
-| 39 | <img class="tk-ic" src="../assets/items/icons/675a1f5c1474133a0d0bb218.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《神射手》海报 | `sharpshooter-poster` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
-| 40 | <img class="tk-ic" src="../assets/items/icons/675a125caf26c56ee109072a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《赴汤蹈火》海报 | `hell-or-highwater-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
-| 41 | <img class="tk-ic" src="../assets/items/icons/697cdbfd14e9320980057487.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《逃离鸭科夫》海报 | `escape-from-duckov-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 42 | <img class="tk-ic" src="../assets/items/icons/675a1af21474133a0d0bb216.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《骇人影片》海报 | `spooky-movie-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
-| 43 | <img class="tk-ic" src="../assets/items/icons/68f25a45b2b53abd200b954d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 三人成虎海报 | `trio-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 44 | <img class="tk-ic" src="../assets/items/icons/67f924b1b07831a6ef0ce317.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 不同寻常的皮具吊带海报 | `unusual-leather-rig-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 45 | <img class="tk-ic" src="../assets/items/icons/689b5f0f986634d56b0e099f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 塔格勒传说海报 | `targrad-tales-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 46 | <img class="tk-ic" src="../assets/items/icons/68f25b4219a2b503d70dc28d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 塔科夫火车站海报 | `tarkov-train-station-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 47 | <img class="tk-ic" src="../assets/items/icons/6a426fbe99757acd420f64b0.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 塔科夫街区海报 | `streets-of-tarkov-poster` | 0.1 千克 | — | — | — | — |
-| 48 | <img class="tk-ic" src="../assets/items/icons/675a081c1474133a0d0bb214.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 奇怪物语海报 | `things-sure-are-strange-poster` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
-| 49 | <img class="tk-ic" src="../assets/items/icons/6759e19a8367ee2b0c0f4b92.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 女郎海报 | `girl-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
-| 50 | <img class="tk-ic" src="../assets/items/icons/6759e61067c8eb5cd10352f1.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 女郎海报 | `girl-poster-1` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
-| 51 | <img class="tk-ic" src="../assets/items/icons/6759e6c39422e1708e0e9b81.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 女郎海报 | `girl-poster-2` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
-| 52 | <img class="tk-ic" src="../assets/items/icons/6759e7a44ff23436160d7ff5.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 女郎海报 | `girl-poster-3` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
-| 53 | <img class="tk-ic" src="../assets/items/icons/6759e8b1c3102563bd01c985.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 女郎海报 | `girl-poster-4` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
-| 54 | <img class="tk-ic" src="../assets/items/icons/6a4263c3bf5f5f7f9a0ee828.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 小心熊出没海报 | `beware-the-bear-poster` | 0.1 千克 | — | — | — | — |
-| 55 | <img class="tk-ic" src="../assets/items/icons/67f924adb45d94a2600a8cc8.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 手榴弹女孩海报 | `grenade-girl-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 56 | <img class="tk-ic" src="../assets/items/icons/68f25ad7103c5d9d4f02392e.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 控制海报 | `control-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 57 | <img class="tk-ic" src="../assets/items/icons/675a0fbbb98bf391510bafcd.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 末日高速海报 | `highway-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
-| 58 | <img class="tk-ic" src="../assets/items/icons/6841b1ff51bf8645f7067bca.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 汪汪拳海报 | `get-a-paw-poster` | 0.1 千克 | — | — | — | — |
-| 59 | <img class="tk-ic" src="../assets/items/icons/6759e91d8367ee2b0c0f4b94.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 特殊女郎海报 | `special-girl-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 60 | <img class="tk-ic" src="../assets/items/icons/68f25a8acacd763bbc0e2bf9.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 神秘仪式海报 | `ritual-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 61 | <img class="tk-ic" src="../assets/items/icons/68f25b27abc35769c505f959.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 突袭海报 | `raid-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 62 | <img class="tk-ic" src="../assets/items/icons/675a0288c3102563bd01c9c3.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 竞技场广告海报 | `arena-advertisement-poster` | 0.1 千克 | — | 商人出售 | 100,800 卢布，需 Skier 1 级 | 17,500 卢布（1 家最高） |
-| 63 | <img class="tk-ic" src="../assets/items/icons/675a046b8f547d6cae01922e.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 竞技场海报 | `arena-poster` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
-| 64 | <img class="tk-ic" src="../assets/items/icons/68f25ac501fb9de974058be2.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 邪教海报 | `cult-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 65 | <img class="tk-ic" src="../assets/items/icons/675a04c01474133a0d0bb212.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 野牛 vs 复仇者海报 | `bison-vs-undertaker-poster` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
-| 66 | <img class="tk-ic" src="../assets/items/icons/6a42642fef6f4bbe8c0ccd4f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 隐入黑暗海报 | `going-dark-poster` | 0.1 千克 | — | — | — | — |
-| 67 | <img class="tk-ic" src="../assets/items/icons/6a91b07d0265fb6a1f061a8a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 新兵浅浮雕 | `recruit-bas-relief` | 1 千克 | — | — | — | 42,500 卢布（1 家最高） |
-| 68 | <img class="tk-ic" src="../assets/items/icons/6a91b4e323415d3f520ba458.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 幸存者浅浮雕 | `survivor-bas-relief` | 1.23 千克 | — | — | — | 47,500 卢布（1 家最高） |
-| 69 | <img class="tk-ic" src="../assets/items/icons/6a91b5142f7e57600b0a4ccc.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 老兵浅浮雕 | `veteran-bas-relief` | 1.34 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 70 | <img class="tk-ic" src="../assets/items/icons/6a91b58214210be75a0260d8.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 冷酷战士浅浮雕 | `ruthless-bas-relief` | 1.41 千克 | — | — | — | 52,500 卢布（1 家最高） |
-| 71 | <img class="tk-ic" src="../assets/items/icons/6a91b61314210be75a0260db.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 升格浅浮雕 | `ascended-bas-relief` | 1.66 千克 | — | — | — | 67,500 卢布（1 家最高） |
-| 72 | <img class="tk-ic" src="../assets/items/icons/6a91b64352bb89bd3602742f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 升格浅浮雕 | `ascended-bas-relief-1` | 1.8 千克 | — | — | — | 77,500 卢布（1 家最高） |
-| 73 | <img class="tk-ic" src="../assets/items/icons/6a91b5d5ca420f299d08e325.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 重生浅浮雕 | `reborn-bas-relief` | 2.44 千克 | — | — | — | 57,500 卢布（1 家最高） |
+| 19 | <img class="tk-ic" src="../assets/items/icons/6ad9d46e5301ed3de9046687.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Mei Mei海报 | `mei-mei-poster` | 0.1 千克 | — | — | — | 75,000 卢布（1 家最高） |
+| 20 | <img class="tk-ic" src="../assets/items/icons/699f0b877c23862b4b0ee19c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Paradigm 航运海报 | `paradigm-shipping-poster` | 0.1 千克 | — | — | — | 13,500 卢布（1 家最高） |
+| 21 | <img class="tk-ic" src="../assets/items/icons/68f0f8f1a1e799f1c3027c71.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Ryzhy 编年史海报 | `chronicles-of-ryzhy-poster` | 0.1 千克 | — | — | — | — |
+| 22 | <img class="tk-ic" src="../assets/items/icons/675a0a91af26c56ee1090728.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> TerraGroup 实验室招募广告 | `terragroup-labs-advertisement` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
+| 23 | <img class="tk-ic" src="../assets/items/icons/675a213ff905bde03d0f8255.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> USEC 海报 | `usec-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
+| 24 | <img class="tk-ic" src="../assets/items/icons/6759bb94b8913ff13e049669.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> What You Seek 海报 | `what-you-seek-poster` | 0.1 千克 | — | — | — | — |
+| 25 | <img class="tk-ic" src="../assets/items/icons/675a1e502eac6c76e104ea1e.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “RUN”海报 | `run-poster` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
+| 26 | <img class="tk-ic" src="../assets/items/icons/6aa2d75c667ebebca605d8fe.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “丫喜欢修勾吗？”海报 | `dya-like-dags-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 27 | <img class="tk-ic" src="../assets/items/icons/6aa2d73de7613174f409815b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “宿舍楼地头蛇”海报 | `dorm-snake-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 28 | <img class="tk-ic" src="../assets/items/icons/6841b179322db20d190b4b99.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “干点正经事”海报 | `get-a-life-poster` | 0.1 千克 | — | — | — | — |
+| 29 | <img class="tk-ic" src="../assets/items/icons/6aa2d6d611d6c6361804dd5b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “早日康复”海报 | `get-well-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 30 | <img class="tk-ic" src="../assets/items/icons/6aa2d686667ebebca605d8fa.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “早日滚蛋”海报 | `get-lost-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 31 | <img class="tk-ic" src="../assets/items/icons/6aa2d653b30d09615d006ee7.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “深渊”海报 | `the-abyss-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 32 | <img class="tk-ic" src="../assets/items/icons/6aa2d63bcff7211b380d9f77.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “路途”海报 | `the-path-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 33 | <img class="tk-ic" src="../assets/items/icons/675a202b6aaafea7210915fd.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《伏击现场》海报 | `the-ambush-poster` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
+| 34 | <img class="tk-ic" src="../assets/items/icons/6ad9ce23e0f9657cf507add6.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《塔科夫活死人》海报 | `tarkov-of-the-dead-poster` | 0.1 千克 | — | — | — | — |
+| 35 | <img class="tk-ic" src="../assets/items/icons/675a191f67c8eb5cd1035305.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《惊天枪战》海报 | `gunfight-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
+| 36 | <img class="tk-ic" src="../assets/items/icons/675a1a244ff23436160d8033.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《末路航班》海报 | `last-flight-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
+| 37 | <img class="tk-ic" src="../assets/items/icons/675a0d2d57dd12f0260c4a31.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《流亡之路》海报 | `exodus-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
+| 38 | <img class="tk-ic" src="../assets/items/icons/675a0eacf905bde03d0f8253.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《狼窝》海报 | `den-of-wolves-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
+| 39 | <img class="tk-ic" src="../assets/items/icons/675a20c83fb2de89670113b4.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《猎物》海报 | `the-hunted-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 40 | <img class="tk-ic" src="../assets/items/icons/675a1c129422e1708e0e9baa.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《瓦西里》海报 | `vasily-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
+| 41 | <img class="tk-ic" src="../assets/items/icons/675a1f5c1474133a0d0bb218.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《神射手》海报 | `sharpshooter-poster` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
+| 42 | <img class="tk-ic" src="../assets/items/icons/6ad9ce5ad2be28d75701a170.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《诺文斯克万圣节》海报 | `halloween-in-norvinsk-poster` | 0.1 千克 | — | — | — | — |
+| 43 | <img class="tk-ic" src="../assets/items/icons/675a125caf26c56ee109072a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《赴汤蹈火》海报 | `hell-or-highwater-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
+| 44 | <img class="tk-ic" src="../assets/items/icons/697cdbfd14e9320980057487.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《逃离鸭科夫》海报 | `escape-from-duckov-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 45 | <img class="tk-ic" src="../assets/items/icons/675a1af21474133a0d0bb216.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《骇人影片》海报 | `spooky-movie-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
+| 46 | <img class="tk-ic" src="../assets/items/icons/68f25a45b2b53abd200b954d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 三人成虎海报 | `trio-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 47 | <img class="tk-ic" src="../assets/items/icons/67f924b1b07831a6ef0ce317.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 不同寻常的皮具吊带海报 | `unusual-leather-rig-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 48 | <img class="tk-ic" src="../assets/items/icons/689b5f0f986634d56b0e099f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 塔格勒传说海报 | `targrad-tales-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 49 | <img class="tk-ic" src="../assets/items/icons/68f25b4219a2b503d70dc28d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 塔科夫火车站海报 | `tarkov-train-station-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 50 | <img class="tk-ic" src="../assets/items/icons/6a426fbe99757acd420f64b0.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 塔科夫街区海报 | `streets-of-tarkov-poster` | 0.1 千克 | — | — | — | — |
+| 51 | <img class="tk-ic" src="../assets/items/icons/675a081c1474133a0d0bb214.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 奇怪物语海报 | `things-sure-are-strange-poster` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
+| 52 | <img class="tk-ic" src="../assets/items/icons/6ad9cdece1f879d17605ca4c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 女武神海报 | `valkyrie-poster` | 0.1 千克 | — | — | — | 75,000 卢布（1 家最高） |
+| 53 | <img class="tk-ic" src="../assets/items/icons/6759e19a8367ee2b0c0f4b92.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 女郎海报 | `girl-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
+| 54 | <img class="tk-ic" src="../assets/items/icons/6759e61067c8eb5cd10352f1.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 女郎海报 | `girl-poster-1` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
+| 55 | <img class="tk-ic" src="../assets/items/icons/6759e6c39422e1708e0e9b81.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 女郎海报 | `girl-poster-2` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
+| 56 | <img class="tk-ic" src="../assets/items/icons/6759e7a44ff23436160d7ff5.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 女郎海报 | `girl-poster-3` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
+| 57 | <img class="tk-ic" src="../assets/items/icons/6759e8b1c3102563bd01c985.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 女郎海报 | `girl-poster-4` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
+| 58 | <img class="tk-ic" src="../assets/items/icons/6a4263c3bf5f5f7f9a0ee828.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 小心熊出没海报 | `beware-the-bear-poster` | 0.1 千克 | — | — | — | — |
+| 59 | <img class="tk-ic" src="../assets/items/icons/67f924adb45d94a2600a8cc8.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 手榴弹女孩海报 | `grenade-girl-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 60 | <img class="tk-ic" src="../assets/items/icons/68f25ad7103c5d9d4f02392e.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 控制海报 | `control-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 61 | <img class="tk-ic" src="../assets/items/icons/675a0fbbb98bf391510bafcd.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 末日高速海报 | `highway-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
+| 62 | <img class="tk-ic" src="../assets/items/icons/6841b1ff51bf8645f7067bca.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 汪汪拳海报 | `get-a-paw-poster` | 0.1 千克 | — | — | — | — |
+| 63 | <img class="tk-ic" src="../assets/items/icons/6759e91d8367ee2b0c0f4b94.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 特殊女郎海报 | `special-girl-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 64 | <img class="tk-ic" src="../assets/items/icons/68f25a8acacd763bbc0e2bf9.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 神秘仪式海报 | `ritual-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 65 | <img class="tk-ic" src="../assets/items/icons/68f25b27abc35769c505f959.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 突袭海报 | `raid-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 66 | <img class="tk-ic" src="../assets/items/icons/675a0288c3102563bd01c9c3.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 竞技场广告海报 | `arena-advertisement-poster` | 0.1 千克 | — | 商人出售 | 100,800 卢布，需 Skier 1 级 | 17,500 卢布（1 家最高） |
+| 67 | <img class="tk-ic" src="../assets/items/icons/675a046b8f547d6cae01922e.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 竞技场海报 | `arena-poster` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
+| 68 | <img class="tk-ic" src="../assets/items/icons/68f25ac501fb9de974058be2.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 邪教海报 | `cult-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 69 | <img class="tk-ic" src="../assets/items/icons/675a04c01474133a0d0bb212.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 野牛 vs 复仇者海报 | `bison-vs-undertaker-poster` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
+| 70 | <img class="tk-ic" src="../assets/items/icons/6a42642fef6f4bbe8c0ccd4f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 隐入黑暗海报 | `going-dark-poster` | 0.1 千克 | — | — | — | — |
+| 71 | <img class="tk-ic" src="../assets/items/icons/6a91b07d0265fb6a1f061a8a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 新兵浅浮雕 | `recruit-bas-relief` | 1 千克 | — | — | — | 42,500 卢布（1 家最高） |
+| 72 | <img class="tk-ic" src="../assets/items/icons/6a91b4e323415d3f520ba458.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 幸存者浅浮雕 | `survivor-bas-relief` | 1.23 千克 | — | — | — | 47,500 卢布（1 家最高） |
+| 73 | <img class="tk-ic" src="../assets/items/icons/6a91b5142f7e57600b0a4ccc.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 老兵浅浮雕 | `veteran-bas-relief` | 1.34 千克 | — | — | — | 50,000 卢布（1 家最高） |
+| 74 | <img class="tk-ic" src="../assets/items/icons/6a91b58214210be75a0260d8.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 冷酷战士浅浮雕 | `ruthless-bas-relief` | 1.41 千克 | — | — | — | 52,500 卢布（1 家最高） |
+| 75 | <img class="tk-ic" src="../assets/items/icons/6a91b61314210be75a0260db.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 升格浅浮雕 | `ascended-bas-relief` | 1.66 千克 | — | — | — | 67,500 卢布（1 家最高） |
+| 76 | <img class="tk-ic" src="../assets/items/icons/6a91b64352bb89bd3602742f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 升格浅浮雕 | `ascended-bas-relief-1` | 1.8 千克 | — | — | — | 77,500 卢布（1 家最高） |
+| 77 | <img class="tk-ic" src="../assets/items/icons/6a91b5d5ca420f299d08e325.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 重生浅浮雕 | `reborn-bas-relief` | 2.44 千克 | — | — | — | 57,500 卢布（1 家最高） |
 
 </div>
 
-> 本分类 **73 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+> 本分类 **77 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
 
-<details><summary>本分类 73 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+<details><summary>本分类 77 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
 
-“撤离真兄弟”海报　“最后一息”海报　“最后时刻”海报　“陶鲁斯”海报　《Pulp 任务》海报　《人在塔科夫》海报　为了全人类海报　堕入黑暗海报　塔科夫之魂海报　幸存者海报　灯塔海报　Alex Green 海报　BURN 海报　Geneburn 音乐会广告　I Bear Loot 海报　Killa 与 Tagilla 海报　Killa妹海报　Killa小迷妹海报　Paradigm 航运海报　Ryzhy 编年史海报　TerraGroup 实验室招募广告　USEC 海报　What You Seek 海报　“RUN”海报　“丫喜欢修勾吗？”海报　“宿舍楼地头蛇”海报　“干点正经事”海报　“早日康复”海报　“早日滚蛋”海报　“深渊”海报　“路途”海报　《伏击现场》海报　《惊天枪战》海报　《末路航班》海报　《流亡之路》海报　《狼窝》海报　《猎物》海报　《瓦西里》海报　《神射手》海报　《赴汤蹈火》海报　《逃离鸭科夫》海报　《骇人影片》海报　三人成虎海报　不同寻常的皮具吊带海报　塔格勒传说海报　塔科夫火车站海报　塔科夫街区海报　奇怪物语海报　女郎海报　女郎海报　女郎海报　女郎海报　女郎海报　小心熊出没海报　手榴弹女孩海报　控制海报　末日高速海报　汪汪拳海报　特殊女郎海报　神秘仪式海报　突袭海报　竞技场广告海报　竞技场海报　邪教海报　野牛 vs 复仇者海报　隐入黑暗海报　新兵浅浮雕　幸存者浅浮雕　老兵浅浮雕　冷酷战士浅浮雕　升格浅浮雕　升格浅浮雕　重生浅浮雕
+“撤离真兄弟”海报　“最后一息”海报　“最后时刻”海报　“陶鲁斯”海报　《Pulp 任务》海报　《人在塔科夫》海报　为了全人类海报　堕入黑暗海报　塔科夫之魂海报　幸存者海报　灯塔海报　Alex Green 海报　BURN 海报　Geneburn 音乐会广告　I Bear Loot 海报　Killa 与 Tagilla 海报　Killa妹海报　Killa小迷妹海报　Mei Mei海报　Paradigm 航运海报　Ryzhy 编年史海报　TerraGroup 实验室招募广告　USEC 海报　What You Seek 海报　“RUN”海报　“丫喜欢修勾吗？”海报　“宿舍楼地头蛇”海报　“干点正经事”海报　“早日康复”海报　“早日滚蛋”海报　“深渊”海报　“路途”海报　《伏击现场》海报　《塔科夫活死人》海报　《惊天枪战》海报　《末路航班》海报　《流亡之路》海报　《狼窝》海报　《猎物》海报　《瓦西里》海报　《神射手》海报　《诺文斯克万圣节》海报　《赴汤蹈火》海报　《逃离鸭科夫》海报　《骇人影片》海报　三人成虎海报　不同寻常的皮具吊带海报　塔格勒传说海报　塔科夫火车站海报　塔科夫街区海报　奇怪物语海报　女武神海报　女郎海报　女郎海报　女郎海报　女郎海报　女郎海报　小心熊出没海报　手榴弹女孩海报　控制海报　末日高速海报　汪汪拳海报　特殊女郎海报　神秘仪式海报　突袭海报　竞技场广告海报　竞技场海报　邪教海报　野牛 vs 复仇者海报　隐入黑暗海报　新兵浅浮雕　幸存者浅浮雕　老兵浅浮雕　冷酷战士浅浮雕　升格浅浮雕　升格浅浮雕　重生浅浮雕
 
 </details>
 
@@ -290,57 +294,61 @@ Leshy 的命令　关于“世界之眼”的记录　受害者的笔记　密�
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 获取方式 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|----------|--------------|--------------|
-| 1 | <img class="tk-ic" src="../assets/items/icons/590c392f86f77444754deb29.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 固态硬盘 | `ssd-drive` | 0.04 千克 | — | — | — | 28,800 卢布（2 家最高） |
-| 2 | <img class="tk-ic" src="../assets/items/icons/68750378555049ec270cdab7.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 正式版游戏光盘 | `disk-with-release-version` | 0.04 千克 | — | — | — | — |
-| 3 | <img class="tk-ic" src="../assets/items/icons/68406efe068a2d99940c1ce3.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 硬盘 1 | `disk-drive-1` | 0.04 千克 | — | — | — | — |
-| 4 | <img class="tk-ic" src="../assets/items/icons/590c621186f774138d11ea29.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 加密U盘 | `secure-flash-drive` | 0.08 千克 | — | 制作 | — | 14,454 卢布（2 家最高） |
-| 5 | <img class="tk-ic" src="../assets/items/icons/660bbc47c38b837877075e47.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 加密U盘 | `encrypted-flash-drive` | 0.08 千克 | — | — | — | 3,600 卢布（2 家最高） |
-| 6 | <img class="tk-ic" src="../assets/items/icons/6707d13e4e617ec94f0e5631.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 装有特殊程序的U盘 | `flash-drive-with-special-software` | 0.08 千克 | — | — | — | — |
-| 7 | <img class="tk-ic" src="../assets/items/icons/660bc341c38b837877075e4c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 解密数据文件 | `documents-with-decrypted-data` | 0.08 千克 | — | — | — | — |
-| 8 | <img class="tk-ic" src="../assets/items/icons/675aaae75a3ab8372d0b02a7.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 写有暗号“Adaptation”的纸条 | `note-with-code-word-adaptation` | 0.1 千克 | — | — | — | — |
-| 9 | <img class="tk-ic" src="../assets/items/icons/675aaaf674a7619a5304c233.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 写有暗号“Ark”的纸条 | `note-with-code-word-ark` | 0.1 千克 | — | — | — | — |
-| 10 | <img class="tk-ic" src="../assets/items/icons/675aab0d6b6addc02a08f097.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 写有暗号“Heartbeat”的纸条 | `note-with-code-word-heartbeat` | 0.1 千克 | — | — | — | — |
-| 11 | <img class="tk-ic" src="../assets/items/icons/675aaae1dcf102478202c537.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 写有暗号“Onyx”的纸条 | `note-with-code-word-onyx` | 0.1 千克 | — | — | — | — |
-| 12 | <img class="tk-ic" src="../assets/items/icons/675aaab74bca0b001d02f356.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 写有暗号“Voron”的纸条 | `note-with-code-word-voron` | 0.1 千克 | — | — | — | — |
-| 13 | <img class="tk-ic" src="../assets/items/icons/686665484c6f39163e076c3d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 地图碎片 | `map-piece` | 0.1 千克 | — | — | — | — |
-| 14 | <img class="tk-ic" src="../assets/items/icons/590c651286f7741e566b6461.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 袖珍日记 | `slim-diary` | 0.1 千克 | — | — | — | 25,560 卢布（2 家最高） |
-| 15 | <img class="tk-ic" src="../assets/items/icons/67c0345b354fca26a0008036.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 装有 Kerman 哈希代码的 U 盘 | `flash-drive-with-mr-kermans-hash-codes` | 0.1 千克 | — | — | — | — |
-| 16 | <img class="tk-ic" src="../assets/items/icons/67c04a9bd98287be7b0923d8.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 装有 Prapor 哈希代码的 U 盘 | `flash-drive-with-prapors-hash-codes` | 0.1 千克 | — | — | — | — |
-| 17 | <img class="tk-ic" src="../assets/items/icons/675aaa003107dac10006332f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 雷区地图（储备站） | `minefield-map-reserve` | 0.1 千克 | — | — | — | — |
-| 18 | <img class="tk-ic" src="../assets/items/icons/675aaa9a3107dac100063331.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 雷区地图（森林） | `minefield-map-woods` | 0.1 千克 | — | — | — | — |
-| 19 | <img class="tk-ic" src="../assets/items/icons/675aaa8f7f3c962069072b27.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 雷区地图（灯塔） | `minefield-map-lighthouse` | 0.1 千克 | — | — | — | — |
-| 20 | <img class="tk-ic" src="../assets/items/icons/68f213f8ea61d1803707cf7a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Prapor 给港口检查点的信 | `prapors-letter-for-the-port-checkpoint` | 0.105 千克 | — | 商人出售 | 6,256,000 卢布，需 Prapor 1 级 | — |
-| 21 | <img class="tk-ic" src="../assets/items/icons/69f9d60b5de6674f08060f2a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Dunduk 软盘 | `dunduk-floppy-disk` | 0.14 千克 | — | — | — | 24,254 卢布（2 家最高） |
-| 22 | <img class="tk-ic" src="../assets/items/icons/6889e4cd3ff7e9cfbc0c507c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 军用数据随身碟 | `military-thumb-drive` | 0.14 千克 | — | — | — | 3,600 卢布（2 家最高） |
-| 23 | <img class="tk-ic" src="../assets/items/icons/62a0a16d0b9d3c46de5b6e97.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 军用闪存装置 | `military-flash-drive` | 0.14 千克 | — | 制作 | — | 21,600 卢布（2 家最高） |
-| 24 | <img class="tk-ic" src="../assets/items/icons/62a09e974f842e1bd12da3f0.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《天雷地火》录像带 | `video-cassette-with-the-cyborg-killer-movie` | 0.15 千克 | — | — | — | 35,190 卢布（3 家最高） |
-| 25 | <img class="tk-ic" src="../assets/items/icons/590c639286f774151567fa95.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 技术指导文件 | `tech-manual` | 0.2 千克 | — | — | — | 8,604 卢布（2 家最高） |
-| 26 | <img class="tk-ic" src="../assets/items/icons/590c645c86f77412b01304d9.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 日记 | `diary` | 0.2 千克 | — | — | — | 20,880 卢布（2 家最高） |
-| 27 | <img class="tk-ic" src="../assets/items/icons/6866665cdf54e1190902df55.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 程序员日志 (副本) | `programmers-diary-copy` | 0.2 千克 | — | — | — | 3,600 卢布（2 家最高） |
-| 28 | <img class="tk-ic" src="../assets/items/icons/6707d0bdaab679420007e01a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> TG-Vi-24正版疫苗 | `tg-vi-24-true-vaccine` | 0.23 千克 | — | — | — | — |
-| 29 | <img class="tk-ic" src="../assets/items/icons/6707d0804e617ec94f0e562f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> TG-Vi-24致命疫苗 | `tg-vi-24-lethal-vaccine` | 0.23 千克 | — | — | — | — |
-| 30 | <img class="tk-ic" src="../assets/items/icons/590c37d286f77443be3d7827.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 串口硬盘 | `sas-drive` | 0.23 千克 | — | 制作 | — | 33,120 卢布（2 家最高） |
-| 31 | <img class="tk-ic" src="../assets/items/icons/5c12613b86f7743bbe2c3f76.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 情报文件夹 | `intelligence-folder` | 0.23 千克 | — | 以物换物 / 制作 | — | 24,840 卢布（2 家最高） |
-| 32 | <img class="tk-ic" src="../assets/items/icons/68666887df54e1190902df57.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 破译的情报文件夹 | `decrypted-intelligence-folder` | 0.23 千克 | — | 制作 | — | — |
-| 33 | <img class="tk-ic" src="../assets/items/icons/6a5f9cfcc409750b6e065592.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 黑色军团加密密钥 | `black-division-encryption-keys` | 0.23 千克 | — | — | — | 14,760 卢布（2 家最高） |
-| 34 | <img class="tk-ic" src="../assets/items/icons/62a09e73af34e73a266d932a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> BakeEzy烹饪书 | `bakeezy-cook-book` | 0.25 千克 | — | — | — | 29,580 卢布（3 家最高） |
-| 35 | <img class="tk-ic" src="../assets/items/icons/61bf7c024770ee6f9c6b8b53.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 加密磁带盒 | `secure-magnetic-tape-cassette` | 0.25 千克 | — | 制作 | — | 52,200 卢布（2 家最高） |
-| 36 | <img class="tk-ic" src="../assets/items/icons/62a0a124de7ac81993580542.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 地形调查地图 | `topographic-survey-maps` | 0.27 千克 | — | 制作 | — | 25,920 卢布（2 家最高） |
-| 37 | <img class="tk-ic" src="../assets/items/icons/6a04fab776cb0efb8f05969f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 游荡者情报地图 | `rogue-intel-maps` | 0.27 千克 | — | — | — | 11,520 卢布（1 家最高） |
-| 38 | <img class="tk-ic" src="../assets/items/icons/6900a54ae85e475e590c96be.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 立交桥地下设施平面图 | `interchange-underground-utility-plan` | 0.3 千克 | — | — | — | — |
-| 39 | <img class="tk-ic" src="../assets/items/icons/679b992329acd1f2f60985a5.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Labrys 研发记录 | `labrys-research-notes` | 0.33 千克 | — | — | — | 270,000 卢布（2 家最高） |
-| 40 | <img class="tk-ic" src="../assets/items/icons/6389c8c5dbfd5e4b95197e6b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> TerraGroup ”蓝色文件夹” 材料 | `terragroup-blue-folders-materials` | 0.33 千克 | — | 制作 | — | 270,000 卢布（2 家最高） |
-| 41 | <img class="tk-ic" src="../assets/items/icons/6389c92d52123d5dd17f8876.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 先进电子材料教材 | `advanced-electronic-materials-textbook` | 0.5 千克 | — | — | — | 176,400 卢布（2 家最高） |
-| 42 | <img class="tk-ic" src="../assets/items/icons/6389c8fb46b54c634724d847.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 硅基光电集成电路教材 | `silicon-optoelectronic-integrated-circuits-textbook` | 0.5 千克 | — | — | — | 180,000 卢布（2 家最高） |
-| 43 | <img class="tk-ic" src="../assets/items/icons/68fa8e253666e2fd5b00a626.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 加固手提箱 | `armored-case-1` | 7 千克 | — | — | — | — |
+| 1 | <img class="tk-ic" src="../assets/items/icons/6acc4e8fada0d6309902b04d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> RDA-78 疫苗（复制性 DNA 弱化剂） | `rda-78-vaccine-replicative-dna-attenuator` | 0.035 千克 | — | — | — | 252,000 卢布（1 家最高） |
+| 2 | <img class="tk-ic" src="../assets/items/icons/6acc4c757587fb38c508c5fa.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> TG-Vi-24 原型疫苗（B.1.2 毒株） | `tg-vi-24-vaccine-prototype-b12-strain` | 0.035 千克 | — | — | — | 90,000 卢布（1 家最高） |
+| 3 | <img class="tk-ic" src="../assets/items/icons/590c392f86f77444754deb29.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 固态硬盘 | `ssd-drive` | 0.04 千克 | — | — | — | 28,800 卢布（2 家最高） |
+| 4 | <img class="tk-ic" src="../assets/items/icons/68750378555049ec270cdab7.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 正式版游戏光盘 | `disk-with-release-version` | 0.04 千克 | — | — | — | — |
+| 5 | <img class="tk-ic" src="../assets/items/icons/68406efe068a2d99940c1ce3.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 硬盘 1 | `disk-drive-1` | 0.04 千克 | — | — | — | — |
+| 6 | <img class="tk-ic" src="../assets/items/icons/590c621186f774138d11ea29.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 加密U盘 | `secure-flash-drive` | 0.08 千克 | — | 制作 | — | 14,454 卢布（2 家最高） |
+| 7 | <img class="tk-ic" src="../assets/items/icons/660bbc47c38b837877075e47.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 加密U盘 | `encrypted-flash-drive` | 0.08 千克 | — | — | — | 3,600 卢布（2 家最高） |
+| 8 | <img class="tk-ic" src="../assets/items/icons/6707d13e4e617ec94f0e5631.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 装有特殊程序的U盘 | `flash-drive-with-special-software` | 0.08 千克 | — | — | — | — |
+| 9 | <img class="tk-ic" src="../assets/items/icons/660bc341c38b837877075e4c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 解密数据文件 | `documents-with-decrypted-data` | 0.08 千克 | — | — | — | — |
+| 10 | <img class="tk-ic" src="../assets/items/icons/675aaae75a3ab8372d0b02a7.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 写有暗号“Adaptation”的纸条 | `note-with-code-word-adaptation` | 0.1 千克 | — | — | — | — |
+| 11 | <img class="tk-ic" src="../assets/items/icons/675aaaf674a7619a5304c233.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 写有暗号“Ark”的纸条 | `note-with-code-word-ark` | 0.1 千克 | — | — | — | — |
+| 12 | <img class="tk-ic" src="../assets/items/icons/675aab0d6b6addc02a08f097.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 写有暗号“Heartbeat”的纸条 | `note-with-code-word-heartbeat` | 0.1 千克 | — | — | — | — |
+| 13 | <img class="tk-ic" src="../assets/items/icons/675aaae1dcf102478202c537.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 写有暗号“Onyx”的纸条 | `note-with-code-word-onyx` | 0.1 千克 | — | — | — | — |
+| 14 | <img class="tk-ic" src="../assets/items/icons/675aaab74bca0b001d02f356.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 写有暗号“Voron”的纸条 | `note-with-code-word-voron` | 0.1 千克 | — | — | — | — |
+| 15 | <img class="tk-ic" src="../assets/items/icons/686665484c6f39163e076c3d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 地图碎片 | `map-piece` | 0.1 千克 | — | — | — | — |
+| 16 | <img class="tk-ic" src="../assets/items/icons/6ad5f06c0d239d9ef60e7670.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 收藏家地图 | `collector-map` | 0.1 千克 | — | — | — | — |
+| 17 | <img class="tk-ic" src="../assets/items/icons/590c651286f7741e566b6461.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 袖珍日记 | `slim-diary` | 0.1 千克 | — | — | — | 25,560 卢布（2 家最高） |
+| 18 | <img class="tk-ic" src="../assets/items/icons/67c0345b354fca26a0008036.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 装有 Kerman 哈希代码的 U 盘 | `flash-drive-with-mr-kermans-hash-codes` | 0.1 千克 | — | — | — | — |
+| 19 | <img class="tk-ic" src="../assets/items/icons/67c04a9bd98287be7b0923d8.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 装有 Prapor 哈希代码的 U 盘 | `flash-drive-with-prapors-hash-codes` | 0.1 千克 | — | — | — | — |
+| 20 | <img class="tk-ic" src="../assets/items/icons/6ad5f141e8c146f24d0ea9b6.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 车钥匙 | `car-keys` | 0.1 千克 | — | — | — | — |
+| 21 | <img class="tk-ic" src="../assets/items/icons/675aaa003107dac10006332f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 雷区地图（储备站） | `minefield-map-reserve` | 0.1 千克 | — | — | — | — |
+| 22 | <img class="tk-ic" src="../assets/items/icons/675aaa9a3107dac100063331.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 雷区地图（森林） | `minefield-map-woods` | 0.1 千克 | — | — | — | — |
+| 23 | <img class="tk-ic" src="../assets/items/icons/675aaa8f7f3c962069072b27.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 雷区地图（灯塔） | `minefield-map-lighthouse` | 0.1 千克 | — | — | — | — |
+| 24 | <img class="tk-ic" src="../assets/items/icons/68f213f8ea61d1803707cf7a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Prapor 给港口检查点的信 | `prapors-letter-for-the-port-checkpoint` | 0.105 千克 | — | 商人出售 | 6,256,000 卢布，需 Prapor 1 级 | — |
+| 25 | <img class="tk-ic" src="../assets/items/icons/69f9d60b5de6674f08060f2a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Dunduk 软盘 | `dunduk-floppy-disk` | 0.14 千克 | — | — | — | 24,254 卢布（2 家最高） |
+| 26 | <img class="tk-ic" src="../assets/items/icons/6889e4cd3ff7e9cfbc0c507c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 军用数据随身碟 | `military-thumb-drive` | 0.14 千克 | — | — | — | 3,600 卢布（2 家最高） |
+| 27 | <img class="tk-ic" src="../assets/items/icons/62a0a16d0b9d3c46de5b6e97.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 军用闪存装置 | `military-flash-drive` | 0.14 千克 | — | 制作 | — | 21,600 卢布（2 家最高） |
+| 28 | <img class="tk-ic" src="../assets/items/icons/62a09e974f842e1bd12da3f0.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《天雷地火》录像带 | `video-cassette-with-the-cyborg-killer-movie` | 0.15 千克 | — | — | — | 35,190 卢布（3 家最高） |
+| 29 | <img class="tk-ic" src="../assets/items/icons/590c639286f774151567fa95.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 技术指导文件 | `tech-manual` | 0.2 千克 | — | — | — | 8,604 卢布（2 家最高） |
+| 30 | <img class="tk-ic" src="../assets/items/icons/590c645c86f77412b01304d9.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 日记 | `diary` | 0.2 千克 | — | — | — | 20,880 卢布（2 家最高） |
+| 31 | <img class="tk-ic" src="../assets/items/icons/6866665cdf54e1190902df55.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 程序员日志 (副本) | `programmers-diary-copy` | 0.2 千克 | — | — | — | 3,600 卢布（2 家最高） |
+| 32 | <img class="tk-ic" src="../assets/items/icons/6707d0bdaab679420007e01a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> TG-Vi-24正版疫苗 | `tg-vi-24-true-vaccine` | 0.23 千克 | — | — | — | — |
+| 33 | <img class="tk-ic" src="../assets/items/icons/6707d0804e617ec94f0e562f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> TG-Vi-24致命疫苗 | `tg-vi-24-lethal-vaccine` | 0.23 千克 | — | — | — | — |
+| 34 | <img class="tk-ic" src="../assets/items/icons/590c37d286f77443be3d7827.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 串口硬盘 | `sas-drive` | 0.23 千克 | — | 制作 | — | 33,120 卢布（2 家最高） |
+| 35 | <img class="tk-ic" src="../assets/items/icons/5c12613b86f7743bbe2c3f76.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 情报文件夹 | `intelligence-folder` | 0.23 千克 | — | 以物换物 / 制作 | — | 24,840 卢布（2 家最高） |
+| 36 | <img class="tk-ic" src="../assets/items/icons/68666887df54e1190902df57.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 破译的情报文件夹 | `decrypted-intelligence-folder` | 0.23 千克 | — | 制作 | — | — |
+| 37 | <img class="tk-ic" src="../assets/items/icons/6a5f9cfcc409750b6e065592.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 黑色军团加密密钥 | `black-division-encryption-keys` | 0.23 千克 | — | — | — | 14,760 卢布（2 家最高） |
+| 38 | <img class="tk-ic" src="../assets/items/icons/62a09e73af34e73a266d932a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> BakeEzy烹饪书 | `bakeezy-cook-book` | 0.25 千克 | — | — | — | 29,580 卢布（3 家最高） |
+| 39 | <img class="tk-ic" src="../assets/items/icons/61bf7c024770ee6f9c6b8b53.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 加密磁带盒 | `secure-magnetic-tape-cassette` | 0.25 千克 | — | 制作 | — | 52,200 卢布（2 家最高） |
+| 40 | <img class="tk-ic" src="../assets/items/icons/62a0a124de7ac81993580542.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 地形调查地图 | `topographic-survey-maps` | 0.27 千克 | — | 制作 | — | 25,920 卢布（2 家最高） |
+| 41 | <img class="tk-ic" src="../assets/items/icons/6a04fab776cb0efb8f05969f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 游荡者情报地图 | `rogue-intel-maps` | 0.27 千克 | — | — | — | 11,520 卢布（1 家最高） |
+| 42 | <img class="tk-ic" src="../assets/items/icons/6900a54ae85e475e590c96be.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 立交桥地下设施平面图 | `interchange-underground-utility-plan` | 0.3 千克 | — | — | — | — |
+| 43 | <img class="tk-ic" src="../assets/items/icons/679b992329acd1f2f60985a5.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Labrys 研发记录 | `labrys-research-notes` | 0.33 千克 | — | — | — | 270,000 卢布（2 家最高） |
+| 44 | <img class="tk-ic" src="../assets/items/icons/6389c8c5dbfd5e4b95197e6b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> TerraGroup ”蓝色文件夹” 材料 | `terragroup-blue-folders-materials` | 0.33 千克 | — | 制作 | — | 270,000 卢布（2 家最高） |
+| 45 | <img class="tk-ic" src="../assets/items/icons/6389c92d52123d5dd17f8876.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 先进电子材料教材 | `advanced-electronic-materials-textbook` | 0.5 千克 | — | — | — | 176,400 卢布（2 家最高） |
+| 46 | <img class="tk-ic" src="../assets/items/icons/6389c8fb46b54c634724d847.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 硅基光电集成电路教材 | `silicon-optoelectronic-integrated-circuits-textbook` | 0.5 千克 | — | — | — | 180,000 卢布（2 家最高） |
+| 47 | <img class="tk-ic" src="../assets/items/icons/68fa8e253666e2fd5b00a626.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 加固手提箱 | `armored-case-1` | 7 千克 | — | — | — | — |
 
 </div>
 
-> 本分类 **43 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
+> 本分类 **47 件**。价格取各商人中的最优价；「商人最低售价」栏附商人与等级要求，「最高回收」栏标注参与回收的商人数。
 
-<details><summary>本分类 43 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
+<details><summary>本分类 47 件的名称一览（点开可浏览；站内搜索靠它命中物品名）</summary>
 
-固态硬盘　正式版游戏光盘　硬盘 1　加密U盘　加密U盘　装有特殊程序的U盘　解密数据文件　写有暗号“Adaptation”的纸条　写有暗号“Ark”的纸条　写有暗号“Heartbeat”的纸条　写有暗号“Onyx”的纸条　写有暗号“Voron”的纸条　地图碎片　袖珍日记　装有 Kerman 哈希代码的 U 盘　装有 Prapor 哈希代码的 U 盘　雷区地图（储备站）　雷区地图（森林）　雷区地图（灯塔）　Prapor 给港口检查点的信　Dunduk 软盘　军用数据随身碟　军用闪存装置　《天雷地火》录像带　技术指导文件　日记　程序员日志 (副本)　TG-Vi-24正版疫苗　TG-Vi-24致命疫苗　串口硬盘　情报文件夹　破译的情报文件夹　黑色军团加密密钥　BakeEzy烹饪书　加密磁带盒　地形调查地图　游荡者情报地图　立交桥地下设施平面图　Labrys 研发记录　TerraGroup ”蓝色文件夹” 材料　先进电子材料教材　硅基光电集成电路教材　加固手提箱
+RDA-78 疫苗（复制性 DNA 弱化剂）　TG-Vi-24 原型疫苗（B.1.2 毒株）　固态硬盘　正式版游戏光盘　硬盘 1　加密U盘　加密U盘　装有特殊程序的U盘　解密数据文件　写有暗号“Adaptation”的纸条　写有暗号“Ark”的纸条　写有暗号“Heartbeat”的纸条　写有暗号“Onyx”的纸条　写有暗号“Voron”的纸条　地图碎片　收藏家地图　袖珍日记　装有 Kerman 哈希代码的 U 盘　装有 Prapor 哈希代码的 U 盘　车钥匙　雷区地图（储备站）　雷区地图（森林）　雷区地图（灯塔）　Prapor 给港口检查点的信　Dunduk 软盘　军用数据随身碟　军用闪存装置　《天雷地火》录像带　技术指导文件　日记　程序员日志 (副本)　TG-Vi-24正版疫苗　TG-Vi-24致命疫苗　串口硬盘　情报文件夹　破译的情报文件夹　黑色军团加密密钥　BakeEzy烹饪书　加密磁带盒　地形调查地图　游荡者情报地图　立交桥地下设施平面图　Labrys 研发记录　TerraGroup ”蓝色文件夹” 材料　先进电子材料教材　硅基光电集成电路教材　加固手提箱
 
 </details>
 

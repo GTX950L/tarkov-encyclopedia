@@ -15,7 +15,7 @@ tags:
 
 | 项目 | 说明 |
 |------|------|
-| **收录件数** | **23 件**（全站物品图鉴共 4,983 件） |
+| **收录件数** | **23 件**（全站物品图鉴共 4,998 件） |
 | **叶子分类** | 9 个官方分类：[指南针](#指南针)、[便携测距仪](#便携测距仪)、[维修套件](#维修套件)、[无线电发报器](#无线电发报器)、[邪教徒护符](#邪教徒护符)、[录音机](#录音机)、[「听而不闻者」标记](#听而不闻者-标记)、[种植工具包](#种植工具包)、[多功能工具](#多功能工具) |
 | **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。本页 **14 / 23 件**有至少一条（商人出售 8 ｜ 以物换物 5 ｜ 制作 4）；`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— 那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|
 | **数据来源** | `json.tarkov.dev` 的 `itemCategories` 树与 `items` 接口，二级来源 |
@@ -114,7 +114,7 @@ SZ-1 炸药　SZ-1 炸药　Sudak-Tudak 船用维修工具包　武器维修套�
 | 4 | <img class="tk-ic" src="../assets/items/icons/62e910aaf957f2915e0a5e36.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Digital secure DSP无线电收发器 | `digital-secure-dsp-radio-transmitter` | 0.17 千克 | — | 制作 | — | — |
 | 5 | <img class="tk-ic" src="../assets/items/icons/6655e35b6bc645cb7b059912.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “明眼”迫击炮袭告警装置 | `the-eye-mortar-strike-signaling-device` | 0.2 千克 | — | — | — | — |
 | 6 | <img class="tk-ic" src="../assets/items/icons/5ac78a9b86f7741cca0bbd8d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 信号干扰器 | `signal-jammer` | 0.3 千克 | — | 商人出售 | 21,852 卢布，需 Mechanic 1 级 | 7,866 卢布（3 家最高） |
-| 7 | <img class="tk-ic" src="../assets/items/icons/5b4391a586f7745321235ab2.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> WIFI摄像头 | `wi-fi-camera` | 0.5 千克 | — | 商人出售 / 以物换物 | 62,959 卢布，需 Mechanic 1 级 | 15,791 卢布（3 家最高） |
+| 7 | <img class="tk-ic" src="../assets/items/icons/5b4391a586f7745321235ab2.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> WIFI摄像头 | `wi-fi-camera` | 0.5 千克 | — | 商人出售 / 以物换物 | 62,926 卢布，需 Mechanic 1 级 | 15,791 卢布（3 家最高） |
 | 8 | <img class="tk-ic" src="../assets/items/icons/63a0b2eabea67a6d93009e52.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 无线电中继器 | `radio-repeater` | 0.5 千克 | — | 制作 | — | 7,866 卢布（3 家最高） |
 | 9 | <img class="tk-ic" src="../assets/items/icons/6a5f9c25e8c84d8b0602f22a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 黑色军团加固手提电脑 | `black-division-rugged-laptop` | 2.5 千克 | — | — | — | 49,500 卢布（3 家最高） |
 
