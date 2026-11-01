@@ -7,7 +7,7 @@
 
 版本基线：2026 年 10 月
 游戏版本基准：Escape from Tarkov 1.2.5.0（第一赛季 KORD BREACH；线上 build 1.2.5.0.48146，核对于 2026-10-20）
-最后更新：2026-10-25
+最后更新：2026-11-02
 
 > ⓘ **本站是非官方粉丝资料站**，由爱好者独立维护，与 Battlestate Games 无隶属或合作关系；「Escape from Tarkov」「逃离塔科夫」及相关名称、标志与游戏内容的商标权与著作权归 Battlestate Games 及其关联方所有。站内**文字内容**以 CC BY-NC-SA 4.0 授权；交互地图底图来自 Shebuka / tarkov-dev-svg-maps（同协议），任务与物品页图标为游戏内素材、版权归 Battlestate Games，**不在本站 CC 授权范围内**。
 
@@ -52,6 +52,7 @@
 - [限时与活动任务补遗](https://gtx950l.github.io/tarkov-encyclopedia/quests/event-quests/)：**503 条之外**的那类任务 —— 随版本挂载、到期即消失（当前收录 1.1.5.0 灯塔重做附带的 10 条活动任务链）。该批任务不进 tarkov.dev 的 `regular` 档案，故主表查不到；来源为社区整理（三级），引用须附「以游戏内商人菜单为准」
 - 按商人分页（每页按等级门槛升序）：[Mechanic](https://gtx950l.github.io/tarkov-encyclopedia/quests/mechanic/) · [Prapor](https://gtx950l.github.io/tarkov-encyclopedia/quests/prapor/) · [Skier](https://gtx950l.github.io/tarkov-encyclopedia/quests/skier/) · [Jaeger](https://gtx950l.github.io/tarkov-encyclopedia/quests/jaeger/) · [Ragman](https://gtx950l.github.io/tarkov-encyclopedia/quests/ragman/) · [Therapist](https://gtx950l.github.io/tarkov-encyclopedia/quests/therapist/) · [Peacekeeper](https://gtx950l.github.io/tarkov-encyclopedia/quests/peacekeeper/) · [Fence](https://gtx950l.github.io/tarkov-encyclopedia/quests/fence/) · [Ref（竞技场裁判）](https://gtx950l.github.io/tarkov-encyclopedia/quests/ref/) · [BTR 司机](https://gtx950l.github.io/tarkov-encyclopedia/quests/btr-driver/) · [Lightkeeper](https://gtx950l.github.io/tarkov-encyclopedia/quests/lightkeeper/)
 
+- 剧情线逐章讲解（**十章各一页**，按「起因—经过—结果」写，不写坐标与走位）：[塔科夫之旅](https://gtx950l.github.io/tarkov-encyclopedia/story/tour/) · [陨落星辰](https://gtx950l.github.io/tarkov-encyclopedia/story/falling-skies/) · [门票](https://gtx950l.github.io/tarkov-encyclopedia/story/the-ticket/) · [他们已经来了](https://gtx950l.github.io/tarkov-encyclopedia/story/they-are-already-here/) · [Batya](https://gtx950l.github.io/tarkov-encyclopedia/story/batya/) · [Boreas](https://gtx950l.github.io/tarkov-encyclopedia/story/boreas/) · [无名者](https://gtx950l.github.io/tarkov-encyclopedia/story/the-unheard/) · [意外证人](https://gtx950l.github.io/tarkov-encyclopedia/story/accidental-witness/) · [探秘“迷宫”](https://gtx950l.github.io/tarkov-encyclopedia/story/labyrinth/) · [神秘蓝焰](https://gtx950l.github.io/tarkov-encyclopedia/story/blue-fire/)。**剧情任务不在 `regular/tasks` 的 503 条里**，故这十章的骨架取自中文 Wiki 剧情页（三级），道具原文取 tarkov.dev 物品库（二级）
 ## 参考区（第十一篇）
 
 - [数据口径与引用说明](https://gtx950l.github.io/tarkov-encyclopedia/docs/citation/)：三档口径、基准快照、已知未决项、资料来源分级、引用建议

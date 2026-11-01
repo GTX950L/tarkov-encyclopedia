@@ -162,7 +162,7 @@
 <div class="tk-path">
 <a class="tk-step tk-s9" href="catalog/index.md"><b>第九篇</b><em>物品图鉴</em><i>27 篇</i></a>
 <span class="tk-arrow">·</span>
-<a class="tk-step tk-s10" href="quests/index.md"><b>第十篇</b><em>任务图鉴</em><i>15 篇</i></a>
+<a class="tk-step tk-s10" href="quests/index.md"><b>第十篇</b><em>任务图鉴</em><i>25 篇</i></a>
 <span class="tk-arrow">·</span>
 <a class="tk-step tk-s11" href="docs/citation.md"><b>第十一篇</b><em>参考</em><i>15 篇</i></a>
 </div>
