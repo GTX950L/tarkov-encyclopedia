@@ -3855,7 +3855,7 @@ window.TARKOV_PROGRESS_MANIFEST = {
       {
         "id": "tour",
         "en": "Tour",
-        "zh": "游览",
+        "zh": "塔科夫之旅",
         "objectives": 26,
         "axis": true,
         "note": "序章；Mechanic 起手"
@@ -3863,7 +3863,7 @@ window.TARKOV_PROGRESS_MANIFEST = {
       {
         "id": "falling-skies",
         "en": "Falling Skies",
-        "zh": "陨落之天",
+        "zh": "陨落星辰",
         "objectives": 20,
         "axis": true,
         "note": "唯一的重大多叉"
@@ -3871,7 +3871,7 @@ window.TARKOV_PROGRESS_MANIFEST = {
       {
         "id": "the-ticket",
         "en": "The Ticket",
-        "zh": "车票",
+        "zh": "门票",
         "objectives": 12,
         "axis": true,
         "note": "终章；四个结局"

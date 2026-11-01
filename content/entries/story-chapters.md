@@ -27,7 +27,7 @@ tags:
 | 项目 | 信息 |
 |------|------|
 | **类型** | 主线剧情任务（区别于商人日常任务线） |
-| **已知章节** | **10 条**（中文 Wiki 实测，2026-09-30）；其中 **Tour（游览）→ Falling Skies（陨落之天）→ The Ticket（车票）** 是叙事主轴 |
+| **已知章节** | **10 条**（中文 Wiki 实测，2026-09-30）；其中 **Tour（塔科夫之旅）→ Falling Skies（陨落星辰）→ The Ticket（门票）** 是叙事主轴 |
 | **推进方式** | **按章节顺序**，前一章是后一章的前置 |
 | **关键分叉** | Falling Skies 结尾的**装甲箱归属**决定 The Ticket 的路线 |
 | **结局数量** | The Ticket 共 **四个结局**：**救星 / 幸存者 / 陨落之人 / 旧债沉疴**；四条线在游戏内**各是一个以合作 NPC 命名的子任务**，并**经由同一个出口**（海岸线港口码头 → [终点站](terminal.md)）收束 |
@@ -72,9 +72,9 @@ tags:
 
 | # | 章节（英文名 / 站内译名） | 目标数 | 在主线里的位置 |
 |---|---------------------------|--------|----------------|
-| ① | <span class="tk-chapter" data-chapter="tour"></span>**Tour（游览）** | 26 | 序章；Mechanic 起手 |
-| ② | <span class="tk-chapter" data-chapter="falling-skies"></span>**Falling Skies（陨落之天）** | 20 | 唯一的重大多叉 |
-| ③ | <span class="tk-chapter" data-chapter="the-ticket"></span>**The Ticket（车票）** | 12 | 终章；四个结局 |
+| ① | <span class="tk-chapter" data-chapter="tour"></span>**Tour（塔科夫之旅）** | 26 | 序章；Mechanic 起手 |
+| ② | <span class="tk-chapter" data-chapter="falling-skies"></span>**Falling Skies（陨落星辰）** | 20 | 唯一的重大多叉 |
+| ③ | <span class="tk-chapter" data-chapter="the-ticket"></span>**The Ticket（门票）** | 12 | 终章；四个结局 |
 | — | <span class="tk-chapter" data-chapter="they-are-already-here"></span>They Are Already Here（他们已经来了） | 30 | 穿插 |
 | — | <span class="tk-chapter" data-chapter="batya"></span>Batya | 38 | 穿插 |
 | — | <span class="tk-chapter" data-chapter="boreas"></span>Boreas | 67 | 穿插（**最长的一章**） |
@@ -85,7 +85,7 @@ tags:
 
 <div class="tk-note tk-note--warn" markdown>
 
-> ⚠️ **中文译名各来源不一，别把两套名字当成两章**：站内沿用「游览 / 陨落之天 / 车票」，中文 Wiki 用「塔科夫之旅 / 陨落星辰 / 门票」——**指的都是同一章**。**认英文名最稳**（Tour / Falling Skies / The Ticket），中文名只作辅助。这也是本站一贯的做法：**术语首次出现给出英文名**。
+> ⚠️ **同一章有好几个中文名，别当成两章**：本站**正名取中文 Wiki 的章节译名**——**Tour（塔科夫之旅）／Falling Skies（陨落星辰）／The Ticket（门票）**。中文社区另有一套旧译名在流传（「游览」「陨落之天」「车票」，本站 1.154.2 及以前也用它），**指的都是同一章**。**认英文名最稳**（Tour / Falling Skies / The Ticket），中文名只作辅助。这也是本站一贯的做法：**术语首次出现给出英文名**。
 
 </div>
 
@@ -95,9 +95,9 @@ tags:
 
 | 顺序 | 章节 | 起点 / 前置 | 作用 |
 |------|------|------------|------|
-| ① | **Tour（游览）** | Mechanic 线，从**工厂**起步 | 主线序章；**打通灯塔进入权限** |
-| ② | **Falling Skies（陨落之天）** | 需先推进 **Tour**（做到「把任意战局中找到的武器带给 Mechanic」）；Prapor 声望 **L2** | 森林坠机调查；**结尾出现重大选择** |
-| ③ | **The Ticket（车票）** | 承接 Falling Skies（**箱子交与不交都能解锁**）；需**情报中心 L1** | 终章；走向四个结局 |
+| ① | **Tour（塔科夫之旅）** | Mechanic 线，从**工厂**起步 | 主线序章；**打通灯塔进入权限** |
+| ② | **Falling Skies（陨落星辰）** | 需先推进 **Tour**（做到「把任意战局中找到的武器带给 Mechanic」）；Prapor 声望 **L2** | 森林坠机调查；**结尾出现重大选择** |
+| ③ | **The Ticket（门票）** | 承接 Falling Skies（**箱子交与不交都能解锁**）；需**情报中心 L1** | 终章；走向四个结局 |
 
 **其余七章穿插其间**，名单会随版本扩充——所以“章节总数”不是一个固定数字。**但「10 条」是当前可复核的实测值**，引用时带上版本基线即可。
 
@@ -297,7 +297,7 @@ Tour 是 Mechanic 线的剧情开头，**在工厂起步**。它的重要性不�
 - **装甲箱选完才去查后果**：不可逆，且会改变整条终章路线。
 - **领装甲箱前没腾特殊槽**：道具卡在邮箱里取不出来。
 - **把章节当“可选项”**：它决定你能到哪个转生档。
-- **把两个中文译名当成两章**：站内的「陨落之天」与中文 Wiki 的「陨落星辰」是同一章。
+- **把旧译名当成另一章**：社区里流传的「游览」「陨落之天」「车票」，就是本站正名里的**塔科夫之旅 / 陨落星辰 / 门票**，同一章。
 - **以为四个结局各有专属地图**：出口是同一个——**海岸线港口码头、夜间窗口**；四条线只是通往它的路不同。
 - **以为终点站会告诉你选了哪条结局**：**抉择在终章开头**，终点站只负责让你走出去。
 
