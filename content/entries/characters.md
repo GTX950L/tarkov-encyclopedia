@@ -17,8 +17,8 @@ tags:
 
 <a id="top"></a>
 
-- 这座城里有三类人：**卖你东西的**、**挡你路的**、**只出现在文件里的**。前两类你能打，第三类你打不到——但他们才是故事的主谋。
-- **本页是总入口**：商人 11 位、Boss 15 个、剧情人物 18 位、组织 14 个，一条一句，全部可跳转。
+- 这座城里有四类人：**卖你东西的**（商人）、**挡你路的**（Boss）、**只出现在文件里的**（剧情人物）、**有名字却没脸的**（组织）。前两类你能打，后两类你打不到——但他们才是故事的主谋。
+- **本页是总入口**：商人 11 位、Boss 15 个（含 1 个尚未实装）、剧情人物 18 位、组织 14 个，一条一句，全部可跳转。
 - 找不到人时先看[§怎么找一个人](#how-to-find)，那里给了三条检索路径。
 
 ---
@@ -29,7 +29,7 @@ tags:
 
 | 项目 | 信息 |
 |------|------|
-| **收录规模** | 商人 **11**（8 位常规 + 3 位非常规）｜Boss **15**｜剧情人物 **18**｜组织与势力 **14** |
+| **收录规模** | 商人 **11**（8 位常规 + 3 位非常规）｜Boss **15**（实装 14 + 未实装 1）｜剧情人物 **18** 条（含 Bogatyr 三名队员，实为 20 人）｜组织与势力 **14** |
 | **分类依据** | 按「你怎么遇到他」分四类，不按阵营分——阵营是设定，遭遇方式是体验 |
 | **深挖页** | [商人群像](trader-profiles.md)、[Boss 图鉴](bosses.md)、[剧情人物志](story-cast.md)、[组织与势力](factions.md) |
 | **证据强度** | 商人最厚（有一手台词）、Boss 中等（有出场与掉落，少来历）、剧情人物最薄（多为一份文件署名） |
@@ -59,7 +59,7 @@ tags:
 
 | 类型 | 能查到什么 | 查不到什么 | 深挖页 |
 |------|-----------|-----------|--------|
-| **商人** | 一手台词、要价、动机、彼此关系、与四个结局的对应 | 真名、战前完整履历 | [商人群像](trader-profiles.md) |
+| **商人** | 一手台词、要价、动机、彼此关系、与四个结局的对应 | 战前完整履历；真名**多数没有**（两位例外，见下） | [商人群像](trader-profiles.md) |
 | **Boss** | 出场地点、护卫编制、掉落、**一两句出身**（谁是医生、谁是兄弟） | 完整来历、性格成因、谁雇的他们 | [Boss 图鉴](bosses.md) → 人物志 |
 | **剧情人物** | 一份文件署名、一句台词、一次交易 | 全名（A.P. 只有缩写）、结局、动机 | [剧情人物志](story-cast.md) |
 | **组织** | 名称、目标、在哪些任务里出现 | 内部层级、实际控制人 | [组织与势力](factions.md) |
@@ -84,17 +84,22 @@ tags:
 | 4 | **Peacekeeper** | 蓝盔旗号下的西方利益 | **外汇**——只收美元 | [§5](trader-profiles.md) |
 | 5 | **Mechanic** | 被集团伤过的前工头 | **解释权**——所有看不懂但重要的东西都过他手 | [§6](trader-profiles.md) |
 | 6 | **Ragman** | 把战争当市场调研的商人 | **人脉**——他不卖路，他卖人 | [§7](trader-profiles.md) |
-| 7 | **Jaeger** | 守林的老猎人 | **替死者说话**——不收钱，只要死者遗言 | [§8](trader-profiles.md) |
+| 7 | **Jaeger** | 守林的老猎人 | **替死者说话**——要的不是钱，是死者的遗言 | [§8](trader-profiles.md) |
 | 8 | **Fence** | Scav 世界的声誉经纪人 | **门卡的重新编码**——城外的人才有的手艺 | [§9](trader-profiles.md) |
-| 9 | **Lightkeeper** | 灯塔上那位，既不属于军队也不属于政府 | **体制外的清算** | [§10](trader-profiles.md) |
-| 10 | **BTR 司机** | 装甲车上的物流与救命人 | **人命**——全十章唯一不收钱的 | [§10](trader-profiles.md) |
-| 11 | **Ref** | 竞技场的话事人 | **另一套规则**——与主线经济相对独立 | [§10](trader-profiles.md) |
+| 9 | **Lightkeeper** | 灯塔上那位，既不属于军队也不属于政府；本名 Farit Akhmadullovich Genatulin | **体制外的清算** | [§10](trader-profiles.md#sec-lightkeeper) |
+| 10 | **BTR 司机** | 装甲车上的物流与救命人 | **运力**——把你从 A 送到 B，途中替你挡枪 | [§10](trader-profiles.md#sec-btr) |
+| 11 | **Ref** | 竞技场的话事人 | **另一套规则**——与主线经济相对独立 | [§10](trader-profiles.md#sec-ref) |
 
-> **另有一位不在商人列表里，但必须记**：**Mr. Kerman**——走[情报中心](../entries/hideout-modules.md)的笔记本联系，给你终章那张票。他不是商人，是**雇主**，见[剧情人物志 §Kerman](story-cast.md#kerman)。
+> **另有一位不在商人列表里，但必须记**：**Mr. Kerman**——走[情报中心](hideout-modules.md)的笔记本联系，给你终章那张票。他不是商人，是**雇主**，见[剧情人物志 §Kerman](story-cast.md#kerman)。
+
+> **两位商人的真名是有的一级信息**，别跟着「商人只有绰号」的印象走：
+> **Peacekeeper = Tadeusz Pilsudski**（波兰人，UNTAR 后勤军官，驻港区 UN 检查站）；
+> **Lightkeeper = Farit Akhmadullovich Genatulin**（官方原文只写小写的 `the current Tarkov Lighthouse warden`）。
+> 其余九位确实只有绰号——**这个区别本身就是信息**：有真名的两位，一个代表国家、一个代表岗位，身份是公开的；没有真名的那些，本身就是从档案里被抹掉的人。
 
 ---
 
-## 🗂️ 二、Boss：15 个
+## 🗂️ 二、Boss：15 个（实装 14）
 
 <a id="bosses"></a>
 
@@ -132,24 +137,24 @@ tags:
 
 | 人物 | 一句话是谁 | 出现在 | 详见 |
 |------|-----------|--------|------|
-| **Mr. Kerman** | 只要你手上证据的那个人，走笔记本联系 | 门票（+ 陨落星辰的伏笔） | [§Kerman](story-cast.md#kerman) |
-| **A.P.** | 集团特工，**只有缩写没有全名**，公寓里有隐藏房间 | 无名者 | [§A.P.](story-cast.md#ap) |
-| **克鲁格洛夫** | 门卡上那个名字，能让集团高层通道打开 | 陨落星辰 → 门票 | [§克鲁格洛夫](story-cast.md#kruglov) |
-| **A 女士** | 与集团有关的人，谈话记录是第 9 份证据 | 门票 | [§A 女士](story-cast.md#ms-a) |
-| **Voevoda** | Bogatyr 小队指挥官，替死者讨说法的人 | Batya | [§Voevoda](story-cast.md#voevoda) |
-| **Moreman / Strelets / Taran** | Bogatyr 的队员，五件遗物里的三件属于他们 | Batya | [§Bogatyr 队员](story-cast.md#bogatyr) |
-| **「将军」** | 下命令的人，**至今没有名字** | Batya | [§将军](story-cast.md#general) |
-| **Voronenko** | 「迷宫」设施负责人，报告署名是他 | 探秘「迷宫」 | [§Voronenko](story-cast.md#voronenko) |
-| **科兹洛夫** | 意外证人的死者——他在死前录了音 | 意外证人 | [§科兹洛夫](story-cast.md#kozlov) |
-| **阿纳斯塔西娅** | 《塔科夫先驱报》调查记者 | 意外证人 | [§阿纳斯塔西娅](story-cast.md#anastasia) |
-| **切皮加** | 黑帮头目，执行合同的人 | 意外证人 | [§切皮加](story-cast.md#chepiga) |
-| **舒库连科** | 副部长，磁带里那位 | 意外证人 | [§舒库连科](story-cast.md#shukurenko) |
-| **帕沙** | 送信的信使，交接失败被杀 | 意外证人 | [§帕沙](story-cast.md#pasha) |
-| **勒热夫斯基** | 运货的——蓝冰运输链上的一环 | 无名者 | [§勒热夫斯基](story-cast.md#rzhevsky) |
-| **Elektronik** | Mechanic 的技术外援，不在商人列表 | 陨落星辰 / 无名者 | [§Elektronik](story-cast.md#elektronik) |
-| **Grigori Altman** | Boreas 号上唯一的幸存者录音 | Boreas | [§Altman](story-cast.md#altman) |
-| **Night** | 侦察指挥官，「萤火虫行动」失败后成了 Rogues | Boreas（+ 灯塔） | [§Night](story-cast.md#night) |
-| **Warden / 守望者** | **不入档的角色**——只知道有这么个岗位 | 无名者（+ 邪教文本） | [§Warden](story-cast.md#warden) |
+| **Mr. Kerman** | 只要你手上证据的那个人，走笔记本联系 | [门票](../story/the-ticket.md)（+ [陨落星辰](../story/falling-skies.md) 的伏笔） | [§Kerman](story-cast.md#kerman) |
+| **A.P.** | 集团特工，**只有缩写没有全名**，公寓里有隐藏房间 | [无名者](../story/the-unheard.md) | [§A.P.](story-cast.md#ap) |
+| **克鲁格洛夫** | 门卡上那个名字，能让集团高层通道打开 | [陨落星辰](../story/falling-skies.md) → [门票](../story/the-ticket.md) | [§克鲁格洛夫](story-cast.md#kruglov) |
+| **A 女士** | 与集团有关的人，谈话记录是第 9 份证据 | [门票](../story/the-ticket.md) | [§A 女士](story-cast.md#ms-a) |
+| **Voevoda** | Bogatyr 小队指挥官，替死者讨说法的人 | [Batya](../story/batya.md) | [§Voevoda](story-cast.md#voevoda) |
+| **Moreman / Strelets / Taran** | Bogatyr 的队员，五件遗物里的三件属于他们 | [Batya](../story/batya.md) | [§Bogatyr 队员](story-cast.md#bogatyr) |
+| **「将军」** | 下命令的人，**至今没有名字** | [Batya](../story/batya.md) | [§将军](story-cast.md#general) |
+| **Voronenko** | 「迷宫」设施负责人，报告署名是他 | [探秘「迷宫」](../story/labyrinth.md) | [§Voronenko](story-cast.md#voronenko) |
+| **科兹洛夫** | 意外证人的死者——他在死前录了音 | [意外证人](../story/accidental-witness.md) | [§科兹洛夫](story-cast.md#kozlov) |
+| **阿纳斯塔西娅** | 《塔科夫先驱报》调查记者 | [意外证人](../story/accidental-witness.md) | [§阿纳斯塔西娅](story-cast.md#anastasia) |
+| **切皮加** | 黑帮头目，执行合同的人 | [意外证人](../story/accidental-witness.md) | [§切皮加](story-cast.md#chepiga) |
+| **舒库连科** | 副部长，磁带里那位 | [意外证人](../story/accidental-witness.md) | [§舒库连科](story-cast.md#shukurenko) |
+| **帕沙** | 送信的信使，交接失败被杀 | [意外证人](../story/accidental-witness.md) | [§帕沙](story-cast.md#pasha) |
+| **勒热夫斯基** | 运货的——蓝冰运输链上的一环 | [无名者](../story/the-unheard.md) | [§勒热夫斯基](story-cast.md#rzhevsky) |
+| **Elektronik** | Mechanic 的技术外援，不在商人列表 | [陨落星辰](../story/falling-skies.md) / [无名者](../story/the-unheard.md) | [§Elektronik](story-cast.md#elektronik) |
+| **Grigori Altman** | Boreas 号上唯一的幸存者录音 | [Boreas](../story/boreas.md) | [§Altman](story-cast.md#altman) |
+| **Night** | 侦察指挥官，「萤火虫行动」失败后成了 Rogues | [Boreas](../story/boreas.md)（+ [灯塔](lighthouse.md)） | [§Night](story-cast.md#night) |
+| **Warden / 守望者** | **不入档的角色**——只知道有这么个岗位 | [无名者](../story/the-unheard.md)（+ [他们已经来了](../story/they-are-already-here.md)） | [§Warden](story-cast.md#warden) |
 
 ---
 
@@ -170,7 +175,7 @@ tags:
 | **Black Division（黑师）** | 集团直属的秘密单位 | 清场与封口 | [组织页](factions.md#black-division) |
 | **UN / UNTAR** | 联合国维和部队，蓝盔是识别标志 | 名义上维持封锁 | [组织页](factions.md#un) |
 | **第 16 化工厂（Polychem）** | 蓝冰的产地，也是「工厂」地图本身 | 把催化剂做成商品 | [组织页](factions.md#polikhim) |
-| **Paradigm Shipping** | Boreas 号的船东，也持有货运码头 | 一条船、一批船员 | [组织页](factions.md#supply-chain) |
+| **供应链**（Paradigm / DPFuel / Tarcone / Lindi Kivinje / Blackfox / Phoenix） | 把蓝冰从化工厂变成全球商品的那条链，六家企业各管一段 | 让货走完、让痕迹消失 | [组织页](factions.md#supply-chain) |
 | **Knossos LLC** | 「迷宫」的名义承包商（账面是主题公园） | 给活体实验一个合法外壳 | [组织页](factions.md#knossos) |
 | **NGO Cobalt / ARRS 14-4** | 「世界之眼」的前台与中继站 | 让监控网继续运行 | [组织页](factions.md#cobalt) |
 
@@ -187,7 +192,7 @@ tags:
 <a id="how-to-find"></a>
 
 1. **按「你怎么遇到他」找**：菜单里能交易 → 商人；地图上能打 → Boss；只在文件里出现 → 剧情人物；有名字没脸 → 组织。
-2. **按英文名搜**：站内所有页面**术语首次出现都给英文名**，用英文名搜命中率最高（中文译名在社区里不统一，例如 Warden 有「守望者／守护者」两种写法）。
+2. **按英文名或拉丁转写搜**：站内所有页面**术语首次出现都给英文名**（中文社区译名不统一，例如 Warden 有「守望者／守护者」两种写法）。俄文人名以「中文译名（拉丁转写）」给出，例如 `克鲁格洛夫（Kruglov）`——**搜转写比搜中文更稳**。
 3. **按章节倒查**：知道他在哪一章出现，就去[剧情章节与主线任务](story-chapters.md)的逐章表，再从章页进[剧情人物志](story-cast.md)。
 
 ---
@@ -223,7 +228,7 @@ tags:
 - [商人群像](trader-profiles.md) — 八位商人的动机画像与关系网（本页商人栏的深挖）
 - [Boss 图鉴](bosses.md) — 打法、护卫编制、血量与刷新率（本页 Boss 栏的深挖）
 - [剧情人物志](story-cast.md) — 18 位只在文本里出现的人，一人一段
-- [组织与势力](factions.md) — 12 个组织：要什么、怎么运作、哪里没交代
+- [组织与势力](factions.md) — 14 个组织：要什么、怎么运作、哪里没交代
 - [世界观与阵营背景](worldview.md) — 这套设定本身：诺文斯克、TerraGroup 与两支 PMC
 - [剧情章节与主线任务](story-chapters.md) — 十章总览与九份证据链
 
