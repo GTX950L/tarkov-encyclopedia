@@ -7,6 +7,7 @@
 3. entries/ 条目骨架完整性（frontmatter + 固定章节）；
 4. 条目计数一致性：全站「查看全部 N 个条目」、总览页、两处 README、路径图篇数之和；
 4b. 篇数口径：声明的「分N篇」必须与 nav 的「第X篇」分组数一致；
+4c. 总览页「八篇一览」表逐行对账 nav：每行的篇名与篇数都必须等于 nav 的实际值；
 5. tags.md 的篇数与覆盖条目是否与 frontmatter 实际统计一致（防手工维护漂移）；
 6. 中文正文中是否残留直引号（行内代码与 HTML 属性里的语法引号不计）；
 6b. 表格行之后是否留了空行 —— 不留的话下一个块会被吞进表格（标题变单元格）；
@@ -59,6 +60,11 @@ CN_CHAR = re.compile(r"[\u4e00-\u9fff]")
 TAG_LINE = re.compile(r"^\s*-\s*(.+?)\s*$")
 # nav 里的「第X篇」分组标题：`- 第一篇 · 入门机制:` / `- 第九篇 · 任务图鉴:`
 NAV_GROUP_RE = re.compile(r"^(\s*)-\s*(第[零一二三四五六七八九十]{1,3}篇)\s*·\s*(.+?):\s*$")
+# 总览页「八篇一览」表的行：`| 第五篇 | [进阶战斗机制](#p5) | 16 | 这一篇讲什么 |`
+OVERVIEW_ROW_RE = re.compile(
+    r"^\|\s*(第[零一二三四五六七八九十]{1,3}篇)\s*\|\s*\[([^\]]+)\]\(#p\d+\)\s*\|\s*(\d+)\s*\|",
+    re.M,
+)
 # 正文里的篇数声明：「分为十篇」/「分十篇组织」/「分十篇：…」
 # 中文数字 → 整数。支持到「十九」——分篇数会随栏目增长，
 # 「十一篇」是第九篇物品图鉴落地后的实际值，写死只到「十」会让三处声明同时失配。
@@ -487,7 +493,44 @@ def main() -> int:
                     f"{found.group(1)}篇，nav 实际 {n_groups} 篇"
                 )
 
-    # 4c. 首页「本站速览」的数字必须与数据一致
+    # 4c. 总览页「八篇一览」表逐行对账 nav
+    #     这张表里每一篇的「篇数」是**第三份**独立维护的篇数副本（另两份是路径图与
+    #     正文篇目清单）。2026-11-02 出过一次：表里第五篇还写 15、nav 已是 16，
+    #     七道校验全绿 —— 因为 4b 只查「分N篇」这条**总数**声明，逐篇的数字无人看。
+    #     判据：行的篇号必须在 nav 里、篇名一致、篇数等于该篇在 nav 的页面数；
+    #     且 nav 里的每个**内容篇**（页面全在 entries/ 下）都必须在表里出现。
+    idx_md = CONTENT / "entries" / "index.md"
+    if idx_md.exists():
+        rows = OVERVIEW_ROW_RE.findall(idx_md.read_text(encoding="utf-8"))
+        if not rows:
+            errors.append(
+                "总览页「八篇一览」表的行一条都没解析到 —— 表格格式变了，"
+                "或标题段落被改写；本条不能静默通过"
+            )
+        listed: set[str] = set()
+        for num, row_name, cnt in rows:
+            listed.add(num)
+            actual = nav_groups.get(num)
+            if actual is None:
+                errors.append(f"总览页「八篇一览」有「{num}」，但 nav 里没有这个分组")
+                continue
+            if row_name.strip() != actual[0]:
+                errors.append(
+                    f"总览页篇名与 nav 不一致：「{num}」表里写「{row_name.strip()}」，"
+                    f"nav 写的是「{actual[0]}」"
+                )
+            if int(cnt) != actual[1]:
+                errors.append(
+                    f"总览页篇数漂移：「{num} · {row_name.strip()}」写的是 {cnt}，"
+                    f"nav 实际 {actual[1]} 个页面"
+                )
+        for num, (grp_name, _size, is_content) in nav_groups.items():
+            if is_content and num not in listed:
+                errors.append(
+                    f"nav 的「{num} · {grp_name}」没有出现在总览页「八篇一览」表里"
+                )
+
+    # 4d. 首页「本站速览」的数字必须与数据一致
     #     **刻意复用生成器的实现**（`render()`），而不是在这里另写一遍算术：
     #     两套实现必然漂，而首页是第 N 处计数落点，肉眼绝对看不过来。
     #     生成器自己会比对磁盘内容，过期就返回 1 —— 这就是「数据变了但没重生成」的门禁。
