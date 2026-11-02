@@ -112,6 +112,11 @@ GENERATORS: list[list[str]] = [
     ["scripts/gen_armor_values.py"],
     ["scripts/gen_plate_guide.py"],       # ⑨b 插板选型：材质横评 / 适配族 / 预算分档
     ["scripts/gen_weapon_values.py"],
+    # ⑨c 枪械评测（2026-11-03）：先取枪型/供给数据，再由 rank 写页面区块。
+    # ⚠️ **顺序敏感** —— rank 读 eval_data 的产物；两支都必须入列，
+    #    只放 rank 的话数据文件漂移了也发现不了。
+    ["scripts/gen_weapon_eval_data.py"],
+    ["scripts/gen_weapon_rank.py"],
     ["scripts/gen_gear_values.py"],
     ["scripts/gen_food_values.py"],
     ["scripts/gen_medical_values.py"],

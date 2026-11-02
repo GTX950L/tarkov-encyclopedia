@@ -1,0 +1,7008 @@
+{
+ "fetched": "2026-10-08",
+ "source": "items_full.json（tarkov.dev 快照）",
+ "baseline": "1.2.0.0",
+ "note": "裸枪属性；人机/后坐不含任何配件。同名跨口径按 id 区分，不合并。",
+ "classes": {
+  "突击步枪": {
+   "en": "assault-rifle",
+   "id": "5447b5f14bdc2d61278b4567"
+  },
+  "手枪": {
+   "en": "handgun",
+   "id": "5447b5cf4bdc2d65278b4567"
+  },
+  "霰弹枪": {
+   "en": "shotgun",
+   "id": "5447b6094bdc2dc3278b4567"
+  },
+  "狙击步枪": {
+   "en": "sniper-rifle",
+   "id": "5447b6254bdc2dc3278b4568"
+  },
+  "突击卡宾枪": {
+   "en": "assault-carbine",
+   "id": "5447b5fc4bdc2d87278b4567"
+  },
+  "精确射手步枪": {
+   "en": "marksman-rifle",
+   "id": "5447b6194bdc2d67278b4567"
+  },
+  "冲锋枪": {
+   "en": "smg",
+   "id": "5447b5e04bdc2d62278b4567"
+  },
+  "机枪": {
+   "en": "machinegun",
+   "id": "5447bed64bdc2d97278b4568"
+  },
+  "榴弹发射器": {
+   "en": "grenade-launcher",
+   "id": "5447bedf4bdc2d87278b4568"
+  },
+  "Revolver": {
+   "en": "revolver",
+   "id": "617f1ef5e8b54b0998387733"
+  },
+  "Rocket Launcher": {
+   "en": "rocket-launcher",
+   "id": "67446d4f04141c10630604e7"
+  }
+ },
+ "weapons": [
+  {
+   "id": "61a4c8884f95bc3b2c5dc96f",
+   "name": "CR 50DS",
+   "full": "Chiappa 犀牛 50DS .357 左轮手枪",
+   "slug": "chiappa-rhino-50ds-357-revolver",
+   "cls": "Revolver",
+   "clsEn": "revolver",
+   "cal": "Caliber9x33R",
+   "calZh": ".357 Magnum",
+   "weight": 0.685,
+   "ergo": 80,
+   "rv": 383,
+   "rh": 280,
+   "rate": 30,
+   "modes": [
+    "单发",
+    "双动"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.15,
+   "ammo": [
+    "62330c40bdd19b369e1e53d1",
+    "62330b3ed4dc74626d570b95",
+    "62330c18744e5e31df12f516",
+    "62330bfadc5883093563729b"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "633ec7c2a6918cb895019c6c",
+   "name": "RSH-12",
+   "full": "RSh-12 12.7x55转轮手枪",
+   "slug": "rsh-12-127x55-revolver",
+   "cls": "Revolver",
+   "clsEn": "revolver",
+   "cal": "Caliber127x55",
+   "calZh": "12.7x55",
+   "weight": 1.86,
+   "ergo": 40,
+   "rv": 493,
+   "rh": 340,
+   "rate": 30,
+   "modes": [
+    "单发",
+    "双动"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.2,
+   "ammo": [
+    "5cadf6ddae9215051e1c23b2",
+    "5cadf6eeae921500134b2799",
+    "5cadf6e5ae921500113bb973"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "60db29ce99594040e04c4a27",
+   "name": "MTs-255-12",
+   "full": "MTs-255-12 12铅径转轮霰弹枪",
+   "slug": "mts-255-12-12ga-shotgun",
+   "cls": "Revolver",
+   "clsEn": "revolver",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "weight": 1.1,
+   "ergo": 50,
+   "rv": 364,
+   "rh": 486,
+   "rate": 30,
+   "modes": [
+    "单发",
+    "双动"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.48,
+   "ammo": [
+    "5d6e67fba4b9361bc73bc779",
+    "64b8ee384b75259c590fa89b",
+    "5d6e6869a4b9361c140bcfde",
+    "5d6e6911a4b9361bd5780d52",
+    "5d6e6891a4b9361bd473feea",
+    "58820d1224597753c90aeb13",
+    "5d6e6806a4b936088465b17e",
+    "5d6e6772a4b936088465b17c",
+    "5d6e68dea4b9361bcc29e659",
+    "5d6e68b3a4b9361bca7e50b5",
+    "5d6e68d1a4b93622fe60e845",
+    "5c0d591486f7744c505b416f",
+    "5d6e68a8a4b9360b6c0d54e2",
+    "5d6e689ca4b9361bc8618956",
+    "5d6e68e6a4b9361c140bcfe0",
+    "5d6e68c4a4b9361b93413f79",
+    "560d5e524bdc2d25448b4571"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6275303a9f372d6ea97f9ec7",
+   "name": "MSGL",
+   "full": "Milkor M32A1 MSGL 40 毫米榴弹发射器",
+   "slug": "milkor-m32a1-msgl-40mm-grenade-launcher",
+   "cls": "Revolver",
+   "clsEn": "revolver",
+   "cal": "Caliber40x46",
+   "calZh": "40x46",
+   "weight": 3.3,
+   "ergo": 30,
+   "rv": 238,
+   "rh": 560,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.48,
+   "ammo": [
+    "5ede475b549eed7c6d5c18fb",
+    "5ede47405b097655935d7d16",
+    "5ede475339ee016e8c534742",
+    "5f0c892565703e5c461894e9",
+    "5ede4739e0350d05467f73e8",
+    "5ede474b0c226a66f5402622"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "624c2e8614da335f1e034d8c",
+   "name": "CR 200DS",
+   "full": "Chiappa 犀牛 200DS 9x19 左轮手枪",
+   "slug": "chiappa-rhino-200ds-9x19-revolver",
+   "cls": "Revolver",
+   "clsEn": "revolver",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 0.5,
+   "ergo": 95,
+   "rv": 306,
+   "rh": 200,
+   "rate": 30,
+   "modes": [
+    "单发",
+    "双动"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.28,
+   "ammo": [
+    "5c0d56a986f774449d5de529",
+    "56d59d3ad2720bdb418b4577",
+    "5efb0e16aeb21837e749c7ff",
+    "5c925fa22e221601da359b7b",
+    "58864a4f2459770fcc257101",
+    "5a3c16fe86f77452b62de32a",
+    "64b7bbb74b75259c590fa897",
+    "5c3df7d588a4501f290594e5",
+    "5efb0da7a29a85116f6ea05f"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5fb64bc92b1b027b1f50bcf2",
+   "name": "Vector .45",
+   "full": "TDI KRISS Vector Gen.2 .45 ACP 冲锋枪",
+   "slug": "tdi-kriss-vector-gen2-45-acp-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber1143x23ACP",
+   "calZh": ".45 ACP",
+   "weight": 1.86,
+   "ergo": 65,
+   "rv": 59,
+   "rh": 356,
+   "rate": 1100,
+   "modes": [
+    "单发",
+    "点射",
+    "全自动"
+   ],
+   "dist": 200,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.25,
+   "ammo": [
+    "5e81f423763d9f754677bf2e",
+    "5efb0cabfb3e451d70735af5",
+    "5efb0fc6aeb21837e749c801",
+    "5efb0d4f4bc50b58e81710f3",
+    "5ea2a8e200685063ec28c05a"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5fc3e272f8b6a877a729eac5",
+   "name": "UMP 45",
+   "full": "HK UMP .45 ACP冲锋枪",
+   "slug": "hk-ump-45-acp-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber1143x23ACP",
+   "calZh": ".45 ACP",
+   "weight": 1.22,
+   "ergo": 62,
+   "rv": 72,
+   "rh": 240,
+   "rate": 600,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 200,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.25,
+   "ammo": [
+    "5e81f423763d9f754677bf2e",
+    "5efb0cabfb3e451d70735af5",
+    "5efb0fc6aeb21837e749c801",
+    "5efb0d4f4bc50b58e81710f3",
+    "5ea2a8e200685063ec28c05a"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5ba26383d4351e00334c93d9",
+   "name": "MP7A1",
+   "full": "HK MP7A1 4.6x30 冲锋枪",
+   "slug": "hk-mp7a1-46x30-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber46x30",
+   "calZh": "4.6x30",
+   "weight": 1.62,
+   "ergo": 65,
+   "rv": 50,
+   "rh": 178,
+   "rate": 950,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 200,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.25,
+   "ammo": [
+    "5ba26812d4351e003201fef1",
+    "5ba26835d4351e0035628ff5",
+    "5ba2678ad4351e44f824b344",
+    "5ba26844d4351e00334c9475",
+    "64b6979341772715af0f9c39"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5bd70322209c4d00d7167b8f",
+   "name": "MP7A2",
+   "full": "HK MP7A2 4.6x30 冲锋枪",
+   "slug": "hk-mp7a2-46x30-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber46x30",
+   "calZh": "4.6x30",
+   "weight": 1.58,
+   "ergo": 65,
+   "rv": 50,
+   "rh": 178,
+   "rate": 950,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 200,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.25,
+   "ammo": [
+    "5ba26812d4351e003201fef1",
+    "5ba26835d4351e0035628ff5",
+    "5ba2678ad4351e44f824b344",
+    "5ba26844d4351e00334c9475",
+    "64b6979341772715af0f9c39"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6a78b7f8c2016eb33e0027cd",
+   "name": "P90 灾厄",
+   "full": "FN P90 5.7x28 冲锋枪（灾厄）",
+   "slug": "fn-p90-57x28-submachine-gun-scourge",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber57x28",
+   "calZh": "5.7x28",
+   "weight": 0.73,
+   "ergo": 59,
+   "rv": 57,
+   "rh": 255,
+   "rate": 910,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 200,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.25,
+   "ammo": [
+    "5cc80f53e4a949000e1ea4f8",
+    "5cc86832d7f00c000d3a6e6c",
+    "5cc86840d7f00c002412c56c",
+    "5cc80f67e4a949035e43bbba",
+    "5cc80f38e4a949001152b560",
+    "5cc80f8fe4a949033b0224a2",
+    "5cc80f79e4a949033c7343b2"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5cc82d76e24e8d00134b4b83",
+   "name": "P90",
+   "full": "FN P90 5.7x28 冲锋枪",
+   "slug": "fn-p90-57x28-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber57x28",
+   "calZh": "5.7x28",
+   "weight": 0.7,
+   "ergo": 60,
+   "rv": 54,
+   "rh": 243,
+   "rate": 900,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 200,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.25,
+   "ammo": [
+    "5cc80f53e4a949000e1ea4f8",
+    "5cc86832d7f00c000d3a6e6c",
+    "5cc86840d7f00c002412c56c",
+    "5cc80f67e4a949035e43bbba",
+    "5cc80f38e4a949001152b560",
+    "5cc80f8fe4a949033b0224a2",
+    "5cc80f79e4a949033c7343b2"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5ea03f7400685063ec28bfa8",
+   "name": "PPSh41",
+   "full": "PPSh-41 7.62x25 冲锋枪",
+   "slug": "ppsh-41-762x25-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber762x25TT",
+   "calZh": "7.62x25 TT",
+   "weight": 1.01,
+   "ergo": 16,
+   "rv": 89,
+   "rh": 294,
+   "rate": 1000,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 200,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.1,
+   "ammo": [
+    "573601b42459776410737435",
+    "573602322459776445391df1",
+    "5735fdcd2459776445391d61",
+    "573603c924597764442bd9cb",
+    "573603562459776430731618",
+    "5735ff5c245977640e39ba7e",
+    "5736026a245977644601dc61",
+    "68c15a033173b556890b5959",
+    "68c15b4bb30038a118088bd6",
+    "68c15f77ed3d7df9220debd6"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "57d14d2524597714373db789",
+   "name": "PP-91 雪松",
+   "full": "PP-91 雪松 9x18PM冲锋枪",
+   "slug": "pp-91-kedr-9x18pm-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "weight": 1.33,
+   "ergo": 65,
+   "rv": 50,
+   "rh": 211,
+   "rate": 900,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 100,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.25,
+   "ammo": [
+    "573718ba2459775a75491131",
+    "573719df2459775a626ccbc2",
+    "57371b192459775a9f58a5e0",
+    "57371e4124597760ff7b25f1",
+    "57371eb62459776125652ac1",
+    "57371f8d24597761006c6a81",
+    "5737201124597760fc4431f1",
+    "5737207f24597760ff7b25f2",
+    "57371f2b24597761224311f1",
+    "573719762459775a626ccbc1",
+    "573720e02459776143012541",
+    "57372140245977611f70ee91",
+    "5737218f245977612125ba51"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "57f3c6bd24597738e730fa2f",
+   "name": "PP-91-01 雪松-B",
+   "full": "PP-91-01 雪松-B 9x18PM 冲锋枪",
+   "slug": "pp-91-01-kedr-b-9x18pm-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "weight": 1.33,
+   "ergo": 65,
+   "rv": 50,
+   "rh": 211,
+   "rate": 900,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 100,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.2,
+   "ammo": [
+    "573718ba2459775a75491131",
+    "573719df2459775a626ccbc2",
+    "57371b192459775a9f58a5e0",
+    "57371e4124597760ff7b25f1",
+    "57371eb62459776125652ac1",
+    "57371f8d24597761006c6a81",
+    "5737201124597760fc4431f1",
+    "5737207f24597760ff7b25f2",
+    "57371f2b24597761224311f1",
+    "573719762459775a626ccbc1",
+    "573720e02459776143012541",
+    "57372140245977611f70ee91",
+    "5737218f245977612125ba51"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "57f4c844245977379d5c14d1",
+   "name": "PP-9 楔子",
+   "full": "PP-9 楔子 9x18PMM 冲锋枪",
+   "slug": "pp-9-klin-9x18pmm-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x18PMM",
+   "calZh": "9x18PMM",
+   "weight": 1.33,
+   "ergo": 65,
+   "rv": 50,
+   "rh": 211,
+   "rate": 1000,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 100,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.25,
+   "ammo": [
+    "573718ba2459775a75491131",
+    "573719df2459775a626ccbc2",
+    "57371aab2459775a77142f22",
+    "57371b192459775a9f58a5e0",
+    "57371e4124597760ff7b25f1",
+    "57371eb62459776125652ac1",
+    "57371f8d24597761006c6a81",
+    "5737201124597760fc4431f1",
+    "5737207f24597760ff7b25f2",
+    "57371f2b24597761224311f1",
+    "573719762459775a626ccbc1",
+    "573720e02459776143012541",
+    "57372140245977611f70ee91",
+    "5737218f245977612125ba51"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5de7bd7bfd6b4e6e2276dc25",
+   "name": "MP9-N",
+   "full": "B&T MP9-N 9x19 冲锋枪",
+   "slug": "bt-mp9-n-9x19-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 0.75,
+   "ergo": 75,
+   "rv": 51,
+   "rh": 254,
+   "rate": 1100,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 200,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.21,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6680304edadb7aa61d00cef0",
+   "name": "UZI PRO 冲锋手枪",
+   "full": "IWI UZI PRO Pistol 9x19冲锋枪",
+   "slug": "iwi-uzi-pro-pistol-9x19-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 0.939,
+   "ergo": 73,
+   "rv": 59,
+   "rh": 203,
+   "rate": 1075,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 100,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.21,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "668e71a8dadf42204c032ce1",
+   "name": "UZI PRO 冲锋枪",
+   "full": "IWI UZI PRO SMG 9x19冲锋枪",
+   "slug": "iwi-uzi-pro-smg-9x19-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 1.128,
+   "ergo": 78,
+   "rv": 56,
+   "rh": 198,
+   "rate": 1075,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 100,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.21,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5fc3f2d5900b1d5091531e57",
+   "name": "Vector 9x19",
+   "full": "TDI KRISS Vector Gen.2 9x19 冲锋枪",
+   "slug": "tdi-kriss-vector-gen2-9x19-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 1.8,
+   "ergo": 65,
+   "rv": 48,
+   "rh": 315,
+   "rate": 950,
+   "modes": [
+    "单发",
+    "点射",
+    "全自动"
+   ],
+   "dist": 200,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.25,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5d2f0d8048f0356c925bc3b0",
+   "name": "MP5K-N",
+   "full": "HK MP5K 9x19 微型冲锋枪",
+   "slug": "hk-mp5k-9x19-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 1.15,
+   "ergo": 55,
+   "rv": 57,
+   "rh": 267,
+   "rate": 900,
+   "modes": [
+    "单发",
+    "点射",
+    "全自动"
+   ],
+   "dist": 200,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.22,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5e00903ae9dc277128008b87",
+   "name": "MP9",
+   "full": "B&T MP9 9x19 冲锋枪",
+   "slug": "bt-mp9-9x19-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 0.75,
+   "ergo": 75,
+   "rv": 54,
+   "rh": 254,
+   "rate": 900,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 200,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.21,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "58948c8e86f77409493f7266",
+   "name": "MPX",
+   "full": "SIG MPX 9x19 冲锋枪",
+   "slug": "sig-mpx-9x19-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 0.64,
+   "ergo": 40,
+   "rv": 51,
+   "rh": 269,
+   "rate": 850,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5926bb2186f7744b1c6c6e60",
+   "name": "MP5",
+   "full": "HK MP5 9x19 冲锋枪（海军三发点射）",
+   "slug": "hk-mp5-9x19-submachine-gun-navy-3-round-burst",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 1.21,
+   "ergo": 50,
+   "rv": 56,
+   "rh": 275,
+   "rate": 800,
+   "modes": [
+    "单发",
+    "点射",
+    "全自动"
+   ],
+   "dist": 200,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.2,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "60339954d62c9b14ed777c06",
+   "name": "STM-9",
+   "full": "联盟-TM STM-9 Gen.2 9x19 卡宾枪",
+   "slug": "soyuz-tm-stm-9-gen2-9x19-carbine",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 0.35,
+   "ergo": 50,
+   "rv": 45,
+   "rh": 226,
+   "rate": 800,
+   "modes": [
+    "单发"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "59984ab886f7743e98271174",
+   "name": "PP-19-01",
+   "full": "PP-19-01 勇士 9x19 冲锋枪",
+   "slug": "pp-19-01-vityaz-9x19-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 1.809,
+   "ergo": 35,
+   "rv": 58,
+   "rh": 270,
+   "rate": 700,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 200,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.13,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "59f9cabd86f7743a10721f46",
+   "name": "Saiga-9",
+   "full": "Saiga-9 9x19卡宾枪",
+   "slug": "saiga-9-9x19-carbine",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 1.962,
+   "ergo": 32,
+   "rv": 42,
+   "rh": 246,
+   "rate": 650,
+   "modes": [
+    "单发"
+   ],
+   "dist": 300,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.07,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "66992b349950f5f4cd06029f",
+   "name": "UZI",
+   "full": "IWI UZI 9x19冲锋枪",
+   "slug": "iwi-uzi-9x19-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 2.26,
+   "ergo": 65,
+   "rv": 54,
+   "rh": 254,
+   "rate": 600,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 200,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.21,
+   "ammo": [
+    "5c0d56a986f774449d5de529",
+    "56d59d3ad2720bdb418b4577",
+    "5efb0e16aeb21837e749c7ff",
+    "5c925fa22e221601da359b7b",
+    "58864a4f2459770fcc257101",
+    "5a3c16fe86f77452b62de32a",
+    "64b7bbb74b75259c590fa897",
+    "5c3df7d588a4501f290594e5",
+    "5efb0da7a29a85116f6ea05f"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "62e14904c2699c0ec93adc47",
+   "name": "SR-2M",
+   "full": "SR-2M 石楠 9x21 冲锋枪",
+   "slug": "sr-2m-veresk-9x21-submachine-gun",
+   "cls": "冲锋枪",
+   "clsEn": "smg",
+   "cal": "Caliber9x21",
+   "calZh": "9x21",
+   "weight": 0.938,
+   "ergo": 59,
+   "rv": 54,
+   "rh": 234,
+   "rate": 950,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 200,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.23,
+   "ammo": [
+    "5a269f97c4a282000b151807",
+    "5a26abfac4a28232980eabff",
+    "5a26ac06c4a282000c5a90a8",
+    "5a26ac0ec4a28200741e1e18",
+    "6576f93989f0062e741ba952",
+    "6576f4708ca9c4381d16cd9d"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "669fa409933e898cce0c2166",
+   "name": "沙漠之鹰L5",
+   "full": "Magnum Research \"沙漠之鹰\"L5 .357 手枪",
+   "slug": "magnum-research-desert-eagle-l5-357-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber9x33R",
+   "calZh": ".357 Magnum",
+   "weight": 0.55,
+   "ergo": 68,
+   "rv": 455,
+   "rh": 320,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "62330b3ed4dc74626d570b95",
+    "62330bfadc5883093563729b",
+    "62330c18744e5e31df12f516",
+    "62330c40bdd19b369e1e53d1"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5e81c3cbac2bb513793cdc75",
+   "name": "M1911A1",
+   "full": "柯尔特 M1911A1 .45 ACP 手枪",
+   "slug": "colt-m1911a1-45-acp-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber1143x23ACP",
+   "calZh": ".45 ACP",
+   "weight": 0.231,
+   "ergo": 75,
+   "rv": 451,
+   "rh": 355,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5e81f423763d9f754677bf2e",
+    "5efb0cabfb3e451d70735af5",
+    "5efb0fc6aeb21837e749c801",
+    "5efb0d4f4bc50b58e81710f3",
+    "5ea2a8e200685063ec28c05a"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5f36a0e5fbf956000b716b65",
+   "name": "M45A1",
+   "full": "柯尔特 M45A1 .45 ACP 手枪",
+   "slug": "colt-m45a1-45-acp-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber1143x23ACP",
+   "calZh": ".45 ACP",
+   "weight": 0.205,
+   "ergo": 78,
+   "rv": 438,
+   "rh": 325,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5e81f423763d9f754677bf2e",
+    "5efb0cabfb3e451d70735af5",
+    "5efb0fc6aeb21837e749c801",
+    "5efb0d4f4bc50b58e81710f3",
+    "5ea2a8e200685063ec28c05a"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6193a720f8ee7e52e42109ed",
+   "name": "USP .45",
+   "full": "HK USP .45 ACP手枪",
+   "slug": "hk-usp-45-acp-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber1143x23ACP",
+   "calZh": ".45 ACP",
+   "weight": 0.222,
+   "ergo": 82,
+   "rv": 410,
+   "rh": 295,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5e81f423763d9f754677bf2e",
+    "5efb0cabfb3e451d70735af5",
+    "5efb0fc6aeb21837e749c801",
+    "5efb0d4f4bc50b58e81710f3",
+    "5ea2a8e200685063ec28c05a"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "669fa3f88abd2662d80eee77",
+   "name": "沙漠之鹰L5",
+   "full": "Magnum Research \"沙漠之鹰\"L5 .50 AE手枪",
+   "slug": "magnum-research-desert-eagle-l5-50-ae-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber127x33",
+   "calZh": ".50 AE",
+   "weight": 0.55,
+   "ergo": 68,
+   "rv": 465,
+   "rh": 330,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "668fe62ac62660a5d8071446",
+    "66a0d1e0ed648d72fe064d06",
+    "66a0d1f88486c69fce00fdf6",
+    "66a0d1c87d0d369e270bb9de",
+    "6a60f36fb3d057447a095aee"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "669fa39b48fc9f8db6035a0c",
+   "name": "沙漠之鹰L6",
+   "full": "Magnum Research \"沙漠之鹰\"L6 .50 AE手枪",
+   "slug": "magnum-research-desert-eagle-l6-50-ae-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber127x33",
+   "calZh": ".50 AE",
+   "weight": 0.578,
+   "ergo": 64,
+   "rv": 465,
+   "rh": 330,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "668fe62ac62660a5d8071446",
+    "66a0d1e0ed648d72fe064d06",
+    "66a0d1c87d0d369e270bb9de",
+    "66a0d1f88486c69fce00fdf6",
+    "6a60f36fb3d057447a095aee"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "669fa3d876116c89840b1217",
+   "name": "沙漠之鹰L6",
+   "full": "Magnum Research \"沙漠之鹰\"L6 .50 AE手枪（白色虎纹）",
+   "slug": "magnum-research-desert-eagle-l6-50-ae-pistol-wts",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber127x33",
+   "calZh": ".50 AE",
+   "weight": 0.578,
+   "ergo": 64,
+   "rv": 465,
+   "rh": 330,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "668fe62ac62660a5d8071446",
+    "66a0d1e0ed648d72fe064d06",
+    "66a0d1c87d0d369e270bb9de",
+    "66a0d1f88486c69fce00fdf6",
+    "6a60f36fb3d057447a095aee"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "668fe5a998b5ad715703ddd6",
+   "name": "沙漠之鹰Mk XIX",
+   "full": "Magnum Research \"沙漠之鹰\"Mk XIX .50 AE手枪",
+   "slug": "magnum-research-desert-eagle-mk-xix-50-ae-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber127x33",
+   "calZh": ".50 AE",
+   "weight": 0.829,
+   "ergo": 64,
+   "rv": 465,
+   "rh": 330,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "668fe62ac62660a5d8071446",
+    "66a0d1e0ed648d72fe064d06",
+    "66a0d1c87d0d369e270bb9de",
+    "66a0d1f88486c69fce00fdf6",
+    "6a60f36fb3d057447a095aee"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "66015072e9f84d5680039678",
+   "name": "玩具枪",
+   "full": "20x1毫米玩具枪",
+   "slug": "20x1mm-toy-gun",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber20x1mm",
+   "calZh": "20x1mm",
+   "weight": 0.085,
+   "ergo": 100,
+   "rv": 380,
+   "rh": 265,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.39,
+   "ammo": [
+    "6601546f86889319850bd566"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5d3eb3b0a4b93615055e84d2",
+   "name": "FN 5-7",
+   "full": "FN Five-seveN MK2 5.7x28 手枪",
+   "slug": "fn-five-seven-mk2-57x28-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber57x28",
+   "calZh": "5.7x28",
+   "weight": 0.23,
+   "ergo": 86,
+   "rv": 281,
+   "rh": 240,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5cc80f53e4a949000e1ea4f8",
+    "5cc86832d7f00c000d3a6e6c",
+    "5cc86840d7f00c002412c56c",
+    "5cc80f67e4a949035e43bbba",
+    "5cc80f38e4a949001152b560",
+    "5cc80f8fe4a949033b0224a2",
+    "5cc80f79e4a949033c7343b2"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5d67abc1a4b93614ec50137f",
+   "name": "FN 5-7 FDE",
+   "full": "FN Five-seveN MK2 5.7x28 手枪 (FDE)",
+   "slug": "fn-five-seven-mk2-57x28-pistol-fde",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber57x28",
+   "calZh": "5.7x28",
+   "weight": 0.23,
+   "ergo": 86,
+   "rv": 281,
+   "rh": 240,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5cc80f53e4a949000e1ea4f8",
+    "5cc86832d7f00c000d3a6e6c",
+    "5cc86840d7f00c002412c56c",
+    "5cc80f67e4a949035e43bbba",
+    "5cc80f38e4a949001152b560",
+    "5cc80f8fe4a949033b0224a2",
+    "5cc80f79e4a949033c7343b2"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "571a12c42459771f627b58a0",
+   "name": "TT",
+   "full": "托卡列夫 TT-33 7.62x25 手枪",
+   "slug": "tokarev-tt-33-762x25-tt-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber762x25TT",
+   "calZh": "7.62x25 TT",
+   "weight": 0.664,
+   "ergo": 70,
+   "rv": 553,
+   "rh": 325,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5735ff5c245977640e39ba7e",
+    "573601b42459776410737435",
+    "573602322459776445391df1",
+    "5736026a245977644601dc61",
+    "573603562459776430731618",
+    "573603c924597764442bd9cb",
+    "5735fdcd2459776445391d61",
+    "68c15a033173b556890b5959",
+    "68c15b4bb30038a118088bd6",
+    "68c15f77ed3d7df9220debd6"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5b3b713c5acfc4330140bd8d",
+   "name": "TT",
+   "full": "托卡列夫 TT-33 7.62x25 黄金手枪",
+   "slug": "tokarev-tt-33-762x25-tt-pistol-golden",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber762x25TT",
+   "calZh": "7.62x25 TT",
+   "weight": 0.664,
+   "ergo": 70,
+   "rv": 553,
+   "rh": 325,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5735ff5c245977640e39ba7e",
+    "573601b42459776410737435",
+    "573602322459776445391df1",
+    "5736026a245977644601dc61",
+    "573603562459776430731618",
+    "573603c924597764442bd9cb",
+    "5735fdcd2459776445391d61",
+    "68c15f77ed3d7df9220debd6",
+    "68c15a033173b556890b5959",
+    "68c15b4bb30038a118088bd6"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5abccb7dd8ce87001773e277",
+   "name": "APB",
+   "full": "斯捷奇金 APB 9x18PM 消音型自动手枪",
+   "slug": "stechkin-apb-9x18pm-silenced-machine-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "weight": 0.81,
+   "ergo": 80,
+   "rv": 328,
+   "rh": 260,
+   "rate": 750,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.32,
+   "ammo": [
+    "573718ba2459775a75491131",
+    "573719df2459775a626ccbc2",
+    "57371aab2459775a77142f22",
+    "57371b192459775a9f58a5e0",
+    "57371e4124597760ff7b25f1",
+    "57371eb62459776125652ac1",
+    "57371f8d24597761006c6a81",
+    "5737201124597760fc4431f1",
+    "5737207f24597760ff7b25f2",
+    "57371f2b24597761224311f1",
+    "573719762459775a626ccbc1",
+    "573720e02459776143012541",
+    "57372140245977611f70ee91",
+    "5737218f245977612125ba51"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5a17f98cfcdbcb0980087290",
+   "name": "APS",
+   "full": "斯捷奇金 APS 9x18PM 冲锋手枪",
+   "slug": "stechkin-aps-9x18pm-machine-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "weight": 0.86,
+   "ergo": 70,
+   "rv": 328,
+   "rh": 260,
+   "rate": 750,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.3,
+   "ammo": [
+    "573718ba2459775a75491131",
+    "573719df2459775a626ccbc2",
+    "57371aab2459775a77142f22",
+    "57371b192459775a9f58a5e0",
+    "57371e4124597760ff7b25f1",
+    "57371eb62459776125652ac1",
+    "57371f8d24597761006c6a81",
+    "5737201124597760fc4431f1",
+    "5737207f24597760ff7b25f2",
+    "57371f2b24597761224311f1",
+    "573719762459775a626ccbc1",
+    "573720e02459776143012541",
+    "57372140245977611f70ee91",
+    "5737218f245977612125ba51"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "56e0598dd2720bb5668b45a6",
+   "name": "PB",
+   "full": "PB 9x18PM消音手枪",
+   "slug": "pb-9x18pm-silenced-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "weight": 0.674,
+   "ergo": 80,
+   "rv": 380,
+   "rh": 260,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.3,
+   "ammo": [
+    "573718ba2459775a75491131",
+    "573719df2459775a626ccbc2",
+    "57371aab2459775a77142f22",
+    "57371b192459775a9f58a5e0",
+    "57371e4124597760ff7b25f1",
+    "57371eb62459776125652ac1",
+    "57371f8d24597761006c6a81",
+    "5737201124597760fc4431f1",
+    "5737207f24597760ff7b25f2",
+    "57371f2b24597761224311f1",
+    "573719762459775a626ccbc1",
+    "573720e02459776143012541",
+    "57372140245977611f70ee91",
+    "5737218f245977612125ba51"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5448bd6b4bdc2dfc2f8b4569",
+   "name": "PM",
+   "full": "马卡洛夫9x18PM 手枪",
+   "slug": "makarov-pm-9x18pm-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "weight": 0.333,
+   "ergo": 85,
+   "rv": 380,
+   "rh": 265,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.39,
+   "ammo": [
+    "573718ba2459775a75491131",
+    "573719df2459775a626ccbc2",
+    "57371aab2459775a77142f22",
+    "57371b192459775a9f58a5e0",
+    "57371e4124597760ff7b25f1",
+    "57371eb62459776125652ac1",
+    "57371f8d24597761006c6a81",
+    "5737201124597760fc4431f1",
+    "5737207f24597760ff7b25f2",
+    "57371f2b24597761224311f1",
+    "573719762459775a626ccbc1",
+    "573720e02459776143012541",
+    "57372140245977611f70ee91",
+    "5737218f245977612125ba51"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "579204f224597773d619e051",
+   "name": "PM (t)",
+   "full": "马卡洛夫 PM(t) 9x18PM 手枪",
+   "slug": "makarov-pm-t-9x18pm-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "weight": 0.34,
+   "ergo": 84,
+   "rv": 380,
+   "rh": 265,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.38,
+   "ammo": [
+    "573718ba2459775a75491131",
+    "573719df2459775a626ccbc2",
+    "57371aab2459775a77142f22",
+    "57371b192459775a9f58a5e0",
+    "57371e4124597760ff7b25f1",
+    "57371eb62459776125652ac1",
+    "57371f8d24597761006c6a81",
+    "5737201124597760fc4431f1",
+    "5737207f24597760ff7b25f2",
+    "57371f2b24597761224311f1",
+    "573719762459775a626ccbc1",
+    "573720e02459776143012541",
+    "57372140245977611f70ee91",
+    "5737218f245977612125ba51"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 1,
+      "p": 6897,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "5b1fa9b25acfc40018633c01",
+   "name": "GLOCK18C",
+   "full": "GLOCK 18C 9x19 冲锋手枪",
+   "slug": "glock-18c-9x19-machine-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 0.231,
+   "ergo": 90,
+   "rv": 306,
+   "rh": 286,
+   "rate": 1200,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5a7ae0c351dfba0017554310",
+   "name": "GLOCK17",
+   "full": "Glock 17 9x19 手枪",
+   "slug": "glock-17-9x19-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 0.231,
+   "ergo": 90,
+   "rv": 311,
+   "rh": 260,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 1,
+      "p": 8260,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "63088377b5cd696784087147",
+   "name": "Glock 19X",
+   "full": "Glock 19X 9x19 手枪",
+   "slug": "glock-19x-9x19-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 0.197,
+   "ergo": 93,
+   "rv": 302,
+   "rh": 250,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5cadc190ae921500103bb3b6",
+   "name": "M9A3",
+   "full": "伯莱塔 M9A3 9x19 手枪",
+   "slug": "beretta-m9a3-9x19-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 0.231,
+   "ergo": 70,
+   "rv": 404,
+   "rh": 280,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "576a581d2459771e7b1bc4f1",
+   "name": "MP-443 \"乌鸦\"",
+   "full": "雅利金 MP-443 \"乌鸦\" 9x19 手枪",
+   "slug": "yarygin-mp-443-grach-9x19-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 0.79,
+   "ergo": 75,
+   "rv": 425,
+   "rh": 310,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.35,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "56d59856d2720bd8418b456a",
+   "name": "P226R",
+   "full": "SIG P226R 9x19 手枪",
+   "slug": "sig-p226r-9x19-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 0.231,
+   "ergo": 80,
+   "rv": 383,
+   "rh": 275,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 1,
+      "p": 7798,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "602a9740da11d6478d5a06dc",
+   "name": "PL-15",
+   "full": "列别杰夫 PL-15 9x19 手枪",
+   "slug": "lebedev-pl-15-9x19-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "weight": 0.49,
+   "ergo": 93,
+   "rv": 289,
+   "rh": 235,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5efb0da7a29a85116f6ea05f",
+    "5c3df7d588a4501f290594e5",
+    "58864a4f2459770fcc257101",
+    "56d59d3ad2720bdb418b4577",
+    "5c925fa22e221601da359b7b",
+    "5a3c16fe86f77452b62de32a",
+    "5efb0e16aeb21837e749c7ff",
+    "5c0d56a986f774449d5de529",
+    "64b7bbb74b75259c590fa897"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "59f98b4986f7746f546d2cef",
+   "name": "SR-1MP",
+   "full": "谢尔久科夫 SR1MP 9x21 \"斑蝰蛇\" 半自动手枪",
+   "slug": "serdyukov-sr-1mp-gyurza-9x21-pistol",
+   "cls": "手枪",
+   "clsEn": "handgun",
+   "cal": "Caliber9x21",
+   "calZh": "9x21",
+   "weight": 0.79,
+   "ergo": 82,
+   "rv": 442,
+   "rh": 325,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.22,
+   "ammo": [
+    "5a269f97c4a282000b151807",
+    "5a26abfac4a28232980eabff",
+    "5a26ac06c4a282000c5a90a8",
+    "5a26ac0ec4a28200741e1e18",
+    "6576f93989f0062e741ba952",
+    "6576f4708ca9c4381d16cd9d"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5beed0f50db834001c062b12",
+   "name": "RPK-16",
+   "full": "RPK-16 5.45x39 轻机枪",
+   "slug": "rpk-16-545x39-light-machine-gun",
+   "cls": "机枪",
+   "clsEn": "machinegun",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "weight": 1.5,
+   "ergo": 45,
+   "rv": 106,
+   "rh": 316,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.04,
+   "ammo": [
+    "5c0d5e4486f77478390952fe",
+    "61962b617c6c7b169525f168",
+    "56dfef82d2720bbd668b4567",
+    "56dff026d2720bb8668b4567",
+    "56dff061d2720bb5668b4567",
+    "56dff0bed2720bb0668b4567",
+    "56dff216d2720bbd668b4568",
+    "56dff2ced2720bb4668b4567",
+    "56dff338d2720bbd668b4569",
+    "56dff3afd2720bba668b4567",
+    "56dff421d2720b5f5a8b4567",
+    "56dff4a2d2720bbd668b456a",
+    "56dff4ecd2720b5f5a8b4568"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6513ef33e06849f06c0957ca",
+   "name": "RPD",
+   "full": "RPD 7.62x39 轻机枪",
+   "slug": "degtyarev-rpd-762x39-machine-gun",
+   "cls": "机枪",
+   "clsEn": "machinegun",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "weight": 2.88,
+   "ergo": 45,
+   "rv": 107,
+   "rh": 502,
+   "rate": 700,
+   "modes": [
+    "全自动"
+   ],
+   "dist": 800,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "59e0d99486f7744a32234762",
+    "59e4d3d286f774176a36250a",
+    "601aa3d2b2bcb34913271e6d",
+    "64b7af5a8532cf95ee0a0dbd",
+    "59e4d24686f7741776641ac7",
+    "5656d7c34bdc2d9d198b4587",
+    "64b7af434b75259c590fa893",
+    "64b7af734b75259c590fa895",
+    "59e4cf5286f7741778269d8a"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "65268d8ecb944ff1e90ea385",
+   "name": "RPDN",
+   "full": "RPDN 7.62x39 轻机枪",
+   "slug": "degtyarev-rpdn-762x39-machine-gun",
+   "cls": "机枪",
+   "clsEn": "machinegun",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "weight": 2.94,
+   "ergo": 45,
+   "rv": 107,
+   "rh": 502,
+   "rate": 700,
+   "modes": [
+    "全自动"
+   ],
+   "dist": 800,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "59e0d99486f7744a32234762",
+    "59e4d3d286f774176a36250a",
+    "601aa3d2b2bcb34913271e6d",
+    "64b7af5a8532cf95ee0a0dbd",
+    "59e4d24686f7741776641ac7",
+    "5656d7c34bdc2d9d198b4587",
+    "64b7af434b75259c590fa893",
+    "64b7af734b75259c590fa895",
+    "59e4cf5286f7741778269d8a"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "661ceb1b9311543c7104149b",
+   "name": "M60E6",
+   "full": "U.S Ordnance M60E6 7.62x51 轻机枪",
+   "slug": "us-ordnance-m60e6-762x51-light-machine-gun",
+   "cls": "机枪",
+   "clsEn": "machinegun",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 5.378,
+   "ergo": 45,
+   "rv": 107,
+   "rh": 502,
+   "rate": 550,
+   "modes": [
+    "全自动"
+   ],
+   "dist": 800,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5a6086ea4f39f99cd479502f",
+    "6768c25aa7b238f14a08d3f6",
+    "5e023e53d4353e3302577c4c"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "661cec09b2c6356b4d0c7a36",
+   "name": "M60E6",
+   "full": "U.S Ordnance M60E6 7.62x51 轻机枪（FDE）",
+   "slug": "us-ordnance-m60e6-762x51-light-machine-gun-fde",
+   "cls": "机枪",
+   "clsEn": "machinegun",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 5.378,
+   "ergo": 45,
+   "rv": 107,
+   "rh": 502,
+   "rate": 550,
+   "modes": [
+    "全自动"
+   ],
+   "dist": 800,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5a6086ea4f39f99cd479502f",
+    "6768c25aa7b238f14a08d3f6",
+    "5e023e53d4353e3302577c4c"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "65fb023261d5829b2d090755",
+   "name": "Mk 43 Mod 1",
+   "full": "U.S Ordnance M60E4 7.62x51 轻机枪",
+   "slug": "us-ordnance-m60e4-762x51-light-machine-gun",
+   "cls": "机枪",
+   "clsEn": "machinegun",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 5.763,
+   "ergo": 45,
+   "rv": 107,
+   "rh": 502,
+   "rate": 550,
+   "modes": [
+    "全自动"
+   ],
+   "dist": 800,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5a6086ea4f39f99cd479502f",
+    "6768c25aa7b238f14a08d3f6",
+    "5e023e53d4353e3302577c4c"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "64637076203536ad5600c990",
+   "name": "PKM",
+   "full": "PKM 7.62x54R 机枪",
+   "slug": "kalashnikov-pkm-762x54r-machine-gun",
+   "cls": "机枪",
+   "clsEn": "machinegun",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "weight": 3.852,
+   "ergo": 55,
+   "rv": 138,
+   "rh": 515,
+   "rate": 650,
+   "modes": [
+    "全自动"
+   ],
+   "dist": 750,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5e023d34e8a400319a28ed44",
+    "5e023d48186a883be655e551",
+    "5e023cf8186a883be655e54f",
+    "59e77a2386f7742ee578960a",
+    "5887431f2459777e1612938f",
+    "560d61e84bdc2da74d8b4571",
+    "64b8f7c241772715af0f9c3d",
+    "64b8f7968532cf95ee0a0dbf",
+    "64b8f7b5389d7ffd620ccba2"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "64ca3d3954fc657e230529cc",
+   "name": "PKP",
+   "full": "PKP 7.62x54R 步兵机枪",
+   "slug": "kalashnikov-pkp-762x54r-infantry-machine-gun",
+   "cls": "机枪",
+   "clsEn": "machinegun",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "weight": 3.852,
+   "ergo": 55,
+   "rv": 138,
+   "rh": 515,
+   "rate": 650,
+   "modes": [
+    "全自动"
+   ],
+   "dist": 750,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5e023d34e8a400319a28ed44",
+    "5e023d48186a883be655e551",
+    "5e023cf8186a883be655e54f",
+    "59e77a2386f7742ee578960a",
+    "5887431f2459777e1612938f",
+    "560d61e84bdc2da74d8b4571",
+    "64b8f7b5389d7ffd620ccba2",
+    "64b8f7968532cf95ee0a0dbf",
+    "64b8f7c241772715af0f9c3d"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "620109578d82e67e7911abf2",
+   "name": "SP-81",
+   "full": "ZiD SP-81 26x75信号枪",
+   "slug": "zid-sp-81-26x75-signal-pistol",
+   "cls": "榴弹发射器",
+   "clsEn": "grenade-launcher",
+   "cal": "Caliber26x75",
+   "calZh": "26x75",
+   "weight": 0.6,
+   "ergo": 51,
+   "rv": 170,
+   "rh": 400,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.7,
+   "ammo": [
+    "62389aaba63f32501b1b444f",
+    "62389ba9a63f32501b1b4451",
+    "62389bc9423ed1685422dc57",
+    "62389be94d5d474bf712e709",
+    "635267f063651329f75a4ee8"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [
+     {
+      "t": "Jaeger",
+      "lv": 3,
+      "task": false
+     },
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 2,
+      "task": false
+     }
+    ],
+    "craft": []
+   },
+   "tier": "barter"
+  },
+  {
+   "id": "675ea3d6312c0a5c4e04e317",
+   "name": "烟花",
+   "full": "RSP-30 反应式信号弹（烟花）",
+   "slug": "rsp-30-reactive-signal-cartridge-firework",
+   "cls": "榴弹发射器",
+   "clsEn": "grenade-launcher",
+   "cal": "Caliber26x75",
+   "calZh": "26x75",
+   "weight": 0.19,
+   "ergo": 51,
+   "rv": 170,
+   "rh": 400,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.7,
+   "ammo": [
+    "62389ba9a63f32501b1b4451",
+    "62389be94d5d474bf712e709",
+    "62389bc9423ed1685422dc57",
+    "62389aaba63f32501b1b444f",
+    "635267f063651329f75a4ee8",
+    "675ea4891b2579e8fe0250aa",
+    "66d97834d2985e11480d5c1e"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "62178be9d0050232da3485d9",
+   "name": "照明棒",
+   "full": "ROP-30 反应式照明弹（白色）",
+   "slug": "rop-30-reactive-flare-cartridge-white",
+   "cls": "榴弹发射器",
+   "clsEn": "grenade-launcher",
+   "cal": "Caliber26x75",
+   "calZh": "26x75",
+   "weight": 0.19,
+   "ergo": 51,
+   "rv": 170,
+   "rh": 400,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.7,
+   "ammo": [
+    "62389ba9a63f32501b1b4451",
+    "62389be94d5d474bf712e709",
+    "62389bc9423ed1685422dc57",
+    "62389aaba63f32501b1b444f",
+    "635267f063651329f75a4ee8",
+    "675ea4891b2579e8fe0250aa",
+    "66d97834d2985e11480d5c1e"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "66d9f1abb16d9aacf5068468",
+   "name": "特种黄",
+   "full": "RSP-30 反应式信号弹（特种黄）",
+   "slug": "rsp-30-reactive-signal-cartridge-special-yellow",
+   "cls": "榴弹发射器",
+   "clsEn": "grenade-launcher",
+   "cal": "Caliber26x75",
+   "calZh": "26x75",
+   "weight": 0.19,
+   "ergo": 51,
+   "rv": 170,
+   "rh": 400,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.7,
+   "ammo": [
+    "62389ba9a63f32501b1b4451",
+    "62389be94d5d474bf712e709",
+    "62389bc9423ed1685422dc57",
+    "62389aaba63f32501b1b444f",
+    "635267f063651329f75a4ee8",
+    "675ea4891b2579e8fe0250aa",
+    "66d97834d2985e11480d5c1e"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "62178c4d4ecf221597654e3d",
+   "name": "红色信号棒",
+   "full": "RSP-30 反应式信号弹（红色）",
+   "slug": "rsp-30-reactive-signal-cartridge-red",
+   "cls": "榴弹发射器",
+   "clsEn": "grenade-launcher",
+   "cal": "Caliber26x75",
+   "calZh": "26x75",
+   "weight": 0.19,
+   "ergo": 51,
+   "rv": 170,
+   "rh": 400,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.7,
+   "ammo": [
+    "62389ba9a63f32501b1b4451",
+    "62389be94d5d474bf712e709",
+    "62389bc9423ed1685422dc57",
+    "62389aaba63f32501b1b444f",
+    "635267f063651329f75a4ee8",
+    "675ea4891b2579e8fe0250aa",
+    "66d97834d2985e11480d5c1e"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6217726288ed9f0845317459",
+   "name": "绿色信号棒",
+   "full": "RSP-30 反应式信号弹（绿色）",
+   "slug": "rsp-30-reactive-signal-cartridge-green",
+   "cls": "榴弹发射器",
+   "clsEn": "grenade-launcher",
+   "cal": "Caliber26x75",
+   "calZh": "26x75",
+   "weight": 0.19,
+   "ergo": 51,
+   "rv": 170,
+   "rh": 400,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.7,
+   "ammo": [
+    "62389ba9a63f32501b1b4451",
+    "62389be94d5d474bf712e709",
+    "62389bc9423ed1685422dc57",
+    "62389aaba63f32501b1b444f",
+    "635267f063651329f75a4ee8",
+    "675ea4891b2579e8fe0250aa",
+    "66d97834d2985e11480d5c1e"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 7509,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "66d98233302686954b0c6f81",
+   "name": "蓝",
+   "full": "RSP-30 反应式信号弹（蓝色）",
+   "slug": "rsp-30-reactive-signal-cartridge-blue",
+   "cls": "榴弹发射器",
+   "clsEn": "grenade-launcher",
+   "cal": "Caliber26x75",
+   "calZh": "26x75",
+   "weight": 0.19,
+   "ergo": 51,
+   "rv": 170,
+   "rh": 400,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.7,
+   "ammo": [
+    "62389ba9a63f32501b1b4451",
+    "62389be94d5d474bf712e709",
+    "62389bc9423ed1685422dc57",
+    "62389aaba63f32501b1b444f",
+    "635267f063651329f75a4ee8",
+    "675ea4891b2579e8fe0250aa",
+    "66d97834d2985e11480d5c1e"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [
+     {
+      "t": "Mechanic",
+      "lv": 2,
+      "task": true
+     },
+     {
+      "t": "Mechanic",
+      "lv": 2,
+      "task": true
+     }
+    ],
+    "craft": []
+   },
+   "tier": "barter"
+  },
+  {
+   "id": "624c0b3340357b5f566e8766",
+   "name": "黄色信号棒",
+   "full": "RSP-30 反应式信号弹（黄色）",
+   "slug": "rsp-30-reactive-signal-cartridge-yellow",
+   "cls": "榴弹发射器",
+   "clsEn": "grenade-launcher",
+   "cal": "Caliber26x75",
+   "calZh": "26x75",
+   "weight": 0.19,
+   "ergo": 51,
+   "rv": 170,
+   "rh": 400,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.7,
+   "ammo": [
+    "62389ba9a63f32501b1b4451",
+    "62389be94d5d474bf712e709",
+    "62389bc9423ed1685422dc57",
+    "62389aaba63f32501b1b444f",
+    "635267f063651329f75a4ee8",
+    "675ea4891b2579e8fe0250aa",
+    "66d97834d2985e11480d5c1e"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 2927,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "5e81ebcd8e146c7080625e15",
+   "name": "GL-40",
+   "full": "FN GL-40 Mk.2 榴弹发射器",
+   "slug": "fn40gl-mk2-40mm-grenade-launcher",
+   "cls": "榴弹发射器",
+   "clsEn": "grenade-launcher",
+   "cal": "Caliber40x46",
+   "calZh": "40x46",
+   "weight": 2.92,
+   "ergo": 51,
+   "rv": 230,
+   "rh": 460,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 50,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.7,
+   "ammo": [
+    "5ede474b0c226a66f5402622",
+    "5ede475b549eed7c6d5c18fb",
+    "5ede4739e0350d05467f73e8",
+    "5f0c892565703e5c461894e9",
+    "5ede47405b097655935d7d16",
+    "5ede475339ee016e8c534742"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "627e14b21713922ded6f2c15",
+   "name": "AXMC",
+   "full": "Accuracy International AXMC .338 LM 栓动式狙击步枪",
+   "slug": "accuracy-international-axmc-338-lm-bolt-action-sniper-rifle",
+   "cls": "狙击步枪",
+   "clsEn": "sniper-rifle",
+   "cal": "Caliber86x70",
+   "calZh": ".338 LM",
+   "weight": 0.55,
+   "ergo": 21,
+   "rv": 468,
+   "rh": 972,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 1000,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.011,
+   "ammo": [
+    "5fc382a9d724d907e2077dab",
+    "5fc275cf85fd526b824a571a",
+    "5fc382c1016cce60e8341b20",
+    "5fc382b6d6fa9c00c571bbc3"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "673cab3e03c6a20581028bc1",
+   "name": "TRG M10",
+   "full": "Sako TRG M10 .338 LM 栓动狙击步枪",
+   "slug": "sako-trg-m10-338-lm-bolt-action-sniper-rifle",
+   "cls": "狙击步枪",
+   "clsEn": "sniper-rifle",
+   "cal": "Caliber86x70",
+   "calZh": ".338 LM",
+   "weight": 0.78,
+   "ergo": 25,
+   "rv": 428,
+   "rh": 924,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 1000,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.0155,
+   "ammo": [
+    "5fc382a9d724d907e2077dab",
+    "5fc275cf85fd526b824a571a",
+    "5fc382c1016cce60e8341b20",
+    "5fc382b6d6fa9c00c571bbc3"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5de652c31b7e3716273428be",
+   "name": "VPO-215 雪貂",
+   "full": "VPO-215 雪貂 .366 TKM 栓动式步枪",
+   "slug": "molot-arms-vpo-215-gornostay-366-tkm-bolt-action-rifle",
+   "cls": "狙击步枪",
+   "clsEn": "sniper-rifle",
+   "cal": "Caliber366TKM",
+   "calZh": ".366 TKM",
+   "weight": 0.55,
+   "ergo": 41,
+   "rv": 200,
+   "rh": 486,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 1000,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.011,
+   "ammo": [
+    "59e655cb86f77411dc52a77b",
+    "59e6542b86f77411dc52a77a",
+    "59e6658b86f77411d949b250",
+    "5f0596629e22f464da6bbdd9"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "588892092459774ac91d4b11",
+   "name": "DVL-10",
+   "full": "DVL-10 7.62x51 栓动式狙击步枪",
+   "slug": "lobaev-arms-dvl-10-762x51-bolt-action-sniper-rifle",
+   "cls": "狙击步枪",
+   "clsEn": "sniper-rifle",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 1.12,
+   "ergo": 55,
+   "rv": 111,
+   "rh": 585,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 1000,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.005,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "6768c25aa7b238f14a08d3f6"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5bfea6e90db834001b7347f3",
+   "name": "M700",
+   "full": "雷明顿Model 700 7.62x51 狙击步枪",
+   "slug": "remington-model-700-762x51-bolt-action-sniper-rifle",
+   "cls": "狙击步枪",
+   "clsEn": "sniper-rifle",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 0.55,
+   "ergo": 49,
+   "rv": 199,
+   "rh": 670,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 1000,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.011,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "6768c25aa7b238f14a08d3f6"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5df24cf80dee1b22f862e9bc",
+   "name": "T-5000M",
+   "full": "ORSIS T-5000M 7.62x51 栓动式狙击步枪",
+   "slug": "orsis-t-5000m-762x51-bolt-action-sniper-rifle",
+   "cls": "狙击步枪",
+   "clsEn": "sniper-rifle",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 0.842,
+   "ergo": 35,
+   "rv": 141,
+   "rh": 567,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 1000,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.005,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "6768c25aa7b238f14a08d3f6"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "55801eed4bdc2d89578b4588",
+   "name": "SV-98",
+   "full": "SV-98 7.62x54R 栓动式狙击步枪",
+   "slug": "sv-98-762x54r-bolt-action-sniper-rifle",
+   "cls": "狙击步枪",
+   "clsEn": "sniper-rifle",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "weight": 1.5,
+   "ergo": 28,
+   "rv": 250,
+   "rh": 711,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 1000,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.016,
+   "ammo": [
+    "5e023d34e8a400319a28ed44",
+    "5e023d48186a883be655e551",
+    "5e023cf8186a883be655e54f",
+    "59e77a2386f7742ee578960a",
+    "5887431f2459777e1612938f",
+    "560d61e84bdc2da74d8b4571",
+    "64b8f7c241772715af0f9c3d",
+    "64b8f7b5389d7ffd620ccba2",
+    "64b8f7968532cf95ee0a0dbf"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5bfd297f0db834001a669119",
+   "name": "莫辛步兵型",
+   "full": "莫辛-纳甘 7.62x54R 栓动式步枪（步兵型）",
+   "slug": "mosin-762x54r-bolt-action-rifle-infantry",
+   "cls": "狙击步枪",
+   "clsEn": "sniper-rifle",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "weight": 0.76,
+   "ergo": 30,
+   "rv": 288,
+   "rh": 877,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 1000,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.011,
+   "ammo": [
+    "5e023d34e8a400319a28ed44",
+    "5e023d48186a883be655e551",
+    "5e023cf8186a883be655e54f",
+    "59e77a2386f7742ee578960a",
+    "5887431f2459777e1612938f",
+    "560d61e84bdc2da74d8b4571",
+    "64b8f7968532cf95ee0a0dbf",
+    "64b8f7c241772715af0f9c3d",
+    "64b8f7b5389d7ffd620ccba2"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5ae08f0a5acfc408fb1398a1",
+   "name": "莫辛狙击型",
+   "full": "莫辛-纳甘 7.62x54R 栓动式步枪（狙击型）",
+   "slug": "mosin-762x54r-bolt-action-rifle-sniper",
+   "cls": "狙击步枪",
+   "clsEn": "sniper-rifle",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "weight": 0.8,
+   "ergo": 30,
+   "rv": 288,
+   "rh": 877,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 1000,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.011,
+   "ammo": [
+    "5e023d34e8a400319a28ed44",
+    "5e023d48186a883be655e551",
+    "5e023cf8186a883be655e54f",
+    "59e77a2386f7742ee578960a",
+    "5887431f2459777e1612938f",
+    "560d61e84bdc2da74d8b4571",
+    "64b8f7c241772715af0f9c3d",
+    "64b8f7968532cf95ee0a0dbf",
+    "64b8f7b5389d7ffd620ccba2"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "67c6de3ce39861860909e8e5",
+   "name": "MXLR",
+   "full": "马林 MXLR .308 ME 杠杆步枪",
+   "slug": "marlin-mxlr-308-me-lever-action-rifle",
+   "cls": "狙击步枪",
+   "clsEn": "sniper-rifle",
+   "cal": "Caliber784x49",
+   "calZh": "7.84x49",
+   "weight": 0.8,
+   "ergo": 34,
+   "rv": 182,
+   "rh": 376,
+   "rate": 100,
+   "modes": [
+    "单发"
+   ],
+   "dist": 1000,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.011,
+   "ammo": [
+    "67c540c3d0538d12ec036c08",
+    "67c540cfb032bbdb530201b8"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "587e02ff24597743df3deaeb",
+   "name": "OP-SKS",
+   "full": "西蒙诺夫 OP-SKS 7.62x39 卡宾枪",
+   "slug": "molot-arms-simonov-op-sks-762x39-carbine",
+   "cls": "突击卡宾枪",
+   "clsEn": "assault-carbine",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "weight": 0.82,
+   "ergo": 40,
+   "rv": 155,
+   "rh": 360,
+   "rate": 40,
+   "modes": [
+    "单发"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.07,
+   "ammo": [
+    "59e0d99486f7744a32234762",
+    "59e4d3d286f774176a36250a",
+    "5656d7c34bdc2d9d198b4587",
+    "59e4cf5286f7741778269d8a",
+    "59e4d24686f7741776641ac7",
+    "601aa3d2b2bcb34913271e6d",
+    "64b7af5a8532cf95ee0a0dbd",
+    "64b7af434b75259c590fa893",
+    "64b7af734b75259c590fa895"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "574d967124597745970e7c94",
+   "name": "SKS",
+   "full": "西蒙诺夫 SKS 7.62x39 卡宾枪",
+   "slug": "toz-simonov-sks-762x39-carbine",
+   "cls": "突击卡宾枪",
+   "clsEn": "assault-carbine",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "weight": 0.82,
+   "ergo": 40,
+   "rv": 155,
+   "rh": 360,
+   "rate": 40,
+   "modes": [
+    "单发"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.05,
+   "ammo": [
+    "59e0d99486f7744a32234762",
+    "59e4d3d286f774176a36250a",
+    "5656d7c34bdc2d9d198b4587",
+    "59e4cf5286f7741778269d8a",
+    "59e4d24686f7741776641ac7",
+    "601aa3d2b2bcb34913271e6d",
+    "64b7af5a8532cf95ee0a0dbd",
+    "64b7af434b75259c590fa893",
+    "64b7af734b75259c590fa895"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5c501a4d2e221602b412b540",
+   "name": "Hunter",
+   "full": "VPO-101 Vepr-Hunter 7.62x51 卡宾枪",
+   "slug": "molot-arms-vpo-101-vepr-hunter-762x51-carbine",
+   "cls": "突击卡宾枪",
+   "clsEn": "assault-carbine",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 2.092,
+   "ergo": 29,
+   "rv": 150,
+   "rh": 585,
+   "rate": 600,
+   "modes": [
+    "单发"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.065,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "6768c25aa7b238f14a08d3f6"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6410733d5dd49d77bd07847e",
+   "name": "AVT-40",
+   "full": "托卡列夫 AVT-40 7.62x54R 自动步枪",
+   "slug": "tokarev-avt-40-762x54r-automatic-rifle",
+   "cls": "突击卡宾枪",
+   "clsEn": "assault-carbine",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "weight": 1.069,
+   "ergo": 20,
+   "rv": 175,
+   "rh": 675,
+   "rate": 750,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5e023d34e8a400319a28ed44",
+    "5e023d48186a883be655e551",
+    "5e023cf8186a883be655e54f",
+    "59e77a2386f7742ee578960a",
+    "5887431f2459777e1612938f",
+    "560d61e84bdc2da74d8b4571",
+    "64b8f7b5389d7ffd620ccba2",
+    "64b8f7968532cf95ee0a0dbf",
+    "64b8f7c241772715af0f9c3d"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "643ea5b23db6f9f57107d9fd",
+   "name": "SVT-40",
+   "full": "托卡列夫 SVT-40 7.62x54R 步枪",
+   "slug": "tokarev-svt-40-762x54r-rifle",
+   "cls": "突击卡宾枪",
+   "clsEn": "assault-carbine",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "weight": 1.075,
+   "ergo": 20,
+   "rv": 175,
+   "rh": 675,
+   "rate": 50,
+   "modes": [
+    "单发"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5e023d34e8a400319a28ed44",
+    "5e023d48186a883be655e551",
+    "5e023cf8186a883be655e54f",
+    "59e77a2386f7742ee578960a",
+    "5887431f2459777e1612938f",
+    "560d61e84bdc2da74d8b4571",
+    "64b8f7b5389d7ffd620ccba2",
+    "64b8f7968532cf95ee0a0dbf",
+    "64b8f7c241772715af0f9c3d"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "57c44b372459772d2b39b8ce",
+   "name": "AS VAL",
+   "full": "AS VAL\"巨浪\" 9x39 特种突击步枪",
+   "slug": "as-val-9x39-special-assault-rifle",
+   "cls": "突击卡宾枪",
+   "clsEn": "assault-carbine",
+   "cal": "Caliber9x39",
+   "calZh": "9x39",
+   "weight": 1.092,
+   "ergo": 43,
+   "rv": 80,
+   "rh": 270,
+   "rate": 900,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.1,
+   "ammo": [
+    "5c0d688c86f77413ae3407b2",
+    "61962d879bb3d20b0946d385",
+    "57a0dfb82459774d3078b56c",
+    "57a0e5022459774d1673f889",
+    "5c0d668f86f7747ccb7f13b2",
+    "6576f96220d53a5b8f3e395e"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6871284e9a353bb50606f3ed",
+   "name": "AS VAL MOD.4",
+   "full": "AS\"巨浪\"MOD.4 9x39 特种突击步枪",
+   "slug": "as-val-mod4-9x39-special-assault-rifle",
+   "cls": "突击卡宾枪",
+   "clsEn": "assault-carbine",
+   "cal": "Caliber9x39",
+   "calZh": "9x39",
+   "weight": 1.205,
+   "ergo": 46,
+   "rv": 70,
+   "rh": 260,
+   "rate": 900,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.119,
+   "ammo": [
+    "5c0d688c86f77413ae3407b2",
+    "61962d879bb3d20b0946d385",
+    "57a0dfb82459774d3078b56c",
+    "57a0e5022459774d1673f889",
+    "5c0d668f86f7747ccb7f13b2",
+    "6576f96220d53a5b8f3e395e"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "651450ce0e00edc794068371",
+   "name": "SR-3M",
+   "full": "SR-3M 9x39紧凑型突击步枪",
+   "slug": "sr-3m-9x39-compact-assault-rifle",
+   "cls": "突击卡宾枪",
+   "clsEn": "assault-carbine",
+   "cal": "Caliber9x39",
+   "calZh": "9x39",
+   "weight": 1.41,
+   "ergo": 45,
+   "rv": 74,
+   "rh": 255,
+   "rate": 900,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.146,
+   "ammo": [
+    "5c0d688c86f77413ae3407b2",
+    "61962d879bb3d20b0946d385",
+    "57a0dfb82459774d3078b56c",
+    "57a0e5022459774d1673f889",
+    "5c0d668f86f7747ccb7f13b2",
+    "6576f96220d53a5b8f3e395e"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "644674a13d52156624001fbc",
+   "name": "9A-91",
+   "full": "KBP 9A-91 9x39紧凑型突击步枪",
+   "slug": "kbp-9a-91-9x39-compact-assault-rifle",
+   "cls": "突击卡宾枪",
+   "clsEn": "assault-carbine",
+   "cal": "Caliber9x39",
+   "calZh": "9x39",
+   "weight": 0.92,
+   "ergo": 50,
+   "rv": 110,
+   "rh": 280,
+   "rate": 700,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.1,
+   "ammo": [
+    "5c0d688c86f77413ae3407b2",
+    "61962d879bb3d20b0946d385",
+    "57a0dfb82459774d3078b56c",
+    "57a0e5022459774d1673f889",
+    "5c0d668f86f7747ccb7f13b2",
+    "6576f96220d53a5b8f3e395e"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "645e0c6b3b381ede770e1cc9",
+   "name": "VSK-94",
+   "full": "KBP VSK-94 9x39步枪",
+   "slug": "kbp-vsk-94-9x39-rifle",
+   "cls": "突击卡宾枪",
+   "clsEn": "assault-carbine",
+   "cal": "Caliber9x39",
+   "calZh": "9x39",
+   "weight": 0.92,
+   "ergo": 50,
+   "rv": 110,
+   "rh": 280,
+   "rate": 700,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.1,
+   "ammo": [
+    "5c0d688c86f77413ae3407b2",
+    "61962d879bb3d20b0946d385",
+    "57a0dfb82459774d3078b56c",
+    "57a0e5022459774d1673f889",
+    "5c0d668f86f7747ccb7f13b2",
+    "6576f96220d53a5b8f3e395e"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5fbcc1d9016cce60e8341ab3",
+   "name": "MCX .300 BLK",
+   "full": "SIG MCX .300 Blackout 突击步枪",
+   "slug": "sig-mcx-300-blackout-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x35",
+   "calZh": ".300 BLK",
+   "weight": 0.4,
+   "ergo": 43,
+   "rv": 127,
+   "rh": 351,
+   "rate": 800,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "5fbe3ffdf8b6a877a729ea82",
+    "5fd20ff893a8961fc660a954",
+    "619636be6db0f2477964e710",
+    "6196364158ef8c428c287d9f",
+    "6196365d58ef8c428c287da1",
+    "64b8725c4b75259c590fa899"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Skier",
+      "lv": 3,
+      "p": 30672,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "674d6121c09f69dfb201a888",
+   "name": "迅猛龙",
+   "full": "Aklys Defense 迅猛龙 .300 Blackout 突击步枪",
+   "slug": "aklys-defense-velociraptor-300-blackout-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x35",
+   "calZh": ".300 BLK",
+   "weight": 2.21,
+   "ergo": 35,
+   "rv": 101,
+   "rh": 272,
+   "rate": 600,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.065,
+   "ammo": [
+    "6196365d58ef8c428c287da1",
+    "6196364158ef8c428c287d9f",
+    "619636be6db0f2477964e710",
+    "64b8725c4b75259c590fa899",
+    "5fd20ff893a8961fc660a954",
+    "5fbe3ffdf8b6a877a729ea82"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "59e6687d86f77411d949b251",
+   "name": "VPO-209",
+   "full": "VPO-209 .366TKM 卡宾枪",
+   "slug": "molot-arms-vpo-209-366-tkm-carbine",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber366TKM",
+   "calZh": ".366 TKM",
+   "weight": 2.092,
+   "ergo": 30,
+   "rv": 154,
+   "rh": 386,
+   "rate": 600,
+   "modes": [
+    "单发"
+   ],
+   "dist": 300,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.065,
+   "ammo": [
+    "59e655cb86f77411dc52a77b",
+    "59e6542b86f77411dc52a77a",
+    "59e6658b86f77411d949b250",
+    "5f0596629e22f464da6bbdd9"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 2,
+      "p": 26982,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "5cadfbf7ae92152ac412eeef",
+   "name": "ASh-12",
+   "full": "ASh-12 12.7x55 突击步枪",
+   "slug": "ash-12-127x55-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber127x55",
+   "calZh": "12.7x55",
+   "weight": 5.1,
+   "ergo": 55,
+   "rv": 128,
+   "rh": 425,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.052,
+   "ammo": [
+    "5cadf6ddae9215051e1c23b2",
+    "5cadf6e5ae921500113bb973",
+    "5cadf6eeae921500134b2799"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "68c2940aecc41cc5490bd40e",
+   "name": "NL545 GP",
+   "full": "NL545 (GP) 5.45x39 突击步枪",
+   "slug": "custom-guns-nl545-gp-545x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "weight": 0.51,
+   "ergo": 48,
+   "rv": 114,
+   "rh": 330,
+   "rate": 850,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "61962b617c6c7b169525f168",
+    "5c0d5e4486f77478390952fe",
+    "56dfef82d2720bbd668b4567",
+    "56dff026d2720bb8668b4567",
+    "56dff061d2720bb5668b4567",
+    "56dff0bed2720bb0668b4567",
+    "56dff216d2720bbd668b4568",
+    "56dff338d2720bbd668b4569",
+    "56dff2ced2720bb4668b4567",
+    "56dff3afd2720bba668b4567",
+    "56dff421d2720b5f5a8b4567",
+    "56dff4a2d2720bbd668b456a",
+    "56dff4ecd2720b5f5a8b4568"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "68c16b9ab6b75a8a480520a6",
+   "name": "NL545 DI",
+   "full": "NL545 (DI) 5.45x39 突击步枪",
+   "slug": "custom-guns-nl545-di-545x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "weight": 0.51,
+   "ergo": 45,
+   "rv": 109,
+   "rh": 320,
+   "rate": 800,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "5c0d5e4486f77478390952fe",
+    "61962b617c6c7b169525f168",
+    "56dfef82d2720bbd668b4567",
+    "56dff026d2720bb8668b4567",
+    "56dff061d2720bb5668b4567",
+    "56dff0bed2720bb0668b4567",
+    "56dff216d2720bbd668b4568",
+    "56dff2ced2720bb4668b4567",
+    "56dff338d2720bbd668b4569",
+    "56dff3afd2720bba668b4567",
+    "56dff421d2720b5f5a8b4567",
+    "56dff4a2d2720bbd668b456a",
+    "56dff4ecd2720b5f5a8b4568"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6499849fc93611967b034949",
+   "name": "AK-12",
+   "full": "AK-12 5.45x39 突击步枪",
+   "slug": "kalashnikov-ak-12-545x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "weight": 2.392,
+   "ergo": 36,
+   "rv": 100,
+   "rh": 302,
+   "rate": 700,
+   "modes": [
+    "单发",
+    "全自动",
+    "点射"
+   ],
+   "dist": 800,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.046,
+   "ammo": [
+    "5c0d5e4486f77478390952fe",
+    "61962b617c6c7b169525f168",
+    "56dfef82d2720bbd668b4567",
+    "56dff026d2720bb8668b4567",
+    "56dff061d2720bb5668b4567",
+    "56dff0bed2720bb0668b4567",
+    "56dff216d2720bbd668b4568",
+    "56dff2ced2720bb4668b4567",
+    "56dff338d2720bbd668b4569",
+    "56dff3afd2720bba668b4567",
+    "56dff421d2720b5f5a8b4567",
+    "56dff4a2d2720bbd668b456a",
+    "56dff4ecd2720b5f5a8b4568"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "628b5638ad252a16da6dd245",
+   "name": "AK-545",
+   "full": "SAG AK-545 5.45x39卡宾枪",
+   "slug": "sag-ak-545-545x39-carbine",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "weight": 2.392,
+   "ergo": 50,
+   "rv": 91,
+   "rh": 263,
+   "rate": 650,
+   "modes": [
+    "单发"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.033,
+   "ammo": [
+    "5c0d5e4486f77478390952fe",
+    "61962b617c6c7b169525f168",
+    "56dfef82d2720bbd668b4567",
+    "56dff026d2720bb8668b4567",
+    "56dff061d2720bb5668b4567",
+    "56dff0bed2720bb0668b4567",
+    "56dff216d2720bbd668b4568",
+    "56dff2ced2720bb4668b4567",
+    "56dff338d2720bbd668b4569",
+    "56dff3afd2720bba668b4567",
+    "56dff421d2720b5f5a8b4567",
+    "56dff4a2d2720bbd668b456a",
+    "56dff4ecd2720b5f5a8b4568"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "628b9c37a733087d0d7fe84b",
+   "name": "AK-545短",
+   "full": "SAG AK-545 5.45x39截短卡宾枪",
+   "slug": "sag-ak-545-short-545x39-carbine",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "weight": 2.192,
+   "ergo": 53,
+   "rv": 93,
+   "rh": 270,
+   "rate": 650,
+   "modes": [
+    "单发"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.048,
+   "ammo": [
+    "5c0d5e4486f77478390952fe",
+    "61962b617c6c7b169525f168",
+    "56dfef82d2720bbd668b4567",
+    "56dff026d2720bb8668b4567",
+    "56dff061d2720bb5668b4567",
+    "56dff0bed2720bb0668b4567",
+    "56dff216d2720bbd668b4568",
+    "56dff2ced2720bb4668b4567",
+    "56dff338d2720bbd668b4569",
+    "56dff3afd2720bba668b4567",
+    "56dff421d2720b5f5a8b4567",
+    "56dff4a2d2720bbd668b456a",
+    "56dff4ecd2720b5f5a8b4568"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5bf3e03b0db834001d2c4a9c",
+   "name": "AK-74",
+   "full": "AK-74 5.45x39 突击步枪",
+   "slug": "kalashnikov-ak-74-545x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "weight": 1.992,
+   "ergo": 30,
+   "rv": 96,
+   "rh": 244,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.058,
+   "ammo": [
+    "5c0d5e4486f77478390952fe",
+    "61962b617c6c7b169525f168",
+    "56dfef82d2720bbd668b4567",
+    "56dff026d2720bb8668b4567",
+    "56dff061d2720bb5668b4567",
+    "56dff0bed2720bb0668b4567",
+    "56dff216d2720bbd668b4568",
+    "56dff2ced2720bb4668b4567",
+    "56dff338d2720bbd668b4569",
+    "56dff3afd2720bba668b4567",
+    "56dff421d2720b5f5a8b4567",
+    "56dff4a2d2720bbd668b456a",
+    "56dff4ecd2720b5f5a8b4568"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5ac4cd105acfc40016339859",
+   "name": "AK-74M",
+   "full": "AK-74M 5.45x39 突击步枪",
+   "slug": "kalashnikov-ak-74m-545x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "weight": 2.392,
+   "ergo": 33,
+   "rv": 95,
+   "rh": 241,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.055,
+   "ammo": [
+    "5c0d5e4486f77478390952fe",
+    "61962b617c6c7b169525f168",
+    "56dfef82d2720bbd668b4567",
+    "56dff026d2720bb8668b4567",
+    "56dff061d2720bb5668b4567",
+    "56dff0bed2720bb0668b4567",
+    "56dff216d2720bbd668b4568",
+    "56dff2ced2720bb4668b4567",
+    "56dff338d2720bbd668b4569",
+    "56dff3afd2720bba668b4567",
+    "56dff421d2720b5f5a8b4567",
+    "56dff4a2d2720bbd668b456a",
+    "56dff4ecd2720b5f5a8b4568"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 3,
+      "p": 32727,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "5644bd2b4bdc2d3b4c8b4572",
+   "name": "AK-74N",
+   "full": "AK-74N 5.45x39 突击步枪",
+   "slug": "kalashnikov-ak-74n-545x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "weight": 2.092,
+   "ergo": 31,
+   "rv": 96,
+   "rh": 244,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.057,
+   "ammo": [
+    "5c0d5e4486f77478390952fe",
+    "61962b617c6c7b169525f168",
+    "56dfef82d2720bbd668b4567",
+    "56dff026d2720bb8668b4567",
+    "56dff061d2720bb5668b4567",
+    "56dff0bed2720bb0668b4567",
+    "56dff216d2720bbd668b4568",
+    "56dff2ced2720bb4668b4567",
+    "56dff338d2720bbd668b4569",
+    "56dff3afd2720bba668b4567",
+    "56dff421d2720b5f5a8b4567",
+    "56dff4a2d2720bbd668b456a",
+    "56dff4ecd2720b5f5a8b4568"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 2,
+      "p": 28934,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "5bf3e0490db83400196199af",
+   "name": "AKS-74",
+   "full": "AKS-74 5.45x39 突击步枪",
+   "slug": "kalashnikov-aks-74-545x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "weight": 1.992,
+   "ergo": 31,
+   "rv": 90,
+   "rh": 244,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.058,
+   "ammo": [
+    "5c0d5e4486f77478390952fe",
+    "61962b617c6c7b169525f168",
+    "56dfef82d2720bbd668b4567",
+    "56dff026d2720bb8668b4567",
+    "56dff061d2720bb5668b4567",
+    "56dff0bed2720bb0668b4567",
+    "56dff216d2720bbd668b4568",
+    "56dff2ced2720bb4668b4567",
+    "56dff338d2720bbd668b4569",
+    "56dff3afd2720bba668b4567",
+    "56dff421d2720b5f5a8b4567",
+    "56dff4a2d2720bbd668b456a",
+    "56dff4ecd2720b5f5a8b4568"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5ab8e9fcd8ce870019439434",
+   "name": "AKS-74N",
+   "full": "AKS-74N 5.45x39 突击步枪",
+   "slug": "kalashnikov-aks-74n-545x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "weight": 2.092,
+   "ergo": 32,
+   "rv": 90,
+   "rh": 244,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.058,
+   "ammo": [
+    "5c0d5e4486f77478390952fe",
+    "61962b617c6c7b169525f168",
+    "56dfef82d2720bbd668b4567",
+    "56dff026d2720bb8668b4567",
+    "56dff061d2720bb5668b4567",
+    "56dff0bed2720bb0668b4567",
+    "56dff216d2720bbd668b4568",
+    "56dff2ced2720bb4668b4567",
+    "56dff338d2720bbd668b4569",
+    "56dff3afd2720bba668b4567",
+    "56dff421d2720b5f5a8b4567",
+    "56dff4a2d2720bbd668b456a",
+    "56dff4ecd2720b5f5a8b4568"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "57dc2fa62459775949412633",
+   "name": "AKS-74U",
+   "full": "AKS-74U 5.45x39 短突击步枪",
+   "slug": "kalashnikov-aks-74u-545x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "weight": 1.809,
+   "ergo": 44,
+   "rv": 108,
+   "rh": 272,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 300,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.1,
+   "ammo": [
+    "5c0d5e4486f77478390952fe",
+    "61962b617c6c7b169525f168",
+    "56dfef82d2720bbd668b4567",
+    "56dff026d2720bb8668b4567",
+    "56dff061d2720bb5668b4567",
+    "56dff0bed2720bb0668b4567",
+    "56dff216d2720bbd668b4568",
+    "56dff2ced2720bb4668b4567",
+    "56dff338d2720bbd668b4569",
+    "56dff3afd2720bba668b4567",
+    "56dff421d2720b5f5a8b4567",
+    "56dff4a2d2720bbd668b456a",
+    "56dff4ecd2720b5f5a8b4568"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 1,
+      "p": 17054,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "5839a40f24597726f856b511",
+   "name": "AKS-74UB",
+   "full": "AKS-74UB 5.45x39 短突击步枪",
+   "slug": "kalashnikov-aks-74ub-545x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "weight": 1.85,
+   "ergo": 44,
+   "rv": 108,
+   "rh": 272,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 300,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.1,
+   "ammo": [
+    "5c0d5e4486f77478390952fe",
+    "61962b617c6c7b169525f168",
+    "56dfef82d2720bbd668b4567",
+    "56dff026d2720bb8668b4567",
+    "56dff061d2720bb5668b4567",
+    "56dff0bed2720bb0668b4567",
+    "56dff216d2720bbd668b4568",
+    "56dff2ced2720bb4668b4567",
+    "56dff338d2720bbd668b4569",
+    "56dff3afd2720bba668b4567",
+    "56dff421d2720b5f5a8b4567",
+    "56dff4a2d2720bbd668b456a",
+    "56dff4ecd2720b5f5a8b4568"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "583990e32459771419544dd2",
+   "name": "AKS-74UN",
+   "full": "AKS-74UN 5.45x39 短突击步枪",
+   "slug": "kalashnikov-aks-74un-545x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "weight": 1.85,
+   "ergo": 44,
+   "rv": 108,
+   "rh": 272,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 300,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.1,
+   "ammo": [
+    "5c0d5e4486f77478390952fe",
+    "61962b617c6c7b169525f168",
+    "56dfef82d2720bbd668b4567",
+    "56dff026d2720bb8668b4567",
+    "56dff061d2720bb5668b4567",
+    "56dff0bed2720bb0668b4567",
+    "56dff216d2720bbd668b4568",
+    "56dff2ced2720bb4668b4567",
+    "56dff338d2720bbd668b4569",
+    "56dff3afd2720bba668b4567",
+    "56dff421d2720b5f5a8b4567",
+    "56dff4a2d2720bbd668b456a",
+    "56dff4ecd2720b5f5a8b4568"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5ac66d9b5acfc4001633997a",
+   "name": "AK-105",
+   "full": "AK-105 5.45x39 突击步枪",
+   "slug": "kalashnikov-ak-105-545x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "weight": 1.992,
+   "ergo": 43,
+   "rv": 100,
+   "rh": 277,
+   "rate": 600,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.06,
+   "ammo": [
+    "5c0d5e4486f77478390952fe",
+    "61962b617c6c7b169525f168",
+    "56dfef82d2720bbd668b4567",
+    "56dff026d2720bb8668b4567",
+    "56dff061d2720bb5668b4567",
+    "56dff0bed2720bb0668b4567",
+    "56dff216d2720bbd668b4568",
+    "56dff2ced2720bb4668b4567",
+    "56dff338d2720bbd668b4569",
+    "56dff3afd2720bba668b4567",
+    "56dff421d2720b5f5a8b4567",
+    "56dff4a2d2720bbd668b456a",
+    "56dff4ecd2720b5f5a8b4568"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5bb2475ed4351e00853264e3",
+   "name": "HK 416A5",
+   "full": "HK 416A5 5.56x45 突击步枪",
+   "slug": "hk-416a5-556x45-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 0.52,
+   "ergo": 51,
+   "rv": 125,
+   "rh": 358,
+   "rate": 850,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 4,
+      "p": 27250,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "6a15ae2ae5267ba21c07f98f",
+   "name": "HK 416A5",
+   "full": "HK 416A5 5.56x45 突击步枪 (RAL 8000)",
+   "slug": "hk-416a5-556x45-assault-rifle-ral-8000",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 0.52,
+   "ergo": 51,
+   "rv": 125,
+   "rh": 358,
+   "rate": 850,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5c07c60e0db834002330051f",
+   "name": "ADAR 2-15",
+   "full": "ADAR 2-15 .223 卡宾枪",
+   "slug": "adar-2-15-556x45-carbine",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 0.76,
+   "ergo": 48,
+   "rv": 120,
+   "rh": 344,
+   "rate": 800,
+   "modes": [
+    "单发"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Skier",
+      "lv": 1,
+      "p": 18144,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "68a639748e1fe612970728e9",
+   "name": "M16A1",
+   "full": "柯尔特 M16A1 5.56x45 突击步枪",
+   "slug": "colt-m16a1-556x45-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 0.79,
+   "ergo": 48,
+   "rv": 121,
+   "rh": 346,
+   "rate": 800,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "68a6399922b1e0bd360afe56",
+   "name": "M16A2",
+   "full": "柯尔特 M16A2 5.56x45 突击步枪",
+   "slug": "colt-m16a2-556x45-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 0.79,
+   "ergo": 48,
+   "rv": 117,
+   "rh": 338,
+   "rate": 800,
+   "modes": [
+    "单发",
+    "点射"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5447a9cd4bdc2dbd208b4567",
+   "name": "M4A1",
+   "full": "柯尔特 M4A1 5.56x45 卡宾枪",
+   "slug": "colt-m4a1-556x45-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 0.75,
+   "ergo": 48,
+   "rv": 119,
+   "rh": 342,
+   "rate": 800,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 3,
+      "p": 22997,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "6895bb82c4519957df062f82",
+   "name": "Model 1",
+   "full": "雷电 Model 1 FA 5.56x45 突击步枪",
+   "slug": "radian-weapons-model-1-fa-556x45-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 0.7,
+   "ergo": 51,
+   "rv": 112,
+   "rh": 335,
+   "rate": 800,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5d43021ca4b9362eab4b5e25",
+   "name": "TX-15 DML",
+   "full": "Lone Star TX-15 DML 5.56x45 半自动卡宾枪",
+   "slug": "lone-star-tx-15-dml-556x45-carbine",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 0.69,
+   "ergo": 50,
+   "rv": 101,
+   "rh": 289,
+   "rate": 800,
+   "modes": [
+    "单发"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "623063e994fc3f7b302a9696",
+   "name": "G36",
+   "full": "HK G36 5.56x45 突击步枪",
+   "slug": "hk-g36-556x45-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 0.8,
+   "ergo": 60,
+   "rv": 106,
+   "rh": 298,
+   "rate": 750,
+   "modes": [
+    "单发",
+    "点射",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "62e7c4fba689e8c9c50dfc38",
+   "name": "AUG A1",
+   "full": "Steyr AUG A1 5.56x45突击步枪",
+   "slug": "steyr-aug-a1-556x45-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 1.49,
+   "ergo": 95,
+   "rv": 90,
+   "rh": 265,
+   "rate": 715,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "63171672192e68c5460cebc5",
+   "name": "AUG A3",
+   "full": "Steyr AUG A3 5.56x45突击步枪",
+   "slug": "steyr-aug-a3-556x45-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 1.51,
+   "ergo": 95,
+   "rv": 87,
+   "rh": 248,
+   "rate": 715,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6718817435e3cfd9550d2c27",
+   "name": "AUG A3",
+   "full": "Steyr AUG A3 5.56x45 突击步枪（黑色）",
+   "slug": "steyr-aug-a3-556x45-assault-rifle-black",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 1.51,
+   "ergo": 95,
+   "rv": 87,
+   "rh": 248,
+   "rate": 715,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6a3bffbebc377285900b85cf",
+   "name": "20 式",
+   "full": "丰和 20 式 5.56x45 突击步枪",
+   "slug": "howa-type-20-556x45-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 1.234,
+   "ergo": 50,
+   "rv": 97,
+   "rh": 270,
+   "rate": 700,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5ac66cb05acfc40198510a10",
+   "name": "AK-101",
+   "full": "AK-101 5.56x45 突击步枪",
+   "slug": "kalashnikov-ak-101-556x45-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 2.392,
+   "ergo": 35,
+   "rv": 98,
+   "rh": 248,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.05,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5c488a752e221602b412af63",
+   "name": "MDR",
+   "full": "沙漠科技 MDR 5.56x45 突击步枪",
+   "slug": "desert-tech-mdr-556x45-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 2.8,
+   "ergo": 67,
+   "rv": 79,
+   "rh": 260,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6184055050224f204c1da540",
+   "name": "Mk 16",
+   "full": "FN SCAR-L 5.56x45突击步枪",
+   "slug": "fn-scar-l-556x45-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 0.7,
+   "ergo": 45,
+   "rv": 90,
+   "rh": 280,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "618428466ef05c2ce828f218",
+   "name": "Mk 16",
+   "full": "FN SCAR-L 5.56x45突击步枪 （FDE）",
+   "slug": "fn-scar-l-556x45-assault-rifle-fde",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 0.7,
+   "ergo": 45,
+   "rv": 90,
+   "rh": 280,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 2,
+      "p": 22500,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "5ac66d015acfc400180ae6e4",
+   "name": "AK-102",
+   "full": "AK-102 5.56x45 突击步枪",
+   "slug": "kalashnikov-ak-102-556x45-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "weight": 1.992,
+   "ergo": 43,
+   "rv": 103,
+   "rh": 280,
+   "rate": 600,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.056,
+   "ammo": [
+    "59e6920f86f77411d82aa167",
+    "59e6927d86f77411da468256",
+    "54527a984bdc2d4e668b4567",
+    "54527ac44bdc2d36668b4567",
+    "59e68f6f86f7746c9f75e846",
+    "59e6906286f7746c9f75e847",
+    "59e690b686f7746c9f75e848",
+    "59e6918f86f7746c9f75e849",
+    "60194943740c5d77f6705eea",
+    "601949593ae8f707c4608daa",
+    "5c0d5ae286f7741e46554302"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "69f9ebbcaae020b0db02f65d",
+   "name": "QBZ-191",
+   "full": "北方工业 QBZ-191 5.8x42 突击步枪",
+   "slug": "norinco-qbz-191-58x42-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber58x42",
+   "calZh": "5.8x42",
+   "weight": 0.625,
+   "ergo": 48,
+   "rv": 114,
+   "rh": 330,
+   "rate": 750,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "6a07208057b2695f9d001e63",
+    "6a42661705016139300b2085",
+    "6a42662fcb506840dd053827",
+    "6a426637ddc63098d100ae67"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "65290f395ae2ae97b80fdf2d",
+   "name": "SPEAR 6.8",
+   "full": "SIG MCX SPEAR 6.8x51突击步枪",
+   "slug": "sig-mcx-spear-68x51-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber68x51",
+   "calZh": "6.8x51",
+   "weight": 0.4,
+   "ergo": 46,
+   "rv": 143,
+   "rh": 425,
+   "rate": 800,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "6529243824cbe3c74a05e5c1",
+    "6529302b8c26af6326029fb7"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "606587252535c57a13424cfd",
+   "name": "Mk47",
+   "full": "CMMG Mk47 Mutant 7.62x39 突击步枪",
+   "slug": "cmmg-mk47-mutant-762x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "weight": 0.51,
+   "ergo": 38,
+   "rv": 136,
+   "rh": 338,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "59e0d99486f7744a32234762",
+    "59e4d3d286f774176a36250a",
+    "5656d7c34bdc2d9d198b4587",
+    "59e4cf5286f7741778269d8a",
+    "59e4d24686f7741776641ac7",
+    "601aa3d2b2bcb34913271e6d",
+    "64b7af5a8532cf95ee0a0dbd",
+    "64b7af434b75259c590fa893",
+    "64b7af734b75259c590fa895"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5ac66d2e5acfc43b321d4b53",
+   "name": "AK-103",
+   "full": "AK-103 7.62x39 突击步枪",
+   "slug": "kalashnikov-ak-103-762x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "weight": 2.392,
+   "ergo": 35,
+   "rv": 118,
+   "rh": 295,
+   "rate": 600,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.062,
+   "ammo": [
+    "59e0d99486f7744a32234762",
+    "59e4d3d286f774176a36250a",
+    "5656d7c34bdc2d9d198b4587",
+    "59e4cf5286f7741778269d8a",
+    "59e4d24686f7741776641ac7",
+    "601aa3d2b2bcb34913271e6d",
+    "64b7af5a8532cf95ee0a0dbd",
+    "64b7af434b75259c590fa893",
+    "64b7af734b75259c590fa895"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5ac66d725acfc43b321d4b60",
+   "name": "AK-104",
+   "full": "AK-104 7.62x39 突击步枪",
+   "slug": "kalashnikov-ak-104-762x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "weight": 1.992,
+   "ergo": 43,
+   "rv": 120,
+   "rh": 315,
+   "rate": 600,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.066,
+   "ammo": [
+    "59e0d99486f7744a32234762",
+    "59e4d3d286f774176a36250a",
+    "5656d7c34bdc2d9d198b4587",
+    "59e4cf5286f7741778269d8a",
+    "59e4d24686f7741776641ac7",
+    "601aa3d2b2bcb34913271e6d",
+    "64b7af5a8532cf95ee0a0dbd",
+    "64b7af434b75259c590fa893",
+    "64b7af734b75259c590fa895"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "59d6088586f774275f37482f",
+   "name": "AKM",
+   "full": "AKM 7.62x39 突击步枪",
+   "slug": "kalashnikov-akm-762x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "weight": 2.092,
+   "ergo": 28,
+   "rv": 121,
+   "rh": 298,
+   "rate": 600,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.067,
+   "ammo": [
+    "59e0d99486f7744a32234762",
+    "59e4d3d286f774176a36250a",
+    "5656d7c34bdc2d9d198b4587",
+    "59e4cf5286f7741778269d8a",
+    "59e4d24686f7741776641ac7",
+    "601aa3d2b2bcb34913271e6d",
+    "64b7af5a8532cf95ee0a0dbd",
+    "64b7af434b75259c590fa893",
+    "64b7af734b75259c590fa895"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5a0ec13bfcdbcb00165aa685",
+   "name": "AKMN",
+   "full": "AKMN 7.62x39 突击步枪",
+   "slug": "kalashnikov-akmn-762x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "weight": 2.152,
+   "ergo": 28,
+   "rv": 121,
+   "rh": 298,
+   "rate": 600,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.066,
+   "ammo": [
+    "59e0d99486f7744a32234762",
+    "59e4d3d286f774176a36250a",
+    "5656d7c34bdc2d9d198b4587",
+    "59e4cf5286f7741778269d8a",
+    "59e4d24686f7741776641ac7",
+    "601aa3d2b2bcb34913271e6d",
+    "64b7af5a8532cf95ee0a0dbd",
+    "64b7af434b75259c590fa893",
+    "64b7af734b75259c590fa895"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 3,
+      "p": 42504,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "59ff346386f77477562ff5e2",
+   "name": "AKMS",
+   "full": "AKMS 7.62x39 突击步枪",
+   "slug": "kalashnikov-akms-762x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "weight": 2.092,
+   "ergo": 26,
+   "rv": 121,
+   "rh": 298,
+   "rate": 600,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.067,
+   "ammo": [
+    "59e0d99486f7744a32234762",
+    "59e4d3d286f774176a36250a",
+    "5656d7c34bdc2d9d198b4587",
+    "59e4cf5286f7741778269d8a",
+    "59e4d24686f7741776641ac7",
+    "601aa3d2b2bcb34913271e6d",
+    "64b7af5a8532cf95ee0a0dbd",
+    "64b7af434b75259c590fa893",
+    "64b7af734b75259c590fa895"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5abcbc27d8ce8700182eceeb",
+   "name": "AKMSN",
+   "full": "AKMSN 7.62x39 突击步枪",
+   "slug": "kalashnikov-akmsn-762x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "weight": 2.092,
+   "ergo": 26,
+   "rv": 121,
+   "rh": 298,
+   "rate": 600,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.067,
+   "ammo": [
+    "59e0d99486f7744a32234762",
+    "59e4d3d286f774176a36250a",
+    "5656d7c34bdc2d9d198b4587",
+    "59e4cf5286f7741778269d8a",
+    "59e4d24686f7741776641ac7",
+    "601aa3d2b2bcb34913271e6d",
+    "64b7af5a8532cf95ee0a0dbd",
+    "64b7af434b75259c590fa893",
+    "64b7af734b75259c590fa895"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "628a60ae6b1d481ff772e9c8",
+   "name": "RD-704",
+   "full": "Rifle Dynamics RD-704 7.62x39突击步枪",
+   "slug": "rifle-dynamics-rd-704-762x39-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "weight": 2.1,
+   "ergo": 50,
+   "rv": 135,
+   "rh": 314,
+   "rate": 600,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 650,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.062,
+   "ammo": [
+    "59e0d99486f7744a32234762",
+    "59e4d3d286f774176a36250a",
+    "5656d7c34bdc2d9d198b4587",
+    "59e4cf5286f7741778269d8a",
+    "59e4d24686f7741776641ac7",
+    "601aa3d2b2bcb34913271e6d",
+    "64b7af5a8532cf95ee0a0dbd",
+    "64b7af734b75259c590fa895",
+    "64b7af434b75259c590fa893"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "59e6152586f77473dc057aa1",
+   "name": "VPO-136 野猪-KM",
+   "full": "VPO-136 野猪-KM 7.62x39 卡宾枪",
+   "slug": "molot-arms-vpo-136-vepr-km-762x39-carbine",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "weight": 2.092,
+   "ergo": 30,
+   "rv": 149,
+   "rh": 378,
+   "rate": 600,
+   "modes": [
+    "单发"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.069,
+   "ammo": [
+    "59e0d99486f7744a32234762",
+    "59e4d3d286f774176a36250a",
+    "5656d7c34bdc2d9d198b4587",
+    "59e4cf5286f7741778269d8a",
+    "59e4d24686f7741776641ac7",
+    "601aa3d2b2bcb34913271e6d",
+    "64b7af5a8532cf95ee0a0dbd",
+    "64b7af434b75259c590fa893",
+    "64b7af734b75259c590fa895"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "689166b6c2d6fa42e7044756",
+   "name": "AK-308",
+   "full": "AK-308 7.62x51 突击步枪",
+   "slug": "kalashnikov-ak-308-762x51-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 2.6,
+   "ergo": 33,
+   "rv": 152,
+   "rh": 325,
+   "rate": 700,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 800,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.046,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "6768c25aa7b238f14a08d3f6",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5b0bbe4e5acfc40dc528a72d",
+   "name": "SA-58",
+   "full": "DS Arms SA-58 7.62x51 突击步枪",
+   "slug": "ds-arms-sa58-762x51-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 1.46,
+   "ergo": 30,
+   "rv": 210,
+   "rh": 417,
+   "rate": 700,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 900,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "6768c25aa7b238f14a08d3f6"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 4,
+      "p": 38867,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "5dcbd56fdbd3d91b3e5468d5",
+   "name": "MDR",
+   "full": "沙漠科技 MDR 7.62x51 突击步枪",
+   "slug": "desert-tech-mdr-762x51-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 2.95,
+   "ergo": 67,
+   "rv": 125,
+   "rh": 310,
+   "rate": 650,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "6768c25aa7b238f14a08d3f6"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6165ac306ef05c2ce828ef74",
+   "name": "Mk 17",
+   "full": "FN SCAR-H 7.62x51 突击步枪 (FDE)",
+   "slug": "fn-scar-h-762x51-assault-rifle-fde",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 0.85,
+   "ergo": 45,
+   "rv": 200,
+   "rh": 505,
+   "rate": 600,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "6768c25aa7b238f14a08d3f6"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6183afd850224f204c1da514",
+   "name": "Mk 17",
+   "full": "FN SCAR-H 7.62x51突击步枪",
+   "slug": "fn-scar-h-762x51-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 0.85,
+   "ergo": 45,
+   "rv": 200,
+   "rh": 505,
+   "rate": 600,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "6768c25aa7b238f14a08d3f6"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "676176d362e0497044079f4c",
+   "name": "X-17",
+   "full": "FN SCAR-H X-17 7.62x51突击步枪",
+   "slug": "fn-scar-h-x-17-762x51-assault-rifle",
+   "cls": "突击步枪",
+   "clsEn": "assault-rifle",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 0.81,
+   "ergo": 47,
+   "rv": 200,
+   "rh": 505,
+   "rate": 600,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 500,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "6768c25aa7b238f14a08d3f6"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 4,
+      "p": 36778,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "5fc22d7c187fea44d52eda44",
+   "name": "Mk-18 雷霆之锤",
+   "full": "SWORD International Mk-18 .338 LM 精确射手步枪",
+   "slug": "sword-international-mk-18-338-lm-marksman-rifle",
+   "cls": "精确射手步枪",
+   "clsEn": "marksman-rifle",
+   "cal": "Caliber86x70",
+   "calZh": ".338 LM",
+   "weight": 2.9,
+   "ergo": 34,
+   "rv": 577,
+   "rh": 1241,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 900,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5fc382a9d724d907e2077dab",
+    "5fc275cf85fd526b824a571a",
+    "5fc382c1016cce60e8341b20",
+    "5fc382b6d6fa9c00c571bbc3"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "67d0576f29f580ebc10efd08",
+   "name": "AK-50",
+   "full": "TheAKGuy AK-50 .50 BMG 反器材步枪",
+   "slug": "theakguy-ak-50-50-bmg-anti-materiel-rifle",
+   "cls": "精确射手步枪",
+   "clsEn": "marksman-rifle",
+   "cal": "Caliber127x99",
+   "calZh": ".50 BMG",
+   "weight": 7.963,
+   "ergo": 66,
+   "rv": 624,
+   "rh": 1163,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 1000,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "67d41936f378a36c4706eeb9",
+    "67dc212493ce32834b0fa446",
+    "67dc255ee3028a8b120efc48",
+    "67dc2648ba5b79876906a166"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 3
+     }
+    ]
+   },
+   "tier": "craft"
+  },
+  {
+   "id": "6176aca650224f204c1da3fb",
+   "name": "G28",
+   "full": "HK G28 7.62x51 精确射手步枪",
+   "slug": "hk-g28-762x51-marksman-rifle",
+   "cls": "精确射手步枪",
+   "clsEn": "marksman-rifle",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 0.51,
+   "ergo": 48,
+   "rv": 146,
+   "rh": 400,
+   "rate": 700,
+   "modes": [
+    "单发"
+   ],
+   "dist": 900,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "6768c25aa7b238f14a08d3f6"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5aafa857e5b5b00018480968",
+   "name": "M1A",
+   "full": "春田 M1A 7.62x51 步枪",
+   "slug": "springfield-armory-m1a-762x51-rifle",
+   "cls": "精确射手步枪",
+   "clsEn": "marksman-rifle",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 1.426,
+   "ergo": 28,
+   "rv": 214,
+   "rh": 405,
+   "rate": 700,
+   "modes": [
+    "单发"
+   ],
+   "dist": 700,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.02,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "6768c25aa7b238f14a08d3f6"
+   ],
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 3,
+      "p": 37830,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "buy"
+  },
+  {
+   "id": "5f2a9575926fd9352339381f",
+   "name": "RFB",
+   "full": "Kel-Tec RFB 7.62x51",
+   "slug": "kel-tec-rfb-762x51-rifle",
+   "cls": "精确射手步枪",
+   "clsEn": "marksman-rifle",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 1.95,
+   "ergo": 80,
+   "rv": 148,
+   "rh": 307,
+   "rate": 700,
+   "modes": [
+    "单发"
+   ],
+   "dist": 900,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "6768c25aa7b238f14a08d3f6"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5a367e5dc4a282000e49738f",
+   "name": "RSASS",
+   "full": "雷明顿 R11 RSASS 7.62x51 精确射手步枪",
+   "slug": "remington-r11-rsass-762x51-marksman-rifle",
+   "cls": "精确射手步枪",
+   "clsEn": "marksman-rifle",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 1.72,
+   "ergo": 50,
+   "rv": 145,
+   "rh": 324,
+   "rate": 700,
+   "modes": [
+    "单发"
+   ],
+   "dist": 900,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "6768c25aa7b238f14a08d3f6"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5df8ce05b11454561e39243b",
+   "name": "SR-25",
+   "full": "奈特军械公司 (KAC) SR-25 7.62x51 精确射手步枪",
+   "slug": "knights-armament-company-sr-25-762x51-marksman-rifle",
+   "cls": "精确射手步枪",
+   "clsEn": "marksman-rifle",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 0.51,
+   "ergo": 47,
+   "rv": 155,
+   "rh": 356,
+   "rate": 700,
+   "modes": [
+    "单发"
+   ],
+   "dist": 900,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "6768c25aa7b238f14a08d3f6"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6932abeb5403890d0c09c926",
+   "name": "SR-25",
+   "full": "奈特军械公司 (KAC) SR-25 7.62x51 精确射手步枪（褐灰色）",
+   "slug": "knights-armament-company-sr-25-762x51-marksman-rifle-taupe",
+   "cls": "精确射手步枪",
+   "clsEn": "marksman-rifle",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "weight": 0.51,
+   "ergo": 47,
+   "rv": 155,
+   "rh": 356,
+   "rate": 700,
+   "modes": [
+    "单发"
+   ],
+   "dist": 900,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5a6086ea4f39f99cd479502f",
+    "5a608bf24f39f98ffc77720e",
+    "58dd3ad986f77403051cba8f",
+    "5e023e53d4353e3302577c4c",
+    "5efb0c1bd79ff02a1f5e68d9",
+    "5e023e6e34d52a55c3304f71",
+    "5e023e88277cce2b522ff2b1",
+    "6768c25aa7b238f14a08d3f6"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5c46fbd72e2216398b5a8c9c",
+   "name": "SVDS",
+   "full": "德拉贡诺夫 SVDS 7.62x54R 半自动狙击步枪",
+   "slug": "svds-762x54r-sniper-rifle",
+   "cls": "精确射手步枪",
+   "clsEn": "marksman-rifle",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "weight": 1.72,
+   "ergo": 47,
+   "rv": 220,
+   "rh": 647,
+   "rate": 700,
+   "modes": [
+    "单发"
+   ],
+   "dist": 900,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0,
+   "ammo": [
+    "5e023d34e8a400319a28ed44",
+    "5e023d48186a883be655e551",
+    "5e023cf8186a883be655e54f",
+    "59e77a2386f7742ee578960a",
+    "5887431f2459777e1612938f",
+    "560d61e84bdc2da74d8b4571",
+    "64b8f7b5389d7ffd620ccba2",
+    "64b8f7968532cf95ee0a0dbf",
+    "64b8f7c241772715af0f9c3d"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "68aee763130c00663d08aea8",
+   "name": "TKPD",
+   "full": "TKPD 9.3x64 突击卡宾枪",
+   "slug": "tkpd-93x64-carbine",
+   "cls": "精确射手步枪",
+   "clsEn": "marksman-rifle",
+   "cal": "Caliber93x64",
+   "calZh": "9.3x64",
+   "weight": 1.72,
+   "ergo": 40,
+   "rv": 493,
+   "rh": 1150,
+   "rate": 25,
+   "modes": [
+    "单发"
+   ],
+   "dist": 900,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.008,
+   "ammo": [
+    "68aeed8a8906b00bc800fdd6",
+    "68bac6ca653ee6b1e406d978",
+    "68bad8376cb22acf1107a586"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "57838ad32459774a17445cd2",
+   "name": "VSS",
+   "full": "VSS \"绞丝机\"9x39 特种狙击步枪",
+   "slug": "vss-vintorez-9x39-special-sniper-rifle",
+   "cls": "精确射手步枪",
+   "clsEn": "marksman-rifle",
+   "cal": "Caliber9x39",
+   "calZh": "9x39",
+   "weight": 1.088,
+   "ergo": 43,
+   "rv": 80,
+   "rh": 270,
+   "rate": 900,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 400,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.095,
+   "ammo": [
+    "5c0d688c86f77413ae3407b2",
+    "61962d879bb3d20b0946d385",
+    "57a0dfb82459774d3078b56c",
+    "57a0e5022459774d1673f889",
+    "5c0d668f86f7747ccb7f13b2",
+    "6576f96220d53a5b8f3e395e"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5580223e4bdc2d1c128b457f",
+   "name": "MP-43-1C",
+   "full": "MP-43-1C 12 铅径双管霰弹枪",
+   "slug": "mp-43-1c-12ga-double-barrel-shotgun",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "weight": 1.88,
+   "ergo": 44,
+   "rv": 279,
+   "rh": 413,
+   "rate": 900,
+   "modes": [
+    "单发",
+    "双发"
+   ],
+   "dist": 100,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "560d5e524bdc2d25448b4571",
+    "5d6e6772a4b936088465b17c",
+    "5d6e67fba4b9361bc73bc779",
+    "5d6e6806a4b936088465b17e",
+    "5d6e68dea4b9361bcc29e659",
+    "5d6e6911a4b9361bd5780d52",
+    "5c0d591486f7744c505b416f",
+    "58820d1224597753c90aeb13",
+    "5d6e68c4a4b9361b93413f79",
+    "5d6e68a8a4b9360b6c0d54e2",
+    "5d6e68e6a4b9361c140bcfe0",
+    "5d6e6869a4b9361c140bcfde",
+    "5d6e68b3a4b9361bca7e50b5",
+    "5d6e6891a4b9361bd473feea",
+    "5d6e689ca4b9361bc8618956",
+    "5d6e68d1a4b93622fe60e845",
+    "64b8ee384b75259c590fa89b"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "64748cb8de82c85eaf0a273a",
+   "name": "截短霰弹枪",
+   "full": "MP-43 12铅径截短双管霰弹枪",
+   "slug": "mp-43-12ga-sawed-off-double-barrel-shotgun",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "weight": 1.3,
+   "ergo": 50,
+   "rv": 279,
+   "rh": 413,
+   "rate": 900,
+   "modes": [
+    "单发",
+    "双发"
+   ],
+   "dist": 100,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "560d5e524bdc2d25448b4571",
+    "5d6e6772a4b936088465b17c",
+    "5d6e67fba4b9361bc73bc779",
+    "5d6e6806a4b936088465b17e",
+    "5d6e68dea4b9361bcc29e659",
+    "5d6e6911a4b9361bd5780d52",
+    "5c0d591486f7744c505b416f",
+    "58820d1224597753c90aeb13",
+    "5d6e68c4a4b9361b93413f79",
+    "5d6e68a8a4b9360b6c0d54e2",
+    "5d6e68e6a4b9361c140bcfe0",
+    "5d6e6869a4b9361c140bcfde",
+    "5d6e68b3a4b9361bca7e50b5",
+    "5d6e6891a4b9361bd473feea",
+    "5d6e689ca4b9361bc8618956",
+    "5d6e68d1a4b93622fe60e845",
+    "64b8ee384b75259c590fa89b"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "674fe9a75e51f1c47c04ec23",
+   "name": "Saiga-12K FA",
+   "full": "Saiga-12K 12 铅径自动霰弹枪",
+   "slug": "saiga-12k-12ga-automatic-shotgun",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "weight": 2.622,
+   "ergo": 30,
+   "rv": 298,
+   "rh": 526,
+   "rate": 450,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.6,
+   "ammo": [
+    "560d5e524bdc2d25448b4571",
+    "5d6e6772a4b936088465b17c",
+    "5d6e67fba4b9361bc73bc779",
+    "5d6e6806a4b936088465b17e",
+    "5d6e68dea4b9361bcc29e659",
+    "5d6e6911a4b9361bd5780d52",
+    "5c0d591486f7744c505b416f",
+    "58820d1224597753c90aeb13",
+    "5d6e68c4a4b9361b93413f79",
+    "5d6e68a8a4b9360b6c0d54e2",
+    "5d6e68e6a4b9361c140bcfe0",
+    "5d6e6869a4b9361c140bcfde",
+    "5d6e68b3a4b9361bca7e50b5",
+    "5d6e6891a4b9361bd473feea",
+    "5d6e689ca4b9361bc8618956",
+    "5d6e68d1a4b93622fe60e845",
+    "64b8ee384b75259c590fa89b"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6981d72ed009ad83920da43a",
+   "name": "Saiga-12K FA红",
+   "full": "Saiga-12K 12 铅径自动霰弹枪（红线）",
+   "slug": "saiga-12k-12ga-automatic-shotgun-redline",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "weight": 2.622,
+   "ergo": 35,
+   "rv": 298,
+   "rh": 526,
+   "rate": 450,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.6,
+   "ammo": [
+    "560d5e524bdc2d25448b4571",
+    "5d6e6772a4b936088465b17c",
+    "5d6e67fba4b9361bc73bc779",
+    "5d6e6806a4b936088465b17e",
+    "5d6e68dea4b9361bcc29e659",
+    "5d6e6911a4b9361bd5780d52",
+    "5c0d591486f7744c505b416f",
+    "58820d1224597753c90aeb13",
+    "5d6e68c4a4b9361b93413f79",
+    "5d6e68a8a4b9360b6c0d54e2",
+    "5d6e68e6a4b9361c140bcfe0",
+    "5d6e6869a4b9361c140bcfde",
+    "5d6e68b3a4b9361bca7e50b5",
+    "5d6e6891a4b9361bd473feea",
+    "5d6e689ca4b9361bc8618956",
+    "5d6e68d1a4b93622fe60e845",
+    "64b8ee384b75259c590fa89b"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "66ffa9b66e19cc902401c5e8",
+   "name": "AA-12 Gen 1",
+   "full": "MPS Auto Assault-12 Gen 1 12铅径自动霰弹枪",
+   "slug": "mps-auto-assault-12-gen-1-12ga-automatic-shotgun",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "weight": 3.05,
+   "ergo": 43,
+   "rv": 175,
+   "rh": 235,
+   "rate": 330,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.6,
+   "ammo": [
+    "5d6e67fba4b9361bc73bc779",
+    "64b8ee384b75259c590fa89b",
+    "5d6e6869a4b9361c140bcfde",
+    "5d6e6911a4b9361bd5780d52",
+    "5d6e6891a4b9361bd473feea",
+    "58820d1224597753c90aeb13",
+    "5d6e6806a4b936088465b17e",
+    "5d6e6772a4b936088465b17c",
+    "5d6e68dea4b9361bcc29e659",
+    "5d6e68b3a4b9361bca7e50b5",
+    "5d6e68d1a4b93622fe60e845",
+    "5c0d591486f7744c505b416f",
+    "5d6e68a8a4b9360b6c0d54e2",
+    "5d6e689ca4b9361bc8618956",
+    "5d6e68e6a4b9361c140bcfe0",
+    "5d6e68c4a4b9361b93413f79",
+    "560d5e524bdc2d25448b4571"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "67124dcfa3541f2a1f0e788b",
+   "name": "AA-12 Gen 2",
+   "full": "MPS Auto Assault-12 Gen 2 12铅径自动霰弹枪",
+   "slug": "mps-auto-assault-12-gen-2-12ga-automatic-shotgun",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "weight": 2.94,
+   "ergo": 45,
+   "rv": 173,
+   "rh": 232,
+   "rate": 330,
+   "modes": [
+    "单发",
+    "全自动"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.6,
+   "ammo": [
+    "5d6e67fba4b9361bc73bc779",
+    "64b8ee384b75259c590fa89b",
+    "5d6e6869a4b9361c140bcfde",
+    "5d6e6911a4b9361bd5780d52",
+    "5d6e6891a4b9361bd473feea",
+    "58820d1224597753c90aeb13",
+    "5d6e6806a4b936088465b17e",
+    "5d6e6772a4b936088465b17c",
+    "5d6e68dea4b9361bcc29e659",
+    "5d6e68b3a4b9361bca7e50b5",
+    "5d6e68d1a4b93622fe60e845",
+    "5c0d591486f7744c505b416f",
+    "5d6e68a8a4b9360b6c0d54e2",
+    "5d6e689ca4b9361bc8618956",
+    "5d6e68e6a4b9361c140bcfe0",
+    "5d6e68c4a4b9361b93413f79",
+    "560d5e524bdc2d25448b4571"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "6259b864ebedf17603599e88",
+   "name": "M3 Super 90",
+   "full": "Benelli M3 Super 90 12铅径双模式霰弹枪",
+   "slug": "benelli-m3-super-90-12ga-dual-mode-shotgun",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "weight": 1.22,
+   "ergo": 42,
+   "rv": 336,
+   "rh": 595,
+   "rate": 60,
+   "modes": [
+    "单发",
+    "半自动"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.4,
+   "ammo": [
+    "560d5e524bdc2d25448b4571",
+    "5d6e6772a4b936088465b17c",
+    "5d6e67fba4b9361bc73bc779",
+    "5d6e6806a4b936088465b17e",
+    "5d6e68dea4b9361bcc29e659",
+    "5d6e6911a4b9361bd5780d52",
+    "5c0d591486f7744c505b416f",
+    "58820d1224597753c90aeb13",
+    "5d6e68c4a4b9361b93413f79",
+    "5d6e68a8a4b9360b6c0d54e2",
+    "5d6e68e6a4b9361c140bcfe0",
+    "5d6e6869a4b9361c140bcfde",
+    "5d6e68b3a4b9361bca7e50b5",
+    "5d6e6891a4b9361bd473feea",
+    "5d6e689ca4b9361bc8618956",
+    "5d6e68d1a4b93622fe60e845",
+    "64b8ee384b75259c590fa89b"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "56dee2bdd2720bc8328b4567",
+   "name": "MP-153",
+   "full": "MP-153 12铅径半自动霰弹枪",
+   "slug": "mp-153-12ga-semi-automatic-shotgun",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "weight": 1.2,
+   "ergo": 43,
+   "rv": 348,
+   "rh": 474,
+   "rate": 40,
+   "modes": [
+    "单发"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.5,
+   "ammo": [
+    "560d5e524bdc2d25448b4571",
+    "5d6e6772a4b936088465b17c",
+    "5d6e67fba4b9361bc73bc779",
+    "5d6e6806a4b936088465b17e",
+    "5d6e68dea4b9361bcc29e659",
+    "5d6e6911a4b9361bd5780d52",
+    "5c0d591486f7744c505b416f",
+    "58820d1224597753c90aeb13",
+    "5d6e68c4a4b9361b93413f79",
+    "5d6e68a8a4b9360b6c0d54e2",
+    "5d6e68e6a4b9361c140bcfe0",
+    "5d6e6869a4b9361c140bcfde",
+    "5d6e68b3a4b9361bca7e50b5",
+    "5d6e6891a4b9361bd473feea",
+    "5d6e689ca4b9361bc8618956",
+    "5d6e68d1a4b93622fe60e845",
+    "64b8ee384b75259c590fa89b"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "606dae0ab0e443224b421bb7",
+   "name": "MP-155",
+   "full": "MP-155 12铅径半自动霰弹枪",
+   "slug": "mp-155-12ga-semi-automatic-shotgun",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "weight": 1.1,
+   "ergo": 48,
+   "rv": 341,
+   "rh": 457,
+   "rate": 40,
+   "modes": [
+    "单发"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.5,
+   "ammo": [
+    "560d5e524bdc2d25448b4571",
+    "5d6e6772a4b936088465b17c",
+    "5d6e67fba4b9361bc73bc779",
+    "5d6e6806a4b936088465b17e",
+    "5d6e68dea4b9361bcc29e659",
+    "5d6e6911a4b9361bd5780d52",
+    "5c0d591486f7744c505b416f",
+    "58820d1224597753c90aeb13",
+    "5d6e68c4a4b9361b93413f79",
+    "5d6e68a8a4b9360b6c0d54e2",
+    "5d6e68e6a4b9361c140bcfe0",
+    "5d6e6869a4b9361c140bcfde",
+    "5d6e68b3a4b9361bca7e50b5",
+    "5d6e6891a4b9361bd473feea",
+    "5d6e689ca4b9361bc8618956",
+    "5d6e68d1a4b93622fe60e845",
+    "64b8ee384b75259c590fa89b"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "576165642459773c7a400233",
+   "name": "Saiga-12K",
+   "full": "Saiga-12K ver.10 12铅径半自动霰弹枪",
+   "slug": "saiga-12k-ver10-12ga-semi-automatic-shotgun",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "weight": 2.622,
+   "ergo": 30,
+   "rv": 298,
+   "rh": 526,
+   "rate": 40,
+   "modes": [
+    "单发"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.6,
+   "ammo": [
+    "560d5e524bdc2d25448b4571",
+    "5d6e6772a4b936088465b17c",
+    "5d6e67fba4b9361bc73bc779",
+    "5d6e6806a4b936088465b17e",
+    "5d6e68dea4b9361bcc29e659",
+    "5d6e6911a4b9361bd5780d52",
+    "5c0d591486f7744c505b416f",
+    "58820d1224597753c90aeb13",
+    "5d6e68c4a4b9361b93413f79",
+    "5d6e68a8a4b9360b6c0d54e2",
+    "5d6e68e6a4b9361c140bcfe0",
+    "5d6e6869a4b9361c140bcfde",
+    "5d6e68b3a4b9361bca7e50b5",
+    "5d6e6891a4b9361bd473feea",
+    "5d6e689ca4b9361bc8618956",
+    "5d6e68d1a4b93622fe60e845",
+    "64b8ee384b75259c590fa89b"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5e870397991fd70db46995c8",
+   "name": "590A1",
+   "full": "Mossberg 590A1 12铅径泵动式霰弹枪",
+   "slug": "mossberg-590a1-12ga-pump-action-shotgun",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "weight": 1.1,
+   "ergo": 48,
+   "rv": 421,
+   "rh": 494,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.42,
+   "ammo": [
+    "560d5e524bdc2d25448b4571",
+    "5d6e6772a4b936088465b17c",
+    "5d6e67fba4b9361bc73bc779",
+    "5d6e6806a4b936088465b17e",
+    "5d6e68dea4b9361bcc29e659",
+    "5d6e6911a4b9361bd5780d52",
+    "5c0d591486f7744c505b416f",
+    "58820d1224597753c90aeb13",
+    "5d6e68c4a4b9361b93413f79",
+    "5d6e68a8a4b9360b6c0d54e2",
+    "5d6e68e6a4b9361c140bcfe0",
+    "5d6e6869a4b9361c140bcfde",
+    "5d6e68b3a4b9361bca7e50b5",
+    "5d6e6891a4b9361bd473feea",
+    "5d6e689ca4b9361bc8618956",
+    "5d6e68d1a4b93622fe60e845",
+    "64b8ee384b75259c590fa89b"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5a7828548dc32e5a9c28b516",
+   "name": "M870",
+   "full": "雷明顿 Model 870 12铅径泵动式霰弹枪",
+   "slug": "remington-model-870-12ga-pump-action-shotgun",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "weight": 1.1,
+   "ergo": 45,
+   "rv": 397,
+   "rh": 471,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.4,
+   "ammo": [
+    "560d5e524bdc2d25448b4571",
+    "5d6e6772a4b936088465b17c",
+    "5d6e67fba4b9361bc73bc779",
+    "5d6e6806a4b936088465b17e",
+    "5d6e68dea4b9361bcc29e659",
+    "5d6e6911a4b9361bd5780d52",
+    "5c0d591486f7744c505b416f",
+    "58820d1224597753c90aeb13",
+    "5d6e68c4a4b9361b93413f79",
+    "5d6e68a8a4b9360b6c0d54e2",
+    "5d6e68e6a4b9361c140bcfe0",
+    "5d6e6869a4b9361c140bcfde",
+    "5d6e68b3a4b9361bca7e50b5",
+    "5d6e6891a4b9361bd473feea",
+    "5d6e689ca4b9361bc8618956",
+    "5d6e68d1a4b93622fe60e845",
+    "64b8ee384b75259c590fa89b"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "54491c4f4bdc2db1078b4568",
+   "name": "MP-133",
+   "full": "MP-133 12 铅径泵动式霰弹枪",
+   "slug": "mp-133-12ga-pump-action-shotgun",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "weight": 1.1,
+   "ergo": 40,
+   "rv": 397,
+   "rh": 522,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.48,
+   "ammo": [
+    "560d5e524bdc2d25448b4571",
+    "5d6e6772a4b936088465b17c",
+    "5d6e67fba4b9361bc73bc779",
+    "5d6e6806a4b936088465b17e",
+    "5d6e68dea4b9361bcc29e659",
+    "5d6e6911a4b9361bd5780d52",
+    "5c0d591486f7744c505b416f",
+    "58820d1224597753c90aeb13",
+    "5d6e68c4a4b9361b93413f79",
+    "5d6e68a8a4b9360b6c0d54e2",
+    "5d6e68e6a4b9361c140bcfe0",
+    "5d6e6869a4b9361c140bcfde",
+    "5d6e68b3a4b9361bca7e50b5",
+    "5d6e6891a4b9361bd473feea",
+    "5d6e689ca4b9361bc8618956",
+    "5d6e68d1a4b93622fe60e845",
+    "64b8ee384b75259c590fa89b"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5a38e6bac4a2826c6e06d79b",
+   "name": "TOZ-106",
+   "full": "TOZ-106 20铅径栓动式霰弹枪",
+   "slug": "toz-106-20ga-bolt-action-shotgun",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber20g",
+   "calZh": "20/70",
+   "weight": 1.3,
+   "ergo": 60,
+   "rv": 663,
+   "rh": 585,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.7,
+   "ammo": [
+    "5a38ebd9c4a282000d722a5b",
+    "5d6e695fa4b936359b35d852",
+    "5d6e69b9a4b9361bc8618958",
+    "5d6e69c7a4b9360b6c0d54e4",
+    "5d6e6a5fa4b93614ec501745",
+    "5d6e6a53a4b9361bd473feec",
+    "5d6e6a42a4b9364f07165f52",
+    "5d6e6a05a4b93618084f58d0",
+    "6601380580e77cfd080e3418",
+    "660137d8481cc6907a0c5cda",
+    "660137ef76c1b56143052be8"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "5e848cc2988a8701445df1e8",
+   "name": "KS-23M",
+   "full": "TOZ KS-23M 23x75 毫米泵动式霰弹枪",
+   "slug": "toz-ks-23m-23x75mm-pump-action-shotgun",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber23x75",
+   "calZh": "23x75",
+   "weight": 1.5,
+   "ergo": 38,
+   "rv": 467,
+   "rh": 601,
+   "rate": 30,
+   "modes": [
+    "单发"
+   ],
+   "dist": 70,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.45,
+   "ammo": [
+    "5e85aa1a988a8701445df1f5",
+    "5e85a9a6eacf8c039e4e2ac1",
+    "5f647f31b6238e5dd066e196",
+    "5e85a9f4add9fe03027d9bf1"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  },
+  {
+   "id": "61f7c9e189e6fb1a5e3ea78d",
+   "name": "MP-18",
+   "full": "MP-18 7.62x54R单发步枪",
+   "slug": "mp-18-762x54r-single-shot-rifle",
+   "cls": "霰弹枪",
+   "clsEn": "shotgun",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "weight": 0.76,
+   "ergo": 44,
+   "rv": 295,
+   "rh": 753,
+   "rate": 10,
+   "modes": [
+    "单发"
+   ],
+   "dist": 100,
+   "dur": 100,
+   "sight": 100,
+   "coi": 0.01,
+   "ammo": [
+    "5e023d34e8a400319a28ed44",
+    "5e023d48186a883be655e551",
+    "5e023cf8186a883be655e54f",
+    "59e77a2386f7742ee578960a",
+    "5887431f2459777e1612938f",
+    "560d61e84bdc2da74d8b4571",
+    "64b8f7c241772715af0f9c3d",
+    "64b8f7968532cf95ee0a0dbf",
+    "64b8f7b5389d7ffd620ccba2"
+   ],
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   },
+   "tier": "scav"
+  }
+ ]
+}

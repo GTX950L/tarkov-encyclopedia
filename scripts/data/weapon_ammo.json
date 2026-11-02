@@ -1,0 +1,5861 @@
+{
+ "fetched": "2026-10-08",
+ "source": "items_full.json（ItemPropertiesAmmo）＋ recipes.json",
+ "note": "pen 为穿深；档位 N ⇒ 穿深 ≥ (N−1)×10（与 entries/ammo.md 同口径）。",
+ "ammo": {
+  "54527a984bdc2d4e668b4567": {
+   "id": "54527a984bdc2d4e668b4567",
+   "name": "M855",
+   "full": "5.56x45毫米 M855",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "dmg": 54,
+   "pen": 31,
+   "armor": 37,
+   "speed": 922,
+   "frag": 0.5,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 3,
+      "p": 338,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "54527ac44bdc2d36668b4567": {
+   "id": "54527ac44bdc2d36668b4567",
+   "name": "M855A1",
+   "full": "5.56x45毫米 M855A1",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "dmg": 49,
+   "pen": 44,
+   "armor": 47,
+   "speed": 945,
+   "frag": 0.44,
+   "misfire": 0.175,
+   "ftf": 0.094,
+   "recoilMod": 0.05,
+   "accMod": -0.05,
+   "tier": "barter",
+   "supply": {
+    "buy": [],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 4,
+      "task": false
+     }
+    ],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 3
+     }
+    ]
+   }
+  },
+  "560d5e524bdc2d25448b4571": {
+   "id": "560d5e524bdc2d25448b4571",
+   "name": "7毫米 12c",
+   "full": "12/70 7毫米鹿弹",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 39,
+   "pen": 3,
+   "armor": 26,
+   "speed": 415,
+   "frag": 0,
+   "misfire": 0.266,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 40,
+      "task": false
+     },
+     {
+      "t": "Skier",
+      "lv": 1,
+      "p": 44,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "560d61e84bdc2da74d8b4571": {
+   "id": "560d61e84bdc2da74d8b4571",
+   "name": "SNB",
+   "full": "7.62x54R SNB",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "dmg": 75,
+   "pen": 62,
+   "armor": 87,
+   "speed": 875,
+   "frag": 0.08,
+   "misfire": 0.168,
+   "ftf": 0.095,
+   "recoilMod": 0.1,
+   "accMod": 0,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5656d7c34bdc2d9d198b4587": {
+   "id": "5656d7c34bdc2d9d198b4587",
+   "name": "PS",
+   "full": "7.62x39毫米 PS",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "dmg": 61,
+   "pen": 35,
+   "armor": 52,
+   "speed": 717,
+   "frag": 0.2,
+   "misfire": 0.154,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 3,
+      "p": 327,
+      "task": true
+     }
+    ],
+    "barter": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "5656eb674bdc2d35148b457c": {
+   "id": "5656eb674bdc2d35148b457c",
+   "name": "VOG-25",
+   "full": "40毫米VOG-25榴弹",
+   "cal": "Caliber40mmRU",
+   "calZh": "40mm",
+   "dmg": 199,
+   "pen": 0,
+   "armor": 68,
+   "speed": 76,
+   "frag": 0,
+   "misfire": 0,
+   "ftf": 0,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 3,
+      "p": 27540,
+      "task": true
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "56d59d3ad2720bdb418b4577": {
+   "id": "56d59d3ad2720bdb418b4577",
+   "name": "Pst",
+   "full": "9x19毫米 Pst",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "dmg": 54,
+   "pen": 20,
+   "armor": 33,
+   "speed": 457,
+   "frag": 0.15,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 2,
+      "p": 78,
+      "task": false
+     },
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 89,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "56dfef82d2720bbd668b4567": {
+   "id": "56dfef82d2720bbd668b4567",
+   "name": "BP",
+   "full": "5.45x39毫米 BP",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "dmg": 48,
+   "pen": 45,
+   "armor": 46,
+   "speed": 890,
+   "frag": 0.16,
+   "misfire": 0.175,
+   "ftf": 0.082,
+   "recoilMod": 0.07,
+   "accMod": -0.03,
+   "tier": "craft",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 3
+     }
+    ]
+   }
+  },
+  "56dff026d2720bb8668b4567": {
+   "id": "56dff026d2720bb8668b4567",
+   "name": "BS",
+   "full": "5.45x39毫米 BS",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "dmg": 45,
+   "pen": 54,
+   "armor": 57,
+   "speed": 830,
+   "frag": 0.17,
+   "misfire": 0.175,
+   "ftf": 0.094,
+   "recoilMod": 0.1,
+   "accMod": -0.04,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "56dff061d2720bb5668b4567": {
+   "id": "56dff061d2720bb5668b4567",
+   "name": "BT",
+   "full": "5.45x39毫米 BT",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "dmg": 54,
+   "pen": 37,
+   "armor": 44,
+   "speed": 880,
+   "frag": 0.164,
+   "misfire": 0.175,
+   "ftf": 0.079,
+   "recoilMod": 0.05,
+   "accMod": -0.04,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 4,
+      "p": 955,
+      "task": false
+     }
+    ],
+    "barter": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "56dff0bed2720bb0668b4567": {
+   "id": "56dff0bed2720bb0668b4567",
+   "name": "FMJ",
+   "full": "5.45x39毫米 FMJ",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "dmg": 55,
+   "pen": 24,
+   "armor": 38,
+   "speed": 884,
+   "frag": 0.25,
+   "misfire": 0.14,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 89,
+      "task": false
+     }
+    ],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 2,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "56dff216d2720bbd668b4568": {
+   "id": "56dff216d2720bbd668b4568",
+   "name": "HP",
+   "full": "5.45x39毫米 HP",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "dmg": 76,
+   "pen": 9,
+   "armor": 15,
+   "speed": 884,
+   "frag": 0.35,
+   "misfire": 0.14,
+   "ftf": 0.02,
+   "recoilMod": -0.03,
+   "accMod": 0.03,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 66,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "56dff2ced2720bb4668b4567": {
+   "id": "56dff2ced2720bb4668b4567",
+   "name": "PP",
+   "full": "5.45x39毫米 PP",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "dmg": 51,
+   "pen": 34,
+   "armor": 42,
+   "speed": 886,
+   "frag": 0.17,
+   "misfire": 0.175,
+   "ftf": 0.01,
+   "recoilMod": 0.03,
+   "accMod": -0.02,
+   "tier": "barter",
+   "supply": {
+    "buy": [],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 2,
+      "task": false
+     }
+    ],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 2
+     }
+    ]
+   }
+  },
+  "56dff338d2720bbd668b4569": {
+   "id": "56dff338d2720bbd668b4569",
+   "name": "PRS",
+   "full": "5.45x39毫米 PRS",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "dmg": 70,
+   "pen": 13,
+   "armor": 24,
+   "speed": 866,
+   "frag": 0.3,
+   "misfire": 0.154,
+   "ftf": 0.02,
+   "recoilMod": -0.05,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 81,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "56dff3afd2720bba668b4567": {
+   "id": "56dff3afd2720bba668b4567",
+   "name": "PS",
+   "full": "5.45x39毫米 PS",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "dmg": 56,
+   "pen": 28,
+   "armor": 40,
+   "speed": 890,
+   "frag": 0.4,
+   "misfire": 0.175,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 191,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "56dff421d2720b5f5a8b4567": {
+   "id": "56dff421d2720b5f5a8b4567",
+   "name": "SP",
+   "full": "5.45x39毫米 SP",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "dmg": 67,
+   "pen": 15,
+   "armor": 31,
+   "speed": 873,
+   "frag": 0.45,
+   "misfire": 0.154,
+   "ftf": 0.02,
+   "recoilMod": -0.05,
+   "accMod": 0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Skier",
+      "lv": 1,
+      "p": 100,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "56dff4a2d2720bbd668b456a": {
+   "id": "56dff4a2d2720bbd668b456a",
+   "name": "T",
+   "full": "5.45x39毫米 T",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "dmg": 59,
+   "pen": 20,
+   "armor": 36,
+   "speed": 883,
+   "frag": 0.16,
+   "misfire": 0.182,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": -0.03,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 123,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "56dff4ecd2720b5f5a8b4568": {
+   "id": "56dff4ecd2720b5f5a8b4568",
+   "name": "US",
+   "full": "5.45x39毫米 US",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "dmg": 65,
+   "pen": 17,
+   "armor": 33,
+   "speed": 303,
+   "frag": 0.1,
+   "misfire": 0.14,
+   "ftf": 0.01,
+   "recoilMod": -0.15,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 120,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5735fdcd2459776445391d61": {
+   "id": "5735fdcd2459776445391d61",
+   "name": "AKBS",
+   "full": "7.62x25毫米TT AKBS",
+   "cal": "Caliber762x25TT",
+   "calZh": "7.62x25 TT",
+   "dmg": 58,
+   "pen": 12,
+   "armor": 32,
+   "speed": 425,
+   "frag": 0.25,
+   "misfire": 0.196,
+   "ftf": 0.02,
+   "recoilMod": -0.15,
+   "accMod": 0.15,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 67,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5735ff5c245977640e39ba7e": {
+   "id": "5735ff5c245977640e39ba7e",
+   "name": "FMJ43",
+   "full": "7.62x25毫米TT FMJ43",
+   "cal": "Caliber762x25TT",
+   "calZh": "7.62x25 TT",
+   "dmg": 60,
+   "pen": 11,
+   "armor": 29,
+   "speed": 427,
+   "frag": 0.25,
+   "misfire": 0.175,
+   "ftf": 0.128,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 68,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "573601b42459776410737435": {
+   "id": "573601b42459776410737435",
+   "name": "LRN",
+   "full": "7.62x25毫米TT LRN",
+   "cal": "Caliber762x25TT",
+   "calZh": "7.62x25 TT",
+   "dmg": 64,
+   "pen": 8,
+   "armor": 28,
+   "speed": 375,
+   "frag": 0.35,
+   "misfire": 0.14,
+   "ftf": 0.02,
+   "recoilMod": -0.05,
+   "accMod": 0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 63,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "573602322459776445391df1": {
+   "id": "573602322459776445391df1",
+   "name": "LRNPC",
+   "full": "7.62x25毫米TT LRNPC",
+   "cal": "Caliber762x25TT",
+   "calZh": "7.62x25 TT",
+   "dmg": 66,
+   "pen": 7,
+   "armor": 27,
+   "speed": 385,
+   "frag": 0.35,
+   "misfire": 0.14,
+   "ftf": 0.01,
+   "recoilMod": -0.1,
+   "accMod": 0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 90,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5736026a245977644601dc61": {
+   "id": "5736026a245977644601dc61",
+   "name": "P gl",
+   "full": "7.62x25毫米TT P gl",
+   "cal": "Caliber762x25TT",
+   "calZh": "7.62x25 TT",
+   "dmg": 58,
+   "pen": 14,
+   "armor": 32,
+   "speed": 430,
+   "frag": 0.25,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 71,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "573603562459776430731618": {
+   "id": "573603562459776430731618",
+   "name": "Pst",
+   "full": "7.62x25毫米 TT Pst",
+   "cal": "Caliber762x25TT",
+   "calZh": "7.62x25 TT",
+   "dmg": 50,
+   "pen": 25,
+   "armor": 36,
+   "speed": 430,
+   "frag": 0.2,
+   "misfire": 0.14,
+   "ftf": 0.081,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 96,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "573603c924597764442bd9cb": {
+   "id": "573603c924597764442bd9cb",
+   "name": "PT",
+   "full": "7.62x25毫米 TT PT",
+   "cal": "Caliber762x25TT",
+   "calZh": "7.62x25 TT",
+   "dmg": 55,
+   "pen": 18,
+   "armor": 34,
+   "speed": 415,
+   "frag": 0.166,
+   "misfire": 0.154,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": -0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 86,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "573718ba2459775a75491131": {
+   "id": "573718ba2459775a75491131",
+   "name": "BZhT",
+   "full": "9x18毫米 PM BZhT",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "dmg": 53,
+   "pen": 18,
+   "armor": 28,
+   "speed": 325,
+   "frag": 0.17,
+   "misfire": 0.175,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 89,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "573719762459775a626ccbc1": {
+   "id": "573719762459775a626ccbc1",
+   "name": "P",
+   "full": "9x18毫米 PM P",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "dmg": 50,
+   "pen": 5,
+   "armor": 16,
+   "speed": 302,
+   "frag": 0.25,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 17,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "573719df2459775a626ccbc2": {
+   "id": "573719df2459775a626ccbc2",
+   "name": "PBM",
+   "full": "9x18毫米 PM PBM",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "dmg": 40,
+   "pen": 28,
+   "armor": 30,
+   "speed": 519,
+   "frag": 0.16,
+   "misfire": 0.196,
+   "ftf": 0.078,
+   "recoilMod": 0.04,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 165,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "57371aab2459775a77142f22": {
+   "id": "57371aab2459775a77142f22",
+   "name": "PstM",
+   "full": "9x18毫米 PMM PstM",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "dmg": 58,
+   "pen": 24,
+   "armor": 33,
+   "speed": 420,
+   "frag": 0.17,
+   "misfire": 0.21,
+   "ftf": 0.088,
+   "recoilMod": 0.05,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 157,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 1
+     }
+    ]
+   }
+  },
+  "57371b192459775a9f58a5e0": {
+   "id": "57371b192459775a9f58a5e0",
+   "name": "PPe",
+   "full": "9x18毫米 PM PPe",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "dmg": 61,
+   "pen": 7,
+   "armor": 15,
+   "speed": 297,
+   "frag": 0.35,
+   "misfire": 0.175,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 70,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "57371e4124597760ff7b25f1": {
+   "id": "57371e4124597760ff7b25f1",
+   "name": "PPT",
+   "full": "9x18毫米 PM PPT",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "dmg": 59,
+   "pen": 8,
+   "armor": 22,
+   "speed": 301,
+   "frag": 0.166,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": -0.07,
+   "accMod": -0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 59,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "57371eb62459776125652ac1": {
+   "id": "57371eb62459776125652ac1",
+   "name": "PRS",
+   "full": "9x18毫米 PM PRS",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "dmg": 58,
+   "pen": 6,
+   "armor": 16,
+   "speed": 302,
+   "frag": 0.3,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 54,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "57371f2b24597761224311f1": {
+   "id": "57371f2b24597761224311f1",
+   "name": "PS PPO",
+   "full": "9x18毫米 PM PS PPO",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "dmg": 55,
+   "pen": 6,
+   "armor": 16,
+   "speed": 330,
+   "frag": 0.25,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 40,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "57371f8d24597761006c6a81": {
+   "id": "57371f8d24597761006c6a81",
+   "name": "PSO",
+   "full": "9x18毫米 PM PSO",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "dmg": 54,
+   "pen": 5,
+   "armor": 13,
+   "speed": 315,
+   "frag": 0.35,
+   "misfire": 0.266,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 30,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5737201124597760fc4431f1": {
+   "id": "5737201124597760fc4431f1",
+   "name": "Pst",
+   "full": "9x18毫米 PM Pst",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "dmg": 50,
+   "pen": 12,
+   "armor": 26,
+   "speed": 298,
+   "frag": 0.2,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 62,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5737207f24597760ff7b25f2": {
+   "id": "5737207f24597760ff7b25f2",
+   "name": "PSV",
+   "full": "9x18毫米 PM PSV",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "dmg": 69,
+   "pen": 3,
+   "armor": 5,
+   "speed": 280,
+   "frag": 0.4,
+   "misfire": 0.175,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 2,
+      "p": 96,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "573720e02459776143012541": {
+   "id": "573720e02459776143012541",
+   "name": "RG028",
+   "full": "9x18毫米 PM RG028",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "dmg": 65,
+   "pen": 13,
+   "armor": 26,
+   "speed": 330,
+   "frag": 0.02,
+   "misfire": 0.175,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 117,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "57372140245977611f70ee91": {
+   "id": "57372140245977611f70ee91",
+   "name": "SP7",
+   "full": "9x18毫米 PM SP7",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "dmg": 77,
+   "pen": 2,
+   "armor": 5,
+   "speed": 420,
+   "frag": 0.02,
+   "misfire": 0.14,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 228,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5737218f245977612125ba51": {
+   "id": "5737218f245977612125ba51",
+   "name": "SP8",
+   "full": "9x18毫米 PM SP8",
+   "cal": "Caliber9x18PM",
+   "calZh": "9x18 PM",
+   "dmg": 67,
+   "pen": 1,
+   "armor": 2,
+   "speed": 250,
+   "frag": 0.6,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 94,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 1
+     }
+    ]
+   }
+  },
+  "57a0dfb82459774d3078b56c": {
+   "id": "57a0dfb82459774d3078b56c",
+   "name": "SP-5",
+   "full": "9x39毫米 SP-5",
+   "cal": "Caliber9x39",
+   "calZh": "9x39",
+   "dmg": 71,
+   "pen": 28,
+   "armor": 39,
+   "speed": 290,
+   "frag": 0.2,
+   "misfire": 0.154,
+   "ftf": 0.0923,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 300,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "57a0e5022459774d1673f889": {
+   "id": "57a0e5022459774d1673f889",
+   "name": "SP-6",
+   "full": "9x39毫米 SP-6",
+   "cal": "Caliber9x39",
+   "calZh": "9x39",
+   "dmg": 60,
+   "pen": 48,
+   "armor": 64,
+   "speed": 305,
+   "frag": 0.1,
+   "misfire": 0.168,
+   "ftf": 0.0903,
+   "recoilMod": 0.05,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 4,
+      "p": 1877,
+      "task": true
+     }
+    ],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 4,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "58820d1224597753c90aeb13": {
+   "id": "58820d1224597753c90aeb13",
+   "name": "12/70独头弹",
+   "full": "12/70 铅头弹",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 167,
+   "pen": 15,
+   "armor": 55,
+   "speed": 370,
+   "frag": 0.2,
+   "misfire": 0.175,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 1.2,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 74,
+      "task": false
+     },
+     {
+      "t": "Skier",
+      "lv": 1,
+      "p": 81,
+      "task": false
+     },
+     {
+      "t": "Peacekeeper",
+      "lv": 1,
+      "p": 106,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "58864a4f2459770fcc257101": {
+   "id": "58864a4f2459770fcc257101",
+   "name": "PSO",
+   "full": "9x19毫米 PSO gzh",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "dmg": 59,
+   "pen": 10,
+   "armor": 32,
+   "speed": 340,
+   "frag": 0.25,
+   "misfire": 0.196,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 65,
+      "task": false
+     },
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 67,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5887431f2459777e1612938f": {
+   "id": "5887431f2459777e1612938f",
+   "name": "LPS",
+   "full": "7.62x54R LPS",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "dmg": 81,
+   "pen": 42,
+   "armor": 78,
+   "speed": 865,
+   "frag": 0.18,
+   "misfire": 0.168,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": -0.05,
+   "tier": "craft",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 2
+     }
+    ]
+   }
+  },
+  "58dd3ad986f77403051cba8f": {
+   "id": "58dd3ad986f77403051cba8f",
+   "name": "M80",
+   "full": "7.62x51毫米 M80",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "dmg": 80,
+   "pen": 43,
+   "armor": 67,
+   "speed": 820,
+   "frag": 0.17,
+   "misfire": 0.175,
+   "ftf": 0.0935,
+   "recoilMod": 0.01,
+   "accMod": -0.13,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 4,
+      "p": 1155,
+      "task": true
+     }
+    ],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 3,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "59e0d99486f7744a32234762": {
+   "id": "59e0d99486f7744a32234762",
+   "name": "BP",
+   "full": "7.62x39毫米 BP",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "dmg": 58,
+   "pen": 47,
+   "armor": 63,
+   "speed": 730,
+   "frag": 0.12,
+   "misfire": 0.1834,
+   "ftf": 0.088,
+   "recoilMod": 0.07,
+   "accMod": -0.03,
+   "tier": "barter",
+   "supply": {
+    "buy": [],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 4,
+      "task": false
+     }
+    ],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 3
+     }
+    ]
+   }
+  },
+  "59e4cf5286f7741778269d8a": {
+   "id": "59e4cf5286f7741778269d8a",
+   "name": "T-45M1",
+   "full": "7.62x39毫米 T45M1",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "dmg": 65,
+   "pen": 30,
+   "armor": 46,
+   "speed": 720,
+   "frag": 0.12,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": -0.06,
+   "accMod": -0.04,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 272,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "59e4d24686f7741776641ac7": {
+   "id": "59e4d24686f7741776641ac7",
+   "name": "US",
+   "full": "7.62x39毫米 US",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "dmg": 56,
+   "pen": 29,
+   "armor": 42,
+   "speed": 301,
+   "frag": 0.075,
+   "misfire": 0.14,
+   "ftf": 0.01,
+   "recoilMod": -0.3,
+   "accMod": 0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 218,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "59e4d3d286f774176a36250a": {
+   "id": "59e4d3d286f774176a36250a",
+   "name": "HP",
+   "full": "7.62x39毫米 HP",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "dmg": 80,
+   "pen": 15,
+   "armor": 20,
+   "speed": 754,
+   "frag": 0.4,
+   "misfire": 0.14,
+   "ftf": 0.02,
+   "recoilMod": 0.05,
+   "accMod": -0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 92,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "59e6542b86f77411dc52a77a": {
+   "id": "59e6542b86f77411dc52a77a",
+   "name": "FMJ",
+   "full": ".366 TKM FMJ",
+   "cal": "Caliber366TKM",
+   "calZh": ".366 TKM",
+   "dmg": 98,
+   "pen": 23,
+   "armor": 48,
+   "speed": 580,
+   "frag": 0.25,
+   "misfire": 0.21,
+   "ftf": 0.02,
+   "recoilMod": 0.1,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 105,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "59e655cb86f77411dc52a77b": {
+   "id": "59e655cb86f77411dc52a77b",
+   "name": "EKO",
+   "full": ".366 TKM EKO",
+   "cal": "Caliber366TKM",
+   "calZh": ".366 TKM",
+   "dmg": 73,
+   "pen": 30,
+   "armor": 40,
+   "speed": 770,
+   "frag": 0.2,
+   "misfire": 0.266,
+   "ftf": 0.01,
+   "recoilMod": -0.15,
+   "accMod": -0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 145,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "59e6658b86f77411d949b250": {
+   "id": "59e6658b86f77411d949b250",
+   "name": "Geksa",
+   "full": ".366 TKM Geksa",
+   "cal": "Caliber366TKM",
+   "calZh": ".366 TKM",
+   "dmg": 110,
+   "pen": 14,
+   "armor": 38,
+   "speed": 550,
+   "frag": 0.45,
+   "misfire": 0.21,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 99,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "59e68f6f86f7746c9f75e846": {
+   "id": "59e68f6f86f7746c9f75e846",
+   "name": "M856",
+   "full": "5.56x45毫米 M856",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "dmg": 60,
+   "pen": 18,
+   "armor": 26,
+   "speed": 874,
+   "frag": 0.328,
+   "misfire": 0.175,
+   "ftf": 0.01,
+   "recoilMod": -0.02,
+   "accMod": -0.02,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 1,
+      "p": 206,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "59e6906286f7746c9f75e847": {
+   "id": "59e6906286f7746c9f75e847",
+   "name": "M856A1",
+   "full": "5.56x45毫米 M856A1",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "dmg": 52,
+   "pen": 38,
+   "armor": 44,
+   "speed": 940,
+   "frag": 0.428,
+   "misfire": 0.1834,
+   "ftf": 0.081,
+   "recoilMod": 0.04,
+   "accMod": -0.04,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 4,
+      "p": 1036,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "59e690b686f7746c9f75e848": {
+   "id": "59e690b686f7746c9f75e848",
+   "name": "M995",
+   "full": "5.56x45毫米 M995",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "dmg": 42,
+   "pen": 53,
+   "armor": 52,
+   "speed": 1013,
+   "frag": 0.42,
+   "misfire": 0.1834,
+   "ftf": 0.087,
+   "recoilMod": 0.08,
+   "accMod": -0.07,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "59e6918f86f7746c9f75e849": {
+   "id": "59e6918f86f7746c9f75e849",
+   "name": "Mk255 Mod0",
+   "full": "5.56x45毫米 MK 255 Mod 0 (RRLP)",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "dmg": 72,
+   "pen": 11,
+   "armor": 24,
+   "speed": 936,
+   "frag": 0.03,
+   "misfire": 0.175,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 1,
+      "p": 168,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "59e6920f86f77411d82aa167": {
+   "id": "59e6920f86f77411d82aa167",
+   "name": "FMJ",
+   "full": "5.56x45毫米 FMJ",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "dmg": 57,
+   "pen": 23,
+   "armor": 33,
+   "speed": 957,
+   "frag": 0.5,
+   "misfire": 0.154,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 2,
+      "p": 160,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "59e6927d86f77411da468256": {
+   "id": "59e6927d86f77411da468256",
+   "name": "HP",
+   "full": "5.56x45毫米 HP",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "dmg": 79,
+   "pen": 7,
+   "armor": 22,
+   "speed": 947,
+   "frag": 0.7,
+   "misfire": 0.154,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 66,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "59e77a2386f7742ee578960a": {
+   "id": "59e77a2386f7742ee578960a",
+   "name": "7N1",
+   "full": "7.62x54R 7N1狙击弹",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "dmg": 84,
+   "pen": 45,
+   "armor": 84,
+   "speed": 875,
+   "frag": 0.083,
+   "misfire": 0.175,
+   "ftf": 0.082,
+   "recoilMod": 0.08,
+   "accMod": 0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 4,
+      "p": 1627,
+      "task": true
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5a269f97c4a282000b151807": {
+   "id": "5a269f97c4a282000b151807",
+   "name": "SP10",
+   "full": "9x21毫米 SP10",
+   "cal": "Caliber9x21",
+   "calZh": "9x21",
+   "dmg": 59,
+   "pen": 22,
+   "armor": 39,
+   "speed": 410,
+   "frag": 0.2,
+   "misfire": 0.14,
+   "ftf": 0.094,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 330,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5a26abfac4a28232980eabff": {
+   "id": "5a26abfac4a28232980eabff",
+   "name": "SP11",
+   "full": "9x21毫米 SP11",
+   "cal": "Caliber9x21",
+   "calZh": "9x21",
+   "dmg": 65,
+   "pen": 18,
+   "armor": 44,
+   "speed": 413,
+   "frag": 0.3,
+   "misfire": 0.14,
+   "ftf": 0.02,
+   "recoilMod": -0.03,
+   "accMod": 0.01,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 191,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 1
+     }
+    ]
+   }
+  },
+  "5a26ac06c4a282000c5a90a8": {
+   "id": "5a26ac06c4a282000c5a90a8",
+   "name": "SP12",
+   "full": "9x21毫米 SP12",
+   "cal": "Caliber9x21",
+   "calZh": "9x21",
+   "dmg": 80,
+   "pen": 15,
+   "armor": 63,
+   "speed": 415,
+   "frag": 0.35,
+   "misfire": 0.14,
+   "ftf": 0.087,
+   "recoilMod": -0.05,
+   "accMod": 0.03,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 96,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5a26ac0ec4a28200741e1e18": {
+   "id": "5a26ac0ec4a28200741e1e18",
+   "name": "SP13",
+   "full": "9x21毫米 SP13",
+   "cal": "Caliber9x21",
+   "calZh": "9x21",
+   "dmg": 52,
+   "pen": 32,
+   "armor": 42,
+   "speed": 410,
+   "frag": 0.2,
+   "misfire": 0.126,
+   "ftf": 0.082,
+   "recoilMod": 0.05,
+   "accMod": -0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 3,
+      "p": 759,
+      "task": true
+     }
+    ],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 3,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "5a38ebd9c4a282000d722a5b": {
+   "id": "5a38ebd9c4a282000d722a5b",
+   "name": "7.5 20c",
+   "full": "20/70 7.5毫米鹿弹",
+   "cal": "Caliber20g",
+   "calZh": "20/70",
+   "dmg": 25,
+   "pen": 3,
+   "armor": 14,
+   "speed": 430,
+   "frag": 0,
+   "misfire": 0.266,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 32,
+      "task": false
+     },
+     {
+      "t": "Skier",
+      "lv": 1,
+      "p": 35,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5a3c16fe86f77452b62de32a": {
+   "id": "5a3c16fe86f77452b62de32a",
+   "name": "Luger CCI",
+   "full": "9x19毫米 Luger CCI",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "dmg": 70,
+   "pen": 10,
+   "armor": 38,
+   "speed": 420,
+   "frag": 0.25,
+   "misfire": 0.14,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 2,
+      "p": 213,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 2
+     }
+    ]
+   }
+  },
+  "5a6086ea4f39f99cd479502f": {
+   "id": "5a6086ea4f39f99cd479502f",
+   "name": "M61",
+   "full": "7.62x51毫米 M61",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "dmg": 73,
+   "pen": 60,
+   "armor": 79,
+   "speed": 833,
+   "frag": 0.14,
+   "misfire": 0.1834,
+   "ftf": 0.087,
+   "recoilMod": 0.03,
+   "accMod": 0.05,
+   "tier": "barter",
+   "supply": {
+    "buy": [],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 4,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "5a608bf24f39f98ffc77720e": {
+   "id": "5a608bf24f39f98ffc77720e",
+   "name": "M62",
+   "full": "7.62x51毫米 M62 曳光弹",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "dmg": 82,
+   "pen": 42,
+   "armor": 65,
+   "speed": 820,
+   "frag": 0.14,
+   "misfire": 0.175,
+   "ftf": 0.09,
+   "recoilMod": 0.01,
+   "accMod": -0.1,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5ba2678ad4351e44f824b344": {
+   "id": "5ba2678ad4351e44f824b344",
+   "name": "FMJ SX",
+   "full": "4.6x30毫米 FMJ SX",
+   "cal": "Caliber46x30",
+   "calZh": "4.6x30",
+   "dmg": 43,
+   "pen": 40,
+   "armor": 41,
+   "speed": 620,
+   "frag": 0.2,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 4,
+      "p": 718,
+      "task": true
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5ba26812d4351e003201fef1": {
+   "id": "5ba26812d4351e003201fef1",
+   "name": "Action SX",
+   "full": "4.6x30毫米 Action SX",
+   "cal": "Caliber46x30",
+   "calZh": "4.6x30",
+   "dmg": 65,
+   "pen": 18,
+   "armor": 28,
+   "speed": 690,
+   "frag": 0.5,
+   "misfire": 0.175,
+   "ftf": 0.089,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 1,
+      "p": 88,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5ba26835d4351e0035628ff5": {
+   "id": "5ba26835d4351e0035628ff5",
+   "name": "AP SX",
+   "full": "4.6x30毫米 AP SX",
+   "cal": "Caliber46x30",
+   "calZh": "4.6x30",
+   "dmg": 35,
+   "pen": 53,
+   "armor": 46,
+   "speed": 680,
+   "frag": 0.1,
+   "misfire": 0.21,
+   "ftf": 0.084,
+   "recoilMod": 0.1,
+   "accMod": 0,
+   "tier": "craft",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 3
+     }
+    ]
+   }
+  },
+  "5ba26844d4351e00334c9475": {
+   "id": "5ba26844d4351e00334c9475",
+   "name": "Subsonic SX",
+   "full": "4.6x30毫米 Subsonic SX",
+   "cal": "Caliber46x30",
+   "calZh": "4.6x30",
+   "dmg": 52,
+   "pen": 23,
+   "armor": 33,
+   "speed": 290,
+   "frag": 0.2,
+   "misfire": 0.14,
+   "ftf": 0.01,
+   "recoilMod": -0.22,
+   "accMod": 0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 2,
+      "p": 125,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5c0d56a986f774449d5de529": {
+   "id": "5c0d56a986f774449d5de529",
+   "name": "RIP",
+   "full": "9x19毫米 RIP",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "dmg": 102,
+   "pen": 2,
+   "armor": 11,
+   "speed": 381,
+   "frag": 1,
+   "misfire": 0.196,
+   "ftf": 0.112,
+   "recoilMod": 0.05,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 4,
+      "p": 528,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5c0d591486f7744c505b416f": {
+   "id": "5c0d591486f7744c505b416f",
+   "name": "12/70 RIP",
+   "full": "12/70 RIP",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 265,
+   "pen": 2,
+   "armor": 11,
+   "speed": 410,
+   "frag": 1,
+   "misfire": 0.21,
+   "ftf": 0.01,
+   "recoilMod": 0.35,
+   "accMod": 0.8,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 4,
+      "p": 917,
+      "task": false
+     }
+    ],
+    "barter": [
+     {
+      "t": "Skier",
+      "lv": 2,
+      "task": true
+     }
+    ],
+    "craft": []
+   }
+  },
+  "5c0d5ae286f7741e46554302": {
+   "id": "5c0d5ae286f7741e46554302",
+   "name": "WG",
+   "full": "5.56x45毫米 Warmageddon",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "dmg": 88,
+   "pen": 3,
+   "armor": 11,
+   "speed": 936,
+   "frag": 0.9,
+   "misfire": 0.175,
+   "ftf": 0.091,
+   "recoilMod": 0.1,
+   "accMod": 0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 2,
+      "p": 244,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5c0d5e4486f77478390952fe": {
+   "id": "5c0d5e4486f77478390952fe",
+   "name": "7N39",
+   "full": "5.45x39毫米 7N39“针刺”",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "dmg": 37,
+   "pen": 62,
+   "armor": 59,
+   "speed": 905,
+   "frag": 0.02,
+   "misfire": 0.175,
+   "ftf": 0.089,
+   "recoilMod": 0.15,
+   "accMod": -0.05,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5c0d668f86f7747ccb7f13b2": {
+   "id": "5c0d668f86f7747ccb7f13b2",
+   "name": "SPP",
+   "full": "9x39毫米 SPP",
+   "cal": "Caliber9x39",
+   "calZh": "9x39",
+   "dmg": 68,
+   "pen": 35,
+   "armor": 48,
+   "speed": 310,
+   "frag": 0.2,
+   "misfire": 0.14,
+   "ftf": 0.0884,
+   "recoilMod": 0.07,
+   "accMod": 0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 4,
+      "p": 599,
+      "task": false
+     }
+    ],
+    "barter": [
+     {
+      "t": "Prapor",
+      "lv": 3,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "5c0d688c86f77413ae3407b2": {
+   "id": "5c0d688c86f77413ae3407b2",
+   "name": "BP",
+   "full": "9x39毫米 BP",
+   "cal": "Caliber9x39",
+   "calZh": "9x39",
+   "dmg": 58,
+   "pen": 54,
+   "armor": 69,
+   "speed": 295,
+   "frag": 0.1,
+   "misfire": 0.196,
+   "ftf": 0.0871,
+   "recoilMod": 0.15,
+   "accMod": 0.1,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5c3df7d588a4501f290594e5": {
+   "id": "5c3df7d588a4501f290594e5",
+   "name": "绿色曳光",
+   "full": "9x19毫米 绿色曳光弹",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "dmg": 58,
+   "pen": 14,
+   "armor": 33,
+   "speed": 365,
+   "frag": 0.15,
+   "misfire": 0.14,
+   "ftf": 0.01,
+   "recoilMod": -0.06,
+   "accMod": -0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 1,
+      "p": 53,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5c925fa22e221601da359b7b": {
+   "id": "5c925fa22e221601da359b7b",
+   "name": "AP 6.3",
+   "full": "9x19毫米 AP 6.3",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "dmg": 52,
+   "pen": 30,
+   "armor": 48,
+   "speed": 392,
+   "frag": 0.05,
+   "misfire": 0.196,
+   "ftf": 0.086,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 3,
+      "p": 394,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 3
+     }
+    ]
+   }
+  },
+  "5cadf6ddae9215051e1c23b2": {
+   "id": "5cadf6ddae9215051e1c23b2",
+   "name": "PS12",
+   "full": "12.7x55毫米 PS12",
+   "cal": "Caliber127x55",
+   "calZh": "12.7x55",
+   "dmg": 115,
+   "pen": 28,
+   "armor": 60,
+   "speed": 300,
+   "frag": 0.3,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 490,
+      "task": false
+     }
+    ],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 2,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "5cadf6e5ae921500113bb973": {
+   "id": "5cadf6e5ae921500113bb973",
+   "name": "PS12A",
+   "full": "12.7x55毫米 PS12A",
+   "cal": "Caliber127x55",
+   "calZh": "12.7x55",
+   "dmg": 165,
+   "pen": 10,
+   "armor": 22,
+   "speed": 870,
+   "frag": 0.7,
+   "misfire": 0.175,
+   "ftf": 0.0925,
+   "recoilMod": -0.12,
+   "accMod": -0.15,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 300,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5cadf6eeae921500134b2799": {
+   "id": "5cadf6eeae921500134b2799",
+   "name": "PS12B",
+   "full": "12.7x55毫米 PS12B",
+   "cal": "Caliber127x55",
+   "calZh": "12.7x55",
+   "dmg": 102,
+   "pen": 46,
+   "armor": 57,
+   "speed": 570,
+   "frag": 0.3,
+   "misfire": 0.175,
+   "ftf": 0.0874,
+   "recoilMod": 0.15,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 4,
+      "p": 1592,
+      "task": false
+     }
+    ],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 4,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "5cc80f38e4a949001152b560": {
+   "id": "5cc80f38e4a949001152b560",
+   "name": "SS190",
+   "full": "5.7x28毫米 SS190",
+   "cal": "Caliber57x28",
+   "calZh": "5.7x28",
+   "dmg": 49,
+   "pen": 37,
+   "armor": 43,
+   "speed": 715,
+   "frag": 0.2,
+   "misfire": 0.175,
+   "ftf": 0.0935,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 4,
+      "p": 1122,
+      "task": false
+     }
+    ],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 3,
+      "task": false
+     }
+    ],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 3
+     }
+    ]
+   }
+  },
+  "5cc80f53e4a949000e1ea4f8": {
+   "id": "5cc80f53e4a949000e1ea4f8",
+   "name": "L191",
+   "full": "5.7x28毫米 L191",
+   "cal": "Caliber57x28",
+   "calZh": "5.7x28",
+   "dmg": 53,
+   "pen": 33,
+   "armor": 41,
+   "speed": 715,
+   "frag": 0.2,
+   "misfire": 0.175,
+   "ftf": 0.081,
+   "recoilMod": 0,
+   "accMod": -0.04,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 3,
+      "p": 581,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 2
+     }
+    ]
+   }
+  },
+  "5cc80f67e4a949035e43bbba": {
+   "id": "5cc80f67e4a949035e43bbba",
+   "name": "SB193",
+   "full": "5.7x28毫米 SB193",
+   "cal": "Caliber57x28",
+   "calZh": "5.7x28",
+   "dmg": 59,
+   "pen": 27,
+   "armor": 37,
+   "speed": 299,
+   "frag": 0.35,
+   "misfire": 0.14,
+   "ftf": 0.0775,
+   "recoilMod": -0.15,
+   "accMod": 0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 2,
+      "p": 507,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5cc80f79e4a949033c7343b2": {
+   "id": "5cc80f79e4a949033c7343b2",
+   "name": "SS198LF",
+   "full": "5.7x28毫米 SS198LF",
+   "cal": "Caliber57x28",
+   "calZh": "5.7x28",
+   "dmg": 70,
+   "pen": 17,
+   "armor": 19,
+   "speed": 792,
+   "frag": 0.8,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 1,
+      "p": 150,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5cc80f8fe4a949033b0224a2": {
+   "id": "5cc80f8fe4a949033b0224a2",
+   "name": "SS197SR",
+   "full": "5.7x28毫米 SS197SR",
+   "cal": "Caliber57x28",
+   "calZh": "5.7x28",
+   "dmg": 62,
+   "pen": 25,
+   "armor": 22,
+   "speed": 594,
+   "frag": 0.5,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 2,
+      "p": 281,
+      "task": false
+     }
+    ],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 2,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "5cc86832d7f00c000d3a6e6c": {
+   "id": "5cc86832d7f00c000d3a6e6c",
+   "name": "R37.F",
+   "full": "5.7x28毫米 R37.F",
+   "cal": "Caliber57x28",
+   "calZh": "5.7x28",
+   "dmg": 98,
+   "pen": 8,
+   "armor": 7,
+   "speed": 729,
+   "frag": 1,
+   "misfire": 0.196,
+   "ftf": 0.087,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 3,
+      "p": 419,
+      "task": true
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5cc86840d7f00c002412c56c": {
+   "id": "5cc86840d7f00c002412c56c",
+   "name": "R37.X",
+   "full": "5.7x28毫米 R37.X",
+   "cal": "Caliber57x28",
+   "calZh": "5.7x28",
+   "dmg": 81,
+   "pen": 11,
+   "armor": 9,
+   "speed": 724,
+   "frag": 0.7,
+   "misfire": 0.175,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": -0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 2,
+      "p": 275,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e6772a4b936088465b17c": {
+   "id": "5d6e6772a4b936088465b17c",
+   "name": "5.25 12c",
+   "full": "12/70 5.25毫米鹿弹",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 37,
+   "pen": 1,
+   "armor": 15,
+   "speed": 330,
+   "frag": 0,
+   "misfire": 0.266,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 46,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e67fba4b9361bc73bc779": {
+   "id": "5d6e67fba4b9361bc73bc779",
+   "name": "6.5 12c",
+   "full": "12/70 Express 6.5 毫米鹿弹",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 35,
+   "pen": 3,
+   "armor": 26,
+   "speed": 430,
+   "frag": 0,
+   "misfire": 0.224,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0.15,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 52,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e6806a4b936088465b17e": {
+   "id": "5d6e6806a4b936088465b17e",
+   "name": "8.5 12с",
+   "full": "12/70 Magnum 8.5 毫米鹿弹",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 50,
+   "pen": 2,
+   "armor": 26,
+   "speed": 385,
+   "frag": 0,
+   "misfire": 0.196,
+   "ftf": 0.01,
+   "recoilMod": 1.15,
+   "accMod": -0.15,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 3,
+      "p": 249,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e6869a4b9361c140bcfde": {
+   "id": "5d6e6869a4b9361c140bcfde",
+   "name": "Grizzly",
+   "full": "12/70 Grizzly 40独头弹",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 190,
+   "pen": 12,
+   "armor": 48,
+   "speed": 390,
+   "frag": 0.12,
+   "misfire": 0.224,
+   "ftf": 0.01,
+   "recoilMod": 0.2,
+   "accMod": 0.8,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 87,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e6891a4b9361bd473feea": {
+   "id": "5d6e6891a4b9361bd473feea",
+   "name": "P-3 12c",
+   "full": "12/70 Poleva-3 独头弹",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 140,
+   "pen": 17,
+   "armor": 40,
+   "speed": 410,
+   "frag": 0.2,
+   "misfire": 0.266,
+   "ftf": 0.01,
+   "recoilMod": -0.15,
+   "accMod": 1.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 67,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e689ca4b9361bc8618956": {
+   "id": "5d6e689ca4b9361bc8618956",
+   "name": "P-6u 12c",
+   "full": "12/70 Poleva-6U 独头弹",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 150,
+   "pen": 20,
+   "armor": 50,
+   "speed": 430,
+   "frag": 0.15,
+   "misfire": 0.224,
+   "ftf": 0.01,
+   "recoilMod": -0.1,
+   "accMod": 1.15,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 2,
+      "p": 90,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e68a8a4b9360b6c0d54e2": {
+   "id": "5d6e68a8a4b9360b6c0d54e2",
+   "name": "AP-20",
+   "full": "12/70 AP-20 穿甲独头弹",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 164,
+   "pen": 37,
+   "armor": 65,
+   "speed": 510,
+   "frag": 0.03,
+   "misfire": 0.21,
+   "ftf": 0.01,
+   "recoilMod": 0.5,
+   "accMod": 0.8,
+   "tier": "craft",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 3
+     }
+    ]
+   }
+  },
+  "5d6e68b3a4b9361bca7e50b5": {
+   "id": "5d6e68b3a4b9361bca7e50b5",
+   "name": "CSP",
+   "full": "12/70 Copper Sabot Premier 空尖独头弹",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 206,
+   "pen": 14,
+   "armor": 46,
+   "speed": 442,
+   "frag": 0.38,
+   "misfire": 0.154,
+   "ftf": 0.01,
+   "recoilMod": 0.1,
+   "accMod": 1.5,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 2,
+      "p": 108,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e68c4a4b9361b93413f79": {
+   "id": "5d6e68c4a4b9361b93413f79",
+   "name": ".50 BMG",
+   "full": "12/70 .50 BMG 简易独头弹",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 197,
+   "pen": 26,
+   "armor": 57,
+   "speed": 410,
+   "frag": 0.05,
+   "misfire": 0.336,
+   "ftf": 0.11,
+   "recoilMod": 0.25,
+   "accMod": 0.9,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 3,
+      "p": 524,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 2
+     }
+    ]
+   }
+  },
+  "5d6e68d1a4b93622fe60e845": {
+   "id": "5d6e68d1a4b93622fe60e845",
+   "name": "SF",
+   "full": "12/70 SuperFormance 空尖独头弹",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 220,
+   "pen": 5,
+   "armor": 12,
+   "speed": 594,
+   "frag": 0.39,
+   "misfire": 0.154,
+   "ftf": 0.01,
+   "recoilMod": -0.15,
+   "accMod": 1.7,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 2,
+      "p": 252,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e68dea4b9361bcc29e659": {
+   "id": "5d6e68dea4b9361bcc29e659",
+   "name": "2-Sabot",
+   "full": "12/70 Dual Sabot 独头弹",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 85,
+   "pen": 17,
+   "armor": 65,
+   "speed": 415,
+   "frag": 0.1,
+   "misfire": 0.196,
+   "ftf": 0.01,
+   "recoilMod": 0.15,
+   "accMod": 1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 90,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e68e6a4b9361c140bcfe0": {
+   "id": "5d6e68e6a4b9361c140bcfe0",
+   "name": "FTX",
+   "full": "12/70 FTX Custom Lite独头弹",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 183,
+   "pen": 20,
+   "armor": 50,
+   "speed": 480,
+   "frag": 0.1,
+   "misfire": 0.14,
+   "ftf": 0.01,
+   "recoilMod": -0.25,
+   "accMod": 1.35,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 2,
+      "p": 94,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e6911a4b9361bd5780d52": {
+   "id": "5d6e6911a4b9361bd5780d52",
+   "name": "箭形弹",
+   "full": "12/70 箭形弹",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 25,
+   "pen": 31,
+   "armor": 26,
+   "speed": 320,
+   "frag": 0,
+   "misfire": 0.21,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": -0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 3,
+      "p": 613,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 1
+     }
+    ]
+   }
+  },
+  "5d6e695fa4b936359b35d852": {
+   "id": "5d6e695fa4b936359b35d852",
+   "name": "5.6 20c",
+   "full": "20/70 5.6毫米鹿弹",
+   "cal": "Caliber20g",
+   "calZh": "20/70",
+   "dmg": 26,
+   "pen": 1,
+   "armor": 12,
+   "speed": 340,
+   "frag": 0,
+   "misfire": 0.266,
+   "ftf": 0.01,
+   "recoilMod": 0.1,
+   "accMod": -0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 27,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e69b9a4b9361bc8618958": {
+   "id": "5d6e69b9a4b9361bc8618958",
+   "name": "6.2 20k",
+   "full": "20/70 6.2毫米鹿弹",
+   "cal": "Caliber20g",
+   "calZh": "20/70",
+   "dmg": 22,
+   "pen": 2,
+   "armor": 13,
+   "speed": 410,
+   "frag": 0,
+   "misfire": 0.252,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 2,
+      "p": 40,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e69c7a4b9360b6c0d54e4": {
+   "id": "5d6e69c7a4b9360b6c0d54e4",
+   "name": "7.3 20c",
+   "full": "20/70 7.3毫米鹿弹",
+   "cal": "Caliber20g",
+   "calZh": "20/70",
+   "dmg": 23,
+   "pen": 3,
+   "armor": 13,
+   "speed": 475,
+   "frag": 0,
+   "misfire": 0.238,
+   "ftf": 0.01,
+   "recoilMod": 0.15,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 2,
+      "p": 50,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e6a05a4b93618084f58d0": {
+   "id": "5d6e6a05a4b93618084f58d0",
+   "name": "20/70独头弹",
+   "full": "20/70 Star独头弹",
+   "cal": "Caliber20g",
+   "calZh": "20/70",
+   "dmg": 154,
+   "pen": 16,
+   "armor": 42,
+   "speed": 415,
+   "frag": 0.1,
+   "misfire": 0.196,
+   "ftf": 0.01,
+   "recoilMod": 0.05,
+   "accMod": 1.3,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 3,
+      "p": 107,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e6a42a4b9364f07165f52": {
+   "id": "5d6e6a42a4b9364f07165f52",
+   "name": "P-6u 20c",
+   "full": "20/70 Poleva-6U 独头弹",
+   "cal": "Caliber20g",
+   "calZh": "20/70",
+   "dmg": 135,
+   "pen": 17,
+   "armor": 40,
+   "speed": 445,
+   "frag": 0.15,
+   "misfire": 0.224,
+   "ftf": 0.01,
+   "recoilMod": -0.1,
+   "accMod": 1.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 86,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e6a53a4b9361bd473feec": {
+   "id": "5d6e6a53a4b9361bd473feec",
+   "name": "P-3 20c",
+   "full": "20/70 Poleva-3 独头弹",
+   "cal": "Caliber20g",
+   "calZh": "20/70",
+   "dmg": 120,
+   "pen": 14,
+   "armor": 35,
+   "speed": 425,
+   "frag": 0.2,
+   "misfire": 0.266,
+   "ftf": 0.01,
+   "recoilMod": -0.15,
+   "accMod": 1.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 63,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5d6e6a5fa4b93614ec501745": {
+   "id": "5d6e6a5fa4b93614ec501745",
+   "name": "Dev.",
+   "full": "20/70 Devastator独头弹",
+   "cal": "Caliber20g",
+   "calZh": "20/70",
+   "dmg": 198,
+   "pen": 5,
+   "armor": 13,
+   "speed": 405,
+   "frag": 1,
+   "misfire": 0.224,
+   "ftf": 0.01,
+   "recoilMod": 0.3,
+   "accMod": 1.25,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 3,
+      "p": 236,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5e023cf8186a883be655e54f": {
+   "id": "5e023cf8186a883be655e54f",
+   "name": "T46M",
+   "full": "7.62x54R T-46M",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "dmg": 82,
+   "pen": 41,
+   "armor": 83,
+   "speed": 800,
+   "frag": 0.18,
+   "misfire": 0.154,
+   "ftf": 0.01,
+   "recoilMod": -0.05,
+   "accMod": -0.01,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 3,
+      "p": 606,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5e023d34e8a400319a28ed44": {
+   "id": "5e023d34e8a400319a28ed44",
+   "name": "7BT1",
+   "full": "7.62x54R 7BT1",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "dmg": 78,
+   "pen": 55,
+   "armor": 87,
+   "speed": 875,
+   "frag": 0.081,
+   "misfire": 0.182,
+   "ftf": 0.0917,
+   "recoilMod": -0.04,
+   "accMod": -0.02,
+   "tier": "barter",
+   "supply": {
+    "buy": [],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 4,
+      "task": false
+     }
+    ],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 3
+     }
+    ]
+   }
+  },
+  "5e023d48186a883be655e551": {
+   "id": "5e023d48186a883be655e551",
+   "name": "7N37",
+   "full": "7.62x54R 7N37",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "dmg": 72,
+   "pen": 70,
+   "armor": 88,
+   "speed": 785,
+   "frag": 0.083,
+   "misfire": 0.196,
+   "ftf": 0.0874,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5e023e53d4353e3302577c4c": {
+   "id": "5e023e53d4353e3302577c4c",
+   "name": "BPZ FMJ",
+   "full": "7.62x51毫米 BPZ FMJ",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "dmg": 83,
+   "pen": 37,
+   "armor": 56,
+   "speed": 840,
+   "frag": 0.2,
+   "misfire": 0.168,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 3,
+      "p": 315,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 2
+     }
+    ]
+   }
+  },
+  "5e023e6e34d52a55c3304f71": {
+   "id": "5e023e6e34d52a55c3304f71",
+   "name": "TCW SP",
+   "full": "7.62x51毫米 TCW SP",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "dmg": 85,
+   "pen": 30,
+   "armor": 25,
+   "speed": 800,
+   "frag": 0.35,
+   "misfire": 0.154,
+   "ftf": 0.02,
+   "recoilMod": -0.03,
+   "accMod": 0.2,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Skier",
+      "lv": 2,
+      "p": 245,
+      "task": false
+     }
+    ],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 2,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "5e023e88277cce2b522ff2b1": {
+   "id": "5e023e88277cce2b522ff2b1",
+   "name": "Ultra Nosler",
+   "full": "7.62x51毫米 Ultra Nosler",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "dmg": 105,
+   "pen": 15,
+   "armor": 40,
+   "speed": 800,
+   "frag": 0.7,
+   "misfire": 0.175,
+   "ftf": 0.01,
+   "recoilMod": -0.05,
+   "accMod": 0.35,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 181,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5e81f423763d9f754677bf2e": {
+   "id": "5e81f423763d9f754677bf2e",
+   "name": ".45 FMJ",
+   "full": ".45 ACP FMJ",
+   "cal": "Caliber1143x23ACP",
+   "calZh": ".45 ACP",
+   "dmg": 72,
+   "pen": 25,
+   "armor": 36,
+   "speed": 340,
+   "frag": 0.01,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 1,
+      "p": 177,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5e85a9a6eacf8c039e4e2ac1": {
+   "id": "5e85a9a6eacf8c039e4e2ac1",
+   "name": "破片-10",
+   "full": "23x75毫米“破片-10”霰弹",
+   "cal": "Caliber23x75",
+   "calZh": "23x75",
+   "dmg": 87,
+   "pen": 11,
+   "armor": 20,
+   "speed": 270,
+   "frag": 0,
+   "misfire": 0.175,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 150,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5e85a9f4add9fe03027d9bf1": {
+   "id": "5e85a9f4add9fe03027d9bf1",
+   "name": "红星",
+   "full": "23x75毫米“红星”闪光弹",
+   "cal": "Caliber23x75",
+   "calZh": "23x75",
+   "dmg": 0,
+   "pen": 0,
+   "armor": 0,
+   "speed": 80,
+   "frag": 0.3,
+   "misfire": 0.336,
+   "ftf": 0.01,
+   "recoilMod": 0.2,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 3,
+      "p": 4932,
+      "task": true
+     },
+     {
+      "t": "Skier",
+      "lv": 4,
+      "p": 5645,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 3
+     }
+    ]
+   }
+  },
+  "5e85aa1a988a8701445df1f5": {
+   "id": "5e85aa1a988a8701445df1f5",
+   "name": "破障",
+   "full": "23x75毫米破障独头弹",
+   "cal": "Caliber23x75",
+   "calZh": "23x75",
+   "dmg": 192,
+   "pen": 39,
+   "armor": 75,
+   "speed": 420,
+   "frag": 0.2,
+   "misfire": 0.175,
+   "ftf": 0.01,
+   "recoilMod": 0.25,
+   "accMod": -0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 3,
+      "p": 349,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5ea2a8e200685063ec28c05a": {
+   "id": "5ea2a8e200685063ec28c05a",
+   "name": ".45 RIP",
+   "full": ".45 RIP",
+   "cal": "Caliber1143x23ACP",
+   "calZh": ".45 ACP",
+   "dmg": 130,
+   "pen": 3,
+   "armor": 12,
+   "speed": 293,
+   "frag": 1,
+   "misfire": 0.196,
+   "ftf": 0.111,
+   "recoilMod": 0,
+   "accMod": -0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 4,
+      "p": 525,
+      "task": true
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5ede4739e0350d05467f73e8": {
+   "id": "5ede4739e0350d05467f73e8",
+   "name": "M406",
+   "full": "40x46毫米 M406(HE)",
+   "cal": "Caliber40x46",
+   "calZh": "40x46",
+   "dmg": 199,
+   "pen": 1,
+   "armor": 95,
+   "speed": 76,
+   "frag": 0,
+   "misfire": 0.175,
+   "ftf": 0,
+   "recoilMod": -0.1,
+   "accMod": 0.15,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5ede47405b097655935d7d16": {
+   "id": "5ede47405b097655935d7d16",
+   "name": "M441",
+   "full": "40x46毫米 M441(HE)",
+   "cal": "Caliber40x46",
+   "calZh": "40x46",
+   "dmg": 199,
+   "pen": 1,
+   "armor": 95,
+   "speed": 76,
+   "frag": 0,
+   "misfire": 0.175,
+   "ftf": 0,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5ede474b0c226a66f5402622": {
+   "id": "5ede474b0c226a66f5402622",
+   "name": "M381",
+   "full": "40x46毫米 M381(HE)",
+   "cal": "Caliber40x46",
+   "calZh": "40x46",
+   "dmg": 199,
+   "pen": 1,
+   "armor": 95,
+   "speed": 76,
+   "frag": 0,
+   "misfire": 0.175,
+   "ftf": 0,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5ede475339ee016e8c534742": {
+   "id": "5ede475339ee016e8c534742",
+   "name": "M576",
+   "full": "40x46毫米 M576(MP-APERS)",
+   "cal": "Caliber40x46",
+   "calZh": "40x46",
+   "dmg": 160,
+   "pen": 5,
+   "armor": 95,
+   "speed": 269,
+   "frag": 0,
+   "misfire": 0.175,
+   "ftf": 0,
+   "recoilMod": 0,
+   "accMod": 1,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5ede475b549eed7c6d5c18fb": {
+   "id": "5ede475b549eed7c6d5c18fb",
+   "name": "M386",
+   "full": "40x46毫米 M386(HE)",
+   "cal": "Caliber40x46",
+   "calZh": "40x46",
+   "dmg": 199,
+   "pen": 1,
+   "armor": 95,
+   "speed": 76,
+   "frag": 0,
+   "misfire": 0.175,
+   "ftf": 0,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 3,
+      "p": 52500,
+      "task": true
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5efb0c1bd79ff02a1f5e68d9": {
+   "id": "5efb0c1bd79ff02a1f5e68d9",
+   "name": "M993",
+   "full": "7.62x51毫米 M993",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "dmg": 70,
+   "pen": 65,
+   "armor": 85,
+   "speed": 930,
+   "frag": 0.13,
+   "misfire": 0.175,
+   "ftf": 0.081,
+   "recoilMod": 0.06,
+   "accMod": 0.15,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5efb0cabfb3e451d70735af5": {
+   "id": "5efb0cabfb3e451d70735af5",
+   "name": ".45 AP",
+   "full": ".45 ACP AP",
+   "cal": "Caliber1143x23ACP",
+   "calZh": ".45 ACP",
+   "dmg": 66,
+   "pen": 38,
+   "armor": 48,
+   "speed": 299,
+   "frag": 0.01,
+   "misfire": 0.175,
+   "ftf": 0.091,
+   "recoilMod": 0.07,
+   "accMod": -0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 4,
+      "p": 1634,
+      "task": false
+     }
+    ],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 4,
+      "task": false
+     }
+    ],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 3
+     }
+    ]
+   }
+  },
+  "5efb0d4f4bc50b58e81710f3": {
+   "id": "5efb0d4f4bc50b58e81710f3",
+   "name": ".45LM",
+   "full": ".45 ACP Lasermatch FMJ",
+   "cal": "Caliber1143x23ACP",
+   "calZh": ".45 ACP",
+   "dmg": 76,
+   "pen": 19,
+   "armor": 37,
+   "speed": 290,
+   "frag": 0.01,
+   "misfire": 0.14,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": 0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 1,
+      "p": 99,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5efb0da7a29a85116f6ea05f": {
+   "id": "5efb0da7a29a85116f6ea05f",
+   "name": "7N31",
+   "full": "9x19毫米 7N31",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "dmg": 44,
+   "pen": 39,
+   "armor": 55,
+   "speed": 560,
+   "frag": 0.05,
+   "misfire": 0.21,
+   "ftf": 0.077,
+   "recoilMod": 0.05,
+   "accMod": 0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 4,
+      "p": 1251,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5efb0e16aeb21837e749c7ff": {
+   "id": "5efb0e16aeb21837e749c7ff",
+   "name": "QuakeMaker",
+   "full": "9x19毫米 QuakeMaker",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "dmg": 85,
+   "pen": 8,
+   "armor": 22,
+   "speed": 290,
+   "frag": 0.1,
+   "misfire": 0.126,
+   "ftf": 0.093,
+   "recoilMod": 0.1,
+   "accMod": 0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 4,
+      "p": 563,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5efb0fc6aeb21837e749c801": {
+   "id": "5efb0fc6aeb21837e749c801",
+   "name": ".45 HS",
+   "full": ".45 ACP Hydra-Shok",
+   "cal": "Caliber1143x23ACP",
+   "calZh": ".45 ACP",
+   "dmg": 100,
+   "pen": 13,
+   "armor": 30,
+   "speed": 274,
+   "frag": 0.5,
+   "misfire": 0.175,
+   "ftf": 0.096,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 2,
+      "p": 281,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5f0596629e22f464da6bbdd9": {
+   "id": "5f0596629e22f464da6bbdd9",
+   "name": "366 AP",
+   "full": ".366 AP",
+   "cal": "Caliber366TKM",
+   "calZh": ".366 TKM",
+   "dmg": 90,
+   "pen": 42,
+   "armor": 60,
+   "speed": 602,
+   "frag": 0.01,
+   "misfire": 0.224,
+   "ftf": 0.102,
+   "recoilMod": 0.35,
+   "accMod": -0.22,
+   "tier": "craft",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 1
+     }
+    ]
+   }
+  },
+  "5f0c892565703e5c461894e9": {
+   "id": "5f0c892565703e5c461894e9",
+   "name": "M433",
+   "full": "40x46毫米 M433 (HEDP)",
+   "cal": "Caliber40x46",
+   "calZh": "40x46",
+   "dmg": 199,
+   "pen": 1,
+   "armor": 95,
+   "speed": 76,
+   "frag": 0,
+   "misfire": 0.175,
+   "ftf": 0,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5f647f31b6238e5dd066e196": {
+   "id": "5f647f31b6238e5dd066e196",
+   "name": "破片-25",
+   "full": "23x75 毫米“破片-25”霰弹",
+   "cal": "Caliber23x75",
+   "calZh": "23x75",
+   "dmg": 78,
+   "pen": 10,
+   "armor": 20,
+   "speed": 375,
+   "frag": 0,
+   "misfire": 0.175,
+   "ftf": 0.01,
+   "recoilMod": 0.1,
+   "accMod": 0.2,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 3,
+      "p": 172,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5fbe3ffdf8b6a877a729ea82": {
+   "id": "5fbe3ffdf8b6a877a729ea82",
+   "name": "BPZ",
+   "full": ".300 Blackout BPZ FMJ",
+   "cal": "Caliber762x35",
+   "calZh": ".300 BLK",
+   "dmg": 60,
+   "pen": 30,
+   "armor": 36,
+   "speed": 605,
+   "frag": 0.3,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Skier",
+      "lv": 3,
+      "p": 415,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5fc275cf85fd526b824a571a": {
+   "id": "5fc275cf85fd526b824a571a",
+   "name": "FMJ",
+   "full": ".338 Lapua Magnum FMJ",
+   "cal": "Caliber86x70",
+   "calZh": ".338 LM",
+   "dmg": 122,
+   "pen": 47,
+   "armor": 83,
+   "speed": 900,
+   "frag": 0.2,
+   "misfire": 0.175,
+   "ftf": 0.091,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 4,
+      "p": 2830,
+      "task": false
+     }
+    ],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 4,
+      "task": false
+     },
+     {
+      "t": "Skier",
+      "lv": 4,
+      "task": false
+     }
+    ],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 3
+     }
+    ]
+   }
+  },
+  "5fc382a9d724d907e2077dab": {
+   "id": "5fc382a9d724d907e2077dab",
+   "name": "AP",
+   "full": ".338 Lapua Magnum AP",
+   "cal": "Caliber86x70",
+   "calZh": ".338 LM",
+   "dmg": 115,
+   "pen": 79,
+   "armor": 89,
+   "speed": 849,
+   "frag": 0.13,
+   "misfire": 0.175,
+   "ftf": 0.087,
+   "recoilMod": 0.1,
+   "accMod": 0,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5fc382b6d6fa9c00c571bbc3": {
+   "id": "5fc382b6d6fa9c00c571bbc3",
+   "name": "TAC-X",
+   "full": ".338 Lapua Magnum TAC-X",
+   "cal": "Caliber86x70",
+   "calZh": ".338 LM",
+   "dmg": 196,
+   "pen": 18,
+   "armor": 55,
+   "speed": 880,
+   "frag": 0.5,
+   "misfire": 0.21,
+   "ftf": 0.0891,
+   "recoilMod": -0.05,
+   "accMod": 0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 2,
+      "p": 891,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5fc382c1016cce60e8341b20": {
+   "id": "5fc382c1016cce60e8341b20",
+   "name": "UCW",
+   "full": ".338 Lapua Magnum UCW",
+   "cal": "Caliber86x70",
+   "calZh": ".338 LM",
+   "dmg": 142,
+   "pen": 32,
+   "armor": 70,
+   "speed": 849,
+   "frag": 0.6,
+   "misfire": 0.224,
+   "ftf": 0.0945,
+   "recoilMod": 0,
+   "accMod": -0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 3,
+      "p": 1088,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "5fd20ff893a8961fc660a954": {
+   "id": "5fd20ff893a8961fc660a954",
+   "name": "AP",
+   "full": ".300 Blackout AP",
+   "cal": "Caliber762x35",
+   "calZh": ".300 BLK",
+   "dmg": 51,
+   "pen": 48,
+   "armor": 65,
+   "speed": 635,
+   "frag": 0.1,
+   "misfire": 0.196,
+   "ftf": 0.086,
+   "recoilMod": 0.03,
+   "accMod": 0,
+   "tier": "craft",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 3
+     }
+    ]
+   }
+  },
+  "60194943740c5d77f6705eea": {
+   "id": "60194943740c5d77f6705eea",
+   "name": "SOST",
+   "full": "5.56x45毫米 Mk 318 Mod 0 (SOST)",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "dmg": 53,
+   "pen": 33,
+   "armor": 39,
+   "speed": 902,
+   "frag": 0.35,
+   "misfire": 0.154,
+   "ftf": 0.01,
+   "recoilMod": 0.03,
+   "accMod": 0.02,
+   "tier": "barter",
+   "supply": {
+    "buy": [],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 2,
+      "task": false
+     }
+    ],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 2
+     }
+    ]
+   }
+  },
+  "601949593ae8f707c4608daa": {
+   "id": "601949593ae8f707c4608daa",
+   "name": "SSA AP",
+   "full": "5.56x45毫米 SSA AP",
+   "cal": "Caliber556x45NATO",
+   "calZh": "5.56x45",
+   "dmg": 38,
+   "pen": 57,
+   "armor": 58,
+   "speed": 1013,
+   "frag": 0.3,
+   "misfire": 0.196,
+   "ftf": 0.111,
+   "recoilMod": 0.06,
+   "accMod": -0.09,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "601aa3d2b2bcb34913271e6d": {
+   "id": "601aa3d2b2bcb34913271e6d",
+   "name": "MAI AP",
+   "full": "7.62x39毫米 MAI AP",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "dmg": 53,
+   "pen": 58,
+   "armor": 76,
+   "speed": 875,
+   "frag": 0.05,
+   "misfire": 0.196,
+   "ftf": 0.102,
+   "recoilMod": 0.1,
+   "accMod": -0.05,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "61962b617c6c7b169525f168": {
+   "id": "61962b617c6c7b169525f168",
+   "name": "7N40",
+   "full": "5.45x39毫米 7N40",
+   "cal": "Caliber545x39",
+   "calZh": "5.45x39",
+   "dmg": 55,
+   "pen": 42,
+   "armor": 45,
+   "speed": 915,
+   "frag": 0.02,
+   "misfire": 0.175,
+   "ftf": 0.059,
+   "recoilMod": -0.1,
+   "accMod": 0.5,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 4,
+      "p": 1224,
+      "task": true
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "61962d879bb3d20b0946d385": {
+   "id": "61962d879bb3d20b0946d385",
+   "name": "PAB-9",
+   "full": "9x39毫米 PAB-9",
+   "cal": "Caliber9x39",
+   "calZh": "9x39",
+   "dmg": 62,
+   "pen": 43,
+   "armor": 57,
+   "speed": 320,
+   "frag": 0.1,
+   "misfire": 0.196,
+   "ftf": 0.073,
+   "recoilMod": 0.1,
+   "accMod": -0.15,
+   "tier": "craft",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 2
+     }
+    ]
+   }
+  },
+  "6196364158ef8c428c287d9f": {
+   "id": "6196364158ef8c428c287d9f",
+   "name": "V-Max",
+   "full": ".300 Blackout V-Max",
+   "cal": "Caliber762x35",
+   "calZh": ".300 BLK",
+   "dmg": 72,
+   "pen": 20,
+   "armor": 25,
+   "speed": 723,
+   "frag": 0.25,
+   "misfire": 0.175,
+   "ftf": 0.075,
+   "recoilMod": -0.1,
+   "accMod": 0.3,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Skier",
+      "lv": 2,
+      "p": 231,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "6196365d58ef8c428c287da1": {
+   "id": "6196365d58ef8c428c287da1",
+   "name": "Whisper",
+   "full": ".300 Whisper",
+   "cal": "Caliber762x35",
+   "calZh": ".300 BLK",
+   "dmg": 90,
+   "pen": 14,
+   "armor": 18,
+   "speed": 853,
+   "frag": 0.35,
+   "misfire": 0.175,
+   "ftf": 0.042,
+   "recoilMod": -0.05,
+   "accMod": 0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 160,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "619636be6db0f2477964e710": {
+   "id": "619636be6db0f2477964e710",
+   "name": "M62",
+   "full": ".300 Blackout M62 曳光弹",
+   "cal": "Caliber762x35",
+   "calZh": ".300 BLK",
+   "dmg": 54,
+   "pen": 36,
+   "armor": 40,
+   "speed": 442,
+   "frag": 0.2,
+   "misfire": 0.175,
+   "ftf": 0.055,
+   "recoilMod": 0.01,
+   "accMod": 0,
+   "tier": "craft",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 2
+     }
+    ]
+   }
+  },
+  "62330b3ed4dc74626d570b95": {
+   "id": "62330b3ed4dc74626d570b95",
+   "name": "FMJ",
+   "full": ".357 Magnum FMJ",
+   "cal": "Caliber9x33R",
+   "calZh": ".357 Magnum",
+   "dmg": 70,
+   "pen": 35,
+   "armor": 43,
+   "speed": 385,
+   "frag": 0.01,
+   "misfire": 0.18,
+   "ftf": 0.102,
+   "recoilMod": 0.12,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 2,
+      "p": 187,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "62330bfadc5883093563729b": {
+   "id": "62330bfadc5883093563729b",
+   "name": "HP",
+   "full": ".357 Magnum Hollow Point",
+   "cal": "Caliber9x33R",
+   "calZh": ".357 Magnum",
+   "dmg": 99,
+   "pen": 18,
+   "armor": 20,
+   "speed": 481,
+   "frag": 0.6,
+   "misfire": 0.224,
+   "ftf": 0.128,
+   "recoilMod": 0.15,
+   "accMod": 0.15,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 160,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "62330c18744e5e31df12f516": {
+   "id": "62330c18744e5e31df12f516",
+   "name": "JHP",
+   "full": ".357 Magnum JHP",
+   "cal": "Caliber9x33R",
+   "calZh": ".357 Magnum",
+   "dmg": 88,
+   "pen": 24,
+   "armor": 28,
+   "speed": 425,
+   "frag": 0.6,
+   "misfire": 0.15,
+   "ftf": 0.102,
+   "recoilMod": 0.08,
+   "accMod": 0.15,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 2,
+      "p": 244,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "62330c40bdd19b369e1e53d1": {
+   "id": "62330c40bdd19b369e1e53d1",
+   "name": "SP",
+   "full": ".357 Magnum Soft Point",
+   "cal": "Caliber9x33R",
+   "calZh": ".357 Magnum",
+   "dmg": 108,
+   "pen": 12,
+   "armor": 15,
+   "speed": 455,
+   "frag": 0.2,
+   "misfire": 0.18,
+   "ftf": 0.102,
+   "recoilMod": -0.29,
+   "accMod": 0.27,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 131,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "62389aaba63f32501b1b444f": {
+   "id": "62389aaba63f32501b1b444f",
+   "name": "绿色信号弹",
+   "full": "26x75 毫米照明信号弹（绿色）",
+   "cal": "Caliber26x75",
+   "calZh": "26x75",
+   "dmg": 37,
+   "pen": 0,
+   "armor": 60,
+   "speed": 80,
+   "frag": 0,
+   "misfire": 0,
+   "ftf": 0,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "barter",
+   "supply": {
+    "buy": [],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 1,
+      "task": false
+     },
+     {
+      "t": "Jaeger",
+      "lv": 2,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "62389ba9a63f32501b1b4451": {
+   "id": "62389ba9a63f32501b1b4451",
+   "name": "红色信号弹",
+   "full": "26x75 毫米照明信号弹（红色）",
+   "cal": "Caliber26x75",
+   "calZh": "26x75",
+   "dmg": 37,
+   "pen": 0,
+   "armor": 60,
+   "speed": 80,
+   "frag": 0,
+   "misfire": 0,
+   "ftf": 0,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "barter",
+   "supply": {
+    "buy": [],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 3,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "62389bc9423ed1685422dc57": {
+   "id": "62389bc9423ed1685422dc57",
+   "name": "照明信号弹",
+   "full": "26x75 毫米照明信号弹（白色）",
+   "cal": "Caliber26x75",
+   "calZh": "26x75",
+   "dmg": 37,
+   "pen": 0,
+   "armor": 60,
+   "speed": 80,
+   "frag": 0,
+   "misfire": 0,
+   "ftf": 0,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "62389be94d5d474bf712e709": {
+   "id": "62389be94d5d474bf712e709",
+   "name": "黄色信号弹",
+   "full": "26x75燃烧照明信号弹（黄色）",
+   "cal": "Caliber26x75",
+   "calZh": "26x75",
+   "dmg": 37,
+   "pen": 0,
+   "armor": 60,
+   "speed": 80,
+   "frag": 0,
+   "misfire": 0,
+   "ftf": 0,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 4212,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "635267f063651329f75a4ee8": {
+   "id": "635267f063651329f75a4ee8",
+   "name": "酸绿",
+   "full": "26x75 毫米照明信号弹（酸绿）",
+   "cal": "Caliber26x75",
+   "calZh": "26x75",
+   "dmg": 37,
+   "pen": 0,
+   "armor": 60,
+   "speed": 80,
+   "frag": 0,
+   "misfire": 0,
+   "ftf": 0,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "64b6979341772715af0f9c39": {
+   "id": "64b6979341772715af0f9c39",
+   "name": "JSP SX",
+   "full": "4.6x30毫米 JSP SX",
+   "cal": "Caliber46x30",
+   "calZh": "4.6x30",
+   "dmg": 46,
+   "pen": 32,
+   "armor": 37,
+   "speed": 579,
+   "frag": 0.3,
+   "misfire": 0.175,
+   "ftf": 0.089,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 3,
+      "p": 350,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "64b7af434b75259c590fa893": {
+   "id": "64b7af434b75259c590fa893",
+   "name": "PP",
+   "full": "7.62x39毫米 PP",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "dmg": 59,
+   "pen": 41,
+   "armor": 57,
+   "speed": 732,
+   "frag": 0.15,
+   "misfire": 0.184,
+   "ftf": 0.02,
+   "recoilMod": 0.05,
+   "accMod": -0.01,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 4,
+      "p": 1256,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "64b7af5a8532cf95ee0a0dbd": {
+   "id": "64b7af5a8532cf95ee0a0dbd",
+   "name": "FMJ",
+   "full": "7.62x39毫米 FMJ",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "dmg": 63,
+   "pen": 26,
+   "armor": 33,
+   "speed": 775,
+   "frag": 0.3,
+   "misfire": 0.154,
+   "ftf": 0.02,
+   "recoilMod": -0.02,
+   "accMod": 0.02,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 1,
+      "p": 126,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 1
+     }
+    ]
+   }
+  },
+  "64b7af734b75259c590fa895": {
+   "id": "64b7af734b75259c590fa895",
+   "name": "SP",
+   "full": "7.62x39毫米 SP",
+   "cal": "Caliber762x39",
+   "calZh": "7.62x39",
+   "dmg": 68,
+   "pen": 20,
+   "armor": 27,
+   "speed": 772,
+   "frag": 0.35,
+   "misfire": 0.154,
+   "ftf": 0.02,
+   "recoilMod": -0.05,
+   "accMod": 0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Skier",
+      "lv": 1,
+      "p": 146,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "64b7bbb74b75259c590fa897": {
+   "id": "64b7bbb74b75259c590fa897",
+   "name": "M882",
+   "full": "9x19毫米 FMJ M882",
+   "cal": "Caliber9x19PARA",
+   "calZh": "9x19",
+   "dmg": 56,
+   "pen": 18,
+   "armor": 35,
+   "speed": 385,
+   "frag": 0.2,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 1,
+      "p": 224,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "64b8725c4b75259c590fa899": {
+   "id": "64b8725c4b75259c590fa899",
+   "name": "CBJ",
+   "full": ".300 Blackout CBJ",
+   "cal": "Caliber762x35",
+   "calZh": ".300 BLK",
+   "dmg": 58,
+   "pen": 43,
+   "armor": 57,
+   "speed": 725,
+   "frag": 0.15,
+   "misfire": 0.196,
+   "ftf": 0.02,
+   "recoilMod": 0.05,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 4,
+      "p": 1548,
+      "task": false
+     }
+    ],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 3,
+      "task": false
+     },
+     {
+      "t": "Mechanic",
+      "lv": 3,
+      "task": true
+     }
+    ],
+    "craft": []
+   }
+  },
+  "64b8ee384b75259c590fa89b": {
+   "id": "64b8ee384b75259c590fa89b",
+   "name": "食人鱼",
+   "full": "12/70 “食人鱼”",
+   "cal": "Caliber12g",
+   "calZh": "12/70",
+   "dmg": 25,
+   "pen": 24,
+   "armor": 22,
+   "speed": 310,
+   "frag": 0,
+   "misfire": 0.175,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": -0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 2,
+      "p": 289,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 1
+     }
+    ]
+   }
+  },
+  "64b8f7968532cf95ee0a0dbf": {
+   "id": "64b8f7968532cf95ee0a0dbf",
+   "name": "FMJ",
+   "full": "7.62x54R FMJ",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "dmg": 84,
+   "pen": 36,
+   "armor": 63,
+   "speed": 760,
+   "frag": 0.2,
+   "misfire": 0.168,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 2,
+      "p": 368,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "64b8f7b5389d7ffd620ccba2": {
+   "id": "64b8f7b5389d7ffd620ccba2",
+   "name": "SP BT",
+   "full": "7.62x54R SP BT",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "dmg": 92,
+   "pen": 31,
+   "armor": 56,
+   "speed": 703,
+   "frag": 0.24,
+   "misfire": 0.168,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0.07,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Skier",
+      "lv": 1,
+      "p": 350,
+      "task": true
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "64b8f7c241772715af0f9c3d": {
+   "id": "64b8f7c241772715af0f9c3d",
+   "name": "HP BT",
+   "full": "7.62x54R HP BT",
+   "cal": "Caliber762x54R",
+   "calZh": "7.62x54R",
+   "dmg": 102,
+   "pen": 26,
+   "armor": 37,
+   "speed": 807,
+   "frag": 0.4,
+   "misfire": 0.168,
+   "ftf": 0.02,
+   "recoilMod": 0,
+   "accMod": 0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 249,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "6529243824cbe3c74a05e5c1": {
+   "id": "6529243824cbe3c74a05e5c1",
+   "name": "Hybrid",
+   "full": "6.8x51毫米 SIG Hybrid",
+   "cal": "Caliber68x51",
+   "calZh": "6.8x51",
+   "dmg": 72,
+   "pen": 47,
+   "armor": 58,
+   "speed": 914,
+   "frag": 0.12,
+   "misfire": 0.168,
+   "ftf": 0.02,
+   "recoilMod": 0.1,
+   "accMod": 0.03,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 4,
+      "p": 3581,
+      "task": true
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "6529302b8c26af6326029fb7": {
+   "id": "6529302b8c26af6326029fb7",
+   "name": "FMJ",
+   "full": "6.8x51毫米 SIG FMJ",
+   "cal": "Caliber68x51",
+   "calZh": "6.8x51",
+   "dmg": 80,
+   "pen": 36,
+   "armor": 49,
+   "speed": 899,
+   "frag": 0.18,
+   "misfire": 0.175,
+   "ftf": 0.09,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 3,
+      "p": 992,
+      "task": false
+     }
+    ],
+    "barter": [
+     {
+      "t": "Ref（竞技场裁判）",
+      "lv": 4,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "6576f4708ca9c4381d16cd9d": {
+   "id": "6576f4708ca9c4381d16cd9d",
+   "name": "7N42",
+   "full": "9x21毫米 7N42“凿刀”穿甲手枪弹",
+   "cal": "Caliber9x21",
+   "calZh": "9x21",
+   "dmg": 49,
+   "pen": 38,
+   "armor": 47,
+   "speed": 400,
+   "frag": 0.1,
+   "misfire": 0.14,
+   "ftf": 0.094,
+   "recoilMod": 0.1,
+   "accMod": -0.03,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 4,
+      "p": 544,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "6576f93989f0062e741ba952": {
+   "id": "6576f93989f0062e741ba952",
+   "name": "7U4",
+   "full": "9x21毫米 7U4",
+   "cal": "Caliber9x21",
+   "calZh": "9x21",
+   "dmg": 53,
+   "pen": 27,
+   "armor": 44,
+   "speed": 300,
+   "frag": 0.25,
+   "misfire": 0.14,
+   "ftf": 0.094,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 3,
+      "p": 372,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "6576f96220d53a5b8f3e395e": {
+   "id": "6576f96220d53a5b8f3e395e",
+   "name": "FMJ",
+   "full": "9x39毫米 FMJ",
+   "cal": "Caliber9x39",
+   "calZh": "9x39",
+   "dmg": 75,
+   "pen": 17,
+   "armor": 28,
+   "speed": 330,
+   "frag": 0.3,
+   "misfire": 0.196,
+   "ftf": 0.0871,
+   "recoilMod": -0.05,
+   "accMod": 0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 184,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "660137d8481cc6907a0c5cda": {
+   "id": "660137d8481cc6907a0c5cda",
+   "name": "TSS AP",
+   "full": "20/70 TSS 穿甲独头弹",
+   "cal": "Caliber20g",
+   "calZh": "20/70",
+   "dmg": 155,
+   "pen": 30,
+   "armor": 54,
+   "speed": 482,
+   "frag": 0.02,
+   "misfire": 0.224,
+   "ftf": 0.01,
+   "recoilMod": 0.48,
+   "accMod": 0.64,
+   "tier": "barter",
+   "supply": {
+    "buy": [],
+    "barter": [
+     {
+      "t": "Jaeger",
+      "lv": 3,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "660137ef76c1b56143052be8": {
+   "id": "660137ef76c1b56143052be8",
+   "name": "DGS",
+   "full": "20/70“危险猎物”独头弹 (DGS)",
+   "cal": "Caliber20g",
+   "calZh": "20/70",
+   "dmg": 143,
+   "pen": 25,
+   "armor": 47,
+   "speed": 476,
+   "frag": 0.03,
+   "misfire": 0.224,
+   "ftf": 0.01,
+   "recoilMod": 0.4,
+   "accMod": 0.6,
+   "tier": "barter",
+   "supply": {
+    "buy": [],
+    "barter": [
+     {
+      "t": "Jaeger",
+      "lv": 2,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "6601380580e77cfd080e3418": {
+   "id": "6601380580e77cfd080e3418",
+   "name": "箭形弹 20c",
+   "full": "20/70 箭形弹",
+   "cal": "Caliber20g",
+   "calZh": "20/70",
+   "dmg": 20,
+   "pen": 24,
+   "armor": 24,
+   "speed": 400,
+   "frag": 0,
+   "misfire": 0.266,
+   "ftf": 0.01,
+   "recoilMod": 0,
+   "accMod": -0.1,
+   "tier": "barter",
+   "supply": {
+    "buy": [],
+    "barter": [
+     {
+      "t": "Jaeger",
+      "lv": 3,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "6601546f86889319850bd566": {
+   "id": "6601546f86889319850bd566",
+   "name": "塑料片",
+   "full": "20x1毫米塑料片",
+   "cal": "Caliber20x1mm",
+   "calZh": "20x1mm",
+   "dmg": 1,
+   "pen": 0,
+   "armor": 0,
+   "speed": 20,
+   "frag": 0,
+   "misfire": 0,
+   "ftf": 0,
+   "recoilMod": 0.01,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 1,
+      "p": 2,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "668fe62ac62660a5d8071446": {
+   "id": "668fe62ac62660a5d8071446",
+   "name": "FMJ",
+   "full": ".50 AE FMJ",
+   "cal": "Caliber127x33",
+   "calZh": ".50 AE",
+   "dmg": 85,
+   "pen": 40,
+   "armor": 50,
+   "speed": 440,
+   "frag": 0.01,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0.1,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 3,
+      "p": 1030,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "66a0d1c87d0d369e270bb9de": {
+   "id": "66a0d1c87d0d369e270bb9de",
+   "name": "JHP",
+   "full": ".50 AE JHP",
+   "cal": "Caliber127x33",
+   "calZh": ".50 AE",
+   "dmg": 147,
+   "pen": 12,
+   "armor": 23,
+   "speed": 440,
+   "frag": 0.7,
+   "misfire": 0.175,
+   "ftf": 0.111,
+   "recoilMod": 0.05,
+   "accMod": -0.1,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 2,
+      "p": 280,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "66a0d1e0ed648d72fe064d06": {
+   "id": "66a0d1e0ed648d72fe064d06",
+   "name": "铜弹",
+   "full": ".50 AE实心铜弹",
+   "cal": "Caliber127x33",
+   "calZh": ".50 AE",
+   "dmg": 94,
+   "pen": 33,
+   "armor": 56,
+   "speed": 460,
+   "frag": 0.3,
+   "misfire": 0.175,
+   "ftf": 0.096,
+   "recoilMod": 0.08,
+   "accMod": 0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 2,
+      "p": 544,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "66a0d1f88486c69fce00fdf6": {
+   "id": "66a0d1f88486c69fce00fdf6",
+   "name": "Hawk JSP",
+   "full": ".50 AE Hawk JSP",
+   "cal": "Caliber127x33",
+   "calZh": ".50 AE",
+   "dmg": 122,
+   "pen": 26,
+   "armor": 28,
+   "speed": 465,
+   "frag": 0.3,
+   "misfire": 0.175,
+   "ftf": 0.08,
+   "recoilMod": 0.02,
+   "accMod": -0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 1,
+      "p": 231,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "66d97834d2985e11480d5c1e": {
+   "id": "66d97834d2985e11480d5c1e",
+   "name": "信号弹（蓝）",
+   "full": "信号弹（蓝）",
+   "cal": "Caliber26x75",
+   "calZh": "26x75",
+   "dmg": 40,
+   "pen": 0,
+   "armor": 60,
+   "speed": 80,
+   "frag": 0,
+   "misfire": 0,
+   "ftf": 0,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "675ea4891b2579e8fe0250aa": {
+   "id": "675ea4891b2579e8fe0250aa",
+   "name": "信号弹（新年）",
+   "full": "信号弹（新年）",
+   "cal": "Caliber26x75",
+   "calZh": "26x75",
+   "dmg": 40,
+   "pen": 0,
+   "armor": 60,
+   "speed": 80,
+   "frag": 0,
+   "misfire": 0,
+   "ftf": 0,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "6768c25aa7b238f14a08d3f6": {
+   "id": "6768c25aa7b238f14a08d3f6",
+   "name": "M80A1",
+   "full": "7.62x51毫米 M80A1",
+   "cal": "Caliber762x51",
+   "calZh": "7.62x51",
+   "dmg": 75,
+   "pen": 55,
+   "armor": 74,
+   "speed": 929,
+   "frag": 0.13,
+   "misfire": 0.175,
+   "ftf": 0.0935,
+   "recoilMod": 0.04,
+   "accMod": -0.05,
+   "tier": "craft",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": [
+     {
+      "st": "工作台",
+      "lv": 3
+     }
+    ]
+   }
+  },
+  "67c540c3d0538d12ec036c08": {
+   "id": "67c540c3d0538d12ec036c08",
+   "name": "ME",
+   "full": ".308 ME",
+   "cal": "Caliber784x49",
+   "calZh": "7.84x49",
+   "dmg": 80,
+   "pen": 42,
+   "armor": 78,
+   "speed": 838,
+   "frag": 0.1,
+   "misfire": 0.1834,
+   "ftf": 0.0935,
+   "recoilMod": 0.03,
+   "accMod": -0.02,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 3,
+      "p": 654,
+      "task": false
+     }
+    ],
+    "barter": [
+     {
+      "t": "Mechanic",
+      "lv": 2,
+      "task": false
+     }
+    ],
+    "craft": []
+   }
+  },
+  "67c540cfb032bbdb530201b8": {
+   "id": "67c540cfb032bbdb530201b8",
+   "name": "LOKT",
+   "full": ".308 ME LOKT",
+   "cal": "Caliber784x49",
+   "calZh": "7.84x49",
+   "dmg": 96,
+   "pen": 24,
+   "armor": 55,
+   "speed": 838,
+   "frag": 0.35,
+   "misfire": 0.1834,
+   "ftf": 0.09,
+   "recoilMod": -0.03,
+   "accMod": -0.02,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Jaeger",
+      "lv": 2,
+      "p": 248,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "67d41936f378a36c4706eeb9": {
+   "id": "67d41936f378a36c4706eeb9",
+   "name": "HP",
+   "full": ".50 BMG HP",
+   "cal": "Caliber127x99",
+   "calZh": ".50 BMG",
+   "dmg": 260,
+   "pen": 34,
+   "armor": 22,
+   "speed": 880,
+   "frag": 0.12,
+   "misfire": 0.224,
+   "ftf": 0.91,
+   "recoilMod": 0.15,
+   "accMod": 0.15,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 4,
+      "p": 3562,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "67dc212493ce32834b0fa446": {
+   "id": "67dc212493ce32834b0fa446",
+   "name": "M21",
+   "full": ".50 BMG M21",
+   "cal": "Caliber127x99",
+   "calZh": ".50 BMG",
+   "dmg": 220,
+   "pen": 45,
+   "armor": 55,
+   "speed": 867,
+   "frag": 0.07,
+   "misfire": 0,
+   "ftf": 0,
+   "recoilMod": 0.2,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 4,
+      "p": 3937,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "67dc255ee3028a8b120efc48": {
+   "id": "67dc255ee3028a8b120efc48",
+   "name": "M33",
+   "full": ".50 BMG M33",
+   "cal": "Caliber127x99",
+   "calZh": ".50 BMG",
+   "dmg": 190,
+   "pen": 56,
+   "armor": 85,
+   "speed": 887,
+   "frag": 0.05,
+   "misfire": 0,
+   "ftf": 0,
+   "recoilMod": 0.25,
+   "accMod": -0.05,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Peacekeeper",
+      "lv": 4,
+      "p": 5062,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "67dc2648ba5b79876906a166": {
+   "id": "67dc2648ba5b79876906a166",
+   "name": "M903",
+   "full": ".50 BMG M903 SLAP",
+   "cal": "Caliber127x99",
+   "calZh": ".50 BMG",
+   "dmg": 160,
+   "pen": 115,
+   "armor": 90,
+   "speed": 1220,
+   "frag": 0.01,
+   "misfire": 0,
+   "ftf": 0,
+   "recoilMod": 0.28,
+   "accMod": -0.1,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "68aeed8a8906b00bc800fdd6": {
+   "id": "68aeed8a8906b00bc800fdd6",
+   "name": "SP",
+   "full": "9.3x64毫米 SP",
+   "cal": "Caliber93x64",
+   "calZh": "9.3x64",
+   "dmg": 129,
+   "pen": 37,
+   "armor": 55,
+   "speed": 697,
+   "frag": 0.5,
+   "misfire": 0.21,
+   "ftf": 0.0891,
+   "recoilMod": -0.2,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 3,
+      "p": 1955,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "68bac6ca653ee6b1e406d978": {
+   "id": "68bac6ca653ee6b1e406d978",
+   "name": "FMJ",
+   "full": "9.3x64毫米 FMJ",
+   "cal": "Caliber93x64",
+   "calZh": "9.3x64",
+   "dmg": 115,
+   "pen": 44,
+   "armor": 55,
+   "speed": 793,
+   "frag": 0.5,
+   "misfire": 0.21,
+   "ftf": 0.0891,
+   "recoilMod": 0,
+   "accMod": 0.15,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Prapor",
+      "lv": 4,
+      "p": 2761,
+      "task": true
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "68bad8376cb22acf1107a586": {
+   "id": "68bad8376cb22acf1107a586",
+   "name": "7N33",
+   "full": "9.3x64毫米 7N33",
+   "cal": "Caliber93x64",
+   "calZh": "9.3x64",
+   "dmg": 108,
+   "pen": 56,
+   "armor": 55,
+   "speed": 790,
+   "frag": 0.5,
+   "misfire": 0.21,
+   "ftf": 0.0891,
+   "recoilMod": 0.2,
+   "accMod": -0.05,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "68c15a033173b556890b5959": {
+   "id": "68c15a033173b556890b5959",
+   "name": "TT 855A1",
+   "full": "7.62x25毫米 TT M855A1",
+   "cal": "Caliber762x25TT",
+   "calZh": "7.62x25 TT",
+   "dmg": 34,
+   "pen": 31,
+   "armor": 33,
+   "speed": 900,
+   "frag": 0.02,
+   "misfire": 0.175,
+   "ftf": 0.09,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 2,
+      "p": 400,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "68c15b4bb30038a118088bd6": {
+   "id": "68c15b4bb30038a118088bd6",
+   "name": "TT 856A1",
+   "full": "7.62x25毫米 TT M856A1",
+   "cal": "Caliber762x25TT",
+   "calZh": "7.62x25 TT",
+   "dmg": 36,
+   "pen": 27,
+   "armor": 31,
+   "speed": 900,
+   "frag": 0.08,
+   "misfire": 0.175,
+   "ftf": 0.09,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Mechanic",
+      "lv": 1,
+      "p": 188,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "68c15f77ed3d7df9220debd6": {
+   "id": "68c15f77ed3d7df9220debd6",
+   "name": "TT 995",
+   "full": "7.62x25毫米 TT M995",
+   "cal": "Caliber762x25TT",
+   "calZh": "7.62x25 TT",
+   "dmg": 32,
+   "pen": 37,
+   "armor": 36,
+   "speed": 940,
+   "frag": 0.25,
+   "misfire": 0.175,
+   "ftf": 0.095,
+   "recoilMod": 0,
+   "accMod": 0,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "6a07208057b2695f9d001e63": {
+   "id": "6a07208057b2695f9d001e63",
+   "name": "DBP191",
+   "full": "5.8x42毫米 DBP191",
+   "cal": "Caliber58x42",
+   "calZh": "5.8x42",
+   "dmg": 53,
+   "pen": 39,
+   "armor": 43,
+   "speed": 840,
+   "frag": 0.5,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": -0.03,
+   "accMod": 0,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Skier",
+      "lv": 3,
+      "p": 274,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "6a42661705016139300b2085": {
+   "id": "6a42661705016139300b2085",
+   "name": "DBX95",
+   "full": "5.8x42毫米 DBX95",
+   "cal": "Caliber58x42",
+   "calZh": "5.8x42",
+   "dmg": 57,
+   "pen": 33,
+   "armor": 40,
+   "speed": 910,
+   "frag": 0.5,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": -0.05,
+   "accMod": -0.03,
+   "tier": "buy",
+   "supply": {
+    "buy": [
+     {
+      "t": "Skier",
+      "lv": 2,
+      "p": 173,
+      "task": false
+     }
+    ],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "6a42662fcb506840dd053827": {
+   "id": "6a42662fcb506840dd053827",
+   "name": "DVC12",
+   "full": "5.8x42毫米 DVC12",
+   "cal": "Caliber58x42",
+   "calZh": "5.8x42",
+   "dmg": 46,
+   "pen": 52,
+   "armor": 60,
+   "speed": 872,
+   "frag": 0.5,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0.12,
+   "accMod": -0.05,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "6a426637ddc63098d100ae67": {
+   "id": "6a426637ddc63098d100ae67",
+   "name": "DVX12",
+   "full": "5.8x42毫米 DVX12",
+   "cal": "Caliber58x42",
+   "calZh": "5.8x42",
+   "dmg": 48,
+   "pen": 47,
+   "armor": 54,
+   "speed": 850,
+   "frag": 0.5,
+   "misfire": 0.175,
+   "ftf": 0.02,
+   "recoilMod": 0.09,
+   "accMod": -0.08,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  },
+  "6a60f36fb3d057447a095aee": {
+   "id": "6a60f36fb3d057447a095aee",
+   "name": "FMJ B",
+   "full": ".50 AE FMJ Bull",
+   "cal": "Caliber127x33",
+   "calZh": ".50 AE",
+   "dmg": 113,
+   "pen": 57,
+   "armor": 50,
+   "speed": 635,
+   "frag": 0.01,
+   "misfire": 0.335,
+   "ftf": 0.12,
+   "recoilMod": 0.35,
+   "accMod": 0,
+   "tier": "scav",
+   "supply": {
+    "buy": [],
+    "barter": [],
+    "craft": []
+   }
+  }
+ }
+}
