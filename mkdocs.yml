@@ -231,6 +231,7 @@ nav:
           - Scav 互动与叛徒判定: entries/scav-relations.md
           - Scav 指挥与随从系统: entries/scav-command.md
           - Boss 图鉴: entries/bosses.md
+          - Boss 人物志: entries/boss-lore.md
           - 战斗复盘与常见死因: entries/death-review.md
       - 第六篇 · 战局内行为手册:
           - 战局流程与节奏: entries/raid-flow.md
@@ -255,7 +256,12 @@ nav:
           - EXFIL Brothers 计划: entries/exfil-brothers.md
           - 限时事件与活动: entries/limited-events.md
       - 第八篇 · 世界与背景:
-          # 天气与光照 2026-10-22 移入第五篇（机制同类）；这里只留「设定读物」两篇。
+          # 天气与光照 2026-10-22 移入第五篇（机制同类）；这里只留「设定读物」。
+          # 2026-11-02：人物与组织拆成三页 —— 索引管「找谁」、人物志管「他是谁」、
+          # 组织页管「他们要什么」。合成一页会到 900 行，且三者的读者目的不同。
+          - 人物与组织: entries/characters.md
+          - 剧情人物志: entries/story-cast.md
+          - 组织与势力: entries/factions.md
           - 彩蛋与设计陷阱: entries/easter-eggs.md
           - 世界观与阵营背景: entries/worldview.md
   # ── 顶层三分（2026-10-22）────────────────────────────────────────────
