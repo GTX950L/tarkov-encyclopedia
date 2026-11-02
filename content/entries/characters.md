@@ -76,19 +76,21 @@ tags:
 
 <a id="traders"></a>
 
-| # | 人物 | 一句话是谁 | 他真正在卖什么 | 详见 |
-|---|------|-----------|--------------|------|
-| 1 | **Prapor** | 脱下军装还没放下纪律的军官 | **军方通道**——狗牌是硬通货 | [§2](trader-profiles.md) |
-| 2 | **Therapist** | 城里最后的专业医生，先救城市再谈钱 | **行政**——她能把钱变成通行 | [§3](trader-profiles.md) |
-| 3 | **Skier** | 海关的地头蛇，明码标价的情报贩子 | **灰色中介**——他认识黑帮，也认识记者 | [§4](trader-profiles.md) |
-| 4 | **Peacekeeper** | 蓝盔旗号下的西方利益 | **外汇**——只收美元 | [§5](trader-profiles.md) |
-| 5 | **Mechanic** | 被集团伤过的前工头 | **解释权**——所有看不懂但重要的东西都过他手 | [§6](trader-profiles.md) |
-| 6 | **Ragman** | 把战争当市场调研的商人 | **人脉**——他不卖路，他卖人 | [§7](trader-profiles.md) |
-| 7 | **Jaeger** | 守林的老猎人 | **替死者说话**——要的不是钱，是死者的遗言 | [§8](trader-profiles.md) |
-| 8 | **Fence** | Scav 世界的声誉经纪人 | **门卡的重新编码**——城外的人才有的手艺 | [§9](trader-profiles.md) |
-| 9 | **Lightkeeper** | 灯塔上那位，既不属于军队也不属于政府；本名 Farit Akhmadullovich Genatulin | **体制外的清算** | [§10](trader-profiles.md#sec-lightkeeper) |
-| 10 | **BTR 司机** | 装甲车上的物流与救命人 | **运力**——把你从 A 送到 B，途中替你挡枪 | [§10](trader-profiles.md#sec-btr) |
-| 11 | **Ref** | 竞技场的话事人 | **另一套规则**——与主线经济相对独立 | [§10](trader-profiles.md#sec-ref) |
+| # | 人物 | 一句话是谁 | 他真正在卖什么 | 详见 | 他给什么任务 |
+|---|------|-----------|--------------|------|--------------|
+| 1 | **Prapor** | 脱下军装还没放下纪律的军官 | **军方通道**——狗牌是硬通货 | [§2](trader-profiles.md) | [任务 →](../quests/prapor.md) |
+| 2 | **Therapist** | 城里最后的专业医生，先救城市再谈钱 | **行政**——她能把钱变成通行 | [§3](trader-profiles.md) | [任务 →](../quests/therapist.md) |
+| 3 | **Skier** | 海关的地头蛇，明码标价的情报贩子 | **灰色中介**——他认识黑帮，也认识记者 | [§4](trader-profiles.md) | [任务 →](../quests/skier.md) |
+| 4 | **Peacekeeper** | 蓝盔旗号下的西方利益 | **外汇**——只收美元 | [§5](trader-profiles.md) | [任务 →](../quests/peacekeeper.md) |
+| 5 | **Mechanic** | 被集团伤过的前工头 | **解释权**——所有看不懂但重要的东西都过他手 | [§6](trader-profiles.md) | [任务 →](../quests/mechanic.md) |
+| 6 | **Ragman** | 把战争当市场调研的商人 | **人脉**——他不卖路，他卖人 | [§7](trader-profiles.md) | [任务 →](../quests/ragman.md) |
+| 7 | **Jaeger** | 守林的老猎人 | **替死者说话**——要的不是钱，是死者的遗言 | [§8](trader-profiles.md) | [任务 →](../quests/jaeger.md) |
+| 8 | **Fence** | Scav 世界的声誉经纪人 | **门卡的重新编码**——城外的人才有的手艺 | [§9](trader-profiles.md) | [任务 →](../quests/fence.md) |
+| 9 | **Lightkeeper** | 灯塔上那位，既不属于军队也不属于政府；本名 Farit Akhmadullovich Genatulin | **体制外的清算** | [§10](trader-profiles.md#sec-lightkeeper) | [任务 →](../quests/lightkeeper.md) |
+| 10 | **BTR 司机** | 装甲车上的物流与救命人 | **运力**——把你从 A 送到 B，途中替你挡枪 | [§10](trader-profiles.md#sec-btr) | [任务 →](../quests/btr-driver.md) |
+| 11 | **Ref** | 竞技场的话事人 | **另一套规则**——与主线经济相对独立 | [§10](trader-profiles.md#sec-ref) | [任务 →](../quests/ref.md) |
+
+> **最后一列是「反向入口」**：左边几列回答「他是谁」，最后一列回答「他给什么任务」。两页分工不同——任务页只写**定义**（要求、奖励、门槛），不写来历；人物页只写**来历**，不写数值。看完一边想知道另一边，从这一列走。
 
 > **另有一位不在商人列表里，但必须记**：**Mr. Kerman**——走[情报中心](hideout-modules.md)的笔记本联系，给你终章那张票。他不是商人，是**雇主**，见[剧情人物志 §Kerman](story-cast.md#kerman)。
 

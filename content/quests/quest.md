@@ -42,6 +42,8 @@ tags:
 - [任务图鉴总览](index.md) — 503 个任务的分类检索入口
 - [我的进度](progress.md) — 记录做到哪了
 - [物品反查（要不要留）](item-lookup.md) — 某物品被哪些任务要求
+- [人物与组织](../entries/characters.md) — 商人 / Boss / 剧情人物 / 组织的总索引
+- [剧情人物志](../entries/story-cast.md) — Kerman、A.P.、Voevoda、将军、Warden 等 18 条
 
 📖 [返回任务图鉴总览](index.md)
 
