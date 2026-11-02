@@ -172,6 +172,7 @@ Lightkeeper 的完整访问链（灯塔半岛、Zryachiy 与阔剑地雷、编�
 - [商人任务线图鉴](trader-questlines.md) — 八个商人各自的任务线与 Kappa 门槛
 - [跳蚤市场](flea-market.md) — 商人体系的补充市场
 - [术语与黑话速查](../docs/glossary.md) — 八位商人的本名与据点（见「名称溯源」一节）
+- [人物与组织](characters.md) — 商人不卖的那些人：Boss 15 个、剧情人物 18 条、组织 14 个（本页只看「交易关系」，那页看「他是谁」）
 
 ---
 

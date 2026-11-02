@@ -204,6 +204,21 @@ tags:
 - 「**经过**」是六章取证，每一章补一块拼图；
 - 「**结果**」是[门票](../story/the-ticket.md)那一次清算——**交几份、交给谁，决定你从哪个门走出去**。
 
+### 3.5 换个人名进来：十章里的人在哪儿
+
+十章正文里人名出现**一百多次**，但故事的主谋基本只有六个。**先在[剧情人物志](story-cast.md)认人，再回章里看他在哪一步出手**——反过来读会一直卡在「这人是谁」。
+
+| 人 | 在哪几章出手 | 他一出手改变了什么 |
+|----|------------|------------------|
+| [**Kerman**](story-cast.md#kerman) | 十章全程（[陨落星辰](../story/falling-skies.md) 里名字先出现，[门票](../story/the-ticket.md) 里正式谈） | 把十次跑腿变成「九份证据」这同一件事 |
+| [**A.P.**](story-cast.md#ap) | [无名者](../story/the-unheard.md)（[蓝焰](../story/blue-fire.md) 里被社区怀疑下令，**无直证**） | 留下「我启动了协议」这句话，让撤离心虚变成物证 |
+| [**Voevoda**](story-cast.md#voevoda) | [Batya](../story/batya.md) | 把一队人的死换成一纸出卖名单 |
+| [**Voronenko**](story-cast.md#voronenko) | [探秘「迷宫」](../story/labyrinth.md) | 一份署名报告，把「实验室」定性成「工厂」 |
+| [**Night**](story-cast.md#night) | [Boreas](../story/boreas.md) | 荧火虫行动失败后的滞留者——解释了灯塔为什么有人穿得像 PMC |
+| [**Warden**](story-cast.md#warden) | [无名者](../story/the-unheard.md)、[他们已经来了](../story/they-are-already-here.md) | 只在文件里出现一次，却是「谁在执行」的唯一线索 |
+
+> ⚠️ 上面六位是**主线人物**。每章另有自己的死者、记者、信使与黑帮头目，共 18 条（20 人）——逐条见[剧情人物志](story-cast.md)，每章页的「关键人物」一行也已经接到对应锚点。
+
 ---
 
 ## 📚 十章逐章讲解

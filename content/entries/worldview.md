@@ -147,12 +147,14 @@ USEC 执行了这道命令。**这是 USEC 从“安保承包商”变成“武�
 | 与指挥部失联的 USEC / BEAR 干员 | **玩家 PMC**（PvE 中还有 AI PMC） | [PMC 与 Scav](pmc-scav.md) |
 | 选择留下的当地居民与犯罪者 | **Scav**（AI 与玩家） | [Scav 互动与叛徒判定](scav-relations.md) |
 | 叛逃的 PMC、前军警人员 | **Raider** | [Boss 图鉴](bosses.md) |
-| TerraGroup 的失联安保（**本来就是 USEC**） | **Rogue**（灯塔） | [灯塔](lighthouse.md) |
+| 行动失败后**滞留的 USEC 作战干员**（官方原文 ex-USEC operatives） | **Rogue**（灯塔） | [灯塔](lighthouse.md) |
 | 占据各据点的头目 | **Scav Boss** | [Boss 图鉴](bosses.md) |
 | 夜间活动的异端团体 | **Cultist（邪教徒）** | [声望与 Karma](karma.md) |
 | 留下来做买卖的各色中间人 | **八位商人**，外加 BTR 司机 / Lightkeeper / Ref 三个非常规任务源 | [商群像](trader-profiles.md) |
 
-其中最后两行值得单独记一句：**Rogue 之所以“穿得像 PMC”，是因为他们在设定上就是失联的 USEC**——这不是美术偷懒，是设定（见 [敌我识别与身份判断](iff.md) 里“外形判断会在灯塔失效”那一条）。
+其中最后两行值得单独记一句：**Rogue 之所以“穿得像 PMC”，是因为他们在设定上就是前 USEC 作战干员**（Operation Firefly 失败后没能撤走的那批）——这不是美术偷懒，是设定（见 [敌我识别与身份判断](iff.md) 里“外形判断会在灯塔失效”那一条）。
+
+> 🎯 **这张表只回答「他是哪一类人」**。具体到「这个人原来是谁」——商人 11 位、Boss 15 个、剧情人物 18 条、组织 14 个，逐个有身份、有出处、有留白，见 [人物与组织](characters.md)；组织各自要什么、怎么运作，见 [组织与势力](factions.md)。
 
 <a id="why"></a>
 

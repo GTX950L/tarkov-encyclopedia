@@ -8,6 +8,7 @@
 4. 条目计数一致性：全站「查看全部 N 个条目」、总览页、两处 README、路径图篇数之和；
 4b. 篇数口径：声明的「分N篇」必须与 nav 的「第X篇」分组数一致；
 4c. 总览页「八篇一览」表逐行对账 nav：每行的篇名与篇数都必须等于 nav 的实际值；
+4d. 人物/组织页「收录 N 条」= 🗂️ 分组小节数，且分项小计之和 = N；
 5. tags.md 的篇数与覆盖条目是否与 frontmatter 实际统计一致（防手工维护漂移）；
 6. 中文正文中是否残留直引号（行内代码与 HTML 属性里的语法引号不计）；
 6b. 表格行之后是否留了空行 —— 不留的话下一个块会被吞进表格（标题变单元格）；
@@ -63,6 +64,11 @@ NAV_GROUP_RE = re.compile(r"^(\s*)-\s*(第[零一二三四五六七八九十]{1,
 # 总览页「八篇一览」表的行：`| 第五篇 | [进阶战斗机制](#p5) | 16 | 这一篇讲什么 |`
 OVERVIEW_ROW_RE = re.compile(
     r"^\|\s*(第[零一二三四五六七八九十]{1,3}篇)\s*\|\s*\[([^\]]+)\]\(#p\d+\)\s*\|\s*(\d+)\s*\|",
+    re.M,
+)
+# 人物/组织页「收录」格：`| **收录** | **14 条**：… |` / `| **收录** | **15 个**（…） |`
+LORE_COUNT_RE = re.compile(
+    r"\|\s*\*\*收录\*\*\s*\|\s*\*\*(\d+)\s*[条个][^*]*\*\*(.*?)\s*\|\s*$",
     re.M,
 )
 # 正文里的篇数声明：「分为十篇」/「分十篇组织」/「分十篇：…」
@@ -530,7 +536,74 @@ def main() -> int:
                     f"nav 的「{num} · {grp_name}」没有出现在总览页「八篇一览」表里"
                 )
 
-    # 4d. 首页「本站速览」的数字必须与数据一致
+    # 4d. 人物/组织类页面：声明的「收录 N 条」必须与页内实际条目数对上
+    #     2026-11-02 一次撞上两类漂移，都是肉眼极难发现、四道校验全绿的：
+    #       ① boss-lore 写「收录 16 个」，而 🗂️ 分组下只有 15 节；
+    #       ② factions 的分项小计 1+1+2+1+2+1+1+1+5 相加是 15，却声称 14
+    #          （漏了「信仰（邪教徒）」这一类，企业外壳实际是 3 而不是 5）。
+    #     判据两条：
+    #       A. 若「收录」格以加粗数字开头（`**N 条**`），则 N 必须等于 🗂️ 分组下的
+    #          `###` 小节数之和（表格型页面 `###` 为 0，此时自动跳过）；
+    #       B. 若同一格里还用「名称 N（说明）」列出了分项，则分项之和必须等于 N
+    #          —— 这条专门防「总数对、分项错」，B 是 A 补不上的。
+    for lore in ("story-cast", "factions", "boss-lore"):
+        lp = CONTENT / "entries" / f"{lore}.md"
+        if not lp.exists():
+            continue
+        ltxt = lp.read_text(encoding="utf-8")
+        cell = LORE_COUNT_RE.search(ltxt)
+        if not cell:
+            errors.append(
+                f"人物/组织页找不到「收录 **N**」声明: {lore}.md —— 4d 无法对账，"
+                f"不要靠改格式绕过这道校验"
+            )
+            continue
+        cell_text = cell.group(2)
+        declared = int(cell.group(1))
+        # A. 总数 = 🗂️ 分组下的小节数
+        sections = sum(
+            len(re.findall(r"\n### ", body))
+            for body in re.findall(r"\n## 🗂️[^\n]*\n(.*?)(?=\n## |\Z)", ltxt, re.S)
+        )
+        if sections and declared != sections:
+            errors.append(
+                f"收录数漂移: {lore}.md 声明「{declared} 条」，"
+                f"🗂️ 分组下实际 {sections} 节"
+            )
+        # B. 分项之和 = 总数
+        parts = [int(x) for x in re.findall(r"(\d+)\s*（", cell_text)]
+        if parts and sum(parts) != declared:
+            errors.append(
+                f"分项小计不等于总数: {lore}.md 声明 {declared} 条，"
+                f"分项 {'+'.join(map(str, parts))} = {sum(parts)}"
+            )
+
+    #      characters.md 是四张表格型的索引页，没有「收录 N 条」这种单一声明，
+    #      所以另立一条：每个 🗂️ 小标题里的数字（括号外相加，例如「8 位常规 + 3 位非常规」= 11）
+    #      必须等于该节表格的数据行数。这条专防「小标题改了、表里没加行」。
+    idx_chars = CONTENT / "entries" / "characters.md"
+    if idx_chars.exists():
+        for hd, body in re.findall(
+            r"\n## \U0001F5C2\ufe0f?\s*([^\n]+)\n(.*?)(?=\n## |\Z)",
+            idx_chars.read_text(encoding="utf-8"),
+            re.S,
+        ):
+            bare = re.sub(r"（[^）]*）", "", hd)
+            nums = [int(x) for x in re.findall(r"(\d+)\s*[个位]", bare)]
+            if not nums:
+                continue
+            rows = [
+                ln for ln in body.splitlines()
+                if ln.lstrip().startswith("|") and not re.match(r"^\s*\|[\s\-:|]+\|\s*$", ln)
+            ]
+            data_rows = max(0, len(rows) - 1)  # 去掉表头
+            if sum(nums) != data_rows:
+                errors.append(
+                    f"索引表行数漂移: characters.md「{hd}」小标题写 {sum(nums)} 个，"
+                    f"表里实际 {data_rows} 行"
+                )
+
+    # 4e. 首页「本站速览」的数字必须与数据一致
     #     **刻意复用生成器的实现**（`render()`），而不是在这里另写一遍算术：
     #     两套实现必然漂，而首页是第 N 处计数落点，肉眼绝对看不过来。
     #     生成器自己会比对磁盘内容，过期就返回 1 —— 这就是「数据变了但没重生成」的门禁。
@@ -975,6 +1048,13 @@ def main() -> int:
         # 机制 → 图鉴：与 armor/ammo 同理，「机制篇」必须指向它的「型号篇」
         ("audio", "headsets"),
         ("inventory", "loadout-carriers"),
+        # 人物与剧情这一层（2026-11-02）：主条目必须带读者进得去
+        # 这四对是「读者在内容里碰到人名的地方」。缺了它们，人物四页就只能靠侧栏
+        # 和总览页进——实测过：十章正文里 125 处人名、0 处链接，人物页等于孤岛。
+        ("traders", "characters"),
+        ("bosses", "boss-lore"),
+        ("worldview", "factions"),
+        ("story-chapters", "story-cast"),
     ]
     for main_slug, sub_slug in SUBPAGE_PAIRS:
         main_md = CONTENT / "entries" / f"{main_slug}.md"

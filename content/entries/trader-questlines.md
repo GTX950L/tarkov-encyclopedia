@@ -446,6 +446,8 @@ tags:
 - [任务系统](quests.md) — 任务机制总览
 - [商人系统](traders.md) — 声望与货架
 - [声望与 Karma](karma.md) — Fence 门槛的积累方式
+- [剧情人物志](story-cast.md) — 任务台词里那些「不是商人」的名字：Kerman、A.P.、Voevoda、将军、Warden 等 18 条
+- [剧情章节与主线任务](story-chapters.md) — 十章主线怎么把各商人的任务串成一条证据链
 
 ---
 
