@@ -1065,6 +1065,31 @@ def main() -> int:
         if f"]({sub_slug}.md)" not in main_md.read_text(encoding="utf-8"):
             errors.append(f"主条目未链接到细分条目: {main_slug}.md 缺 -> {sub_slug}.md")
 
+    # 8b. 「任务页 ↔ 人物页」双向（v1.154.9）
+    #     任务图鉴的商人页由 `gen_quests.py` 生成，人物页是手写。两边入口**必须成对**：
+    #     ① 每个商人页都要有通往人物总入口的链接 —— 生成器被改坏时这里会红；
+    #     ② 人物总入口的商人表要能反向跳到各自的商人页 —— 手写漏行时这里会红。
+    #     这两条断掉**页面不会报任何错**，只会让读者走着走着没路了 —— 正是要靠机器盯的那类。
+    #     商人页 = quests/ 下除这几个「非商人」页之外的全部（新增商人自动纳入，不必改名单）。
+    NON_TRADER_QUEST_PAGES = {"index", "quest", "progress", "item-lookup", "tree", "event-quests"}
+    trader_pages = sorted(
+        p for p in (CONTENT / "quests").glob("*.md") if p.stem not in NON_TRADER_QUEST_PAGES
+    )
+    chars_md = CONTENT / "entries" / "characters.md"
+    chars_text = chars_md.read_text(encoding="utf-8") if chars_md.exists() else ""
+    if not trader_pages:
+        warnings.append("没找到任务图鉴商人页，跳过「任务页 ↔ 人物页」双向核对")
+    for tp in trader_pages:
+        body = tp.read_text(encoding="utf-8")
+        if "../entries/characters.md" not in body:
+            errors.append(
+                f"任务页未链接到人物页: quests/{tp.name} 缺 -> ../entries/characters.md"
+            )
+        if f"../quests/{tp.name}" not in chars_text:
+            errors.append(
+                f"人物页未链接回任务页: entries/characters.md 缺 -> ../quests/{tp.name}"
+            )
+
     # 9. 条目页眉覆盖率 + 未决项编号一致性
     #    规范见 citation.md「条目页眉模板」、骨架见 template.md；2026-09-28 之前
     #    收录的条目从未回填。这一行是「整站引用口径」落在单篇上的唯一载体 ——

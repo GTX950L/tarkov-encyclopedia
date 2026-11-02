@@ -21,7 +21,7 @@
 | **目标数** | 38 |
 | **怎么开始** | 在海关／储备站／海岸线／森林找到 **Bogatyr 小队臂章**并查看 |
 | **你追的是什么** | 一支被整队伏击的 BEAR 特种小队：谁出卖了他们 |
-| **主导商人** | **Jaeger**（唯一肯讲的人）→ **Lightkeeper**（真正拍板的人） |
+| **主导商人** | [**Jaeger**](../quests/jaeger.md)（唯一肯讲的人）→ [**Lightkeeper**](../quests/lightkeeper.md)（真正拍板的人） |
 | **关键人物** | [**Voevoda**](../entries/story-cast.md#voevoda)（指挥官）、[Moreman / Strelets / Taran](../entries/story-cast.md#bogatyr)（队员）、**Prapor**（被逼问者）、[**「将军」**](../entries/story-cast.md#general)（幕后） |
 | **产出证据** | **1 份 / 9**：间谍网络部署情况报告 |
 | **一句话结论** | 出卖小队的不是一个人，是**一条从军队内部通到邪教的命令链** |

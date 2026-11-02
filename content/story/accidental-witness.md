@@ -21,7 +21,7 @@
 | **目标数** | 18 |
 | **怎么开始** | 海关宿舍楼旁一辆白色轿车上，有人用喷漆留了**威胁信** |
 | **你追的是什么** | 一个欠债的人为什么被杀——以及他死前录到了谁 |
-| **主导商人** | **Skier**（6 处）+ **Ragman**（1 处） |
+| **主导商人** | [**Skier**](../quests/skier.md)（6 处）+ [**Ragman**](../quests/ragman.md)（1 处） |
 | **关键人物** | [**科兹洛夫**](../entries/story-cast.md#kozlov)（死者）、[**阿纳斯塔西娅**](../entries/story-cast.md#anastasia)（记者）、[**切皮加**](../entries/story-cast.md#chepiga)（黑帮头目）、[**舒库连科**](../entries/story-cast.md#shukurenko)（副部长）、[**帕沙**](../entries/story-cast.md#pasha)（信使） |
 | **产出证据** | **1 份 / 9**：犯罪证据录音带 |
 | **一句话结论** | 这盘磁带证明的不是「黑帮杀人」，是**市政府和黑帮在合伙接管这座城市** |

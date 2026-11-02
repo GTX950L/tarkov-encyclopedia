@@ -22,7 +22,7 @@
 | **目标数** | 12（**目标最少，分量最重**） |
 | **怎么开始** | [陨落星辰](falling-skies.md) 结束后，建好**情报中心 1 级**，Kerman 主动联系 |
 | **核心机制** | **九份核心证据，交八份即可**；交几份决定你走哪条结局 |
-| **关键人物** | [**Kerman**](../entries/story-cast.md#kerman)（雇主）、[**A 女士**](../entries/story-cast.md#ms-a)（第 9 份证据）、**Prapor**（备选出口）、**Lightkeeper**（另一条出口）、**Fence**（哈希代码） |
+| **关键人物** | [**Kerman**](../entries/story-cast.md#kerman)（雇主）、[**A 女士**](../entries/story-cast.md#ms-a)（第 9 份证据）、[**Prapor**](../quests/prapor.md)（备选出口）、[**Lightkeeper**](../quests/lightkeeper.md)（另一条出口）、[**Fence**](../quests/fence.md)（哈希代码） |
 | **产出证据** | **1 份 / 9**：与 A 女士的谈话记录（本章附加路线） |
 | **一句话结论** | 四个结局的差别不是「谁带你出去」，是「**你愿意为真相走多远**」 |
 

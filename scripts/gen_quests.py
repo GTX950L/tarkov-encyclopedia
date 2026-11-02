@@ -145,6 +145,47 @@ TRADER_LABEL = {
     "lightkeeper": "Lightkeeper",
 }
 
+# ── 「商人 → 剧情章节」：任务页通往人物页的那一条路 ──────────────────────────
+#
+# **为什么要有**：读者在商人页看到「Jaeger 有 61 个任务」，却不知道这个人是十章的
+# 主要叙述者；反过来在剧情章节里读到「Jaeger 是唯一肯讲的人」，也不知道他到底发了
+# 什么任务。两头都得能跳。
+#
+# **口径（重要）**：剧情十章的**任务线不在本栏目** —— 本栏目的 503 条取自
+# `json.tarkov.dev/regular`，剧情章节的任务链不在这个端点里（已核对：全表搜
+# `Bogatyr` / `臂章` 均为 0 命中）。所以这里只能做**页级**链接，**不能**给章节
+# 造一个「任务锚点」—— 那会指向一个不存在的任务。
+#
+# **数据来源**：不是估的，逐条取自各章 `## 📸 本章速览` 的「主导商人」行
+# （`content/story/*.md`）。括号内的话是那一行的原话缩写，改章节请同步这张表 ——
+# 这是**唯一**需要在两处维护的东西，故集中在此，不散落在页面模板里。
+TRADER_STORY: dict[str, list[tuple[str, str]]] = {
+    "jaeger": [("batya", "唯一肯讲的人"), ("labyrinth", "唯一中间人")],
+    "lightkeeper": [("batya", "真正拍板的人")],
+    "skier": [("accidental-witness", "6 处"), ("tour", "收费链")],
+    "ragman": [("accidental-witness", "1 处"), ("tour", "收费链")],
+    "mechanic": [("boreas", "12 处"), ("they-are-already-here", "问「世界之眼」、修钥匙卡、破解数据"),
+                 ("tour", "收费链")],
+    "btr-driver": [("boreas", "8 处")],
+    "prapor": [("boreas", "与 Skier 并列"), ("falling-skies", "12 个目标涉及他")],
+    "therapist": [("tour", "收费链起点")],
+    # Peacekeeper / Fence / Ref 在十章里**没有**主导章节 —— 这不是漏写，
+    # 页面上会明说，别为了「填满表格」硬塞一章进去。
+}
+# 章节页的显示名（与 content/story/*.md 的 H1 同款；只取中文名，不带括号里的英文）
+STORY_LABEL = {
+    "accidental-witness": "意外证人",
+    "batya": "Batya",
+    "blue-fire": "神秘蓝焰",
+    "boreas": "Boreas",
+    "falling-skies": "陨落星辰",
+    "labyrinth": "探秘「迷宫」",
+    "the-ticket": "门票",
+    "the-unheard": "无名者",
+    "they-are-already-here": "他们已经来了",
+    "tour": "塔科夫之旅",
+}
+
 # 命中部位 —— 数据端点给的是英文枚举（`QuestCondition/.../BodyPart/Head`），
 # 扁平翻译字典里**没有**这几个键，只能自己给中文；这与「译名一律不自己编」
 # 的原则不冲突：这里的英文本身就是**枚举值**而不是可译文本。
@@ -1312,6 +1353,10 @@ def write_index(tasks: list[dict]) -> None:
         "- [任务系统](../entries/quests.md) —— 任务的**机制**（奖励怎么发、FiR 怎么算、"
         "失败与放弃的区别）",
         "- [剧情章节与主线任务](../entries/story-chapters.md) —— 主线章节与四个结局",
+        # 「任务 → 人」的出口。放在总览页而不是只放在商人页，是因为读者常常是
+        # 「在任务里看到一个人名，想知道他是谁」才需要这一条。
+        "- [人物与组织](../entries/characters.md) —— 任务文本里点到的人是谁"
+        "（商人 / Boss / 剧情人物 / 组织，逐个有出处与留白）",
         "- [地图对照速查](../docs/map-guide.md) —— 各图与任务密度的对照",
         "",
         "> 📖 **想了解每个任务的执行顺序？** 本栏目只给**定义**。逐步流程见英文 EFT Wiki —— "
@@ -1447,6 +1492,28 @@ def render_index(rows: list[dict]) -> list[str]:
     return L
 
 
+def story_cell(key: str) -> str:
+    """商人页概览表里「剧情里的角色」这一格。
+
+    ⚠️ **没有主导章节的人必须明说「没有」**。留一格空白，读者分不清
+    「他在剧情里没戏份」和「本站没写」——这两件事的后续动作完全不同。
+    """
+    links = TRADER_STORY.get(key) or []
+    if not links:
+        return (
+            "十章剧情任务线里**没有他主导的章节**——他的任务全在常规线上。"
+            "这不是漏写，章节与商人的分工见[剧情章节与主线任务](../entries/story-chapters.md)"
+        )
+    segs = " ｜ ".join(
+        f"[{STORY_LABEL.get(slug, slug)}](../story/{slug}.md)（{why}）" for slug, why in links
+    )
+    return (
+        f"十章里，他是这几章的**主导商人**：{segs}。"
+        "⚠️ **这些章节不列在本栏目**——剧情线的任务不来自本页用的常规端点"
+        f"（`regular` 档案里搜不到），按章读见[剧情章节与主线任务](../entries/story-chapters.md)"
+    )
+
+
 def write_trader_page(key: str, rows: list[dict]) -> None:
     label = TRADER_LABEL.get(key, key)
     lv = [t["level"] for t in rows]
@@ -1463,6 +1530,13 @@ def write_trader_page(key: str, rows: list[dict]) -> None:
         f"| **分档** | 每 {BAND} 级一档（{band_label(los[0])} …），"
         "与[总览](index.md)「按等级门槛」同口径 |",
         "| **收录字段** | 要求 · 完成奖励 · 接取门槛 · 前置任务 · 需要钥匙 · 失败条件 |",
+        # 下面两行是「任务页 → 人物页」的出口。写在这一屏里，是因为读者翻到这一页
+        # 的第一个问题往往不是「他给几个任务」，而是「这人到底是谁」。
+        "| **🎯 这个人是谁** | 本页只写**他给什么任务**。他原来是谁、在卖什么、"
+        "和谁有过节 → [人物与组织](../entries/characters.md)"
+        "（商人 11 / Boss 15 / 剧情人物 18 / 组织 14）｜ [商人群像](../entries/trader-profiles.md)"
+        "（逐个的立场、要价与彼此关系） |",
+        f"| **📖 剧情里的角色** | {story_cell(key)} |",
         # ⚠️ 这一行是「台词」在界面上第一次出现的**可被搜索**的位置 —— 别省。
         #    详情页有台词，但如果全站没有一处写着「台词」，读者和全文搜索都摸不到。
         "| **💬 商人台词** | **每个任务都有** —— 点明细块里的「💬 商人台词 →」，"
@@ -1509,7 +1583,8 @@ def write_trader_page(key: str, rows: list[dict]) -> None:
             L.extend(render_task(rec, i))
     L += [
         "---", "",
-        "📖 [返回任务图鉴总览](index.md) ｜ [商人任务线图鉴](../entries/trader-questlines.md)",
+        "📖 [返回任务图鉴总览](index.md) ｜ [商人任务线图鉴](../entries/trader-questlines.md) "
+        "｜ [人物与组织](../entries/characters.md) ｜ [剧情章节与主线任务](../entries/story-chapters.md)",
         *FOOTER,
     ]
     (OUT_DIR / f"{key}.md").write_text("\n".join(L) + "\n", encoding="utf-8")
@@ -1611,6 +1686,9 @@ def quest_page_markdown(total: int, dlg_n: int) -> str:
     out.append(f"- [任务图鉴总览](index.md) — {total} 个任务的分类检索入口")
     out.append("- [我的进度](progress.md) — 记录做到哪了")
     out.append("- [物品反查（要不要留）](item-lookup.md) — 某物品被哪些任务要求")
+    # 「任务 → 人」的两个出口：前者是总入口，后者是只在文本里出现的那批人。
+    out.append("- [人物与组织](../entries/characters.md) — 商人 / Boss / 剧情人物 / 组织的总索引")
+    out.append("- [剧情人物志](../entries/story-cast.md) — Kerman、A.P.、Voevoda、将军、Warden 等 18 条")
     out.append("")
     out.append("📖 [返回任务图鉴总览](index.md)")
     out.append("")

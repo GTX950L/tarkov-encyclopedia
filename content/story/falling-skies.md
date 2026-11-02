@@ -21,7 +21,7 @@
 | **目标数** | 20 |
 | **怎么开始** | 和 **Mechanic** 聊到森林里那架坠机（需 **Prapor 信任度 2 级**） |
 | **你追的是什么** | 一架没人解释的飞机：谁在机上、为什么掉下来、机上的东西要送给谁 |
-| **主导商人** | **Prapor**（12 个目标涉及他）；**Elektronik** 负责破解 |
+| **主导商人** | [**Prapor**](../quests/prapor.md)（12 个目标涉及他）；[**Elektronik**](../entries/story-cast.md#elektronik) 负责破解（他不是商人） |
 | **关键选择** | 第 20 个目标：**箱子交给 Prapor，还是自己留下** |
 | **关键人物** | [**Kerman**](../entries/story-cast.md#kerman)（全章的收信人）、[**Elektronik**](../entries/story-cast.md#elektronik)（破解飞行记录仪）、[**克鲁格洛夫**](../entries/story-cast.md#kruglov)（门卡上那个名字） |
 | **产出证据** | **0 份 / 9**——它不产证据，它产**路线** |
