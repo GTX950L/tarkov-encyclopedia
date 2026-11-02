@@ -1,0 +1,1016 @@
+{
+ "fetched": "2026-10-08",
+ "recipesFetched": "2026-10-06",
+ "source": "items_full.json 的 buyFromTrader ＋ recipes.json 的 barters / crafts",
+ "note": "scav = 站内未收录任何固定渠道（商人出售 / 以物换物 / 制作），通常是任务解锁后商人才有报价、或只能靠跳蚤与搜刮；不是「拿不到」。不含跳蚤价。",
+ "weapons": {
+  "61a4c8884f95bc3b2c5dc96f": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "633ec7c2a6918cb895019c6c": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "60db29ce99594040e04c4a27": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6275303a9f372d6ea97f9ec7": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "624c2e8614da335f1e034d8c": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5fb64bc92b1b027b1f50bcf2": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5fc3e272f8b6a877a729eac5": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5ba26383d4351e00334c93d9": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5bd70322209c4d00d7167b8f": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6a78b7f8c2016eb33e0027cd": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5cc82d76e24e8d00134b4b83": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5ea03f7400685063ec28bfa8": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "57d14d2524597714373db789": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "57f3c6bd24597738e730fa2f": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "57f4c844245977379d5c14d1": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5de7bd7bfd6b4e6e2276dc25": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6680304edadb7aa61d00cef0": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "668e71a8dadf42204c032ce1": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5fc3f2d5900b1d5091531e57": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5d2f0d8048f0356c925bc3b0": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5e00903ae9dc277128008b87": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "58948c8e86f77409493f7266": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5926bb2186f7744b1c6c6e60": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "60339954d62c9b14ed777c06": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "59984ab886f7743e98271174": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "59f9cabd86f7743a10721f46": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "66992b349950f5f4cd06029f": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "62e14904c2699c0ec93adc47": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "669fa409933e898cce0c2166": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5e81c3cbac2bb513793cdc75": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5f36a0e5fbf956000b716b65": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6193a720f8ee7e52e42109ed": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "669fa3f88abd2662d80eee77": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "669fa39b48fc9f8db6035a0c": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "669fa3d876116c89840b1217": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "668fe5a998b5ad715703ddd6": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "66015072e9f84d5680039678": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5d3eb3b0a4b93615055e84d2": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5d67abc1a4b93614ec50137f": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "571a12c42459771f627b58a0": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5b3b713c5acfc4330140bd8d": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5abccb7dd8ce87001773e277": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5a17f98cfcdbcb0980087290": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "56e0598dd2720bb5668b45a6": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5448bd6b4bdc2dfc2f8b4569": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "579204f224597773d619e051": {
+   "buy": [
+    {
+     "t": "Mechanic",
+     "lv": 1,
+     "p": 6897,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "5b1fa9b25acfc40018633c01": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5a7ae0c351dfba0017554310": {
+   "buy": [
+    {
+     "t": "Mechanic",
+     "lv": 1,
+     "p": 8260,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "63088377b5cd696784087147": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5cadc190ae921500103bb3b6": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "576a581d2459771e7b1bc4f1": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "56d59856d2720bd8418b456a": {
+   "buy": [
+    {
+     "t": "Mechanic",
+     "lv": 1,
+     "p": 7798,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "602a9740da11d6478d5a06dc": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "59f98b4986f7746f546d2cef": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5beed0f50db834001c062b12": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6513ef33e06849f06c0957ca": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "65268d8ecb944ff1e90ea385": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "661ceb1b9311543c7104149b": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "661cec09b2c6356b4d0c7a36": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "65fb023261d5829b2d090755": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "64637076203536ad5600c990": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "64ca3d3954fc657e230529cc": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "620109578d82e67e7911abf2": {
+   "buy": [],
+   "barter": [
+    {
+     "t": "Jaeger",
+     "lv": 3,
+     "task": false
+    },
+    {
+     "t": "Ref（竞技场裁判）",
+     "lv": 2,
+     "task": false
+    }
+   ],
+   "craft": []
+  },
+  "675ea3d6312c0a5c4e04e317": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "62178be9d0050232da3485d9": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "66d9f1abb16d9aacf5068468": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "62178c4d4ecf221597654e3d": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6217726288ed9f0845317459": {
+   "buy": [
+    {
+     "t": "Jaeger",
+     "lv": 1,
+     "p": 7509,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "66d98233302686954b0c6f81": {
+   "buy": [],
+   "barter": [
+    {
+     "t": "Mechanic",
+     "lv": 2,
+     "task": true
+    },
+    {
+     "t": "Mechanic",
+     "lv": 2,
+     "task": true
+    }
+   ],
+   "craft": []
+  },
+  "624c0b3340357b5f566e8766": {
+   "buy": [
+    {
+     "t": "Prapor",
+     "lv": 1,
+     "p": 2927,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "5e81ebcd8e146c7080625e15": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "627e14b21713922ded6f2c15": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "673cab3e03c6a20581028bc1": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5de652c31b7e3716273428be": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "588892092459774ac91d4b11": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5bfea6e90db834001b7347f3": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5df24cf80dee1b22f862e9bc": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "55801eed4bdc2d89578b4588": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5bfd297f0db834001a669119": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5ae08f0a5acfc408fb1398a1": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "67c6de3ce39861860909e8e5": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "587e02ff24597743df3deaeb": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "574d967124597745970e7c94": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5c501a4d2e221602b412b540": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6410733d5dd49d77bd07847e": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "643ea5b23db6f9f57107d9fd": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "57c44b372459772d2b39b8ce": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6871284e9a353bb50606f3ed": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "651450ce0e00edc794068371": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "644674a13d52156624001fbc": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "645e0c6b3b381ede770e1cc9": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5fbcc1d9016cce60e8341ab3": {
+   "buy": [
+    {
+     "t": "Skier",
+     "lv": 3,
+     "p": 30672,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "674d6121c09f69dfb201a888": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "59e6687d86f77411d949b251": {
+   "buy": [
+    {
+     "t": "Mechanic",
+     "lv": 2,
+     "p": 26982,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "5cadfbf7ae92152ac412eeef": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "68c2940aecc41cc5490bd40e": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "68c16b9ab6b75a8a480520a6": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6499849fc93611967b034949": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "628b5638ad252a16da6dd245": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "628b9c37a733087d0d7fe84b": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5bf3e03b0db834001d2c4a9c": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5ac4cd105acfc40016339859": {
+   "buy": [
+    {
+     "t": "Mechanic",
+     "lv": 3,
+     "p": 32727,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "5644bd2b4bdc2d3b4c8b4572": {
+   "buy": [
+    {
+     "t": "Mechanic",
+     "lv": 2,
+     "p": 28934,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "5bf3e0490db83400196199af": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5ab8e9fcd8ce870019439434": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "57dc2fa62459775949412633": {
+   "buy": [
+    {
+     "t": "Mechanic",
+     "lv": 1,
+     "p": 17054,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "5839a40f24597726f856b511": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "583990e32459771419544dd2": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5ac66d9b5acfc4001633997a": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5bb2475ed4351e00853264e3": {
+   "buy": [
+    {
+     "t": "Mechanic",
+     "lv": 4,
+     "p": 27250,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "6a15ae2ae5267ba21c07f98f": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5c07c60e0db834002330051f": {
+   "buy": [
+    {
+     "t": "Skier",
+     "lv": 1,
+     "p": 18144,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "68a639748e1fe612970728e9": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "68a6399922b1e0bd360afe56": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5447a9cd4bdc2dbd208b4567": {
+   "buy": [
+    {
+     "t": "Mechanic",
+     "lv": 3,
+     "p": 22997,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "6895bb82c4519957df062f82": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5d43021ca4b9362eab4b5e25": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "623063e994fc3f7b302a9696": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "62e7c4fba689e8c9c50dfc38": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "63171672192e68c5460cebc5": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6718817435e3cfd9550d2c27": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6a3bffbebc377285900b85cf": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5ac66cb05acfc40198510a10": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5c488a752e221602b412af63": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6184055050224f204c1da540": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "618428466ef05c2ce828f218": {
+   "buy": [
+    {
+     "t": "Mechanic",
+     "lv": 2,
+     "p": 22500,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "5ac66d015acfc400180ae6e4": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "69f9ebbcaae020b0db02f65d": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "65290f395ae2ae97b80fdf2d": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "606587252535c57a13424cfd": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5ac66d2e5acfc43b321d4b53": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5ac66d725acfc43b321d4b60": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "59d6088586f774275f37482f": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5a0ec13bfcdbcb00165aa685": {
+   "buy": [
+    {
+     "t": "Mechanic",
+     "lv": 3,
+     "p": 42504,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "59ff346386f77477562ff5e2": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5abcbc27d8ce8700182eceeb": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "628a60ae6b1d481ff772e9c8": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "59e6152586f77473dc057aa1": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "689166b6c2d6fa42e7044756": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5b0bbe4e5acfc40dc528a72d": {
+   "buy": [
+    {
+     "t": "Mechanic",
+     "lv": 4,
+     "p": 38867,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "5dcbd56fdbd3d91b3e5468d5": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6165ac306ef05c2ce828ef74": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6183afd850224f204c1da514": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "676176d362e0497044079f4c": {
+   "buy": [
+    {
+     "t": "Mechanic",
+     "lv": 4,
+     "p": 36778,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "5fc22d7c187fea44d52eda44": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "67d0576f29f580ebc10efd08": {
+   "buy": [],
+   "barter": [],
+   "craft": [
+    {
+     "st": "工作台",
+     "lv": 3
+    }
+   ]
+  },
+  "6176aca650224f204c1da3fb": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5aafa857e5b5b00018480968": {
+   "buy": [
+    {
+     "t": "Mechanic",
+     "lv": 3,
+     "p": 37830,
+     "task": false
+    }
+   ],
+   "barter": [],
+   "craft": []
+  },
+  "5f2a9575926fd9352339381f": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5a367e5dc4a282000e49738f": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5df8ce05b11454561e39243b": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6932abeb5403890d0c09c926": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5c46fbd72e2216398b5a8c9c": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "68aee763130c00663d08aea8": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "57838ad32459774a17445cd2": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5580223e4bdc2d1c128b457f": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "64748cb8de82c85eaf0a273a": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "674fe9a75e51f1c47c04ec23": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6981d72ed009ad83920da43a": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "66ffa9b66e19cc902401c5e8": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "67124dcfa3541f2a1f0e788b": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "6259b864ebedf17603599e88": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "56dee2bdd2720bc8328b4567": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "606dae0ab0e443224b421bb7": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "576165642459773c7a400233": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5e870397991fd70db46995c8": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5a7828548dc32e5a9c28b516": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "54491c4f4bdc2db1078b4568": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5a38e6bac4a2826c6e06d79b": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "5e848cc2988a8701445df1e8": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  },
+  "61f7c9e189e6fb1a5e3ea78d": {
+   "buy": [],
+   "barter": [],
+   "craft": []
+  }
+ }
+}
