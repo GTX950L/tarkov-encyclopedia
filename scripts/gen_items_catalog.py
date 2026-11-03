@@ -67,9 +67,12 @@ import argparse
 import collections
 import datetime
 import gzip
+import http.client
 import json
 import re
 import sys
+import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -599,10 +602,35 @@ CURES_ZH = {
 }
 
 
+FETCH_RETRIES = (0, 2, 5)   # 每次尝试前的等待秒数（第一项 0 = 立即）
+
+
 def get(endpoint: str) -> dict:
-    req = urllib.request.Request(API + endpoint, headers=HEADERS)
-    with urllib.request.urlopen(req, timeout=240) as r:
-        return json.load(r)
+    """抓一个端点，**带重试**（2026-11-03，与 gen_quests.get 同一套理由）。
+
+    图鉴走 `--fetch` 时一次要抓十来个端点（物品、任务、配方、商人……），
+    本机实测几乎每次都会撞上 `RemoteDisconnected` / `WinError 10054` 一次 ——
+    一次抖动就让整个 `--fetch` 白跑（CI 里则直接判红）。4xx 不重试。
+    """
+    last: Exception | None = None
+    for i, wait in enumerate(FETCH_RETRIES):
+        if wait:
+            time.sleep(wait)
+        try:
+            req = urllib.request.Request(API + endpoint, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=240) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            if 400 <= e.code < 500:
+                raise
+            last = e
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError,
+                ConnectionError, http.client.HTTPException) as e:
+            last = e
+        print(f"  [抓取重试 {i + 1}/{len(FETCH_RETRIES)}] {endpoint}: "
+              f"{type(last).__name__}: {last}", file=sys.stderr)
+    assert last is not None
+    raise last
 
 
 def clean(s) -> str:
@@ -2134,15 +2162,18 @@ def main() -> int:
         plan, buckets, leaves, items_total, routes, quests,
         {k: v[1] for k, v in item_of_name.items()})
     # 站内其它页面（任务侧）靠这份映射把物品名链到图鉴对应位置
-    # ⚠️ 日期字段记的是**数据截至**（`updated` 最大值），不是抓取日（2026-11-03）。
-    #    这份文件是**入库**的推导产物，而 CI 每次都会 `gen_items_catalog.py --fetch`
-    #    再 `git diff --exit-code` 查它有没有跟上图鉴数据。写抓取日的话，「今天几号」
-    #    每天都变，等于让这道门禁**天天红**（数据一个字没动也红）——
-    #    实测就是这么红的。抓取日只对**读者**有意义，留在页面的口径表里。
+    # ⚠️ **这份文件不写任何日期**（2026-11-03，PR 上实测两轮）：
+    #    它是**入库**的推导产物，而 CI 每次都会 `gen_items_catalog.py --fetch`
+    #    再 `git diff --exit-code` 查它有没有跟上图鉴数据。
+    #    · 写抓取日 = 「今天几号」就变几号 → 门禁**天天红**；
+    #    · 写「数据截至」（`updated` 最大值）同样不稳 —— 上游一次补丁会把几千件
+    #      物品的 `updated` 一起跳到当天（10-27 跳了 209 件、11-01 跳了 3856 件），
+    #      CI 抓的是实时数据，本机缓存比它旧一天就又红了。
+    #    日期对这份文件本来也没有读者：它只回答「这个名字该链到哪一页」，
+    #    数据新鲜度由图鉴页的口径表负责（那里写「数据截至」，是给人看的）。
     ip = ROOT / "scripts" / "data" / "item_pages.json"
     ip.write_bytes(json.dumps(
-        {"data_asof": DATA_ASOF,
-         "pages": {n: list(v) for n, v in item_of_name.items() if n not in dup_names},
+        {"pages": {n: list(v) for n, v in item_of_name.items() if n not in dup_names},
          "dups": sorted(dup_names)},
         ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
 
