@@ -1,3 +1,6 @@
+---
+description: "他们已经来了：剧情简介（游戏内文本，经中文 Wiki 转录） 「我在塔科夫遇到了些怪事。那个圆圈还有那些神神叨叨的符号让人汗毛倒竖。这…"  # 自动生成
+---
 # 他们已经来了（They Are Already Here）
 
 <div class="tk-ver" data-search-exclude markdown>

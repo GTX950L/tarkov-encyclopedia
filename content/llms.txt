@@ -69,6 +69,8 @@
 - [重大版本更新史](https://gtx950l.github.io/tarkov-encyclopedia/docs/version-history/)
 - [游戏数值变更台账](https://gtx950l.github.io/tarkov-encyclopedia/docs/value-changes/)：某个值在哪一版上从多少变成了多少（数值级，区别于版本级的更新史）
 - [待收录清单](https://gtx950l.github.io/tarkov-encyclopedia/docs/roadmap/)：含「版本敏感内容（收录前需复核）」完整清单
+- [素材来源登记表](https://gtx950l.github.io/tarkov-encyclopedia/docs/assets/)：逐类登记非原创素材的文件范围、来源 URL、许可、入库时间与修改情况（底图 / 图标 / 字体 / 主题）
+- [数据回滚流程](https://gtx950l.github.io/tarkov-encyclopedia/docs/rollback/)：抓错了怎么退 —— 哪类文件是快照、还原后要重跑哪些生成器、怎样验证退干净了
 - [标签分类](https://gtx950l.github.io/tarkov-encyclopedia/tags/) · [条目模板](https://gtx950l.github.io/tarkov-encyclopedia/template/)：**编纂附件**，2026-10-22 起从读者侧栏撤出，只从贡献指南进
 - [贡献指南](https://gtx950l.github.io/tarkov-encyclopedia/CONTRIBUTING/)
 - [更新日志](https://gtx950l.github.io/tarkov-encyclopedia/CHANGELOG/)：当月条目；更早的版本看 [GitHub Releases](https://github.com/GTX950L/tarkov-encyclopedia/releases)（站内归档页 2026-10-22 移出构建 —— 2,690 行历史不值得让每个读者付一次下载）

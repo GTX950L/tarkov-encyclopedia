@@ -1,3 +1,6 @@
+---
+description: "塔科夫之旅：剧情简介（游戏内文本，经中文 Wiki 转录） 「后备撤离点位于海边的港口区，要想到达那个地方，我必须得孤身穿过整座城市…"  # 自动生成
+---
 # 塔科夫之旅（Tour）
 
 <div class="tk-ver" data-search-exclude markdown>

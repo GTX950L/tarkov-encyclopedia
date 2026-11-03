@@ -27,6 +27,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _baseline import baseline_label  # noqa: E402  站点基线的唯一来源（citation.md）
+from _front import write_md  # noqa: E402  写盘时保留 description / title
 from _map_links import MAP_KEY_BY_CN, map_key_of_cn  # noqa: E402
 import gen_quests as gq  # noqa: E402  复用商人 slug → 显示名（唯一一份）
 
@@ -350,7 +351,10 @@ def main() -> int:
             print(f"  ⚠ {key} 不在 META 表里，跳过（新增地图时要补中文名与条目）")
             continue
         dst = MAPS_DIR / f"{key}.md"
-        dst.write_text(page(key, maps[key], quests), encoding="utf-8")
+        # 用共享写盘函数：保留由 gen_page_meta.py 写入的 description / title。
+        # 原先这里是 write_text —— 它还有第二个毛病：Windows 上文本模式会把
+        # 生成串里的换行再转一次（站规要求生成页一律 write_bytes，见 gen_items_catalog 文件头）。
+        write_md(dst, page(key, maps[key], quests))
         written.append(dst.name)
     print(f"✅ 写出 {len(written)} 个地图页：{'、'.join(written)}")
     return 0

@@ -1,3 +1,6 @@
+---
+description: "Boreas：剧情简介（游戏内文本，经中文 Wiki 转录） 「我在藏身处的情报中心截获了一条无线电消息，听着像是请求撤离的求救信号。…"  # 自动生成
+---
 # Boreas
 
 <div class="tk-ver" data-search-exclude markdown>

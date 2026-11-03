@@ -1,4 +1,5 @@
 ---
+description: "Jaeger 的任务：点任务名跳到下方明细。每个明细块里都有「💬 商人台词 →」，点开是该任务的完整页面（商人台词 · 前置与后续 · 目标 …"  # 自动生成
 tags:
   - 任务
   - 商人
@@ -79,10 +80,10 @@ tags:
 | 42 | <a href="#q42">储备</a> | Lv17 | 储备站 | — |
 | 43 | <a href="#q43">塔科夫神射手 - 4</a> | Lv17 | — | **Kappa** |
 | 44 | <a href="#q44">塔科夫神射手 - 5</a> | Lv17 | 海关 | — |
-| 45 | <a href="#q45">塔科夫神射手 - 5</a> | Lv17 | — | — |
+| 45 | <a href="#q45">塔科夫神射手 - 5 2</a> | Lv17 | — | — |
 | 46 | <a href="#q46">猎人之路 - 支配者</a> | Lv17 | — | — |
 | 47 | <a href="#q47">猎人之路 - 管理者</a> | Lv17 | 储备站 | **端点重复条目** · **需自备物品** |
-| 48 | <a href="#q48">猎人之路 - 管理者</a> | Lv17 | 灯塔 | **端点重复条目** · **需自备物品** |
+| 48 | <a href="#q48">猎人之路 - 管理者 2</a> | Lv17 | 灯塔 | **端点重复条目** · **需自备物品** |
 | 49 | <a href="#q49">生存者之路 - 雕鸮</a> | Lv17 | — | — |
 | 50 | <a href="#q50">生存者之路 - 冷血</a> | Lv17 | — | — |
 | 51 | <a href="#q51">生存者之路 - 战地军医</a> | Lv17 | — | — |
@@ -964,7 +965,7 @@ tags:
   - 声望：**Jaeger** +0.02
   - 解锁购买：**莫辛步枪Texas Precision Products 7.62x54R制退器（Jaeger LL3）**
 
-<h3 id="q45" data-qid="5bc4836986f7740c0152911c">塔科夫神射手 - 5<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
+<h3 id="q45" data-qid="5bc4836986f7740c0152911c">塔科夫神射手 - 5 2<a class="headerlink" href="#q45" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ 前置 **1** 个 ｜ 英文名 **The Tarkov Shooter Part 5 2**
 
@@ -1025,7 +1026,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 声望：**Jaeger** +0.75
 
-<h3 id="q48" data-qid="6a45208043b8d7604d00b8d5">猎人之路 - 管理者<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
+<h3 id="q48" data-qid="6a45208043b8d7604d00b8d5">猎人之路 - 管理者 2<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
 **Jaeger** ｜ 需 **Lv17** ｜ **无前置** ｜ 英文名 **The Huntsman Path Administrator 2**
 

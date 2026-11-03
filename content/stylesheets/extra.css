@@ -7069,6 +7069,26 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
 }
 [data-md-color-scheme="slate"] .tk-ic { background: rgba(255, 255, 255, .07); }
 
+/* 「上游没给官方图标」的占位块（2026-11-03）。
+   gen_items_catalog.icon_tag() 在图标文件缺失时输出它，而不是指向空文件的 <img>。
+   尺寸与 .tk-ic 严格一致 —— 不一致会让该行比邻行矮 40 px，表格基线上下跳。
+   用虚线边框而不是实心灰块：它是「这里本该有图」的标记，不是物品的视觉替身，
+   读者扫表时不该把它当成一张图。 */
+.tk-ic--none {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 40px; height: 40px;
+  vertical-align: -13px;
+  margin-right: 7px;
+  border: 1px dashed rgba(0, 0, 0, .22);
+  border-radius: 3px;
+  background: rgba(0, 0, 0, .03);
+}
+[data-md-color-scheme="slate"] .tk-ic--none {
+  border-color: rgba(255, 255, 255, .26);
+  background: rgba(255, 255, 255, .05);
+}
+
 .tk-item__art { display: flex; justify-content: center; margin: 6px 0 14px; }
 .tk-item__art img {
   width: 96px; height: 96px;
@@ -7595,4 +7615,32 @@ a.tk-qrow__name:hover { border-bottom-color: currentColor; }
   font-size: .78rem;
   line-height: 1.62;
   color: var(--tk-ink-2);
+}
+
+/* --------------------------------------------------------------------------
+   窄屏（≤ 719px）：消掉那 16px 的横向溢出 + 给表格一个「右边还有」的提示
+
+   2026-11-03 实测（390px 视口，探针读 getBoundingClientRect）：
+     article.md-content__inner  scrollWidth 359 / clientWidth 343 → 多 16px
+   来源是主题给 `ul/ol` 的 1.6em 左缩进：343px 可用宽里，缩进吃掉 23px 后内容
+   仍按可用宽排，每层列表右缘就多出几像素。16px 不足以画出页面级滚动条，
+   但会让末行紧贴边缘、表格滚动区也多一条缝。
+
+   表格的 `min-width`（36rem / 68rem）**有意不动**：那是桌面可读性的下限
+   （7 列表格没有下限时行高从 62px 涨到 153px，见上方 68rem 那条注释）。
+   窄屏由 `.md-typeset__table` 横向滚动承担 —— 它是站内唯一的滚动容器。
+   这里只补一条极浅的右侧渐隐，提示读者「还能横滑」，不做弹窗式引导。
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 44.9375em) {
+  .md-typeset ul,
+  .md-typeset ol { padding-left: 1.1em; }
+
+  .md-typeset__table {
+    background: linear-gradient(to left, rgba(0, 0, 0, .055), transparent 14px)
+                right / 14px 100% no-repeat;
+  }
+  [data-md-color-scheme="slate"] .md-typeset__table {
+    background: linear-gradient(to left, rgba(255, 255, 255, .075), transparent 14px)
+                right / 14px 100% no-repeat;
+  }
 }

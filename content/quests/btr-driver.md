@@ -1,4 +1,5 @@
 ---
+description: "BTR 司机 的任务：点任务名跳到下方明细。每个明细块里都有「💬 商人台词 →」，点开是该任务的完整页面（商人台词 · 前置与后续 · 目标 …"  # 自动生成
 tags:
   - 任务
   - 商人
@@ -45,10 +46,10 @@ tags:
 | 8 | <a href="#q08">投石问路</a> | Lv0 | 灯塔 | **需自备物品** |
 | 9 | <a href="#q09">拯救大兵罗曼</a> | Lv0 | — | **需自备物品** |
 | 10 | <a href="#q10">独立的代价</a> | Lv0 | — | **端点重复条目** · **需自备物品** · 有失败条件 |
-| 11 | <a href="#q11">独立的代价</a> | Lv0 | — | **端点重复条目** · **需自备物品** · 有失败条件 |
+| 11 | <a href="#q11">独立的代价 2</a> | Lv0 | — | **端点重复条目** · **需自备物品** · 有失败条件 |
 | 12 | <a href="#q12">现世报</a> | Lv0 | 森林 | 有失败条件 |
 | 13 | <a href="#q13">电池换新</a> | Lv0 | — | 有失败条件 |
-| 14 | <a href="#q14">电池换新</a> | Lv0 | — | — |
+| 14 | <a href="#q14">电池换新 2</a> | Lv0 | — | — |
 | 15 | <a href="#q15">自然交换</a> | Lv0 | 海岸线 | **需自备物品** |
 | 16 | <a href="#q16">苦涩的胜利</a> | Lv0 | — | — |
 | 17 | <a href="#q17">货运延误 - 2</a> | Lv0 | 森林 | — |
@@ -286,7 +287,7 @@ tags:
 - **失败条件**：
   - **任务状态** **识时务者为俊杰** ｜ 状态：完成
 
-<h3 id="q11" data-qid="6745cbee909d2013670a4a55">独立的代价<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
+<h3 id="q11" data-qid="6745cbee909d2013670a4a55">独立的代价 2<a class="headerlink" href="#q11" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **2** 个 ｜ 英文名 **The Price of Independence 2**
 
@@ -373,7 +374,7 @@ tags:
 - **失败条件**：
   - **任务状态** **电池换新** ｜ 状态：完成
 
-<h3 id="q14" data-qid="6744a9dfef61d56e020b5c4a">电池换新<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
+<h3 id="q14" data-qid="6744a9dfef61d56e020b5c4a">电池换新 2<a class="headerlink" href="#q14" title="Permanent link">&para;</a></h3>
 
 **BTR 司机** ｜ 需 **Lv0** ｜ 前置 **1** 个 ｜ 英文名 **Battery Change 2**
 

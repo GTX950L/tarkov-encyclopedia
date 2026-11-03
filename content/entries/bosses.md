@@ -1,4 +1,5 @@
 ---
+description: "Boss 图鉴：大多数 Boss 的刷新是一个概率，只有少数例外是接近 100%（例如灯塔半岛的 Zryachiy、迷宫里的 Tagil…"  # 自动生成
 tags:
   - 战斗
   - 中后期

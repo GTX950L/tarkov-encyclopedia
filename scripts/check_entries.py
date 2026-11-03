@@ -866,25 +866,47 @@ def main() -> int:
                 f"quests.json 实际 {n_tasks} / {n_obj}"
             )
 
-    # 4g. 任务区域数：maps_site*.json 是唯一事实源（2026-10-19 新增）
+    # 4g. 任务区域数：maps_site*.json 是唯一事实源（2026-10-19 新增，2026-11-03 换判据）
     #     起因：`maps/index.md` 写「实测本站 589 条任务区域占图面积」，而数据里
-    #     `sum(len(questZones))` 两条模式都是 522 —— 差 67 条，没有任何检查器在看。
+    #     `sum(len(questZones))` 是 522 —— 差 67 条，没有任何检查器在看。
     #     这一类「正文里的规模数字」此前只在四个固定位置被对账（条目/图鉴/任务/首页卡），
     #     换一个名词（区域、点位、撤离点）就又成了盲区。
-    zone_decls: dict[str, int] = {}
-    for key in ("maps_site.json", "maps_site_pvp.json"):
-        zf = ROOT / "scripts" / "data" / key
-        if not zf.exists():
-            continue
-        zd = json.loads(zf.read_text(encoding="utf-8"))
-        n_zone = sum(len((m or {}).get("questZones") or []) for m in zd.values())
-        zone_decls[key] = n_zone
-    if zone_decls:
-        n_zone = max(zone_decls.values())
-        if len(set(zone_decls.values())) > 1:
-            errors.append(
-                "任务区域数据自相矛盾：" + "、".join(f"{k}={v}" for k, v in zone_decls.items())
-            )
+    #
+    #     ⚠️ 2026-11-03 换判据：原先比的是「maps_site.json 与 maps_site_pvp.json 总数相等」，
+    #     可这两个文件根本不是同一种东西 —— maps_site.json 是 **--merge 的合并版**
+    #     （两模式共有 496 + 仅 PvE 14 + 仅 PvP 12 = 522），maps_site_pvp.json 是 merge
+    #     **之前的 PvP 干净基底**（508，逐条无模式标记）。总数相等只在「基底已被合并版
+    #     覆盖」时才成立：2026-11-03 复查发现当时的 pvp 基底正是 both 496 / pve 14 /
+    #     pvp 12 —— 一份带满 m 标记的合并产物，也就是 gen_maps.py --merge 明令不能当
+    #     基底的那个文件。门禁把一个错误状态固化成了判据，于是重跑一次 pvp 轮
+    #     （产出干净的 508 条）反而报「数据自相矛盾」。
+    #
+    #     现在盯的是两条真不变量：① 基底必须干净（无 m 标记）；② 基底条数 == 合并版里
+    #     「非仅 PvE」的条数（496 + 12 = 508）。正文里的规模数字仍按合并版总数对账。
+    n_zone: int | None = None
+    merged_f = ROOT / "scripts" / "data" / "maps_site.json"
+    base_f = ROOT / "scripts" / "data" / "maps_site_pvp.json"
+    if merged_f.exists():
+        merged_z = json.loads(merged_f.read_text(encoding="utf-8"))
+        all_z = [z for d in merged_z.values() for z in ((d or {}).get("questZones") or [])]
+        n_zone = len(all_z)
+        n_pvp = sum(1 for z in all_z if z.get("m") != "pve")
+        if base_f.exists():
+            base_z = json.loads(base_f.read_text(encoding="utf-8"))
+            base_all = [z for d in base_z.values() for z in ((d or {}).get("questZones") or [])]
+            marked = sum(1 for z in base_all if z.get("m"))
+            if marked:
+                errors.append(
+                    f"PvP 基底被合并产物覆盖：maps_site_pvp.json 里 {marked}/{len(base_all)} 条区域"
+                    f"带模式标记 —— 它已经是 --merge 的产物，不能再当基底。"
+                    f"重跑 python scripts/gen_maps.py 重建干净基底"
+                )
+            elif len(base_all) != n_pvp:
+                errors.append(
+                    f"PvP 基底与合并版对不上：maps_site_pvp.json={len(base_all)} 条，"
+                    f"maps_site.json 里非仅 PvE 的区域={n_pvp} 条（合并版合计 {n_zone} 条）"
+                )
+    if n_zone is not None:
         ZONE_RE = re.compile(r"(\d+)\s*(?:条|个)\s*任务区域")
         for md in md_files:
             # CHANGELOG 是历史记录：那里写的是「当时线上是多少」，不跟着数据走
@@ -952,7 +974,20 @@ def main() -> int:
     for md in md_files:
         in_code = False
         in_raw = False   # <script> / <style> 块：里面是代码，不是正文
+        # ⑤ YAML front matter 块：那是元数据，不是正文。
+        #    2026-11-03 起每个页面都带 `description: "…"`（gen_page_meta.py 生成），
+        #    而 YAML 字符串的定界符**只能是直引号** —— 不豁免就会把 189 页全部报成
+        #    「中文行残留直引号」。豁免粒度是**整个块**（首行 `---` 到下一个 `---`），
+        #    因为块内全是不给读者看的键值对。
+        in_fm = False
         for lineno, line in enumerate(md.read_text(encoding="utf-8").splitlines(), 1):
+            if lineno == 1 and line.strip() == "---":
+                in_fm = True
+                continue
+            if in_fm:
+                if line.strip() == "---":
+                    in_fm = False
+                continue
             if line.strip().startswith("```"):
                 in_code = not in_code
                 continue

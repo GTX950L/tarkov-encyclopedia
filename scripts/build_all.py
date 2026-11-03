@@ -91,6 +91,12 @@ STEPS: list[tuple[str, list[str], str]] = [
      "bundle.js 落后于源时，页面加载的是**旧脚本** —— 改了源却忘了重跑，构建不报错、"
      "页面也正常打开，只是逻辑还是老的（10 个源文件仍留在目录里，看着完全正常）。"
      "⑤c 会用同一支生成器复查一遍"),
+    # ⚠️ 必须排在**所有写 md 的生成器之后**（①b ①c ①d 与 ⑤c 里的 gen_quests /
+    #    gen_map_pages 都会重写页面）。它按「标题 + 首段」产出逐页 description，
+    #    晚跑一步才能读到最终的正文；早跑的话摘要描述的是上一版内容。
+    ("①f 逐页元信息", [PY, "scripts/gen_page_meta.py"],
+     "description 缺失时 191 页会全部回落到 site_description 的同一句话 —— "
+     "构建、门禁、部署全绿，只有搜索结果的摘要悄悄退化成一句（2026-11-03 就是这么发现的）"),
     ("② 内容一致性", [PY, "scripts/check_entries.py"], "断链 / 计数漂移 / 骨架缺失 / 直引号 / 表格吞块"),
     ("③ 图标语义表", [PY, "scripts/check_icons.py"], "表外 emoji 与 template.md 的统计数字"),
     ("④ 引用承诺", [PY, "scripts/check_promises.py"], "《引用说明》第三节的每条承诺"),
@@ -113,6 +119,11 @@ STEPS: list[tuple[str, list[str], str]] = [
     ("⑤e 楼层归属", [PY, "scripts/check_map_floors.py"],
      "SVG 顶层分组 ↔ FLOOR_ZH 词表 ↔ 产物 floors 三方对账 —— "
      "词表漏一层，那层就没有按钮能关、永久叠在图上（工厂 2026-10-28 的故障形态）"),
+    # ⑤f 副本类信息（2026-11-03 新增）：查「同一件事写在两处」的那一类。
+    # 前七道守内容正确性，守不住副本 —— 地图卡片手写漂 9/13、191 页描述同句、
+    # 6 个页面 title 都叫「总览」，全是在门禁全绿的情况下发生的。
+    ("⑤f 副本类信息", [PY, "scripts/check_replicas.py"],
+     "地图卡片三数字 / 逐页 description 唯一性 / title 撞车"),
 ]
 
 

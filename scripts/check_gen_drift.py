@@ -131,6 +131,10 @@ GENERATORS: list[list[str]] = [
     ["scripts/gen_maps.py", "--mode", "pve"],
     ["scripts/gen_maps.py", "--merge"],
     ["scripts/gen_map_pages.py"],        # ⑫ 13 个地图页（读 gen_maps 的产物，故在后）
+    # ⑫b 地图总览卡片的三行数字（2026-11-03 新增）。它读的是**同一份** maps_site.json，
+    #     所以必须排在 gen_maps 三步之后。入列的理由见脚本头：这处数字此前是全站
+    #     唯一「手写、又没有校验」的规模数字，实测已漂 9/13（区域合计 589 vs 522）。
+    ["scripts/gen_map_cards.py"],
     ["scripts/gen_quest_tree.py"],        # ⑬ 任务全景图数据（读 quests.json + quest-graph.json，独立）
     # ⑭ 作战台任务索引（2026-10-18）。**两模式都要在门禁里** —— 只盯 pvp 的话，
     #     改了 gen_ops_index.py 而忘了重跑 pve 那份，线上作战台默认是 PvE（模式段第一格），
@@ -142,6 +146,10 @@ GENERATORS: list[list[str]] = [
     #     旧数据打出一个过时的 bundle —— 而 bundle 是**入仓产物**，线上就一直跑旧逻辑。
     #     它读的其余 9 份都是手写源文件，不受生成器顺序影响。
     ["scripts/gen_bundle.py"],
+    # ⑯ 逐页元信息（2026-11-03 新增）。**必须最后**：它读页面正文生成 description，
+    #     前面任何一支重写了 md，摘要都得跟着重算。写盘时机也在此 —— 生成器各自
+    #     用 _front.write_md 保留它写的键，本支再把缺的补回来（双向兜底）。
+    ["scripts/gen_page_meta.py"],
 ]
 
 # 豁免清单：这些文件**不用「重跑比对」来判定**。

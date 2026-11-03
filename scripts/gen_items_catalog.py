@@ -65,6 +65,7 @@ from __future__ import annotations
 
 import argparse
 import collections
+import datetime
 import gzip
 import json
 import re
@@ -81,6 +82,7 @@ API = "https://json.tarkov.dev/regular/"
 # 「在地图上看」的判定）。「刷新地图速查」的地名链接复用它，不另建映射 ——
 # 词表正好同源（通行证文件描述里写的就是「塔科夫街区」）。
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _front import write_md  # noqa: E402  写盘时保留 description / title
 from _map_links import MAP_KEY_BY_CN  # noqa: E402
 HEADERS = {
     "User-Agent": "tarkov-encyclopedia/1.0 (+https://github.com/GTX950L/tarkov-encyclopedia)",
@@ -88,6 +90,35 @@ HEADERS = {
     "Referer": "https://tarkov.dev/",
 }
 FETCH_DATE = "2026-10-08"
+# ⚠️ **这个常量只是兜底，不是真相。** 2026-11-03 全站审查查出：
+#    `items_full.json` 里 3856 件物品的 `updated` 落在 2026-11，最晚 2026-11-01T17:28，
+#    而页面一直对读者显示「抓取日期 2026-10-08」—— 锚错了整整一个月。
+#    根因是**抓取时把常量写进缓存**（`payload["fetched"] = FETCH_DATE`），
+#    于是缓存自己的 fetched 也是旧值，读缓存救不了。
+#
+#    现在的口径分两个，各管一件事：
+#      · **数据截至**（`DATA_ASOF`）= 全部物品 `updated` 的最大日期。**从数据算出来**，
+#        不依赖任何手写值，重抓后自动跟着动。读者该看这个 —— 它回答「这些数是什么时候的」。
+#      · **抓取日期**（`FETCH_DATE`）= 缓存写入日，读 `.fetched`；缺失才回退本常量。
+#        它回答「这份快照是什么时候被抓的」，与数据本身的时效不是一回事。
+#
+#    判据：**页面主口径只写「数据截至」**；「抓取日期」降为口径表里的一行附注。
+DATA_ASOF = FETCH_DATE  # 由 main() 读缓存后按 updated 最大值覆盖
+
+
+def _max_updated(payload) -> str:
+    """数据截至日 = 全部物品 ``updated`` 的最大日期（YYYY-MM-DD）。
+
+    ⚠️ 为什么不用 ``fetched``：那个值在抓取时被常量写死过（见上），不可信。
+       ``updated`` 是上游对**每件物品**的维护时间，取最大值就是「这批数据最新到哪天」，
+       重抓、补抓、增量抓都能自动反映，无需人去记。
+    """
+    ups = [
+        v.get("updated")
+        for v in (payload.get("items", {}).get("items") or {}).values()
+        if isinstance(v, dict) and v.get("updated")
+    ]
+    return max(ups)[:10] if ups else FETCH_DATE
 # 页眉的「基线快照时间」与「全站基线版本」必须与 citation.md 第二节一致。
 # ⚠️ 第一版这里写的是「1.1.5.1 / 2026-10-08」，被 check_catalog_consistency.py 查出：
 #    citation.md 的全站基线是 **1.2.0.0（2026-10-06 发布）**，而任务页写 1.1.5.1 是
@@ -598,6 +629,9 @@ def fmt_num(x, suffix="", digits=None):
     return clean(str(x))
 
 
+ICONS_DIR = ROOT / "content" / "assets" / "items" / "icons"
+
+
 def icon_tag(it) -> str:
     """行首缩略图（官方图，64×64 透明底 WebP，由 gen_item_icons.py 下载）。
 
@@ -611,12 +645,30 @@ def icon_tag(it) -> str:
     ⚠️ 用裸 ``<img>`` 而不是 Markdown 图片语法：Markdown 图片在表格单元格里
        会变成块级元素、与相邻文字错位；且这里要的是固定 40 px 小图标（2026-10-27 从 28 放大，见 CHANGELOG v1.151.0），
        不该被正文图片样式（圆角、居中、图注）接走。
+    ⚠️ **先看文件在不在，再输出 ``<img>``**（2026-11-03 修）。
+       上游对无图物品返回 ``unknown-item-icon.jpg`` 占位图，``gen_item_icons.py``
+       按内容魔数识别后**不下** —— 这是对的（不把问号图当物品图）。
+       但本函数此前**无条件**输出 ``<img src="{id}.webp">``，两侧口径不一致，
+       于是 15 件物品在情报 / 以物换物 / 弹药箱三页上稳定 404（实测）。
+       现在改成：文件不在就输出同尺寸空占位块 ——
+         · 不输出破图（``<img>`` 指向不存在的文件，浏览器给裂图图标）；
+         · 也不裸留空（会让该行比邻居矮 40 px，表格基线上下跳）。
+       **前端四处 ``<img>`` 早已有 ``onerror`` 兜底**（catalog-item.js 等），
+       所以这条只影响静态生成页 —— 也正是唯一会露出破图的地方。
     """
     iid = it.get("id")
     if not iid:
         return ""
+    if not (ICONS_DIR / f"{iid}.webp").exists():
+        return ('<span class="tk-ic tk-ic--none" aria-hidden="true" '
+                'title="上游未提供官方图标"></span> ')
     return (f'<img class="tk-ic" src="../assets/items/icons/{iid}.webp" '
             f'alt="" width="40" height="40" loading="lazy" decoding="async"> ')
+
+
+def write_page(path: Path, text: str) -> None:
+    """写生成页 —— 细则见 ``scripts/_front.py``（保留 description / title）。"""
+    write_md(path, text)
 
 
 def cell_md(it, field) -> str:
@@ -1074,7 +1126,10 @@ def hub_markdown(page, leaves, total_items) -> str:
     out.append("| **为什么分册** | 整类一次列完是 **100+ 屏**，读者要滚很久、页内锚点也失去意义。"
                "按叶子分类切成若干册后，每册约 **40** 屏以内，且**每册可单独分享** |")
     out.append("| **数据来源** | `json.tarkov.dev` 的 `itemCategories` 树与 `items` 接口，二级来源 |")
-    out.append(f"| **抓取日期** | {FETCH_DATE} |")
+    # 口径表里的两个日期分工见文件头 DATA_ASOF 的注释：主口径给读者的是「数据截至」，
+    # 「抓取日期」只作快照来源的附注，不再冒充数据时效。
+    out.append(f"| **数据截至** | {DATA_ASOF}（上游 `updated` 字段的最新日期） |")
+    out.append(f"| **抓取日期** | {FETCH_DATE}（本站缓存写入日，非数据时效） |")
     out.append("")
     out.append("---")
     out.append("")
@@ -1317,7 +1372,10 @@ def page_markdown(page, leaves, buckets, total_items, kl_stat=None) -> str:
         out.append("| **官方简介** | 游戏内物品描述的中文本地化原文，**本页 259 件全覆盖**"
                    "（平均 29 字）。它是判断「这把钥匙开什么门」最直接的一句 |")
     out.append("| **数据来源** | `json.tarkov.dev` 的 `itemCategories` 树与 `items` 接口，二级来源 |")
-    out.append(f"| **抓取日期** | {FETCH_DATE} |")
+    # 口径表里的两个日期分工见文件头 DATA_ASOF 的注释：主口径给读者的是「数据截至」，
+    # 「抓取日期」只作快照来源的附注，不再冒充数据时效。
+    out.append(f"| **数据截至** | {DATA_ASOF}（上游 `updated` 字段的最新日期） |")
+    out.append(f"| **抓取日期** | {FETCH_DATE}（本站缓存写入日，非数据时效） |")
     out.append("| **配套页面** | [物品图鉴总览](index.md) ｜ "
                "[任务需求物品反查](../quests/item-lookup.md) ｜ [配方速查表](../docs/recipes.md) |")
     if page["slug"] == "keys":
@@ -1441,7 +1499,7 @@ def page_markdown(page, leaves, buckets, total_items, kl_stat=None) -> str:
     out.append("")
     out.append('⬆️ **[回到顶部](#top)**')
     out.append("")
-    out.append(f"**最后更新**: {FETCH_DATE[:7].replace('-', ' 年 ')} 月 ｜ "
+    out.append(f"**最后更新**: {DATA_ASOF[:7].replace('-', ' 年 ')} 月 ｜ "
                "**贡献者** [GTX950L](https://github.com/GTX950L) ｜ "
                "**License**: CC BY-NC-SA 4.0")
     out.append("")
@@ -1477,7 +1535,10 @@ def index_markdown(plan, total_items, leaves_zh) -> str:
     out.append("| **收录依据** | 全量收录 —— 只收录任务物品或热门物品会让读者「查不到就是没有」，"
                "而图鉴的价值恰恰在于查得到 |")
     out.append("| **数据来源** | `json.tarkov.dev`（二级来源，直读游戏文件）；分类名取自游戏内译名 |")
-    out.append(f"| **抓取日期** | {FETCH_DATE} |")
+    # 口径表里的两个日期分工见文件头 DATA_ASOF 的注释：主口径给读者的是「数据截至」，
+    # 「抓取日期」只作快照来源的附注，不再冒充数据时效。
+    out.append(f"| **数据截至** | {DATA_ASOF}（上游 `updated` 字段的最新日期） |")
+    out.append(f"| **抓取日期** | {FETCH_DATE}（本站缓存写入日，非数据时效） |")
     out.append("| **不收录** | ① **枪械预配方案**（497 条，是同一底枪的改装组合，不是独立物品）"
                "② **配图** —— 本图鉴以文字与表格呈现（图标只出现在任务详情与进度页） |")
     out.append("")
@@ -1550,11 +1611,15 @@ def index_markdown(plan, total_items, leaves_zh) -> str:
     out.append("- [商人系统](../entries/traders.md) — 商人等级与补货")
     out.append("- [跳蚤定价与手续费](../entries/flea-pricing.md) — 市场侧定价规则")
     out.append("")
-    out.append("📖 [返回物品图鉴总览](index.md)")
-    out.append("")
+    # ⚠️ 这一页**不写「返回物品图鉴总览」**——它自己就是总览（2026-11-03 修）。
+    #    此前照抄分类页的收尾句写成 `[返回物品图鉴总览](index.md)`，在源文件里是
+    #    **自链接**：MkDocs 对指向自身的链接不做 URL 转换，产物里原样留下
+    #    `href="index.md"`，浏览器按 `catalog/` 目录解析成 `/catalog/index.md` → 实测 404。
+    #    分类页与单件详情页那两处**是对的**（`catalog/weapons.md` → `index.md`
+    #    会被正常解析成上一级），所以只删这一处，别把另两处一起删掉。
     out.append('⬆️ **[回到顶部](#top)**')
     out.append("")
-    out.append(f"**最后更新**: {FETCH_DATE[:7].replace('-', ' 年 ')} 月 ｜ "
+    out.append(f"**最后更新**: {DATA_ASOF[:7].replace('-', ' 年 ')} 月 ｜ "
                "**贡献者** [GTX950L](https://github.com/GTX950L) ｜ "
                "**License**: CC BY-NC-SA 4.0")
     out.append("")
@@ -1773,7 +1838,7 @@ def item_page_markdown(total_items, with_desc) -> str:
     out.append("")
     out.append('⬆️ **[回到顶部](#top)**')
     out.append("")
-    out.append(f"**最后更新**: {FETCH_DATE[:7].replace('-', ' 年 ')} 月 ｜ "
+    out.append(f"**最后更新**: {DATA_ASOF[:7].replace('-', ' 年 ')} 月 ｜ "
                "**贡献者** [GTX950L](https://github.com/GTX950L) ｜ "
                "**License**: CC BY-NC-SA 4.0")
     out.append("")
@@ -1934,8 +1999,10 @@ def main() -> int:
     cache = ROOT / "scripts" / "data" / "items_full.json"
     if args.fetch or not cache.exists():
         print("抓取 json.tarkov.dev …")
+        # ⚠️ 抓取日必须写**当天**，不能写常量 —— 2026-11-03 之前的版本在这里写死
+        #    FETCH_DATE，于是每次重抓都把旧日期又盖回去，缓存永远显得比数据旧。
         payload = {
-            "fetched": FETCH_DATE,
+            "fetched": datetime.date.today().isoformat(),
             "items": get("items")["data"],
             "zh": get("items_zh")["data"],
         }
@@ -1944,6 +2011,14 @@ def main() -> int:
         print(f"  已写 {cache}（{cache.stat().st_size / 1048576:.1f} MB）")
 
     payload = json.loads(cache.read_text(encoding="utf-8"))
+
+    # 页面口径的两个日期都**从缓存算**，不读常量（理由见 DATA_ASOF 定义处）：
+    #   · fetched     缺失才回退常量 —— 老缓存里有这个字段，直接用；
+    #   · updated 最大值 永远可复算，哪怕 fetched 是坏的。
+    global FETCH_DATE, DATA_ASOF
+    FETCH_DATE = (payload.get("fetched") or FETCH_DATE)[:10]
+    DATA_ASOF = _max_updated(payload)
+    print(f"缓存抓取日 {FETCH_DATE} ｜ 数据截至 {DATA_ASOF}")
     items = payload["items"]["items"]
     cats = payload["items"]["itemCategories"]
     zh = payload["zh"]
@@ -2011,12 +2086,12 @@ def main() -> int:
               else page_markdown(p, leaves, buckets, items_total, kl_stat))
         anchor_errs += check_anchors(md, p["slug"])
         f = OUT / f"{p['slug']}.md"
-        f.write_bytes(md.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8"))
+        write_page(f, md)
         written.append(f)
     idx = OUT / "index.md"
     idx_md = index_markdown(plan, items_total, leaves_zh)
     anchor_errs += check_anchors(idx_md, "index")
-    idx.write_bytes(idx_md.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8"))
+    write_page(idx, idx_md)
     written.append(idx)
 
     # ── 清掉**上一轮留下、这一轮不再产出**的页面 ────────────────────────────
