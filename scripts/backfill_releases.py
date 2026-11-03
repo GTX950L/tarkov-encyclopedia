@@ -90,6 +90,12 @@ RELEASES = [
     ("v1.98.0", "1260293", "v1.98.0 —— 图鉴长页分册：mods-body 从 118 屏压到 4 册"),
     ("v1.98.1", "522c19b", "v1.98.1 —— 把「台词」真正摆到可发现的位置 + 修一个换页竞态"),
     ("v1.105.0", "8ce91fe", "v1.105.0 —— 任务看板第二轮：两个实测缺陷 + 四处体验口径"),
+    # 2026-11-03 补：v1.155.0 / v1.155.1 / v1.155.2 三个版本提交时**只打了版本号，没写
+    # CHANGELOG 条目、没建 tag、没建 Release**（v1.155.3 发版时对账才发现）。三版的
+    # 正文已按各自提交内容补进 CHANGELOG，tag 打回各自 commit（不是 HEAD）。
+    ("v1.155.0", "d852cb1", "v1.155.0 —— 加一层枪械评测：位次只比同组裸枪，枪与弹的来源分开标"),
+    ("v1.155.1", "918c1f7", "v1.155.1 —— 枪械评测补 8 条逐枪样板：改装生态 / 适配图型 / 误用"),
+    ("v1.155.2", "98872ed", "v1.155.2 —— 补上图标统计：2919 → 2923（本版无读者可见变化）"),
 ]
 
 REL_LINK = re.compile(r"\[([^\]]+)\]\((?!(?:https?:|#))[^)]*\)")
@@ -129,7 +135,12 @@ def sections() -> dict[str, str]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--only", default="",
+                    help="只补这些 tag（逗号分隔），如 v1.155.0,v1.155.1。"
+                         "默认全量 —— 但本页只留当月条目，全量跑会因老版本段落已归档而报错，"
+                         "补近期版本时用这个参数限定范围。")
     a = ap.parse_args()
+    only = {t.strip() for t in a.only.split(",") if t.strip()}
 
     sec = sections()
     # 上限给足：Release 总数已 60+，limit 太小会让「已存在」判空、重复建。
@@ -139,6 +150,8 @@ def main() -> int:
     files: list[tuple[str, str, Path]] = []
 
     for tag, sha, title in RELEASES:
+        if only and tag not in only:
+            continue
         body = sec.get(tag, "")
         if not body:
             print(f"[错误] CHANGELOG 里找不到 {tag} 的段落", file=sys.stderr)
