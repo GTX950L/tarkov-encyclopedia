@@ -36,7 +36,11 @@ def write_md(path: Path, text: str) -> None:
     """
     keep: list[str] = []
     if path.exists():
-        old = path.read_text(encoding="utf-8")
+        # ⚠️ 必须先归一化换行再匹配（2026-11-03 实测踩到）：本机 `core.autocrlf`
+        #    开着时，**入库时是 LF、工作区检出是 CRLF**，而 `^---\n` 在 CRLF 文件上
+        #    一条都匹配不上 —— 于是 keep 为空、description 被静默删掉，
+        #    正是本模块要防的那个回归。CI 是 Linux（LF）所以从没红过，只有本机会丢。
+        old = path.read_text(encoding="utf-8").replace("\r\n", "\n")
         m = re.match(r"^---\n(.*?)\n---\n", old, re.S)
         if m:
             keep = [ln for ln in m.group(1).split("\n") if KEEP_RE.match(ln)]

@@ -1926,8 +1926,10 @@ def write_item_detail(plan, buckets, routes, quests, name_to_id, total_items):
              "window.TARKOV_ITEM=" + body + ";\n").encode("utf-8"))
 
     md = item_page_markdown(total_items, with_desc)
-    (OUT / "item.md").write_bytes(
-        md.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8"))
+    # ⚠️ 走 `_front.write_md`（2026-11-03）：这里原先是直接 `write_bytes`，
+    #    于是每跑一次图鉴，`catalog/item.md` 的 description 就被整块 front matter
+    #    冲掉 —— 而四道门禁都不查 front matter，只有「跑完再 diff」才看得见。
+    write_md(OUT / "item.md", md)
     return md, len(rows), sum(len(v) for v in rows.values()), total_bytes, with_desc
 
 
@@ -2132,9 +2134,14 @@ def main() -> int:
         plan, buckets, leaves, items_total, routes, quests,
         {k: v[1] for k, v in item_of_name.items()})
     # 站内其它页面（任务侧）靠这份映射把物品名链到图鉴对应位置
+    # ⚠️ 日期字段记的是**数据截至**（`updated` 最大值），不是抓取日（2026-11-03）。
+    #    这份文件是**入库**的推导产物，而 CI 每次都会 `gen_items_catalog.py --fetch`
+    #    再 `git diff --exit-code` 查它有没有跟上图鉴数据。写抓取日的话，「今天几号」
+    #    每天都变，等于让这道门禁**天天红**（数据一个字没动也红）——
+    #    实测就是这么红的。抓取日只对**读者**有意义，留在页面的口径表里。
     ip = ROOT / "scripts" / "data" / "item_pages.json"
     ip.write_bytes(json.dumps(
-        {"fetched": FETCH_DATE,
+        {"data_asof": DATA_ASOF,
          "pages": {n: list(v) for n, v in item_of_name.items() if n not in dup_names},
          "dups": sorted(dup_names)},
         ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
