@@ -1,4 +1,5 @@
 ---
+description: "情报与笔记：物品图鉴分册，列名称、重量、占格与商人价格。"  # 自动生成
 tags:
   - 物品
   - 速查
@@ -19,7 +20,8 @@ tags:
 | **叶子分类** | 6 个官方分类：[地图](#地图)、[磁带](#磁带)、[海报传单](#海报传单)、[笔记](#笔记)、[对话物品](#对话物品)、[赛季通行证文件](#赛季通行证文件) |
 | **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。本页 **16 / 232 件**有至少一条（商人出售 6 ｜ 以物换物 1 ｜ 制作 10）；`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— 那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|
 | **数据来源** | `json.tarkov.dev` 的 `itemCategories` 树与 `items` 接口，二级来源 |
-| **抓取日期** | 2026-10-08 |
+| **数据截至** | 2026-11-01（上游 `updated` 字段的最新日期） |
+| **抓取日期** | 2026-10-08（本站缓存写入日，非数据时效） |
 | **配套页面** | [物品图鉴总览](index.md) ｜ [任务需求物品反查](../quests/item-lookup.md) ｜ [配方速查表](../docs/recipes.md) |
 
 ---
@@ -116,7 +118,7 @@ A.P. 会议录音带 - 1　A.P. 会议录音带 - 2　BEAR 指挥官留下的录
 | 16 | <img class="tk-ic" src="../assets/items/icons/675a04fdb8913ff13e0496bb.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Killa 与 Tagilla 海报 | `killa-and-tagilla-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
 | 17 | <img class="tk-ic" src="../assets/items/icons/68f0f8a1375a44d1ed01ea4b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Killa妹海报 | `killagirl-poster` | 0.1 千克 | — | — | — | — |
 | 18 | <img class="tk-ic" src="../assets/items/icons/67f924a9154a04c33b0a3c57.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Killa小迷妹海报 | `killa-fangirl-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
-| 19 | <img class="tk-ic" src="../assets/items/icons/6ad9d46e5301ed3de9046687.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Mei Mei海报 | `mei-mei-poster` | 0.1 千克 | — | — | — | 75,000 卢布（1 家最高） |
+| 19 | <span class="tk-ic tk-ic--none" aria-hidden="true" title="上游未提供官方图标"></span> Mei Mei海报 | `mei-mei-poster` | 0.1 千克 | — | — | — | 75,000 卢布（1 家最高） |
 | 20 | <img class="tk-ic" src="../assets/items/icons/699f0b877c23862b4b0ee19c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Paradigm 航运海报 | `paradigm-shipping-poster` | 0.1 千克 | — | — | — | 13,500 卢布（1 家最高） |
 | 21 | <img class="tk-ic" src="../assets/items/icons/68f0f8f1a1e799f1c3027c71.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Ryzhy 编年史海报 | `chronicles-of-ryzhy-poster` | 0.1 千克 | — | — | — | — |
 | 22 | <img class="tk-ic" src="../assets/items/icons/675a0a91af26c56ee1090728.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> TerraGroup 实验室招募广告 | `terragroup-labs-advertisement` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
@@ -131,7 +133,7 @@ A.P. 会议录音带 - 1　A.P. 会议录音带 - 2　BEAR 指挥官留下的录
 | 31 | <img class="tk-ic" src="../assets/items/icons/6aa2d653b30d09615d006ee7.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “深渊”海报 | `the-abyss-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
 | 32 | <img class="tk-ic" src="../assets/items/icons/6aa2d63bcff7211b380d9f77.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “路途”海报 | `the-path-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
 | 33 | <img class="tk-ic" src="../assets/items/icons/675a202b6aaafea7210915fd.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《伏击现场》海报 | `the-ambush-poster` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
-| 34 | <img class="tk-ic" src="../assets/items/icons/6ad9ce23e0f9657cf507add6.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《塔科夫活死人》海报 | `tarkov-of-the-dead-poster` | 0.1 千克 | — | — | — | — |
+| 34 | <span class="tk-ic tk-ic--none" aria-hidden="true" title="上游未提供官方图标"></span> 《塔科夫活死人》海报 | `tarkov-of-the-dead-poster` | 0.1 千克 | — | — | — | — |
 | 35 | <img class="tk-ic" src="../assets/items/icons/675a191f67c8eb5cd1035305.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《惊天枪战》海报 | `gunfight-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
 | 36 | <img class="tk-ic" src="../assets/items/icons/675a1a244ff23436160d8033.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《末路航班》海报 | `last-flight-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
 | 37 | <img class="tk-ic" src="../assets/items/icons/675a0d2d57dd12f0260c4a31.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《流亡之路》海报 | `exodus-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
@@ -139,7 +141,7 @@ A.P. 会议录音带 - 1　A.P. 会议录音带 - 2　BEAR 指挥官留下的录
 | 39 | <img class="tk-ic" src="../assets/items/icons/675a20c83fb2de89670113b4.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《猎物》海报 | `the-hunted-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
 | 40 | <img class="tk-ic" src="../assets/items/icons/675a1c129422e1708e0e9baa.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《瓦西里》海报 | `vasily-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
 | 41 | <img class="tk-ic" src="../assets/items/icons/675a1f5c1474133a0d0bb218.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《神射手》海报 | `sharpshooter-poster` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
-| 42 | <img class="tk-ic" src="../assets/items/icons/6ad9ce5ad2be28d75701a170.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《诺文斯克万圣节》海报 | `halloween-in-norvinsk-poster` | 0.1 千克 | — | — | — | — |
+| 42 | <span class="tk-ic tk-ic--none" aria-hidden="true" title="上游未提供官方图标"></span> 《诺文斯克万圣节》海报 | `halloween-in-norvinsk-poster` | 0.1 千克 | — | — | — | — |
 | 43 | <img class="tk-ic" src="../assets/items/icons/675a125caf26c56ee109072a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《赴汤蹈火》海报 | `hell-or-highwater-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
 | 44 | <img class="tk-ic" src="../assets/items/icons/697cdbfd14e9320980057487.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《逃离鸭科夫》海报 | `escape-from-duckov-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
 | 45 | <img class="tk-ic" src="../assets/items/icons/675a1af21474133a0d0bb216.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 《骇人影片》海报 | `spooky-movie-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
@@ -149,7 +151,7 @@ A.P. 会议录音带 - 1　A.P. 会议录音带 - 2　BEAR 指挥官留下的录
 | 49 | <img class="tk-ic" src="../assets/items/icons/68f25b4219a2b503d70dc28d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 塔科夫火车站海报 | `tarkov-train-station-poster` | 0.1 千克 | — | — | — | 50,000 卢布（1 家最高） |
 | 50 | <img class="tk-ic" src="../assets/items/icons/6a426fbe99757acd420f64b0.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 塔科夫街区海报 | `streets-of-tarkov-poster` | 0.1 千克 | — | — | — | — |
 | 51 | <img class="tk-ic" src="../assets/items/icons/675a081c1474133a0d0bb214.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 奇怪物语海报 | `things-sure-are-strange-poster` | 0.1 千克 | — | — | — | 40,000 卢布（1 家最高） |
-| 52 | <img class="tk-ic" src="../assets/items/icons/6ad9cdece1f879d17605ca4c.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 女武神海报 | `valkyrie-poster` | 0.1 千克 | — | — | — | 75,000 卢布（1 家最高） |
+| 52 | <span class="tk-ic tk-ic--none" aria-hidden="true" title="上游未提供官方图标"></span> 女武神海报 | `valkyrie-poster` | 0.1 千克 | — | — | — | 75,000 卢布（1 家最高） |
 | 53 | <img class="tk-ic" src="../assets/items/icons/6759e19a8367ee2b0c0f4b92.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 女郎海报 | `girl-poster` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
 | 54 | <img class="tk-ic" src="../assets/items/icons/6759e61067c8eb5cd10352f1.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 女郎海报 | `girl-poster-1` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
 | 55 | <img class="tk-ic" src="../assets/items/icons/6759e6c39422e1708e0e9b81.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 女郎海报 | `girl-poster-2` | 0.1 千克 | — | — | — | 25,000 卢布（1 家最高） |
@@ -294,8 +296,8 @@ Leshy 的命令　关于“世界之眼”的记录　受害者的笔记　密�
 
 | # | 名称 | 英文名 | 重量 | 关键属性 | 获取方式 | 商人最低售价 | 商人最高回收 |
 |---|------|--------|------|----------|----------|--------------|--------------|
-| 1 | <img class="tk-ic" src="../assets/items/icons/6acc4e8fada0d6309902b04d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> RDA-78 疫苗（复制性 DNA 弱化剂） | `rda-78-vaccine-replicative-dna-attenuator` | 0.035 千克 | — | — | — | 252,000 卢布（1 家最高） |
-| 2 | <img class="tk-ic" src="../assets/items/icons/6acc4c757587fb38c508c5fa.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> TG-Vi-24 原型疫苗（B.1.2 毒株） | `tg-vi-24-vaccine-prototype-b12-strain` | 0.035 千克 | — | — | — | 90,000 卢布（1 家最高） |
+| 1 | <span class="tk-ic tk-ic--none" aria-hidden="true" title="上游未提供官方图标"></span> RDA-78 疫苗（复制性 DNA 弱化剂） | `rda-78-vaccine-replicative-dna-attenuator` | 0.035 千克 | — | — | — | 252,000 卢布（1 家最高） |
+| 2 | <span class="tk-ic tk-ic--none" aria-hidden="true" title="上游未提供官方图标"></span> TG-Vi-24 原型疫苗（B.1.2 毒株） | `tg-vi-24-vaccine-prototype-b12-strain` | 0.035 千克 | — | — | — | 90,000 卢布（1 家最高） |
 | 3 | <img class="tk-ic" src="../assets/items/icons/590c392f86f77444754deb29.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 固态硬盘 | `ssd-drive` | 0.04 千克 | — | — | — | 28,800 卢布（2 家最高） |
 | 4 | <img class="tk-ic" src="../assets/items/icons/68750378555049ec270cdab7.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 正式版游戏光盘 | `disk-with-release-version` | 0.04 千克 | — | — | — | — |
 | 5 | <img class="tk-ic" src="../assets/items/icons/68406efe068a2d99940c1ce3.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 硬盘 1 | `disk-drive-1` | 0.04 千克 | — | — | — | — |
@@ -309,11 +311,11 @@ Leshy 的命令　关于“世界之眼”的记录　受害者的笔记　密�
 | 13 | <img class="tk-ic" src="../assets/items/icons/675aaae1dcf102478202c537.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 写有暗号“Onyx”的纸条 | `note-with-code-word-onyx` | 0.1 千克 | — | — | — | — |
 | 14 | <img class="tk-ic" src="../assets/items/icons/675aaab74bca0b001d02f356.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 写有暗号“Voron”的纸条 | `note-with-code-word-voron` | 0.1 千克 | — | — | — | — |
 | 15 | <img class="tk-ic" src="../assets/items/icons/686665484c6f39163e076c3d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 地图碎片 | `map-piece` | 0.1 千克 | — | — | — | — |
-| 16 | <img class="tk-ic" src="../assets/items/icons/6ad5f06c0d239d9ef60e7670.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 收藏家地图 | `collector-map` | 0.1 千克 | — | — | — | — |
+| 16 | <span class="tk-ic tk-ic--none" aria-hidden="true" title="上游未提供官方图标"></span> 收藏家地图 | `collector-map` | 0.1 千克 | — | — | — | — |
 | 17 | <img class="tk-ic" src="../assets/items/icons/590c651286f7741e566b6461.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 袖珍日记 | `slim-diary` | 0.1 千克 | — | — | — | 25,560 卢布（2 家最高） |
 | 18 | <img class="tk-ic" src="../assets/items/icons/67c0345b354fca26a0008036.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 装有 Kerman 哈希代码的 U 盘 | `flash-drive-with-mr-kermans-hash-codes` | 0.1 千克 | — | — | — | — |
 | 19 | <img class="tk-ic" src="../assets/items/icons/67c04a9bd98287be7b0923d8.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 装有 Prapor 哈希代码的 U 盘 | `flash-drive-with-prapors-hash-codes` | 0.1 千克 | — | — | — | — |
-| 20 | <img class="tk-ic" src="../assets/items/icons/6ad5f141e8c146f24d0ea9b6.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 车钥匙 | `car-keys` | 0.1 千克 | — | — | — | — |
+| 20 | <span class="tk-ic tk-ic--none" aria-hidden="true" title="上游未提供官方图标"></span> 车钥匙 | `car-keys` | 0.1 千克 | — | — | — | — |
 | 21 | <img class="tk-ic" src="../assets/items/icons/675aaa003107dac10006332f.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 雷区地图（储备站） | `minefield-map-reserve` | 0.1 千克 | — | — | — | — |
 | 22 | <img class="tk-ic" src="../assets/items/icons/675aaa9a3107dac100063331.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 雷区地图（森林） | `minefield-map-woods` | 0.1 千克 | — | — | — | — |
 | 23 | <img class="tk-ic" src="../assets/items/icons/675aaa8f7f3c962069072b27.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 雷区地图（灯塔） | `minefield-map-lighthouse` | 0.1 千克 | — | — | — | — |
@@ -423,4 +425,4 @@ RDA-78 疫苗（复制性 DNA 弱化剂）　TG-Vi-24 原型疫苗（B.1.2 毒�
 
 ⬆️ **[回到顶部](#top)**
 
-**最后更新**: 2026 年 10 月 ｜ **贡献者** [GTX950L](https://github.com/GTX950L) ｜ **License**: CC BY-NC-SA 4.0
+**最后更新**: 2026 年 11 月 ｜ **贡献者** [GTX950L](https://github.com/GTX950L) ｜ **License**: CC BY-NC-SA 4.0

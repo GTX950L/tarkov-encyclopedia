@@ -1,4 +1,5 @@
 ---
+description: "以物换物原料：物品图鉴分册，列名称、重量、占格与商人价格。"  # 自动生成
 tags:
   - 物品
   - 速查
@@ -19,7 +20,8 @@ tags:
 | **叶子分类** | 9 个官方分类：[珠宝](#珠宝)、[电子产品](#电子产品)、[建筑材料](#建筑材料)、[工具](#工具)、[日常用品](#日常用品)、[医疗用品](#医疗用品)、[电池](#电池)、[其他](#其他)、[燃料](#燃料) |
 | **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。本页 **69 / 333 件**有至少一条（商人出售 1 ｜ 以物换物 18 ｜ 制作 62）；`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— 那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|
 | **数据来源** | `json.tarkov.dev` 的 `itemCategories` 树与 `items` 接口，二级来源 |
-| **抓取日期** | 2026-10-08 |
+| **数据截至** | 2026-11-01（上游 `updated` 字段的最新日期） |
+| **抓取日期** | 2026-10-08（本站缓存写入日，非数据时效） |
 | **配套页面** | [物品图鉴总览](index.md) ｜ [任务需求物品反查](../quests/item-lookup.md) ｜ [配方速查表](../docs/recipes.md) |
 
 ---
@@ -77,7 +79,7 @@ tags:
 | 37 | <img class="tk-ic" src="../assets/items/icons/66572cbdad599021091c611a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Tagilla 玩偶 | `tagilla-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
 | 38 | <img class="tk-ic" src="../assets/items/icons/68f25ce9b2b53abd200b9551.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Therapist 玩偶 | `therapist-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
 | 39 | <img class="tk-ic" src="../assets/items/icons/655c663a6689c676ce57af85.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> USEC 干员玩偶 | `usec-operative-figurine` | 0.2 千克 | — | — | — | 38,250 卢布（4 家最高） |
-| 40 | <img class="tk-ic" src="../assets/items/icons/6ad9cf0b5394c084310cac90.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Wedge 玩偶 | `wedge-figurine` | 0.2 千克 | — | — | — | 76,500 卢布（4 家最高） |
+| 40 | <span class="tk-ic tk-ic--none" aria-hidden="true" title="上游未提供官方图标"></span> Wedge 玩偶 | `wedge-figurine` | 0.2 千克 | — | — | — | 76,500 卢布（4 家最高） |
 | 41 | <img class="tk-ic" src="../assets/items/icons/68f26161b84c6e1f8a09d001.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> “逃离”玩偶 | `escape-figurine` | 0.2 千克 | — | — | — | — |
 | 42 | <img class="tk-ic" src="../assets/items/icons/679b9d6390622daf9708da76.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 三角头玩偶 | `pointy-guy-figurine` | 0.2 千克 | — | — | — | 38,250 卢布（4 家最高） |
 | 43 | <img class="tk-ic" src="../assets/items/icons/679b9d4b3374fb14f40efe6d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 吸血鬼公爵玩偶 | `count-bloodsucker-figurine` | 0.2 千克 | — | — | — | 38,250 卢布（4 家最高） |
@@ -90,8 +92,8 @@ tags:
 | 50 | <img class="tk-ic" src="../assets/items/icons/62a09cfe4f842e1bd12da3e4.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 金蛋 | `golden-egg` | 0.2 千克 | — | — | — | 34,680 卢布（4 家最高） |
 | 51 | <img class="tk-ic" src="../assets/items/icons/679b9cce4e4ed4b3b40ae5c5.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 钉子头玩偶 | `nailhead-figurine` | 0.2 千克 | — | — | — | 38,250 卢布（4 家最高） |
 | 52 | <img class="tk-ic" src="../assets/items/icons/697cddb414e932098005748d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 鸭子玩偶 | `duck-figurine` | 0.2 千克 | — | — | — | 51,000 卢布（4 家最高） |
-| 53 | <img class="tk-ic" src="../assets/items/icons/6ad9cce9e1f879d17605ca33.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 黑色军团小队指挥官玩偶 | `black-division-team-leader-figurine` | 0.2 千克 | — | — | — | 63,750 卢布（4 家最高） |
-| 54 | <img class="tk-ic" src="../assets/items/icons/6ad9cd192b8132e9720f993a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 黑色军团干员玩偶 | `black-division-operator-figurine` | 0.2 千克 | — | — | — | 63,750 卢布（4 家最高） |
+| 53 | <span class="tk-ic tk-ic--none" aria-hidden="true" title="上游未提供官方图标"></span> 黑色军团小队指挥官玩偶 | `black-division-team-leader-figurine` | 0.2 千克 | — | — | — | 63,750 卢布（4 家最高） |
+| 54 | <span class="tk-ic tk-ic--none" aria-hidden="true" title="上游未提供官方图标"></span> 黑色军团干员玩偶 | `black-division-operator-figurine` | 0.2 千克 | — | — | — | 63,750 卢布（4 家最高） |
 | 55 | <img class="tk-ic" src="../assets/items/icons/6638a5474e92f038531e210e.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Kerman先生的全息猫 | `mr-kermans-cat-hologram` | 0.3 千克 | — | — | — | — |
 | 56 | <img class="tk-ic" src="../assets/items/icons/6aa2d17e3fe081d16109ab7d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> PMC 硬汉玩偶 | `pmc-hardened-figurine` | 0.3 千克 | — | — | — | 38,250 卢布（3 家最高） |
 | 57 | <img class="tk-ic" src="../assets/items/icons/6841b6b674a3c16f5e03d653.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> PMC 起源玩偶 | `pmc-origins-figurine` | 0.3 千克 | — | — | — | — |
@@ -332,8 +334,8 @@ Deadlyslob的胡须油　卫生纸　肥皂　Repellent杀虫剂　Ortodontox牙
 | 2 | <img class="tk-ic" src="../assets/items/icons/5d1b3f2d86f774253763b735.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 一次性注射器 | `disposable-syringe` | 0.06 千克 | — | 以物换物 / 制作 | — | 4,355 卢布（3 家最高） |
 | 3 | <img class="tk-ic" src="../assets/items/icons/5af0534a86f7743b6f354284.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 检眼镜 | `ophthalmoscope` | 0.067 千克 | — | — | — | 43,305 卢布（3 家最高） |
 | 4 | <img class="tk-ic" src="../assets/items/icons/5c0530ee86f774697952d952.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> LEDX皮肤透照仪 | `ledx-skin-transilluminator` | 0.083 千克 | — | 以物换物 / 制作 | — | 494,700 卢布（3 家最高） |
-| 5 | <img class="tk-ic" src="../assets/items/icons/6acc4af5ada0d6309902b049.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 感染者组织样本 | `infected-tissue-sample` | 0.1 千克 | — | — | — | 84,150 卢布（1 家最高） |
-| 6 | <img class="tk-ic" src="../assets/items/icons/6acc4988059559342f0830d8.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 血液样本 | `blood-sample` | 0.1 千克 | — | — | — | 51,000 卢布（1 家最高） |
+| 5 | <span class="tk-ic tk-ic--none" aria-hidden="true" title="上游未提供官方图标"></span> 感染者组织样本 | `infected-tissue-sample` | 0.1 千克 | — | — | — | 84,150 卢布（1 家最高） |
+| 6 | <span class="tk-ic tk-ic--none" aria-hidden="true" title="上游未提供官方图标"></span> 血液样本 | `blood-sample` | 0.1 千克 | — | — | — | 51,000 卢布（1 家最高） |
 | 7 | <img class="tk-ic" src="../assets/items/icons/59e361e886f774176c10a2a5.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 过氧化氢溶液（双氧水） | `bottle-of-hydrogen-peroxide` | 0.1 千克 | — | — | — | 6,205 卢布（3 家最高） |
 | 8 | <img class="tk-ic" src="../assets/items/icons/62a0a043cf4a99369e2624a5.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> OLOLO瓶装复合维生素 | `bottle-of-ololo-multivitamins` | 0.2 千克 | — | 以物换物 | — | 12,795 卢布（3 家最高） |
 | 9 | <img class="tk-ic" src="../assets/items/icons/5d1b3a5d86f774252167ba22.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 一堆药 | `pile-of-meds` | 0.2 千克 | — | 以物换物 / 制作 | — | 3,315 卢布（3 家最高） |
@@ -564,4 +566,4 @@ Hunter火柴　经典火柴　Crickent打火机　SurvL幸存者打火机　Zibb
 
 ⬆️ **[回到顶部](#top)**
 
-**最后更新**: 2026 年 10 月 ｜ **贡献者** [GTX950L](https://github.com/GTX950L) ｜ **License**: CC BY-NC-SA 4.0
+**最后更新**: 2026 年 11 月 ｜ **贡献者** [GTX950L](https://github.com/GTX950L) ｜ **License**: CC BY-NC-SA 4.0

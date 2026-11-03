@@ -1,3 +1,6 @@
+---
+description: "神秘蓝焰：开场就是整部游戏的第一幕：突袭 TerraGroup 办公楼时，旁边高楼上炸开一团光，所有电子设备同时失效。"  # 自动生成
+---
 # 神秘蓝焰（Blue Fire）
 
 <div class="tk-ver" data-search-exclude markdown>

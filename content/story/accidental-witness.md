@@ -1,3 +1,6 @@
+---
+description: "意外证人：剧情简介（游戏内文本，经中文 Wiki 转录） 「宿舍楼旁停着一辆轿车，车上留下了一份颇为粗俗的威胁信。看来有一个住户欠…"  # 自动生成
+---
 # 意外证人（Accidental Witness）
 
 <div class="tk-ver" data-search-exclude markdown>

@@ -1,8 +1,11 @@
+---
+description: "逃离塔科夫百科全书：离线可用的《逃离塔科夫》中文百科。98 篇条目讲规则、地图与数值，图鉴收 4,998 件物品、503 个任务，13 张交…"  # 自动生成
+---
 # 逃离塔科夫百科全书
 
 <a id="top"></a>
 
-离线可用的《逃离塔科夫》中文百科。97 篇条目讲规则、地图与数值，图鉴收 4,998 件物品、503 个任务，13 张交互地图和进度工具全部在浏览器里跑 —— 不登录，也不上传任何东西。
+离线可用的《逃离塔科夫》中文百科。98 篇条目讲规则、地图与数值，图鉴收 4,998 件物品、503 个任务，13 张交互地图和进度工具全部在浏览器里跑 —— 不登录，也不上传任何东西。
 
 <div class="tk-launch">
 <a class="tk-launch__card tk-launch--read" href="entries/spawn-and-opening.md">
@@ -164,7 +167,7 @@
 <span class="tk-arrow">·</span>
 <a class="tk-step tk-s10" href="quests/index.md"><b>第十篇</b><em>任务图鉴</em><i>25 篇</i></a>
 <span class="tk-arrow">·</span>
-<a class="tk-step tk-s11" href="docs/citation.md"><b>第十一篇</b><em>参考</em><i>15 篇</i></a>
+<a class="tk-step tk-s11" href="docs/citation.md"><b>第十一篇</b><em>参考</em><i>17 篇</i></a>
 </div>
 
 <div class="tk-reason">

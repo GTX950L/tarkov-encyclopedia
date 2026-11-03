@@ -1,4 +1,5 @@
 ---
+description: "EXFIL Brothers 计划：身份是自动判定的，不需要申请：注册满 7 天 + 任意模式 30 级 = Operator；注册不满 7 天 = Can…"  # 自动生成
 tags:
   - 机制
   - 入门

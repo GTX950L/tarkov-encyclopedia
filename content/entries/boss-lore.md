@@ -1,4 +1,5 @@
 ---
+description: "Boss 人物志：一条容易出错的边界：Wiki 的「任务对话」区块是抄游戏文本，按一级算；Wiki 自己写的 Biography 段落是编…"  # 自动生成
 tags:
   - 战斗
   - 任务

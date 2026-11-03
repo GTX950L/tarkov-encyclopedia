@@ -27,6 +27,8 @@ import os
 import re
 import shutil
 import sys
+import time
+import urllib.error
 import urllib.request
 from collections import Counter, defaultdict
 from datetime import date
@@ -35,6 +37,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 from _baseline import baseline_label, read_baseline  # noqa: E402  站点基线的唯一来源
+from _front import write_md  # noqa: E402  写盘时保留 description / title
+from _quest_names import display_names  # noqa: E402  同名任务的显示名消歧
 
 # 模式参数化（2026-10-18）：上游对 PvE 有一套**平行端点**（/pve/tasks 等），
 # 两边各自成库。实测 PvP 504 条 / PvE 500 条，其中 477 条共有、仅 PvE 23 条。
@@ -62,6 +66,11 @@ def data_file() -> Path:
 
 
 DATA_FILE = ROOT / "scripts" / "data" / "quests.json"
+
+# 同名任务的**显示名**映射（{id: 显示名}），由 generate() 在读到数据后填充。
+# 为什么需要：9 组中文重名（「新起点」×4、「人靠衣装 - 1」Bear/USEC 等），
+# 而数据里的 ``name`` 是前置关系的关联键、不能改 —— 详见 scripts/_quest_names.py。
+DISP: dict[str, str] = {}
 CARRIER_FILE = ROOT / "scripts" / "data" / "quests_carrier.json"
 OUT_DIR = ROOT / "content" / "quests"
 
@@ -230,10 +239,39 @@ PLACEHOLDER_NAME_RE = re.compile(r"^[0-9a-f]{24} name$")
 # 抓取与精简
 # ─────────────────────────────────────────────────────────────────────────────
 
+REQUEST_RETRIES = (0, 2, 5)   # 每次尝试前的等待秒数（第一项 0 = 立即）
+
+
 def get(endpoint: str) -> dict:
-    req = urllib.request.Request(api_base() + endpoint, headers=HEADERS)
-    with urllib.request.urlopen(req, timeout=90) as r:
-        return json.loads(r.read().decode("utf-8"))
+    """抓一个端点，**带重试**（2026-11-03）。
+
+    起因是 ⑤c：它把全部离线生成器跑两遍，其中 `gen_achievements.py` 每遍都要
+    现抓一遍 `/regular/tasks`（成就不写缓存）。本机实测这条链大约每 5 次构建
+    就有 1～2 次被打断——`[WinError 10054] 远程主机强迫关闭了一个现有的连接`
+    或 `SSL: UNEXPECTED_EOF_WHILE_READING`。抓取失败等于门禁失败，明明和代码
+    无关，整条链却判红，还得靠人判断「这是网络还是真漂移」。
+
+    三次尝试总共多等 7 秒；4xx 不重试（端点写错、参数错，重试没有意义）。
+    """
+    last: Exception | None = None
+    for i, wait in enumerate(REQUEST_RETRIES):
+        if wait:
+            time.sleep(wait)
+        try:
+            req = urllib.request.Request(api_base() + endpoint, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=90) as r:
+                return json.loads(r.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            if 400 <= e.code < 500:
+                raise
+            last = e
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError,
+                ConnectionError) as e:
+            last = e
+        print(f"  [抓取重试 {i + 1}/{len(REQUEST_RETRIES)}] {endpoint}: "
+              f"{type(last).__name__}: {last}", file=sys.stderr)
+    assert last is not None
+    raise last
 
 
 def one_line(s: str) -> str:
@@ -969,7 +1007,7 @@ def render_task(rec: dict, i: int) -> list[str]:
     的编号与这里的标题一一对应 —— 编号错位比没有编号更糟。标题本身由
     `task_heading` 输出成原生 HTML，原因见该函数的说明。
     """
-    L: list[str] = [task_heading(i, rec["name"], rec.get("id", "")), ""]
+    L: list[str] = [task_heading(i, DISP.get(rec.get("id", ""), rec["name"]), rec.get("id", "")), ""]
     meta = [f"**{TRADER_LABEL.get(rec['trader'], rec['trader'])}**", f"需 **Lv{rec['level']}**"]
     meta.append(f"前置 **{len(rec['prereqs'])}** 个" if rec["prereqs"] else "**无前置**")
     if rec["en"]:
@@ -1366,7 +1404,7 @@ def write_index(tasks: list[dict]) -> None:
         "⬆️ **[回到顶部](#top)**",
         *FOOTER,
     ]
-    (OUT_DIR / "index.md").write_text("\n".join(L) + "\n", encoding="utf-8")
+    write_md(OUT_DIR / "index.md", "\n".join(L) + "\n")
 
 
 # ── 页首索引表 + 等级区间分组 ────────────────────────────────────────────────
@@ -1485,7 +1523,7 @@ def render_index(rows: list[dict]) -> list[str]:
         if rec["failConditions"]:
             flags.append("有失败条件")
         L.append(
-            f"| {i} | {link_cell(i, rec['name'])} | Lv{rec['level']} | "
+            f"| {i} | {link_cell(i, DISP.get(rec.get('id', ''), rec['name']))} | Lv{rec['level']} | "
             f"{cell(rec['map']) if rec['map'] else '—'} | "
             f"{' · '.join(flags) if flags else '—'} |"
         )
@@ -1587,7 +1625,7 @@ def write_trader_page(key: str, rows: list[dict]) -> None:
         "｜ [人物与组织](../entries/characters.md) ｜ [剧情章节与主线任务](../entries/story-chapters.md)",
         *FOOTER,
     ]
-    (OUT_DIR / f"{key}.md").write_text("\n".join(L) + "\n", encoding="utf-8")
+    write_md(OUT_DIR / f"{key}.md", "\n".join(L) + "\n")
 
 
 # ---------------------------------------------------------------------------
@@ -1780,7 +1818,7 @@ def write_quest_detail(tasks: list[dict]) -> None:
         rwlines = [re.sub(r"^\s*-\s*\*\*完成奖励\*\*：", "- ", x).strip()
                    for x in render_rewards(t)] if (t.get("exp") or rwobj) else []
         rows[quest_shard_key(qid)][qid] = {
-            "n": t["name"], "e": t.get("en") or "",
+            "n": DISP.get(t["id"], t["name"]), "e": t.get("en") or "",
             "t": TRADER_LABEL.get(t["trader"], t["trader"]),
             "lv": t.get("level") or 0, "xp": t.get("exp") or 0,
             "m": t.get("map") or "", "f": t.get("faction") or "",
@@ -1857,8 +1895,8 @@ def write_quest_detail(tasks: list[dict]) -> None:
             old.unlink()
 
     md = quest_page_markdown(len(tasks), sum(1 for t in tasks if DIALOGUE.get(t["id"], {}).get("intro")))
-    (OUT_DIR / "quest.md").write_bytes(
-        md.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8"))
+    # 保留由 gen_page_meta.py 写入的 description / title（见 scripts/_front.py）
+    write_md(OUT_DIR / "quest.md", md)
     print(f"任务详情：{len(rows)} 个分片 ｜ {len(tasks)} 个任务 ｜ "
           f"可定位 {len(linkable)} 个（其余带地图归属的记 mz=0）｜ "
           f"合计 {total_bytes / 1024:.0f} KB（单次只下 1 片，"
@@ -1980,6 +2018,8 @@ def generate() -> None:
     payload = json.loads(data_file().read_text(encoding="utf-8"))
     FETCH_DATE = payload.get("fetched") or FETCH_DATE
     tasks = payload["tasks"]
+    DISP.clear()
+    DISP.update(display_names(tasks))
 
     # 单个任务的详情分片（视图页 + 分片数据）。**两个模式都要写** ——
     # 作战台直接读它，这是不生成 md 页面的模式下唯一的任务明细来源。

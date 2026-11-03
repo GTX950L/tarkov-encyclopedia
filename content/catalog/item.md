@@ -1,4 +1,5 @@
 ---
+description: "物品详情：物品图鉴分册，列名称、重量、占格与商人价格。"  # 自动生成
 tags:
   - 物品
   - 索引
@@ -48,4 +49,4 @@ tags:
 
 ⬆️ **[回到顶部](#top)**
 
-**最后更新**: 2026 年 10 月 ｜ **贡献者** [GTX950L](https://github.com/GTX950L) ｜ **License**: CC BY-NC-SA 4.0
+**最后更新**: 2026 年 11 月 ｜ **贡献者** [GTX950L](https://github.com/GTX950L) ｜ **License**: CC BY-NC-SA 4.0

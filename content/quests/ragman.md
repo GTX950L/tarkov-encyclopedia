@@ -1,4 +1,5 @@
 ---
+description: "Ragman 的任务：点任务名跳到下方明细。每个明细块里都有「💬 商人台词 →」，点开是该任务的完整页面（商人台词 · 前置与后续 · 目标 …"  # 自动生成
 tags:
   - 任务
   - 商人
@@ -75,26 +76,26 @@ tags:
 | 38 | <a href="#q38">新起点</a> | Lv25 | — | — |
 | 39 | <a href="#q39">本事不是喝出来的</a> | Lv25 | — | **必须战局内找到** |
 | 40 | <a href="#q40">清空外围</a> | Lv26 | 迷宫 | — |
-| 41 | <a href="#q41">人靠衣装 - 1</a> | Lv27 | — | **必须战局内找到** · 仅 BEAR · 可重接 |
-| 42 | <a href="#q42">人靠衣装 - 1</a> | Lv27 | — | **必须战局内找到** · 仅 USEC · 可重接 |
+| 41 | <a href="#q41">人靠衣装 - 1（Bear）</a> | Lv27 | — | **必须战局内找到** · 仅 BEAR · 可重接 |
+| 42 | <a href="#q42">人靠衣装 - 1（USEC）</a> | Lv27 | — | **必须战局内找到** · 仅 USEC · 可重接 |
 | 43 | <a href="#q43">此路是我开！</a> | Lv27 | — | — |
 | 44 | <a href="#q44">酒瘾</a> | Lv27 | — | **必须战局内找到** |
 | 45 | <a href="#q45">雪中送炭</a> | Lv27 | 储备站 | **需自备物品** |
 | 46 | <a href="#q46">高保真</a> | Lv27 | 塔科夫街区 | 需钥匙 |
-| 47 | <a href="#q47">新起点</a> | Lv30 | 实验室 | **必须战局内找到** · 威望 P1 |
-| 48 | <a href="#q48">新起点</a> | Lv35 | — | **必须战局内找到** · 威望 P2 |
-| 49 | <a href="#q49">新起点</a> | Lv40 | — | **必须战局内找到** · 威望 P3 |
-| 50 | <a href="#q50">人靠衣装 - 2</a> | Lv42 | — | **必须战局内找到** · 仅 BEAR · 可重接 |
-| 51 | <a href="#q51">人靠衣装 - 2</a> | Lv42 | — | **必须战局内找到** · 仅 USEC · 可重接 |
+| 47 | <a href="#q47">新起点 2</a> | Lv30 | 实验室 | **必须战局内找到** · 威望 P1 |
+| 48 | <a href="#q48">新起点 3</a> | Lv35 | — | **必须战局内找到** · 威望 P2 |
+| 49 | <a href="#q49">新起点 4</a> | Lv40 | — | **必须战局内找到** · 威望 P3 |
+| 50 | <a href="#q50">人靠衣装 - 2（Bear）</a> | Lv42 | — | **必须战局内找到** · 仅 BEAR · 可重接 |
+| 51 | <a href="#q51">人靠衣装 - 2（USEC）</a> | Lv42 | — | **必须战局内找到** · 仅 USEC · 可重接 |
 | 52 | <a href="#q52">古董爱好者</a> | Lv42 | — | **必须战局内找到** |
 | 53 | <a href="#q53">实战考验</a> | Lv42 | — | — |
 | 54 | <a href="#q54">旧情难却</a> | Lv42 | — | — |
 | 55 | <a href="#q55">特殊提议</a> | Lv42 | — | **必须战局内找到** |
 | 56 | <a href="#q56">看不见的大手</a> | Lv42 | — | — |
-| 57 | <a href="#q57">纺织业 - 1</a> | Lv42 | — | **必须战局内找到** · 仅 BEAR |
-| 58 | <a href="#q58">纺织业 - 1</a> | Lv42 | — | **必须战局内找到** · 仅 USEC |
-| 59 | <a href="#q59">纺织业 - 2</a> | Lv42 | — | **必须战局内找到** · 仅 BEAR |
-| 60 | <a href="#q60">纺织业 - 2</a> | Lv42 | — | **必须战局内找到** · 仅 USEC |
+| 57 | <a href="#q57">纺织业 - 1（Bear）</a> | Lv42 | — | **必须战局内找到** · 仅 BEAR |
+| 58 | <a href="#q58">纺织业 - 1（USEC）</a> | Lv42 | — | **必须战局内找到** · 仅 USEC |
+| 59 | <a href="#q59">纺织业 - 2（Bear）</a> | Lv42 | — | **必须战局内找到** · 仅 BEAR |
+| 60 | <a href="#q60">纺织业 - 2（USEC）</a> | Lv42 | — | **必须战局内找到** · 仅 USEC |
 | 61 | <a href="#q61">经济流动</a> | Lv42 | — | — |
 
 </details>
@@ -999,7 +1000,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000 ｜ **Atomic Defense CQCM 防弹面具（黑色）** ×3 ｜ **“最后一息”海报** ×1
   - 解锁购买：**Altyn 突击头盔（橄榄绿）（Ragman LL4）**
 
-<h3 id="q41" data-qid="6613f3007f6666d56807c929">人靠衣装 - 1<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
+<h3 id="q41" data-qid="6613f3007f6666d56807c929">人靠衣装 - 1（Bear）<a class="headerlink" href="#q41" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Drip Out Part 1 Bear**
 
@@ -1019,7 +1020,7 @@ tags:
 - **完成奖励**：经验 **28,000** ｜ **卢布** ×275,000
   - 解锁制作：**FirstSpear Strandhogg 插板胸挂（丛林绿）（工作站 Lv2）**
 
-<h3 id="q42" data-qid="66151401efb0539ae10875ae">人靠衣装 - 1<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
+<h3 id="q42" data-qid="66151401efb0539ae10875ae">人靠衣装 - 1（USEC）<a class="headerlink" href="#q42" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv27** ｜ **无前置** ｜ 英文名 **Drip Out Part 1 Usec**
 
@@ -1139,7 +1140,7 @@ tags:
 
 ## Lv30–39 ｜ 2 个任务
 
-<h3 id="q47" data-qid="6761ff17cdc36bd66102e9d0">新起点<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
+<h3 id="q47" data-qid="6761ff17cdc36bd66102e9d0">新起点 2<a class="headerlink" href="#q47" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv30** ｜ **无前置** ｜ 英文名 **New Beginning 2**
 
@@ -1159,7 +1160,7 @@ tags:
 - **完成奖励**：经验 **11,000** ｜ **卢布** ×200,000
   - 声望：**Ragman** +0.01
 
-<h3 id="q48" data-qid="6848100b00afffa81f09e365">新起点<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
+<h3 id="q48" data-qid="6848100b00afffa81f09e365">新起点 3<a class="headerlink" href="#q48" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv35** ｜ **无前置** ｜ 英文名 **New Beginning 3**
 
@@ -1183,7 +1184,7 @@ tags:
 
 ## Lv40–49 ｜ 13 个任务
 
-<h3 id="q49" data-qid="68481881f43abfdda2058369">新起点<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
+<h3 id="q49" data-qid="68481881f43abfdda2058369">新起点 4<a class="headerlink" href="#q49" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv40** ｜ **无前置** ｜ 英文名 **New Beginning 4**
 
@@ -1206,7 +1207,7 @@ tags:
 - **完成奖励**：经验 **11,000** ｜ **卢布** ×3,000,000 ｜ **实体比特币** ×3
   - 声望：**Ragman** +0.01
 
-<h3 id="q50" data-qid="6613f307fca4f2f386029409">人靠衣装 - 2<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
+<h3 id="q50" data-qid="6613f307fca4f2f386029409">人靠衣装 - 2（Bear）<a class="headerlink" href="#q50" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Drip Out Part 2 Bear**
 
@@ -1226,7 +1227,7 @@ tags:
 - **完成奖励**：经验 **65,000** ｜ **LBT 6094A Slick 插板背心（橄榄绿） 默认** ×1
   - 解锁购买：**FORT Redut-M（堡垒-M）防弹衣 默认（Ragman LL4）**
 
-<h3 id="q51" data-qid="6615141bfda04449120269a7">人靠衣装 - 2<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
+<h3 id="q51" data-qid="6615141bfda04449120269a7">人靠衣装 - 2（USEC）<a class="headerlink" href="#q51" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Drip Out Part 2 Usec**
 
@@ -1345,7 +1346,7 @@ tags:
 
 - **完成奖励**：经验 **12,800** ｜ **卢布** ×86,000 ｜ **黄金骷髅指环** ×1
 
-<h3 id="q57" data-qid="5e381b0286f77420e3417a74">纺织业 - 1<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
+<h3 id="q57" data-qid="5e381b0286f77420e3417a74">纺织业 - 1（Bear）<a class="headerlink" href="#q57" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Textile Part 1 Bear**
 
@@ -1369,7 +1370,7 @@ tags:
 - **完成奖励**：经验 **65,000** ｜ **Mystery Ranch Blackjack 50 背包（复合迷彩）** ×1 ｜ **Peltor ComTac IV Hybrid 耳机（狼棕色）** ×1
   - 解锁购买：**IOTV Gen4 防弹衣（高机动型，复合迷彩） 默认（Ragman LL4）**／**Mystery Ranch Blackjack 50 背包（复合迷彩）（Ragman LL4）**
 
-<h3 id="q58" data-qid="5e383a6386f77465910ce1f3">纺织业 - 1<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
+<h3 id="q58" data-qid="5e383a6386f77465910ce1f3">纺织业 - 1（USEC）<a class="headerlink" href="#q58" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ **无前置** ｜ 英文名 **Textile Part 1 Usec**
 
@@ -1393,7 +1394,7 @@ tags:
 - **完成奖励**：经验 **65,000** ｜ **Mystery Ranch Blackjack 50 背包（复合迷彩）** ×1 ｜ **Peltor ComTac IV Hybrid 耳机（狼棕色）** ×1
   - 解锁购买：**IOTV Gen4 防弹衣（突击型，复合迷彩） 默认（Ragman LL4）**／**Mystery Ranch Blackjack 50 背包（复合迷彩）（Ragman LL4）**
 
-<h3 id="q59" data-qid="5e4d4ac186f774264f758336">纺织业 - 2<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
+<h3 id="q59" data-qid="5e4d4ac186f774264f758336">纺织业 - 2（Bear）<a class="headerlink" href="#q59" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Textile Part 2 Bear**
 
@@ -1417,7 +1418,7 @@ tags:
 - **完成奖励**：经验 **65,000** ｜ **6Sh118 突击背包（数码丛林迷彩）** ×1 ｜ **Safariland Liberator HP 2.0听力保护耳机 (FDE)** ×1
   - 解锁购买：**6Sh118 突击背包（数码丛林迷彩）（Prapor LL4）**
 
-<h3 id="q60" data-qid="5e4d515e86f77438b2195244">纺织业 - 2<a class="headerlink" href="#q60" title="Permanent link">&para;</a></h3>
+<h3 id="q60" data-qid="5e4d515e86f77438b2195244">纺织业 - 2（USEC）<a class="headerlink" href="#q60" title="Permanent link">&para;</a></h3>
 
 **Ragman** ｜ 需 **Lv42** ｜ 前置 **1** 个 ｜ 英文名 **Textile Part 2 Usec**
 

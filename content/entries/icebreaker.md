@@ -1,4 +1,5 @@
 ---
+description: "破冰船：破冰船“北极星号（Boreas）”是物流公司 Paradigm Shipping 旗下的核动力破冰船，冻在芬兰湾的封锁圈…"  # 自动生成
 tags:
   - 地图
   - 终局

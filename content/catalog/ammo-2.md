@@ -1,4 +1,5 @@
 ---
+description: "弹药与弹药箱 · 火箭弹–模拟投掷武器：物品图鉴分册，列名称、重量、占格与商人价格。"  # 自动生成
 tags:
   - 物品
   - 速查
@@ -20,7 +21,8 @@ tags:
 | **叶子分类** | 2 个官方分类：[火箭弹](#火箭弹)、[模拟投掷武器](#模拟投掷武器) |
 | **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。本页 **184 / 217 件**有至少一条（商人出售 161 ｜ 以物换物 34 ｜ 制作 34）；`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— 那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|
 | **数据来源** | `json.tarkov.dev` 的 `itemCategories` 树与 `items` 接口，二级来源 |
-| **抓取日期** | 2026-10-08 |
+| **数据截至** | 2026-11-01（上游 `updated` 字段的最新日期） |
+| **抓取日期** | 2026-10-08（本站缓存写入日，非数据时效） |
 | **配套页面** | [物品图鉴总览](index.md) ｜ [任务需求物品反查](../quests/item-lookup.md) ｜ [配方速查表](../docs/recipes.md) |
 
 ---
@@ -264,8 +266,8 @@ tags:
 | 1 | <img class="tk-ic" src="../assets/items/icons/66dae7cbeb28f0f96809f325.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> V40 微型手榴弹 | `v40-mini-grenade` | 0.136 千克 | 引信 3 秒；破片数 25；最小爆炸距离 2 米；最大爆炸距离 5 米；震荡半径 7 米（共 6 项） | 以物换物 | — | 3,208 卢布（3 家最高） |
 | 2 | <img class="tk-ic" src="../assets/items/icons/5a0c27731526d80618476ac4.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Zarya震撼手榴弹 | `zarya-stun-grenade` | 0.175 千克 | 引信 2 秒；破片数 0；最小爆炸距离 0 米；最大爆炸距离 0 米；震荡半径 10 米（共 6 项） | 商人出售 / 制作 | 9,133 卢布，需 Prapor 2 级 | 2,686 卢布（3 家最高） |
 | 3 | <img class="tk-ic" src="../assets/items/icons/69f07893e761ac1c200ae15b.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Model 8230 CS 催泪弹 | `model-8230-cs-gas-grenade` | 0.19 千克 | — | — | — | 7,578 卢布（2 家最高） |
-| 4 | <img class="tk-ic" src="../assets/items/icons/6a9854e0788619fe8502a6b7.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Model 8230 CS 催泪弹 (RDA-68) | `model-8230-cs-gas-grenade-rda-68` | 0.19 千克 | — | — | — | 7,578 卢布（2 家最高） |
-| 5 | <img class="tk-ic" src="../assets/items/icons/6a9854955358fa10380b8509.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Model 8230 CS 催泪弹 (RDA-78) | `model-8230-cs-gas-grenade-rda-78` | 0.19 千克 | — | — | — | 7,578 卢布（2 家最高） |
+| 4 | <span class="tk-ic tk-ic--none" aria-hidden="true" title="上游未提供官方图标"></span> Model 8230 CS 催泪弹 (RDA-68) | `model-8230-cs-gas-grenade-rda-68` | 0.19 千克 | — | — | — | 7,578 卢布（2 家最高） |
+| 5 | <span class="tk-ic tk-ic--none" aria-hidden="true" title="上游未提供官方图标"></span> Model 8230 CS 催泪弹 (RDA-78) | `model-8230-cs-gas-grenade-rda-78` | 0.19 千克 | — | — | — | 7,578 卢布（2 家最高） |
 | 6 | <img class="tk-ic" src="../assets/items/icons/5e340dcdcb6d5863cc5e5efb.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> VOG-25 Khattabka 简易手榴弹 | `vog-25-khattabka-improvised-hand-grenade` | 0.25 千克 | 引信 2 秒；破片数 35；最小爆炸距离 2 米；最大爆炸距离 7 米；震荡半径 7 米（共 6 项） | 制作 | — | 1,880 卢布（3 家最高） |
 | 7 | <img class="tk-ic" src="../assets/items/icons/5e32f56fcb6d5863cc5e5ee4.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> VOG-17 Khattabka 简易手榴弹 | `vog-17-khattabka-improvised-hand-grenade` | 0.28 千克 | 引信 3 秒；破片数 100；最小爆炸距离 2 米；最大爆炸距离 6 米；震荡半径 9 米（共 6 项） | 以物换物 / 制作 | — | 3,692 卢布（3 家最高） |
 | 8 | <img class="tk-ic" src="../assets/items/icons/5448be9a4bdc2dfd2f8b456a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> RGD-5手榴弹 | `rgd-5-hand-grenade` | 0.31 千克 | 引信 3.5 秒；破片数 70；最小爆炸距离 3 米；最大爆炸距离 7 米；震荡半径 10 米（共 6 项） | 商人出售 / 以物换物 / 制作 | 14,750 卢布，需 Prapor 3 级 | 2,892 卢布（3 家最高） |
@@ -302,4 +304,4 @@ V40 微型手榴弹　Zarya震撼手榴弹　Model 8230 CS 催泪弹　Model 823
 
 ⬆️ **[回到顶部](#top)**
 
-**最后更新**: 2026 年 10 月 ｜ **贡献者** [GTX950L](https://github.com/GTX950L) ｜ **License**: CC BY-NC-SA 4.0
+**最后更新**: 2026 年 11 月 ｜ **贡献者** [GTX950L](https://github.com/GTX950L) ｜ **License**: CC BY-NC-SA 4.0

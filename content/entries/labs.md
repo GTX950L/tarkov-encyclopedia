@@ -1,4 +1,6 @@
 ---
+title: "实验室 (Labs / The Lab)"  # 自动生成
+description: "实验室 (Labs / The Lab)：实验室和其他所有图的区别，可以用一句话概括：这里没有“过渡遭遇”。"  # 自动生成
 tags:
   - 地图
   - 地形

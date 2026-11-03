@@ -1,3 +1,6 @@
+---
+description: "陨落星辰：剧情简介（游戏内文本，经中文 Wiki 转录） 「我和 Mechanic 聊到了坠毁在森林自然保护区里的那架飞机。没人清…"  # 自动生成
+---
 # 陨落星辰（Falling Skies）
 
 <div class="tk-ver" data-search-exclude markdown>

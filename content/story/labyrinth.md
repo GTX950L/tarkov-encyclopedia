@@ -1,3 +1,6 @@
+---
+description: "探秘“迷宫”：剧情简介（游戏内文本，经中文 Wiki 转录） 「早在突袭 TerraGroup 办公室之前，我就听说过他们在塔科夫的地…"  # 自动生成
+---
 # 探秘“迷宫”（The Labyrinth）
 
 <div class="tk-ver" data-search-exclude markdown>

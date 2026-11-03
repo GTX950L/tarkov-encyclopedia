@@ -1,4 +1,5 @@
 ---
+description: "交互地图：13 张图全部上线，每张一个页面。这一页讲怎么用与数据从哪来；具体某张图请从下面的卡片进。"  # 自动生成
 tags:
   - 地图
   - 速查
@@ -22,7 +23,7 @@ tags:
 <span class="tk-mcard__body">
 <span class="tk-mcard__head"><span class="tk-mcard__name">海关</span><span class="tk-mcard__meta">35 分 · 10–12 人</span></span>
 <span class="tk-mcard__desc">任务最密集，前中期必经</span>
-<span class="tk-mcard__nums">地名 24 ｜ 任务区域 116 ｜ 撤离点 28</span>
+<span class="tk-mcard__nums">地名 24 ｜ 任务区域 104 ｜ 撤离点 28</span>
 <span class="tk-mcard__open">打开地图 →</span>
 </span>
 </a>
@@ -32,7 +33,7 @@ tags:
 <span class="tk-mcard__body">
 <span class="tk-mcard__head"><span class="tk-mcard__name">工厂</span><span class="tk-mcard__meta">20 分 · 7–8 人</span></span>
 <span class="tk-mcard__desc">最小最快，20 分钟一局</span>
-<span class="tk-mcard__nums">地名 27 ｜ 任务区域 71 ｜ 撤离点 10</span>
+<span class="tk-mcard__nums">地名 27 ｜ 任务区域 44 ｜ 撤离点 10</span>
 <span class="tk-mcard__open">打开地图 →</span>
 </span>
 </a>
@@ -42,7 +43,7 @@ tags:
 <span class="tk-mcard__body">
 <span class="tk-mcard__head"><span class="tk-mcard__name">中心区</span><span class="tk-mcard__meta">30 分 · 9–12 人</span></span>
 <span class="tk-mcard__desc">新手图，终盘有高等级区</span>
-<span class="tk-mcard__nums">地名 13 ｜ 任务区域 33 ｜ 撤离点 6</span>
+<span class="tk-mcard__nums">地名 13 ｜ 任务区域 25 ｜ 撤离点 6</span>
 <span class="tk-mcard__open">打开地图 →</span>
 </span>
 </a>
@@ -52,7 +53,7 @@ tags:
 <span class="tk-mcard__body">
 <span class="tk-mcard__head"><span class="tk-mcard__name">森林</span><span class="tk-mcard__meta">35 分 · 10–14 人</span></span>
 <span class="tk-mcard__desc">开阔地，远距离交火</span>
-<span class="tk-mcard__nums">地名 16 ｜ 任务区域 57 ｜ 撤离点 20</span>
+<span class="tk-mcard__nums">地名 16 ｜ 任务区域 52 ｜ 撤离点 20</span>
 <span class="tk-mcard__open">打开地图 →</span>
 </span>
 </a>
@@ -72,7 +73,7 @@ tags:
 <span class="tk-mcard__body">
 <span class="tk-mcard__head"><span class="tk-mcard__name">储备站</span><span class="tk-mcard__meta">40 分 · 9–11 人</span></span>
 <span class="tk-mcard__desc">军事设施，Boss 密度高</span>
-<span class="tk-mcard__nums">地名 27 ｜ 任务区域 46 ｜ 撤离点 11</span>
+<span class="tk-mcard__nums">地名 27 ｜ 任务区域 47 ｜ 撤离点 11</span>
 <span class="tk-mcard__open">打开地图 →</span>
 </span>
 </a>
@@ -82,7 +83,7 @@ tags:
 <span class="tk-mcard__body">
 <span class="tk-mcard__head"><span class="tk-mcard__name">海岸线</span><span class="tk-mcard__meta">45 分 · 10–14 人</span></span>
 <span class="tk-mcard__desc">跨度最大，疗养院为核心</span>
-<span class="tk-mcard__nums">地名 20 ｜ 任务区域 89 ｜ 撤离点 19</span>
+<span class="tk-mcard__nums">地名 20 ｜ 任务区域 67 ｜ 撤离点 19</span>
 <span class="tk-mcard__open">打开地图 →</span>
 </span>
 </a>
@@ -92,7 +93,7 @@ tags:
 <span class="tk-mcard__body">
 <span class="tk-mcard__head"><span class="tk-mcard__name">灯塔</span><span class="tk-mcard__meta">40 分 · 10–12 人</span></span>
 <span class="tk-mcard__desc">水资源与军用设施</span>
-<span class="tk-mcard__nums">地名 22 ｜ 任务区域 44 ｜ 撤离点 12</span>
+<span class="tk-mcard__nums">地名 22 ｜ 任务区域 52 ｜ 撤离点 12</span>
 <span class="tk-mcard__open">打开地图 →</span>
 </span>
 </a>
@@ -102,7 +103,7 @@ tags:
 <span class="tk-mcard__body">
 <span class="tk-mcard__head"><span class="tk-mcard__name">街区</span><span class="tk-mcard__meta">40 分 · 12–16 人</span></span>
 <span class="tk-mcard__desc">城市巷战，室内外交替</span>
-<span class="tk-mcard__nums">地名 46 ｜ 任务区域 85 ｜ 撤离点 19</span>
+<span class="tk-mcard__nums">地名 46 ｜ 任务区域 84 ｜ 撤离点 19</span>
 <span class="tk-mcard__open">打开地图 →</span>
 </span>
 </a>
@@ -132,7 +133,7 @@ tags:
 <span class="tk-mcard__body">
 <span class="tk-mcard__head"><span class="tk-mcard__name">实验室</span><span class="tk-mcard__meta">30 分 · 8–10 人</span></span>
 <span class="tk-mcard__desc">高投入高回报，需钥匙卡</span>
-<span class="tk-mcard__nums">地名 31 ｜ 任务区域 9 ｜ 撤离点 6</span>
+<span class="tk-mcard__nums">地名 31 ｜ 任务区域 8 ｜ 撤离点 6</span>
 <span class="tk-mcard__open">打开地图 →</span>
 </span>
 </a>

@@ -1,3 +1,6 @@
+---
+description: "Batya：剧情简介（游戏内文本，经中文 Wiki 转录） 「结果发现 BEAR 派进塔科夫的不只是普通小队，这里还有真正的特种作战…"  # 自动生成
+---
 # Batya
 
 <div class="tk-ver" data-search-exclude markdown>

@@ -1754,17 +1754,25 @@ def dedupe_zones(maps: dict) -> dict:
     return maps
 
 
-def write_js(maps: dict) -> None:
+def write_js(maps: dict, *, write_json: bool = True) -> None:
     """写出**每图一个 JS**（页面按需加载）+ 一份合并 JSON（构建期消费者读）。
 
     2026-10-17 之前是单体 maps-data.js（344 KB 全站同载）；改按图分片后，
     单页只下自己那张图的数据，弱网与首屏都受益。构建期脚本（gen_map_pages /
     check_map_projection / gen_home_stats / gen_map_thumbs）改读 maps_site.json。
+
+    ⚠️ `write_json=False` 是给 --merge 用的（2026-11-03）：merge 调本函数是为了
+    **重出分片**，但它手里的 maps 是**合并后**的数据，而 OUT_JSON 在 pvp 轮里
+    指向 `maps_site_pvp.json`（merge 之前的**干净基底**）。照原样写下去就是
+    merge 把自己刚读进来的输入覆盖成合并版 —— 基底从此带满 m 标记，
+    再想拿它当基底会被 merge 自己的防呆拦下，而「基底条数 == 合并版条数」
+    这种对账会因为「拿文件和它的副本比」而永远通过（4g 的老判据就是这么来的）。
     """
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
-    OUT_JSON.write_text(
-        json.dumps(maps, ensure_ascii=False, separators=(",", ":")) + "\n",
-        encoding="utf-8")
+    if write_json:
+        OUT_JSON.write_text(
+            json.dumps(maps, ensure_ascii=False, separators=(",", ":")) + "\n",
+            encoding="utf-8")
 
     OUT_JS_DIR.mkdir(parents=True, exist_ok=True)
     # 清理**本模式**的旧分片（改名 / 删图时不留残骸）。
@@ -1798,7 +1806,7 @@ window.TARKOV_MAPS[{json.dumps(key)}] = {one}["{key}"];
         total += len(js.encode("utf-8"))
     log("\n③ 写出 " + str(OUT_JS_DIR.relative_to(ROOT)) + "/maps-data-<key>.js"
         + f"（{len(maps)} 个分片，合计 {total / 1024:.1f} KB）"
-        + "＋ " + str(OUT_JSON.relative_to(ROOT)) + "（构建期读取）")
+        + ("＋ " + str(OUT_JSON.relative_to(ROOT)) + "（构建期读取）" if write_json else ""))
     return
 
 
@@ -1950,7 +1958,9 @@ def merge_modes() -> int:
     log(f"  产物仍是一份：{merged_json.name}（{merged_json.stat().st_size / 1024:.0f} KB）")
 
     # 用合并结果重出分片（write_js 读的是内存里的 maps，这里从 json 再来一遍）
-    write_js(a)
+    # ⚠️ write_json=False：分片要合并版，但 `maps_site_pvp.json` 必须留在干净基底状态
+    #    （见 write_js 的注释 —— 这里写下去等于 merge 覆盖自己的输入）。
+    write_js(a, write_json=False)
 
     # 合并后 PvE 不再需要独立产物 —— **删掉**，否则仓库里躺着两份同样大小的
     # 图层数据（实测 372 KB），前端也会多一个永远不被请求的文件。

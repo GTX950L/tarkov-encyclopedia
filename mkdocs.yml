@@ -7,7 +7,8 @@ docs_dir: content
 edit_uri: edit/main/content/
 
 copyright: >-
-  本站为非官方粉丝资料站，与 Battlestate Games 无隶属或合作关系；「Escape from Tarkov」及相关名称、标志与游戏内容的商标权与著作权归 Battlestate Games 及其关联方所有。站内文字以 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="license noopener">CC BY-NC-SA 4.0</a> 授权。
+  本站为非官方粉丝资料站，与 Battlestate Games 无隶属或合作关系；「Escape from Tarkov」及相关名称、标志与游戏内容的商标权与著作权归 Battlestate Games 及其关联方所有。站内文字以 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="license noopener">CC BY-NC-SA 4.0</a> 授权。<br>
+  发现数据有误或配图缺失？<a href="https://github.com/GTX950L/tarkov-encyclopedia/issues/new" target="_blank" rel="noopener">提一个 Issue</a>——请附页面地址与看到的数值，核对后会在更新日志里记明来源。
 
 theme:
   name: material
@@ -389,6 +390,11 @@ nav:
           - 操作与设置: docs/game-settings.md
           - 重大版本更新史: docs/version-history.md
           - 游戏数值变更台账: docs/value-changes.md
+          # 2026-11-03：素材登记表与回滚流程各补一页 —— 审查指出的都是
+          # 「知识只在脑子里」那一类：前者要能举证某张图的来源与许可，
+          # 后者要能回答「抓错了怎么退」。两页都是维护者向的，仍归参考栏。
+          - 素材来源登记表: docs/assets.md
+          - 数据回滚流程: docs/rollback.md
           - 更新日志: CHANGELOG.md
           - 贡献指南: CONTRIBUTING.md
           - 待收录清单: docs/roadmap.md

@@ -1,3 +1,6 @@
+---
+description: "门票：前面九章，你一直在查别人。这一章第一次有人查你："  # 自动生成
+---
 # 门票（The Ticket）
 
 <div class="tk-ver" data-search-exclude markdown>

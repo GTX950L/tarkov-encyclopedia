@@ -67,6 +67,9 @@ ITEMS_INDEX = DATA / "items_index.json"
 ITEMS_FULL = DATA / "items_full.json"
 ICONS_DIR = ROOT / "content" / "assets" / "items" / "icons"
 OUT_JS = ROOT / "content" / "javascripts" / "item-icons.js"
+# 缺图登记表（入库）：上游只给占位图的物品。它不是产物、是**台账** ——
+# 记录「这些物品确实没有官方图」，好让下次审查不必重新比对 5570 个文件。
+OUT_MISSING = DATA / "icons_missing.json"
 
 API = "https://json.tarkov.dev/regular/"
 # ⚠️ UA 用浏览器串：官方 CDN（assets.tarkov.dev）对脚本默认 UA 会 403，
@@ -88,6 +91,15 @@ QUALITY = 80
 
 # 官方占位图是 JPEG（``FF D8 FF``）；正常图是 WebP（``RIFF....WEBP``）
 JPEG_MAGIC = b"\xff\xd8\xff"
+
+# 占位图的链接标识。**两种命名都要认**（2026-11-03 修）：
+#   · 老：``unknown-item-icon.jpg``      —— JPEG，被下面的魔数检查兜住
+#   · 新：``unknown-item-base-image.webp`` —— **WebP**，魔数检查放行
+# 只过滤前者时，后者会一路走到 ``norm_image``：魔数是真 WebP、PIL 也能解码，
+# 于是**问号图被当成物品图下载**。2026-11-03 实测图鉴里 15 件新物品（海报、
+# 疫苗、玩偶、样本、催泪弹）的 ``baseImageLink`` 全是后者，而图标目录里没有它们
+# —— 说明上一轮全量跑在它们上线之前，之后没再跑过。
+PLACEHOLDER_MARK = "unknown-item"
 WEBP_MAGIC = b"RIFF"
 
 
@@ -267,7 +279,14 @@ def main() -> int:
           f"（原因见 --dry-run 输出）")
 
     todo = [(iid, it["baseImageLink"]) for iid, it in sorted(full_items.items())
-            if it.get("baseImageLink") and "unknown-item-icon" not in it["baseImageLink"]]
+            if it.get("baseImageLink") and PLACEHOLDER_MARK not in it["baseImageLink"]]
+    # 「上游只有占位图」的物品：不下载，但要留一份清单 —— 否则图鉴里那 15 件的
+    # 缺图状态只能靠人肉比对目录才发现（2026-11-03 审查就是这么发现的）。
+    # 页面侧由 gen_items_catalog.icon_tag() 输出虚线占位块，两边口径一致。
+    no_icon = sorted(
+        iid for iid, it in full_items.items()
+        if PLACEHOLDER_MARK in (it.get("baseImageLink") or "")
+    )
     # 任务专属道具（「水泵运行数据」这类）不在 items 端点里，但任务页要显示图：
     # 只补「映射引用到、却还没有文件」的那些，避免把 3000 个纯道具图一起拖下来。
     mapped_ids = set(name2id.values())
@@ -288,11 +307,15 @@ def main() -> int:
         print(f"\n（dry-run）将下载 {len(todo)} 张图到 {ICONS_DIR.relative_to(ROOT)}/")
         return 0
 
+    # ⚠️ 这两个变量必须在 `if not args.map_only` **之前**定义：
+    #    `--map-only` 不下载、不赋值，而末尾要按 failures 决定退出码。
+    #    原先它们在下载块内初始化，`--map-only` 必崩（UnboundLocalError）。
+    failures: list[str] = []
+    missing: set[str] = set()
+
     if not args.map_only:
         ICONS_DIR.mkdir(parents=True, exist_ok=True)
         stats = {"ok": 0, "exists": 0, "placeholder": 0}
-        failures: list[str] = []
-        missing: set[str] = set()
         jobs = [(iid, url, args.reencode) for iid, url in todo]
         with ThreadPoolExecutor(max_workers=args.workers) as pool:
             for n, (iid, body, st) in enumerate(pool.map(fetch_one, jobs), 1):
@@ -314,7 +337,43 @@ def main() -> int:
         # 没有真图的名字不进映射（前端按名查不到就退化成无图，而不是黑问号）
         name2id = {n: i for n, i in name2id.items() if i not in missing}
 
+    # ⚠️ **映射只能指向真的有文件的 id**（2026-11-03 修）。
+    #    `--map-only` 不走下载分支，也就不会剔除本次没补上的；而占位图物品
+    #    （PLACEHOLDER_MARK）从来不在 todo 里，文件永远不存在。两者都会留下
+    #    「名字 → 不存在的 webp」的映射：前端拿到 id 就去拼 img，浏览器 404，
+    #    页面上是一个裂图框。check_entries 的「映射引用了不存在的图标文件」
+    #    正是抓这个 —— 它抓到了 `6acc4988059559342f0830d8`。
+    have_now = {p.stem for p in ICONS_DIR.glob("*.webp")} if ICONS_DIR.exists() else set()
+    dropped = {n: i for n, i in name2id.items() if i not in have_now}
+    if dropped:
+        name2id = {n: i for n, i in name2id.items() if i in have_now}
+        print(f"  映射剔除 {len(dropped)} 个指向缺失文件的 id（如 {list(dropped.values())[:3]}）")
+
     write_mapping(name2id, fetched)
+
+    # 缺图台账：上游只有占位图的物品。写在这里而不是下载循环里 ——
+    # 它描述的是**上游状态**，与本次下载成败无关，所以 --map-only 也该更新。
+    rev: dict[str, str] = {}
+    for n, i in name2id.items():
+        rev.setdefault(i, n)
+    # 中文名来自上游译文表的 ``<id> Name`` 键（与 gen_items_catalog.item_name 同一口径）。
+    # 直接读 ``it["name"]`` 会拿到 ``"6a04… Name"`` 这种占位串 —— 上游 items 端点的
+    # name 字段本身就是占位符，真名在译文表里。
+    zh = full.get("zh") or {}
+    rows = [
+        {
+            "id": i,
+            "name": rev.get(i) or zh.get(i + " Name") or full_items[i].get("normalizedName") or i,
+            "baseImageLink": full_items[i].get("baseImageLink") or "",
+        }
+        for i in no_icon
+    ]
+    OUT_MISSING.write_bytes(json.dumps(
+        {"fetched": fetched, "count": len(rows),
+         "note": "上游只提供占位图（unknown-item）的物品。图鉴页以虚线占位块显示，不下图。",
+         "rows": rows},
+        ensure_ascii=False, indent=1).encode("utf-8"))
+    print(f"缺图台账：{len(rows)} 件（写 {OUT_MISSING.relative_to(ROOT)}）")
 
     # 清孤儿：既不是物品库里的 id、也没被映射引用（旧版 803 张里改名/下架的残留）。
     # 只在任务道具表抓成功时才清 —— 否则网络抖动会让 90 张任务道具图被误删。

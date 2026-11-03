@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
 
+# 编纂附件：不是给读者看的页面（条目模板 / 标签分类表）。
+# 它们不进 sitemap、不进侧栏，但文件确实存在、能被直接访问 ——
+# 与其让搜索引擎收录一堆模板占位文字，不如明确挡掉。
+# 判据：这两页在 check_replicas.py 里也是豁免项（SKIP），口径一致。
+Disallow: /tags/
+Disallow: /template/
+
 Sitemap: https://gtx950l.github.io/tarkov-encyclopedia/sitemap.xml

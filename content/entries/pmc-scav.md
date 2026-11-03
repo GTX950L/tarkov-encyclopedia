@@ -1,4 +1,5 @@
 ---
+description: "PMC 与 Scav：玩家扮演 Scav 进图时，与图内 AI Scav 默认互不攻击；但如果你攻击 AI Scav 或其他玩家 Scav，周…"  # 自动生成
 tags:
   - 机制
   - 入门
