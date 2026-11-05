@@ -30,8 +30,8 @@
 | `content/{tags,template,CHANGELOG,CONTRIBUTING}.md` | 标签分类、条目模板、更新日志、贡献指南 |
 | `mkdocs.yml` | 站点配置（Material 主题 + 自定义样式） |
 | `content/stylesheets/extra.css` | 自定义样式（窄屏表格滚动、打印友好） |
-| `scripts/build_all.py` | **本地验收入口**：七道校验 + 真实构建（改完内容必跑） |
-| `scripts/check_entries.py` | 内容一致性校验（只读，不改文件；七道之一） |
+| `scripts/build_all.py` | **本地验收入口**：内容校验 → 生成器防漂移 → 真实构建 → 体积预算（改完内容必跑；步骤以脚本里的 `STEPS` 为准，文档不写死道数） |
+| `scripts/check_entries.py` | 内容一致性校验（只读，不改文件；门禁之一） |
 | `.github/workflows/` | CI/CD 工作流（自动部署到 Pages + 条目校验） |
 
 ## 🧭 推荐学习路径

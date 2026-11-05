@@ -181,6 +181,28 @@ def main() -> int:
         print("  ⚠️ 构建未报 No issues found，请检查上面输出：")
         print("  " + tail(out).replace("\n", "\n  "))
 
+    # ⑦ 体积预算 —— **必须排在构建之后**，因为它量的是 site/ 的产物。
+    # 为什么收进本地验收：这一道此前只在 CI 的 deploy job 里跑，本地
+    # `build_all` 全绿 ≠ 推上去不会红 —— 加的样式、加的大素材，本地一路绿，
+    # 到 deploy job 才炸，那时已经合并进 main 了（2026-11-05 复查发现的缝）。
+    # 其余几个检查脚本**有意不进来**：check_client_version / check_drift 要联网，
+    # 放进门禁会让 GitHub 的抖动变成一次失败的部署（见 health-check.yml 的注释）；
+    # check_js_lint 在 CI 的 validate job 里每次 PR 都跑，不必重复。
+    print("\n▶ ⑦ 体积预算（量 site/ 产物，gzip 口径）")
+    ok, out, dt = run("budget", [PY, "scripts/check_budget.py"])
+    if not ok:
+        print(f"  ✗ 超预算  {dt:.1f}s")
+        print("\n  ── 原始输出（末尾） ──")
+        print("  " + tail(out, 30).replace("\n", "\n  "))
+        print(
+            "\n  下一步：能压就压（CSS 去重、图标换 webp、别加全局脚本）。"
+            "\n  确实该放宽的，**同时**改预算数字并写清理由 —— 不允许静默超标。"
+        )
+        return 1
+    print(f"  ✓ 通过  {dt:.1f}s")
+    if not args.quiet:
+        print("  " + tail(out).replace("\n", "\n  "))
+
     print(f"\n{'=' * 66}")
     print(f"全部通过。总耗时 {time.time() - total:.1f}s ｜ 产物：site/")
 

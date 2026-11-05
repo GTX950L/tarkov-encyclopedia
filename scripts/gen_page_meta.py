@@ -238,8 +238,60 @@ def topic_of(path: Path, body: str, nav_titles: dict[str, str]) -> str:
     return nav_titles.get(rel) or path.stem
 
 
+def table_cell(body: str, label: str) -> str:
+    """从「本页概览」表里取某一格的文本（去加粗、去内联 HTML）。"""
+    m = re.search(rf"^\|\s*\*\*{re.escape(label)}\*\*\s*\|(.+?)\|\s*$", body, re.M)
+    if not m:
+        return ""
+    cell = INLINE_HTML.sub("", m.group(1))
+    cell = INLINE_BOLD.sub(r"\1", cell)
+    return MULTI_SPACE.sub(" ", cell).strip()
+
+
+def struct_facts(body: str) -> str:
+    """用页面概览表里的**可区分数字**造摘要。
+
+    为什么不能只靠栏目回退句
+    ------------------------
+    2026-11-05 复查实测：27 个图鉴页的 description 骨架完全相同
+    （``{分类名}：物品图鉴分册，列名称、重量、占格与商人价格。``），
+    11 个商人任务页同样共用一句。原注释说「独特性由 topic 前缀保证」——
+    这句话是错的：前缀换一个分类名，搜索引擎看到的仍是同一句废话。
+
+    这 27 + 11 页的正文主体是表格，没有可摘的散文段落，但它们**都有一个
+    「收录件数 / 任务数」的格子**。把那个数字写进摘要，页面之间自然就分得开，
+    而且这个数字来自生成器的产物、不用人维护 —— 与本站「同一件事只留一个来源」
+    的规矩一致。
+    """
+    n = table_cell(body, "收录件数")
+    if n:
+        m = re.search(r"\d[\d,]*", n)
+        if m:
+            leaf = table_cell(body, "叶子分类")
+            lm = re.search(r"(\d+)\s*个官方分类", leaf) if leaf else None
+            mid = f"，{lm.group(1)} 个官方分类" if lm else ""
+            return f"收录 {m.group(0)} 件{mid}，含名称、重量、占格与商人价格"
+    n = table_cell(body, "任务数")
+    if n:
+        m = re.search(r"\d[\d,]*", n)
+        if m:
+            span = table_cell(body, "等级跨度")
+            head = f"{m.group(0)} 个任务" + (f"、{span}" if span else "")
+            return f"{head}，按等级门槛排序，含要求、奖励、前置与钥匙"
+    return ""
+
+
 def build_desc(topic: str, body: str, rel: str) -> str:
-    d = digest(body, allow_full=not rel.startswith("catalog/"))
+    facts = struct_facts(body)
+    if facts:
+        return f"{topic}：{facts}"
+    # 图鉴**分册页**的正文是几千行物品表，放行全文只会捞到「RShG-2 72.5 毫米火箭发射器」
+    # 这种物品名当摘要 —— 它们靠上面那条 struct_facts。
+    # ⚠️ 2026-11-05 修：原来按 ``rel.startswith("catalog/")`` 一刀切，
+    #    把 ``catalog/item.md``（单件详情视图页，正文是散文、没有物品表）也一起禁了，
+    #    结果它回落到模板句。判据改成「页面里到底有没有物品表」。
+    has_item_table = body.count('class="tk-ic"') > 50
+    d = digest(body, allow_full=not has_item_table)
     if d:
         return f"{topic}：{d}"
     section = rel.split("/")[0] if "/" in rel else ""

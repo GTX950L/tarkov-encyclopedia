@@ -1,5 +1,5 @@
 {
- "fetched": "2026-10-08",
+ "fetched": "2026-11-03",
  "recipesFetched": "2026-10-06",
  "source": "items_full.json 的 buyFromTrader ＋ recipes.json 的 barters / crafts",
  "note": "scav = 站内未收录任何固定渠道（商人出售 / 以物换物 / 制作），通常是任务解锁后商人才有报价、或只能靠跳蚤与搜刮；不是「拿不到」。不含跳蚤价。",

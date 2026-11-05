@@ -31,12 +31,43 @@ def pages() -> list[Path]:
     return HTML_FILES
 
 
+def _robots_excluded() -> set[str]:
+    """``robots.txt`` 里 Disallow 的顶层目录名。
+
+    这些页**不进 sitemap**（编纂附件：条目模板 / 标签分类表），所以不能算进
+    「sitemap 应与页面一一对应」的期望数。从 robots.txt 读而不是在这里写死，
+    是为了让「挡住谁」只留一个来源 —— 改 robots 时这条测试自动跟着变。
+
+    ⚠️ 2026-11-05 修：这条测试**在此之前从未真正跑过**。CI 的两个 job 里，
+    跑 pytest 的那个在 `zensical build` **之前**，``site/`` 还不存在，
+    于是整个 ``tests/test_site_shape.py`` 被 pytestmark 整片 skip。
+    只有本地构建过的人跑到才会红 —— 而当时红的是**测试口径**，不是站点：
+    页面 193 个、sitemap 191 条，差的正是 tags/ 与 template/。
+    """
+    robots = SITE / "robots.txt"
+    if not robots.is_file():
+        return set()
+    out = set()
+    for line in robots.read_text(encoding="utf-8", errors="replace").splitlines():
+        m = re.match(r"\s*Disallow:\s*/([^/\s#]+)/?\s*$", line)
+        if m:
+            out.add(m.group(1))
+    return out
+
+
 def test_sitemap_matches_built_pages(pages: list[Path]):
     sitemap = (SITE / "sitemap.xml").read_text(encoding="utf-8")
     locs = re.findall(r"<loc>([^<]+)</loc>", sitemap)
-    # 404 页不进 sitemap
-    expected = [p for p in pages if p.name != "404.html"]
-    assert len(locs) == len(expected), f"sitemap {len(locs)} 条 / 页面 {len(expected)} 个"
+    excluded = _robots_excluded()
+    # 404 页不进 sitemap；robots 挡掉的目录也不进
+    expected = [
+        p for p in pages
+        if p.name != "404.html" and p.relative_to(SITE).parts[0] not in excluded
+    ]
+    assert len(locs) == len(expected), (
+        f"sitemap {len(locs)} 条 / 应进 sitemap 的页面 {len(expected)} 个"
+        f"（已排除 404 与 robots 挡掉的 {sorted(excluded)}）"
+    )
 
 
 def test_single_h1_per_page(pages: list[Path]):
