@@ -18,6 +18,13 @@ theme:
   #    生成一个游离的 /404/ 页，既不是错误页也不在 nav 里。理由写在模板头部。
   custom_dir: overrides
   language: zh
+  # 关掉主题默认的 Google Fonts 注入（fonts.googleapis.com / fonts.gstatic.com）。
+  # 2026-11-05 改：那一跳在国内裸网下要么超时、要么失败，与「弱网可流畅阅读」
+  # 矛盾。Inter 改为自托管（content/assets/fonts/inter-latin.woff2，SIL OFL 1.1），
+  # --md-text-font 与 @font-face 都在 content/stylesheets/extra.css 里。
+  # ⚠️ 设成 false 后主题也不再输出 --md-text-font / --md-code-font，
+  #    所以这两个变量必须由 extra.css 自己给，否则正文会回落到 Helvetica。
+  font: false
   favicon: assets/favicon.svg
   icon:
     logo: material/crosshairs

@@ -1,5 +1,5 @@
 ---
-description: "食物与药品：物品图鉴分册，列名称、重量、占格与商人价格。"  # 自动生成
+description: "食物与药品：收录 89 件，6 个官方分类，含名称、重量、占格与商人价格"  # 自动生成
 tags:
   - 物品
   - 速查
@@ -20,8 +20,8 @@ tags:
 | **叶子分类** | 6 个官方分类：[食物](#食物)、[饮品](#饮品)、[急救包](#急救包)、[药物](#药物)、[兴奋剂](#兴奋剂)、[医疗用品](#医疗用品) |
 | **获取方式** | 站内收录的**固定**渠道：`商人出售` / `以物换物` / `制作`。本页 **56 / 89 件**有至少一条（商人出售 25 ｜ 以物换物 23 ｜ 制作 43）；`—` **不是「拿不到」**，只表示站内没收录它的固定渠道 —— 那类得靠搜刮或跳蚤市场，而这两样站内不给点位（判据见[战利品分布](../entries/loot.md)）|
 | **数据来源** | `json.tarkov.dev` 的 `itemCategories` 树与 `items` 接口，二级来源 |
-| **数据截至** | 2026-11-01（上游 `updated` 字段的最新日期） |
-| **抓取日期** | 2026-10-08（本站缓存写入日，非数据时效） |
+| **数据截至** | 2026-11-03（上游 `updated` 字段的最新日期） |
+| **抓取日期** | 2026-11-03（本站缓存写入日，非数据时效） |
 | **配套页面** | [物品图鉴总览](index.md) ｜ [任务需求物品反查](../quests/item-lookup.md) ｜ [配方速查表](../docs/recipes.md) |
 
 ---
@@ -131,7 +131,7 @@ Emelya黑麦面包块　黑麦面包块　士腻架能量棒　方便面　Alyon
 | 1 | <img class="tk-ic" src="../assets/items/icons/5755356824597772cb798962.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> AI-2急救组合 | `ai-2-medkit` | 0.135 千克 | 总治疗量 100；单次治疗上限 50；轻出血耗血 不耗血；使用时间 2 秒；可治 （共 6 项） | 商人出售 / 制作 | 6,650 卢布，需 Therapist 1 级 | 2,121 卢布（4 家最高） |
 | 2 | <img class="tk-ic" src="../assets/items/icons/590c678286f77426c9660122.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> IFAK单兵急救包 | `ifak-individual-first-aid-kit` | 0.5 千克 | 总治疗量 300；单次治疗上限 50；轻出血耗血 30；使用时间 3 秒；可治 轻出血、重出血（共 6 项） | 商人出售 / 以物换物 / 制作 | 43,602 卢布，需 Therapist 3 级 | 9,695 卢布（4 家最高） |
 | 3 | <img class="tk-ic" src="../assets/items/icons/544fb45d4bdc2dee738b4568.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Salewa急救包 | `salewa-first-aid-kit` | 0.6 千克 | 总治疗量 400；单次治疗上限 85；轻出血耗血 45；使用时间 3 秒；可治 轻出血、重出血（共 6 项） | 商人出售 / 以物换物 / 制作 | 37,126 卢布，需 Therapist 1 级 | 7,695 卢布（4 家最高） |
-| 4 | <img class="tk-ic" src="../assets/items/icons/60098ad7c2240c0fe85c570a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> AFAK单兵急救包 | `afak-tactical-individual-first-aid-kit` | 0.8 千克 | 总治疗量 400；单次治疗上限 60；轻出血耗血 30；使用时间 3 秒；可治 轻出血、重出血（共 6 项） | 商人出售 / 制作 | 76,128 卢布，需 Peacekeeper 4 级 | 16,972 卢布（4 家最高） |
+| 4 | <img class="tk-ic" src="../assets/items/icons/60098ad7c2240c0fe85c570a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> AFAK单兵急救包 | `afak-tactical-individual-first-aid-kit` | 0.8 千克 | 总治疗量 400；单次治疗上限 60；轻出血耗血 30；使用时间 3 秒；可治 轻出血、重出血（共 6 项） | 商人出售 / 制作 | 75,869 卢布，需 Peacekeeper 4 级 | 16,972 卢布（4 家最高） |
 | 5 | <img class="tk-ic" src="../assets/items/icons/590c661e86f7741e566b646a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 车载急救包 | `car-first-aid-kit` | 1 千克 | 总治疗量 220；单次治疗上限 70；轻出血耗血 50；使用时间 3 秒；可治 轻出血（共 6 项） | 商人出售 / 以物换物 | 11,817 卢布，需 Therapist 1 级 | 3,769 卢布（4 家最高） |
 | 6 | <img class="tk-ic" src="../assets/items/icons/590c657e86f77412b013051d.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Grizzly急救包 | `grizzly-medical-kit` | 1.6 千克 | 总治疗量 1800；单次治疗上限 175；轻出血耗血 40；使用时间 5 秒；可治 轻出血、重出血、骨折、震荡伤（共 6 项） | 商人出售 / 以物换物 / 制作 | 79,883 卢布，需 Therapist 4 级 | 14,297 卢布（4 家最高） |
 
@@ -227,7 +227,7 @@ AI-2急救组合　IFAK单兵急救包　Salewa急救包　AFAK单兵急救包�
 | 1 | <img class="tk-ic" src="../assets/items/icons/544fb25a4bdc2dfb738b4567.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 无菌绷带 | `aseptic-bandage` | 0.04 千克 | 使用时间 2 秒；可治 轻出血 | 商人出售 / 制作 | 2,187 卢布，需 Therapist 1 级 | 594 卢布（4 家最高） |
 | 2 | <img class="tk-ic" src="../assets/items/icons/5e8488fa988a8701445df1e4.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> CALOK-B止血剂 | `calok-b-hemostatic-applicator` | 0.043 千克 | 使用时间 3 秒；可治 重出血 | 商人出售 / 以物换物 / 制作 | 16,516 卢布，需 Therapist 3 级 | 2,330 卢布（4 家最高） |
 | 3 | <img class="tk-ic" src="../assets/items/icons/5751a25924597722c463c472.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 军用绷带 | `army-bandage` | 0.043 千克 | 使用时间 2 秒；可治 轻出血 | 商人出售 / 制作 | 2,279 卢布，需 Therapist 2 级 | 835 卢布（4 家最高） |
-| 4 | <img class="tk-ic" src="../assets/items/icons/60098af40accd37ef2175f27.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> CAT止血带 | `cat-hemostatic-tourniquet` | 0.08 千克 | 使用时间 3 秒；可治 重出血 | 商人出售 | 9,600 卢布，需 Peacekeeper 1 级 | 1,305 卢布（4 家最高） |
+| 4 | <img class="tk-ic" src="../assets/items/icons/60098af40accd37ef2175f27.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> CAT止血带 | `cat-hemostatic-tourniquet` | 0.08 千克 | 使用时间 3 秒；可治 重出血 | 商人出售 | 9,567 卢布，需 Peacekeeper 1 级 | 1,305 卢布（4 家最高） |
 | 5 | <img class="tk-ic" src="../assets/items/icons/5e831507ea0a7c419c2f9bd9.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Esmarch止血带 | `esmarch-tourniquet` | 0.132 千克 | 使用时间 5 秒；可治 重出血 | 商人出售 | 4,271 卢布，需 Therapist 1 级 | 783 卢布（4 家最高） |
 | 6 | <img class="tk-ic" src="../assets/items/icons/544fb3364bdc2d34748b456a.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> 固定夹板 | `immobilizing-splint` | 0.17 千克 | 使用时间 5 秒；可治 骨折 | 商人出售 | 4,290 卢布，需 Therapist 1 级 | 1,210 卢布（4 家最高） |
 | 7 | <img class="tk-ic" src="../assets/items/icons/6937ecf8628ee476240c07cb.webp" alt="" width="40" height="40" loading="lazy" decoding="async"> Tigzresq 夹板 | `tigzresq-splint` | 0.22 千克 | 使用时间 3 秒；可治 骨折 | — | — | 5,478 卢布（4 家最高） |

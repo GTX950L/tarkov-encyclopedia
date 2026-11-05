@@ -1,5 +1,5 @@
 {
- "fetched": "2026-10-08",
+ "fetched": "2026-11-03",
  "source": "items_full.json（tarkov.dev 快照）",
  "baseline": "1.2.0.0",
  "note": "裸枪属性；人机/后坐不含任何配件。同名跨口径按 id 区分，不合并。",

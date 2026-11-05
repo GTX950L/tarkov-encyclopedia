@@ -89,6 +89,15 @@ BUDGETS: list[tuple[str, float, str]] = [
      "总量预算管，不该被这条误伤。2 MB 的定法：现状最大 1.16 MB（地图底图），"
      "留 1.7 倍余量；物品图标是 4 KB 级、地图缩略图 60 KB 级，正常素材离这条线很远。"),
     ("llms.txt", 40, "正文 17 KB / gzip 7 KB；给 AI 爬虫的入口，超了说明该拆"),
+    ("每页 CSS 合计", 110,
+     "2026-11-05 实测 96.8 KB（主题 main 23.3 + palette 1.7 + 自定义 extra 71.8）。"
+     "自定义样式比主题重 3 倍，是目前最该盯的一块；110 给一次样式改版留 13 KB 余量。"
+     "⚠️ 这条线只管**体积**，不管「有没有死规则」—— 1323 个规则块里哪些没人用，"
+     "要另做一次样式审计才知道。"),
+    ("自托管字体", 80,
+     "2026-11-05 起 Inter 自托管（latin 子集，可变字重，48 KB 一个文件），"
+     "替掉 fonts.googleapis.com 外链。80 KB 的定法：只保留 latin 子集 + 一族；"
+     "再加第二族（如等宽字体也自托管）就该先算一次弱网代价再抬。"),
 ]
 
 # 按需加载页：HTML 里没有 <script src>，脚本由页内加载器注入，所以静态扫不到。
@@ -116,6 +125,38 @@ def html_pages() -> list[Path]:
 
 
 SCRIPT_RE = re.compile(r'<script[^>]+src="([^"]+)"')
+CSS_HREF_RE = re.compile(r'<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"')
+
+
+def page_css_bytes(page: Path) -> int:
+    """页面加载的**站内**样式表 gzip 合计。
+
+    2026-11-05 加：在此之前只有 JS 有「每页成本」这条线，CSS 一直没人量。
+    实测每页 96.8 KB gzip，其中自定义 ``extra.css`` 占 71.8 KB —— 比主题样式
+    （23.3 KB）重 3 倍。这不是错误，但它是全站第二笔「每页每次都要付」的开销，
+    和 JS 那条线一样该有数字管着。
+
+    外链样式表不计：2026-11-05 起 Google Fonts 的两条外链已移除（字体自托管）。
+    若将来再加外链，这里会把它漏掉 —— 希望那时有人记得改这一行。
+    """
+    seen: set[Path] = set()
+    total = 0
+    for href in CSS_HREF_RE.findall(page.read_text(encoding="utf-8", errors="replace")):
+        if href.startswith(("http://", "https://", "//", "data:")):
+            continue
+        target = (page.parent / href.split("?")[0]).resolve()
+        if target.exists() and target.suffix == ".css" and target not in seen:
+            seen.add(target)
+            total += gz_size(target)
+    return total
+
+
+def font_bytes() -> int:
+    """自托管字体的总字节（woff2 已是压缩格式，直接算文件大小）。"""
+    d = SITE / "assets" / "fonts"
+    if not d.exists():
+        return 0
+    return sum(f.stat().st_size for f in d.glob("*.woff2") if f.is_file())
 
 
 def page_js_bytes(page: Path) -> int:
@@ -165,6 +206,16 @@ def measure() -> list[dict]:
             add = gz_size(extra) if extra.exists() else 0
             rows.append({"name": f"{page_rel} JS 合计", "kb": (js[page_rel] + add) / 1024,
                          "path": page_rel})
+
+    # 每页 CSS 合计（2026-11-05 新增，与「每页 JS 合计」配成一对）
+    css = {str(p.relative_to(SITE)).replace("\\", "/"): page_css_bytes(p) for p in pages}
+    if css:
+        worst_css = max(css, key=lambda k: css[k])
+        rows.append({"name": "每页 CSS 合计", "kb": css[worst_css] / 1024, "path": worst_css})
+
+    fb = font_bytes()
+    if fb:
+        rows.append({"name": "自托管字体", "kb": fb / 1024, "path": "assets/fonts/"})
 
     total = sum(f.stat().st_size for f in SITE.rglob("*") if f.is_file())
     rows.append({"name": "整站体积", "kb": total / 1024, "path": "site/"})

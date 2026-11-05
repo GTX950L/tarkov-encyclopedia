@@ -1,0 +1,57 @@
+{#-
+  og / Twitter 分享卡片（2026-11-05 新增）
+
+  为什么需要覆盖 main.html
+  ------------------------
+  Zensical 自带的 main.html 只有一行 `{% extends "base.html" %}`，不定义任何
+  block。所以这份「同样 extends base.html、只多填一个 extrahead」的覆盖**是等价的**，
+  不会丢主题的任何结构。
+
+  为什么做这件事
+  --------------
+  2026-11-05 复查实测：全站 193 个产物页面里带 `property="og:` 的有 0 个。
+  把链接发到微信 / QQ / 微博 / Discord，拿到的都是一条裸链接 —— 没有标题、
+  没有摘要、没有缩略图。而站内本来就有逐页 description（gen_page_meta.py 产）、
+  canonical（主题产）和一张自制封面，全是现成的，接线即可。
+
+  ⚠️ 封面图 `assets/og-cover.png` 是**静态美术资产**，不由任何生成器产出，
+     所以它不会漂；换图直接替换文件即可。1200×630，PNG，约 42 KB。
+
+  ⚠️ 描述统一按 78 字截断：微信与 Twitter 的卡片都在这附近折行，
+     超长会在客户端被硬切，不如在这里可预期地收口。
+-#}
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {#- 标题/类型都要跟 base.html 的 `htmltitle` 用同一套判断，否则会出现
+      <title> 是新标题、og:title 还是「首页」的错位（2026-11-05 构建实测踩过）。 #}
+  {%- if page and page.meta and page.meta.title %}
+    {%- set _title = page.meta.title %}
+  {%- elif page and page.title and not page.is_homepage %}
+    {%- set _title = page.title | striptags %}
+  {%- else %}
+    {%- set _title = config.site_name %}
+  {%- endif %}
+  {#- 首页判定：本版主题里 `page.is_homepage` 与 `page.file` 都没有（实测 undef/nofile），
+      首页的 `page.url` 是空字符串、其余页是 `entries/xxx/` 这样的相对路径。
+      用「url 为空」判定，比猜属性名可靠。 #}
+  {%- set _is_home = not page.url if page else false %}
+  {%- set _desc = (page.meta.description if page and page.meta and page.meta.description else config.site_description) | trim %}
+  {%- if _desc | length > 78 %}{% set _desc = _desc[:77] ~ "…" %}{% endif %}
+  {%- set _url = page.canonical_url if page and page.canonical_url else config.site_url %}
+  {%- set _img = config.site_url ~ "assets/og-cover.png" %}
+  <meta property="og:type" content="{{ 'website' if _is_home else 'article' }}">
+  <meta property="og:site_name" content="{{ config.site_name }}">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="{{ _title | trim }}">
+  <meta property="og:description" content="{{ _desc }}">
+  <meta property="og:url" content="{{ _url }}">
+  <meta property="og:image" content="{{ _img }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ config.site_name }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ _title | trim }}">
+  <meta name="twitter:description" content="{{ _desc }}">
+  <meta name="twitter:image" content="{{ _img }}">
+{% endblock %}
